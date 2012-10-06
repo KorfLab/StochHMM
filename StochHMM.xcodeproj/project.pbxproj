@@ -6,6 +6,18 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXCopyFilesBuildPhase section */
+		EEDF9C9C161FB4C3003B18AB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		EEDF9C0D161FAEA9003B18AB /* alignment.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = alignment.cpp; sourceTree = "<group>"; };
 		EEDF9C0E161FAEA9003B18AB /* alignment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = alignment.h; sourceTree = "<group>"; };
@@ -81,7 +93,26 @@
 		EEDF9C54161FAEA9003B18AB /* userFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = userFunctions.h; sourceTree = "<group>"; };
 		EEDF9C55161FAEA9003B18AB /* weight.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = weight.cpp; sourceTree = "<group>"; };
 		EEDF9C56161FAEA9003B18AB /* weight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = weight.h; sourceTree = "<group>"; };
+		EEDF9C96161FB47D003B18AB /* libStochHMM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libStochHMM.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEDF9C9E161FB4C3003B18AB /* StochHMM */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StochHMM; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EEDF9C93161FB47D003B18AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEDF9C9B161FB4C3003B18AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		EEDF9B9F161FAB43003B18AB = {
@@ -99,6 +130,8 @@
 		EEDF9BAB161FAB43003B18AB /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				EEDF9C96161FB47D003B18AB /* libStochHMM.a */,
+				EEDF9C9E161FB4C3003B18AB /* StochHMM */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -262,6 +295,53 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		EEDF9C94161FB47D003B18AB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		EEDF9C95161FB47D003B18AB /* StochHMM Library */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEDF9C97161FB47D003B18AB /* Build configuration list for PBXNativeTarget "StochHMM Library" */;
+			buildPhases = (
+				EEDF9C92161FB47D003B18AB /* Sources */,
+				EEDF9C93161FB47D003B18AB /* Frameworks */,
+				EEDF9C94161FB47D003B18AB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "StochHMM Library";
+			productName = StochHMM;
+			productReference = EEDF9C96161FB47D003B18AB /* libStochHMM.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EEDF9C9D161FB4C3003B18AB /* StochHMM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEDF9CA5161FB4C3003B18AB /* Build configuration list for PBXNativeTarget "StochHMM" */;
+			buildPhases = (
+				EEDF9C9A161FB4C3003B18AB /* Sources */,
+				EEDF9C9B161FB4C3003B18AB /* Frameworks */,
+				EEDF9C9C161FB4C3003B18AB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StochHMM;
+			productName = StochHMM;
+			productReference = EEDF9C9E161FB4C3003B18AB /* StochHMM */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
 /* Begin PBXProject section */
 		EEDF9BA1161FAB43003B18AB /* Project object */ = {
 			isa = PBXProject;
@@ -281,9 +361,28 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				EEDF9C95161FB47D003B18AB /* StochHMM Library */,
+				EEDF9C9D161FB4C3003B18AB /* StochHMM */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EEDF9C92161FB47D003B18AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEDF9C9A161FB4C3003B18AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
 		EEDF9BB2161FAB43003B18AB /* Debug */ = {
@@ -337,6 +436,36 @@
 			};
 			name = Release;
 		};
+		EEDF9C98161FB47D003B18AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = StochHMM;
+			};
+			name = Debug;
+		};
+		EEDF9C99161FB47D003B18AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = StochHMM;
+			};
+			name = Release;
+		};
+		EEDF9CA6161FB4C3003B18AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EEDF9CA7161FB4C3003B18AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -348,6 +477,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		EEDF9C97161FB47D003B18AB /* Build configuration list for PBXNativeTarget "StochHMM Library" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEDF9C98161FB47D003B18AB /* Debug */,
+				EEDF9C99161FB47D003B18AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EEDF9CA5161FB4C3003B18AB /* Build configuration list for PBXNativeTarget "StochHMM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEDF9CA6161FB4C3003B18AB /* Debug */,
+				EEDF9CA7161FB4C3003B18AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
