@@ -62,7 +62,7 @@ namespace StochHMM{
         void initBackward();
         
         
-        double getEndingTransition(int);
+        double getEndingTransition(size_t);
         
         double getTransition();
         

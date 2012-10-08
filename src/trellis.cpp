@@ -287,7 +287,7 @@ namespace StochHMM{
     }
 
     //Perform a traceback on the trellis
-    traceback_path& trellis::traceback(){
+    traceback_path* trellis::traceback(){
         if (path.size()!=0){
             path.clear();
         }
@@ -303,12 +303,12 @@ namespace StochHMM{
             exit(1);
         }
         
-        return path;
+        return &path;
     }
     
     
     //Perform a nth viterbi traceback on the trellis
-    traceback_path& trellis::traceback(size_t n){
+    traceback_path* trellis::traceback(size_t n){
         if (path.size()!=0){
             path.clear();
         }
@@ -324,7 +324,7 @@ namespace StochHMM{
             exit(1);
         }
         
-        return path;
+        return &path;
     }
 
 
@@ -332,7 +332,7 @@ namespace StochHMM{
     //!Perform multiple stochastic Tracebacks on the trellis
     //!\param numberOfTracebacks  Number of tracebacks to perform
     //!\param type Type of decoding to use (enum decodingType)
-    multiTraceback& trellis::stochasticTraceback(int numberOfTracebacks,decodingType type){
+    multiTraceback* trellis::stochasticTraceback(int numberOfTracebacks,decodingType type){
         if (paths.size()!=0){
             paths.clear();
         }
@@ -352,39 +352,39 @@ namespace StochHMM{
                 stochPath.clear();
             }
         }
-        return paths;
+        return &paths;
     }
 
 
     //!Performs one stochastic traceback using viterbi data stores the traceback_path pointer to pathif path is already define then we delete it
     
-    traceback_path& trellis::stochasticViterbiTraceback(){
+    traceback_path* trellis::stochasticViterbiTraceback(){
         if (path.size()!=0){
             path.clear();
         }
         
         (*this)->traceStochViterbi(stochPath);
         
-        return stochPath;
+        return &stochPath;
     }
 
 
     //!Performs one stochastic traceback using forward data stores the traceback_path pointer to pathif path is already define then we delete it
-    traceback_path& trellis::stochasticForwardTraceback(){
+    traceback_path* trellis::stochasticForwardTraceback(){
         if (path.size()!=0){
             path.clear();
         }
         
         (*this)->traceStochForward(stochPath);
         
-        return stochPath;
+        return &stochPath;
     }
 
 
     //!Perform a set number of tracebacks using the decodingType                                                           
     //!\param numberOfTracebacks  Number of tracebacks to perform
     //!\return multiTraceback&
-    multiTraceback& trellis::stochasticViterbiTraceback(int numberOfTracebacks){
+    multiTraceback* trellis::stochasticViterbiTraceback(int numberOfTracebacks){
         if (paths.size()!=0){
             paths.clear();
         }
@@ -400,13 +400,13 @@ namespace StochHMM{
                 stochPath.clear();
             }
         }
-        return paths;
+        return &paths;
     }
 
 
    
     //!Perform a set number of tracebacks using the decodingType                                                           
-    multiTraceback& trellis::stochasticForwardTraceback(int numberOfTracebacks){
+    multiTraceback* trellis::stochasticForwardTraceback(int numberOfTracebacks){
         if (paths.size()!=0){
             paths.clear();
         }
@@ -422,11 +422,11 @@ namespace StochHMM{
                 stochPath.clear();
             }
         }
-        return paths;
+        return &paths;
     }
     
     //!Perform a traceback using the posterior score
-    traceback_path& trellis::posteriorTraceback(){
+    traceback_path* trellis::posteriorTraceback(){
         if (path.size()!=0){
             path.clear();
         }
@@ -439,10 +439,10 @@ namespace StochHMM{
         }
         
         
-        return path;
+        return &path;
     }
     
-    traceback_path& trellis::stochasticPosterior(){
+    traceback_path* trellis::stochasticPosterior(){
         if (path.size()!=0){
             path.clear();
         }
@@ -453,7 +453,7 @@ namespace StochHMM{
         else{
             std::cerr << "Must complete forward and backward algorithm before tracing posterior";
         }
-        return path;
+        return &path;
     }
 
     //!Print the trellis to stdout

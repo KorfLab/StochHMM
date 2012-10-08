@@ -22,6 +22,7 @@ namespace StochHMM{
 
 //Options Types
 enum optionType {UNDEF_OPT , OPT_NONE , OPT_INT , OPT_DOUBLE, OPT_STRING , OPT_FLAG };
+    
 #define MAX_ALLOWABLE 10
 
 

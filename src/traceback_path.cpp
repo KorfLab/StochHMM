@@ -70,7 +70,7 @@ namespace StochHMM{
     //! Get the label of the traceback_path and assigns to vector<string> ref
     void traceback_path::label(std::vector<std::string>& pth){
         
-        for(int k=trace_path.size()-1;k>=0;k--){
+        for(size_t k=trace_path.size()-1; k!=SIZE_MAX; k--){
             state* st = hmm->getState(trace_path[k]);
             pth.push_back(st->getLabel());
         }
@@ -78,6 +78,7 @@ namespace StochHMM{
     }
     
     //!Get string of path label traceback
+    //! \param[out] pth std::string
     void traceback_path::label(std::string& pth){
         
         if (pth.size()>0){
@@ -85,7 +86,7 @@ namespace StochHMM{
         }
         
         
-        for(int k=trace_path.size()-1;k>=0;k--){
+        for(size_t k=trace_path.size()-1; k!=SIZE_MAX; k--){
             state* st = hmm->getState(trace_path[k]);
             pth+=st->getLabel();
         }
@@ -95,7 +96,7 @@ namespace StochHMM{
     //!Get names of traceback path
     //!\param [out] pth vector<string>
     void traceback_path::name(std::vector<std::string>& pth){
-        for(int k=trace_path.size()-1;k>=0;k--){
+        for(size_t k = trace_path.size()-1; k != SIZE_MAX; k--){
             state* st = hmm->getState(trace_path[k]);
             pth.push_back(st->getName());
         }
@@ -108,9 +109,9 @@ namespace StochHMM{
     void traceback_path::gff(std::vector<gff_feature>& pth,std::string& sequenceName){
         std::string current_label="";
         long long start=0;
-        int path_size=size();
+        size_t path_size=size();
         
-        for(int k=path_size-1;k>=0;k--){
+        for(size_t k = path_size-1;k != SIZE_MAX; k--){
             state* st = hmm->getState(trace_path[k]);
             std::string new_label=st->getGFF();
             if (new_label.compare("")==0){
@@ -185,7 +186,7 @@ namespace StochHMM{
     //!Print the path to stdout
     void traceback_path::print_path(){
         int line=0;
-        for(int k=size()-1;k>=0;k--){
+        for(size_t k = this->size()-1; k != SIZE_MAX; k--){
             std::cout << trace_path[k]<< " ";
             line++;
         }
@@ -195,7 +196,7 @@ namespace StochHMM{
     //!Print the path to file stream
     void traceback_path::fprint_path(std::ofstream &file){
         int line=0;
-        for(int k=size()-1;k>=0;k--){
+        for(size_t k=this->size()-1;k != SIZE_MAX; k--){
             file << trace_path[k]<< " ";
             line++;
         }
@@ -256,7 +257,7 @@ namespace StochHMM{
     //!Print traceback_path labels to stdout
     void traceback_path::print_label(){
         int line=0;
-        for(int k=trace_path.size()-1;k>=0;k--){
+        for(size_t k = trace_path.size()-1;k != SIZE_MAX;k--){
             if(line==WID && WID>0){
                 std::cout<< std::endl;
                 line=0;
@@ -273,9 +274,9 @@ namespace StochHMM{
     void traceback_path::print_gff(std::string sequence_name, double score, int ranking, int times, double posterior){
         std::string current_label="";
         long long start=0;
-        int path_size=size();
+        size_t path_size=this->size();
         
-        for(int k=path_size-1;k>=0;k--){
+        for(size_t k=path_size-1;k != SIZE_MAX;k--){
             state* st = hmm->getState(trace_path[k]);
             std::string new_label=st->getGFF();
             if (new_label.compare("")==0){
@@ -314,10 +315,10 @@ namespace StochHMM{
     void traceback_path::print_gff(std::string sequence_name){
         std::string current_label="";
         long long start=0;
-        int path_size=size();
+        size_t path_size=size();
         //cout << trace_path.size() << endl;
         
-        for(int k=path_size-1;k>=0;k--){
+        for(size_t k = path_size-1; k != SIZE_MAX; k--){
             state* st = hmm->getState(trace_path[k]);
             std::string new_label=st->getGFF();
             if (new_label.compare("")==0){
@@ -508,8 +509,8 @@ namespace StochHMM{
         
         //Over the lenght of the sequence
         model* hmm = ((*pathAccess[0]).first).getModel();
-        int sequenceSize=((*pathAccess[0]).first).size();
-        int stateSize=hmm->state_size();
+        size_t sequenceSize=((*pathAccess[0]).first).size();
+        size_t stateSize=hmm->state_size();
         
         
         std::vector<int> states(stateSize,0);

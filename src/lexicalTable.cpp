@@ -150,6 +150,7 @@ namespace StochHMM{
     // TODO:  Test this function and use to get the required order not just the zeroth order
     
     // TODO: Track index returning wrong value;
+    // TODO: Check function for abilty to use ambiguous characters
     //! Calculate the emission probability for a reduced-order emission
     //! Reduced order is called when the order distribution defined is greater then the position in the sequence. For example, when we want to find the what came 5bp before but we're only at position 1 of the sequence.
     //! \param seqs pointer to sequences
@@ -162,7 +163,7 @@ namespace StochHMM{
         
         
         for(size_t i=0;i<size;i++){
-            int index=trcks[i]->getIndex();
+            size_t index=trcks[i]->getIndex();
             
             int letter=seqs.seqValue(index,iter);
             int x_subtotal=0;
@@ -194,6 +195,8 @@ namespace StochHMM{
         }
     }
     
+    
+    //TODO: Check conversion size_t to int;
     
     double lexicalTable::_getScore(Index& xVal, Index& yVal){
         if (!xVal.isAmbiguous() && !yVal.isAmbiguous()){

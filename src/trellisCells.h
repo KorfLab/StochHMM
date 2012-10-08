@@ -97,7 +97,7 @@ namespace StochHMM{
     class stochCell : public simpleCell{
     public:
         stochCell();
-        stochCell(int);
+        stochCell(size_t);
         std::vector <double> posteriorProbability;  //stores traceback probability using forward
         std::vector <double> viterbiProbability; //stores traceback probability using viterbi(stochastic)
         std::vector <double> log_trans; //store transition probability for the backward algorithm

@@ -28,6 +28,8 @@
 
 #include "nthTrellis.h"
 namespace StochHMM{
+    
+    //Deprecated and moved in to simpleTrellis
 
 
     //!Create nthTrellis

@@ -126,10 +126,6 @@ namespace StochHMM{
             exit(1);
         }
         
-//        
-//        currentStatesIterator=currentStates->begin();
-//        currentStatePtr=(*currentStatesIterator);
-//        currentState = currentStatePtr->getIterator();
         
         sequencePosition++;
         
@@ -366,7 +362,7 @@ namespace StochHMM{
     
     
     //!Get ending transition probability                                                          
-    double basicTrellis::getEndingTransition(int transitionFrom){
+    double basicTrellis::getEndingTransition(size_t transitionFrom){
         static state* currState = hmm->getState(transitionFrom);
         return (currState->getEnding())->getTransition(NULL,NULL);
         
@@ -438,7 +434,7 @@ namespace StochHMM{
         std::string identifier = trans->getTracebackString();
         
         
-        for(int trellPos=sequencePosition-1;trellPos>=0;trellPos--){
+        for(size_t trellPos=sequencePosition-1 ; trellPos != SIZE_MAX ;trellPos--){
         //for(;trellisPos>=0;trellisPos--){
             length++;
             //state=trellis.trell[trellisPos][state].ptr;  //Get previous state traceback
@@ -486,7 +482,7 @@ namespace StochHMM{
         
         //Deterimine which track to use
         track* alphaTrack = func->getTrack();
-        int trackIndex = alphaTrack->getIndex();
+        size_t trackIndex = alphaTrack->getIndex();
         if (!alphaTrack->isAlpha()){
             
             //TODO:  Throw Error
@@ -498,7 +494,7 @@ namespace StochHMM{
         state* st = hmm->getState(tbState);
         
                 
-        for(int trellisPos = sequencePosition-1;trellisPos>=0;trellisPos--){
+        for(size_t trellisPos = sequencePosition-1; trellisPos != SIZE_MAX ; trellisPos--){
             
             tracebackPath.push_back(tbState);
             
@@ -525,7 +521,7 @@ namespace StochHMM{
         
         
         std::string CombinedString;
-        int maxSymbolSize = alphaTrack->getAlphaMax();
+        size_t maxSymbolSize = alphaTrack->getAlphaMax();
         if (maxSymbolSize ==1){
             for(std::vector<std::string>::reverse_iterator rit = tracebackString.rbegin(); rit!=tracebackString.rend();++rit){
                 CombinedString+=(*rit);
@@ -554,7 +550,7 @@ namespace StochHMM{
     
     void basicTrellis::traceStochPosterior(traceback_path& path){
         
-        int states = hmm->state_size();
+        size_t states = hmm->state_size();
         size_t seq_length = seq->getLength();
         if (seq_length==0){
             return;

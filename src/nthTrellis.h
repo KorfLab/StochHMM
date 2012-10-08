@@ -34,6 +34,8 @@
 #include "trellisCells.h"
 #include "stochMath.h"
 namespace StochHMM{
+    
+    //Deprecated and moved into simple trellis
 
     //!\def std::vector<std::vector<nthCell> > nthTable;
     typedef std::vector<std::vector<nthCell> > nthTable;

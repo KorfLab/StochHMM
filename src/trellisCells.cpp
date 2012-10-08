@@ -83,7 +83,7 @@ namespace StochHMM{
 
     //!Create a stochastic trellis cell
     //!\param state Number of states in the model
-    stochCell::stochCell(int states): simpleCell(){
+    stochCell::stochCell(size_t states): simpleCell(){
         posteriorProbability.assign(states,-INFINITY);
         viterbiProbability.assign(states,-INFINITY);
         log_trans.assign(states,-INFINITY);

@@ -138,7 +138,7 @@ namespace StochHMM {
     //! \param trck  Sequence track to use
     //! \param position Position in sequence to get value from
     //! \return double value of the real sequence at the position
-    double sequences::realValue(int trck,int position){
+    double sequences::realValue(int trck,size_t position){
         if (seq[trck]->realSeq){
             return seq[trck]->realValue(position);
         }
@@ -151,7 +151,7 @@ namespace StochHMM {
     //! \param trck Sequence track to use
     //! \param position Position in sequence to get the value from
     //! \return short digitized value of the sequence based on track type 
-    short sequences::seqValue(int trck,int position){
+    short sequences::seqValue(int trck, size_t position){
         return seq[trck]->seqValue(position);
     }
     
@@ -171,7 +171,7 @@ namespace StochHMM {
     //! \return std::string representation of all string (digitized)
     std::string sequences::stringify(){
         std::string tmp;
-        for(int i=0;i<size();i++){
+        for(int i=0; i<size(); i++){
             
             
             if (seq[i]==NULL){

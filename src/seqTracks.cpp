@@ -245,6 +245,14 @@ namespace StochHMM{
     //! Load the fasta sequence file
     //! \param mod  Model to be used
     //! \param seqFile  Fasta sequence filename
+    bool seqTracks::loadSeqs(model& mod, std::string& seqFile, SeqFileFormat format){     
+        return loadSeqs(mod,seqFile,format,NULL);
+    }
+    
+    
+    //! Load the fasta sequence file
+    //! \param mod  Model to be used
+    //! \param seqFile  Sequence filename
     bool seqTracks::loadSeqs(model& mod, std::string& seqFile, SeqFileFormat format, TrackFuncs* trFuncs){
         
         if (filehandles.size()>0){
@@ -266,25 +274,6 @@ namespace StochHMM{
         
         _open();
         
-//        //Open File 
-//        std::ifstream *SEQ= new std::ifstream;
-//        filehandles.push_back(SEQ);
-//        
-//        filehandles[0]->open(seqFile.c_str());
-//        
-//        if (!filehandles[0]->is_open()){
-//            std::cerr << "Can't open sequence file: "  << seqFile << std::endl;
-//            return false;
-//        }
-//        
-//        if (filehandles[0]->good()){
-//            good = true;
-//        }
-//        else{
-//            std::cerr << "Can't read from file: " << seqFile << std::endl;
-//            return false;
-//        }
-
         //Fill Job Queue
         importJobs();
 
@@ -958,7 +947,7 @@ namespace StochHMM{
     bool seqTracks::_close(){
         if (fileType == SINGLE_TRACK){
             for(size_t i=0;i<importTracks.size();i++){
-                std::cout << importTracks.size() << "\t" << filehandles.size() << std::endl;
+                //std::cout << importTracks.size() << "\t" << filehandles.size() << std::endl;
 
                 if (filehandles.size()>=importTracks.size()){
                     filehandles[i]->close();

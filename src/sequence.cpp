@@ -300,7 +300,6 @@ namespace StochHMM{
             }
         }
         
-        std::cout << output << std::endl;
         
         if (mask){
             output += "\n";
@@ -308,9 +307,7 @@ namespace StochHMM{
                 output+= int_to_string((int)(*mask)[i]) + " ";
             }
         }
-        
-        std::cout << output << std::endl;
-        
+                
         output+="\n";
         return output;
     }
@@ -707,7 +704,7 @@ namespace StochHMM{
     
     void sequence::get_index(size_t position, int order, std::pair<Index,Index>& word_index){
         int letter=seqValue(position);
-        int alphabet=seqtrk->getAlphaSize();
+        size_t alphabet=seqtrk->getAlphaSize();
                 
         Index& letter_index=word_index.first;
         
@@ -727,10 +724,10 @@ namespace StochHMM{
                 Index word;
                 if (prev_letter<0){
                     word.setAmbiguous(seqtrk->getAmbiguousSet(prev_letter));
-                    y_subtotal+=word*POWER[k-1][alphabet-1];
+                    y_subtotal+=word * POWER[k-1][alphabet-1];
                 }
                 else{
-                    y_subtotal+=prev_letter*POWER[k-1][alphabet-1];
+                    y_subtotal+=prev_letter * POWER[k-1][alphabet-1];
                 }
             }
         }

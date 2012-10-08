@@ -145,7 +145,7 @@ public:
     
     //!Get index iterator of the track with a particular name
     //!\param txt Name of track to get index for
-    inline int getTrackIter(const std::string& txt){return trcks.indexOf(txt);}
+    inline size_t getTrackIter(const std::string& txt){return trcks.indexOf(txt);}
     
     //!Get pointer to the tracks of the model
     inline tracks* getTracks(){return &trcks;}

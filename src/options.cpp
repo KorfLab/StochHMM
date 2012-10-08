@@ -439,4 +439,9 @@ namespace StochHMM{
         }
     }
     
+    options::options(){
+        return;
+    }
+    
+    
 }

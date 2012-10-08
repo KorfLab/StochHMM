@@ -63,6 +63,13 @@ namespace StochHMM{
     }
     
     
+    //TODO:  Need to implement using simpleTrellis as a template
+    std::string stochTrellis::stringify(){
+        std::string output("Need to implement");
+        return output;
+    }
+    
+    
     //!Calculate the viterbi and forward scores for a given cell                                                            
     void stochTrellis::calcForwardViterbi(){
         
@@ -282,6 +289,8 @@ namespace StochHMM{
     }
     
     
+    //TODO: Need to implemnent based on SimpleTrellis functions
+    
     void stochTrellis::calcNthViterbi(size_t n){
         return;
     }
@@ -341,11 +350,7 @@ namespace StochHMM{
                 //Get pointer to previous state
                 previousStatePtr=(*it);
                 previousState=previousStatePtr->getIterator();
-                
-                //                std::cout <<"Current " << currentStatePtr->getName() << " FROM ";
-                //                std::cout << previousStatePtr->getName() << std::endl;
-                //std::cout << previousStatePtr->getIterator() << std::endl;
-                
+                               
                 //Only need to calculate transition if the viterbi > -INFINITY
                 if (trell[sequencePosition][currentState].back!=-INFINITY){
                     
@@ -720,9 +725,8 @@ namespace StochHMM{
             exit(1);
         }
         
-        int previous=-1;
         
-        for(int seqPosition=seqSize-1;seqPosition>=1;seqPosition--){
+        for(size_t seqPosition=seqSize-1;seqPosition>=1;seqPosition--){
             path.push_back(y);
             //previous=y;
             random=((double)rand()/((double)(RAND_MAX)+(double)(1)));
@@ -784,7 +788,7 @@ namespace StochHMM{
         }
         
         
-        for(int seqPosition=seqSize-1;seqPosition>=1;seqPosition--){
+        for(size_t seqPosition=seqSize-1;seqPosition>=1;seqPosition--){
             path.push_back(y);
             //previous=y;
             random=((double)rand()/((double)(RAND_MAX)+(double)(1)));

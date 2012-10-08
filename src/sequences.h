@@ -65,8 +65,8 @@ namespace StochHMM {
         //ACCESSOR
         
         //Sequence and Sequence Information
-        double realValue(int,int); // Get value of Real track(i) in jth position
-        short  seqValue(int,int); // Get digitized value for sequence track(i) in jth position   
+        double realValue(int , size_t); // Get value of Real track(i) in jth position
+        short  seqValue( int , size_t); // Get digitized value for sequence track(i) in jth position
 
         sequence* getSeq(size_t);// Return sequence for Track (i)
         
@@ -135,6 +135,7 @@ namespace StochHMM {
             if (related_sequences){
                 return length; // Get length of related sequence
             }
+            return 0;
         }; 
         
         

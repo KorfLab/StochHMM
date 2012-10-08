@@ -112,6 +112,7 @@ namespace StochHMM{
         //MUTATORS
                 
         ////////////////  Single Model , Single Sequence File  ////////////////////////
+        bool loadSeqs(model&, std::string&, SeqFileFormat); // <-Main Function
         bool loadSeqs(model&, std::string&, SeqFileFormat, TrackFuncs*); // <-Main Function
         
         

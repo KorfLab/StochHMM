@@ -46,8 +46,8 @@ namespace StochHMM{
         std::string seqname;    //Column 1
         std::string source;     //Column 2
         std::string feature;    //Column 3
-        int start;              //Column 4
-        int end;                //Column 5
+        size_t start;              //Column 4
+        size_t end;                //Column 5
         char score;             //Column 6
         char strand;            //Column 7
         char frame;             //Column 8

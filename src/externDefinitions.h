@@ -77,7 +77,7 @@ namespace StochHMM{
         //bool getExDef(std::ifstream&,model*);
         
         //ACCESSOR
-        bool defined(int); // Is ExDef defined at position
+        bool defined(size_t); // Is ExDef defined at position
         
         bool isAbsolute(int); // Is ExDef Absolute at position
         int getAbsState(int); // Absolute State at position

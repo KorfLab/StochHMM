@@ -89,7 +89,7 @@ namespace StochHMM{
     
     //!Defined if there is a external definition defined for the position
     //! \param position Position of the sequence to check for external definition
-    bool ExDefSequence::defined(int position){
+    bool ExDefSequence::defined(size_t position){
         
         if (defs[position]!=NULL){
             return true;
@@ -212,7 +212,6 @@ namespace StochHMM{
         std::string split="\t:";
         
         while(ln.fromDef(file, ws, split)){
-            bool valid=true;
 
             if (ln[0].compare("EXDEF")==0){
 

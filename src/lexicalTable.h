@@ -57,7 +57,7 @@ namespace StochHMM{
         //!Get pointer to track at index position of emission
         //!\param iter Index iterator of position
         //!\return track* Track in emission
-        inline track* getTrack(int iter){return trcks[iter];};
+        inline track* getTrack(size_t iter){return trcks[iter];};
         
         //!Get the number of tracks defined in emission
         //!\return size_t

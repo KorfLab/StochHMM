@@ -155,7 +155,9 @@ namespace StochHMM{
     std::string join(std::vector<std::string>&, char);
 
     std::string int_to_string(int);
+    std::string int_to_string(size_t);
     std::string double_to_string(double);
+    std::string double_to_string(float);
     
     bool stringToInt(std::string&, int&);
     bool stringToDouble(std::string&, double&);

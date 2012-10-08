@@ -537,10 +537,31 @@ namespace StochHMM{
         std::string s=ss.str();
         return s;
     }
+    
+    
+    //! Convert an size_t to a string
+    //! \param input Integer you want to convert to string;
+    std::string int_to_string(size_t input){
+        std::stringstream ss;
+        ss << input;
+        std::string s=ss.str();
+        return s;
+    }
+    
+    
         
     //! Convert a double to a string
     //! \param input Double you want to convert to a string
     std::string double_to_string(double input){
+        std::stringstream ss;
+        ss << input;
+        std::string s=ss.str();
+        return s;
+    }
+    
+    //! Convert a double to a string
+    //! \param input Double you want to convert to a string
+    std::string double_to_string(float input){
         std::stringstream ss;
         ss << input;
         std::string s=ss.str();

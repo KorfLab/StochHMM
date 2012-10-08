@@ -365,12 +365,12 @@ namespace StochHMM{
     //! \param name Name of the track
     //! \return size_t Iterator to track within the tracks
     //! \return -1 if track doesn't exist in tracks
-    int tracks::indexOf(const std::string& name){
+    size_t tracks::indexOf(const std::string& name){
         if (index.count(name)){
             return index[name];
         }
         else{
-            return -1;
+            return SIZE_MAX;
         }
     }
     

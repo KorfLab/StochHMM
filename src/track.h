@@ -260,7 +260,7 @@ namespace StochHMM{
         void push_back(track*);
         
         //ACCESSOR
-        int indexOf(const std::string&);
+        size_t indexOf(const std::string&);
         size_t size(){return trks.size();};
         track* getTrack(const std::string&);
         bool isTrackDefined(const std::string&);

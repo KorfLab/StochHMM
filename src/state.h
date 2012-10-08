@@ -50,7 +50,7 @@ public:
     
     //!Get the states integer index value
     //! \return integer
-    inline int getIterator(){return stateIterator;};
+    inline size_t getIterator(){return stateIterator;};
     
     //!Get the name of the state
     //! \return std::string Name of state
@@ -138,7 +138,7 @@ public:
     inline void addFromState(state* st){from.push_back(st);};
     
     //!Set the index value to be used for the state 
-    inline void setIter(int val){stateIterator=val;};
+    inline void setIter(size_t val){stateIterator=val;};
     
     void checkLabels(std::set<std::string>& ,std::set<std::string>& ,std::set<std::string>& );
 	
@@ -155,7 +155,7 @@ private:
 	
     
 	//Linking State Information (These are assigned at model finalization)
-	int stateIterator;  //index of state in HMM
+	size_t stateIterator;  //index of state in HMM
     std::vector<state*> to;
     std::vector<state*> from;
     

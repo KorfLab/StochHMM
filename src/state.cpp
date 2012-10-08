@@ -28,7 +28,7 @@
 namespace StochHMM{
 
     //!Create a state object
-    state::state():stateIterator(-2),endi(NULL){}
+    state::state():stateIterator(SIZE_MAX),endi(NULL){}
 
     //!Create a state from string
     //! Parses the string to create a state
@@ -37,7 +37,7 @@ namespace StochHMM{
     //! \param trcks Tracks defined for model
     //! \param wts Pointer to all weight defined for the model
     //! \param funcs State functions defined for the model
-    state::state(std::string& txt, stringList& names,tracks& trcks, weights* wts, StateFuncs* funcs):stateIterator(-2),endi(NULL){
+    state::state(std::string& txt, stringList& names,tracks& trcks, weights* wts, StateFuncs* funcs):stateIterator(SIZE_MAX),endi(NULL){
         
         //endi=new transition(STANDARD);
         parse(txt,names,trcks, wts,funcs);
