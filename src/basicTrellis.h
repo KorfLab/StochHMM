@@ -30,6 +30,8 @@
 #ifndef BASICTRELLIS_H
 #define BASICTRELLIS_H
 
+#define __STD_LIMIT_MACROS
+
 #include <vector>
 #include <iostream>
 #include <set>
@@ -38,6 +40,7 @@
 #include "sequences.h"
 #include "traceback_path.h"
 #include <stdint.h>
+#include <limits>
 
 namespace StochHMM{
 
