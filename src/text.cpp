@@ -57,8 +57,7 @@ namespace StochHMM{
         return false;
     }
     
-    //FIXME: Fix return value to size_t max not -1
-    //! Searches the stringList for matching string and returns the index position of first match 
+    //! Searches the stringList for matching string and returns the index position of first match
     //! \param txt String to search stringList for
     size_t stringList::indexOf(const std::string&txt) {
         for (size_t i=0;i<line.size();i++){
@@ -66,7 +65,7 @@ namespace StochHMM{
                 return i;
             }
         }
-        return -1;
+        return SIZE_MAX;
     }
     
     //! Searches the stringList for matching string and returns the index position of a given string from the starting position
@@ -78,7 +77,7 @@ namespace StochHMM{
                 return i;
             }
         }
-        return -1;
+        return SIZE_MAX;
     }
     
     //! Removes Comments, Removes Whitespace, and splits the string
@@ -110,8 +109,8 @@ namespace StochHMM{
         line.clear();
         comment.clear();
         
-		size_t found=-1;
-		size_t initial=-1;
+		size_t found  = SIZE_MAX;
+		size_t initial= SIZE_MAX;
         do {
             found++;
             initial=found;
