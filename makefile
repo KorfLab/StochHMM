@@ -31,6 +31,36 @@ SUBDIRS := \
 src \
 
 # Add inputs and outputs from these tool invocations to the build variables 
+O_SRCS += \
+./src/StochHMM.o \
+./src/basicTrellis.o \
+./src/emm.o \
+./src/externDefinitions.o \
+./src/externalFuncs.o \
+./src/hmm.o \
+./src/index.o \
+./src/lexicalTable.o \
+./src/modelTemplate.o \
+./src/options.o \
+./src/seqJobs.o \
+./src/seqTracks.o \
+./src/sequence.o \
+./src/sequences.o \
+./src/simpleTrellis.o \
+./src/state.o \
+./src/stochErr.o \
+./src/stochMath.o \
+./src/stochasticTrellis.o \
+./src/table.o \
+./src/text.o \
+./src/traceback_path.o \
+./src/track.o \
+./src/transitions.o \
+./src/trellis.o \
+./src/trellisCells.o \
+./src/userFunctions.o \
+./src/weight.o 
+
 CPP_SRCS += \
 ./src/StochHMM.cpp \
 ./src/basicTrellis.cpp \
@@ -157,27 +187,35 @@ ifneq ($(strip $(C_UPPER_DEPS)),)
 endif
 endif
 
--include ../makefile.defs
-
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: StochHMM
+all: bin_dir StochHMM libStochHMM.a
+
+#Create directory
+bin_dir:
+	mkdir bin
 
 # Tool invocations
 StochHMM: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
-	@echo 'Invoking: MacOS X C++ Linker'
-	g++  -o "StochHMM" $(OBJS) $(USER_OBJS) $(LIBS)
+	@echo 'Invoking: C++ Linker'
+	g++  -o "bin/StochHMM" $(OBJS) $(USER_OBJS) $(LIBS)
+	@echo 'Finished building target: $@'
+	@echo ' '
+
+libStochHMM.a: $(OBJS) $(USER_OBJS)
+	@echo 'Building target: $@'
+	@echo 'Invoking: GCC Archiver'
+	ar -r  "bin/libStochHMM.a" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(C++_DEPS)$(OBJS)$(C_DEPS)$(CC_DEPS)$(CPP_DEPS)$(EXECUTABLES)$(CXX_DEPS)$(C_UPPER_DEPS) StochHMM
+	-$(RM) $(C++_DEPS)$(OBJS)$(C_DEPS)$(CC_DEPS)$(CPP_DEPS)$(EXECUTABLES)$(CXX_DEPS)$(C_UPPER_DEPS) bin/
 	-@echo ' '
 
 .PHONY: all clean dependents
 .SECONDARY:
 
--include ../makefile.targets
