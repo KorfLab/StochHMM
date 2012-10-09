@@ -32,8 +32,7 @@ namespace StochHMM{
     
     //!Creates an ExDefSequence
     //! \param size amount of ExDef in the sequence
-    ExDefSequence::ExDefSequence(int size){
-        defs.assign(size,NULL);
+    ExDefSequence::ExDefSequence(size_t size):defs(size){
     }
     
     

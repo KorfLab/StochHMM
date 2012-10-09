@@ -33,6 +33,7 @@
 #include <vector>
 #include <limits>
 #include <stdint.h>
+#include <algorithm>
 
 namespace StochHMM{
     

@@ -59,7 +59,7 @@ namespace StochHMM{
     class ExDefSequence{
     public:
         //Constructor
-        ExDefSequence(int);
+        ExDefSequence(size_t);
         
         
         //Copy Constructor
