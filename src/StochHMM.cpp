@@ -85,7 +85,7 @@ int main(int argc, const char * argv[])
     
     //Determine stochastic vs regular
     
-    trellis *trell = perform_decoding(&hmm, job->getSeqs());
+    trellis *trell = perform_decoding(job->getModel(), job->getSeqs());
     
     //Outputs
     
