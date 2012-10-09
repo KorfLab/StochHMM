@@ -678,9 +678,9 @@ namespace StochHMM{
     
     //!Get the next sequence job
     bool seqTracks::getNext(){
-        seqJob* temp=new(std::nothrow) seqJob(trackCount);
+        seqJob* temp_job=new(std::nothrow) seqJob(trackCount);
         
-        if (temp==NULL){
+        if (temp_job==NULL){
             std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
             exit(1);
         }
@@ -765,15 +765,15 @@ namespace StochHMM{
             else{
                 //If exDef is defined in sequence put it in sequences
                 if (sq->exDefDefined()){
-                    temp->set->setExDef(sq->getExDef());
+                    temp_job->set->setExDef(sq->getExDef());
                 }
-                temp->set->addSeq(sq,importTracks[i].first);
+                temp_job->set->addSeq(sq,importTracks[i].first);
                 
                 if (fileType==SINGLE_TRACK){
-                    temp->setSeqFilename(seqFilenames[i]);
+                    temp_job->setSeqFilename(seqFilenames[i]);
                 }
                 else{
-                    temp->setSeqFilename(seqFilenames[0]);
+                    temp_job->setSeqFilename(seqFilenames[0]);
                 }
             }
         }
@@ -785,7 +785,7 @@ namespace StochHMM{
            for (size_t i =0;i<postprocessTracks.size();i++) {
                std::vector<double>* rl = NULL;
                if (postprocessTracks[i].func != NULL ){
-                   rl = (*postprocessTracks[i].func) ( &temp->set->getUndigitized(postprocessTracks[i].trackToUse));
+                   rl = (*postprocessTracks[i].func) ( &temp_job->set->getUndigitized(postprocessTracks[i].trackToUse));
                }
                else{
                    std::cerr << "Sequence external function not defined for track number: " << postprocessTracks[i].trackNumber << std::endl;
@@ -804,46 +804,54 @@ namespace StochHMM{
                    exit(1);
                }
                
-               temp->set->addSeq(sq,postprocessTracks[i].trackNumber);
+               temp_job->set->addSeq(sq,postprocessTracks[i].trackNumber);
+            }
+            
+            //TODO:  Fix the selection of models based upon the attribute model function
+            //Select Model based on models distance from attributes
+            if (hmms){
+                
+                //If we have a attribute calculation function we'll access which model to use
+                if (attribModelFunc){
+                    //Calculate attribute
+                    double attb = (*attribModelFunc)(temp_job->set->getUndigitized(TrackToUseForAttrib));
+                    
+                    //assign first by default
+                    double min = (*hmms)[0]->getDistanceToAttrib(attb);
+                    temp_job->hmm=(*hmms)[0];  
+                    
+                    //Check other models for one that is closer to attb
+                    for(size_t i=1;i<hmms->size();i++){
+                        double newVal=(*hmms)[i]->getDistanceToAttrib(attb);
+                        
+                        //If it's closer assign it to the job
+                        if (newVal<min){
+                            temp_job->hmm=(*hmms)[i];
+                        }
+                    }
+
+                }
+                else{
+                    temp_job->hmm=(*hmms)[0];  //Default to first HMM
+                }
+            }
+            
+            else{
+                temp_job->hmm=hmm;  //assign single model to job
             }
             
             
-            //Select Model based on models distance from attributes
-//            if (models){
-//                if (modelSelect){
-//                    double attb = (*modelSelect)(temp->getUndigitized(TrackToUseForAttrib));
-//                    double min = (*hmms)[0]->getDistanceToAttrib(attb);
-//                    temp->hmm=(*hmms)[0];
-//                    
-//                    for(size_t i=1;i<hmms->size();i++){
-//                        double newVal=(*hmms)[i]->getDistanceToAttrib(attb);
-//                        if (newVal<min){
-//                            temp->hmm=(*hmms)[i];
-//                        }
-//                    }
-//
-//                }
-//                else{
-//                    temp->hmm=(*hmms)[0];
-//                }
-//            }
-//            
-//            else{
-//                temp->hmm=hmm;
-//            }
-            
-            
             //Check that all sequences are same length.
-            int lengthOfAll=-1;
+            size_t lengthOfAll=SIZE_MAX;
             for (int i=0;i<trackCount;i++){
                 
-                int length=temp->set->getLength(i);
-                if (lengthOfAll==-1){
+                size_t length=temp_job->set->getLength(i);
+                if (lengthOfAll==SIZE_MAX){
                     lengthOfAll=length;
                 }
                 else if (lengthOfAll!=length){
                     std::cerr << "Sequence Lengths not the same" <<std::endl;
-                    delete temp;
+                    delete temp_job;
                     return false;
                 }
                 else {
@@ -851,12 +859,12 @@ namespace StochHMM{
                 }
 
             }
-            temp->set->setLength(lengthOfAll);
-            jobQueue.push(temp);
+            temp_job->set->setLength(lengthOfAll);
+            jobQueue.push(temp_job);
             jobs++;
         }
         else{
-            delete temp;
+            delete temp_job;
         }
         
         return true;
