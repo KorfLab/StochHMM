@@ -19,6 +19,7 @@
 #include "sequences.h"
 #include "stochTypes.h"
 #include <algorithm>
+#include <stdint.h>
 
 namespace StochHMM{
 

@@ -38,6 +38,7 @@
 #include "userFunctions.h"
 #include "stochMath.h"
 #include <limits>
+#include <stdlib.h>
 
 namespace StochHMM{
 
