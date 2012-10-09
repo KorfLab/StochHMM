@@ -30,8 +30,6 @@
 #ifndef BASICTRELLIS_H
 #define BASICTRELLIS_H
 
-#define __STD_LIMIT_MACROS
-
 #include <vector>
 #include <iostream>
 #include <set>
@@ -41,6 +39,10 @@
 #include "traceback_path.h"
 #include <stdint.h>
 #include <limits>
+
+#ifndef SIZE_MAX
+#define SIZE_MAX ((size_t)-1)
+#endif
 
 namespace StochHMM{
 
