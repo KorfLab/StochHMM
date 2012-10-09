@@ -16,6 +16,7 @@
 #include <vector>
 #include <iostream>
 #include <sstream>
+#include <stdlib.h>
 
 namespace StochHMM{
 

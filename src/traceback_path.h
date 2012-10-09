@@ -39,6 +39,7 @@
 #include "options.h"
 #include "hmm.h"
 #include "stochMath.h"
+#include <stdlib.h>
 namespace StochHMM{
 
     //! \struct gff_feature

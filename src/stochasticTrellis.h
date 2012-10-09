@@ -33,6 +33,7 @@
 #include "trellisCells.h"
 #include "basicTrellis.h"
 #include "stochMath.h"
+#include <stdlib.h>
 namespace StochHMM{
 
     //!\def std::vector<std::vector<stochCell> > stochTable;   

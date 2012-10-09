@@ -37,6 +37,7 @@
 #include "traceback_path.h"
 #include "hmm.h"
 #include "sequences.h"
+#include <stdlib.h>
 
 
 

@@ -31,6 +31,7 @@
 
 #include <vector>
 #include <algorithm>
+#include <stdlib.h>
 #include "stochMath.h"
 namespace StochHMM{
 

@@ -38,6 +38,7 @@
 #include <map>
 #include <list>
 #include <set>
+#include <stdlib.h>
 
 #include "state.h"
 #include "track.h"

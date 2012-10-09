@@ -38,6 +38,7 @@
 #include "track.h"
 #include "text.h"
 #include "sequences.h"
+#include <stdlib.h>
 
 namespace StochHMM{
     

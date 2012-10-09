@@ -32,6 +32,7 @@
 #include <iostream>
 #include <math.h>
 #include <fstream>
+#include <stdlib.h>
 #include "text.h"
 #include "track.h"
 #include "externDefinitions.h"

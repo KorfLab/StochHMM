@@ -20,6 +20,7 @@
 #include "stochTypes.h"
 #include <algorithm>
 #include <stdint.h>
+#include <stdlib.h>
 
 namespace StochHMM{
 

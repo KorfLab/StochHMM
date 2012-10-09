@@ -35,6 +35,7 @@
 #include <map>
 #include <set>
 #include "text.h"
+#include <stdlib.h>
 
 namespace StochHMM{
     

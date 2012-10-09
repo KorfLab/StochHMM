@@ -36,6 +36,7 @@
 #include "weight.h"
 #include "sequences.h"
 #include "lexicalTable.h"
+#include <stdlib.h>
 namespace StochHMM{
     
     //! \file transitions.h

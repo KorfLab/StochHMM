@@ -39,6 +39,7 @@
 #include "traceback_path.h"
 #include <stdint.h>
 #include <limits>
+#include <stdlib.h>
 
 #ifndef SIZE_MAX
 #define SIZE_MAX ((size_t)-1)

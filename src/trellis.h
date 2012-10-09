@@ -36,6 +36,7 @@
 #include "stochasticTrellis.h"
 #include "traceback_path.h"
 #include "stochTypes.h"
+#include <stdlib.h>
 namespace StochHMM{
 
     //! \class trellis

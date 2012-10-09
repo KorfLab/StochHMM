@@ -36,6 +36,7 @@
 #include <algorithm>
 #include <set>
 #include "text.h"
+#include <stdlib.h>
 namespace StochHMM{
     
     //!class stencil: contains individial model template and keeps track of coordinates for replacement

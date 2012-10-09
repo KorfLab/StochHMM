@@ -35,6 +35,7 @@
 #include "basicTrellis.h"
 #include "trellisCells.h"
 #include "stochMath.h"
+#include <stdlib.h>
 namespace StochHMM{
 
 

@@ -38,6 +38,7 @@
 #include "track.h"
 #include "externDefinitions.h"
 #include "index.h"
+#include <stdlib.h>
 
 //!  \file 
 

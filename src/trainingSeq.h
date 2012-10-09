@@ -19,6 +19,7 @@
 #include <algorithm>
 #include <stdio.h>
 #include <set>
+#include <stdlib.h>
 #include "text.h"
 
 using namespace StochHMM;

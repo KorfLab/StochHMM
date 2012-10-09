@@ -32,7 +32,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
-
+#include <stdlib.h>
 
 namespace StochHMM{
     
