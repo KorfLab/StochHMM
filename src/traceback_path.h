@@ -35,6 +35,7 @@
 #include <fstream>
 #include <algorithm>
 #include <sstream>
+#include <stdint.h>
 #include "options.h"
 #include "hmm.h"
 #include "stochMath.h"

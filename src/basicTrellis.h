@@ -37,6 +37,7 @@
 #include "hmm.h"
 #include "sequences.h"
 #include "traceback_path.h"
+#include <stdint.h>
 
 namespace StochHMM{
 

@@ -33,6 +33,7 @@
 #include "text.h"
 #include "emm.h"
 #include "transitions.h"
+#include <stdint.h>
 
 namespace StochHMM{
 

@@ -39,6 +39,7 @@
 #include "stochMath.h"
 #include <limits>
 #include <stdlib.h>
+#include <stdint.h>
 
 namespace StochHMM{
 
