@@ -54,7 +54,10 @@ namespace StochHMM{
     class basicTrellis{
     public:
         basicTrellis(model*,sequences*);
-        ~basicTrellis();
+        virtual ~basicTrellis(){
+            delete posterior;
+            delete posterior_pointer;
+        };
         
         void resetCounters();
         

@@ -66,11 +66,6 @@ namespace StochHMM{
         }
     }
     
-    basicTrellis::~basicTrellis(){
-        delete posterior;
-        posterior=NULL;
-    }
-
     
     //! Reset the counter information in basicTrellis                                                              
     //! The counter information keeps track of what state we're in and what position. We also keep track in next and what are the states to be evaluated next. Previous has the states that were valid in the previous position of the sequence
