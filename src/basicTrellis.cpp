@@ -528,7 +528,8 @@ namespace StochHMM{
             }
         }
         
-        double transitionValue = func->evaluate(&seq->getUndigitized(trackIndex), sequencePosition, &CombinedString, length);
+        std::string temp_string = seq->getUndigitized(trackIndex);
+        double transitionValue = func->evaluate(&temp_string, sequencePosition, &CombinedString, length);
         
         return transitionValue;
     }
