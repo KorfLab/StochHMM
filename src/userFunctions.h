@@ -46,7 +46,7 @@ namespace StochHMM{
     typedef std::vector<double>* (*pt2TrackFunc) (const std::string*);
     
     //!\typedef Pointer to function that takes a string and returns a double
-    typedef double (*pt2Attrib) (const std::string&);
+    typedef double (*pt2Attrib) (const std::string*);
 
     //The map stores the pointers to the different functions by const char* word.
     //!Allows the user to create and integrate their own functions into the model

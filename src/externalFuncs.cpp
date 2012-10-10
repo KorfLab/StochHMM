@@ -361,8 +361,7 @@ namespace StochHMM{
     }
     
     double emissionFuncParam::evaluate(sequences& seqs , size_t pos){
-        const std::string temp = seqs.getUndigitized(trackNumber);
-        double val = (*emissionFunction)(&temp,pos);
+        double val = (*emissionFunction)(seqs.getUndigitized(trackNumber),pos);
         
         if (emissionFuncScaling!=NULL){
             val = emissionFuncScaling->getWeightedScore(val);

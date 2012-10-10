@@ -785,8 +785,7 @@ namespace StochHMM{
            for (size_t i =0;i<postprocessTracks.size();i++) {
                std::vector<double>* rl = NULL;
                if (postprocessTracks[i].func != NULL ){
-                   std::string temp_seq = temp_job->set->getUndigitized(postprocessTracks[i].trackToUse);
-                   rl = (*postprocessTracks[i].func)(&temp_seq);
+                   rl = (*postprocessTracks[i].func)(temp_job->set->getUndigitized(postprocessTracks[i].trackToUse));
                }
                else{
                    std::cerr << "Sequence external function not defined for track number: " << postprocessTracks[i].trackNumber << std::endl;

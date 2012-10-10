@@ -68,13 +68,14 @@ namespace StochHMM{
         
         //ACCESSOR
         
-        //!Deprecate the function because undigitize() does the same thing.
-        std::string getUndigitized(){
-            if (seq==NULL){
-                return undigitized;
+        //!Get reference to undigitized sequence
+        std::string* getUndigitized(){
+            if (!undigitized.empty() || seq->empty()){
+                return &undigitized;
             }
             else {
-                return undigitize();
+                undigitized = undigitize();
+                return &undigitized;
             }
         }
         
