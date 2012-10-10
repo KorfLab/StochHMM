@@ -194,7 +194,7 @@ all: bin_dir StochHMM libStochHMM.a
 
 #Create directory
 bin_dir:
-	mkdir bin
+	mkdir -p bin
 
 # Tool invocations
 StochHMM: $(OBJS) $(USER_OBJS)
