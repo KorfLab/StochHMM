@@ -111,7 +111,15 @@ namespace StochHMM {
         //!Get the undigitized ith sequence from sequences
         //! \param iter  size_t iterator for ith sequence
         //! \return std::string& of undigitized sequence at ith position
-        inline const std::string& getUndigitized(size_t iter){return seq[iter]->getUndigitized();};
+        inline const std::string getUndigitized(size_t iter){
+            if (iter>seq.size()){
+                std::cerr << "getUndigitized(size_t iter) called where iter is out of range\n";
+                return "";
+            }
+            else{
+                return seq[iter]->getUndigitized();
+            }
+        };
         
         // Sizes
         

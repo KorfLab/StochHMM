@@ -358,11 +358,11 @@ namespace StochHMM{
         double val;
         
         
-        for (size_t i=2;i<ln.size();i++){
-            std::string& tag=ln[i];
+        for (size_t line_iter=2; line_iter < ln.size();line_iter++){
+            std::string& tag=ln[line_iter];
             
-            if (ln.size()<=i+1){
-                std::cerr << "External Definition for Weighted Def is missing values: " << ln[i] << std::endl;
+            if (ln.size()<=line_iter+1){
+                std::cerr << "External Definition for Weighted Def is missing values: " << ln[line_iter] << std::endl;
                 return false;
             }
             
@@ -370,63 +370,63 @@ namespace StochHMM{
                 
                 
                 int tempInt;
-                if (!stringToInt(ln[i+1], tempInt)){
-                    std::cerr << "Value in External Definition START is not numeric: " << ln[i+1] << std::endl;
+                if (!stringToInt(ln[line_iter+1], tempInt)){
+                    std::cerr << "Value in External Definition START is not numeric: " << ln[line_iter+1] << std::endl;
                     return false;
                 }
                 
                 
                 startPosition=tempInt;
                 start=true;
-                i++;
+                line_iter++;
             }
             else if (tag.compare("END")==0){
                 
                 int tempInt;
-                if (!stringToInt(ln[i+1], tempInt)){
-                    std::cerr << "Value in External Definition END is not numeric: " << ln[i+1] << std::endl;
+                if (!stringToInt(ln[line_iter+1], tempInt)){
+                    std::cerr << "Value in External Definition END is not numeric: " << ln[line_iter+1] << std::endl;
                     return false;
                 }
                 
                 
                 stopPosition=tempInt;
                 stop=true;
-                i++;
+                line_iter++;
             }
             else if (tag.compare("STATE_NAME")==0){
-                definedStates.insert(info.names[ln[i+1]]);
+                definedStates.insert(info.names[ln[line_iter+1]]);
                 state=true;
-                i++;
+                line_iter++;
             }
             else if (tag.compare("STATE_LABEL")==0){
-                std::vector<int>& temp=info.label[ln[i+1]];
-                for(size_t i=0;i<temp.size();i++){
-                    definedStates.insert(temp[i]);
+                std::vector<int>& temp=info.label[ln[line_iter+1]];
+                for(size_t temp_iter=0; temp_iter < temp.size();temp_iter++){
+                    definedStates.insert(temp[temp_iter]);
                 }
                 state=true;
-                i++;
+                line_iter++;
             }
             else if (tag.compare("STATE_GFF")==0){
-                std::vector<int>& temp = info.gff[ln[i+1]];
-                for(size_t i=0;i<temp.size();i++){
-                    definedStates.insert(temp[i]);
+                std::vector<int>& temp = info.gff[ln[line_iter+1]];
+                for(size_t temp_iter=0; temp_iter < temp.size(); temp_iter++){
+                    definedStates.insert(temp[temp_iter]);
                 }
                 state=true;
-                i++;
+                line_iter++;
             }
             else if (tag.compare("VALUE")==0){
                 
                 double tempValue;
-                if(!stringToDouble(ln[i+1], tempValue)){
-                    std::cerr << "VALUE couldn't be converted to numerical value: " << ln[i+1] << std::endl;
+                if(!stringToDouble(ln[line_iter+1], tempValue)){
+                    std::cerr << "VALUE couldn't be converted to numerical value: " << ln[line_iter+1] << std::endl;
                 }
                 
                 val=tempValue;
                 value=true;
-                i++;
+                line_iter++;
             }
             else if (tag.compare("VALUE_TYPE")==0){
-                std::string &type=ln[i+1];
+                std::string &type=ln[line_iter+1];
                 if (type.compare("P(X)")==0){
                     val=log(val);
                     valType=true;
@@ -437,10 +437,10 @@ namespace StochHMM{
                 else{
                     valType=false;
                 }
-                i++;
+                line_iter++;
             }
             else{
-                std::cerr << "Invalid tag found in Sequence external definition: " << ln[i] << std::endl;
+                std::cerr << "Invalid tag found in Sequence external definition: " << ln[line_iter] << std::endl;
             }
         }
         
@@ -455,18 +455,18 @@ namespace StochHMM{
         
         //If everything is define correctly then return true
         if (start && stop && state && value && valType){
-            for (int i=startPosition-1;i<stopPosition;i++){
+            for (int position=startPosition-1; position < stopPosition; position++){
                 //Already have a defined external def at position
-                if (defs[i]){
-                    if (defs[i]->absolute){
+                if (defs[position]){
+                    if (defs[position]->absolute){
                         std::cerr << "Can't add weight to absolute external definition" << std::endl;
                         return false;
                     }
                 }
                 else{
-                    defs[i]=new(std::nothrow) weightDef();
+                    defs[position]=new(std::nothrow) weightDef();
                     
-                    if (defs[i]==NULL){
+                    if (defs[position]==NULL){
                         std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
                         exit(1);
                     }
@@ -474,7 +474,7 @@ namespace StochHMM{
                 
                 // Add states and values to definition
                 for (setIterator=definedStates.begin();setIterator!=definedStates.end();setIterator++){
-                    defs[i]->assignWeight(*setIterator, val);
+                    defs[position]->assignWeight(*setIterator, val);
                 }
             }
             return true;

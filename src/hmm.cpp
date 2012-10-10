@@ -1044,23 +1044,23 @@ namespace StochHMM{
             
             if (q0){
                 temp=initial->getTo();
-                for(size_t i=0;i<temp->size();i++){
-                    gv << "\tINIT -> " << (*temp)[i]->getName() << ";\n";
+                for(size_t temp_iter=0; temp_iter < temp->size(); temp_iter++){
+                    gv << "\tINIT -> " << (*temp)[temp_iter]->getName() << ";\n";
                 }
             }
             
             
-            for(size_t i=0;i<states.size();i++){
-                temp = states[i]->getTo();
-                std::string stName=states[i]->getName();
+            for(size_t state_iter=0; state_iter < states.size(); state_iter++){
+                temp = states[state_iter]->getTo();
+                std::string stName=states[state_iter]->getName();
                 
                 if (stName.find_first_of("0123456789")==0){
                     stName.insert(0,"_");
                 }
                 
                 
-                for(size_t i=0;i<temp->size();i++){
-                    std::string tempName=(*temp)[i]->getName();
+                for(size_t temp_iter=0; temp_iter < temp->size(); temp_iter++){
+                    std::string tempName=(*temp)[temp_iter]->getName();
                     
                     if (tempName.find_first_of("0123456789")==0){
                         tempName.insert(0,"_");
@@ -1070,7 +1070,7 @@ namespace StochHMM{
                 }
                 
                 
-                if (q0 && states[i]->endi){
+                if (q0 && states[state_iter]->endi){
                     gv << "\t" << stName << " -> END;\n"; 
                 }
             }

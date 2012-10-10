@@ -198,7 +198,7 @@ namespace StochHMM{
             currentStatePtr=(*init)[x];
             currentState = currentStatePtr->getIterator();
             
-            double prelim = ((*initial).getTrans(currentState))->getTransition(NULL,NULL) + currentStatePtr->get_emission(*seq,sequencePosition);
+            double prelim = ((*initial).getTrans(currentState))->getTransition(0,NULL) + currentStatePtr->get_emission(*seq,sequencePosition);
             
             if (prelim>-INFINITY){
                 DefinedStates->insert(currentStatePtr);
@@ -224,7 +224,7 @@ namespace StochHMM{
             currentStatePtr=(*init)[x];
             currentState = currentStatePtr->getIterator();
             
-            double viterbiValue = ((*initial).getTrans(currentState))->getTransition(NULL,NULL) + currentStatePtr->get_emission(*seq,sequencePosition);
+            double viterbiValue = ((*initial).getTrans(currentState))->getTransition(0,NULL) + currentStatePtr->get_emission(*seq,sequencePosition);
             
             if (viterbiValue>-INFINITY){
                 DefinedStates->insert(currentStatePtr);
@@ -257,7 +257,7 @@ namespace StochHMM{
             currentStatePtr=(*init)[x];
             currentState = currentStatePtr->getIterator();
             
-            double viterbiValue = ((*initial).getTrans(currentState))->getTransition(NULL,NULL) + currentStatePtr->get_emission(*seq,sequencePosition);
+            double viterbiValue = ((*initial).getTrans(currentState))->getTransition(0,NULL) + currentStatePtr->get_emission(*seq,sequencePosition);
             
             if (viterbiValue>-INFINITY){
                 DefinedStates->insert(currentStatePtr);
@@ -269,7 +269,7 @@ namespace StochHMM{
             std::cout << "Position:\t" << sequencePosition <<std::endl;
             std::cout << "State:\t" << currentState << std::endl;
             std::cout << "Previous State:\tSTART" << std::endl;
-            std::cout << "Transition:\t" << ((*initial).getTrans(currentState))->getTransition(NULL,NULL) <<std::endl;
+            std::cout << "Transition:\t" << ((*initial).getTrans(currentState))->getTransition(0,NULL) <<std::endl;
             std::cout << "Emission:\t" << hmm->getState(currentState)->get_emission(*seq,sequencePosition) << std::endl<<std::endl;
 #endif
         }
@@ -324,7 +324,7 @@ namespace StochHMM{
             currentStatePtr=(*init)[x];
             currentState = currentStatePtr->getIterator();
 
-            double viterbiValue = ((*initial).getTrans(currentState))->getTransition(NULL,NULL) + currentStatePtr->get_emission(*seq,sequencePosition);
+            double viterbiValue = ((*initial).getTrans(currentState))->getTransition(0,NULL) + currentStatePtr->get_emission(*seq,sequencePosition);
             
             if (viterbiValue>-INFINITY){
                 DefinedStates->insert(currentStatePtr);
@@ -364,7 +364,7 @@ namespace StochHMM{
     //!Get ending transition probability                                                          
     double basicTrellis::getEndingTransition(size_t transitionFrom){
         static state* currState = hmm->getState(transitionFrom);
-        return (currState->getEnding())->getTransition(NULL,NULL);
+        return (currState->getEnding())->getTransition(0,NULL);
         
         //static state* ending = hmm->getEnding();
         //return (ending->getTrans(transitionFrom))->getTransition(NULL,NULL);
@@ -387,7 +387,7 @@ namespace StochHMM{
         
            
         if (trans_type == STANDARD ){  //if the transition type is standard then just return the standard probability
-            transition_prob= trans->getTransition(NULL,NULL);
+            transition_prob= trans->getTransition(0,NULL);
         }
         else if (trans_type == DURATION){
             
