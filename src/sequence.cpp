@@ -841,7 +841,7 @@ namespace StochHMM{
             return true;
         }
         else if (seq!=NULL){
-            std::cerr << "Undigitized sequence already exists\n";
+            std::cerr << "Digitized sequence already exists\n";
             return true;
         }
         
