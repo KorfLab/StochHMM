@@ -184,7 +184,7 @@ namespace StochHMM{
     
     
     //!Print the path to stdout
-    void traceback_path::print_path(){
+    void traceback_path::print_path() const{
         int line=0;
         for(size_t k = this->size()-1; k != SIZE_MAX; k--){
             std::cout << trace_path[k]<< " ";
@@ -255,7 +255,7 @@ namespace StochHMM{
 
 
     //!Print traceback_path labels to stdout
-    void traceback_path::print_label(){
+    void traceback_path::print_label() const {
         int line=0;
         for(size_t k = trace_path.size()-1;k != SIZE_MAX;k--){
             if(line==WID && WID>0){
@@ -271,7 +271,7 @@ namespace StochHMM{
     }
 
     //!Outputs the gff formatted output for the traceback to stdout
-    void traceback_path::print_gff(std::string sequence_name, double score, int ranking, int times, double posterior){
+    void traceback_path::print_gff(std::string sequence_name, double score, int ranking, int times, double posterior) const {
         std::string current_label="";
         long long start=0;
         size_t path_size=this->size();
@@ -312,7 +312,7 @@ namespace StochHMM{
 
 
     //!outputs the gff formatted output for the traceback
-    void traceback_path::print_gff(std::string sequence_name){
+    void traceback_path::print_gff(std::string sequence_name) const {
         std::string current_label="";
         long long start=0;
         size_t path_size=size();
@@ -467,7 +467,7 @@ namespace StochHMM{
         return (*pathAccess[vectorIterator]).first;
     }
 
-    //!Get the number times that traceback_path was called in multiple traceback
+    //!Get the number times that traceback_path was recorded in multiple traceback
     int multiTraceback::counts(){
         return (*pathAccess[vectorIterator]).second;
     }
@@ -480,11 +480,6 @@ namespace StochHMM{
         return;
     }
 
-    
-    bool sortTBVec(std::map<traceback_path,int>::iterator lhs, std::map<traceback_path,int>::iterator rhs) 
-    {
-        return ((*lhs).second < (*rhs).second);
-    }
 
     //!Sorts the multiTraceback by the number of time a particular tracback path occurred
     void multiTraceback::finalize(){
@@ -500,9 +495,9 @@ namespace StochHMM{
         return;
     }
     
-    //!Generate a heat table from a multiple traceback paths
-    //! Heat table is 2D table describing how many times a state was called at a particular position in the sequence
-    heatTable* multiTraceback::heat(){
+    //!Generate a hit table from a multiple traceback paths
+    //! Hit table is 2D table describing how many times a state was called at a particular position in the sequence
+    heatTable* multiTraceback::get_hit_table(){
         if (table!=NULL){
             delete table;
         }
@@ -520,13 +515,72 @@ namespace StochHMM{
         
         for( it =paths.begin(); it!=paths.end();it++){
             int count = (*it).second;
-            for(int position=0;position<sequenceSize;position++){
+            for(size_t position=0;position<sequenceSize;position++){
                 int tbState=(*it).first[position];
                 (*table)[position][tbState]+=count;
             }
         }
         return table;
     }
+    
+    
+    void multiTraceback::print_hits(){
+        if (table==NULL){
+            get_hit_table();
+        }
+        
+        std::string header_row = "Position";
+        model* hmm = ((*pathAccess[0]).first).getModel();
+        for (size_t state_iter =0; state_iter<hmm->state_size(); state_iter++){
+            header_row+=",";
+            header_row+=hmm->getStateName(state_iter);
+        }
 
+        std::cout << header_row << std::endl;
+        
+        for(size_t position = 0; position < table->size(); position++){
+            std::string line = join((*table)[position], ',');
+            std::cout << position << "," << line << std::endl;
+        }
+        
+        return;
+    }
+    
+    
+    void multiTraceback::print_path(){
+        this->finalize();
+        for(size_t iter=0; iter<this->size(); iter++){
+            std::cout << "Traceback occurred:\t " << (*pathAccess[iter]).second << std::endl;
+            (*pathAccess[iter]).first.print_path();
+            std::cout << std::endl;
+        }
+        return;
+    }
+    
+    void multiTraceback::print_label(){
+        this->finalize();
+        for(size_t iter=0; iter<this->size(); iter++){
+            std::cout << "Traceback occurred:\t " << (*pathAccess[iter]).second << std::endl;
+            (*pathAccess[iter]).first.print_label();
+            std::cout << std::endl;
+        }
+        return;
+    }
+    
+    void multiTraceback::print_gff(std::string& header){
+        this->finalize();
+        for(size_t iter=0; iter<this->size(); iter++){
+            std::cout << "Traceback occurred:\t " << (*pathAccess[iter]).second << std::endl;
+            (*pathAccess[iter]).first.print_gff(header);
+            std::cout << std::endl;
+        }
+        return;
+    }
+    
+    
+    bool sortTBVec(std::map<traceback_path,int>::iterator lhs, std::map<traceback_path,int>::iterator rhs)
+    {
+        return ((*lhs).second < (*rhs).second);
+    }
 
 }

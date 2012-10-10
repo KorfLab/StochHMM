@@ -36,10 +36,11 @@
 #include <algorithm>
 #include <sstream>
 #include <stdint.h>
+#include <stdlib.h>
+#include "text.h"
 #include "options.h"
 #include "hmm.h"
 #include "stochMath.h"
-#include <stdlib.h>
 namespace StochHMM{
 
     //! \struct gff_feature
@@ -78,10 +79,10 @@ namespace StochHMM{
         void name(std::vector<std::string>&);
         void path(std::vector<int>&);
         
-        void print_path();
-        void print_label();
-        void print_gff(std::string,double,int,int,double);
-        void print_gff(std::string);
+        void print_path() const ;
+        void print_label() const ;
+        void print_gff(std::string,double,int,int,double) const ;
+        void print_gff(std::string) const ;
         
         inline double getScore(){
             return score;
@@ -93,7 +94,7 @@ namespace StochHMM{
         };
         
         //double path_prob (const HMM&, sequence&);  //Need to rewrite function
-        inline int operator[](int val) const {return trace_path[val];};
+        inline int operator[](size_t val) const {return trace_path[val];};
         bool operator== (const traceback_path&) const;
         bool operator<  (const traceback_path&) const;
         bool operator>  (const traceback_path&) const;
@@ -126,6 +127,12 @@ namespace StochHMM{
         void operator=(size_t);
         
         
+        void print_path();
+        void print_label();
+        void print_gff(std::string&);
+        void print_hits();
+        
+        
         //Access the data at a point
         traceback_path path();
         int counts();
@@ -141,7 +148,7 @@ namespace StochHMM{
         inline void clear(){paths.clear();return;};
         inline size_t size(){return paths.size();};
         
-        heatTable* heat();
+        heatTable* get_hit_table();
 
     private:
         size_t vectorIterator;

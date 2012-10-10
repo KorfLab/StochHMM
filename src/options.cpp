@@ -23,6 +23,7 @@ namespace StochHMM{
         set=false;           //Has the parameter been set
         required=false;      //Is the parameter required, else exit
         restricted=false;    //Are the entries restricted to allowable
+        default_value=false;
     }
 
 
@@ -99,7 +100,8 @@ namespace StochHMM{
                     }
                     else{
                         tp->data.i=tempValue;
-                        tp->set=true;
+                        tp->default_value=true;
+                        tp->set=false;
                     }
                 }
                 else if (tp->type==OPT_DOUBLE){
@@ -112,15 +114,17 @@ namespace StochHMM{
                     }
                     else{
                         tp->data.d=tempValue;
-                        tp->set=true;
+                        tp->default_value=true;
+                        tp->set=false;
                     }
                 }
                 else if (tp->type==OPT_STRING){
                     tp->str=param[i].preset;
-                    tp->set=true;
+                    tp->default_value = true;
+                    tp->set=false;
                 }
                 else if (tp->type==OPT_FLAG){
-                    tp->set=true;
+                    tp->set=false;
                     for(int k=0;k<param[i].preset.size();k++){
                         if (k>=MAX_ALLOWABLE){
                             std::cerr << "More presets than allowed OPT_FLAG" <<std::endl;
@@ -171,21 +175,39 @@ namespace StochHMM{
                         break;
                     case OPT_INT:
                         if (i+1==argc){
-                            std::cerr << "Command:\t" << tag <<" is missing a secondary command line argument\n";
-                            std::cout << usage << std::endl; //Print Usage statement
-                            exit(2);
+                            if (!opts[tag]->default_value){
+                                std::cerr << "Command:\t" << tag <<" is missing a secondary command line argument\n";
+                                std::cout << usage << std::endl; //Print Usage statement
+                                exit(2);
+                            }
                         }
-                        //Probably need to check to make sure that the argument is a number;
-                        opts[tag]->data.i=atoi(argv[++i]);
+                        else if (argv[i+1][0]=='-'){
+                            if (!opts[tag]->default_value){
+                                std::cerr << "Command:\t" << tag <<" is missing a secondary command line argument\n";
+                            }
+                        }
+                        else{
+                            //Probably need to check to make sure that the argument is a number;
+                            opts[tag]->data.i=atoi(argv[++i]);
+                        }
                         break;
                     case OPT_DOUBLE:
                         if (i+1==argc){
-                            std::cerr << "Command:\t" << tag <<" is missing a argument\n";
-                            std::cout << usage << std::endl; //Print Usage statement
-                            exit(2);
+                            if (!opts[tag]->default_value){
+                                std::cerr << "Command:\t" << tag <<" is missing a argument\n";
+                                std::cout << usage << std::endl; //Print Usage statement
+                                exit(2);
+                            }
+                        }
+                        else if (argv[i+1][0]=='-'){
+                            if (!opts[tag]->default_value){
+                                std::cerr << "Command:\t" << tag <<" is missing a secondary command line argument\n";
+                            }
+                        }
+                        else{
+                            opts[tag]->data.i=atof(argv[++i]);
                         }
                         
-                        opts[tag]->data.i=atof(argv[++i]);
                         break;
                     case OPT_STRING:
                         //Check that secondary doesn't start with a dash;
@@ -197,7 +219,9 @@ namespace StochHMM{
                         }
                         
                         if (secondary[0]=='-'){
-                            opts[tag]->str="";
+                            if (!opts[tag]->default_value){
+                                opts[tag]->str="";
+                            }
                         }
                         else{
                             i++;
@@ -212,7 +236,14 @@ namespace StochHMM{
                                 }
                             }
                             else{
-                                opts[tag]->str=secondary;
+                                if (secondary.compare("")==0){
+                                    if (!opts[tag]->default_value){
+                                        opts[tag]->str=secondary;
+                                    }
+                                }
+                                else{
+                                    opts[tag]->str=secondary;
+                                }
                             }
                         }
                         break;
@@ -240,7 +271,7 @@ namespace StochHMM{
         }
         
         //check that all required are now set;
-        bool set=true;
+        bool set(true);
         std::map<std::string,bool> RequiredNotSet;
         std::map<std::string,opt_data*>::iterator it;
         
@@ -338,7 +369,7 @@ namespace StochHMM{
     //! \param sec secondary option name
     //! \return true if secondary option is set
     //! \return false if secondary option is not set
-    bool options::getopt(const char* param,const char* sec){
+    bool options::isFlagSet(const char* param,const char* sec){
         std::string secondary=sec;
         if (opts.count(param)){
             if (opts[param]->set && opts[param]->type==OPT_FLAG){
@@ -368,7 +399,7 @@ namespace StochHMM{
     //!\param param parameter name
     //!\return true if option is set or exists in commandline argument
     //!\return false if option is not set or didn't exist in commandline argument
-    bool options::optset(const char* param){
+    bool options::isSet(const char* param){
         if (opts.count(param)){
             return opts[param]->set;
         }

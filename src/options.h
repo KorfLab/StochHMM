@@ -87,6 +87,7 @@ enum optionType {UNDEF_OPT , OPT_NONE , OPT_INT , OPT_DOUBLE, OPT_STRING , OPT_F
         opt_data();
         optionType type;           //what datatype does the option store
         bool set;           //Has the parameter been set (OPT_NONE AND EVERYTHING ELSE)
+        bool default_value; //Is default value set
         bool required;      //Is the parameter required, else exit
         bool restricted;    //Are the entries restricted to allowable
         union {   //If its a double or int for OPT_INT or OPT_DOUBLE;
@@ -112,8 +113,8 @@ enum optionType {UNDEF_OPT , OPT_NONE , OPT_INT , OPT_DOUBLE, OPT_STRING , OPT_F
         bool getopt(const char*,std::string&);       //Get string from option OPT_STRING
 
     //Accessor functions
-        bool getopt(const char*, const char*);  //Get status of secondary option OPT_FLAG
-        bool optset(const char*); // check to see if options has been set
+        bool isFlagSet(const char*, const char*);  //Get status of secondary option OPT_FLAG
+        bool isSet(const char*); // check to see if options has been set
         
         
         std::string  &sopt(const char*);  //return string for option

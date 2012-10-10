@@ -72,8 +72,9 @@ namespace StochHMM{
     //!\enum decodingType {VITERBI, POSTERIOR};
     //!Type of decoding to perform.
     //! VITERBI = Traceback performed using viterbi value
+    //! FORWARD = Traceback performed using stochastic forward value
     //! POSTERIOR = Traceback performed using posterior value
-    enum decodingType {VITERBI, POSTERIOR};
+    enum decodingType {VITERBI, FORWARD, POSTERIOR};
 
     //Enumerated Emission Track types
     //!Track types

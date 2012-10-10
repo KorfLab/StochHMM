@@ -83,8 +83,6 @@ namespace StochHMM{
                     if (cell.statePtr != NULL){
                          output += cell.statePtr->getName();
                     }
-                   
-                    
                 }
             }
         }
@@ -532,6 +530,8 @@ namespace StochHMM{
             
             double finalViterbiScore=getEndingTransition(previousSt)+trell[seqSize-1][previousSt].viti;
             
+            //std::cout << "Final Viterbi Score:" << finalViterbiScore << std::endl;
+            
             if (finalViterbiScore>-INFINITY){
                 if (finalViterbiScore>ending.viti){
                     ending.viti=finalViterbiScore;
@@ -547,13 +547,16 @@ namespace StochHMM{
         size_t stateSize=hmm->state_size();
         size_t seqSize=seq->getLength();
         
-        std::vector<scores>* temp_nth = new std::vector<scores>;
+        std::vector<scores>* temp_nth = new (std::nothrow) std::vector<scores>;
         
         //Calculate the ending viterbi scores
         for(size_t previousSt=0;previousSt<stateSize;previousSt++){
             
             double trans = getEndingTransition(previousSt);
+            
             double finalViterbiScore=trans+trell[seqSize-1][previousSt].viti;
+            
+            //std::cout << "Final Viterbi Score:" << finalViterbiScore << std::endl;
             
             if (finalViterbiScore>-INFINITY){
                 if (finalViterbiScore>ending.viti){
@@ -563,14 +566,15 @@ namespace StochHMM{
             }
             
             //Calculate the nth viterbi scores
-            for(size_t i = 0; i<trell[seqSize-1][previousState].nth_viterbi_scores->size();++i){
+            for(size_t i = 0; i<trell[seqSize-1][previousSt].nth_viterbi_scores->size();++i){
                 
                 scores temp_score;
-                temp_score.viterbi_score = trans + (*trell[seqSize-1][previousState].nth_viterbi_scores)[i].viterbi_score;
-                temp_score.traceback_state = previousState;
+                temp_score.viterbi_score = trans + (*trell[seqSize-1][previousSt].nth_viterbi_scores)[i].viterbi_score;
+                temp_score.traceback_state = previousSt;
                 temp_score.traceback_state_score = i;
                 
                 temp_nth->push_back(temp_score);
+                //std::cout << "Temp Score:" << temp_score.viterbi_score << std::endl;
             }
         }
         
@@ -737,7 +741,6 @@ namespace StochHMM{
             std::cout << "Pointer Set:\t" << previousState <<std::endl;
 #endif
         }
-        
         return;
     }
     

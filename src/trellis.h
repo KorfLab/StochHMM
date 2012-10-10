@@ -60,17 +60,18 @@ namespace StochHMM{
         //void simpleNth();
         
         traceback_path* traceback();
-        traceback_path* traceback(size_t);
+        traceback_path* nth_traceback(size_t);
         traceback_path* posteriorTraceback();
         
-        traceback_path* stochasticPosterior();
+        traceback_path* stochasticPosteriorTraceback();
         
         traceback_path* stochasticViterbiTraceback();
         traceback_path* stochasticForwardTraceback();
         
-        multiTraceback* stochasticTraceback(int,decodingType);
-        multiTraceback* stochasticViterbiTraceback(int);
-        multiTraceback* stochasticForwardTraceback(int);
+        multiTraceback* stochasticTraceback(size_t,decodingType);
+        multiTraceback* stochasticViterbiTraceback(size_t);
+        multiTraceback* stochasticForwardTraceback(size_t);
+        multiTraceback* stochasticPosteriorTraceback(size_t);
         
         void print();
         std::string* stringify();
