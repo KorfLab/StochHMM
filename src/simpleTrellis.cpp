@@ -296,6 +296,7 @@ namespace StochHMM{
                     
                     //Calculate transition
                     double trans;
+                    
                     //If transition is already calculated
                     if (trell[sequencePosition][currentState].trans.count(previousStatePtr)){
                         trans = trell[sequencePosition][currentState].trans[previousStatePtr];

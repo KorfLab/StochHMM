@@ -49,6 +49,7 @@ public:
     state();
 	//state(int);
     state(std::string&,stringList&,tracks&,weights*, StateFuncs*); //!Create state from string
+    ~state();
     
     friend class model;
     
@@ -72,7 +73,7 @@ public:
     
     //!Get all transition defined for the state
     //!\return std::vector<transitions*>*  Pointer to all transitions in state
-    inline std::vector<transition*>* getTransitions(){return &transi;};
+    inline std::vector<transition*>* getTransitions(){return transi;};
     
     //!Get all states that this state has transitions to
     //! \return std::vector<state*>* Pointer to all state that are transitioned to
@@ -93,7 +94,7 @@ public:
     //!Get transition at index
     //! \param iter Index to get transition for
     //! \return transition* pointer to the transition
-    inline transition* getTrans(size_t iter){return transi[iter];};
+    inline transition* getTrans(size_t iter){return (*transi)[iter];};
     
     //!Get the ending transition 
     //! \return transition* Pointer to ending transition
@@ -117,7 +118,7 @@ public:
     
     //!Add the transition to the state
     //!\param trans Pointer to transition to add to the state
-    inline void addTransition(transition* trans){transi.push_back(trans);};
+    inline void addTransition(transition* trans){transi->push_back(trans);};
     
     //!Set the ending transition to a given transition
     //!\param trans Pointer to transition to be used as ending transition
@@ -147,13 +148,15 @@ public:
     inline void setIter(size_t val){stateIterator=val;};
     
     void checkLabels(std::set<std::string>& ,std::set<std::string>& ,std::set<std::string>& );
+    
+    void _finalizeTransitions(std::map<std::string,state*>& state_index);
 	
 private:
     std::string name;	/* State name */
     std::string gff ;	/* State features description */
     std::string label;	/* State feature path label */
     
-    std::vector<transition*> transi;
+    std::vector<transition*>* transi;
 	transition* endi;
     
     // Track Emissions //

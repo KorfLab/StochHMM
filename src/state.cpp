@@ -28,7 +28,9 @@
 namespace StochHMM{
 
     //!Create a state object
-    state::state():stateIterator(SIZE_MAX),endi(NULL){}
+    state::state():stateIterator(SIZE_MAX),endi(NULL){
+        transi = new std::vector<transition*>;
+    }
 
     //!Create a state from string
     //! Parses the string to create a state
@@ -40,8 +42,16 @@ namespace StochHMM{
     state::state(std::string& txt, stringList& names,tracks& trcks, weights* wts, StateFuncs* funcs):stateIterator(SIZE_MAX),endi(NULL){
         
         //endi=new transition(STANDARD);
+        transi = new std::vector<transition*>;
         parse(txt,names,trcks, wts,funcs);
     }
+    
+    state::~state(){
+        delete transi;
+        transi=NULL;
+    }
+    
+    
 
 //state::state(int size){
 //	name="";
@@ -246,7 +256,7 @@ namespace StochHMM{
                     else{
                         //size_t idx = names.indexOf(transName);
                         //idx--;
-                        transi.push_back(temp);
+                        addTransition(temp);
                     }
                 }
                 
@@ -269,7 +279,7 @@ namespace StochHMM{
                 
                 //size_t idx = names.indexOf(transName);
                 //idx--;
-                transi.push_back(temp);
+                addTransition(temp);
             }
         }
         return true;
@@ -328,30 +338,30 @@ namespace StochHMM{
         std::string lexicalString;
         
         //Get Transitions Standard, Distribution, Lexical
-        for(size_t i=0;i<transi.size();i++){
-            if (transi[i]==NULL){ continue;}
+        for(size_t i=0;i<transi->size();i++){
+            if ((*transi)[i]==NULL){ continue;}
             
-            transType tp = transi[i]->getTransitionType();
+            transType tp = (*transi)[i]->getTransitionType();
             if (tp == STANDARD){
                 if (standardString.empty()){
                     standardString+="TRANSITONS:\tSTANDARD:\tLOG\n";
                 }
-                standardString+=transi[i]->stringify() + "\n";
+                standardString+=(*transi)[i]->stringify() + "\n";
             }
             else if (tp == DURATION){
                 distribString+="TRANSITONS:\tDURATION:\tLOG\n";
-                distribString+=transi[i]->stringify();
+                distribString+=(*transi)[i]->stringify();
                 
             }
             else if (tp == LEXICAL){
-                if (transi[i]->LexFunctionDefined()){
+                if ((*transi)[i]->LexFunctionDefined()){
                     lexicalString+="TRANSITIONS:\tLEXICAL:\tFUNCTION:\t";
-                    lexicalString+=transi[i]->getLexicalFunctionName();
+                    lexicalString+=(*transi)[i]->getLexicalFunctionName();
                     lexicalString+="\n";
                 }
                 else{
                     lexicalString+="TRANSITONS:\tLEXICAL:\tLOG\n";
-                    lexicalString+=transi[i]->stringify();
+                    lexicalString+=(*transi)[i]->stringify();
                 }
                 
             }
@@ -417,20 +427,13 @@ namespace StochHMM{
     //! \param iter Position in the sequence
     double state::get_trans(sequences &seqs, int to, int iter){
         double value;
-    #ifdef HMMER
-        double hmmer;
-
-        if (transi[to].hmmerDefined){
-            // FIXME:  Need to determine what code is needed here???
-            //hmmer=get hmmer score 
-        }
-    #endif 
-        if (transi[to]->transition_type==STANDARD){
-            value=transi[to]->log_trans;
+        
+        if ((*transi)[to]->transition_type==STANDARD){
+            value=(*transi)[to]->log_trans;
         }
         else{
             std::cerr << "Need to implement this functionality" <<std::endl;
-            value=transi[to]->getTransition(iter,&seqs);
+            value = (*transi)[to]->getTransition(iter,&seqs);
             
         }
         return value;
@@ -444,8 +447,8 @@ namespace StochHMM{
     //TODO: complete teh checkLabels function
     //! Checks the label tags for traceback and combine identifiers 
     void state::checkLabels(std::set<std::string>& labels, std::set<std::string>& gff, std::set<std::string>& name){
-        for(size_t i = 0;i<transi.size();i++){
-            transitionFuncParam* func = transi[i]->getExtFunction();
+        for(size_t i = 0;i<(*transi).size();i++){
+            transitionFuncParam* func = (*transi)[i]->getExtFunction();
             if (func!=NULL){
                 
                 tracebackIdentifier tt = func->getTracebackType();
@@ -496,6 +499,23 @@ namespace StochHMM{
             }
         }
         
+        return;
+    }
+    
+    
+    void state::_finalizeTransitions(std::map<std::string,state*>& state_index){
+        size_t number_of_states = state_index.size();
+        std::vector<transition*>* fixed_trans = new std::vector<transition*>(number_of_states,NULL);
+        for(size_t i = 0; i < transi->size(); i++){
+            transition* temp = (*transi)[i];
+            std::string name = temp->getName();
+            state* st = state_index[name];
+            size_t index = st->getIterator();
+            (*fixed_trans)[index]=temp;
+            (*transi)[i]=NULL;
+        }
+        delete transi;
+        transi = fixed_trans;
         return;
     }
 }

@@ -867,12 +867,15 @@ namespace StochHMM{
             std::set<std::string> gff;
             std::set<std::string> name;
             
+            //Create temporary hash of states for layout
             for(size_t i=0;i<states.size();i++){
                 labels.insert(states[i]->getLabel());
                 gff.insert(states[i]->getGFF());
                 gff.insert(states[i]->getName());
             }
             
+            
+            //Add states To and From transition 
             _addStateToFromTransition(initial);
             for(size_t i=0;i<states.size();i++){
                 states[i]->setIter(i);
@@ -880,6 +883,12 @@ namespace StochHMM{
                 states[i]->checkLabels(labels,gff,name);
             }
             
+            //Now that we've seen all the states in the model
+            //We need to fix the States transitions vector transi, so that the state
+            //iterator correlates to the position within the vector 
+            for(size_t i=0;i<states.size();i++){
+                states[i]->_finalizeTransitions(statesByName);
+            }
             
             //Check to see if model is basic model
             for(size_t i=0;i<states.size();i++){

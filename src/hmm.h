@@ -155,6 +155,8 @@ public:
     
     //!  Print model to stdout
 	void print();
+    
+    
     //void writeGraphViz(std::string);
     void writeGraphViz(std::string,bool);
     
