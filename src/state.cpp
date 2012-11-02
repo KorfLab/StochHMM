@@ -503,9 +503,18 @@ namespace StochHMM{
     }
     
     
+    /* On initial import of the states they are pushed on the transi vector in
+     the order written in model.   However, the analysis requires that they be
+     in the particular position defined by state iterator.  
+     
+     This function puts the transitions in the proper order for analysis
+     */
     void state::_finalizeTransitions(std::map<std::string,state*>& state_index){
         size_t number_of_states = state_index.size();
+        
         std::vector<transition*>* fixed_trans = new std::vector<transition*>(number_of_states,NULL);
+        
+        //Find the proper place for the transition and put it in the correct position
         for(size_t i = 0; i < transi->size(); i++){
             transition* temp = (*transi)[i];
             std::string name = temp->getName();
@@ -514,7 +523,8 @@ namespace StochHMM{
             (*fixed_trans)[index]=temp;
             (*transi)[i]=NULL;
         }
-        delete transi;
+        
+        delete transi;  //Don't need the old transition vector anymore
         transi = fixed_trans;
         return;
     }

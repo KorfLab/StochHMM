@@ -527,7 +527,7 @@ namespace StochHMM{
         size_t stateSize=hmm->state_size();
         size_t seqSize=seq->getLength();
         
-        for(int previousSt=0;previousSt<stateSize;previousSt++){
+        for(int previousSt=0; previousSt < stateSize; previousSt++){
             
             double finalViterbiScore=getEndingTransition(previousSt)+trell[seqSize-1][previousSt].viti;
             

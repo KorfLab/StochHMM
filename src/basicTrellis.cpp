@@ -358,7 +358,13 @@ namespace StochHMM{
     
     //!Get ending transition probability                                                          
     double basicTrellis::getEndingTransition(size_t transitionFrom){
-        static state* currState = hmm->getState(transitionFrom);
+        state* currState = hmm->getState(transitionFrom);
+        transition* temp = currState->getEnding();
+        
+        if (temp == NULL){
+            return -INFINITY;
+        }
+        
         return (currState->getEnding())->getTransition(0,NULL);
         
         //static state* ending = hmm->getEnding();

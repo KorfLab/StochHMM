@@ -890,6 +890,7 @@ namespace StochHMM{
                 states[i]->_finalizeTransitions(statesByName);
             }
             
+            
             //Check to see if model is basic model
             for(size_t i=0;i<states.size();i++){
                 std::vector<transition*>* transitions = states[i]->getTransitions();
