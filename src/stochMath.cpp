@@ -273,4 +273,241 @@ namespace StochHMM{
         return a.second+((cx-a.first)/(b.first-a.first))*(b.second-a.second);
     }
     
+    
+    template <class T>
+	T min(std::vector<T> &set){
+		T min =set[0];
+		for(long i=set.size()-1;i>0;i--){
+			if (set[i]<min){ min=set[i];}
+		}
+		return min;
+    }
+    
+    template <class T>
+	T max(std::vector<T> &set){
+		T max=set[0];
+		for(long i=set.size()-1;i>0;i--){
+			if (set[i]>max){ max=set[i];}
+		}
+		return min;
+    }
+    
+    template <class T>
+	T construct_histogram (std::vector<T> &set,int N_bins){
+		T mini=min(set);
+		T maxi=max(set);
+		T delta=(maxi-mini+1)/N_bins;
+        std::vector<T> bin (N_bins,0);
+		for(size_t i=set.size()-1;i>=0;i--){
+			T value=floor((set[i]-mini)/delta);
+			bin(value)=bin(value)+1/(set.size()*delta);
+		}
+		return bin;
+    }
+    
+    template <class T>
+	T smooth_histogram (std::vector<T> histo, int intervals, int window_size, int iterations){
+        std::vector<T> s_histo=histo;
+		for (int i=1;i<=iterations;i++){
+			for (int b=0;b<=intervals-window_size;b++){
+				int c=b+floor((window_size-1)/2);
+				s_histo[c]=0;
+				for (int j=b;j<=b+window_size-1;i++){
+					s_histo[c]=s_histo[c]+histo[j]/window_size;
+				}
+			}
+			for (int b=0;b<=((window_size-1)/2)-1;b++){
+				s_histo=s_histo[floor((window_size-1)/2)];
+			}
+			for (int b=intervals-window_size+1+floor((window_size-1)/2); b<=intervals-1;i++){
+				s_histo[b]=s_histo[intervals-window_size+floor((window_size-1) / 2)];
+			}
+			histo=s_histo;
+		}
+		T sum=0;
+		for (int b=0;b<=intervals-1;b++){
+			sum+=sum+s_histo[b];
+		}
+		for (int b=0;b<=intervals-1;b++){
+			s_histo[b]/=sum;
+		}
+		return s_histo;
+	}
+    
+    float entropy (std::vector<float> &set){
+        float entropy=0;
+        for(size_t i=0;i<set.size();i++){
+            entropy+=set[i]*(log(set[i])/log(2));
+        }
+        return entropy*-1;
+    }
+    
+    float rel_entropy (std::vector<float> &set, std::vector<float> &set2){
+        float rel_entropy=0;
+        if (set.size()!=set2.size()){
+            std::cerr << "Distributions aren't the same size";
+        }
+        
+        for(size_t i=0;i<set.size();i++){
+            rel_entropy+=0.5*(set[i]* (log (set[i]/set2[i]) /log(2) )+set2[i]*(log(set2[i]/set[i])/log(2)));
+        }
+        return rel_entropy;
+    }
+    
+    
+    ///////////////////////////////////////////  Integration & Summation //////////////////////////////////////////////
+    //Need to adapt to take up to three paramenter and pass them to the function.
+    //If one parameter is given then only pass one to function and so on.
+    
+    //Fix: variable handed to function to include only vector<double>
+    double _integrate (double (*funct)(double, std::vector<double>&),double upper, double lower,std::vector<double>& param){
+        double mid=(lower+upper)/2.0;
+        double h3=fabs(upper-lower)/6.0;
+        return h3*(funct(lower,param)+4*funct(mid,param)+funct(upper,param));
+    }
+    
+    double integrate (double (*funct)(double,std::vector<double>&),double lower, double upper ,std::vector<double>& param, double max_error=0.000001, double sum=0){
+        double mid=(upper+lower)/2.0;
+        double left=_integrate(funct,lower, mid, param);
+        double right=_integrate(funct,mid,upper, param);
+        
+        
+        if (fabs(left+right-sum)<=15*max_error){
+            return left+right +(left+right-sum)/15;
+        }
+        
+        
+        
+        
+        return integrate(funct,lower,mid,param,max_error/2,left) + integrate(funct,mid,upper,param,max_error/2,right);
+    }
+    
+    
+    
+    //  Adaptive Simpson's numerical integration method
+    double simpson (double (*funct)(double,double,double),double alpha, double beta, double lower, double upper){
+        double mid=(lower+upper)/2.0;
+        double h3=fabs(upper-lower)/6.0;
+        return h3*(funct(lower,alpha,beta)+4*funct(mid,alpha,beta)+funct(upper,alpha,beta));
+    }
+    
+    double adapt_simpson (double (*funct)(double,double,double),double alpha, double beta, double lower, double upper, double max_error, double sum){
+        double mid=(upper+lower)/2.0;
+        double left=simpson(funct,alpha,beta,lower, mid);
+        
+        double right=simpson(funct,alpha,beta,mid,upper);
+        if (fabs(left+right-sum)<=15*max_error){
+            return left+right +(left+right-sum)/15;
+        }
+        return adapt_simpson(funct,alpha,beta,lower,mid,max_error/2,left) + adapt_simpson(funct,alpha,beta,mid,upper,max_error/2,right);
+    }
+    
+    double summation (double (*funct)(int,std::vector<double>), int lower, int upper, std::vector<double> param){
+        double sum=0;
+        for(int i=lower;i<=upper;i++){
+            sum+=funct(i,param);
+        }
+        return sum;
+    }
+    
+    /////////////////////////////////////// FUNCTIONS //////////////////////////////////////////////
+    
+    double igamma_upper (double s, double x){
+        return tgamma(s)-igamma_lower(s,x);
+    }
+    
+    
+    //incomplete lower gamma (a,x)
+    ///http://wwwC/.rskey.org/CMS/index.php/the-library/11
+    double igamma_lower (double a, double x){
+        double constant = pow(x,a) * exp(-1 * x);
+        double sum =0;
+        for (int n=0;n<60;n++){
+            double num = pow(x,(double)n);
+            double denom=a;
+            for(int m=1;m<=n;m++){
+                denom*=a+m;
+            }
+            num/=denom;
+            sum+=num;
+        }
+        return constant * sum;
+    }
+    
+    
+    double rgammap(double s, double x){
+        return igamma_lower(s,x)/tgamma(s);
+    }
+    
+    
+    double rgammaq(double s, double x){
+        return igamma_upper(s,x)/tgamma(s);
+    }
+    
+    //Beta(a,b) = Beta function
+    double beta(double a, double b){
+        double value=(tgamma(a)*tgamma(b))/tgamma(a+b);
+        return value;
+    }
+    
+    //Incomplete beta function B(x,a,b)
+    double ibeta(double x, double a, double b){
+        return betaPDF(x,a,b) * exp(log(tgamma(a)) + log(tgamma(b)) - log(tgamma(a+b)));
+    }
+    
+    
+    //!Beta probability distribution function
+    //!param x  Value 0<x<1
+    //!param a  Shape parameter a>0
+    //!param b  Shape parameter b>0
+    float betaPDF(float x, float a, float b){
+        float constant = 1/beta(a,b);
+        constant*=pow(x,a-1) * pow(1-x,b-1);
+        return constant;
+    }
+    
+    
+    //
+    ////Incomplete beta function B(x,a,b)
+    //double ibeta(double x, double a, double b){
+    //	vector<double> parameters(2,0.0);
+    //	parameters[0]=a;
+    //	parameters[1]=b;
+    //	return (integrate(_ibeta,0.0,x,parameters));
+    //}
+    //
+    //double _ibeta(double x, vector<double>& parameters){
+    //	double a=parameters[0];
+    //	double b=parameters[1];
+    //	return (pow(x,a-1)*pow(1-x,b-1));
+    //}
+    
+    
+    //Regularized incomplete beta  Ix(a,b)
+    double ribeta(double x, double a, double b){
+        return ibeta(x,a,b)/beta(a,b);
+    }
+    
+    //Returns stirlings approximation of floor(X!)
+    double factorial(double x){
+        double f=sqrt((2*x+(1/3))*M_PI)*pow(x,x)*exp(-1*x);
+        return floor(f);
+    }
+    
+    
+    double bin_coef (double n, double r){
+        double c=0;
+        for(int i=r+1;i<=n;i++) {c+=log(i);}
+        for(int j=1;j<=(n-r);j++) {c-=log(j);}
+        return exp(c);
+    }
+    
+    int bin_coef (int n, int r){
+        float c=0;
+        for(int i=r+1;i<=n;i++) {c+=log(i);}
+        for(int j=1;j<=(n-r);j++) {c-=log(j);}
+        return exp(c);
+    }
+    
+
 }

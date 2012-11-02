@@ -33,95 +33,96 @@
 namespace StochHMM{
 
 
-#define PI 3.145926535897932
-
-//Discrete with finite support
-double uniform_cdf(double,int,int,int);
-double binomial_cdf(double);
-double hypergeometric_cdf(double);
-
-
-double poisson_binomial_cdf(double);
-double degenerate_distribution(double);
-double beta_binomial_cdf(double);
-
-//Discrete with infinite support
-double boltzman_cdf(double);
-double extended_negative_binomial_cdf(double);
-double geometric_cdf(double);
-double logarithmic_cdf(double);
-double negative_binomial_cdf(double);
-double parabolic_fractal_cdf(double);
-double poisson_cdf(double);
-double skellam_cdf(double);
-double yule_simon_cdf(double);
-double zeta(double);
-
-//Continuous with infinite support
-double beta_prime_cdf(double);
-double chi_cdf(double);
-double noncentral_chi_cdf(double);
-double chi_square_cdf(double);
-double exponential_cdf(double);
-double F_cdf(double);
-double gamma_cdf(double);
-double fisher_z_cdf(double);
-double folded_normal_distribution(double);
-double half_normal_distribution(double);
-double hotelling_t_square_cdf(double);
-double inverse_gaussian_cdf(double);
-double log_logistic_cdf(double);
-double log_normal_cdf(double);
-double pareto_cdf(double);
-
-
-template <class T> T min(std::vector<T>&);
-template <class T> T max(std::vector<T>&);
-template <class T> T construct_histogram( std::vector<T>&, int);
-template <class T> T smooth_histogram( std::vector<T>& , int, int, int);	
- 
- 
-float entropy(std::vector<float> &set);
-float rel_entropy(std::vector<float> &set, std::vector<float> &set2);
- 
- 
-double _integrate(double (*funct)(double, std::vector<double>),double, double, std::vector<double> );
-double integrate(double (*funct)(double, std::vector<double>),double, double, std::vector<double>, double, double);
- 
-double simpson(double (*funct)(double,std::vector<double>),double alpha, double beta,double lower, double upper);
- double adapt_simpson(double (*funct)(double, double, double),double alpha, double beta, double lower, double upper, double max_error, double sum);
- 
- double gamma_func(double);
- double gamma_pdf(double, double, double);
-double gamma_pdf(double, std::vector<double>);
- double gamma_cdf(double, double, double);
- 
- double chi2_pdf(double, double);
- double chi2_cdf(double, double);
- 
- double beta_pdf(double,double,double);
-double beta_pdf(double, std::vector<double>);
-double beta_cdf(double,double,double);
- 
- double expon_pdf(double,double);
- double expon_cdf(double,double);
- 
- double normal_pdf(double,double,double);
- 
- double bin_coef(int,int);
-double summation(double(*funct)(int,std::vector<double>), int, int, std::vector<double>);
- 
- double binomial_pdf(int,int,double);
-double binomial_pdf(int, std::vector<double>);
- double binomial_cdf(int, int, double);
- 
-double multinomial_pdf(std::vector<int>,int , std::vector<double>);
- 
-double _low_igamma(double, std::vector<double>);
- double low_igamma(double, double);
- double upper_igamma(double, double);
- double erf(double);
- double std_normal_cdf(double);
+    #define PI 3.145926535897932
+    
+    //Discrete with finite support
+    float discrete_uniform_cdf(int,int,int);
+    double binomial_cdf(double);
+    double hypergeometric_cdf(double);
+    
+    
+    double poisson_binomial_cdf(double);
+    double degenerate_distribution(double);
+    double beta_binomial_cdf(double);
+    
+    //Discrete with infinite support
+    double boltzman_cdf(double);
+    double extended_negative_binomial_cdf(double);
+    double geometric_cdf(double);
+    double logarithmic_cdf(double);
+    double negative_binomial_cdf(double);
+    double parabolic_fractal_cdf(double);
+    double poisson_cdf(double);
+    double skellam_cdf(double);
+    double yule_simon_cdf(double);
+    double zeta(double);
+    
+    //Continuous Distributions
+    float continuous_uniform_cdf(float,float,float);
+    double beta_prime_cdf(double);
+    double chi_cdf(double);
+    double noncentral_chi_cdf(double);
+    double chi_square_cdf(double);
+    double exponential_cdf(double);
+    double F_cdf(double);
+    double gamma_cdf(double);
+    double fisher_z_cdf(double);
+    double folded_normal_distribution(double);
+    double half_normal_distribution(double);
+    double hotelling_t_square_cdf(double);
+    double inverse_gaussian_cdf(double);
+    double log_logistic_cdf(double);
+    double log_normal_cdf(double);
+    double pareto_cdf(double);
+    
+    
+    template <class T> T min(std::vector<T>&);
+    template <class T> T max(std::vector<T>&);
+    template <class T> T construct_histogram( std::vector<T>&, int);
+    template <class T> T smooth_histogram( std::vector<T>& , int, int, int);
+    
+    
+    float entropy(std::vector<float> &set);
+    float rel_entropy(std::vector<float> &set, std::vector<float> &set2);
+    
+    
+    double _integrate(double (*funct)(double, std::vector<double>),double, double, std::vector<double> );
+    double integrate(double (*funct)(double, std::vector<double>),double, double, std::vector<double>, double, double);
+    
+    double simpson(double (*funct)(double,std::vector<double>),double alpha, double beta,double lower, double upper);
+    double adapt_simpson(double (*funct)(double, double, double),double alpha, double beta, double lower, double upper, double max_error, double sum);
+    
+    double gamma_func(double);
+    double gamma_pdf(double, double, double);
+    double gamma_pdf(double, std::vector<double>);
+    double gamma_cdf(double, double, double);
+    
+    double chi2_pdf(double, double);
+    double chi2_cdf(double, double);
+    
+    double beta_pdf(double,double,double);
+    double beta_pdf(double, std::vector<double>);
+    double beta_cdf(double,double,double);
+    
+    double expon_pdf(double,double);
+    double expon_cdf(double,double);
+    
+    double normal_pdf(double,double,double);
+    
+    float bin_coef(int,int);
+    float summation(float(*funct)(int,std::vector<float>), int, int, std::vector<float>);
+    
+    float binomial_pdf(int,int,float);
+    float binomial_pdf(int, std::vector<float>);
+    float binomial_cdf(int, int, float);
+    
+    double multinomial_pdf(std::vector<int>,int , std::vector<double>);
+    
+    double _low_igamma(double, std::vector<double>);
+    double low_igamma(double, double);
+    double upper_igamma(double, double);
+    double erf(double);
+    double std_normal_cdf(double);
 
     
 }

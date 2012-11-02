@@ -37,6 +37,7 @@
 
 namespace StochHMM{
     
+    #define PI 3.145926535897932
     
     //FIXME: Need to generate dynamically once upon initialization of HMM. System differences between (int,long,...);
     //Or just leave it. It may work well enough;
@@ -303,6 +304,51 @@ namespace StochHMM{
      */
     double extrapolate(std::pair<double,double>&,std::pair<double,double>&,double&);
     
+    
+    template <class T> T min(std::vector<T>&);
+    template <class T> T max(std::vector<T>&);
+    template <class T> T construct_histogram(std::vector<T>&, int);
+    template <class T> T smooth_histogram(std::vector<T>& , int, int, int);
+    
+    float entropy(std::vector<float> &set);
+    float rel_entropy(std::vector<float> &set, std::vector<float> &set2);
+    
+    double _integrate(double (*funct)(double, std::vector<double>&),double, double, std::vector<double>& );
+    double integrate(double (*funct)(double, std::vector<double>&),double, double, std::vector<double>&, double, double);
+    
+    double simpson(double (*funct)(double, std::vector<double>&),double alpha, double beta,double lower, double upper);
+    double adapt_simpson(double (*funct)(double, double, double),double alpha, double beta, double lower, double upper, double max_error, double sum);
+    double summation(double(*funct)(int,std::vector<double>&), int, int, std::vector<double>&);
+    
+    ////Functions
+    
+    //Incomplete gamma functions
+    double igamma_upper (double, double);
+    double igamma_lower (double, double);
+    double _igamma_lower (double, std::vector<double>&);
+    //Regularized gamma functions
+    double rgammap(double, double);
+    double rgammaq(double, double);
+    
+    //Beta Functions
+    double beta(double a, double b);
+    
+    //Incomplete Beta function
+    double ibeta(double,double,double);
+    float betaPDF(float x, float a, float b);
+    double _ibeta(double, std::vector<double>&);
+    
+    //Regularized Incomplete Beta function
+    double ribeta(double,double,double);
+    
+    double factorial(double);
+    double bin_coef (double, double);
+    int bin_coef(int,int);
+    
+    
+    inline double logit(double x){
+        return log(x/(1-x));
+    }
 
 }
 #endif
