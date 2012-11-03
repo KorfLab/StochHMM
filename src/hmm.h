@@ -105,6 +105,8 @@ public:
     
     state* getState(const std::string&);
     
+    inline state* operator[](size_t iter){return states[iter];}
+    
     //!Get vector of states that state at index transitions to
     inline std::vector<state*>* getStateXTo(size_t iter){return &states[iter]->to;}
     

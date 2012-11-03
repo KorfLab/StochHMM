@@ -428,7 +428,10 @@ namespace StochHMM{
     double state::get_trans(sequences &seqs, int to, int iter){
         double value;
         
-        if ((*transi)[to]->transition_type==STANDARD){
+        if ((*transi)[to]==NULL){
+            return -INFINITY;
+        }
+        else if ((*transi)[to]->transition_type==STANDARD){
             value=(*transi)[to]->log_trans;
         }
         else{
@@ -441,6 +444,9 @@ namespace StochHMM{
     
     //! Get the log probability transitioning to end from the state
     double state::getEndTrans(){
+        if (endi==NULL){
+            return -INFINITY;
+        }
         return endi->log_trans;
     }
     
