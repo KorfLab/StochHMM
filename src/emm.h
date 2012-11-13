@@ -93,7 +93,9 @@ public:
     inline void print(){std::cout << stringify()<<std::endl;};
     
     std::string stringify();
-            
+    
+    inline lexicalTable* getTables(){return &scores;};
+    
 private:
     
     //size_t track_size;

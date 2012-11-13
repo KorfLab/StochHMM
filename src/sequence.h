@@ -147,6 +147,8 @@ namespace StochHMM{
         bool reverse();
         
         bool digitize();
+		
+		inline std::vector<short>* getDigitalSeq(){return seq;}
         
         
         //void getNext (std::ifstream&, track*);

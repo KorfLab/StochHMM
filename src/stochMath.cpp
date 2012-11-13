@@ -259,6 +259,19 @@ namespace StochHMM{
         return;
     }
     
+	
+	void logProbVector(std::vector<double>& data){
+        double sum=sumVector(data);
+        for(size_t iter=0;iter<data.size();iter++){
+            if (sum==0){
+                data[iter]=-INFINITY;
+            }
+            else{
+                data[iter] = log(data[iter]/sum);
+            }
+        }
+        return;
+    }
     
     //Linear interpolation of y value given two pair<x,y> and x value
     double interpolate(std::pair<double,double>& a, std::pair<double,double>& b, double& cx){

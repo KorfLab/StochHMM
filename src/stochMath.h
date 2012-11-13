@@ -284,6 +284,18 @@ namespace StochHMM{
      \param data Vecor of doubles
      */
     void probVector(std::vector<double>&);
+	
+	template <class T>
+	void addVector(std::vector<T>& lhs, std::vector<T>& rhs){
+		transform(lhs.begin(), lhs.end(), rhs.begin(), lhs.begin(), std::plus<T>());
+		return;
+	}
+	
+	/*! \fn void logProbVector(std::vector<double>& data)
+     \brief Convert the vector to log of probilities.  Divide each indice by the sum of the vector
+     \param data Vecor of doubles
+     */
+    void logProbVector(std::vector<double>&);
     
     
     //Linear interpolation and extrapolation

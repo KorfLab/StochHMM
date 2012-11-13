@@ -26,7 +26,8 @@ int main(int argc, const char * argv[])
     //Check that model argument is defined and import the model
     std::string model_file = "Lettuce_Final.hmm";
     std::string seq_file = "Test_no_N.fa";
-    hmm.import(model_file);
+    
+	hmm.import(model_file);
     
     jobs.loadSeqs(hmm, seq_file, FASTA);
     
@@ -34,7 +35,9 @@ int main(int argc, const char * argv[])
     
     mem_trellis test_trellis;
     
-    viterbi_two(&test_trellis, job->getModel(), job->getSeqs());
+    viterbi_three(&test_trellis, job->getModel(), job->getSeqs());
+	//viterbi_two(&test_trellis, job->getModel(), job->getSeqs());
+	//viterbi_four(&test_trellis, job->getModel(), job->getSeqs());
     
     return 0;
 }
