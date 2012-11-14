@@ -65,7 +65,7 @@ namespace StochHMM{
                 std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
                 exit(1);
             }
-
+			
         }
         
         return counts;
@@ -80,7 +80,7 @@ namespace StochHMM{
                 std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
                 exit(1);
             }
-
+			
         }
         
         return prob;
@@ -104,13 +104,13 @@ namespace StochHMM{
     double lexicalTable::getValue(sequences& seqs, size_t pos){
         double value;
         
-            if (max_order>pos){
-                value=_get_reduced_order(seqs, pos);
-            }
-            else{
-                value=_getValue(seqs,pos);
-            }
-
+		if (max_order>pos){
+			value=_get_reduced_order(seqs, pos);
+		}
+		else{
+			value=_getValue(seqs,pos);
+		}
+		
         
         return value;
     }
@@ -128,9 +128,9 @@ namespace StochHMM{
         }
         
     }
-
+	
     //!Set the type of counts in the emission 2D table provided by the user
-    //!\param temp vector of vectors of doubles 
+    //!\param temp vector of vectors of doubles
     //!\param emmType Type of value (COUNTS, PROBABILITY, LOG_PROB)
     void lexicalTable::assignTable(std::vector<std::vector<double > >* temp, valueType emmType){
         if (emmType==COUNTS){
@@ -143,7 +143,7 @@ namespace StochHMM{
             logProb=temp;
         }
     }
-
+	
     
     
     
@@ -203,8 +203,6 @@ namespace StochHMM{
             return (*logProb)[yVal[0]][xVal[0]];
         }
         
-		//Get all of the scores from the table
-		//given the index values
         std::vector<double> scores;
         for(size_t i=0;i<yVal.size();i++){
             for(size_t j=0;j<xVal.size();j++){
@@ -212,8 +210,6 @@ namespace StochHMM{
             }
         }
         
-		//Return scores based on the scoring method set
-		//
         if (unknownScoreType==AVERAGE_SCORE){
             return avgVector(scores);
         }
@@ -230,7 +226,6 @@ namespace StochHMM{
     
     //Calculate the index for emissions.   Emissions can be compound tracks, so we need to calculate
     //index for those where we may have an emission A1 or ATG120 and the index for the conditional sequence
-	//If characters are ambiguous (negative) then we compute all the possible index values
     double lexicalTable::_getValue(sequences& seqs, size_t iter){
         
         Index xValue;
@@ -265,10 +260,8 @@ namespace StochHMM{
                 x_subtotal*=alphabets[j];
             }
             
-            xValue+=x_subtotal;  //xValue is the emission
+            xValue+=x_subtotal;
             
-			
-			//Calculate the conditional (what we've seen before)
             Index y_subtotal;
             
             if (order[i]==0){
@@ -416,7 +409,7 @@ namespace StochHMM{
         }
         return tbl;
     }
-
+	
     
     
     

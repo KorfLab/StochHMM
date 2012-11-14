@@ -23,12 +23,24 @@
 #include <stdlib.h>
 
 namespace StochHMM{
-
+	
+	typedef std::vector<double> zero_order;
+    typedef std::vector<zero_order> first_order;
+    typedef std::vector<first_order> second_order;
+    typedef std::vector<second_order> third_order;
+    typedef std::vector<third_order> fourth_order;
+    typedef std::vector<fourth_order> fifth_order;
+	typedef std::vector<fifth_order> sixth_order;
+	typedef std::vector<sixth_order> seventh_order;
+	typedef std::vector<seventh_order> eighth_order;
+	typedef std::vector<eighth_order> ninth_order;
+	typedef std::vector<ninth_order> tenth_order;
+	
+	
+	
     //! \class lexicalTable
     //! \brief Lexical table stores the log2 probabilities for both emissions and lexical transitions
-    //! 
-    
-    
+    //!
     class lexicalTable{
     public:
         
@@ -66,22 +78,22 @@ namespace StochHMM{
         inline size_t trackSize(){return trcks.size();};
         
         //!Get Orders of lexical emission will use for all tracks
-        //!\return std::vector<int> 
+        //!\return std::vector<int>
         inline std::vector<uint8_t>& getOrder(){return order;};
         inline uint8_t getOrder(size_t i){return order[i];}
         
-        //! Get Log(prob) emission table 
+        //! Get Log(prob) emission table
         //! \return std::vector<std::vector<double> >
         inline std::vector<std::vector<double> >& getLogEmm(){return *logProb;}
         
         //! Get the alphabet sizes for all tracks used in emission
-        //! \return std::vector<int> 
+        //! \return std::vector<int>
         inline std::vector<uint8_t>& getAlphaSize(){return alphabets;}
         inline uint8_t getAlphaSize(size_t i){return alphabets[i];}
         inline size_t getNumberOfAlphabets(){return alphabets.size();}
         
         inline unknownCharScoringType getAmbScoringType(){return unknownScoreType;}
-        inline double getAmbDefinedScore(){return unknownDefinedScore;} 
+        inline double getAmbDefinedScore(){return unknownDefinedScore;}
         
         //!Increment counts
         inline void incrementCounts(size_t word_index, size_t char_index) { if (counts != NULL) (*counts)[word_index][char_index]++; }
@@ -102,7 +114,7 @@ namespace StochHMM{
         std::vector<std::vector<double> >* prob;     //p(x)
         std::vector<std::vector<double> >* counts;   //counts
         std::vector<std::vector<double> >* logProb;  //log2(P(x))
-
+		
         
         unknownCharScoringType unknownScoreType;  //! What type of score to use with unknown
         double unknownDefinedScore;  //!Undefined character score
@@ -110,7 +122,7 @@ namespace StochHMM{
         
         
         /*!Gets the score for a undefined or ambiguous character
-         Called by getValue which calculates all the possible scores, it combines scores and  
+         Called by getValue which calculates all the possible scores, it combines scores and
          returns a value
          */
         double _getScore(Index&, Index&);

@@ -15,13 +15,15 @@
 #include <vector>
 #include <string>
 #include "stochTypes.h"
+#include "sequences.h"
+#include "new_hmm.h"
 
 
 namespace StochHMM {
 
 	struct tb_score{
 		float score;
-		signed int16_t tb_ptr;
+		int16_t tb_ptr;
 	};
 	
 	

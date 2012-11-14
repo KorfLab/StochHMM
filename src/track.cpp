@@ -1,28 +1,28 @@
 //track.cpp
- //Copyright (c) 2007-2012 Paul C Lott 
- //University of California, Davis
- //Genome and Biomedical Sciences Facility
- //UC Davis Genome Center
- //Ian Korf Lab
- //Website: www.korflab.ucdavis.edu
- //Email: lottpaul@gmail.com
- //
- //Permission is hereby granted, free of charge, to any person obtaining a copy of
- //this software and associated documentation files (the "Software"), to deal in
- //the Software without restriction, including without limitation the rights to
- //use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
- //the Software, and to permit persons to whom the Software is furnished to do so,
- //subject to the following conditions:
- //
- //The above copyright notice and this permission notice shall be included in all
- //copies or substantial portions of the Software.
- //
- //THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- //IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- //FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- //COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- //IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//Copyright (c) 2007-2012 Paul C Lott
+//University of California, Davis
+//Genome and Biomedical Sciences Facility
+//UC Davis Genome Center
+//Ian Korf Lab
+//Website: www.korflab.ucdavis.edu
+//Email: lottpaul@gmail.com
+//
+//Permission is hereby granted, free of charge, to any person obtaining a copy of
+//this software and associated documentation files (the "Software"), to deal in
+//the Software without restriction, including without limitation the rights to
+//use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+//the Software, and to permit persons to whom the Software is furnished to do so,
+//subject to the following conditions:
+//
+//The above copyright notice and this permission notice shall be included in all
+//copies or substantial portions of the Software.
+//
+//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+//FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+//COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+//IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+//CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include "track.h"
 namespace StochHMM{
@@ -41,7 +41,7 @@ namespace StochHMM{
         sort(setDefinition.begin(),setDefinition.end());
         return;
     }
-
+	
     
     //!Create a track
     track::track(){
@@ -53,40 +53,44 @@ namespace StochHMM{
         maxSize=0;
         complementSet=false;
     }
-
+	
     //!Get the letter/word that has a given digitized value
     //! \param iter integer value of digital symbol
-    //! \return std::string The string value in the undigitized sequence that is associated with the integer digitized value; 
+    //! \return std::string The string value in the undigitized sequence that is associated with the integer digitized value;
     std::string track::getAlpha(int iter){
-        if (iter>=0){
-            if (iter<=128){
-                return alphabet[iter];
-            }
-            else{
-                return "";
-            }
-        }
-        else{
-            return getAmbiguousCharacter(iter);
-        }
+		if (iter<=max_unambiguous){
+			return alphabet[iter];
+		}
+		else if (iter <= max_ambiguous){
+			return getAmbiguousCharacter(iter);
+		}
+		else{
+			return "";
+		}
     }
     
     //FIXME: Have it check before adding value
-    //! Add a letter/word symbol to the track 
+    //! Add a letter/word symbol to the track
     //! \param character Word or symbol used in undigitized sequence
     bool track::addAlphabetChar(std::string& character){
         
-        if (alphabet.size()>=128){
+        if (alphabet.size() >= 128){
             std::cerr << "Alphabet limit reached.   Unable to add additional characters to the track:\t" << character << std::endl;
             return false;
         }
         
         
         if (character.size()>maxSize){maxSize=character.size();};
-        alphabet.push_back(character);
-        int index=(int) alphabet.size()-1;
-        symbolIndices[character]=index;
-        return true;
+        
+		alphabet.push_back(character);
+        
+		int index = alphabet.size()-1;
+        
+		symbolIndices[character]=index;
+		
+		max_unambiguous = symbolIndices.size()-1;
+        
+		return true;
     }
     
     bool track::addAlphabetChar(const char *character){
@@ -94,7 +98,9 @@ namespace StochHMM{
         return addAlphabetChar(string_character);
     }
     
-    
+	
+	//FIXME:  Need to fix the code below and test
+	//Complements added by Ken
     bool track::addAlphabetChar(std::vector<std::string>& characters, std::vector<std::string>& complement_char){
         
         if (characters.size() != complement_char.size()){
@@ -132,32 +138,33 @@ namespace StochHMM{
         return;
     }
     
-    //FIXME: Have it check value in track before adding value
     //!Add an ambiguous character/word definition to the track
     //! \param ambChar  word/symbol fore the ambiguous character
     void track::addAmbiguous(std::string& ambChar, std::vector<std::string>& defs){
+		if (defaultAmbiguous==-1){
+			defaultAmbiguous = max_unambiguous+1;
+		}
         ambigCharacter amb(this,ambChar,defs);
         ambiguousSymbols.push_back(amb);
-        int index= -1 * int(ambiguousSymbols.size());
+        int index = symbolIndices.size();  //Changed to positive number
         symbolIndices[ambChar]=index;
         return;
     }
-
+	
+	
     //! Get symbol assigned integer value
     //! \param symbol word/letter/symbol that we want to get it's assigned integer value
     int track::symbolIndex(std::string& symbol){
-        size_t count=symbolIndices.count(symbol);
-        if (count==0){
-            if (ambiguous){
+        if (symbolIndices.count(symbol)==0){  //If isn't found in the hash
+            if (ambiguous){ //Return default character if ambiguous is set
                 return defaultAmbiguous;
             }
             else{
-                std::cerr << "Encountered an ambiguous character in the sequence.  No ambiguous characters area allowed because they weren't set in the model.   To allow ambiguous characters, please add an \" Ambiguous Character Definition\" to the model" << std::endl;
+                std::cerr << "Encountered an ambiguous character in the sequence.  No ambiguous characters are allowed because they weren't set in the model.   To allow ambiguous characters, please add an \" Ambiguous Character Definition\" to the model" << std::endl;
                 exit(1);
                 //return -1;
                 //errorInfo(sCantHandleAmbiguousCharacter, "Ambiguous character handling is off but ambiguous character was encountered");
             }
-            
         }
         else{
             return symbolIndices[symbol];
@@ -204,7 +211,7 @@ namespace StochHMM{
         }
         else{
             setAlphaType(ALPHA_NUM);
-
+			
             for(int i=1;i<lst.size();i++){
                 if (!addAlphabetChar(lst[i])){
                     std::cerr << "Track import failed, because number of symbols exceeded 128. Alternatively, you can create a real number track for different emissions" << std::endl;
@@ -215,7 +222,7 @@ namespace StochHMM{
         }
         return true;
     }
-
+	
     //! Print the string representation of the track to stdout
     void track::print(){
         std::cout << stringify() << std::endl;
@@ -243,17 +250,17 @@ namespace StochHMM{
     }
     
     //!Get the string representation of the ambiguous character definitions as in model file
-    //! \return std::string 
+    //! \return std::string
     std::string track::stringifyAmbig(){
         std::string output;
         output+=name + ":\t";
         for (int i=0;i<getAmbiguousSize();i++){
             if (i>0){ output+= ",";}
-            int j=(-1*i)-1;
-            output+=getAmbiguousCharacter(j);
+            
+            output+=getAmbiguousCharacter(i);
             output+="{";
             
-            std::vector<int> regChar = getAmbiguousSet(j);
+            std::vector<int> regChar = getAmbiguousSet(i);
             for(size_t k = 0; k<regChar.size();k++){
                 if (k>0){output+=",";}
                 output+=alphabet[regChar[k]];
@@ -279,9 +286,9 @@ namespace StochHMM{
             size_t temp = floor ((double) wordIndex / dreg);
             output+=alphabet[temp];
             if (maxSize!=1){
-                 output += ",";
+				output += ",";
             }
-           
+			
             wordIndex-=temp*dreg;
             currentOrder--;
         }
@@ -321,7 +328,7 @@ namespace StochHMM{
             
             closing=text.find_first_of('}',opening);
             if (closing!=std::string::npos){
-                std::string tempString=text.substr(opening+1,closing-opening-1);            
+                std::string tempString=text.substr(opening+1,closing-opening-1);
                 split_line(amb.second, tempString);
             }
             start=text.find_first_not_of(',',closing+1);
@@ -341,7 +348,7 @@ namespace StochHMM{
             return "*";
         }
         
-        return ambiguousSymbols[abs(val)-1].getSymbol();
+        return ambiguousSymbols[(val-max_unambiguous)-1].getSymbol();
     }
     
     
@@ -400,7 +407,7 @@ namespace StochHMM{
         std::cout << stringify() << std::endl;
     }
     
-    //! Get string representation of each track in tracks 
+    //! Get string representation of each track in tracks
     //! \return std::string String representation of tracks as in model file
     std::string tracks::stringify(){
         std::string trackString;
@@ -427,7 +434,7 @@ namespace StochHMM{
     }
     
     
-    //! Get the complement alphabet character digitized value given a value 
+    //! Get the complement alphabet character digitized value given a value
     //! \param val Value of character to get complement of
     //! \return int value of complement
     int track::getComplementIndex(int val){
@@ -487,7 +494,7 @@ namespace StochHMM{
             std::cerr << "No complements are set in the track\n";
             exit(1);
         }
-
+		
     }
     
     
@@ -512,5 +519,5 @@ namespace StochHMM{
         }
     }
     
-
+	
 }

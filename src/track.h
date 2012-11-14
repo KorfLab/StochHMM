@@ -1,28 +1,28 @@
 //track.h
- //Copyright (c) 2007-2012 Paul C Lott 
- //University of California, Davis
- //Genome and Biomedical Sciences Facility
- //UC Davis Genome Center
- //Ian Korf Lab
- //Website: www.korflab.ucdavis.edu
- //Email: lottpaul@gmail.com
- //
- //Permission is hereby granted, free of charge, to any person obtaining a copy of
- //this software and associated documentation files (the "Software"), to deal in
- //the Software without restriction, including without limitation the rights to
- //use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
- //the Software, and to permit persons to whom the Software is furnished to do so,
- //subject to the following conditions:
- //
- //The above copyright notice and this permission notice shall be included in all
- //copies or substantial portions of the Software.
- //
- //THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- //IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- //FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- //COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- //IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//Copyright (c) 2007-2012 Paul C Lott
+//University of California, Davis
+//Genome and Biomedical Sciences Facility
+//UC Davis Genome Center
+//Ian Korf Lab
+//Website: www.korflab.ucdavis.edu
+//Email: lottpaul@gmail.com
+//
+//Permission is hereby granted, free of charge, to any person obtaining a copy of
+//this software and associated documentation files (the "Software"), to deal in
+//the Software without restriction, including without limitation the rights to
+//use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+//the Software, and to permit persons to whom the Software is furnished to do so,
+//subject to the following conditions:
+//
+//The above copyright notice and this permission notice shall be included in all
+//copies or substantial portions of the Software.
+//
+//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+//FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+//COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+//IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+//CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #ifndef TRACK_H
 #define TRACK_H
@@ -46,8 +46,8 @@
 #endif
 
 namespace StochHMM{
-
-
+	
+	
     class track;
     class tracks;
     
@@ -55,7 +55,7 @@ namespace StochHMM{
     /*! \class ambigCharacter
      \brief Define the ambiguous characters symbol and index number for digitizing ambiguous characters in the sequence
      For example in DNA N = [ACGT] = [0,1,2,3]
-
+	 
      */
     class ambigCharacter{
     public:
@@ -78,18 +78,18 @@ namespace StochHMM{
         std::vector<int> setDefinition;
     };
     
-       
-    //! \class track 
+	
+    //! \class track
     //! Defines types of data (real-value, text-sequence) used in the model
     //! and the alphabet that a text-sequence uses.  Tracks are used to digitize
     //! the sequence before decoding in HMM
-
+	
     class track {
     public:
         track();
         
         //TODO: Complete definition of constructor
-        track(TrackFuncs*); 
+        track(TrackFuncs*);
         
         friend class state;
         friend class model;
@@ -117,7 +117,7 @@ namespace StochHMM{
             std::cerr << "Track index: " << indx << " is OUT_OF_RANGE\n";
             exit(1);
         }
-            
+		
         
         //!Set the alphabet type of the track (Real or alphanum)
         //! \param typ enum trackType
@@ -125,7 +125,7 @@ namespace StochHMM{
         
         bool addAlphabetChar(std::string&);
         bool addAlphabetChar(std::vector<std::string>& , std::vector<std::string>&);
-        bool addAlphabetChar(const char *); 
+        bool addAlphabetChar(const char *);
         
         void addComplement(std::string&, std::string&);
         void addComplement(const char *, const char *);
@@ -181,7 +181,7 @@ namespace StochHMM{
         int getComplementIndex(int val);
         int getComplementIndex(std::string&);
         
-                
+		
         std::string getComplementSymbol(std::string& character);
         std::string getComplementSymbol(int value);
         
@@ -207,14 +207,14 @@ namespace StochHMM{
         
         
         //! Get the indices of characters that an ambiguous character represents
-        //! \return std::vector<int>  
-        inline std::vector<int> getAmbiguousSet(int val){return ambiguousSymbols[abs(val)-1].getDef();};
+        //! \return std::vector<int>
+        inline std::vector<int> getAmbiguousSet(int val){return ambiguousSymbols[(val-max_unambiguous)-1].getDef();}
         
         void print();
         std::string stringify();
         std::string stringifyAmbig();
         std::string convertIndexToWord(size_t,size_t);
-
+		
         
         //!Check if the TrackFunction is defined for this track
         //!\return true if the track has a trackFunc defined
@@ -245,9 +245,13 @@ namespace StochHMM{
         std::vector<std::string> alphabet;  //Contains the corresponding symbol,letter, word that is referenced in the seq by index
         std::map<int,int> complementAlphabet;
         
-        size_t maxSize;  //Maximum size of the alphabet words used.
-        bool ambiguous;
-        int defaultAmbiguous;
+        size_t maxSize;  //Maximum size of the alphabet words
+		
+		uint8_t max_unambiguous;
+		uint8_t max_ambiguous;
+        
+		bool ambiguous; //Are ambiguous characters set
+        int defaultAmbiguous; //Default ambiguous character
         
         //Contains the ambiguous characters defined by user corresponding to position in the
         //array. Where index 0=-1, 1=-2... so on.
@@ -257,7 +261,7 @@ namespace StochHMM{
         
         void _splitAmbiguousList(std::vector<std::pair<std::string ,std::vector<std::string> > >&, const std::string&);
     };
-
+	
     
     class tracks{
     public:
@@ -279,9 +283,9 @@ namespace StochHMM{
         std::vector<track*> trks;
         std::map<std::string,size_t> index;
     };
-
-
-
-
+	
+	
+	
+	
 }
 #endif /*TRACK_H*/
