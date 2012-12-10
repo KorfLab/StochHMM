@@ -182,6 +182,8 @@ namespace StochHMM {
         inline bool isSameSize(){
             return same_length;
         }
+		
+		sequence& operator[](size_t index){return *seq[index];}
         
     private:
         //EXTERNAL DEFINITIONS

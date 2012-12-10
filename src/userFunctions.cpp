@@ -66,7 +66,27 @@ namespace StochHMM{
                 std::cerr << "\t" << it->first <<std::endl;
             }
         }
-    };
+    }
+	
+	
+	
+	//!Assign a Probability Distribution Function to the StateFuncs class
+	//!\param str Name of function
+	//!\param ptrFunc Pointer to pdfFunc to use for continuous emission
+	void StateFuncs::assignPDFFunction(std::string& str, pdfFunc ptrFunc){
+		if (pdfFunctions.count(str)==0){
+			pdfFunctions[str]=ptrFunc;
+		}
+		else{
+            std::cerr << "Function Name: " << str << " already exists.   You need to choose a new function name that doesn't already exist. For reference here are a list of names already assigned as external functions\nAssigned Names:\n";
+            
+            std::map<std::string,pdfFunc>::iterator it;
+            
+            for(it=pdfFunctions.begin();it!=pdfFunctions.end();it++){
+                std::cerr << "\t" << it->first <<std::endl;
+            }
+        }
+	}
     
     
     
@@ -99,6 +119,20 @@ namespace StochHMM{
         }
     }
     
+	
+	//!Get pointer to probability distribution function with given name
+    //!\param name Name of the function
+    //!\return pdfFunc*
+    pdfFunc* StateFuncs::getPDFFunction(std::string& name){
+        if (pdfFunctions.count(name)){
+            return &pdfFunctions[name];
+        }
+        else{
+            std::cerr << "Function named: " << name << " was not initialized. " <<std::endl;
+            
+            return NULL;
+        }
+    }
     
     
     //!Assign a function to the TrackFuncs class

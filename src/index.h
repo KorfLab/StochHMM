@@ -52,22 +52,22 @@ namespace StochHMM{
         inline bool isAmbiguous(){return ambiguous;};
         
         
-        void setAmbiguous(const std::vector<int>&); //! Set the Index as ambiguous 
+        void setAmbiguous(const std::vector<size_t>&); //! Set the Index as ambiguous
        
         
         Index& operator= (const Index&); //! Assign Index
         Index operator+ (const Index&); //! Add Index
         void operator += (const Index&); //! Add and assign Index
-        void operator += (const int); //!Add int to Index
-        void operator *= (const int); //!Multiply int to Index
-        Index operator* (const int); //!Multiply int to Index
+        void operator += (const size_t); //!Add int to Index
+        void operator *= (const size_t); //!Multiply int to Index
+        Index operator* (const size_t); //!Multiply int to Index
         size_t size();  //!Get Number of indices
         
-        int operator[](const int);
+        size_t operator[](const size_t);
         
     private:
-        int index;
-        std::vector<int>* amb;
+        size_t index;
+        std::vector<size_t>* amb;
         bool ambiguous;
     };
 

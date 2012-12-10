@@ -14,9 +14,12 @@
 #include <stdint.h>
 #include <vector>
 #include <string>
+#include <fstream>
+#include <bitset>
 #include "stochTypes.h"
 #include "sequences.h"
-#include "new_hmm.h"
+#include "hmm.h"
+#include "traceback_path.h"
 
 
 namespace StochHMM {
@@ -67,7 +70,7 @@ namespace StochHMM {
 
 		void print();
 		std::string stringify();
-		void export_trellis(ifstream&);
+		void export_trellis(std::ifstream&);
 		void export_trellis(std::string& file);
 		
 	private:
@@ -80,6 +83,7 @@ namespace StochHMM {
 		
 		model* hmm;		//HMM model
         sequences* seqs; //Digitized Sequences
+		
 		size_t state_size;	//Number of States
 		size_t seq_size;	//Length of Sequence
 		
@@ -93,7 +97,7 @@ namespace StochHMM {
 		
 		
 		//Traceback Tables
-		int_2D*		traceback;          //Simple traceback table
+		int_2D*		traceback_table;          //Simple traceback table
 		float_3D*	stoch_traceback;    //Stochastic traceback table
 		int_3D*		nth_traceback;      //Nth-Viterbi traceback table
 		
@@ -101,7 +105,7 @@ namespace StochHMM {
 		float_2D*	viterbi_score;      //Storing viterbi scores
 		float_2D*	forward_score;      //Storing Forward scores
 		float_2D*	backward_score;     //Storing Backward scores
-		float_2D*	posterior;			//Store posterior scores
+		float_2D*	posterior_score;			//Store posterior scores
 		
 		//Ending Cells
 		double   ending_viterbi_score;
@@ -111,9 +115,19 @@ namespace StochHMM {
 		std::vector<tb_score>*    ending_stoch_tb;
 		std::vector<tb_score>*    ending_nth_viterbi;
 		
-		std::vector<double>* current_calc_cells;
-		std::vector<double>* previous_calc_cells;
-		std::vector<double>* swap_cells;
+		//Cells used for calculating the Viterbi
+		std::vector<double>* viterbi_current;
+		std::vector<double>* viterbi_previous;
+		
+		//Array used for calculating the Forward Scores
+		std::vector<double>* forward_current;
+		std::vector<double>* forward_previous;
+		
+		//Array used for calculating the Backward Scores
+		std::vector<double>* backward_current_calc_cells;
+		std::vector<double>* backward_previous_calc_cells;
+		
+		std::vector<double>* swap_ptr;
 	};
 	
 }

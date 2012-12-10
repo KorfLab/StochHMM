@@ -38,9 +38,9 @@ namespace StochHMM{
     //!\typedef Pointer to function that takes int, string ptr, string ptr
     //typedef double  (*pt2StateFunc) (const std::string*, const std::string*, size_t);
     typedef double  (*transitionFunc) (const std::string*, const size_t, const std::string*, const size_t);
-    
     typedef double  (*emissionFunc) (const std::string*, const size_t);
-    
+
+	typedef double (*pdfFunc)(const double);
 
     //!\typedef Pointer to Function that takes a string and returns a vector<float>
     typedef std::vector<double>* (*pt2TrackFunc) (const std::string*);
@@ -61,13 +61,16 @@ namespace StochHMM{
         
         void assignTransitionFunction(std::string&, transitionFunc);
         void assignEmmissionFunction(std::string&, emissionFunc);
+		void assignPDFFunction(std::string&, pdfFunc);
         
         transitionFunc* getTransitionFunction(std::string&);
         emissionFunc* getEmissionFunction(std::string&);
+		pdfFunc* getPDFFunction(std::string&);
         
     private:
         std::map<std::string, transitionFunc> transitionFunctions;
-        std::map<std::string, emissionFunc> emissionFunctions;
+        std::map<std::string, emissionFunc> emissionFunctions; 
+		std::map<std::string, pdfFunc> pdfFunctions; //For continuous emissions
     };
 
 

@@ -74,7 +74,7 @@ namespace StochHMM{
     //! \param character Word or symbol used in undigitized sequence
     bool track::addAlphabetChar(std::string& character){
         
-        if (alphabet.size() >= 128){
+        if (alphabet.size() >= 255){
             std::cerr << "Alphabet limit reached.   Unable to add additional characters to the track:\t" << character << std::endl;
             return false;
         }
@@ -84,11 +84,12 @@ namespace StochHMM{
         
 		alphabet.push_back(character);
         
-		int index = alphabet.size()-1;
+		size_t index = alphabet.size()-1;
         
 		symbolIndices[character]=index;
 		
-		max_unambiguous = symbolIndices.size()-1;
+		max_unambiguous = index;
+		unambiguous.push_back(index);
         
 		return true;
     }
@@ -146,15 +147,23 @@ namespace StochHMM{
 		}
         ambigCharacter amb(this,ambChar,defs);
         ambiguousSymbols.push_back(amb);
-        int index = symbolIndices.size();  //Changed to positive number
+        
+		int index = symbolIndices.size();  //Get the index position and new digital reference value
+		
+		if (index >= 255){
+			std::cerr << "Maximum number of discrete symbols reached at 255\n";
+			exit(2);
+		}
+		
         symbolIndices[ambChar]=index;
+		max_ambiguous = index;
         return;
     }
 	
 	
     //! Get symbol assigned integer value
     //! \param symbol word/letter/symbol that we want to get it's assigned integer value
-    int track::symbolIndex(std::string& symbol){
+    uint8_t track::symbolIndex(std::string& symbol){
         if (symbolIndices.count(symbol)==0){  //If isn't found in the hash
             if (ambiguous){ //Return default character if ambiguous is set
                 return defaultAmbiguous;
@@ -214,7 +223,7 @@ namespace StochHMM{
 			
             for(int i=1;i<lst.size();i++){
                 if (!addAlphabetChar(lst[i])){
-                    std::cerr << "Track import failed, because number of symbols exceeded 128. Alternatively, you can create a real number track for different emissions" << std::endl;
+                    std::cerr << "Track import failed, because number of symbols exceeded 255. Alternatively, you can create a real number track for different emissions" << std::endl;
                     return false;
                 }
                 
@@ -260,7 +269,7 @@ namespace StochHMM{
             output+=getAmbiguousCharacter(i);
             output+="{";
             
-            std::vector<int> regChar = getAmbiguousSet(i);
+            std::vector<size_t>& regChar = getAmbiguousSet(i);
             for(size_t k = 0; k<regChar.size();k++){
                 if (k>0){output+=",";}
                 output+=alphabet[regChar[k]];
@@ -296,6 +305,29 @@ namespace StochHMM{
         output+=alphabet[wordIndex];
         
         return output;
+    }
+	
+	
+	void track::convertIndexToDigital(size_t wordIndex, size_t order, uint8_t word[]){
+        if (order == 0){
+			word[0]=wordIndex;
+			return;
+        }
+		
+		std::cout << alphabet.size() << std::endl;
+        
+        size_t currentOrder = order;
+        
+        while (currentOrder>1){
+            double dreg=POWER[currentOrder-1][alphabet.size()-1];
+            size_t temp = floor ((double) wordIndex / dreg);
+			word[currentOrder-1] = temp;
+            wordIndex-=temp*dreg;
+            currentOrder--;
+        }
+        
+        word[0] = wordIndex;
+        return;
     }
     
     
@@ -437,7 +469,7 @@ namespace StochHMM{
     //! Get the complement alphabet character digitized value given a value
     //! \param val Value of character to get complement of
     //! \return int value of complement
-    int track::getComplementIndex(int val){
+    uint8_t track::getComplementIndex(uint8_t val){
         if (complementSet){
             if (complementAlphabet.count(val)){
                 return complementAlphabet[val];
@@ -458,7 +490,7 @@ namespace StochHMM{
     //! Get the complement alphabet character digitized value given the string
     //! \param character String of alphanumerical symbol
     //! \return int Defined complement string symbol of symbol
-    int track::getComplementIndex(std::string& character){
+    uint8_t track::getComplementIndex(std::string& character){
         if (complementSet){
             if (symbolIndices.count(character)){
                 int characterIndex = symbolIndex(character);
@@ -479,7 +511,7 @@ namespace StochHMM{
     //! Get the complement alphanumerical string of a given integer value;
     //! \param value Integer value of a symbol
     //! \return std::string Defined complement string symbol of symbol with digitized value
-    std::string track::getComplementSymbol(int value){
+    std::string track::getComplementSymbol(uint8_t value){
         if (complementSet){
             if (complementAlphabet.count(value)){
                 int complement_value = complementAlphabet[value];

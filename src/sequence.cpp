@@ -57,7 +57,7 @@ namespace StochHMM{
         }
         else{
             real=NULL;
-            seq=new(std::nothrow) std::vector<short>;
+            seq=new(std::nothrow) std::vector<uint8_t>;
             
             if (seq==NULL){
                 std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
@@ -92,7 +92,7 @@ namespace StochHMM{
         length  = 0;
         max_mask=-1;
         real    = NULL;
-        seq     = new(std::nothrow) std::vector<short>;
+        seq     = new(std::nothrow) std::vector<uint8_t>;
         
         if (seq==NULL){
             std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
@@ -116,7 +116,7 @@ namespace StochHMM{
         length  = 0;
         max_mask=-1;
         real    = NULL;
-        seq     = new(std::nothrow) std::vector<short>;
+        seq     = new(std::nothrow) std::vector<uint8_t>;
         
         if (seq==NULL){
             std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
@@ -160,7 +160,7 @@ namespace StochHMM{
         undigitized=rhs.undigitized;
         
         if (rhs.seq!=NULL){
-            seq = new(std::nothrow) std::vector<short>(*rhs.seq);
+            seq = new(std::nothrow) std::vector<uint8_t>(*rhs.seq);
             if (seq==NULL){
                 std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
                 exit(1);
@@ -204,7 +204,7 @@ namespace StochHMM{
         undigitized=rhs.undigitized;
         
         if (rhs.seq!=NULL){
-            seq = new(std::nothrow) std::vector<short>(*rhs.seq);
+            seq = new(std::nothrow) std::vector<uint8_t>(*rhs.seq);
             if (seq==NULL){
                 std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
                 exit(1);
@@ -243,7 +243,7 @@ namespace StochHMM{
     //!Get digitized sequence value at a position
     //! \param position Position in the sequence to get the value for
     //! \return short integer value of symbol at positiion
-    short sequence::seqValue (size_t position){
+    uint8_t sequence::seqValue (size_t position){
         if (!realSeq){
             if (seq!=NULL){
                 return (*seq)[position];
@@ -695,45 +695,45 @@ namespace StochHMM{
     }
     
     
-    //! Get the index value of word at a given position and with a order of dependence)
-    //! Calulates the index for a character/word and returns an Index type.   If the word is non-ambiguous then it will return 1 value for row and column.  First pair is column index,   Second pair is row index.  If symbol is ambiguous, index contains all possible words that match.
-    //! \param[in] position Position within the sequence
-    //! \param[in] order Order of dependence
-    //! \param[out] word index pair of index values
-    //! \sa Index  
-    
-    void sequence::get_index(size_t position, int order, std::pair<Index,Index>& word_index){
-        int letter=seqValue(position);
-        size_t alphabet=seqtrk->getAlphaSize();
-                
-        Index& letter_index=word_index.first;
-        
-        if (letter<0){
-            letter_index.setAmbiguous(seqtrk->getAmbiguousSet(letter));
-        }
-        else{
-            letter_index+=letter;
-        }
-        
-        Index& y_subtotal = word_index.second;
-        
-        if (order!=0){
-            
-            for(int k=order;k>=1;k--){
-                int prev_letter=seqValue(position-k);
-                Index word;
-                if (prev_letter<0){
-                    word.setAmbiguous(seqtrk->getAmbiguousSet(prev_letter));
-                    y_subtotal+=word * POWER[k-1][alphabet-1];
-                }
-                else{
-                    y_subtotal+=prev_letter * POWER[k-1][alphabet-1];
-                }
-            }
-        }
-        
-        return;
-    }
+//    //! Get the index value of word at a given position and with a order of dependence)
+//    //! Calulates the index for a character/word and returns an Index type.   If the word is non-ambiguous then it will return 1 value for row and column.  First pair is column index,   Second pair is row index.  If symbol is ambiguous, index contains all possible words that match.
+//    //! \param[in] position Position within the sequence
+//    //! \param[in] order Order of dependence
+//    //! \param[out] word index pair of index values
+//    //! \sa Index  
+//    
+//    void sequence::get_index(size_t position, int order, std::pair<Index,Index>& word_index){
+//        int letter=seqValue(position);
+//        size_t alphabet=seqtrk->getAlphaSize();
+//                
+//        Index& letter_index=word_index.first;
+//        
+//        if (letter<0){
+//            letter_index.setAmbiguous(seqtrk->getAmbiguousSet(letter));
+//        }
+//        else{
+//            letter_index+=letter;
+//        }
+//        
+//        Index& y_subtotal = word_index.second;
+//        
+//        if (order!=0){
+//            
+//            for(int k=order;k>=1;k--){
+//                int prev_letter=seqValue(position-k);
+//                Index word;
+//                if (prev_letter<0){
+//                    word.setAmbiguous(seqtrk->getAmbiguousSet(prev_letter));
+//                    y_subtotal+=word * POWER[k-1][alphabet-1];
+//                }
+//                else{
+//                    y_subtotal+=prev_letter * POWER[k-1][alphabet-1];
+//                }
+//            }
+//        }
+//        
+//        return;
+//    }
     
     //! Reverse the sequence; If mask is defined, the mask will also be reversed
     //! \return true if reverse was successfully performed on sequence

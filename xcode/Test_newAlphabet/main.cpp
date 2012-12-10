@@ -10,8 +10,9 @@
 #include <iostream>
 #include <string>
 #include <bitset>
-#include "mem_trellis.h"
-#include "mem_viterbi.h"
+//#include "mem_trellis.h"
+//#include "mem_viterbi.h"
+#include "new_trellis.h"
 #include "hmm.h"
 #include "state.h"
 #include "sequence.h"
@@ -31,34 +32,42 @@ int main(int argc, const char * argv[])
     
 	hmm.import(model_file);
 	
-	sequence temp("ACGACGTACGTNNNK",hmm.getTrack(0));
-	
-	for(size_t i=0;i<hmm.state_size();i++){
-		std::bitset<STATE_MAX>* temp = hmm[i]->getTo();
-		for(size_t j=0;j<1024;j++){
-			if (temp->test(j)){
-				std::cout << "State:\t" << i << "\t to " << j << std::endl;
-				std::cout << "State:\t" << hmm[i]->getName() << "\t to " << hmm[j]->getName() << std::endl;
-			}
-			
-		}
-	}
+//	sequence temp("ACGACGTACGTNNNK",hmm.getTrack(0));
+//	
+//	track* tr = hmm.getTrack(0);
+//	std::cout << "Max Size:" << tr->getAlphaMax() << std::endl;
+//	
+//	uint8_t word[3];
+//	tr->convertIndexToDigital(63, 3, word);
+//	
+//	std::cout << (int) word[2] << (int) word[1] << (int) word[0] << std::endl;
+//	
+//	for(size_t i=0;i<hmm.state_size();i++){
+//		std::bitset<STATE_MAX>* temp = hmm[i]->getTo();
+//		for(size_t j=0;j<1024;j++){
+//			if (temp->test(j)){
+//				std::cout << "State:\t" << i << "\t to " << j << std::endl;
+//				std::cout << "State:\t" << hmm[i]->getName() << "\t to " << hmm[j]->getName() << std::endl;
+//			}
+//		}
+//	}
 		
 	//temp.print();
     
-    //jobs.loadSeqs(hmm, seq_file, FASTA);
+    jobs.loadSeqs(hmm, seq_file, FASTA);
     
-    //seqJob *job=jobs.getJob();
+    seqJob *job=jobs.getJob();
 	
-	//sequences* temp = job->getSeqs();
+	sequences* temp = job->getSeqs();
 	//temp->print();
     
-    //mem_trellis test_trellis;
+    trellis test_trellis(job->getModel(),job->getSeqs());
     
     //viterbi_three(&test_trellis, job->getModel(), job->getSeqs());
 	//viterbi_two(&test_trellis, job->getModel(), job->getSeqs());
 	//viterbi_four(&test_trellis, job->getModel(), job->getSeqs());
     
+	test_trellis.viterbi();
     return 0;
 }
 

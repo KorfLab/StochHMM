@@ -89,13 +89,16 @@ namespace StochHMM{
             typeBegin = line.indexOf("COUNTS");
             valtyp=COUNTS ;
         }
-        else if (line.contains("REAL_NUMBER")) {
+        else if (line.contains("REAL_NUMBER")){
             typeBegin = line.indexOf("REAL_NUMBER");
             real_number = true;
             if (line.contains("COMPLEMENT") || line.contains("1-P(X)")) {
                 complement=true;
             }
         }
+		else if (line.contains("CONTINUOUS")){
+			continuous=true;
+		}
         else if (line.contains("FUNCTION")){
             typeBegin = line.indexOf("FUNCTION");
             function=true;
@@ -120,8 +123,6 @@ namespace StochHMM{
                 tempTracks.push_back(tk);
             }
         }
-        
-        
         
         
         if (real_number){
@@ -307,6 +308,9 @@ namespace StochHMM{
                 std::cerr << " The Emission table doesn't contain enough rows.  Expected Rows: " << expectedRows << " \n Please check the Emission Table and formatting for " <<  txt << std::endl;
                 return false;
             }
+			
+			scores.initialize_emission_table();
+			
         }
         
         return true;
@@ -368,8 +372,13 @@ namespace StochHMM{
         else if (function){
             final_emission=lexFunc->evaluate(seqs, pos);
         }
+		else if (continuous){
+			final_emission = (*pdf)(seqs.realValue(realTrack->getIndex(),pos));
+			if (complement){
+				final_emission=log(1-exp(final_emission));
+			}
+		}
         else{
-            
             final_emission=scores.getValue(seqs, pos);
         }
         

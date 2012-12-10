@@ -100,22 +100,18 @@ private:
     
     //size_t track_size;
     bool real_number;
-    
     bool continuous;
-    
     bool complement;
+	pdfFunc* pdf;
     
     track* realTrack;
-    
     
     //Lexical Scoring Tables
     lexicalTable scores;
     
-    
     //Lexical Function Only
     bool function;
     emissionFuncParam* lexFunc;
-    
     
     //TODO:  Implement the external Function capabilities
     emissionFuncParam* tagFunc;

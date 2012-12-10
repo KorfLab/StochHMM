@@ -408,7 +408,7 @@ namespace StochHMM{
     //! Get the emission value from a state at a particular position in the sequence
     //! \param seqs Sequences the model is analyzing
     //! \param iter Position in the sequence
-    double state::get_emission(sequences &seqs, size_t iter){
+    double state::get_emission_prob(sequences &seqs, size_t iter){
         double value=0;
         for(int i=0;i<emission.size();i++){
 #ifdef DEBUG_VERBOSE
@@ -425,7 +425,7 @@ namespace StochHMM{
     //! \param seqs Sequences the model is analyzing
     //! \param to State that transition is being calculated to
     //! \param iter Position in the sequence
-    double state::get_trans(sequences &seqs, int to, int iter){
+    double state::get_transition_prob(sequences &seqs, int to, int iter){
         double value;
         
         if ((*transi)[to]==NULL){

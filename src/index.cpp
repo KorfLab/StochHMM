@@ -42,7 +42,7 @@ namespace StochHMM{
         ambiguous=a.ambiguous;
         
         if (amb!=NULL){
-            amb=new(std::nothrow) std::vector<int>(a.amb->size());
+            amb=new(std::nothrow) std::vector<size_t>(a.amb->size());
             
             if (amb==NULL){
                 std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
@@ -68,7 +68,7 @@ namespace StochHMM{
         ambiguous=rhs.ambiguous;
         
         if (amb!=NULL){
-            amb=new(std::nothrow) std::vector<int>(rhs.amb->size());
+            amb=new(std::nothrow) std::vector<size_t>(rhs.amb->size());
             
             if (amb==NULL){
                 std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
@@ -89,7 +89,7 @@ namespace StochHMM{
         if (ambiguous){
             if (lhs.ambiguous){
                 temp.ambiguous=true;
-                temp.amb=new(std::nothrow) std::vector<int>;
+                temp.amb=new(std::nothrow) std::vector<size_t>;
                 
                 if (temp.amb==NULL){
                     std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
@@ -101,7 +101,7 @@ namespace StochHMM{
             }
             else{
                 temp.ambiguous=true;
-                temp.amb=new(std::nothrow) std::vector<int>(*this->amb);
+                temp.amb=new(std::nothrow) std::vector<size_t>(*this->amb);
                 
                 if (temp.amb==NULL){
                     std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
@@ -114,7 +114,7 @@ namespace StochHMM{
         else{
             if (lhs.ambiguous){
                 temp.ambiguous=true;
-                temp.amb=new(std::nothrow) std::vector<int>(*lhs.amb);
+                temp.amb=new(std::nothrow) std::vector<size_t>(*lhs.amb);
                 
                 if (temp.amb==NULL){
                     std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
@@ -136,7 +136,7 @@ namespace StochHMM{
         }
         else if (ambiguous){
             if (lhs.ambiguous){
-                std::vector<int>* temp = new(std::nothrow) std::vector<int>;
+                std::vector<size_t>* temp = new(std::nothrow) std::vector<size_t>;
                 
                 if (temp==NULL){
                     std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
@@ -153,7 +153,8 @@ namespace StochHMM{
         }
         else{
             if (lhs.ambiguous){
-                amb=new(std::nothrow) std::vector<int>(*lhs.amb);
+                amb=new(std::nothrow) std::vector<size_t>(*lhs.amb);
+				ambiguous = true;
                 
                 if (amb==NULL){
                     std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
@@ -168,7 +169,7 @@ namespace StochHMM{
 
     //!Add integer index to Index
     //! \param lhs Integer index to add to Index
-    void Index::operator+= (const int lhs){
+    void Index::operator+= (const size_t lhs){
         if (ambiguous){
             addValueToVector(*amb, lhs);
         }
@@ -180,7 +181,7 @@ namespace StochHMM{
 
     //!Multiply Indices by integer
     //! \param lhs Integer value
-    void Index::operator*= (const int lhs){
+    void Index::operator*= (const size_t lhs){
         if (ambiguous){
             multiplyValueToVector(*amb, lhs);
         }
@@ -192,7 +193,7 @@ namespace StochHMM{
 
 
     //!Multiply Indices by integer
-    Index Index::operator* (const int lhs){
+    Index Index::operator* (const size_t lhs){
         Index temp;
         if (ambiguous){
             multiplyValueToVector(*amb, lhs);
@@ -217,7 +218,7 @@ namespace StochHMM{
     //! Get the index at position in Index
     //!\param iter Integer iterator of position
     //!\return int Integer value of index
-    int Index::operator[](const int iter){
+    size_t Index::operator[](const size_t iter){
         if (!ambiguous && iter==0){
             return index;
         }
@@ -235,8 +236,8 @@ namespace StochHMM{
      \brief Sets the index class to ambiguous
      \param vec vector of ints that correspond to multiple indices created by ambiguous characters
     */
-    void Index::setAmbiguous(const std::vector<int>& vec){
-        amb=new(std::nothrow) std::vector<int>(vec);
+    void Index::setAmbiguous(const std::vector<size_t>& vec){
+        amb=new(std::nothrow) std::vector<size_t>(vec);
         
         if (amb==NULL){
             std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;

@@ -39,8 +39,7 @@ namespace StochHMM{
     float beta_binomial_pdf(int n, int k, double a, double b){
         float newAlpha = (double) k + a;
         float newBeta  = (double)(n-k) + b;
-        float pmf      = bin_coef(n,k) * (beta(newAlpha,newBeta)/ beta(a,b));
-        return pmf;
+        return bin_coef(n,k) * (beta(newAlpha,newBeta)/ beta(a,b));
     }
     
     //!Degenerate probability mass function
@@ -76,8 +75,7 @@ namespace StochHMM{
     //!param m  Number of successes in Population
     //!param k  Number of successes
     float hypergeometric_pdf(int n, int N, int m, int k){
-        float prob = (bin_coef(m, k)*bin_coef(N-m,n-k))/bin_coef(N, n);
-        return prob;
+        return (bin_coef(m, k)*bin_coef(N-m,n-k))/bin_coef(N, n);
     }
     
     //TODO:  Need to implement poisson binomial
@@ -109,8 +107,7 @@ namespace StochHMM{
     //!param a Shape parameter  a>0
     //!param x 
     float maxwell_boltzman_pdf(double a, float x){
-        float pmf = sqrtf(2/PI)*(pow(x,2)*exp(-1*pow(x,2)/(2*pow(a, 2))))/pow(a,3);
-        return pmf;
+        return sqrtf(2/PI)*(pow(x,2)*exp(-1*pow(x,2)/(2*pow(a, 2))))/pow(a,3);
     }
     
     
@@ -118,8 +115,7 @@ namespace StochHMM{
     //!param k Trial of first success
     //!param p probability of success
     float geometric_pdf(int k, double p){
-        float pmf = pow(1-p,k-1) * p;
-        return pmf;
+        return pow(1-p,k-1) * p;
     }
     
     //TODO: check previous function parameters
@@ -132,8 +128,7 @@ namespace StochHMM{
             std::cerr << "Logarithmic PDF Function:  k must be >=1, 0<p<1\n";
             exit(2);
         }
-        float pmf = (1/log(1-p))*(pow(p,k)/k);
-        return pmf;
+        return (1/log(1-p))*(pow(p,k)/k);
     }
     
     
@@ -145,8 +140,7 @@ namespace StochHMM{
             std::cerr << "Negative Binomial PMF: Incorrect parameters\n";
             exit(2);
         }
-        float pmf = bin_coef(k+r-1, k)*pow(1-p,r)*pow(p,k);
-        return pmf;
+        return bin_coef(k+r-1, k)*pow(1-p,r)*pow(p,k);
     }
     
     
@@ -158,8 +152,7 @@ namespace StochHMM{
             std::cerr << "Poisson PMF: Incorrect parameters\n";
             exit(2);
         }
-        float pmf = (pow(lambda,(double)k)* exp(-1*lambda))/factorial(k);
-        return pmf;
+        return (pow(lambda,(double)k)* exp(-1*lambda))/factorial(k);
     }
     
     
@@ -171,8 +164,7 @@ namespace StochHMM{
             std::cerr << "Yule-Simon PMF: Incorrect parameters\n";
             exit(2);
         }
-        float pmf = p*beta(k, p+1);
-        return pmf;
+        return p*beta(k, p+1);
     }
     
     
@@ -256,8 +248,7 @@ namespace StochHMM{
             std::cerr << "Logit Normal PDF: Incorrect parameters\n";
             exit(2);
         }
-        float pdf = (1/(sigma*sqrtf(2*PI)))*exp(-1*pow((logit(x)-mu),2)/(2*pow(sigma,2)))*(1/(x*(1-x)));
-        return pdf;
+        return (1/(sigma*sqrtf(2*PI)))*exp(-1*pow((logit(x)-mu),2)/(2*pow(sigma,2)))*(1/(x*(1-x)));
     }
     
     
@@ -287,8 +278,7 @@ namespace StochHMM{
             std::cerr << "Kumaraswamy PDF:  Incorrect parameters\n";
             exit(2);
         }
-        float pdf = a * b * powf(x, a-1) * powf((1 - powf(x, a)),b-1);
-        return pdf;
+        return a * b * powf(x, a-1) * powf((1 - powf(x, a)),b-1);
     }
     
     //!Raised cosine probability distribution function
@@ -300,8 +290,7 @@ namespace StochHMM{
             std::cerr << "Raised cosine PDF:  Incorrect parameters\n";
             exit(2);
         }
-        float pdf = 1/(2*s)*(1+cosf(PI*(x-mu)/s));
-        return pdf;
+        return 1/(2*s)*(1+cosf(PI*(x-mu)/s));
     }
     
     //!Triangular probability distribution function
@@ -349,8 +338,7 @@ namespace StochHMM{
         double beta_cdf = (0.5*(1+erf((beta-mu)/sqrt(2*pow(sd,2)))));
         float z = beta_cdf - alpha_cdf;
         
-        double pdf = (0.5*(1+erf((xi-mu)/sqrt(2*pow(sd,2)))))/(sd * z);
-        return pdf;
+        return (0.5*(1+erf((xi-mu)/sqrt(2*pow(sd,2)))))/(sd * z);
     }
     
     
@@ -394,8 +382,7 @@ namespace StochHMM{
             std::cerr << "Beta prime PDF: Incorrect parameters\n";
             exit(2);
         }
-        float pdf = (powf(x, a-1)*powf(1+x, -1*a-b))/ beta(a, b);
-        return pdf;
+        return (powf(x, a-1)*powf(1+x, -1*a-b))/ beta(a, b);
     }
     
     
@@ -407,9 +394,7 @@ namespace StochHMM{
             std::cerr << "Chi PDF: Incorrect parameters\n";
             exit(2);
         }
-        float pdf  = (powf(2, 1-(k/2))*powf(x, k-1)*exp(-1*(powf(x, 2)/2)))/gamma(k/2);
-        return pdf;
-        
+        return (powf(2, 1-(k/2))*powf(x, k-1)*exp(-1*(powf(x, 2)/2)))/gamma(k/2);
     }
     
     
@@ -422,8 +407,7 @@ namespace StochHMM{
             exit(2);
         }
         
-        float pdf = (powf(x, (k/2)-1)*exp(-1*x/2))/(powf(2, k/2)*gamma(k/2));
-        return pdf;
+        return (powf(x, (k/2)-1)*exp(-1*x/2))/(powf(2, k/2)*gamma(k/2));
     }
     
     
@@ -437,8 +421,7 @@ namespace StochHMM{
             exit(2);
         }
         
-        float pdf = (powf(2, -1*v/2)*powf(x, -1*(v/2)-1)*exp(-1/(2*x)))/gamma(v/2);
-        return pdf;
+        return (powf(2, -1*v/2)*powf(x, -1*(v/2)-1)*exp(-1/(2*x)))/gamma(v/2);
     }
     
     //!Scaled Inverse Chi-squared probability distribution function
@@ -485,8 +468,7 @@ namespace StochHMM{
             exit(2);
         }
         
-        float pdf = lambda * exp (-1 * lambda * x);
-        return pdf;
+        return lambda * exp (-1 * lambda * x);
     }
     
     
@@ -533,8 +515,7 @@ namespace StochHMM{
         float l_temp = exp(-1* powf(-1*x-mu,2)/(2*sigma_sqrd));
         float r_temp = exp(-1* powf(x-mu,2)/(2*sigma_sqrd));
         
-        float pdf = (l_pdf*l_temp) + (l_pdf *r_temp);
-        return pdf;
+        return (l_pdf*l_temp) + (l_pdf *r_temp);
     }
     
     
@@ -549,8 +530,57 @@ namespace StochHMM{
             exit(2);
         }
         
-        float pdf = (alpha/s)*powf((x-m)/s, -1-alpha) * exp(-1*powf((x-m)/s, -1*alpha));
-        return pdf;
+        return (alpha/s)*powf((x-m)/s, -1-alpha) * exp(-1*powf((x-m)/s, -1*alpha));
     }
     
+	//!Gamma probability distribution
+	//!param x Value x>0
+	//!param alpha Shape parameter a>0
+	//!param beta Rate parameter b>0
+	//!http://en.wikipedia.org/wiki/Gamma_distribution
+	float gamma_pdf(float x, float alpha, float beta){
+		if (x <= 0 ||  alpha <= 0 || beta <= 0){
+			std::cerr << "Gamma PDF: Incorrect parameters\n";
+            exit(2);
+		}
+		
+		return (pow(beta,alpha)/gamma_func(alpha))*pow(x,alpha-1)*exp(-beta*x)
+	}
+	
+	//!Inverse Gamma probability distribution
+	//!param x Value x>0
+	//!param alpha Shape parameter x>0
+	//!param beta Scale parameter b>0
+	float inv_gamma_pdf(float x, float alpha, float beta){
+		if (x <= 0 ||  alpha <= 0 || beta <= 0){
+			std::cerr << "Inverse Gamma PDF: Incorrect parameters\n";
+            exit(2);
+		}
+		return (pow(beta,alpha)/gamma_func(alpha))*pow(x,-1*alpha-1)*exp(-beta/x);
+	}
+	
+	//!Half Normal probability distribution
+	//!param x Value x>0
+	//!param sigma Standard Deviation sigma>0
+	float half_normal_pdf(float x, float sigma){
+		if (x <= 0 || sigma <= 0){
+			std::cerr << "Half Normal PDF: Incorrect parameters\n";
+            exit(2);
+		}
+		return sqrt(2)/(sigma*sqrt(PI)) * exp(-1* pow(x,2)/(2*pow(sigma,2)));
+	}
+	
+	//!Inverse Gaussian probability distribution
+	//!param x Value x>0
+	//!param mu Average u>0
+	//!param lambda Shape parameter l>0
+	float inv_gaussian_pdf(float x, float mu, float lambda){
+		if (x <= 0 || mu <= 0 || lambda <= 0){
+			std::cerr << "Inverse Gaussian PDF: Incorrect parameters\n";
+            exit(2);
+		}
+		return sqrt(lambda/(2*PI*pow(x, 3))) * exp((lambda*pow(x-u,2))/(2*pow(mu,2)*x));
+	}
+	
+	//!Levy proba
 }

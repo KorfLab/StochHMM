@@ -60,7 +60,8 @@ namespace StochHMM {
     float fishers_z_pdf(float x, float d1, float d2);
     float folded_normal_pdf(float x, float mu, float sigma_sqrd);
     float frechet_pdf(float x, float alpha, float s, float m);
-    
+    float gamma_pdf(float x, float alpha, float beta);
+	
 
     
     double gamma_pdf(double);
