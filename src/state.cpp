@@ -425,14 +425,14 @@ namespace StochHMM{
     //! \param seqs Sequences the model is analyzing
     //! \param to State that transition is being calculated to
     //! \param iter Position in the sequence
-    double state::get_transition_prob(sequences &seqs, int to, int iter){
+    double state::get_transition_prob(sequences &seqs, size_t to, size_t iter){
         double value;
         
         if ((*transi)[to]==NULL){
             return -INFINITY;
         }
         else if ((*transi)[to]->transition_type==STANDARD){
-            value=(*transi)[to]->log_trans;
+            value = (*transi)[to]->log_trans;
         }
         else{
             std::cerr << "Need to implement this functionality" <<std::endl;
@@ -450,7 +450,7 @@ namespace StochHMM{
         return endi->log_trans;
     }
     
-    //TODO: complete teh checkLabels function
+    //TODO: complete the checkLabels function
     //! Checks the label tags for traceback and combine identifiers
     void state::checkLabels(std::set<std::string>& labels, std::set<std::string>& gff, std::set<std::string>& name){
         for(size_t i = 0;i<(*transi).size();i++){

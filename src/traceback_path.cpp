@@ -258,10 +258,10 @@ namespace StochHMM{
     void traceback_path::print_label() const {
         int line=0;
         for(size_t k = trace_path.size()-1;k != SIZE_MAX;k--){
-            if(line==WID && WID>0){
-                std::cout<< std::endl;
-                line=0;
-            }
+//            if(line==WID && WID>0){
+//                std::cout<< std::endl;
+//                line=0;
+//            }
             state* st = hmm->getState(trace_path[k]);
             std::cout << st->getLabel() << " ";
             line++;

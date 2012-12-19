@@ -897,6 +897,7 @@ namespace StochHMM{
             for(size_t i=0;i<states.size();i++){
                 states[i]->_finalizeTransitions(statesByName);
             }
+			initial->_finalizeTransitions(statesByName);
             
             //Check to see if model is basic model
 			//Meaning that the model doesn't call outside functions or perform
@@ -904,6 +905,10 @@ namespace StochHMM{
             for(size_t i=0;i<states.size();i++){
                 std::vector<transition*>* transitions = states[i]->getTransitions();
                 for(size_t trans=0;trans<transitions->size();trans++){
+					if ((*transitions)[trans] == NULL){
+						continue;
+					}
+					
                     if ((*transitions)[trans]->FunctionDefined()){
                         basicModel=false;
                         break;

@@ -51,6 +51,8 @@ namespace StochHMM{
         defaultAmbiguous=-1;
         trackFunctionDefined= false;
         maxSize=0;
+		max_ambiguous =0;
+		max_unambiguous =0;
         complementSet=false;
     }
 	
@@ -263,8 +265,8 @@ namespace StochHMM{
     std::string track::stringifyAmbig(){
         std::string output;
         output+=name + ":\t";
-        for (int i=0;i<getAmbiguousSize();i++){
-            if (i>0){ output+= ",";}
+        for (size_t i = max_unambiguous+1; i <= max_ambiguous; i++){
+            if (i>max_unambiguous+1){ output+= ",";}
             
             output+=getAmbiguousCharacter(i);
             output+="{";

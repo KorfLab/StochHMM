@@ -18,6 +18,7 @@
 #include "sequence.h"
 #include "seqTracks.h"
 #include "options.h"
+#include "traceback_path.h"
 
 using namespace StochHMM;
 
@@ -27,9 +28,16 @@ int main(int argc, const char * argv[])
 {
     model hmm;
     //Check that model argument is defined and import the model
-    std::string model_file = "Lettuce_Final.hmm";
-    std::string seq_file = "Test.fa";
+//    std::string model_file = "Lettuce_Final.hmm";
+//    std::string seq_file = "Test.fa";
+	
+//	std::string model_file = "Dice.hmm";
+//	std::string seq_file = "Dice.fa";
+
+	std::string model_file = "model_V.txt";
+	std::string seq_file = "TestTCR1.fa";
     
+	
 	hmm.import(model_file);
 	
 //	sequence temp("ACGACGTACGTNNNK",hmm.getTrack(0));
@@ -62,12 +70,26 @@ int main(int argc, const char * argv[])
 	//temp->print();
     
     trellis test_trellis(job->getModel(),job->getSeqs());
+	
+	hmm.print();
     
     //viterbi_three(&test_trellis, job->getModel(), job->getSeqs());
 	//viterbi_two(&test_trellis, job->getModel(), job->getSeqs());
 	//viterbi_four(&test_trellis, job->getModel(), job->getSeqs());
     
+	
 	test_trellis.viterbi();
+	
+	//test_trellis.viterbi();
+	
+	traceback_path test(job->getModel());
+	test_trellis.traceback(test);
+	
+	test.print_label();
+	
+	//test_trellis.forward();
+	//test_trellis.backward();
+	
     return 0;
 }
 

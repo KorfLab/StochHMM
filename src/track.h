@@ -211,6 +211,7 @@ namespace StochHMM{
         //! Get the indices of characters that an ambiguous character represents
         //! \return std::vector<int>
         inline std::vector<size_t>& getAmbiguousSet(uint8_t val){return ambiguousSymbols[(val-max_unambiguous)-1].getDef();}
+	
 		inline std::vector<size_t>& getUnambiguousSet(){ return unambiguous; }
         
         void print();

@@ -112,7 +112,7 @@ namespace StochHMM{
 		
 		size_t index(0);
 		for(size_t i=0;i<dimensions;i++){
-			index += seqs[subarray_sequence[i]][subarray_position[i]] * subarray_value[i];
+			index += seqs[subarray_sequence[i]][pos - subarray_position[i]] * subarray_value[i];
 		}
 		
 		return (*log_emission)[index];
@@ -456,7 +456,7 @@ namespace StochHMM{
 	//Calculate lower order emission from the current table values
 	//Given order and position/sequence
 	//Calculate the values using Index and [all alphabets] for higher orders
-	double lexicalTable::get_reduced_order(sequences& seqs, size_t position){
+	double lexicalTable::get_reduced_order(sequences& seqs, size_t position){		
 		Index indices;
 		for(size_t i=0;i<dimensions;i++){
 			Index subtotal;
@@ -477,7 +477,7 @@ namespace StochHMM{
 			indices  += subtotal;
 		}
 		
-		if (unknownScoreType == AVERAGE_SCORE){
+		if (unknownScoreType == AVERAGE_SCORE || unknownScoreType == NO_SCORE){
 			double temp(0);
 			for(size_t i=0;i<indices.size();i++){
 				temp+=exp((*log_emission)[indices[i]]);

@@ -167,7 +167,7 @@ namespace StochHMM{
     //! \param second log'd Double value
     //! \return Log'd sum of two values
 	template<typename T>
-    T addLog(T& first, T& second){
+    T addLog(T first, T second){
         if (first==-INFINITY){
             return second;
         }
@@ -182,6 +182,7 @@ namespace StochHMM{
         }
     }
     
+	
     /*! \fn void addVectorCombinatorial(std::vector< REAL >& result, std::vector< REAL >& lhs, std::vector< REAL >& rhs)
      \brief Adds the lhs and rhs vector combinatorially in result
      \param lhs vector of (ints or doubles)

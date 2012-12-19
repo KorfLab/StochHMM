@@ -20,13 +20,39 @@
 #include "sequences.h"
 #include "hmm.h"
 #include "traceback_path.h"
+#include "stochMath.h"
 
 
 namespace StochHMM {
 
-	struct tb_score{
-		float score;
-		int16_t tb_ptr;
+//	struct tb_score{
+//		float score;
+//		int16_t tb_ptr;
+//	};
+	
+	
+	
+	class stochTable{
+	public:
+		
+		struct stoch_value{
+			stoch_value(uint16_t id, uint16_t prev, float p): state_id(id), state_prev(prev), prob(p){}
+			uint16_t state_id;
+			uint16_t state_prev;
+			float prob;
+		};
+		
+		
+		stochTable(size_t);
+		~stochTable();
+		void push(size_t pos, size_t st, size_t st_to, float val);
+		void print();
+		void finalize();
+		
+	private:
+		size_t last_position;
+		std::vector<stoch_value>* state_val;
+		std::vector<size_t>* position;
 	};
 	
 	
@@ -38,26 +64,35 @@ namespace StochHMM {
 	class trellis{
 	public:
 		trellis();
-		trellis(model* hmm , sequences* sq);
+		trellis(model* h , sequences* sqs);
 		~trellis();
+		void reset();
 		
 		void viterbi();
+		void viterbi(model* h, sequences* sqs);
+		
 		void forward();
+		void forward(model* h, sequences* sqs);
+		
+		void forward_viterbi();
+		void forward_viterbi(model* h, sequences* sqs);
+		
 		void backward();
+		void backward(model* h, sequences* sqs);
+		
 		void posterior();
+		void posterior(model* h, sequences* sqs);
+		
 		void stochastic_viterbi();
+		void stochastic_viterbi(model* h, sequences* sqs);
+		
 		void stochastic_forward();
+		void stochastic_forward(model* h, sequences *sqs);
+		
 		void nth_viterbi();
+		void nth_viterbi(model* h, sequences *sqs);
 		
-		void viterbi(model* hmm, sequences *sq);
-		void forward(model* hmm, sequences *sq);
-		void backward(model* hmm, sequences *sq);
-		void posterior(model* hmm, sequences *sq);
-		void stochastic_viterbi(model* hmm, sequences *sq);
-		void stochastic_forward(model* hmm, sequences *sq);
-		void nth_viterbi(model* hmm, sequences *sq);
-		
-		void traceback(traceback_path&);
+		void traceback(traceback_path& path);
         void traceback(traceback_path&,size_t);
 		void traceback_stoch_forward(multiTraceback&,size_t);
 		void traceback_stoch_viterbi(multiTraceback&,size_t);
@@ -72,12 +107,12 @@ namespace StochHMM {
 		std::string stringify();
 		void export_trellis(std::ifstream&);
 		void export_trellis(std::string& file);
+		inline model* get_model(){return hmm;}
 		
 	private:
-		void init_table();
 		double getEndingTransition(size_t);
-        double getTransition();
-        int traceback_length();
+        double getTransition(state* st, size_t trans_to_state, size_t sequencePosition);
+        size_t get_explicit_duration_length(transition* trans, size_t sequencePosition);
         double exFuncTraceback(transitionFuncParam*);
 		
 		
@@ -92,14 +127,10 @@ namespace StochHMM {
 		bool store_values;
 		bool exDef_defined;
 		
-		state* initial;
-		state* ending;
-		
-		
 		//Traceback Tables
 		int_2D*		traceback_table;          //Simple traceback table
-		float_3D*	stoch_traceback;    //Stochastic traceback table
 		int_3D*		nth_traceback;      //Nth-Viterbi traceback table
+		stochTable* stochastic_table;
 		
 		//Score Tables
 		float_2D*	viterbi_score;      //Storing viterbi scores
@@ -110,22 +141,22 @@ namespace StochHMM {
 		//Ending Cells
 		double   ending_viterbi_score;
 		uint16_t ending_viterbi_tb;
-		double   ending_forward_score;
+		
+		double   ending_posterior;
 
-		std::vector<tb_score>*    ending_stoch_tb;
-		std::vector<tb_score>*    ending_nth_viterbi;
+//		std::vector<tb_score>*    ending_stoch_tb;
+//		std::vector<tb_score>*    ending_nth_viterbi;
 		
 		//Cells used for calculating the Viterbi
 		std::vector<double>* viterbi_current;
 		std::vector<double>* viterbi_previous;
 		
-		//Array used for calculating the Forward Scores
-		std::vector<double>* forward_current;
-		std::vector<double>* forward_previous;
-		
 		//Array used for calculating the Backward Scores
-		std::vector<double>* backward_current_calc_cells;
-		std::vector<double>* backward_previous_calc_cells;
+		std::vector<double>* backward_current;
+		std::vector<double>* backward_previous;
+		
+		std::vector<size_t>* explicit_duration_current;
+		std::vector<size_t>* explicit_duration_previous;
 		
 		std::vector<double>* swap_ptr;
 	};
