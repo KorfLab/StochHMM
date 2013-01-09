@@ -21,6 +21,7 @@
 #include "hmm.h"
 #include "traceback_path.h"
 #include "stochMath.h"
+#include <stdint.h>
 
 
 namespace StochHMM {
@@ -39,6 +40,7 @@ namespace StochHMM {
 			stoch_value(uint16_t id, uint16_t prev, float p): state_id(id), state_prev(prev), prob(p){}
 			uint16_t state_id;
 			uint16_t state_prev;
+			uint16_t prev_cell;
 			float prob;
 		};
 		
@@ -48,6 +50,9 @@ namespace StochHMM {
 		void push(size_t pos, size_t st, size_t st_to, float val);
 		void print();
 		void finalize();
+		uint16_t get_state_position(size_t pos,uint16_t);
+		
+		void traceback(traceback_path& path);
 		
 	private:
 		size_t last_position;
@@ -98,6 +103,8 @@ namespace StochHMM {
 		void traceback_stoch_viterbi(multiTraceback&,size_t);
 		void traceback_nth_viterbi(multiTraceback&);
 		
+		void stochastic_traceback(traceback_path& path);
+		
 		void baum_welch();
 		
 		inline bool store(){return store_values;}
@@ -112,7 +119,7 @@ namespace StochHMM {
 	private:
 		double getEndingTransition(size_t);
         double getTransition(state* st, size_t trans_to_state, size_t sequencePosition);
-        size_t get_explicit_duration_length(transition* trans, size_t sequencePosition);
+        size_t get_explicit_duration_length(transition* trans, size_t sequencePosition,size_t state_iter, size_t to_state);
         double exFuncTraceback(transitionFuncParam*);
 		
 		

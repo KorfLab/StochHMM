@@ -135,6 +135,14 @@ namespace StochHMM {
         double  viterbi_temp(-INFINITY);
         double  emission(-INFINITY);
         bool	exDef_position(false);
+		
+		
+		//If model is not a basic model, then we need to initialize the explicit duration vector
+		//bool extend_duration keeps track of whether the transition to same state was selected.
+		if (!hmm->isBasic()){
+			explicit_duration_current = new(std::nothrow) std::vector<size_t>(0,state_size);
+		}
+		bool extend_duration(false);
         
         state* init = hmm->getInitial();
 		
@@ -214,6 +222,8 @@ namespace StochHMM {
                         
 						
 						if (viterbi_temp > (*viterbi_current)[i]){
+							explicit_duration = (i==j) ? true : false;
+					
                             (*viterbi_current)[i] = viterbi_temp;
                             (*traceback_table)[position][i] = j;
                         }
@@ -222,6 +232,15 @@ namespace StochHMM {
                     }
                 }
 				
+//				if (explicit_duration_current){
+//					if (extend_duration){
+//						(*explicit_duration_current)[i]++;
+//						extend_duration=false;
+//					}
+//					else{
+//						(*explicit_duration_current)[i]=0;
+//					}
+//				}
             }
             
         }
@@ -247,6 +266,7 @@ namespace StochHMM {
         delete viterbi_previous;
         delete viterbi_current;
 	}
+	
 	
 	
 	
@@ -286,7 +306,7 @@ namespace StochHMM {
         for(size_t i = 0; i < state_size; ++i){
             if ((*initial_to)[i]){  //if the bitset is set (meaning there is a transition to this state), calculate the viterbi
 				
-				forward_temp = (*hmm)[i]->get_emission_prob(*seqs,0) + init->getTrans(i)->getTransition(0,NULL);
+				forward_temp = (*hmm)[i]->get_emission_prob(*seqs,0) + getTransition(init, i, 0);
                 
 				if (forward_temp > -INFINITY){
                     
@@ -497,7 +517,7 @@ namespace StochHMM {
         for(size_t i = 0; i < state_size ;++i){
             if ((*backward_score)[0][i] > -INFINITY){
                 
-				backward_temp = (*backward_score)[0][i] + (*hmm)[i]->get_emission_prob(*seqs,0) + init->getTrans(i)->getTransition(0,NULL);;
+				backward_temp = (*backward_score)[0][i] + (*hmm)[i]->get_emission_prob(*seqs,0) + getTransition(init, i, 0);
                 
                 if (backward_temp > -INFINITY){
 					if (backward_posterior == -INFINITY){
@@ -556,12 +576,29 @@ namespace StochHMM {
 		double sum(-INFINITY);
 		int current_state(-1);
 		int state_start(-1);
+		
+		//For each position in the sequence we want to normalize the viterbi values
+		//for the state from previous states
 		for(size_t i=0;i<position->size();++i){
-			for (size_t j = last_position; j <= (*position)[i] ; ++j ){
+			
+			//Need to sum the values.  If we see another state then we'll need to
+			//normalize the previous states that contributed to the sum.
+			//Then set the sum for the current state.
+			for (size_t j = (i==0) ? 0 : (*position)[i-1]+1; j <= (*position)[i] ; ++j ){
+				
+				//If this is a different state then we'll need to apply the sum
+				//if this is the first state then we'll just set the current state
+				//and set the sum value.  Also need to keep track of which state
+				// is the first state so when we normalize we only normalize the
+				// the previous state
 				if ((*state_val)[j].state_id != current_state){
+					
+					//Normalize
 					for(size_t k = state_start; k < j ;++k){
 						(*state_val)[k].prob = exp((*state_val)[k].prob - sum);
 					}
+					
+					//Set state and sum value and starting state
 					current_state = (*state_val)[j].state_id;
 					sum = (*state_val)[j].prob;
 					state_start = j;
@@ -571,30 +608,46 @@ namespace StochHMM {
 				}
 			}
 			
-			for(size_t k = last_position; k < state_val->size(); ++k){
+			//Normalize the last states seen (b/c) we'll exit out of for loop before
+			//we have done these
+			for(size_t k = state_start; k <= (*position)[i]; ++k){
 				(*state_val)[k].prob = exp((*state_val)[k].prob - sum);
 			}
 			
-			std::cout << sum << std::endl;
-			
-//			for (size_t j = last_position ; j <= (*position)[i] ; ++j ){
-//				(*state_val)[j].prob = exp((*state_val)[j].prob-sum);
-//			}
-			
-			last_position++;
+			//Set values for next loop
+			state_start = (*position)[i]+1;
+			current_state = -1;	
 		}
+		
+		//Assign previous cell relative to (position) value.  Used when traceback
+		//That way function won't have to search for correct value;
+		for (size_t i =1; i < position->size(); ++i){
+			for (size_t j = (*position)[i-1]+1; j <= (*position)[i] ; ++j){
+				(*state_val)[j].prev_cell = get_state_position(i-1, (*state_val)[j].state_prev);
+			}
+		}
+		
 		return;
+	}
+	
+	uint16_t stochTable::get_state_position(size_t pos, uint16_t state){
+		size_t start_val = (pos == 0) ? 0 : (*position)[pos-1]+1;
+		for (size_t i = start_val ; i <= (*position)[pos] ;  ++i){
+			if ((*state_val)[i].state_id == state){
+				return i-start_val;
+			}
+		}
+		
+		return UINT16_MAX;
 	}
 	
 	void stochTable::print(){
 		last_position = 0;
 		
 		for(size_t i=0;i<position->size();++i){
-			
-			for (size_t j = last_position ; j < (*position)[i] ; ++j ){
+			for (size_t j = (i==0) ? 0 : (*position)[i-1]+1 ; j <= (*position)[i] ; ++j ){
 				std::cout << (*state_val)[j].state_id <<":"<< (*state_val)[j].state_prev << " : " << (*state_val)[j].prob << "\t";
 			}
-			last_position = (*position)[i]-1;
 			std::cout << std::endl;
 		}
 		return;
@@ -623,7 +676,7 @@ namespace StochHMM {
         for(size_t i = 0; i < state_size; ++i){
             if ((*initial_to)[i]){  //if the bitset is set (meaning there is a transition to this state), calculate the viterbi
 				
-				viterbi_temp = (*hmm)[i]->get_emission_prob(*seqs,0) + init->getTrans(i)->getTransition(0,NULL);
+				viterbi_temp = (*hmm)[i]->get_emission_prob(*seqs,0) + getTransition(init, i, 0);;
                 
 				if (viterbi_temp > -INFINITY){										
                     if ((*viterbi_current)[i] < viterbi_temp){
@@ -688,6 +741,7 @@ namespace StochHMM {
                         
 						
 //						std::cout << "Temp Viterbi:\tTransFrom: "<< j << "\tto\t" << i << "\t" << viterbi_temp / log(2) << std::endl;
+//Save partial value to stochastic table
                         stochastic_table->push(position-1,i,j,viterbi_temp);
 						
 						if (viterbi_temp > (*viterbi_current)[i]){
@@ -743,12 +797,9 @@ namespace StochHMM {
         }
         else if (trans_type == DURATION){
 			
-			
-            
             //TODO: Check traceback_length function
-            //size_t size = get_explicit_duration_length(trans,sequencePosition, st->getIterator(), trans_to_state);
-            
-            //transition_prob=trans->getTransition(size,NULL);
+            size_t size = get_explicit_duration_length(trans,sequencePosition, st->getIterator(), trans_to_state);
+            transition_prob=trans->getTransition(size,NULL);
             
         }
         else if (trans_type == LEXICAL){
@@ -764,7 +815,7 @@ namespace StochHMM {
         return transition_prob;		
 	}
 	
-	size_t trellis::get_explicit_duration_length(transition* trans, size_t sequencePosition){
+	size_t trellis::get_explicit_duration_length(transition* trans, size_t sequencePosition, size_t state_iter, size_t to_state){
 		
 		
 		//Need to check to see if value is set in the duration table before doing tb.
@@ -796,10 +847,10 @@ namespace StochHMM {
 //			
 //			//Check to see if stop conditions of traceback are met, if so break;
 //			if(traceback_identifier == START_INIT && tbState == -1) {break;}
-//			else if (traceback_identifier == DIFF_STATE  && starting_state != st->getIterator()) {  break;}
-//			else if (traceback_identifier == STATE_NAME  && identifier.compare(st->getName())==0){ break;}
-//			else if (traceback_identifier == STATE_LABEL && identifier.compare(st->getLabel())==0) {  break;}
-//			else if (traceback_identifier == STATE_GFF   && identifier.compare(st->getGFF())==0) {  break;}
+//			else if (traceback_identifier == DIFF_STATE  && starting_state != st->getIterator())	{ break;}
+//			else if (traceback_identifier == STATE_NAME  && identifier.compare(st->getName())==0)	{ break;}
+//			else if (traceback_identifier == STATE_LABEL && identifier.compare(st->getLabel())==0)	{ break;}
+//			else if (traceback_identifier == STATE_GFF   && identifier.compare(st->getGFF())==0)	{ break;}
 //			
 //		}
 //		return length;
@@ -830,6 +881,57 @@ namespace StochHMM {
         }
         return;
     }
+	
+	void trellis::stochastic_traceback(traceback_path& path){
+		
+		stochastic_table->traceback(path);
+		return;
+	}
+	
+	void stochTable::traceback(traceback_path& path){
+		
+		double random((double)rand()/((double)(RAND_MAX)+(double)(1)));
+		double cumulative_prob(0.0);
+		std::cout << random << std::endl;
+		
+		size_t offset(0);
+		uint16_t state_prev;
+		
+		//Get traceback from END state
+		for(size_t i = (*position)[position->size()-2]+1 ; i <= position->back() ; ++i){
+			cumulative_prob += (*state_val)[i].prob;
+			if (random < cumulative_prob){
+				state_prev = (*state_val)[i].state_prev;
+				path.push_back(state_prev);
+				offset = (*state_val)[i].prev_cell;
+				std::cout << "Chose:\t" << state_prev << std::endl;
+				break;
+			}
+		}
+		
+		for(size_t i = position->size()-2; i != SIZE_T_MAX ; --i){
+			random = (double)rand()/((double)(RAND_MAX)+(double)(1));
+			std::cout << random << std::endl;
+			cumulative_prob = 0;
+			
+			for (size_t cells = (i == 0) ? 0 + offset : (*position)[i-1]+offset+1; cells < (*position)[i] ; ++cells){
+				if ((*state_val)[cells].state_id != state_prev ){
+					std::cout << "Houston, We have an error!" << std::endl;
+				}
+                
+				cumulative_prob+=(*state_val)[cells].prob;
+				
+                if (random <= cumulative_prob){
+                    state_prev = (*state_val)[cells].state_prev;
+					path.push_back(state_prev);
+					offset = (*state_val)[cells].prev_cell;
+					std::cout << "Chose:\t" << state_prev << std::endl;
+					break;
+                }
+            }
+		}
+		return;
+	}
 	
 }
 

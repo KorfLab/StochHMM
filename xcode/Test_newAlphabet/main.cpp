@@ -10,6 +10,7 @@
 #include <iostream>
 #include <string>
 #include <bitset>
+#include <time.h>
 //#include "mem_trellis.h"
 //#include "mem_viterbi.h"
 #include "new_trellis.h"
@@ -24,22 +25,30 @@ using namespace StochHMM;
 
 seqTracks jobs;
 
+
 int main(int argc, const char * argv[])
 {
-    model hmm;
+    srand(time(NULL));
+	model hmm;
     //Check that model argument is defined and import the model
 //    std::string model_file = "Lettuce_Final.hmm";
 //    std::string seq_file = "Test.fa";
-	
+//	
 //	std::string model_file = "Dice.hmm";
 //	std::string seq_file = "Dice.fa";
 
-	std::string model_file = "model_V.txt";
-	std::string seq_file = "TestTCR1.fa";
-    
+//	std::string model_file = "model_V.txt";
+//	std::string seq_file = "TestTCR1.fa";
+
+//	std::string model_file = "3_16Eddy.hmm";
+//	std::string seq_file = "3_17Eddy.fa";
+
+	std::string model_file = "Dice_explicit.hmm";
+	std::string seq_file = "Dice.fa";
+	
 	
 	hmm.import(model_file);
-	
+
 //	sequence temp("ACGACGTACGTNNNK",hmm.getTrack(0));
 //	
 //	track* tr = hmm.getTrack(0);
@@ -66,7 +75,7 @@ int main(int argc, const char * argv[])
     
     seqJob *job=jobs.getJob();
 	
-	sequences* temp = job->getSeqs();
+	//sequences* temp = job->getSeqs();
 	//temp->print();
     
     trellis test_trellis(job->getModel(),job->getSeqs());
@@ -78,12 +87,12 @@ int main(int argc, const char * argv[])
 	//viterbi_four(&test_trellis, job->getModel(), job->getSeqs());
     
 	
-	test_trellis.viterbi();
+	test_trellis.stochastic_viterbi();
 	
 	//test_trellis.viterbi();
 	
 	traceback_path test(job->getModel());
-	test_trellis.traceback(test);
+	test_trellis.stochastic_traceback(test);
 	
 	test.print_label();
 	
