@@ -73,6 +73,13 @@ namespace StochHMM {
 		~trellis();
 		void reset();
 		
+		
+		/*-----------   Decoding Algorithms ------------*/
+		
+		//TODO: Fix these functions so that they evaluate the model and choose a
+		// a default algorithm based on the whether the model defines explicit duration
+		// states
+		
 		void viterbi();
 		void viterbi(model* h, sequences* sqs);
 		
@@ -92,11 +99,104 @@ namespace StochHMM {
 		void stochastic_viterbi(model* h, sequences* sqs);
 		
 		void stochastic_forward();
-		void stochastic_forward(model* h, sequences *sqs);
+		void stochastic_forward(model* h, sequences* sqs);
 		
 		void nth_viterbi();
 		void nth_viterbi(model* h, sequences *sqs);
 		
+		void baum_welch();
+		
+		
+		/*-----------   Simple Model Decoding Algorithms ------------*/
+		/* These algorithms are for use with models that do not define explicit
+			duration states or external functions.   Therefore, probabilities can
+			be easily computed or referenced.
+		 
+		 */
+		
+		void simple_viterbi();
+		void simple_viterbi(model* h, sequences* sqs);
+				
+		void simple_forward_viterbi();
+		void simple_forward_viterbi(model* h, sequences* sqs);
+		
+		void simple_forward();
+		void simple_forward(model* h, sequences* sqs);
+		
+		void simple_backward();
+		void simple_backward(model* h, sequences* sqs);
+		
+		void simple_posterior();
+		void simple_posterior(model* h, sequences* sqs);
+		
+		void simple_stochastic_viterbi();
+		void simple_stochastic_viterbi(model* h, sequences* sqs);
+		
+		void simple_stochastic_forward();
+		void simple_stochastic_forward(model* h, sequences* sqs);
+		
+		void simple_baum_welch();
+		void simple_baum_welch(model* h, sequences* sqs);
+
+		
+		/*-----------   Fast Complex Model Decoding Algorithms  ----------*/
+		/*	These algorithms are for use with models that define external functions
+			or explicit duration states.
+		 
+			These algorithms store the associated emissions and transitions
+			probabilities that were calculated during viterbi algorith.  For later
+			use in the forward/backward algorithms.
+		 
+			The values are stored in dense arrays, so the memory is accessed faster
+			at the cost of amount of memory required.
+		 */
+		
+		void fast_complex_viterbi();
+		void fast_complex_viterbi(model* h, sequences* sqs);
+		
+		void fast_complex_forward_viterbi();
+		void fast_complex_forward_viterbi(model* h, sequences* sqs);
+		
+		void fast_complex_backward();
+		void fast_complex_backward(model* h, sequences* sqs);
+		
+		void fast_complex_stochastic_viterbi();
+		void fast_complex_stochastic_viterbi(model* h, sequences* sqs);
+		
+		void fast_complex_stochastic_forward();
+		void fast_complex_stochastic_forward(model* h, sequences* sqs);
+		
+		void fast_complex_baum_welch();
+		void fast_complex_baum_welch(model* h, sequences* sqs);
+		
+		
+		/*-----------   Sparse Complex Model Decoding Algorithms  --------*/
+		/*	These algorithms store the associated emissions and transitions
+			probabilities that were calculated during viterbi algorith.  For later
+			use in the forward/backward algorithms.
+		
+			The values are stored in sparse tables (hash map), so access to values 
+			is slower but with lower amount of memory required.
+		 */
+		
+		void sparse_complex_viterbi();
+		void sparse_complex_viterbi(model* h, sequences* sqs);
+		
+		void sparse_complex_foward_viterbi();
+		void sparse_complex_foward_viterbi(model* h, sequences* sqs);
+		
+		void sparse_complex_backward();
+		void sparse_complex_backward(model* h, sequences* sqs);
+		
+		void sparse_complex_stochastic_forward();
+		void sparse_complex_stochastic_forward(model* h, sequences* sqs);
+		
+		void sparse_complex_baum_welch();
+		void sparse_complex_baum_welch(model* h, sequences* sqs);
+		
+		
+		/*---------   Standard Traceback Algorithms --------*/
+				
 		void traceback(traceback_path& path);
         void traceback(traceback_path&,size_t);
 		void traceback_stoch_forward(multiTraceback&,size_t);
@@ -105,7 +205,6 @@ namespace StochHMM {
 		
 		void stochastic_traceback(traceback_path& path);
 		
-		void baum_welch();
 		
 		inline bool store(){return store_values;}
 		inline void store(bool val){store_values=val; return;}
@@ -164,6 +263,7 @@ namespace StochHMM {
 		
 		std::vector<size_t>* explicit_duration_current;
 		std::vector<size_t>* explicit_duration_previous;
+		std::vector<size_t>* swap_ptr_duration;
 		
 		std::vector<double>* swap_ptr;
 	};

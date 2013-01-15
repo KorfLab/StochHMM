@@ -866,6 +866,8 @@ namespace StochHMM{
             std::set<std::string> labels;
             std::set<std::string> gff;
             std::set<std::string> name;
+			
+			explicit_duration_states = new(std::nothrow) std::vector<bool>(states.size(),false);
             
             //Create temporary hash of states for layout
             for(size_t i=0;i<states.size();i++){
@@ -902,6 +904,8 @@ namespace StochHMM{
             //Check to see if model is basic model
 			//Meaning that the model doesn't call outside functions or perform
 			//Tracebacks for explicit duration.
+			//If explicit duration exist then we'll keep track of which states
+			//they are in explicit_duration_states
             for(size_t i=0;i<states.size();i++){
                 std::vector<transition*>* transitions = states[i]->getTransitions();
                 for(size_t trans=0;trans<transitions->size();trans++){
@@ -914,18 +918,20 @@ namespace StochHMM{
                         break;
                     }
                     else if ((*transitions)[trans]->getTransitionType()!=STANDARD || (*transitions)[trans]->getTransitionType()!=LEXICAL){
+						
+						if ((*transitions)[trans]->getTransitionType() == DURATION){
+							(*explicit_duration_states)[i]=true;
+						}
+						
                         basicModel=false;
                         break;
                     }
-                }
-                
-                if (!basicModel){
-                    break;
                 }
             }
             
             finalized=true;
         }
+		
         return;
         
     }

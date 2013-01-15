@@ -140,9 +140,11 @@ namespace StochHMM {
 		//If model is not a basic model, then we need to initialize the explicit duration vector
 		//bool extend_duration keeps track of whether the transition to same state was selected.
 		if (!hmm->isBasic()){
-			explicit_duration_current = new(std::nothrow) std::vector<size_t>(0,state_size);
+			explicit_duration_current = new(std::nothrow) std::vector<size_t>(state_size,0);
+			explicit_duration_previous= new(std::nothrow) std::vector<size_t>(state_size,0);
 		}
 		bool extend_duration(false);
+		std::vector<bool>* duration = hmm->get_explicit();
         
         state* init = hmm->getInitial();
 		
@@ -188,7 +190,9 @@ namespace StochHMM {
                 exDef_position = seqs->exDefDefined(position);
             }
 			
-//			std::cout << "\nPosition:\t" << position << "\t";
+			//TODO: Check use of external definitions below.
+			
+			std::cout << "\nPosition:\t" << position << "\n";
 //			std::cout << "Letter:\t" << seqs->seqValue(0, position) << std::endl;
 
             for (size_t i = 0; i < state_size; ++i){ //i is current state that emits value
@@ -217,12 +221,15 @@ namespace StochHMM {
                     if ((*viterbi_previous)[j] != INFINITY){
                         viterbi_temp = getTransition((*hmm)[j], i , position) + emission + (*viterbi_previous)[j];
                         
+						std::cout << exp(getTransition((*hmm)[j],i,position)) << std::endl;
 						
 //						std::cout << "Temp Viterbi:\tTransFrom: "<< j << "\tto\t" << i << "\t" << viterbi_temp / log(2) << std::endl;
                         
 						
 						if (viterbi_temp > (*viterbi_current)[i]){
-							explicit_duration = (i==j) ? true : false;
+							//If transition is from same to same then if it is
+							//explicit duration we'll need to change
+							extend_duration = (i==j) ? true : false;
 					
                             (*viterbi_current)[i] = viterbi_temp;
                             (*traceback_table)[position][i] = j;
@@ -232,16 +239,25 @@ namespace StochHMM {
                     }
                 }
 				
-//				if (explicit_duration_current){
-//					if (extend_duration){
-//						(*explicit_duration_current)[i]++;
-//						extend_duration=false;
-//					}
-//					else{
-//						(*explicit_duration_current)[i]=0;
-//					}
-//				}
+				//If explicit durations vector defined, and transition from-to same
+				//then we'll increment the value. Otherwise, set to zero;
+				if (explicit_duration_current){
+					if (extend_duration && (*duration)[i]){
+						(*explicit_duration_current)[i]=(*explicit_duration_previous)[i]+1;
+						extend_duration=false;
+					}
+					else{
+						(*explicit_duration_current)[i]=0;
+					}
+				}
             }
+			
+			if(explicit_duration_current){
+				swap_ptr_duration = explicit_duration_previous;
+				explicit_duration_previous = explicit_duration_current;
+				explicit_duration_current= swap_ptr_duration;
+				explicit_duration_current->assign(state_size,0);
+			}
             
         }
         
@@ -797,10 +813,16 @@ namespace StochHMM {
         }
         else if (trans_type == DURATION){
 			
-            //TODO: Check traceback_length function
-            size_t size = get_explicit_duration_length(trans,sequencePosition, st->getIterator(), trans_to_state);
-            transition_prob=trans->getTransition(size,NULL);
-            
+//            //TODO: Check traceback_length function
+//			if ((*explicit_duration_current)[st->getIterator()] != 0 ){
+//				transition_prob = trans->getTransition((*explicit_duration_current)[st->getIterator()]+1,NULL);
+//			}
+//			else{
+				size_t size = get_explicit_duration_length(trans,sequencePosition, st->getIterator(), trans_to_state);
+				transition_prob=trans->getTransition(size,NULL);
+//				(*explicit_duration_current)[st->getIterator()]=size;
+//			}
+			
         }
         else if (trans_type == LEXICAL){
             transition_prob=trans->getTransition(sequencePosition, seqs);
@@ -817,43 +839,42 @@ namespace StochHMM {
 	
 	size_t trellis::get_explicit_duration_length(transition* trans, size_t sequencePosition, size_t state_iter, size_t to_state){
 		
-		
-		//Need to check to see if value is set in the duration table before doing tb.
-		//IF it is then just increment it by value of 1;
-		
+		if ((*explicit_duration_previous)[state_iter]!=0){
+			return (*explicit_duration_previous)[state_iter]+1;
+		}
 		
 		
 		//If it hasn't been defined then traceback until the ending parameter is reached
-//		
-//		int length=0;
-//	
-//		int tbState = previousState;  //Starting state to use
-//		int starting_state = tbState;
-//		
-//		//tracebackIdentifier traceback_identifier = previousState->transi[transitionTo].traceback_identifier;
-//		tracebackIdentifier traceback_identifier = trans->getTracebackIdentifier();
-//		
-//		//string identifier = previousState->transi[transitionTo].traceback_string;
-//		std::string identifier = trans->getTracebackString();
-//		
-//		
-//		for(size_t trellPos=sequencePosition-1 ; trellPos != SIZE_MAX ;trellPos--){
-//			//for(;trellisPos>=0;trellisPos--){
-//			length++;
-//			//state=trellis.trell[trellisPos][state].ptr;  //Get previous state traceback
-//			
-//			tbState = this->getPtr(trellPos,tbState);
-//			state* st = hmm->getState(tbState);
-//			
-//			//Check to see if stop conditions of traceback are met, if so break;
-//			if(traceback_identifier == START_INIT && tbState == -1) {break;}
-//			else if (traceback_identifier == DIFF_STATE  && starting_state != st->getIterator())	{ break;}
-//			else if (traceback_identifier == STATE_NAME  && identifier.compare(st->getName())==0)	{ break;}
-//			else if (traceback_identifier == STATE_LABEL && identifier.compare(st->getLabel())==0)	{ break;}
-//			else if (traceback_identifier == STATE_GFF   && identifier.compare(st->getGFF())==0)	{ break;}
-//			
-//		}
-//		return length;
+		
+		size_t length(0);
+	
+		
+		size_t tbState(state_iter);  //First traceback pointer to use in traceback_table
+		
+		//tracebackIdentifier traceback_identifier = previousState->transi[transitionTo].traceback_identifier;
+		tracebackIdentifier traceback_identifier = trans->getTracebackIdentifier();
+		
+		//string identifier = previousState->transi[transitionTo].traceback_string;
+		std::string identifier = trans->getTracebackString();
+		
+		
+		for(size_t trellPos=sequencePosition-1 ; trellPos != SIZE_MAX ;trellPos--){
+			//for(;trellisPos>=0;trellisPos--){
+			length++;
+			//state=trellis.trell[trellisPos][state].ptr;  //Get previous state traceback
+			
+			tbState = (*traceback_table)[trellPos][tbState];
+			state* st = hmm->getState(tbState);
+			
+			//Check to see if stop conditions of traceback are met, if so break;
+			if(traceback_identifier == START_INIT && tbState == -1) {break;}
+			else if (traceback_identifier == DIFF_STATE  && state_iter != st->getIterator())	{ break;}
+			else if (traceback_identifier == STATE_NAME  && identifier.compare(st->getName())==0)	{ break;}
+			else if (traceback_identifier == STATE_LABEL && identifier.compare(st->getLabel())==0)	{ break;}
+			else if (traceback_identifier == STATE_GFF   && identifier.compare(st->getGFF())==0)	{ break;}
+			
+		}
+		return length+1;
 
 	}
 	

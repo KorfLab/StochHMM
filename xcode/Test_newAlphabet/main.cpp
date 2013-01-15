@@ -44,7 +44,7 @@ int main(int argc, const char * argv[])
 //	std::string seq_file = "3_17Eddy.fa";
 
 	std::string model_file = "Dice_explicit.hmm";
-	std::string seq_file = "Dice.fa";
+	std::string seq_file = "Dice_short.fa";
 	
 	
 	hmm.import(model_file);
@@ -87,12 +87,14 @@ int main(int argc, const char * argv[])
 	//viterbi_four(&test_trellis, job->getModel(), job->getSeqs());
     
 	
-	test_trellis.stochastic_viterbi();
+	//test_trellis.stochastic_viterbi();
 	
-	//test_trellis.viterbi();
+	test_trellis.viterbi();
 	
 	traceback_path test(job->getModel());
-	test_trellis.stochastic_traceback(test);
+	test_trellis.traceback(test);
+	
+	//test_trellis.stochastic_traceback(test);
 	
 	test.print_label();
 	

@@ -223,7 +223,7 @@ namespace StochHMM{
 		void finalize();
 		///@}
 		
-		
+		inline std::vector<bool>* get_explicit(){return explicit_duration_states;}
 		
 	private:
 		bool finalized;
@@ -250,6 +250,8 @@ namespace StochHMM{
 		
 		//std::map<std::string,weight*> scaling;
 		templates* templatedStates;
+		
+		std::vector<bool>* explicit_duration_states;
 		
 		
 		
