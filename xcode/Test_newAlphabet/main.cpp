@@ -25,11 +25,29 @@ using namespace StochHMM;
 
 seqTracks jobs;
 
+double fair(const double& val, const std::vector<double>& param){
+	return log(0.167);
+}
+
+double loaded(const double& val, const std::vector<double>& param){
+	if (val == 6.0){
+		return log(0.5);
+	}
+	
+	return log(0.1);
+}
+
 
 int main(int argc, const char * argv[])
 {
     srand(time(NULL));
 	model hmm;
+	StateFuncs functions;
+	functions.assignPDFFunction("FAIR", *fair);
+	functions.assignPDFFunction("LOADED", *loaded);
+	
+	
+	
     //Check that model argument is defined and import the model
 //    std::string model_file = "Lettuce_Final.hmm";
 //    std::string seq_file = "Test.fa";
@@ -46,11 +64,10 @@ int main(int argc, const char * argv[])
 //	std::string model_file = "Dice_explicit.hmm";
 //	std::string seq_file = "Dice_short.fa";
 	
-	std::string model_file = "Dice_Orphaned.hmm";
-	std::string seq_file   = "Dice_short.fa";
+	std::string model_file = "Dice_Continuous.hmm";
+	std::string seq_file   = "Dice_real.fa";
 	
-	
-	hmm.import(model_file);
+	hmm.import(model_file,&functions);
 
 //	sequence temp("ACGACGTACGTNNNK",hmm.getTrack(0));
 //	
@@ -75,6 +92,7 @@ int main(int argc, const char * argv[])
 	//temp.print();
     
     jobs.loadSeqs(hmm, seq_file, FASTA);
+	//jobs.loadSeqs(hmm, seq_file, CSV);
     
     seqJob *job=jobs.getJob();
 	
@@ -94,16 +112,18 @@ int main(int argc, const char * argv[])
 	
 	//test_trellis.viterbi();
 	
-	test_trellis.simple_posterior();
+	test_trellis.simple_viterbi();
+	
+	//test_trellis.simple_posterior();
 	//test_trellis.simple_forward();
 	//test_trellis.simple_backward();
 	
-	//traceback_path test(job->getModel());
-	//test_trellis.traceback(test);
+	traceback_path test(job->getModel());
+	test_trellis.traceback(test);
 	
 	//test_trellis.stochastic_traceback(test);
 	
-	//test.print_label();
+	test.print_label();
 	
 	//test_trellis.forward();
 	//test_trellis.backward();

@@ -47,6 +47,13 @@ namespace StochHMM{
              }
          }
      };
+	
+	
+	void StateFuncs::assignTransitionFunction(const char* str, transitionFunc ptrFunc){
+		
+		std::string st(str);
+		assignTransitionFunction(st, ptrFunc);
+	};
     
     
     //!Assign a emission function to the StateFuncs class
@@ -68,6 +75,11 @@ namespace StochHMM{
         }
     }
 	
+	void StateFuncs::assignEmmissionFunction(const char* str, emissionFunc ptrFunc){
+		std::string st(str);
+		assignEmmissionFunction(st, ptrFunc);
+	}
+	
 	
 	
 	//!Assign a Probability Distribution Function to the StateFuncs class
@@ -86,6 +98,11 @@ namespace StochHMM{
                 std::cerr << "\t" << it->first <<std::endl;
             }
         }
+	}
+	
+	void StateFuncs::assignPDFFunction(const char* str, pdfFunc ptrFunc){
+		std::string st(str);
+		assignPDFFunction(st, ptrFunc);
 	}
     
     

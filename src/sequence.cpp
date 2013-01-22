@@ -597,10 +597,15 @@ namespace StochHMM{
         seqtrk=trk;
                 
         //get header
-        while(file.peek() != '@'){
+        while(file.peek() != '@' && !file.eof()){
             std::string temp;
             getline(file,temp,'\n');
         }
+		
+		if (file.eof()){
+			std::cerr << "No header found for sequence.  Header should start line with \"@\".\n";
+			exit(2);
+		}
         
         std::string sequence="";
         getline(file,sequence,'\n');

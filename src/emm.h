@@ -111,7 +111,6 @@ namespace StochHMM{
 		bool real_number;
 		bool continuous;
 		bool complement;
-		pdfFunc* pdf;
 		
 		track* realTrack;
 		
@@ -121,6 +120,11 @@ namespace StochHMM{
 		//Lexical Function Only
 		bool function;
 		emissionFuncParam* lexFunc;
+		
+		//Continuous Distribution
+		pdfFunc* pdf;
+		std::string pdfName;
+		std::vector<double>* dist_parameters;
 		
 		//TODO:  Implement the external Function capabilities
 		emissionFuncParam* tagFunc;

@@ -72,7 +72,7 @@ namespace StochHMM{
         }
         
         stringList line;
-        line.splitString(ln[idx], "\t,:");
+        line.splitString(ln[idx], "\t,: ");
         
         size_t typeBegin;
         
@@ -97,7 +97,11 @@ namespace StochHMM{
             }
         }
 		else if (line.contains("CONTINUOUS")){
+			typeBegin = line.indexOf("CONTINUOUS");
 			continuous=true;
+			if (line.contains("COMPLEMENT") || line.contains("1-P(X)")) {
+                complement=true;
+            }
 		}
         else if (line.contains("FUNCTION")){
             typeBegin = line.indexOf("FUNCTION");
@@ -135,6 +139,35 @@ namespace StochHMM{
             realTrack = tempTracks[0];
             return true;
         }
+		else if (continuous){
+			
+			if (tempTracks.size()>1){
+                std::cerr << "Multiple tracks listed under CONTINUOUS Track Emission Definition\n";
+                return false;
+            }
+            
+            realTrack = tempTracks[0];
+			
+			idx = ln.indexOf("PDF");
+			line.splitString(ln[idx],"\t:, ");
+			
+			size_t function_idx = line.indexOf("PDF") + 1;
+			pdfName = line[function_idx];
+			
+			size_t parameter_idx = line.indexOf("PARAMETERS");
+			dist_parameters = new(std::nothrow) std::vector<double>;
+			
+			for(size_t i = parameter_idx+1 ; i< line.size() ; i++){
+				double value;
+				stringToDouble(line[i], value);
+				dist_parameters->push_back(value);
+			}
+			
+			
+            pdf = funcs->getPDFFunction(pdfName);
+            
+            return true;
+		}
         else if (function){
             std::string& functionName = line[typeBegin+1];
             lexFunc = new(std::nothrow) emissionFuncParam(functionName,funcs,tempTracks[0]);
@@ -373,7 +406,9 @@ namespace StochHMM{
             final_emission=lexFunc->evaluate(seqs, pos);
         }
 		else if (continuous){
-			final_emission = (*pdf)(seqs.realValue(realTrack->getIndex(),pos));
+			
+			final_emission = (*pdf)(seqs.realValue(realTrack->getIndex(),pos),*dist_parameters);
+			
 			if (complement){
 				final_emission=log(1-exp(final_emission));
 			}
@@ -605,6 +640,21 @@ namespace StochHMM{
             }
             emissionString+="\n";
         }
+		else if (continuous){
+			emissionString+=realTrack->getName();
+			emissionString+="\tCONTINUOUS";
+			
+			if (tagFunc){
+                emissionString+=tagFunc->stringify();
+            }
+            emissionString+="\n\t";
+			
+			emissionString+="PDF:\t";
+			emissionString+=pdfName + "\tPARAMETERS:\t";
+			emissionString+=join(*dist_parameters, ',');
+			emissionString+= "\n";
+			
+		}
         else if (function){
             emissionString+=lexFunc->getTrack()->getName();
             emissionString+="\tFUNCTION:\t";

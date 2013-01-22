@@ -56,7 +56,7 @@ namespace StochHMM{
     
     //!\enum enum SeqFileFormat {FASTA,  FASTQ};
     //!File format of the sequences
-    enum SeqFileFormat {FASTA,  FASTQ};
+    enum SeqFileFormat {FASTA, FASTQ, CSV};
     
     //!\enum enum SeqFilesType {SINGLE, MULTI};
     //!Sequence files have single track or multiple track sequences per file
