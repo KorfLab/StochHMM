@@ -163,10 +163,15 @@ namespace StochHMM{
         
         finalized=false;
         basicModel=true;
-        initial=NULL;
-        scaling=NULL;
-        templatedStates=NULL;
-        attribTwo=false;
+		attribTwo=false;
+
+        initial						= NULL;
+        scaling						= NULL;
+        templatedStates				= NULL;
+        explicit_duration_states	= NULL;
+		complex_emission_states		= NULL;
+		complex_transition_states	= NULL;
+		
         range[0]=-INFINITY;
         range[1]=-INFINITY;
         
@@ -906,35 +911,84 @@ namespace StochHMM{
 			//Tracebacks for explicit duration.
 			//If explicit duration exist then we'll keep track of which states
 			//they are in explicit_duration_states
-            for(size_t i=0;i<states.size();i++){
-                std::vector<transition*>* transitions = states[i]->getTransitions();
-                for(size_t trans=0;trans<transitions->size();trans++){
-					if ((*transitions)[trans] == NULL){
-						continue;
-					}
-					
-                    if ((*transitions)[trans]->FunctionDefined()){
-                        basicModel=false;
-                        break;
-                    }
-                    else if ((*transitions)[trans]->getTransitionType()!=STANDARD || (*transitions)[trans]->getTransitionType()!=LEXICAL){
-						
-						if ((*transitions)[trans]->getTransitionType() == DURATION){
-							(*explicit_duration_states)[i]=true;
-						}
-						
-                        basicModel=false;
-                        break;
-                    }
-                }
-            }
-            
+//            for(size_t i=0;i<states.size();i++){
+//                std::vector<transition*>* transitions = states[i]->getTransitions();
+//                for(size_t trans=0;trans<transitions->size();trans++){
+//					if ((*transitions)[trans] == NULL){
+//						continue;
+//					}
+//					
+//                    if ((*transitions)[trans]->FunctionDefined()){
+//                        basicModel=false;
+//                        break;
+//                    }
+//                    else if ((*transitions)[trans]->getTransitionType()!=STANDARD || (*transitions)[trans]->getTransitionType()!=LEXICAL){
+//						
+//						if ((*transitions)[trans]->getTransitionType() == DURATION){
+//							(*explicit_duration_states)[i]=true;
+//						}
+//						
+//                        basicModel=false;
+//                        break;
+//                    }
+//                }
+//            }
+			
+			checkBasicModel();
+			checkExplicitDurationStates();
+			checkTopology();
             finalized=true;
         }
 		
         return;
         
     }
+	
+	void model::checkBasicModel(){
+		basicModel = true;
+		delete complex_emission_states;
+		delete complex_transition_states;
+		complex_emission_states = NULL;
+		complex_transition_states = NULL;
+		
+		complex_emission_states		= new(std::nothrow) std::vector<bool>(state_size(),false);
+		complex_transition_states	= new(std::nothrow) std::vector<bool>(state_size(),false);
+		
+		for(size_t st = 0 ; st<state_size(); ++st){
+			(*complex_emission_states)[st]	= states[st]->hasComplexEmission();
+			(*complex_transition_states)[st]= states[st]->hasComplexTransition();
+			
+			if ((*complex_emission_states)[st] || (*complex_transition_states)[st]){
+				basicModel = false;
+			}
+		}
+		
+		return;
+	}
+	
+	
+	void model::checkExplicitDurationStates(){
+		delete explicit_duration_states;
+		explicit_duration_states = NULL;
+		explicit_duration_states = new(std::nothrow) std::vector<bool>(state_size(),false);
+		
+		for(size_t i=0;i<states.size();i++){
+			
+			std::vector<transition*>* transitions = states[i]->getTransitions();
+		
+			for(size_t trans=0;trans<transitions->size();trans++){
+				if ((*transitions)[trans]== NULL){
+					continue;
+				}
+				
+				if ((*transitions)[trans]->getTransitionType() == DURATION){
+					(*explicit_duration_states)[i]=true;
+				}
+			}
+		}
+		
+		return;
+	}
     
     void model::_addStateToFromTransition(state* st){
         std::vector<transition*>* trans;
@@ -1130,6 +1184,82 @@ namespace StochHMM{
         
         return abs(mid-val);
     }
+	
+	
+	bool model::checkTopology(){
+		
+		std::vector<bool> states_visited (states.size(),false);
+		std::vector<uint16_t> visited;
+		
+		bool ending_defined(false);
+		
+		_checkTopology(initial, visited);
+		
+		while (visited.size()>0){
+			uint16_t st_iter = visited.back();
+			visited.pop_back();
+			
+			if (!states_visited[st_iter]){
+				std::vector<uint16_t> tmp_visited;
+				_checkTopology(states[st_iter],tmp_visited);
+				size_t num_visited = tmp_visited.size();
+				
+				//Check orphaned
+				if (num_visited == 0 ){
+					//No transitions
+					std::cerr << "State: "  << states[st_iter]->getName() << " has not transitions defined\n";
+				}
+				else if (num_visited == 1 && tmp_visited[0] == st_iter){
+					//Orphaned
+					if(states[st_iter]->getEnding() == NULL){
+						std::cerr << "State: "  << states[st_iter]->getName() << " is an orphaned state that has only transition to itself\n";
+					}
+					else{
+						std::cerr << "State: "  << states[st_iter]->getName() << " may be an orphaned state that only has transitions to itself and END state.\n";
+					}
+				}
+				
+				for(size_t i=0; i < tmp_visited.size(); i++){
+					if (!states_visited[tmp_visited[i]]){
+						visited.push_back(tmp_visited[i]);
+					}
+				}
+				
+				states_visited[st_iter] = true;
+			}
+		}
+		
+		//Check for defined ending
+		for(size_t i=0; i< states.size() ; i++){
+			if ( states[i]->getEnding() != NULL){
+				ending_defined = true;
+				break;
+			}
+		}
+		
+		if (!ending_defined){
+			std::cerr << "No END state defined in the model\n";
+		}
+		
+		for(size_t i=0; i< states_visited.size(); i++){
+			if (!states_visited[i]){
+				std::cerr << "State: "  << states[i]->getName() << " doesn't have valid model topology\n\
+				Please check the model transitions\n";
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	void model::_checkTopology(state* st, std::vector<uint16_t>& visited){
+		for(size_t i = 0 ; i < st->transi->size() ; i++){
+			if (st->transi->at(i) != NULL){
+				visited.push_back(st->transi->at(i)->getState()->getIterator());
+			}
+			
+		}
+		return;
+	}
     
     
     void print_vec (std::vector<std::vector<double> > &x){

@@ -36,10 +36,11 @@ namespace StochHMM{
         traceback_identifier=DIFF_STATE;
         log_trans=-INFINITY;        
         extendedValue=-INFINITY;
-        func=NULL;
-        lexFunc=NULL;
-        function=false;
-        toState=NULL;
+		function=false;
+        func	= NULL;
+        lexFunc	= NULL;
+        toState	= NULL;
+		func	= NULL;
     }
     
     //!Create a transition of a certain type
@@ -54,6 +55,7 @@ namespace StochHMM{
         lexFunc=NULL;
         function=false;
         toState=NULL;
+		func = NULL;
     }
     
     //! Parse the transition User and Standard Transition from String

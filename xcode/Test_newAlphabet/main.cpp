@@ -33,7 +33,7 @@ int main(int argc, const char * argv[])
     //Check that model argument is defined and import the model
 //    std::string model_file = "Lettuce_Final.hmm";
 //    std::string seq_file = "Test.fa";
-//	
+//
 //	std::string model_file = "Dice.hmm";
 //	std::string seq_file = "Dice.fa";
 
@@ -43,8 +43,11 @@ int main(int argc, const char * argv[])
 //	std::string model_file = "3_16Eddy.hmm";
 //	std::string seq_file = "3_17Eddy.fa";
 
-	std::string model_file = "Dice_explicit.hmm";
-	std::string seq_file = "Dice_short.fa";
+//	std::string model_file = "Dice_explicit.hmm";
+//	std::string seq_file = "Dice_short.fa";
+	
+	std::string model_file = "Dice_Orphaned.hmm";
+	std::string seq_file   = "Dice_short.fa";
 	
 	
 	hmm.import(model_file);
@@ -89,14 +92,18 @@ int main(int argc, const char * argv[])
 	
 	//test_trellis.stochastic_viterbi();
 	
-	test_trellis.viterbi();
+	//test_trellis.viterbi();
 	
-	traceback_path test(job->getModel());
-	test_trellis.traceback(test);
+	test_trellis.simple_posterior();
+	//test_trellis.simple_forward();
+	//test_trellis.simple_backward();
+	
+	//traceback_path test(job->getModel());
+	//test_trellis.traceback(test);
 	
 	//test_trellis.stochastic_traceback(test);
 	
-	test.print_label();
+	//test.print_label();
 	
 	//test_trellis.forward();
 	//test_trellis.backward();

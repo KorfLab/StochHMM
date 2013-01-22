@@ -247,25 +247,25 @@ namespace StochHMM {
 		//Ending Cells
 		double   ending_viterbi_score;
 		uint16_t ending_viterbi_tb;
-		
 		double   ending_posterior;
 
 //		std::vector<tb_score>*    ending_stoch_tb;
 //		std::vector<tb_score>*    ending_nth_viterbi;
 		
-		//Cells used for calculating the Viterbi
-		std::vector<double>* viterbi_current;
-		std::vector<double>* viterbi_previous;
+		//Cells used for scoring each cell
+		std::vector<double>* scoring_current;
+		std::vector<double>* scoring_previous;
+		std::vector<double>* alt_scoring_current;
+		std::vector<double>* alt_scoring_previous;
 		
-		//Array used for calculating the Backward Scores
-		std::vector<double>* backward_current;
-		std::vector<double>* backward_previous;
 		
 		std::vector<size_t>* explicit_duration_current;
 		std::vector<size_t>* explicit_duration_previous;
 		std::vector<size_t>* swap_ptr_duration;
 		
 		std::vector<double>* swap_ptr;
+		
+		std::vector<std::vector<double>* > complex_emissions;
 	};
 	
 }

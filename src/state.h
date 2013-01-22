@@ -145,6 +145,14 @@ namespace StochHMM{
 		//!Set the index value to be used for the state
 		inline void setIter(size_t val){stateIterator=val;};
 		
+		bool hasComplexEmission();
+		bool hasComplexTransition();
+		
+		bool hasSimpleEmission();
+		bool hasSimpleTransition();
+		
+		bool isSimple();
+		
 		void checkLabels(std::set<std::string>& ,std::set<std::string>& ,std::set<std::string>& );
 		
 		void _finalizeTransitions(std::map<std::string,state*>& state_index);

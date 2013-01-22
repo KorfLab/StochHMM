@@ -517,9 +517,10 @@ namespace StochHMM{
      */
     void state::_finalizeTransitions(std::map<std::string,state*>& state_index){
 		
+		//Get size # of states, but correct by -1 because
+		//initial state will be kept separate.
         size_t number_of_states = state_index.size();
-        
-        std::vector<transition*>* fixed_trans = new std::vector<transition*>(number_of_states,NULL);
+        std::vector<transition*>* fixed_trans = new std::vector<transition*>(number_of_states-1,NULL);
         
         //Find the proper place for the transition and put it in the correct position
         for(size_t i = 0; i < transi->size(); i++){
@@ -535,4 +536,38 @@ namespace StochHMM{
         transi = fixed_trans;
         return;
     }
+	
+	
+	bool state::hasComplexEmission(){
+		for(size_t i=0; i < emission.size() ; ++i){
+			if (emission[i]->isComplex()){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
+	
+	bool state::hasComplexTransition(){
+		for(size_t i=0;i<(*transi).size();++i){
+			
+			if ((*transi)[i]==NULL){
+				continue;
+			}
+			
+			if ((*transi)[i]->isComplex()){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	bool state::isSimple(){
+		if (!hasComplexEmission() && ! hasComplexTransition()){
+			return true;
+		}
+		return false;
+	}
+	
 }

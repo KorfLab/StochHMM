@@ -221,9 +221,23 @@ namespace StochHMM{
 		//!Each model must be finalized before being used to decode
 		//!Check the Functions and Labels of the States
 		void finalize();
-		///@}
 		
+		//!Check model topology
+		//!Iterates through all states to check to see if there are any:
+		//! 1. Orphaned States
+		//! 2. Dead end States
+		//! 3. Uncompleted States
+		bool checkTopology();
+		
+		//Get a vector<bool> of states that are explicit duration states
 		inline std::vector<bool>* get_explicit(){return explicit_duration_states;}
+		
+		bool hasComplexEmission(){
+			if (complex_emission_states){
+				return true;
+			}
+			return false;
+		}
 		
 	private:
 		bool finalized;
@@ -253,6 +267,8 @@ namespace StochHMM{
 		
 		std::vector<bool>* explicit_duration_states;
 		
+		std::vector<bool>* complex_transition_states;
+		std::vector<bool>* complex_emission_states;
 		
 		
 		bool _parseHeader(std::string&);
@@ -272,6 +288,10 @@ namespace StochHMM{
 		std::string _stringifyScaling();
 		std::string _stringifyStates();
 		void _addStateToFromTransition(state*);
+		
+		void checkBasicModel();
+		void checkExplicitDurationStates();
+		void _checkTopology(state* st, std::vector<uint16_t>& visited);
 		
 	};
 	
