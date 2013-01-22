@@ -42,6 +42,19 @@ namespace StochHMM{
     //!\param mdl  Single model
     //!\param filename  Sequence File filename
     //!\param format  Sequence file Format (FASTA or FASTQ)
+    seqTracks::seqTracks(model& mdl , std::string& filename){
+        _init();
+        
+        loadSeqs(mdl, filename, FASTA, NULL);
+        
+        return;
+    }
+	
+	
+	//!Create, initialize, and start loading sequence file
+    //!\param mdl  Single model
+    //!\param filename  Sequence File filename
+    //!\param format  Sequence file Format (FASTA or FASTQ)
     seqTracks::seqTracks(model& mdl , std::string& filename, SeqFileFormat format){
         _init();
         
@@ -242,7 +255,15 @@ namespace StochHMM{
     ///////////////////////////////////////////////////////////////////////////////
     
     
-    //! Load the fasta sequence file
+	//! Load the fasta sequence file
+    //! \param mod  Model to be used
+    //! \param seqFile  Fasta sequence filename
+    bool seqTracks::loadSeqs(model& mod, std::string& seqFile){
+        return loadSeqs(mod,seqFile,FASTA,NULL);
+    }
+	
+	
+	//! Load the fasta sequence file
     //! \param mod  Model to be used
     //! \param seqFile  Fasta sequence filename
     bool seqTracks::loadSeqs(model& mod, std::string& seqFile, SeqFileFormat format){     

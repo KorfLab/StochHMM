@@ -92,7 +92,6 @@ int main(int argc, const char * argv[])
 	//temp.print();
     
     jobs.loadSeqs(hmm, seq_file, FASTA);
-	//jobs.loadSeqs(hmm, seq_file, CSV);
     
     seqJob *job=jobs.getJob();
 	
