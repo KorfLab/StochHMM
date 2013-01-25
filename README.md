@@ -1,6 +1,6 @@
 #StochHMM - A Flexible hidden Markov model application and C++ library.
 
-#Currently Under Development
+##Currently Under Development
 
 StochHMM is an easy to use and flexible hidden Markov model (HMM) application and C++ library. It implements HMMs from a simple user-defined text file. Thereby, allowing researchers to focus on the design and optimization of the model rather than spending precious time implementing HMM algorithms. 
 
@@ -14,7 +14,8 @@ StochHMM is developed by Korf Lab, University of California, Davis
 
 Poster presented a the Genome Informatics Conference in Cambridge, UK  September 6-9, 2012.
 
-Additional References:
+##Additional References:
+
 1.  Schroeder, D. I., Lott, P., Korf, I. & LaSalle, J. M. Large-scale methylation domains mark a functional subset of neuronally expressed genes. Genome Res 21, 1583–1591 (2011).
 
 2.	Ginno, P. A., Lott, P. L., Christensen, H. C., Korf, I. & Chédin, F. R-loop formation is a distinctive characteristic of unmethylated human CpG island promoters. Mol. Cell 45, 814–825 (2012).
