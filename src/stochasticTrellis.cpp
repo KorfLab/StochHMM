@@ -686,10 +686,27 @@ namespace StochHMM{
 
     //!Calculate the posterior probability for the trellis cells
     void stochTrellis::calcPosterior(){
+		size_t seq_length = seq->getLength();
+        size_t hmm_size = hmm->state_size();
+        
+        std::vector<double> temp (hmm_size,0);
+        posterior = new std::vector< std::vector< double > > (seq_length,temp);
+        posterior_pointer = new std::vector<int> (seq_length,-1);
+        
+        
         for(int i=0;i<seq->getLength();i++){
+            double max(0.0);
+            int max_ptr(-1);
+            
             for (int j=0;j<hmm->state_size();j++){
-                std::cout << i << "\t" << j << "\t"  << exp((trell[i][j].forw + trell[i][j].back) - probabilityOfSequence) <<std::endl;
+                (*posterior)[i][j]= exp((trell[i][j].forw + trell[i][j].back) - probabilityOfSequence);
+                
+                if ((*posterior)[i][j]>max){
+                    max = (*posterior)[i][j];
+                    max_ptr = j;
+                }
             }
+            (*posterior_pointer)[i] = max_ptr;
         }
         return;
     }

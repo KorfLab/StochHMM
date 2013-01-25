@@ -28,13 +28,13 @@ Posterior:\n\
 \t-posterior\t\tCalculates posterior probabilities\n\
 \n\
 Stochastic Decoding\n\
-\t-stochastic <type> : Performs stochastic decoding using algorithm type.\n\
+\t-stochastic <type> : Performs stochastic decoding using algorithm type. Must also set number of -repetitions\n\
 \t\t\tTypes:\n\
 \t\t\t\tviterbi\t Uses viterbi scores to calculate stochastic traceback probabilities\n\
 \t\t\t\tforward\t Uses forward scores to calculate stochastic traceback probabilities\n\
 \t\t\t\tposterior\t Uses posterior scores to calculate stochastic traceback probabilities\n\
 \n\
-\t-repetitions <int>\tNumber of stochastic tracebacks to perform (default: 1000)\n\
+\t-repetitions <int>\tNumber of stochastic tracebacks to perform\n\
 \n\
 Output options:\n\
 \t-gff\t\t\tprints path in GFF format\n\
