@@ -1,0 +1,23 @@
+To compile StochHMM in Unix command-line (Linux, Mac OS X)
+
+ $ make
+Compiled application ./StochHMM and the static library binaries will be placed in the bin/ folder.
+
+
+To compile StochHMM in XCode (Mac OS X only)
+
+1. Open the StochHMM.xcodeproj in the Xcode directory.   
+2. Select the Debug/Release within the StochHMM Scheme. 
+3. Select Run
+Compiled source of the program will occur in the xcode/DerivedData folder. 
+
+
+To run the examples,
+
+$ cd bin/
+$ ./StochHMM -model ../examples/Dice.hmm -seq ../examples/Dice.fa -viterbi -label
+$ ./StochHMM -model ../examples/3_16Eddy.hmm -seq ../example/3_16Eddy.fa -viterbi -gff
+$ ./StochHMM -model ../examples/3_16Eddy.hmm -seq ../example/3_17Eddy.fa -posterior
+$ ./StochHMM -model ../examples/Dice.hmm -seq ../examples/Dice.fa -stochastic viterbi -rep 10 -label
+$ ./StochHMM -model ../examples/Dice.hmm -seq ../examples/Dice.fa -stochastic posterior -rep 10 -label
+
