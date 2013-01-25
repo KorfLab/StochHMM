@@ -52,8 +52,8 @@ int main(int argc, const char * argv[])
 //    std::string model_file = "Lettuce_Final.hmm";
 //    std::string seq_file = "Test.fa";
 //
-//	std::string model_file = "Dice.hmm";
-//	std::string seq_file = "Dice.fa";
+	std::string model_file = "Dice.hmm";
+	std::string seq_file = "Dice.fa";
 
 //	std::string model_file = "model_V.txt";
 //	std::string seq_file = "TestTCR1.fa";
@@ -64,8 +64,11 @@ int main(int argc, const char * argv[])
 //	std::string model_file = "Dice_explicit.hmm";
 //	std::string seq_file = "Dice_short.fa";
 	
-	std::string model_file = "Dice_Continuous.hmm";
-	std::string seq_file   = "Dice_real.fa";
+//	std::string model_file = "Dice_Continuous.hmm";
+//	std::string seq_file   = "Dice_real.fa";
+	
+//	std::string model_file = "Dice_amb_wo_definition.hmm";
+//	std::string seq_file   = "Dice_amb_short.fa";
 	
 	hmm.import(model_file,&functions);
 

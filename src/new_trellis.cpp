@@ -907,7 +907,7 @@ namespace StochHMM {
                         
 						std::cout << exp(getTransition((*hmm)[j],i,position)) << std::endl;
 						
-						//						std::cout << "Temp Viterbi:\tTransFrom: "<< j << "\tto\t" << i << "\t" << viterbi_temp / log(2) << std::endl;
+//						std::cout << "Temp Viterbi:\tTransFrom: "<< j << "\tto\t" << i << "\t" << viterbi_temp / log(2) << std::endl;
                         
 						
 						if (viterbi_temp > (*scoring_current)[i]){
