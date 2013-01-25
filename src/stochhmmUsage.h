@@ -8,7 +8,7 @@
 
 #pragma mark Usage
 const char usage[]  = "\n\
-StochHMM - Stochastic Hidden Markov Model Framework (version 0.2)\n\
+StochHMM - Stochastic Hidden Markov Model Framework (version 0.201)\n\
 usage: StochHMM -model <model_file>  -seq <seq_file> [options]\n\
 \n\
 example: StochHMM -model Arabidopsis.hmm -seq Arab412.fasta -viterbi -gff -label -path \n\
