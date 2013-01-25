@@ -24,7 +24,9 @@
 //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include <iostream>
+#include <iomanip>
 #include <string>
+#include <vector>
 #include "hmm.h"
 #include "sequence.h"
 #include "seqTracks.h"
@@ -35,6 +37,7 @@
 using namespace StochHMM;
 
 trellis* perform_decoding(model*, sequences*);
+trellis* perform_posterior(model*, sequences*);
 
 void import_model(model&);
 void import_sequence(model&);
@@ -43,9 +46,11 @@ multiTraceback* perform_stochastic_traceback(trellis*);
 void perform_nth_traceback(trellis*, std::vector<traceback_path>&);
 traceback_path* perform_traceback(trellis*);
 
+
 void print_output(multiTraceback*, std::string&);
 void print_output(std::vector<traceback_path>&, std::string&);
 void print_output(traceback_path*, std::string&);
+void print_posterior(std::vector<std::vector<double> >*, model*, std::string&,double);
 
 
 #pragma mark Options
@@ -111,6 +116,23 @@ int main(int argc, const char * argv[])
     }
     
     
+	if (opt.isSet("-posterior")){
+		trellis* trell = perform_posterior(job->getModel(), job->getSeqs());
+		
+		//If we need a posterior traceback b/c path,label,or GFF is defined
+		if (opt.isSet("-gff") || opt.isSet("-path") || opt.isSet("-label")){
+			traceback_path* path = trell->posteriorTraceback();
+			print_output(path, job->getSeqs()->getHeader());
+		}
+		else{
+			std::vector<std::vector<double> >* posterior_table = trell->getPosterior();
+			print_posterior(posterior_table,job->getModel(),job->getSeqs()->getHeader(),trell->getProbOfSeq());
+			
+		}
+		
+		exit(1);
+	}
+	
     //Perform decoding
     trellis *trell = perform_decoding(job->getModel(), job->getSeqs());
     
@@ -213,6 +235,13 @@ trellis* perform_decoding(model* hmm, sequences* seqs){
     return trell;
 }
 
+trellis* perform_posterior(model* hmm, sequences* seqs){
+	trellis* trell = new trellis(hmm,seqs,SIMPLE);
+	trell->posterior();
+	
+	return trell;
+}
+
 
 multiTraceback* perform_stochastic_traceback(trellis* trell){
     
@@ -276,19 +305,26 @@ void print_output(traceback_path* tb, std::string& header){
     bool previous(true);
     
     if (opt.isSet("-gff")){
-        std::cout << "Score: " << tb->getScore() << std::endl;
+		if (!opt.isSet("-posterior")){
+			std::cout << "Viterbi Score: " << tb->getScore() << std::endl;
+		}
+        
         tb->print_gff(header);
         previous=false;
     }
     
     if (opt.isSet("-label")){
-        std::cout << "Score: " << tb->getScore() << std::endl;
+        if (!opt.isSet("-posterior")){
+			std::cout << "Viterbi Score: " << tb->getScore() << std::endl;
+		}
         tb->print_label();
         previous=false;
     }
     
     if (opt.isSet("-path") || previous){
-        std::cout << "Score: " << tb->getScore() << std::endl;
+        if (!opt.isSet("-posterior")){
+			std::cout << "Viterbi Score: " << tb->getScore() << std::endl;
+		}
         tb->print_path();
     }
     
@@ -327,6 +363,34 @@ void print_output(std::vector<traceback_path>& tb, std::string& header){
     }
     
     return;
+}
+
+void print_posterior(std::vector<std::vector<double> >* table , model* hmm, std::string& header,double val){
+	std::cout <<"Posterior Probabilities Table" << std::endl;
+	std::cout <<"Sequence:\t" << header << std::endl;
+	std::cout <<"Probability of Sequence:\t" << exp(val) << std::endl;
+
+	size_t state_size = hmm->state_size();
+	
+	//Print State names for header
+	std::cout << "Position";
+	for(size_t i=0; i < state_size; i++){
+		std::cout << "\t";
+		std::cout << hmm->getStateName(i);
+	}
+	std::cout << std::endl;
+	
+	for(size_t position = 0; position < table->size(); position++){
+		std::cout << position+1;
+		for (size_t st = 0 ; st < state_size ; st++){
+			std::cout << "\t";
+			std::cout << std::setprecision (3) << (*table)[position][st];
+		}
+		std::cout << std::endl;
+	}
+	
+	return;
+	
 }
 
 

@@ -1,4 +1,2 @@
-StochHMM
-========
+#StochHMM: A Flexible Hidden Markov Model Framework
 
-Hidden Markov Model Framework

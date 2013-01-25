@@ -79,6 +79,9 @@ namespace StochHMM{
         int traceback_length();
         
         double exFuncTraceback(transitionFuncParam*);
+		
+		inline std::vector<std::vector<double> >* getPosteriorTable(){return posterior;}
+		inline double getProbOfSeq(){return probabilityOfSequence;}
         
         //Virtual functions defined in derived classes
         //Dependent upon Cell type

@@ -75,6 +75,9 @@ namespace StochHMM{
         
         void print();
         std::string* stringify();
+		
+		inline std::vector<std::vector<double> >* getPosterior(){return trell->getPosteriorTable();}
+		inline double getProbOfSeq(){return trell->getProbOfSeq();}
         
     private:
         model* hmm; //Should I store the HMM reference here???
