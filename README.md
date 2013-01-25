@@ -20,4 +20,4 @@ Poster presented a the Genome Informatics Conference in Cambridge, UK  September
 
 2.	Ginno, P. A., Lott, P. L., Christensen, H. C., Korf, I. & Chédin, F. R-loop formation is a distinctive characteristic of unmethylated human CpG island promoters. Mol. Cell 45, 814–825 (2012).
 
-#For Questions, Suggestions, Assistance please contact Paul Lott (plott@ucdavis.edu)
+#For Questions, Suggestions, or Assistance, please contact Paul Lott (plott@ucdavis.edu)
