@@ -51,7 +51,7 @@ namespace StochHMM{
 	//!param position Value or Position to calculate
     //!param a Minimum position
     //!param b Maximum position
-    double discrete_uniform_pdf(int position, int a, int b, ){
+    double discrete_uniform_pdf(int position, int a, int b ){
         if (position<a || position>b){
             return 0;
         }
@@ -276,7 +276,7 @@ namespace StochHMM{
             std::cerr << "Continuous uniform PDF: Incorrect parameters\n";
             exit(2);
         }
-        else if (position<a || position>b){
+        else if (x < a || x > b){
             return 0.0f;
         }
         else{
@@ -559,7 +559,7 @@ namespace StochHMM{
             exit(2);
 		}
 		
-		return (pow(beta,alpha)/gamma_func(alpha))*pow(x,alpha-1)*exp(-beta*x)
+		return (pow(beta,alpha)/gamma(alpha))*pow(x,alpha-1)*exp(-beta*x);
 	}
 	
 	//!Inverse Gamma probability distribution
@@ -571,7 +571,7 @@ namespace StochHMM{
 			std::cerr << "Inverse Gamma PDF: Incorrect parameters\n";
             exit(2);
 		}
-		return (pow(beta,alpha)/gamma_func(alpha))*pow(x,-1*alpha-1)*exp(-beta/x);
+		return (pow(beta,alpha)/gamma(alpha))*pow(x,-1*alpha-1)*exp(-beta/x);
 	}
 	
 	//!Half Normal probability distribution
@@ -594,7 +594,7 @@ namespace StochHMM{
 			std::cerr << "Inverse Gaussian PDF: Incorrect parameters\n";
             exit(2);
 		}
-		return sqrt(lambda/(2*PI*pow(x, 3))) * exp((lambda*pow(x-u,2))/(2*pow(mu,2)*x));
+		return sqrt(lambda/(2*PI*pow(x, 3))) * exp((lambda*pow(x-mu,2))/(2*pow(mu,2)*x));
 	}
 	
 	//!Levy probability distribution function
@@ -606,7 +606,7 @@ namespace StochHMM{
 			std::cerr << "Levy PDF: Incorrect parameters\n";
             exit(2);
 		}
-		return sqrt(c/(2*PI)) * (exp((-1*scale)/(2*(x-mu)))/pow(x-mu,1.5));
+		return sqrt(scale/(2*PI)) * (exp((-1*scale)/(2*(x-mu)))/pow(x-mu,1.5));
 	}
 	
 	//!Log Cauchy probability distribution function
@@ -626,7 +626,7 @@ namespace StochHMM{
 	//!param mu parameter
 	//!param b  parameter
 	double log_laplace_pdf(double x, double mu, double b){
-		if (x < u){
+		if (x < mu){
 			return (1/(b*x))*exp(-1*((mu-log(x))/b));
 		}
 		
@@ -709,7 +709,7 @@ namespace StochHMM{
 			std::cerr << "Type 2 Gumbel PDF: Incorrect parameters\n";
 			exit(2);
 		}
-		return a*b*pow(x,-1*a-1)) * exp(-1*b*pow(x,-1*a));
+		return a*b*pow(x,-1*a-1) * exp(-1*b*pow(x,-1*a));
 	}
 	
 	//!Weibull Probability distribution function
@@ -723,7 +723,7 @@ namespace StochHMM{
 		}
 		
 		if (x <0){
-			return 0.0
+			return 0.0;
 		}
 		
 		return (k/lambda)*pow(x/lambda,k-1)*exp(-1*(pow(x/lambda, k)));
@@ -782,7 +782,7 @@ namespace StochHMM{
 	//!param alpha	scale parameter alpha>0
 	//!param beta	shape parameter beta>0
 	double generalized_normal_pdf(double x, double mu, double alpha, double beta){
-		if (a<0 || b<0){
+		if ( alpha < 0 || beta < 0){
 			std::cerr << "Generalized normal PDF: Incorrect parameters\n";
 			exit(2);
 		}
