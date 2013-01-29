@@ -312,6 +312,20 @@ namespace StochHMM{
         }
         return sum;
     }
+	
+	/*! \fn T productVector(std::vector<T>& data)
+     \brief Multiply terms in vector and return the product
+     \param data Vector of T
+     */
+	template<class T>
+    T productVector(std::vector<T>& data){
+        double product=data[0];
+        for(size_t i=1;i<data.size();++i){
+            product*=data[i];
+        }
+        return product;
+    }
+	
     
     /*! \fn double minVector(std::vector<double>& data)
      \brief Get Minimum of the vector

@@ -32,6 +32,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include "PDF.h"
 namespace StochHMM{
 
     
@@ -39,7 +40,8 @@ namespace StochHMM{
     //typedef double  (*pt2StateFunc) (const std::string*, const std::string*, size_t);
     typedef double  (*transitionFunc) (const std::string*, const size_t, const std::string*, const size_t);
     typedef double  (*emissionFunc) (const std::string*, const size_t);
-	typedef double (*pdfFunc)(const double&, const std::vector<double>&);
+	typedef double	(*pdfFunc)(const double, const std::vector<double>&);
+	typedef double	(*multiPdfFunc)(const std::vector<double>&, const std::vector<double>&);
 	
 
     //!\typedef Pointer to Function that takes a string and returns a vector<float>
@@ -60,24 +62,30 @@ namespace StochHMM{
     public:
         
         void assignTransitionFunction(std::string&, transitionFunc);
-        void assignTransitionFunction(const char*, transitionFunc);
+        void assignTransitionFunction(const char*,  transitionFunc);
 		
 		void assignEmmissionFunction(std::string&, emissionFunc);
-		void assignEmmissionFunction(const char*, emissionFunc);
+		void assignEmmissionFunction(const char*,  emissionFunc);
 
 		void assignPDFFunction(std::string&, pdfFunc);
-		void assignPDFFunction(const char*, pdfFunc);
+		void assignPDFFunction(const char*,  pdfFunc);
 
+		void assignMultivariatePdfFunction(std::string&, multiPdfFunc);
+		void assignMultivariatePdfFunction(const char*,  multiPdfFunc);
 		
+		void loadUnivariatePdf();
         
         transitionFunc* getTransitionFunction(std::string&);
         emissionFunc* getEmissionFunction(std::string&);
 		pdfFunc* getPDFFunction(std::string&);
+		multiPdfFunc* getMultivariatePdfFunction(std::string&);
+		
         
     private:
         std::map<std::string, transitionFunc> transitionFunctions;
         std::map<std::string, emissionFunc> emissionFunctions; 
 		std::map<std::string, pdfFunc> pdfFunctions; //For continuous emissions
+		std::map<std::string, multiPdfFunc> multiPdfFunctions;
     };
 
 

@@ -121,10 +121,18 @@ namespace StochHMM{
 		bool function;
 		emissionFuncParam* lexFunc;
 		
-		//Continuous Distribution
+		//Continuous Univariate Distribution
 		pdfFunc* pdf;
 		std::string pdfName;
 		std::vector<double>* dist_parameters;
+		
+		
+		//TODO: Implement Continuous Multivariate Distributions
+		//Continuous Multivariate Distribution
+		//multiPdfFunc* multiPdf;
+		//std::string multiPdfName;
+		//std::vector<double>* dist_parameters;
+		//std::vector<tracks>* tracks
 		
 		//TODO:  Implement the external Function capabilities
 		emissionFuncParam* tagFunc;

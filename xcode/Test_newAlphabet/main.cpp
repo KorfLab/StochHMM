@@ -25,11 +25,11 @@ using namespace StochHMM;
 
 seqTracks jobs;
 
-double fair(const double& val, const std::vector<double>& param){
+double fair(const double val, const std::vector<double>& param){
 	return log(0.167);
 }
 
-double loaded(const double& val, const std::vector<double>& param){
+double loaded(const double val, const std::vector<double>& param){
 	if (val == 6.0){
 		return log(0.5);
 	}
