@@ -60,6 +60,7 @@ namespace StochHMM{
     //!Stores pointers to user functions used by the State's Emissions and Transitions
     class StateFuncs{
     public:
+		StateFuncs();
         
         void assignTransitionFunction(std::string&, transitionFunc);
         void assignTransitionFunction(const char*,  transitionFunc);

@@ -28,6 +28,10 @@
 #include "userFunctions.h"
 namespace StochHMM{
     
+	
+	StateFuncs::StateFuncs(){
+		loadUnivariatePdf();
+	}
     
     //!Assign a transition function to the StateFuncs class
     //!\param str Name of function
