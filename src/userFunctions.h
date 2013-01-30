@@ -36,12 +36,21 @@
 namespace StochHMM{
 
     
-    //!\typedef Pointer to function that takes int, string ptr, string ptr
+    //! \typedef Pointer to function that takes int, string ptr, string ptr
     //typedef double  (*pt2StateFunc) (const std::string*, const std::string*, size_t);
     typedef double  (*transitionFunc) (const std::string*, const size_t, const std::string*, const size_t);
+	
+	//! \typdef emissionFunc
+	//! \brief Pointer to emmission function
+	//! Passed a string and position as size_t
     typedef double  (*emissionFunc) (const std::string*, const size_t);
+	
+	//! \typedef pdfFunc
+	//! \brief Pointer to Univariate Continuous Probability Density Function
+	//! \param[in] double Given value
+	//! \param[in] std::vector<double>* Paramenters for PDF
 	typedef double	(*pdfFunc)(const double, const std::vector<double>*);
-	typedef double	(*multiPdfFunc)(const std::vector<double>&, const std::vector<double>&);
+	typedef double	(*multiPdfFunc)(const std::vector<double>&);
 	
 
     //!\typedef Pointer to Function that takes a string and returns a vector<float>
@@ -50,14 +59,15 @@ namespace StochHMM{
     //!\typedef Pointer to function that takes a string and returns a double
     typedef double (*pt2Attrib) (const std::string*);
 
-    //The map stores the pointers to the different functions by const char* word.
-    //!Allows the user to create and integrate their own functions into the model
-    //!By specifying the name in the model, and assigning the ptr in the externalFuncs class.
-    //!At any State or transition their function will be called and return float
-    //!The float will then be applied in the trellis added* to transition or emission.   (**Adding in log space)
+    //! The map stores the pointers to the different functions by const char* word.
+    //! Allows the user to create and integrate their own functions into the model
+    //! By specifying the name in the model, and assigning the ptr in the externalFuncs class.
+    //! At any State or transition their function will be called and return float
+    //! The float will then be applied in the trellis added to transition or emission.
+	//! (**Adding in log space)
 
-    //!\class StateFuncs
-    //!Stores pointers to user functions used by the State's Emissions and Transitions
+    //! \class StateFuncs
+    //! Stores pointers to user functions used by the State's Emissions and Transitions
     class StateFuncs{
     public:
 		StateFuncs();

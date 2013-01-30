@@ -114,7 +114,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return binomial_pdf(k, (*param)[0], (*param)[2]);
+		return log(binomial_pdf(k, (*param)[0], (*param)[2]));
 	}
 	
     inline double beta_binomial_pdf(const double k, const std::vector<double>* param){
@@ -122,7 +122,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return beta_binomial_pdf(k, (*param)[0], (*param)[1], (*param)[2]);
+		return log(beta_binomial_pdf(k, (*param)[0], (*param)[1], (*param)[2]));
 	}
 	
 	inline double degenerate_pdf(const double value, const std::vector<double>* param){
@@ -130,7 +130,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return degenerate_pdf(value, (*param)[0]);
+		return log(degenerate_pdf(value, (*param)[0]));
 	}
 	
 	inline double discrete_uniform_pdf(const double position, const std::vector<double>* param){
@@ -138,7 +138,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return discrete_uniform_pdf(position, (*param)[0], (*param)[1]);
+		return log(discrete_uniform_pdf(position, (*param)[0], (*param)[1]));
 	}
 	
 	inline double hypergeometric_pdf(const double k, const std::vector<double>* param){
@@ -146,7 +146,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return hypergeometric_pdf(k, (*param)[0], (*param)[1], (*param)[2]);
+		return log(hypergeometric_pdf(k, (*param)[0], (*param)[1], (*param)[2]));
 	}
 	
 	
@@ -156,7 +156,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return beta_negative_binomial_pdf(k, (*param)[0], (*param)[1], (*param)[2]);
+		return log(beta_negative_binomial_pdf(k, (*param)[0], (*param)[1], (*param)[2]));
 	}
 	
     inline double maxwell_boltzman_pdf(const double x, const std::vector<double>* param){
@@ -164,7 +164,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return maxwell_boltzman_pdf(x, (*param)[0]);
+		return log(maxwell_boltzman_pdf(x, (*param)[0]));
 	}
 	
 	
@@ -173,7 +173,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return geometric_pdf(k, (*param)[0]);
+		return log(geometric_pdf(k, (*param)[0]));
 	}
 	
     inline double logarithmic_pdf(const double k, const std::vector<double>* param){
@@ -181,7 +181,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return logarithmic_pdf(k, (*param)[0]);
+		return log(logarithmic_pdf(k, (*param)[0]));
 	}
 	
     inline double negative_binomial_pdf(const double k, const std::vector<double>* param){
@@ -189,7 +189,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return negative_binomial_pdf(k, (*param)[0], (*param)[1]);
+		return log(negative_binomial_pdf(k, (*param)[0], (*param)[1]));
 	}
 	
     inline double poisson_pdf(const double k, const std::vector<double>* param){
@@ -197,7 +197,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return poisson_pdf(k, (*param)[0]);
+		return log(poisson_pdf(k, (*param)[0]));
 	}
 	
     inline double yule_simon_pdf(const double k, const std::vector<double>* param){
@@ -205,7 +205,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return yule_simon_pdf(k, (*param)[0]);
+		return log(yule_simon_pdf(k, (*param)[0]));
 	}
 	
     inline double zipf_pdf(const double k, const std::vector<double>* param){
@@ -213,20 +213,20 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return zipf_pdf(k, (*param)[0], (*param)[1]);
+		return log(zipf_pdf(k, (*param)[0], (*param)[1]));
 	}
     inline double zipf_mandelbrot_pdf(const double k, const std::vector<double>* param){
 		if (param==NULL){
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return zipf_mandelbrot_pdf(k, (*param)[0], (*param)[1], (*param)[2]);
+		return log(zipf_mandelbrot_pdf(k, (*param)[0], (*param)[1], (*param)[2]));
 	}
 
 	
 	//Continuous Distribution, bounded interval
 	inline double arcsine_pdf(const double x, const std::vector<double>* param){
-		return arcsine_pdf(x);
+		return log(arcsine_pdf(x));
 	}
     
 	inline double beta_pdf(const double x, const std::vector<double>* param){
@@ -234,7 +234,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return beta_pdf(x, (*param)[0], (*param)[1]);
+		return log(beta_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
     inline double logit_normal_pdf(const double x, const std::vector<double>* param){
@@ -242,7 +242,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return logit_normal_pdf(x, (*param)[0], (*param)[1]);
+		return log(logit_normal_pdf(x, (*param)[0], (*param)[1]));
 	}
     
 	inline double continuous_uniform_pdf(const double x, const std::vector<double>* param){
@@ -250,7 +250,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return continuous_uniform_pdf(x, (*param)[0], (*param)[1]);
+		return log(continuous_uniform_pdf(x, (*param)[0], (*param)[1]));
 	}
     
 	inline double kumaraswamy_pdf(const double x, const std::vector<double>* param){
@@ -258,7 +258,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return kumaraswamy_pdf(x, (*param)[0], (*param)[1]);
+		return log(kumaraswamy_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
     inline double raised_cosine_pdf(const double x, const std::vector<double>* param){
@@ -266,7 +266,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return raised_cosine_pdf(x, (*param)[0], (*param)[1]);
+		return log(raised_cosine_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
     inline double triangular_pdf(const double x, const std::vector<double>* param){
@@ -274,7 +274,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return triangular_pdf(x, (*param)[0], (*param)[1], (*param)[2]);
+		return log(triangular_pdf(x, (*param)[0], (*param)[1], (*param)[2]));
 	}
 	
     inline double truncated_normal_pdf(const double x, const std::vector<double>* param){
@@ -282,7 +282,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return truncated_normal_pdf(x, (*param)[0], (*param)[1], (*param)[2], (*param)[3]);
+		return log(truncated_normal_pdf(x, (*param)[0], (*param)[1], (*param)[2], (*param)[3]));
 	}
 	
     inline double u_quadratic_pdf(const double x, const std::vector<double>* param){
@@ -290,7 +290,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return u_quadratic_pdf(x, (*param)[0], (*param)[1]);
+		return log(u_quadratic_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
     inline double wigner_semicircle_pdf(const double x, const std::vector<double>* param){
@@ -298,7 +298,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return wigner_semicircle_pdf(x, (*param)[0]);
+		return log(wigner_semicircle_pdf(x, (*param)[0]));
 	}
 	
 	
@@ -309,7 +309,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return beta_prime_pdf(x, (*param)[0], (*param)[1]);
+		return log(beta_prime_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
     inline double chi_pdf(const double x, const std::vector<double>* param){
@@ -317,7 +317,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return chi_pdf(x,(*param)[0]);
+		return log(chi_pdf(x,(*param)[0]));
 	}
     
 	inline double chi_squared_pdf(const double x, const std::vector<double>* param){
@@ -325,7 +325,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return chi_squared_pdf(x, (*param)[0]);
+		return log(chi_squared_pdf(x, (*param)[0]));
 	}
 	
     inline double inverse_chi_squared_pdf(const double x, const std::vector<double>* param){
@@ -333,7 +333,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return inverse_chi_squared_pdf(x, (*param)[0]);
+		return log(inverse_chi_squared_pdf(x, (*param)[0]));
 	}
 	
     inline double scaled_inverse_chi_squared_pdf(const double x, const std::vector<double>* param){
@@ -341,7 +341,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return scaled_inverse_chi_squared_pdf(x, (*param)[0], (*param)[1]);
+		return log(scaled_inverse_chi_squared_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
     inline double dagum_pdf(const double x, const std::vector<double>* param){
@@ -349,7 +349,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return dagum_pdf(x, (*param)[0], (*param)[1], (*param)[2]);
+		return log(dagum_pdf(x, (*param)[0], (*param)[1], (*param)[2]));
 	}
 	
     inline double exponential_pdf(const double x, const std::vector<double>* param){
@@ -357,7 +357,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return exponential_pdf(x, (*param)[0]);
+		return log(exponential_pdf(x, (*param)[0]));
 	}
 	
     inline double f_pdf(const double x, const std::vector<double>* param){
@@ -365,7 +365,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return f_pdf(x, (*param)[0], (*param)[1]);
+		return log(f_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
     inline double fishers_z_pdf(const double x, const std::vector<double>* param){
@@ -373,7 +373,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return fishers_z_pdf(x, (*param)[0], (*param)[1]);
+		return log(fishers_z_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
     inline double folded_normal_pdf(const double x, const std::vector<double>* param){
@@ -381,7 +381,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return folded_normal_pdf(x, (*param)[0], (*param)[1]);
+		return log(folded_normal_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
     inline double frechet_pdf(const double x, const std::vector<double>* param){
@@ -389,7 +389,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return frechet_pdf(x, (*param)[0], (*param)[1], (*param)[2]);
+		return log(frechet_pdf(x, (*param)[0], (*param)[1], (*param)[2]));
 	}
 	
     inline double gamma_pdf(const double x, const std::vector<double>* param){
@@ -397,7 +397,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return gamma_pdf(x, (*param)[0], (*param)[1]);
+		return log(gamma_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
 	inline double inv_gamma_pdf(const double x, const std::vector<double>* param){
@@ -405,7 +405,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return inv_gamma_pdf(x, (*param)[0], (*param)[1]);
+		return log(inv_gamma_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
 	inline double half_normal_pdf(const double x, const std::vector<double>* param){
@@ -413,7 +413,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return half_normal_pdf(x, (*param)[0]);
+		return log(half_normal_pdf(x, (*param)[0]));
 	}
 	
 	inline double inv_gaussian_pdf(const double x, const std::vector<double>* param){
@@ -421,7 +421,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return inv_gaussian_pdf(x, (*param)[0], (*param)[1]);
+		return log(inv_gaussian_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
 	inline double levy_pdf(const double x, const std::vector<double>* param){
@@ -429,7 +429,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return levy_pdf(x, (*param)[0], (*param)[1]);
+		return log(levy_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
 	inline double log_cauchy_pdf(const double x, const std::vector<double>* param){
@@ -437,7 +437,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return log_cauchy_pdf(x, (*param)[0], (*param)[1]);
+		return log(log_cauchy_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
 	inline double log_laplace_pdf(const double x, const std::vector<double>* param){
@@ -445,7 +445,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return log_laplace_pdf(x, (*param)[0], (*param)[1]);
+		return log(log_laplace_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
 	inline double log_logistic_pdf(const double x, const std::vector<double>* param){
@@ -453,7 +453,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return log_logistic_pdf(x, (*param)[0], (*param)[1]);
+		return log(log_logistic_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
 	inline double log_normal_pdf(const double x, const std::vector<double>* param){
@@ -461,7 +461,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return log_normal_pdf(x, (*param)[0], (*param)[1]);
+		return log(log_normal_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
 	inline double pareto_pdf(const double x, const std::vector<double>* param){
@@ -469,7 +469,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return pareto_pdf(x, (*param)[0], (*param)[1]);
+		return log(pareto_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
 	inline double nakagami_pdf(const double x, const std::vector<double>* param){
@@ -477,7 +477,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return nakagami_pdf(x, (*param)[0], (*param)[1]);
+		return log(nakagami_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
     inline double rayleigh_pdf(const double x, const std::vector<double>* param){
@@ -485,7 +485,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return rayleigh_pdf(x, (*param)[0]);
+		return log(rayleigh_pdf(x, (*param)[0]));
 	}
 	
 	inline double gumbel_type_two_pdf(const double x, const std::vector<double>* param){
@@ -501,7 +501,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return weibull_distribution(x, (*param)[0], (*param)[1]);
+		return log(weibull_distribution(x, (*param)[0], (*param)[1]));
 	}
 	
 	
@@ -512,7 +512,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return cauchy_pdf(x, (*param)[0], (*param)[1]);
+		return log(cauchy_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
 	inline double gumbel_pdf(const double x, const  std::vector<double>* param){
@@ -520,7 +520,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return gumbel_pdf(x, (*param)[0], (*param)[1]);
+		return log(gumbel_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
 	
@@ -529,11 +529,11 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return generalized_normal_pdf(x, (*param)[0], (*param)[1], (*param)[2]);
+		return log(generalized_normal_pdf(x, (*param)[0], (*param)[1], (*param)[2]));
 	}
 	
 	inline double hyperbolic_secant_pdf(const double x, const std::vector<double>* param){
-		return hyperbolic_secant_pdf(x);
+		return log(hyperbolic_secant_pdf(x));
 	}
 	
 	inline double laplace_pdf(const double x, const std::vector<double>* param){
@@ -541,7 +541,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return laplace_pdf(x, (*param)[0], (*param)[1]);
+		return log(laplace_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
 	inline double logistic_pdf(const double x, const std::vector<double>* param){
@@ -549,7 +549,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return logistic_pdf(x, (*param)[0], (*param)[1]);
+		return log(logistic_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
 	inline double standard_normal_pdf(const double x, const std::vector<double>* param){
@@ -561,7 +561,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return normal_pdf(x, (*param)[0], (*param)[1]);
+		return log(normal_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
 	inline double students_t_pdf(const double x, const std::vector<double>* param){
@@ -569,7 +569,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return students_t_pdf(x, (*param)[0]);
+		return log(students_t_pdf(x, (*param)[0]));
 	}
 	
 	inline double gumbel_type_one_pdf(const double x, const std::vector<double>* param){
@@ -577,7 +577,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return gumbel_type_one_pdf(x, (*param)[0], (*param)[1]);
+		return log(gumbel_type_one_pdf(x, (*param)[0], (*param)[1]));
 	}
 	
 	inline double generalized_extreme_value_pdf(const double x, const std::vector<double>* param){
@@ -585,7 +585,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return generalized_extreme_value_pdf(x, (*param)[0], (*param)[1], (*param)[2]);
+		return log(generalized_extreme_value_pdf(x, (*param)[0], (*param)[1], (*param)[2]));
 	}
 	
 	inline double generalized_pareto_pdf(const double x, const std::vector<double>* param){
@@ -593,7 +593,7 @@ namespace StochHMM {
 			std::cerr << __FUNCTION__ << ": Missing parameters\n";
 			exit(2);
 		}
-		return generalized_pareto_pdf(x, (*param)[0], (*param)[1], (*param)[2]);
+		return log(generalized_pareto_pdf(x, (*param)[0], (*param)[1], (*param)[2]));
 	}
 
    
