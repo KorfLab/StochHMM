@@ -50,6 +50,10 @@ namespace StochHMM{
 	//! \param[in] double Given value
 	//! \param[in] std::vector<double>* Paramenters for PDF
 	typedef double	(*pdfFunc)(const double, const std::vector<double>*);
+	
+	//! \typedef multiPdfFunc
+	//! Pointer to function that takes reference to array that contains emission
+	//! multiple REAL_NUMBER values. 
 	typedef double	(*multiPdfFunc)(const std::vector<double>&);
 	
 

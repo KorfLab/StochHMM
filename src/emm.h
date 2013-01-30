@@ -110,6 +110,7 @@ namespace StochHMM{
 		//size_t track_size;
 		bool real_number;
 		bool continuous;
+		bool multi_continuous;
 		bool complement;
 		
 		track* realTrack;
@@ -129,10 +130,12 @@ namespace StochHMM{
 		
 		//TODO: Implement Continuous Multivariate Distributions
 		//Continuous Multivariate Distribution
-		//multiPdfFunc* multiPdf;
-		//std::string multiPdfName;
-		//std::vector<double>* dist_parameters;
-		//std::vector<tracks>* tracks
+		multiPdfFunc* multiPdf;			//Pointer to multivariate function
+		std::string multiPdfName;		//Name of function according to StateFuncs
+		size_t number_of_tracks;		//Number of tracks in multi-emission
+		std::vector<track*>* trcks;		//Tracks used
+		std::vector<size_t>* track_indices; //Indices of tracks used
+		std::vector<double>* pass_values;  //Array to pass values to multivariate function
 		
 		//TODO:  Implement the external Function capabilities
 		emissionFuncParam* tagFunc;

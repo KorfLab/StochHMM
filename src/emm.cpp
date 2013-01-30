@@ -29,14 +29,24 @@ namespace StochHMM{
 
     //! Create an emission
     emm::emm(){
-        real_number= false;
-        complement = false;
-        continuous = false;
+        real_number			= false;
+        complement			= false;
+        continuous			= false;
+		multi_continuous	= false;
         
-        function = false;
-        lexFunc = NULL;
-        
-        tagFunc=NULL;
+        function			= false;
+        lexFunc				= NULL;
+		
+		pdf					= NULL;
+		dist_parameters		= NULL;
+		
+		multiPdf			= NULL;
+		number_of_tracks	= 0;
+		trcks				= NULL;
+		pass_values			= NULL;
+		track_indices		= NULL;
+		
+        tagFunc				=NULL;
     }
 
         
@@ -44,10 +54,10 @@ namespace StochHMM{
     emm::~emm(){
         delete lexFunc;
         delete tagFunc;
-        function = false;
+        function =	false;
 
-        lexFunc=NULL;
-        tagFunc=NULL;
+        lexFunc	=	NULL;
+        tagFunc	=	NULL;
     }
     
     //!Parse an emission from text
@@ -96,6 +106,13 @@ namespace StochHMM{
                 complement=true;
             }
         }
+		else if (line.contains("MULTI_CONTINUOUS")){
+			typeBegin = line.indexOf("MULTI_CONTINUOUS");
+			multi_continuous=true;
+			if (line.contains("COMPLEMENT") || line.contains("1-P(X)")) {
+                complement=true;
+            }
+		}
 		else if (line.contains("CONTINUOUS")){
 			typeBegin = line.indexOf("CONTINUOUS");
 			continuous=true;
@@ -103,6 +120,7 @@ namespace StochHMM{
                 complement=true;
             }
 		}
+		
         else if (line.contains("FUNCTION")){
             typeBegin = line.indexOf("FUNCTION");
             function=true;
@@ -120,7 +138,7 @@ namespace StochHMM{
         for(size_t i=1;i<typeBegin;i++){
             track* tk = trks.getTrack(line[i]);
             if (tk==NULL){
-                std::cerr << "Lexical Transition tried to add a track named: " << line[i] << " . However, there isn't a matching track in the model.  Please check to model formatting.\n";
+                std::cerr << "Emissions tried to add a track named: " << line[i] << " . However, there isn't a matching track in the model.  Please check to model formatting.\n";
                 return false;
             }
             else{
@@ -139,10 +157,41 @@ namespace StochHMM{
             realTrack = tempTracks[0];
             return true;
         }
+		else if (multi_continuous){
+			if (tempTracks.size()==1){
+				std::cerr << "Only a single track listed under MULTI_CONTINUOUS\n\
+				Use CONTINUOUS instead of MULTI-CONTINUOUS\n";
+				return false;
+			}
+			
+			//Assign track information
+			track_indices = new std::vector<size_t>;
+			trcks = new std::vector<track*> (tempTracks);
+			number_of_tracks = trcks->size();
+			pass_values = new std::vector<double> (number_of_tracks,-INFINITY);
+			for(size_t i = 0; i < number_of_tracks ; ++i){
+				track_indices->push_back((*trcks)[i]->getIndex());
+			}
+			
+			idx = ln.indexOf("PDF");
+			line.splitString(ln[idx],"\t:, ");
+			
+			size_t function_idx = line.indexOf("PDF") + 1;
+			multiPdfName = line[function_idx];
+            multiPdf = funcs->getMultivariatePdfFunction(multiPdfName);
+			
+			
+			size_t parameter_idx = line.indexOf("PARAMETERS");
+			if (parameter_idx != SIZE_T_MAX){
+				std::cerr << "Passing parameters to multivariate PDF isn't currently supported\n";
+			}
+			
+		}
 		else if (continuous){
 			
 			if (tempTracks.size()>1){
-                std::cerr << "Multiple tracks listed under CONTINUOUS Track Emission Definition\n";
+                std::cerr << "Multiple tracks listed under CONTINUOUS Track Emission Definition\n\
+				Must use MULTI_CONTINUOUS for multivariate emissions\n";
                 return false;
             }
             
@@ -405,6 +454,18 @@ namespace StochHMM{
         else if (function){
             final_emission=lexFunc->evaluate(seqs, pos);
         }
+		else if (multi_continuous){
+			//Get all values from the tracks
+			for (size_t i = 0; i < number_of_tracks ; ++i){
+				(*pass_values)[i] = seqs.realValue((*track_indices)[i], pos);
+			}
+			
+			final_emission = (*multiPdf)(*pass_values);
+			
+			if (complement){
+				final_emission=log(1-exp(final_emission));
+			}
+		}
 		else if (continuous){
 			
 			final_emission = (*pdf)(seqs.realValue(realTrack->getIndex(),pos),dist_parameters);
