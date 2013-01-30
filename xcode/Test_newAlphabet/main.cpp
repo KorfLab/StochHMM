@@ -25,16 +25,16 @@ using namespace StochHMM;
 
 seqTracks jobs;
 
-double fair(const double val, const std::vector<double>& param){
-	return log(0.167);
+double fair(const double val, const std::vector<double>* param){
+	return 0.167;
 }
 
-double loaded(const double val, const std::vector<double>& param){
+double loaded(const double val, const std::vector<double>* param){
 	if (val == 6.0){
-		return log(0.5);
+		return 0.5;
 	}
 	
-	return log(0.1);
+	return 0.1;
 }
 
 
@@ -52,8 +52,8 @@ int main(int argc, const char * argv[])
 //    std::string model_file = "Lettuce_Final.hmm";
 //    std::string seq_file = "Test.fa";
 //
-	std::string model_file = "Dice.hmm";
-	std::string seq_file = "Dice.fa";
+//	std::string model_file = "Dice.hmm";
+//	std::string seq_file = "Dice.fa";
 
 //	std::string model_file = "model_V.txt";
 //	std::string seq_file = "TestTCR1.fa";
@@ -64,8 +64,8 @@ int main(int argc, const char * argv[])
 //	std::string model_file = "Dice_explicit.hmm";
 //	std::string seq_file = "Dice_short.fa";
 	
-//	std::string model_file = "Dice_Continuous.hmm";
-//	std::string seq_file   = "Dice_real.fa";
+	std::string model_file = "Dice_Continuous.hmm";
+	std::string seq_file   = "Dice_real.fa";
 	
 //	std::string model_file = "Dice_amb_wo_definition.hmm";
 //	std::string seq_file   = "Dice_amb_short.fa";

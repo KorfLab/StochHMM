@@ -40,7 +40,7 @@ namespace StochHMM{
     //typedef double  (*pt2StateFunc) (const std::string*, const std::string*, size_t);
     typedef double  (*transitionFunc) (const std::string*, const size_t, const std::string*, const size_t);
     typedef double  (*emissionFunc) (const std::string*, const size_t);
-	typedef double	(*pdfFunc)(const double, const std::vector<double>&);
+	typedef double	(*pdfFunc)(const double, const std::vector<double>*);
 	typedef double	(*multiPdfFunc)(const std::vector<double>&, const std::vector<double>&);
 	
 

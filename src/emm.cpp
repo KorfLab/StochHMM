@@ -407,7 +407,7 @@ namespace StochHMM{
         }
 		else if (continuous){
 			
-			final_emission = (*pdf)(seqs.realValue(realTrack->getIndex(),pos),*dist_parameters);
+			final_emission = log((*pdf)(seqs.realValue(realTrack->getIndex(),pos),dist_parameters));
 			
 			if (complement){
 				final_emission=log(1-exp(final_emission));

@@ -38,6 +38,13 @@
 #endif
 
 namespace StochHMM{
+	
+	/*! \defgroup Text  Text parHandling
+	 *
+	 *	@{
+	 */
+	
+	
     
     /*! \class stringList
      \brief Stringlist is an list of strings that contains parsed comments and 
@@ -185,8 +192,9 @@ namespace StochHMM{
      }
      return x;
      }
-     
      */
+	
+	/**@}*/ //End of Text Handling Group
     
 }
 #endif /*TEXT_H*/
