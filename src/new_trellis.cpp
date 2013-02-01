@@ -270,6 +270,281 @@ namespace StochHMM {
 	}
 	
 	
+	void trellis::simple_posterior_second(){
+		if (!hmm->isBasic()){
+			std::cerr << "Model isn't a simple/basic HMM.  Use complex algorithms\n";
+			return;
+		}
+		
+		posterior2Score = new (std::nothrow) std::vector<std::vector<double> >(seq_size, std::vector<double>(state_size,-INFINITY));
+		scoring_current = new (std::nothrow) std::vector<double> (state_size,-INFINITY);
+		scoring_previous= new (std::nothrow) std::vector<double> (state_size,-INFINITY);
+		
+		if (scoring_current == NULL || scoring_previous == NULL || posterior2Score == NULL){
+			std::cerr << "Can't allocate Posterior score table. OUT OF MEMORY" << std::endl;
+			exit(2);
+		}
+		
+        std::bitset<STATE_MAX> next_states;
+        std::bitset<STATE_MAX> current_states;
+		
+        double  forward_temp(-INFINITY);
+        double  emission(-INFINITY);
+        bool	exDef_position(false);
+        
+        state* init = hmm->getInitial();
+		
+		std::bitset<STATE_MAX>* initial_to = hmm->getInitialTo();
+		std::bitset<STATE_MAX>* from_trans(NULL);
+		
+		
+		//		std::cout << "Position: 0" << std::endl;
+        //Calculate Viterbi from transitions from INIT (initial) state
+        for(size_t i = 0; i < state_size; ++i){
+            if ((*initial_to)[i]){  //if the bitset is set (meaning there is a transition to this state), calculate the viterbi
+				
+				forward_temp = (*hmm)[i]->get_emission_prob(*seqs,0) +  getTransition(init, i, 0);
+                
+				if (forward_temp > -INFINITY){                    
+					(*scoring_current)[i] = forward_temp;
+					next_states[i] = 1;
+                }
+            }
+        }
+        
+        
+        for(size_t position = 1; position < seq_size ; ++position ){
+            
+			(*posterior2Score)[position-1].assign(scoring_current->begin(), scoring_current->end());
+            
+			//Swap current and previous viterbi scores
+            scoring_previous->assign(state_size,-INFINITY);
+            swap_ptr = scoring_previous;
+			scoring_previous = scoring_current;
+			scoring_current = swap_ptr;
+			
+			
+			//Swap current_states and next states sets
+			current_states.reset();
+            current_states |= next_states;
+            next_states.reset();
+            
+            if (exDef_defined){
+                exDef_position = seqs->exDefDefined(position);
+            }
+			
+			//			std::cout << "\nPosition: " << position << std::endl;
+            
+            for (size_t current = 0; current < state_size; ++current){ //i is current state that emits value
+                if (!current_states[current]){
+                    continue;
+                }
+                
+                emission = (*hmm)[current]->get_emission_prob(*seqs, position);
+				
+				if (exDef_defined && exDef_position){
+                    emission += seqs->getWeight(position, current);
+                }
+                
+				from_trans = (*hmm)[current]->getFrom();
+				
+                for (size_t previous = 0; previous < state_size ; ++previous) {  //j is previous state
+                    if (!(*from_trans)[previous]){
+                        continue;
+                    }
+					
+					if ((*scoring_previous)[previous] != -INFINITY){
+                        forward_temp = getTransition((*hmm)[previous], current , position) + emission + (*scoring_previous)[previous];
+						
+						if ((*scoring_current)[current] == -INFINITY){
+							(*scoring_current)[current] = forward_temp;
+						}
+						else{
+							(*scoring_current)[current] = addLog(forward_temp, (*scoring_current)[current]);
+						}
+						
+						next_states |= (*(*hmm)[current]->getTo());
+                    }
+                }
+				//				std::cout << "State: " << current <<"\t" << exp((*forward_score)[position][current]) << std::endl;
+            }
+		}
+		
+		(*posterior2Score)[seq_size-1].assign(scoring_current->begin(), scoring_current->end());
+		
+        //Swap current and previous scores
+        scoring_previous->assign(state_size,-INFINITY);
+        swap_ptr = scoring_previous;
+        scoring_previous = scoring_current;
+        scoring_current = swap_ptr;
+		
+        ending_posterior = -INFINITY;
+        for(size_t i = 0; i < state_size ;++i){
+            if ((*scoring_previous)[i] != -INFINITY){
+                forward_temp = (*scoring_previous)[i] + (*hmm)[i]->getEndTrans();
+                
+                if (forward_temp > -INFINITY){
+					if (ending_posterior == -INFINITY){
+						ending_posterior = forward_temp;
+					}
+					else{
+						ending_posterior = addLog(ending_posterior,forward_temp);
+					}
+                }
+            }
+        }
+		
+		
+		
+		//		std::cout << exp(ending_posterior) << std::endl;
+		scoring_previous->assign(state_size, -INFINITY);
+		scoring_current->assign(state_size, -INFINITY);
+		
+//		for (size_t i=0; i < seq_size; i++){
+//			std::cout << i+1 << "\t";
+//			for(size_t j=0; j < state_size; j++){
+//				std::cout << exp((*posterior2Score)[i][j]) << "\t";
+//			}
+//			std::cout << std::endl;
+//		}
+		
+		
+		//Backward
+		
+		double  backward_temp(-INFINITY);
+		
+		std::bitset<STATE_MAX>* ending_from = hmm->getEndingFrom();		
+		
+		//Calculate initial Backward from ending state
+		for(size_t i = 0; i < state_size; ++i){
+			if ((*ending_from)[i]){  //if the bitset is set (meaning there is a transition to this state), calculate the viterbi
+				
+				backward_temp = (*hmm)[i]->getEndTrans();
+				
+				if (backward_temp > -INFINITY){
+					(*scoring_current)[i] = backward_temp;
+					next_states[i] = 1;
+				}
+			}
+		}
+		
+		
+		
+		for(size_t position = seq_size-1; position > 0 ; --position ){
+			
+			//Swap current_states and next states sets
+			current_states.reset();
+			current_states |= next_states;
+			next_states.reset();
+			
+			for (size_t i=0;i<state_size;++i){
+//				std::cout << "Backward:\t" << (*scoring_current)[state_size] << std::endl;
+//				std::cout << "Forward:\t"  << (*posterior2Score)[position][i] << std::endl;
+				
+				(*posterior2Score)[position][i] += (*scoring_current)[i];
+				(*posterior2Score)[position][i] -= ending_posterior;
+//				std::cout << "Posterior:\t" << exp((*posterior2Score)[position][i]) << std::endl;
+			}
+//			(*backward2Score)[position] = (*scoring_current);
+			
+			//Swap current and previous viterbi scores
+            scoring_previous->assign(state_size,-INFINITY);
+            swap_ptr = scoring_previous;
+			scoring_previous = scoring_current;
+			scoring_current = swap_ptr;
+			
+			
+			if (exDef_defined){
+				exDef_position = seqs->exDefDefined(position);
+			}
+			
+			//			std::cout << "\nPosition: " << position << std::endl;
+			
+			for (size_t i = 0; i < state_size; ++i){ //i is current state that emits value
+				if (!current_states[i]){
+					continue;
+				}
+				
+				emission = (*hmm)[i]->get_emission_prob(*seqs, position);
+				
+				if (exDef_defined && exDef_position){
+					emission += seqs->getWeight(position, i);
+				}
+				
+				from_trans = (*hmm)[i]->getFrom();
+				
+				for (size_t j = 0; j < state_size ; ++j) {  //j is previous state
+					if (!(*from_trans)[j]){
+						continue;
+					}
+					
+					//if ((*backward_score)[position-1][j] != -INFINITY){
+					if ((*scoring_previous)[j] != -INFINITY){
+						
+						//backward_temp = getTransition((*hmm)[j], i , position-1) + emission + (*backward_score)[position][i];
+						backward_temp = getTransition((*hmm)[j], i , position-1) + emission + (*scoring_previous)[i];
+						
+						
+						if ((*scoring_current)[j] == -INFINITY){
+							(*scoring_current)[j] = backward_temp;
+						}
+						else{
+							(*scoring_current)[j] = addLog(backward_temp, (*scoring_current)[j]);
+						}
+						
+						next_states |= (*(*hmm)[i]->getFrom());
+					}
+				}
+				//				std::cout << "State: " << i <<"\t" << exp((*backward_score)[position][i]) << std::endl;
+			}
+			
+		}
+		
+		for (size_t i=0;i<state_size;++i){
+			(*posterior2Score)[0][i] += (*scoring_current)[i];
+			(*posterior2Score)[0][i] -= ending_posterior;
+		}
+		
+//		(*backward2Score)[0] = (*scoring_current);
+		
+//		
+//		for (size_t i=0; i < seq_size; i++){
+//			std::cout << i+1 << "\t";
+//			for(size_t j=0; j < state_size; j++){
+//				std::cout << exp((*backward2Score)[i][j]) << "\t";
+//			}
+//			std::cout << std::endl;
+//		}
+		
+		double backward_posterior = -INFINITY;
+		init = hmm->getInitial();
+		for(size_t i = 0; i < state_size ;++i){
+			if ((*scoring_current)[i] != -INFINITY){
+				
+				//if ((*backward_score)[0][i] > -INFINITY){
+				
+				//backward_temp = (*backward_score)[0][i] + (*hmm)[i]->get_emission_prob(*seqs,0) + getTransition(init, i, 0);
+				backward_temp = (*scoring_current)[i] + (*hmm)[i]->get_emission_prob(*seqs,0) + getTransition(init, i, 0);
+				if (backward_temp > -INFINITY){
+					if (backward_posterior == -INFINITY){
+						backward_posterior = backward_temp;
+					}
+					else{
+						backward_posterior = addLog(backward_posterior,backward_temp);
+					}
+				}
+			}
+		}
+		
+		std::cout <<std::setprecision(10)<< "FORWARD PROB:\t" << ending_posterior << std::endl;
+		std::cout <<std::setprecision(10)<< "BACKWARD PROB:\t" << backward_posterior << std::endl;
+		
+		delete scoring_previous;
+		delete scoring_current;
+		scoring_previous = NULL;
+		scoring_current = NULL;
+	}
+	
 	void trellis::simple_backward(model* h, sequences* sqs){
 		hmm = h;
 		seqs = sqs;
@@ -373,7 +648,7 @@ namespace StochHMM {
 						backward_temp = getTransition((*hmm)[j], i , position-1) + emission + (*scoring_previous)[i];
 
 						
-						if ((*backward_score)[position-1][j] == -INFINITY){
+						if ((*scoring_current)[j] == -INFINITY){
 							(*scoring_current)[j] = backward_temp;
 							(*backward_score)[position-1][j] = backward_temp;
 						}
@@ -908,6 +1183,214 @@ namespace StochHMM {
 						std::cout << exp(getTransition((*hmm)[j],i,position)) << std::endl;
 						
 //						std::cout << "Temp Viterbi:\tTransFrom: "<< j << "\tto\t" << i << "\t" << viterbi_temp / log(2) << std::endl;
+                        
+						
+						if (viterbi_temp > (*scoring_current)[i]){
+							//If transition is from same to same then if it is
+							//explicit duration we'll need to change
+							extend_duration = (i==j) ? true : false;
+							
+                            (*scoring_current)[i] = viterbi_temp;
+                            (*traceback_table)[position][i] = j;
+                        }
+						
+						next_states |= (*(*hmm)[i]->getTo());
+                    }
+                }
+				
+				//If explicit durations vector defined, and transition from-to same
+				//then we'll increment the value. Otherwise, set to zero;
+				if (explicit_duration_current){
+					if (extend_duration && (*duration)[i]){
+						(*explicit_duration_current)[i]=(*explicit_duration_previous)[i]+1;
+						extend_duration=false;
+					}
+					else{
+						(*explicit_duration_current)[i]=0;
+					}
+				}
+            }
+			
+			if(explicit_duration_current){
+				swap_ptr_duration = explicit_duration_previous;
+				explicit_duration_previous = explicit_duration_current;
+				explicit_duration_current= swap_ptr_duration;
+				explicit_duration_current->assign(state_size,0);
+			}
+            
+        }
+        
+        //TODO:  Calculate ending and set the final viterbi and traceback pointer
+        //Swap current and previous viterbi scores
+        scoring_previous->assign(state_size,-INFINITY);
+        swap_ptr = scoring_previous;
+        scoring_previous = scoring_current;
+        scoring_current = swap_ptr;
+        
+        for(size_t i = 0; i < state_size ;++i){
+            if ((*scoring_previous)[i] > -INFINITY){
+                viterbi_temp = (*scoring_previous)[i] + (*hmm)[i]->getEndTrans();
+                
+                if (viterbi_temp > ending_viterbi_score){
+                    ending_viterbi_score = viterbi_temp;
+                    ending_viterbi_tb = i;
+                }
+            }
+        }
+        
+        delete scoring_previous;
+        delete scoring_current;
+		scoring_previous = NULL;
+		scoring_current = NULL;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	//TODO:  Need to test and finalize these algorithms perform
+	/*	Need to simplify the basic calls so that it checks model and chooses the
+	 algorithm to perform
+	 
+	 Need to establish duration algorithms for forward/backward that first to viterbi
+	 to calculate the transition probability.
+	 
+	 */
+	
+	
+	//! Sparse Complex Viterbi
+	//! Stores the transition duration probabilities in a hashmap (memory efficient, slower)
+	//! The duratio probabilities can then be used in forward and backward algorithms.
+	void trellis::sparse_complex_viterbi(){
+		
+		//Initialize the traceback table
+        if (traceback_table != NULL){
+            delete traceback_table;
+        }
+        
+        traceback_table = new int_2D(seq_size,std::vector<uint16_t> (state_size));
+		scoring_previous = new (std::nothrow) std::vector<double> (state_size,-INFINITY);
+        scoring_current  = new (std::nothrow) std::vector<double> (state_size,-INFINITY);
+		
+		if (scoring_previous == NULL || scoring_current == NULL || traceback_table == NULL){
+			std::cerr << "Can't allocate Viterbi score and traceback table. OUT OF MEMORY" << std::endl;
+			exit(2);
+		}
+		
+		
+        std::bitset<STATE_MAX> next_states;
+        std::bitset<STATE_MAX> current_states;
+		
+        double  viterbi_temp(-INFINITY);
+        double  emission(-INFINITY);
+        bool	exDef_position(false);
+		double  transition_prob(-INFINITY);
+		
+		
+		//If model is not a basic model, then we need to initialize the explicit duration vector
+		//bool extend_duration keeps track of whether the transition to same state was selected.
+		if (!hmm->isBasic()){
+			explicit_duration_current = new(std::nothrow) std::vector<size_t>(state_size,0);
+			explicit_duration_previous= new(std::nothrow) std::vector<size_t>(state_size,0);
+		}
+		
+		bool extend_duration(false);
+		
+		// Get list of States with explicit duration
+		std::vector<bool>* duration = hmm->get_explicit();
+		
+		//Initialize Duration storage table
+		complex_transitions = new std::vector<std::vector< std::map<uint16_t,double>* >* > (state_size,NULL);
+		for(size_t i=0; i < state_size; i++){
+			if((*duration)[i]){
+				(*complex_transitions)[i] = new std::vector<std::map<uint16_t,double>* > (seq_size, NULL);
+			}
+		}
+        
+        state* init = hmm->getInitial();
+		
+		std::bitset<STATE_MAX>* initial_to = hmm->getInitialTo();
+		std::bitset<STATE_MAX>* from_trans(NULL);
+		
+        //Calculate Viterbi from transitions from INIT (initial) state
+        for(size_t i = 0; i < state_size; ++i){
+            if ((*initial_to)[i]){  //if the bitset is set (meaning there is a transition to this state), calculate the viterbi
+				
+				//Transitions here are guarenteed to be standard from the initial state
+				viterbi_temp = (*hmm)[i]->get_emission_prob(*seqs,0) + getTransition(init, i, 0);
+                
+				if (viterbi_temp > -INFINITY){
+                    if ((*scoring_current)[i] < viterbi_temp){
+                        (*scoring_current)[i] = viterbi_temp;
+                    }
+					next_states[i] = 1;
+                }
+            }
+        }
+		
+        
+        for(size_t position = 1; position < seq_size ; ++position ){
+            
+            //Swap current and previous viterbi scores
+            scoring_previous->assign(state_size,-INFINITY);
+            swap_ptr = scoring_previous;
+			scoring_previous = scoring_current;
+			scoring_current = swap_ptr;
+            
+            //Swap current_states and next states sets
+			
+			current_states.reset();
+            current_states |= next_states;
+            next_states.reset();
+            
+            if (exDef_defined){
+                exDef_position = seqs->exDefDefined(position);
+            }
+			
+			//TODO: Check use of external definitions below.
+			
+			std::cout << "\nPosition:\t" << position << "\n";
+			//			std::cout << "Letter:\t" << seqs->seqValue(0, position) << std::endl;
+			
+            for (size_t i = 0; i < state_size; ++i){ //i is current state that emits value
+                if (!current_states[i]){
+                    continue;
+                }
+				
+                //current_state = (*hmm)[i];
+                //emission = current_state->get_emission(*seqs,position);
+                emission = (*hmm)[i]->get_emission_prob(*seqs, position);
+				
+				
+				//Check External definitions
+				if (exDef_defined && exDef_position){
+                    emission += seqs->getWeight(position, i);
+                }
+                
+				//Get list of state that transition to current state
+				from_trans = (*hmm)[i]->getFrom();
+				
+                for (size_t j = 0; j < state_size ; ++j) {  //j is previous state
+                    if (!(*from_trans)[j]){ //if transition not possible next
+                        continue;
+                    }
+					
+                    if ((*scoring_previous)[j] != -INFINITY){
+						
+						transition_prob = getTransition((*hmm)[j], i , position);
+						
+						if ((*duration)[j]){
+							if ((*(*complex_transitions)[i])[position] == NULL){
+								(*(*complex_transitions)[i])[position] = new std::map<uint16_t,double>;
+							}
+							
+							(*(*(*complex_transitions)[i])[position])[j] = transition_prob;
+						}
+						
+                        viterbi_temp = transition_prob + emission + (*scoring_previous)[j];
                         
 						
 						if (viterbi_temp > (*scoring_current)[i]){

@@ -25,6 +25,7 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 #include "hmm.h"
 #include "sequence.h"
 #include "seqTracks.h"
@@ -34,19 +35,23 @@
 #include "traceback_path.h"
 #include "options.h"
 #include <time.h>
-#include "stochhmmUsage.h"
+#include "newStochHMM_Usage.h"
 using namespace StochHMM;
 
 trellis* perform_decoding(model*, sequences*);
+trellis* perform_posterior(model*, sequences*);
 
 void import_model(model&);
 void import_sequence(model&);
 
 traceback_path* perform_traceback(trellis*);
+multiTraceback* perform_stochastic_traceback(trellis*);
 
 void print_output(multiTraceback*, std::string&);
 void print_output(std::vector<traceback_path>&, std::string&);
 void print_output(traceback_path*, std::string&);
+void print_posterior(std::vector<std::vector<double> >*, model*, std::string&,double);
+
 
 
 #pragma mark Options
@@ -59,6 +64,9 @@ opt_parameters commandline[]={
     {"-seq:-s:-track",OPT_STRING    ,true   ,"",    {}},
 	//Debug
     {"-debug:-d"    ,OPT_FLAG ,false  ,"",    {"model","seq","paths"}},
+	//Non-Stochastic Decoding
+    {"-viterbi"     ,OPT_NONE       ,false  ,"",    {}},
+    {"-posterior"   ,OPT_NONE       ,false  ,"",    {}},
 	//Output Files and Formats
     {"-gff:-g"      ,OPT_STRING     ,false  ,"",    {}},
     {"-path:-p"     ,OPT_STRING     ,false  ,"",    {}},
@@ -102,21 +110,70 @@ int main(int argc, const char * argv[])
 		}
 		
 		
-		//Perform decoding
-		trellis *trell = perform_decoding(job->getModel(), job->getSeqs());
+		if (opt.isSet("-posterior")){
+			//trellis* trell = perform_posterior(job->getModel(), );
+			
+			trellis* trell = new trellis(&hmm,job->getSeqs());
+			trell->simple_posterior_second();
+//			double post = trell -> getProbOfSeq();
+//			
+//			float_2D* forw  = trell->getForwardTable();
+//			float_2D* backw = trell->getBackwardTable();
+//			
+//			double forward_sum(0);
+//			for (size_t i=0;i<forw->size();i++){
+//				for(size_t j=0;j< (*forw)[i].size();j++){
+//					std::cout << exp((*forw)[i][j]) << std::endl;
+//					forward_sum +=exp((*forw)[i][j]);
+//				}
+//			}
+//			std::cout << "Forward Sum:\t" << forward_sum << std::endl;
+//			
+//			
+//			double backward_sum(0);
+//			for (size_t i=0;i<backw->size()-1;i++){
+//				for(size_t j=0;j< (*backw)[i].size();j++){
+//					std::cout << exp((*backw)[i][j]) << std::endl;
+//					backward_sum +=exp((*backw)[i][j]);
+//				}
+//			}
+//			
+//			double temp = forward_sum + backward_sum;
+//			std::cout << "Backward Sum:\t" << backward_sum << std::endl;
+//			
+//			std::cout << "Combined Sum:\t" << temp << std::endl;
+//			std::cout << "Prob:\t" << post << std::endl;
+			
+			
+			if (trell == NULL){
+				std::cerr << "No posterior performed\n";
+				exit(0);
+			}
+			
+//			std::vector<std::vector<double> >* posterior_table = trell->getPosteriorScores();
+//			print_posterior(posterior_table,job->getModel(),job->getSeqs()->getHeader(),trell->getProbOfSeq());
+//			delete trell;
+		}
 		
-		if (trell == NULL){
-			std::cerr << "No decoding performed\n";
-			exit(0);
+		if(opt.isSet("-viterbi")){
+			//Perform decoding
+			trellis *trell = perform_decoding(job->getModel(), job->getSeqs());
+			
+			if (trell == NULL){
+				std::cerr << "No decoding performed\n";
+				exit(0);
+			}
+			
+			
+			traceback_path* tb(NULL);
+			tb = perform_traceback(trell);  //job->getSeqs()->getHeader()
+			print_output(tb, job->getSeqs()->getHeader());
+			delete trell;
+			delete tb;
 		}
 		
 		
-		traceback_path* tb(NULL);		
-		tb = perform_traceback(trell);  //job->getSeqs()->getHeader()
-		print_output(tb, job->getSeqs()->getHeader());
-		
-		delete trell;
-		delete tb;
+
 		job = jobs.getJob();
 	}
     
@@ -154,9 +211,16 @@ trellis* perform_decoding(model* hmm, sequences* seqs){
     
 	
     trell =  new(std::nothrow) trellis(hmm,seqs);
-	trell->viterbi();
+	trell->simple_viterbi();
     
     return trell;
+}
+
+trellis* perform_posterior(model* hmm, sequences* seqs){
+	trellis* trell = new trellis(hmm,seqs);
+	trell->simple_posterior();
+	
+	return trell;
 }
 
 
@@ -192,5 +256,33 @@ traceback_path* perform_traceback(trellis* trell){
     return path;
 }
 
+
+void print_posterior(std::vector<std::vector<double> >* table , model* hmm, std::string& header,double val){
+	std::cout <<"Posterior Probabilities Table" << std::endl;
+	std::cout <<"Sequence:\t" << header << std::endl;
+	std::cout <<"Probability of Sequence:Natural Log'd\t" << val << std::endl;
+	
+	size_t state_size = hmm->state_size();
+	
+	//Print State names for header
+	std::cout << "Position";
+	for(size_t i=0; i < state_size; i++){
+		std::cout << "\t";
+		std::cout << hmm->getStateName(i);
+	}
+	std::cout << std::endl;
+	
+	for(size_t position = 0; position < table->size(); position++){
+		std::cout << position+1;
+		for (size_t st = 0 ; st < state_size ; st++){
+			std::cout << "\t";
+			std::cout << std::setprecision(3) << exp((*table)[position][st]);
+		}
+		std::cout << std::endl;
+	}
+	
+	return;
+	
+}
 
 

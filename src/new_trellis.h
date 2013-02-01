@@ -16,12 +16,14 @@
 #include <string>
 #include <fstream>
 #include <bitset>
+#include <map>
 #include "stochTypes.h"
 #include "sequences.h"
 #include "hmm.h"
 #include "traceback_path.h"
 #include "stochMath.h"
 #include <stdint.h>
+#include <iomanip>
 
 
 namespace StochHMM {
@@ -129,6 +131,8 @@ namespace StochHMM {
 		void simple_posterior();
 		void simple_posterior(model* h, sequences* sqs);
 		
+		void simple_posterior_second();
+		
 		void simple_stochastic_viterbi();
 		void simple_stochastic_viterbi(model* h, sequences* sqs);
 		
@@ -172,7 +176,7 @@ namespace StochHMM {
 		
 		/*-----------   Sparse Complex Model Decoding Algorithms  --------*/
 		/*	These algorithms store the associated emissions and transitions
-			probabilities that were calculated during viterbi algorith.  For later
+			probabilities that were calculated during viterbi algorithm.  For later
 			use in the forward/backward algorithms.
 		
 			The values are stored in sparse tables (hash map), so access to values 
@@ -215,6 +219,22 @@ namespace StochHMM {
 		void export_trellis(std::string& file);
 		inline model* get_model(){return hmm;}
 		
+		inline std::vector<std::vector<double> >* getPosteriorScores(){
+			return posterior2Score;
+		}
+		
+		inline float_2D* getForwardTable(){
+			return forward_score;
+		}
+		
+		inline float_2D* getBackwardTable(){
+			return backward_score;
+		}
+		
+		inline double getProbOfSeq(){
+			return ending_posterior;
+		}
+		
 	private:
 		double getEndingTransition(size_t);
         double getTransition(state* st, size_t trans_to_state, size_t sequencePosition);
@@ -244,6 +264,10 @@ namespace StochHMM {
 		float_2D*	backward_score;     //Storing Backward scores
 		float_2D*	posterior_score;			//Store posterior scores
 		
+		std::vector<std::vector<double> >* posterior2Score;
+		std::vector<std::vector<double> >* forward2Score;
+		std::vector<std::vector<double> >* backward2Score;
+		
 		//Ending Cells
 		double   ending_viterbi_score;
 		uint16_t ending_viterbi_tb;
@@ -258,7 +282,6 @@ namespace StochHMM {
 		std::vector<double>* alt_scoring_current;
 		std::vector<double>* alt_scoring_previous;
 		
-		
 		std::vector<size_t>* explicit_duration_current;
 		std::vector<size_t>* explicit_duration_previous;
 		std::vector<size_t>* swap_ptr_duration;
@@ -266,6 +289,7 @@ namespace StochHMM {
 		std::vector<double>* swap_ptr;
 		
 		std::vector<std::vector<double>* > complex_emissions;
+		std::vector<std::vector<std::map<uint16_t,double>* >* >* complex_transitions;
 	};
 	
 }

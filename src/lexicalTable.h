@@ -142,7 +142,7 @@ namespace StochHMM{
 		void expand_ambiguous(std::vector<uint8_t>& letters, std::vector<double>& expanded);
 		std::vector<std::vector<uint8_t> >* expand_ambiguous(std::vector<std::vector<uint8_t> >* words, size_t letter);
 		size_t calculateIndexFromDecomposed(std::vector<uint8_t>& word);
-		double lexicalTable::getAmbiguousScore(std::vector<uint8_t>& letters);
+		double getAmbiguousScore(std::vector<uint8_t>& letters);
     };
     
 	
