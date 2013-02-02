@@ -235,6 +235,9 @@ namespace StochHMM {
 			return ending_posterior;
 		}
 		
+		void naive_forward();
+		void naive_backward();
+		
 	private:
 		double getEndingTransition(size_t);
         double getTransition(state* st, size_t trans_to_state, size_t sequencePosition);

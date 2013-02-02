@@ -114,6 +114,8 @@ int main(int argc, const char * argv[])
 			//trellis* trell = perform_posterior(job->getModel(), );
 			
 			trellis* trell = new trellis(&hmm,job->getSeqs());
+			trell->naive_forward();
+			trell->naive_backward();
 			trell->simple_posterior_second();
 //			double post = trell -> getProbOfSeq();
 //			
