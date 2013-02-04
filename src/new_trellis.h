@@ -24,47 +24,15 @@
 #include "stochMath.h"
 #include <stdint.h>
 #include <iomanip>
+#include "stochTable.h"
 
-
-namespace StochHMM {
-
-//	struct tb_score{
-//		float score;
-//		int16_t tb_ptr;
-//	};
+namespace StochHMM{
 	
 	
-	
-	class stochTable{
-	public:
-		
-		struct stoch_value{
-			stoch_value(uint16_t id, uint16_t prev, float p): state_id(id), state_prev(prev), prob(p){}
-			uint16_t state_id;
-			uint16_t state_prev;
-			uint16_t prev_cell;
-			float prob;
-		};
-		
-		
-		stochTable(size_t);
-		~stochTable();
-		void push(size_t pos, size_t st, size_t st_to, float val);
-		void print();
-		void finalize();
-		uint16_t get_state_position(size_t pos,uint16_t);
-		
-		void traceback(traceback_path& path);
-		
-	private:
-		size_t last_position;
-		std::vector<stoch_value>* state_val;
-		std::vector<size_t>* position;
-	};
-	
-	
-	typedef std::vector<std::vector<uint16_t> > int_2D;
+	typedef std::vector<std::vector<int16_t> > int_2D;
 	typedef std::vector<std::vector<float> > float_2D;
+	typedef std::vector<std::vector<double> > double_2D;
+
 	typedef std::vector<std::vector<std::vector<uint16_t> > > int_3D;
 	typedef std::vector<std::vector<std::vector<float> > > float_3D;
 
@@ -74,7 +42,6 @@ namespace StochHMM {
 		trellis(model* h , sequences* sqs);
 		~trellis();
 		void reset();
-		
 		
 		/*-----------   Decoding Algorithms ------------*/
 		
@@ -104,10 +71,28 @@ namespace StochHMM {
 		void stochastic_forward(model* h, sequences* sqs);
 		
 		void nth_viterbi();
-		void nth_viterbi(model* h, sequences *sqs);
+		void nth_viterbi(model* h, sequences* sqs);
 		
 		void baum_welch();
 		
+		
+		/*-----------	Naive Model Decoding Algorithms -------------*/
+		/* These algorithms are the simply coded algorithms with little to no
+		 optimizations.  
+		 */
+		
+		void naive_forward();
+		void naive_forward(model* h, sequences* sqs);
+		
+		void naive_backward();
+		void naive_backward(model* h, sequences* sqs);
+		
+		void naive_viterbi();
+		void naive_viterbi(model* h, sequences* sqs);
+		
+		//TODO: Need to implement baum-welch algorithm
+//		void naive_baum_welch();
+//		void naive_baum_welch(model* h, sequences* sqs);
 		
 		/*-----------   Simple Model Decoding Algorithms ------------*/
 		/* These algorithms are for use with models that do not define explicit
@@ -235,8 +220,7 @@ namespace StochHMM {
 			return ending_posterior;
 		}
 		
-		void naive_forward();
-		void naive_backward();
+
 		
 	private:
 		double getEndingTransition(size_t);
@@ -265,16 +249,21 @@ namespace StochHMM {
 		float_2D*	viterbi_score;      //Storing viterbi scores
 		float_2D*	forward_score;      //Storing Forward scores
 		float_2D*	backward_score;     //Storing Backward scores
-		float_2D*	posterior_score;			//Store posterior scores
+		float_2D*	posterior_score;	//Store posterior scores
+		double_2D*  naive_forward_score;
+		double_2D*	naive_viterbi_score;
+		double_2D*  naive_backward_score;
 		
 		std::vector<std::vector<double> >* posterior2Score;
 		std::vector<std::vector<double> >* forward2Score;
 		std::vector<std::vector<double> >* backward2Score;
 		
 		//Ending Cells
-		double   ending_viterbi_score;
-		uint16_t ending_viterbi_tb;
-		double   ending_posterior;
+		double	ending_viterbi_score;
+		int16_t	ending_viterbi_tb;
+		double	ending_posterior;
+		double	ending_forward_prob;
+		double	ending_backward_prob;
 
 //		std::vector<tb_score>*    ending_stoch_tb;
 //		std::vector<tb_score>*    ending_nth_viterbi;
