@@ -114,9 +114,70 @@ int main(int argc, const char * argv[])
 			//trellis* trell = perform_posterior(job->getModel(), );
 			
 			trellis* trell = new trellis(&hmm,job->getSeqs());
-			trell->naive_forward();
-			trell->naive_backward();
+			//trell->naive_baum_welch();
+			//trell->update_transitions();
+			//trell->naive_forward();
+			//trell->naive_backward();
+			typedef std::numeric_limits< double > dbl;
+			
+			std::cout.precision(dbl::digits10);
+			
 			trell->simple_posterior_second();
+			std::cout << "Backward:\t" << trell->getBackwardProbability() << std::endl;
+			std::cout << "Forward:\t" << trell->getForwardProbability() << std::endl;
+			float_2D* table = trell->getPosteriorScores();
+			for (size_t i=0;i<table->size() ;i++){
+				std::cout << i ;
+				for (size_t j = 0; j < (*table)[i].size(); j++){
+					std::cout <<"\t" << exp((*table)[i][j]);
+				}
+				std::cout << std::endl;
+			}
+			
+			
+//			trell->simple_posterior();
+//			std::cout << "Backward:\t" << trell->getBackwardProbability() << std::endl;
+//			std::cout << "Forward:\t" << trell->getForwardProbability() << std::endl;
+//			float_2D* table = trell->getPosteriorScores();
+//			for (size_t i=0;i<table->size() ;i++){
+//				std::cout << i ;
+//				for (size_t j = 0; j < (*table)[i].size(); j++){
+//					std::cout <<"\t" << exp((*table)[i][j]);
+//				}
+//				std::cout << std::endl;
+//			}
+
+			
+
+			
+			trell->naive_backward();
+//			double_2D* table = trell->get_naive_backward_scores();
+//			for (size_t i=0;i<table->size() ;i++){
+//				std::cout << i ;
+//				for (size_t j = 0; j < (*table)[i].size(); j++){
+//					std::cout <<"\t" << (*table)[i][j];
+//				}
+//				std::cout << std::endl;
+//			}
+			std::cout << "N_Backward:\t" << trell->getBackwardProbability() << std::endl;
+//
+			trell->naive_forward();
+			std::cout << "N_Forward:\t" << trell->getForwardProbability() << std::endl;
+//
+			trell->simple_backward();
+			std::cout << "S_Backward:\t" << trell->getBackwardProbability() << std::endl;
+//			float_2D* temp = trell->getBackwardTable();
+//			for (size_t i=0;i<temp->size() ;i++){
+//				std::cout << i ;
+//				for (size_t j = 0; j < (*temp)[i].size(); j++){
+//					std::cout <<"\t" << (*temp)[i][j];
+//				}
+//				std::cout << std::endl;
+//			}
+//
+			trell->simple_forward();
+			std::cout << "S_Forward:\t" << trell->getForwardProbability() << std::endl;
+			
 //			double post = trell -> getProbOfSeq();
 //			
 //			float_2D* forw  = trell->getForwardTable();

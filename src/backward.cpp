@@ -9,6 +9,10 @@
 #include "new_trellis.h"
 
 namespace StochHMM{
+	
+	//! Naive Backward
+	//! Implements the backward algorithm (simple coded, little or no optimizations)
+	//! Stores the scores as doubles in table. Scoring table accessible from trellis -> getNaiveBackward();
 	void trellis::naive_backward(){
 		naive_backward_score = new double_2D(seq_size, std::vector<double>(state_size,-INFINITY));
 		
@@ -60,6 +64,7 @@ namespace StochHMM{
 		
 		
 		//Calculate Final Probability
+		ending_backward_prob = -INFINITY;
 		state* init = hmm->getInitial();
 		for (size_t st_current=0; st_current < state_size; st_current++ ){
 			if ((*naive_backward_score)[0][st_current] == -INFINITY){
@@ -110,7 +115,6 @@ namespace StochHMM{
 		//Allocate backward score table
 		backward_score = new (std::nothrow) float_2D(seq_size, std::vector<float>(state_size,-INFINITY));
 		
-		
 		//Allocate scoring vectors
 		scoring_previous = new (std::nothrow) std::vector<double> (state_size,-INFINITY);
         scoring_current  = new (std::nothrow) std::vector<double> (state_size,-INFINITY);
@@ -132,21 +136,21 @@ namespace StochHMM{
 		
 		
 		//Calculate initial Backward from ending state
-		for(size_t i = 0; i < state_size; ++i){
-			if ((*ending_from)[i]){  //if the bitset is set (meaning there is a transition to this state), calculate the viterbi
+		for(size_t st_current = 0; st_current < state_size; ++st_current){
+			if ((*ending_from)[st_current]){  //if the bitset is set (meaning there is a transition to this state)
 				
-				backward_temp = (*hmm)[i]->getEndTrans();
+				backward_temp = (*hmm)[st_current]->getEndTrans();
 				
 				if (backward_temp > -INFINITY){
-					(*backward_score)[seq_size-1][i] = backward_temp;
-					(*scoring_current)[i] = backward_temp;
-					next_states |= (*(*hmm)[i]->getFrom());
+					(*backward_score)[seq_size-1][st_current] = backward_temp;
+					(*scoring_current)[st_current] = backward_temp;
+					next_states[st_current] = 1;
 				}
 			}
 		}
 		
 		
-		for(size_t position = seq_size-1; position > 0 ; --position ){
+		for(size_t position = seq_size-2; position != SIZE_T_MAX ; --position ){
 			
 			//Swap current_states and next states sets
 			current_states.reset();
@@ -163,82 +167,71 @@ namespace StochHMM{
 			if (exDef_defined){
 				exDef_position = seqs->exDefDefined(position);
 			}
-			
-			//			std::cout << "\nPosition: " << position << std::endl;
-			
-			for (size_t i = 0; i < state_size; ++i){ //i is current state that emits value
-				if (!current_states[i]){
+						
+			for (size_t st_previous = 0; st_previous < state_size; ++st_previous){ //i is previous state that emits value
+				if (!current_states[st_previous]){
 					continue;
 				}
 				
-				emission = (*hmm)[i]->get_emission_prob(*seqs, position);
+				emission = (*hmm)[st_previous]->get_emission_prob(*seqs, position+1);
 				
 				if (exDef_defined && exDef_position){
-					emission += seqs->getWeight(position, i);
+					emission += seqs->getWeight(position+1, st_previous);
 				}
 				
-				from_trans = (*hmm)[i]->getFrom();
+				if (emission == -INFINITY){
+					continue;
+				}
 				
-				for (size_t j = 0; j < state_size ; ++j) {  //j is previous state
-					if (!(*from_trans)[j]){
+				from_trans = (*hmm)[st_previous]->getFrom();
+				
+				for (size_t st_current = 0; st_current < state_size ; ++st_current) {  //j is current state
+					if (!(*from_trans)[st_current]){
 						continue;
 					}
 					
-					//if ((*backward_score)[position-1][j] != -INFINITY){
-					if ((*scoring_previous)[j] != -INFINITY){
+					if ((*scoring_previous)[st_previous] != -INFINITY){
 						
-						//backward_temp = getTransition((*hmm)[j], i , position-1) + emission + (*backward_score)[position][i];
-						backward_temp = getTransition((*hmm)[j], i , position-1) + emission + (*scoring_previous)[i];
+						backward_temp = getTransition((*hmm)[st_current], st_previous , position) + emission + (*scoring_previous)[st_previous];
 						
 						
-						if ((*scoring_current)[j] == -INFINITY){
-							(*scoring_current)[j] = backward_temp;
-							(*backward_score)[position-1][j] = backward_temp;
+						if ((*scoring_current)[st_current] == -INFINITY){
+							(*scoring_current)[st_current] = backward_temp;
+							(*backward_score)[position][st_current] = backward_temp;
 						}
 						else{
-							(*scoring_current)[j] = addLog(backward_temp, (*scoring_current)[j]);
-							(*backward_score)[position-1][j] = (*scoring_current)[j];
-							
-							//(*backward_score)[position-1][j] = addLog((double)backward_temp, (double)(*backward_score)[position-1][j]);
+							(*scoring_current)[st_current] = addLog(backward_temp, (*scoring_current)[st_current]);
+							(*backward_score)[position][st_current] = (*scoring_current)[st_current];
 						}
 						
-						next_states |= (*(*hmm)[i]->getFrom());
+						next_states[st_current] = 1;
 					}
 				}
-				//				std::cout << "State: " << i <<"\t" << exp((*backward_score)[position][i]) << std::endl;
 			}
-			
 		}
 		
-		ending_posterior = -INFINITY;
-		double backward_posterior = -INFINITY;
+		ending_backward_prob = -INFINITY;
 		state* init = hmm->getInitial();
 		for(size_t i = 0; i < state_size ;++i){
 			if ((*scoring_current)[i] != -INFINITY){
-				
-				//if ((*backward_score)[0][i] > -INFINITY){
-				
-				//backward_temp = (*backward_score)[0][i] + (*hmm)[i]->get_emission_prob(*seqs,0) + getTransition(init, i, 0);
 				backward_temp = (*scoring_current)[i] + (*hmm)[i]->get_emission_prob(*seqs,0) + getTransition(init, i, 0);
 				if (backward_temp > -INFINITY){
-					if (backward_posterior == -INFINITY){
-						backward_posterior = backward_temp;
+					if (ending_backward_prob == -INFINITY){
+						ending_backward_prob = backward_temp;
 					}
 					else{
-						backward_posterior = addLog(backward_posterior,backward_temp);
+						ending_backward_prob = addLog(ending_backward_prob,backward_temp);
 					}
 				}
 			}
 		}
 		
-		ending_posterior = backward_posterior;
 		
 		delete scoring_previous;
 		delete scoring_current;
 		scoring_previous = NULL;
 		scoring_current = NULL;
 		
-		//		std::cout << exp(backward_posterior) << std::endl;
 	}
 	
 	

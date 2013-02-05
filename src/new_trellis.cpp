@@ -34,7 +34,9 @@ namespace StochHMM {
 		
 		ending_viterbi_score = -INFINITY;
 		ending_viterbi_tb = -1;
-		ending_posterior = -INFINITY;
+//		ending_posterior = -INFINITY;
+		ending_forward_prob = -INFINITY;
+		ending_backward_prob= -INFINITY;
 		
 		scoring_current = NULL;
 		scoring_previous= NULL;
@@ -66,7 +68,9 @@ namespace StochHMM {
 		
 		ending_viterbi_score = -INFINITY;
 		ending_viterbi_tb = -1;
-		ending_posterior = -INFINITY;
+//		ending_posterior = -INFINITY;
+		ending_forward_prob = -INFINITY;
+		ending_backward_prob= -INFINITY;
 
 		scoring_current = NULL;
 		scoring_previous= NULL;
@@ -160,7 +164,9 @@ namespace StochHMM {
 		
 		ending_viterbi_score = -INFINITY;
 		ending_viterbi_tb = -1;
-		ending_posterior = -INFINITY;
+//		ending_posterior = -INFINITY;
+		ending_forward_prob = -INFINITY;
+		ending_backward_prob= -INFINITY;
 		
 		
 	}
@@ -284,12 +290,7 @@ namespace StochHMM {
 	}
 
 	
-		
-	
-	
-	
-		
-	
+
 	
 }
 

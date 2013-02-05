@@ -35,11 +35,16 @@ namespace StochHMM {
 			simple_backward();
 		}
 		
+		if (abs(ending_backward_prob - ending_forward_prob) > 0.0000001){
+			std::cerr << "Ending Forward and Backward Probabilities are not equal.\n Check the model.\t" << __FUNCTION__ << std::endl;
+			exit(2);
+		}
+		
 		posterior_score = new(std::nothrow) float_2D(seq_size, std::vector<float>(state_size,-INFINITY));
 		
 		for(size_t position = 0;position < seq_size; ++position){
 			for(size_t state = 0; state < state_size; ++state){
-				(*posterior_score)[position][state] = ((*forward_score)[position][state] + (*backward_score)[position][state]) - ending_posterior;
+				(*posterior_score)[position][state] = ((*forward_score)[position][state] + (*backward_score)[position][state]) - ending_forward_prob;
 			}
 		}
 		
@@ -58,20 +63,16 @@ namespace StochHMM {
 	
 	void trellis::simple_posterior_second(){
 		
-		typedef std::numeric_limits< double > dbl;
-		
-		std::cout.precision(dbl::digits10);
-		
 		if (!hmm->isBasic()){
 			std::cerr << "Model isn't a simple/basic HMM.  Use complex algorithms\n";
 			return;
 		}
 		
-		posterior2Score = new (std::nothrow) std::vector<std::vector<double> >(seq_size, std::vector<double>(state_size,-INFINITY));
+		posterior_score = new (std::nothrow) float_2D(seq_size, std::vector<float>(state_size,-INFINITY));
 		scoring_current = new (std::nothrow) std::vector<double> (state_size,-INFINITY);
 		scoring_previous= new (std::nothrow) std::vector<double> (state_size,-INFINITY);
 		
-		if (scoring_current == NULL || scoring_previous == NULL || posterior2Score == NULL){
+		if (scoring_current == NULL || scoring_previous == NULL || posterior_score == NULL){
 			std::cerr << "Can't allocate Posterior score table. OUT OF MEMORY" << std::endl;
 			exit(2);
 		}
@@ -89,11 +90,9 @@ namespace StochHMM {
 		std::bitset<STATE_MAX>* from_trans(NULL);
 		
 		
-		//		std::cout << "Position: 0" << std::endl;
         //Calculate Forward from transitions from INIT (initial) state
         for(size_t i = 0; i < state_size; ++i){
             if ((*initial_to)[i]){  //if the bitset is set (meaning there is a transition to this state), calculate the viterbi
-				std::cout << "0\t-1\t" << i << "\t" << (*hmm)[i]->get_emission_prob(*seqs,0) << "\t" << getTransition(init, i, 0) << std::endl;
 				forward_temp = (*hmm)[i]->get_emission_prob(*seqs,0) +  getTransition(init, i, 0);
 				
 				if (forward_temp > -INFINITY){
@@ -105,7 +104,7 @@ namespace StochHMM {
         
         
         for(size_t position = 1; position < seq_size ; ++position ){
-			(*posterior2Score)[position-1].assign(scoring_current->begin(), scoring_current->end());
+			(*posterior_score)[position-1].assign(scoring_current->begin(), scoring_current->end());
             
 			//Swap current and previous viterbi scores
             scoring_previous->assign(state_size,-INFINITY);
@@ -121,9 +120,7 @@ namespace StochHMM {
             if (exDef_defined){
                 exDef_position = seqs->exDefDefined(position);
             }
-			
-			//			std::cout << "\nPosition: " << position << std::endl;
-            
+			            
             for (size_t current = 0; current < state_size; ++current){ //i is current state that emits value
                 if (!current_states[current]){
                     continue;
@@ -149,9 +146,6 @@ namespace StochHMM {
 					
 					
 					if ((*scoring_previous)[previous] != -INFINITY){
-						
-						std::cout <<position << "\t" << previous << "\t" << current << "\t" <<(*hmm)[current]->get_emission_prob(*seqs, position) << "\t" <<getTransition((*hmm)[previous], current , position) <<"\t" << (*scoring_previous)[previous] << std::endl;
-						
                         forward_temp = getTransition((*hmm)[previous], current , position) + emission + (*scoring_previous)[previous];
 						
 						if ((*scoring_current)[current] == -INFINITY){
@@ -164,11 +158,10 @@ namespace StochHMM {
 						next_states |= (*(*hmm)[current]->getTo());
                     }
                 }
-				//				std::cout << "State: " << current <<"\t" << exp((*forward_score)[position][current]) << std::endl;
             }
 		}
 		
-		(*posterior2Score)[seq_size-1].assign(scoring_current->begin(), scoring_current->end());
+		(*posterior_score)[seq_size-1].assign(scoring_current->begin(), scoring_current->end());
 		
         //Swap current and previous scores
         scoring_previous->assign(state_size,-INFINITY);
@@ -177,226 +170,142 @@ namespace StochHMM {
         scoring_current = swap_ptr;
 		
 		
-        ending_posterior = -INFINITY;
+        ending_forward_prob = -INFINITY;
 		
         for(size_t i = 0; i < state_size ;++i){
             if ((*scoring_previous)[i] != -INFINITY){
                 forward_temp = (*scoring_previous)[i] + (*hmm)[i]->getEndTrans();
 				
-				std::cout << "Ending\t" << i << "\t" << (*hmm)[i]->getEndTrans() << "\t" << (*scoring_previous)[i] << std::endl;
                 if (forward_temp > -INFINITY){
-					if (ending_posterior == -INFINITY){
-						ending_posterior = forward_temp;
+					if (ending_forward_prob == -INFINITY){
+						ending_forward_prob = forward_temp;
 					}
 					else{
-						ending_posterior = addLog(ending_posterior,forward_temp);
+						ending_forward_prob = addLog(ending_forward_prob,forward_temp);
 					}
                 }
             }
         }
 		
-		for(size_t i=0;i<seq_size;i++){
-			std::cout << i+1 << "\t";
-			for (size_t j=0; j<state_size; j++){
-				std::cout << (*posterior2Score)[i][j] << "\t";
-				
+		
+		
+
+
+		// Perform Backward Algorithm
+		double  backward_temp(-INFINITY);
+		scoring_previous->assign(state_size, -INFINITY);
+		scoring_current->assign(state_size, -INFINITY);
+		
+		std::bitset<STATE_MAX>* ending_from = hmm->getEndingFrom();
+
+		//Calculate initial Backward from ending state
+		for(size_t st_current = 0; st_current < state_size; ++st_current){
+			if ((*ending_from)[st_current]){  //if the bitset is set (meaning there is a transition to this state)
+
+				backward_temp = (*hmm)[st_current]->getEndTrans();
+
+				if (backward_temp > -INFINITY){
+					(*scoring_current)[st_current] = backward_temp;
+					next_states[st_current] = 1;
+				}
 			}
-			std::cout << std::endl;
+		}
+
+
+
+		for(size_t position = seq_size-2; position != SIZE_T_MAX ; --position ){
+
+			//Swap current_states and next states sets
+			current_states.reset();
+			current_states |= next_states;
+			next_states.reset();
+
+			for (size_t i=0;i<state_size;++i){
+				(*posterior_score)[position+1][i] += (*scoring_current)[i];
+				(*posterior_score)[position+1][i] -= ending_forward_prob;
+			}
+
+			//Swap current and previous viterbi scores
+            scoring_previous->assign(state_size,-INFINITY);
+            swap_ptr = scoring_previous;
+			scoring_previous = scoring_current;
+			scoring_current = swap_ptr;
+
+
+
+			if (exDef_defined){
+				exDef_position = seqs->exDefDefined(position);
+			}
+
+
+			for (size_t st_previous	= 0; st_previous < state_size; ++st_previous){ //i is current state that emits value
+				if (!current_states[st_previous]){
+					continue;
+				}
+
+				emission = (*hmm)[st_previous]->get_emission_prob(*seqs, position+1);
+
+				if (exDef_defined && exDef_position){
+					emission += seqs->getWeight(position+1, st_previous);
+				}
+
+				if (emission == -INFINITY){
+					continue;
+				}
+
+				from_trans = (*hmm)[st_previous]->getFrom();
+
+				for (size_t st_current = 0; st_current < state_size ; ++st_current) {  //j is previous state
+					if (!(*from_trans)[st_current]){
+						continue;
+					}
+
+					if ((*scoring_previous)[st_previous] != -INFINITY){
+						
+						backward_temp = getTransition((*hmm)[st_current], st_previous , position) + emission + (*scoring_previous)[st_previous];
+
+						if ((*scoring_current)[st_current] == -INFINITY){
+							(*scoring_current)[st_current] = backward_temp;
+						}
+						else{
+							(*scoring_current)[st_current] = addLog(backward_temp, (*scoring_current)[st_current]);
+						}
+
+						next_states[st_current] = 1;
+					}
+				}
+			}
+		}
+
+		for (size_t i=0;i<state_size;++i){
+			(*posterior_score)[0][i] += (*scoring_current)[i];
+			(*posterior_score)[0][i] -= ending_forward_prob;
 		}
 		
-		std::cout << "FORWARD  PROB:\t" << ending_posterior << std::endl;
+
+
+		ending_backward_prob = -INFINITY;
+		init = hmm->getInitial();
+		for(size_t i = 0; i < state_size ;++i){
+
+			if ((*scoring_current)[i] != -INFINITY){
+				backward_temp = (*scoring_current)[i] + (*hmm)[i]->get_emission_prob(*seqs,0) + getTransition(init, i, 0);
+				
+				if (backward_temp > -INFINITY){
+					if (ending_backward_prob == -INFINITY){
+						ending_backward_prob = backward_temp;
+					}
+					else{
+						ending_backward_prob = addLog(ending_backward_prob,backward_temp);
+					}
+				}
+			}
+		}
 		
-		//		std::cout << std::endl << std::endl;
-		//
-		//
-		//
-		//		//		std::cout << exp(ending_posterior) << std::endl;
-		//		scoring_previous->assign(state_size, -INFINITY);
-		//		scoring_current->assign(state_size, -INFINITY);
-		//		Lscoring_previous->assign(state_size, -INFINITY);
-		//		Lscoring_current->assign(state_size, -INFINITY);
-		//
-		////		for (size_t i=0; i < seq_size; i++){
-		////			std::cout << i+1 << "\t";
-		////			for(size_t j=0; j < state_size; j++){
-		////				std::cout << exp((*posterior2Score)[i][j]) << "\t";
-		////			}
-		////			std::cout << std::endl;
-		////		}
-		//
-		//
-		//		//Backward
-		//
-		//		double  backward_temp(-INFINITY);
-		//		long double Lbackward_temp(-INFINITY);
-		//
-		//		std::bitset<STATE_MAX>* ending_from = hmm->getEndingFrom();
-		//
-		//		//Calculate initial Backward from ending state
-		//		for(size_t i = 0; i < state_size; ++i){
-		//			if ((*ending_from)[i]){  //if the bitset is set (meaning there is a transition to this state), calculate the viterbi
-		//
-		//				backward_temp = (*hmm)[i]->getEndTrans();
-		//				Lbackward_temp = (*hmm)[i]->getEndTrans();
-		//
-		//				if (backward_temp > -INFINITY){
-		//					(*scoring_current)[i] = backward_temp;
-		//					(*Lscoring_current)[i] = Lbackward_temp;
-		//					next_states[i] = 1;
-		//				}
-		//			}
-		//		}
-		//
-		//
-		//
-		//		for(size_t position = seq_size-1; position > 0 ; --position ){
-		//
-		//			//Swap current_states and next states sets
-		//			current_states.reset();
-		//			current_states |= next_states;
-		//			next_states.reset();
-		//
-		//			for (size_t i=0;i<state_size;++i){
-		////				std::cout << "Backward:\t" << (*scoring_current)[state_size] << std::endl;
-		////				std::cout << "Forward:\t"  << (*posterior2Score)[position][i] << std::endl;
-		//
-		//				(*posterior2Score)[position][i] += (*scoring_current)[i];
-		//				Lposterior2Score[position][i] += (*Lscoring_current)[i];
-		//
-		//				(*posterior2Score)[position][i] -= ending_posterior;
-		//				Lposterior2Score[position][i] -= Lending_posterior;
-		////				\std::cout << "Posterior:\t" << exp((*posterior2Score)[position][i]) << std::endl;
-		//			}
-		////			(*backward2Score)[position] = (*scoring_current);
-		//
-		//			//Swap current and previous viterbi scores
-		//            scoring_previous->assign(state_size,-INFINITY);
-		//            swap_ptr = scoring_previous;
-		//			scoring_previous = scoring_current;
-		//			scoring_current = swap_ptr;
-		//
-		//			Lscoring_previous->assign(state_size,-INFINITY);
-		//            Lptr = Lscoring_previous;
-		//			Lscoring_previous = Lscoring_current;
-		//			Lscoring_current = Lptr;
-		//
-		//
-		//			if (exDef_defined){
-		//				exDef_position = seqs->exDefDefined(position);
-		//			}
-		//
-		//			//			std::cout << "\nPosition: " << position << std::endl;
-		//
-		//			for (size_t i = 0; i < state_size; ++i){ //i is current state that emits value
-		//				if (!current_states[i]){
-		//					continue;
-		//				}
-		//
-		//				emission = (*hmm)[i]->get_emission_prob(*seqs, position);
-		//				Lemission = (*hmm)[i]->get_emission_prob(*seqs, position);
-		//
-		//				if (exDef_defined && exDef_position){
-		//					emission += seqs->getWeight(position, i);
-		//				}
-		//
-		//				if (emission == -INFINITY){
-		//					continue;
-		//				}
-		//
-		//				from_trans = (*hmm)[i]->getFrom();
-		//
-		//				for (size_t j = 0; j < state_size ; ++j) {  //j is previous state
-		//					if (!(*from_trans)[j]){
-		//						continue;
-		//					}
-		//
-		//					//if ((*backward_score)[position-1][j] != -INFINITY){
-		//					if ((*scoring_previous)[i] != -INFINITY){
-		//
-		//						std::cout << position << "\t" << j <<"\t"<< i << "\t" << emission << "\t" << getTransition((*hmm)[j], i , position-1) <<"\t" << (*scoring_previous)[i] << std::endl;
-		//
-		//						//backward_temp = getTransition((*hmm)[j], i , position-1) + emission + (*backward_score)[position][i];
-		//						backward_temp = getTransition((*hmm)[j], i , position-1) + emission + (*scoring_previous)[i];
-		//						Lbackward_temp = getTransition((*hmm)[j], i , position-1) + Lemission + (*Lscoring_previous)[i];
-		//
-		//						if ((*scoring_current)[j] == -INFINITY){
-		//							(*scoring_current)[j] = backward_temp;
-		//							(*Lscoring_current)[j] = Lbackward_temp;
-		//						}
-		//						else{
-		//							(*scoring_current)[j] = addLog(backward_temp, (*scoring_current)[j]);
-		//							(*Lscoring_current)[j] = addLog(Lbackward_temp, (*Lscoring_current)[j]);
-		//						}
-		//
-		//						next_states |= (*(*hmm)[i]->getFrom());
-		//					}
-		//				}
-		//				//				std::cout << "State: " << i <<"\t" << exp((*backward_score)[position][i]) << std::endl;
-		//			}
-		//
-		//		}
-		//
-		//		for (size_t i=0;i<state_size;++i){
-		//			(*posterior2Score)[0][i] += (*scoring_current)[i];
-		//			(*posterior2Score)[0][i] -= ending_posterior;
-		//
-		//			Lposterior2Score[0][i] += (*Lscoring_current)[i];
-		//			Lposterior2Score[0][i] -= Lending_posterior;
-		//
-		//		}
-		//
-		////		(*backward2Score)[0] = (*scoring_current);
-		//
-		////
-		////		for (size_t i=0; i < seq_size; i++){
-		////			std::cout << i+1 << "\t";
-		////			for(size_t j=0; j < state_size; j++){
-		////				std::cout << exp((*backward2Score)[i][j]) << "\t";
-		////			}
-		////			std::cout << std::endl;
-		////		}
-		//
-		//		double backward_posterior = -INFINITY;
-		//		long double Lbackward_posterior = -INFINITY;
-		//		init = hmm->getInitial();
-		//		for(size_t i = 0; i < state_size ;++i){
-		//			if (init->getTrans(i) == NULL){
-		//				continue;
-		//			}
-		//
-		//			if ((*scoring_current)[i] != -INFINITY){
-		//				std::cout << "-1\t" << "-1\t" << i <<"\t"<< (*scoring_current)[i] <<"\t" << (*hmm)[i]->get_emission_prob(*seqs,0) <<  "\t" << getTransition(init, i, 0) << std::endl;
-		//
-		//				//if ((*backward_score)[0][i] > -INFINITY){
-		//
-		//				//backward_temp = (*backward_score)[0][i] + (*hmm)[i]->get_emission_prob(*seqs,0) + getTransition(init, i, 0);
-		//				backward_temp = (*scoring_current)[i] + (*hmm)[i]->get_emission_prob(*seqs,0) + getTransition(init, i, 0);
-		//				Lbackward_temp = (*Lscoring_current)[i] + (*hmm)[i]->get_emission_prob(*seqs,0) + getTransition(init, i, 0);
-		//				if (backward_temp > -INFINITY){
-		//					if (backward_posterior == -INFINITY){
-		//						backward_posterior = backward_temp;
-		//						Lbackward_posterior = Lbackward_temp;
-		//					}
-		//					else{
-		//						backward_posterior = addLog(backward_posterior,backward_temp);
-		//						Lbackward_posterior = addLog(Lbackward_posterior,Lbackward_temp);
-		//					}
-		//				}
-		//			}
-		//		}
-		//
-		//		std::cout << "FORWARD  PROB:\t" << ending_posterior << std::endl;
-		//		std::cout << "BACKWARD PROB:\t" << backward_posterior << std::endl;
-		//		std::cout << "FORWARD  PROB:\t" << exp(ending_posterior) << std::endl;
-		//		std::cout << "BACKWARD PROB:\t" << exp(backward_posterior) << std::endl;
-		//
-		//		typedef std::numeric_limits< long double > ldbl;
-		//		
-		//		std::cout.precision(ldbl::digits10);
-		//		std::cout << "L_FORWARD  PROB:\t" << Lending_posterior << std::endl;
-		//		std::cout << "L_BACKWARD PROB:\t" << Lbackward_posterior << std::endl;
-		//
-		//		
+		if (abs(ending_backward_prob - ending_forward_prob) > 0.0000001){
+			std::cerr << "Ending sequence probabilities calculated by Forward and Backward algorithm are different.  They should be the same.\t" << __FUNCTION__ << std::endl;
+		}
+		
 		delete scoring_previous;
 		delete scoring_current;
 		scoring_previous = NULL;

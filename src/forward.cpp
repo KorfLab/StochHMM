@@ -60,6 +60,7 @@ namespace StochHMM {
 		
 		
 		//Calculate Ending Transition
+		ending_forward_prob = -INFINITY;
 		for (size_t st_previous = 0; st_previous < state_size; ++st_previous){
 			if ((*hmm)[st_previous]->getEndTrans() != -INFINITY){
 				if ((*naive_forward_score)[seq_size-1][st_previous] != -INFINITY){
@@ -189,17 +190,17 @@ namespace StochHMM {
         scoring_previous = scoring_current;
         scoring_current = swap_ptr;
 		
-        ending_posterior = -INFINITY;
+        ending_forward_prob = -INFINITY;
         for(size_t i = 0; i < state_size ;++i){
             if ((*scoring_previous)[i] != -INFINITY){
                 forward_temp = (*scoring_previous)[i] + (*hmm)[i]->getEndTrans();
                 
                 if (forward_temp > -INFINITY){
-					if (ending_posterior == -INFINITY){
-						ending_posterior = forward_temp;
+					if (ending_forward_prob == -INFINITY){
+						ending_forward_prob = forward_temp;
 					}
 					else{
-						ending_posterior = addLog(ending_posterior,forward_temp);
+						ending_forward_prob = addLog(ending_forward_prob,forward_temp);
 					}
                 }
             }
@@ -321,11 +322,11 @@ namespace StochHMM {
                 forward_temp = (*forward_score)[seq_size-1][i] + (*hmm)[i]->getEndTrans();
                 
                 if (forward_temp > -INFINITY){
-					if (ending_posterior == -INFINITY){
-						ending_posterior = forward_temp;
+					if (ending_forward_prob == -INFINITY){
+						ending_forward_prob = forward_temp;
 					}
 					else{
-						ending_posterior = addLog(ending_posterior,forward_temp);
+						ending_forward_prob = addLog(ending_forward_prob,forward_temp);
 					}
                 }
             }

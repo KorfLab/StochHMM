@@ -35,7 +35,15 @@ namespace StochHMM{
 
 	typedef std::vector<std::vector<std::vector<uint16_t> > > int_3D;
 	typedef std::vector<std::vector<std::vector<float> > > float_3D;
+	typedef std::vector<std::vector<std::vector<double> > > double_3D;
 
+	
+	/*! \class Trellis
+	 *	\brief Implements the HMM scoring trellis and algorithms
+	 *
+	 *
+	 *
+	 */
 	class trellis{
 	public:
 		trellis();
@@ -84,15 +92,17 @@ namespace StochHMM{
 		void naive_forward();
 		void naive_forward(model* h, sequences* sqs);
 		
+		std::string naive_forward_stringify();
+		void naive_forward_print();
+		
 		void naive_backward();
 		void naive_backward(model* h, sequences* sqs);
 		
 		void naive_viterbi();
 		void naive_viterbi(model* h, sequences* sqs);
 		
-		//TODO: Need to implement baum-welch algorithm
-//		void naive_baum_welch();
-//		void naive_baum_welch(model* h, sequences* sqs);
+		void naive_baum_welch();
+		void naive_baum_welch(model* h, sequences* sqs);
 		
 		/*-----------   Simple Model Decoding Algorithms ------------*/
 		/* These algorithms are for use with models that do not define explicit
@@ -204,22 +214,27 @@ namespace StochHMM{
 		void export_trellis(std::string& file);
 		inline model* get_model(){return hmm;}
 		
-		inline std::vector<std::vector<double> >* getPosteriorScores(){
-			return posterior2Score;
+		inline float_2D* getPosteriorScores(){
+			return posterior_score;
 		}
 		
-		inline float_2D* getForwardTable(){
-			return forward_score;
-		}
+
 		
-		inline float_2D* getBackwardTable(){
-			return backward_score;
-		}
 		
-		inline double getProbOfSeq(){
-			return ending_posterior;
-		}
+		//Model Baum-Welch Updating
+		void update_transitions();
+		void update_emissions();
 		
+		
+		/*----------- Accessors ---------------*/
+		inline double_2D* get_naive_forward_scores(){return naive_forward_score;}
+		inline double_2D* get_naive_backward_scores(){return naive_backward_score;}
+		inline double_2D* get_naive_viterbi_scores(){return naive_viterbi_score;}
+		inline float_2D* getForwardTable(){return forward_score;}
+		inline float_2D* getBackwardTable(){return backward_score;}
+		inline double getForwardProbability(){return ending_forward_prob;}
+		inline double getBackwardProbability(){return ending_backward_prob;}
+//		inline double getProbOfSeq(){return ending_posterior;}
 
 		
 	private:
@@ -253,15 +268,12 @@ namespace StochHMM{
 		double_2D*  naive_forward_score;
 		double_2D*	naive_viterbi_score;
 		double_2D*  naive_backward_score;
-		
-		std::vector<std::vector<double> >* posterior2Score;
-		std::vector<std::vector<double> >* forward2Score;
-		std::vector<std::vector<double> >* backward2Score;
+		double_3D*  naive_baum_welch_score;
 		
 		//Ending Cells
 		double	ending_viterbi_score;
 		int16_t	ending_viterbi_tb;
-		double	ending_posterior;
+		//		double	ending_posterior;
 		double	ending_forward_prob;
 		double	ending_backward_prob;
 

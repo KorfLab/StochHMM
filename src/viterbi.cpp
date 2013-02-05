@@ -9,6 +9,7 @@
 #include "new_trellis.h"
 
 namespace StochHMM {
+	
 	void trellis::viterbi(model* h, sequences* sqs){
 		//Initialize the table
 		hmm = h;
