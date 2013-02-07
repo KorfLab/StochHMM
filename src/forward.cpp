@@ -31,71 +31,6 @@ namespace StochHMM {
 	}
 
 	
-	
-	
-	
-	void trellis::naive_forward(){
-		dbl_forward_score = new (std::nothrow) double_2D(seq_size, std::vector<double>(state_size,-INFINITY));
-		
-		if (dbl_forward_score == NULL){
-			std::cerr << "Can't allocate Forward table and traceback table. OUT OF MEMORY\t" << __FUNCTION__ << std::endl;
-			exit(2);
-		}
-		
-		double emission(-INFINITY);
-		double forward_temp(-INFINITY);
-		double trans(-INFINITY);
-		double previous(-INFINITY);
-		
-		state* init = hmm->getInitial();
-		
-		//Calculate from Initial states
-		for(size_t st = 0; st < state_size; ++st){
-			forward_temp = (*hmm)[st]->get_emission_prob(*seqs,0) +  getTransition(init, st, 0);
-			(*dbl_forward_score)[0][st]=forward_temp;
-		}
-		
-		//Calculate Forward for all states
-		for (size_t position = 1 ; position < seq_size ; ++position){
-			for (size_t st_current = 0; st_current < state_size; ++st_current){
-				//Calc emissions
-				emission = (*hmm)[st_current]->get_emission_prob(*seqs, position);
-				
-				if (emission == -INFINITY){
-					continue;
-				}
-				
-				for (size_t st_previous = 0; st_previous < state_size; ++st_previous){
-					trans = getTransition(hmm->getState(st_previous), st_current, position);
-					previous = (*dbl_forward_score)[position-1][st_previous];
-					
-					if (trans !=-INFINITY && previous != -INFINITY){
-						forward_temp = previous + emission + trans;
-						
-						if ((*dbl_forward_score)[position][st_current]==-INFINITY){
-							(*dbl_forward_score)[position][st_current] = forward_temp;
-						}
-						else{
-							(*dbl_forward_score)[position][st_current] = addLog(forward_temp, (*dbl_forward_score)[position][st_current]);
-						}
-					}
-				}
-			}
-		}
-		
-		
-		//Calculate Ending Transition
-		ending_forward_prob = -INFINITY;
-		for (size_t st_previous = 0; st_previous < state_size; ++st_previous){
-			if ((*hmm)[st_previous]->getEndTrans() != -INFINITY){
-				if ((*dbl_forward_score)[seq_size-1][st_previous] != -INFINITY){
-					ending_forward_prob = addLog((*dbl_forward_score)[seq_size-1][st_previous] + (*hmm)[st_previous]->getEndTrans(), ending_forward_prob);
-				}
-			}
-		}
-		return;
-	}
-	
 	void trellis::simple_forward(model* h, sequences* sqs){
 		hmm = h;
 		seqs = sqs;
@@ -137,16 +72,16 @@ namespace StochHMM {
 		
 		//		std::cout << "Position: 0" << std::endl;
         //Calculate Viterbi from transitions from INIT (initial) state
-        for(size_t i = 0; i < state_size; ++i){
-            if ((*initial_to)[i]){  //if the bitset is set (meaning there is a transition to this state), calculate the viterbi
+        for(size_t st = 0; st < state_size; ++st){
+            if ((*initial_to)[st]){  //if the bitset is set (meaning there is a transition to this state), calculate the viterbi
 				
-				forward_temp = (*hmm)[i]->get_emission_prob(*seqs,0) + getTransition(init, i, 0);
+				forward_temp = (*hmm)[st]->get_emission_prob(*seqs,0) + getTransition(init, st, 0);
                 
 				if (forward_temp > -INFINITY){
                     
-					(*forward_score)[0][i] = forward_temp;
-					(*scoring_current)[i] = forward_temp;
-					next_states |= (*(*hmm)[i]->getTo());
+					(*forward_score)[0][st] = forward_temp;
+					(*scoring_current)[st] = forward_temp;
+					next_states |= (*(*hmm)[st]->getTo());
                 }
             }
         }
@@ -173,18 +108,18 @@ namespace StochHMM {
 			
 			//			std::cout << "\nPosition: " << position << std::endl;
             
-            for (size_t current = 0; current < state_size; ++current){ //i is current state that emits value
-                if (!current_states[current]){
+            for (size_t st_current = 0; st_current < state_size; ++st_current){ //i is current state that emits value
+                if (!current_states[st_current]){
                     continue;
                 }
                 
-                emission = (*hmm)[current]->get_emission_prob(*seqs, position);
+                emission = (*hmm)[st_current]->get_emission_prob(*seqs, position);
 				
 				if (exDef_defined && exDef_position){
-                    emission += seqs->getWeight(position, current);
+                    emission += seqs->getWeight(position, st_current);
                 }
                 
-				from_trans = (*hmm)[current]->getFrom();
+				from_trans = (*hmm)[st_current]->getFrom();
 				
                 for (size_t previous = 0; previous < state_size ; ++previous) {  //j is previous state
                     if (!(*from_trans)[previous]){
@@ -192,17 +127,17 @@ namespace StochHMM {
                     }
 					
 					if ((*scoring_previous)[previous] != -INFINITY){
-                        forward_temp = (*scoring_previous)[previous] + emission + getTransition((*hmm)[previous], current , position);
+                        forward_temp = (*scoring_previous)[previous] + emission + getTransition((*hmm)[previous], st_current , position);
 						
-						if ((*scoring_current)[current] == -INFINITY){
-							(*scoring_current)[current] = forward_temp;
-							(*forward_score)[position][current] = forward_temp;
+						if ((*scoring_current)[st_current] == -INFINITY){
+							(*scoring_current)[st_current] = forward_temp;
+							(*forward_score)[position][st_current] = forward_temp;
 						}
 						else{
-							(*scoring_current)[current] = addLog(forward_temp, (*scoring_current)[current]);
-							(*forward_score)[position][current] = (*scoring_current)[current];						}
+							(*scoring_current)[st_current] = addLog(forward_temp, (*scoring_current)[st_current]);
+							(*forward_score)[position][st_current] = (*scoring_current)[st_current];						}
 						
-						next_states |= (*(*hmm)[current]->getTo());
+						next_states |= (*(*hmm)[st_current]->getTo());
                     }
                 }
 				//				std::cout << "State: " << current <<"\t" << exp((*forward_score)[position][current]) << std::endl;
@@ -216,9 +151,9 @@ namespace StochHMM {
         scoring_current = swap_ptr;
 		
         ending_forward_prob = -INFINITY;
-        for(size_t i = 0; i < state_size ;++i){
-            if ((*scoring_previous)[i] != -INFINITY){
-                forward_temp = (*scoring_previous)[i] + (*hmm)[i]->getEndTrans();
+        for(size_t st_previous = 0; st_previous < state_size ;++st_previous){
+            if ((*scoring_previous)[st_previous] != -INFINITY){
+                forward_temp = (*scoring_previous)[st_previous] + (*hmm)[st_previous]->getEndTrans();
                 
                 if (forward_temp > -INFINITY){
 					if (ending_forward_prob == -INFINITY){
@@ -231,12 +166,85 @@ namespace StochHMM {
             }
         }
 		
-		//		std::cout << exp(ending_posterior) << std::endl;
 		delete scoring_previous;
 		delete scoring_current;
 		scoring_previous = NULL;
 		scoring_current = NULL;
 		
+	}
+	
+	
+	void trellis::naive_forward(){
+		dbl_forward_score = new (std::nothrow) double_2D(seq_size, std::vector<double>(state_size,-INFINITY));
+		
+		if (dbl_forward_score == NULL){
+			std::cerr << "Can't allocate Forward table and traceback table. OUT OF MEMORY\t" << __FUNCTION__ << std::endl;
+			exit(2);
+		}
+		
+		double emission(-INFINITY);
+		double forward_temp(-INFINITY);
+		double trans(-INFINITY);
+		double previous(-INFINITY);
+		bool	exDef_position(false);
+
+		
+		state* init = hmm->getInitial();
+		
+		//Calculate from Initial states
+		for(size_t st = 0; st < state_size; ++st){
+			forward_temp = (*hmm)[st]->get_emission_prob(*seqs,0) +  getTransition(init, st, 0);
+			(*dbl_forward_score)[0][st]=forward_temp;
+		}
+		
+		//Calculate Forward for all states
+		for (size_t position = 1 ; position < seq_size ; ++position){
+			for (size_t st_current = 0; st_current < state_size; ++st_current){
+				//Calc emissions
+				emission = (*hmm)[st_current]->get_emission_prob(*seqs, position);
+				
+				if (exDef_defined && exDef_position){
+					emission += seqs->getWeight(position, st_current);
+				}
+				
+				if (emission == -INFINITY){
+					continue;
+				}
+				
+				for (size_t st_previous = 0; st_previous < state_size; ++st_previous){
+					previous = (*dbl_forward_score)[position-1][st_previous];
+					if (previous == -INFINITY){
+						continue;
+					}
+					
+					trans = getTransition(hmm->getState(st_previous), st_current, position);
+					
+					
+					if (trans !=-INFINITY){
+						forward_temp = previous + emission + trans;
+						
+						if ((*dbl_forward_score)[position][st_current]==-INFINITY){
+							(*dbl_forward_score)[position][st_current] = forward_temp;
+						}
+						else{
+							(*dbl_forward_score)[position][st_current] = addLog(forward_temp, (*dbl_forward_score)[position][st_current]);
+						}
+					}
+				}
+			}
+		}
+		
+		
+		//Calculate Ending Transition
+		ending_forward_prob = -INFINITY;
+		for (size_t st_previous = 0; st_previous < state_size; ++st_previous){
+			if ((*hmm)[st_previous]->getEndTrans() != -INFINITY){
+				if ((*dbl_forward_score)[seq_size-1][st_previous] != -INFINITY){
+					ending_forward_prob = addLog((*dbl_forward_score)[seq_size-1][st_previous] + (*hmm)[st_previous]->getEndTrans(), ending_forward_prob);
+				}
+			}
+		}
+		return;
 	}
 	
 	

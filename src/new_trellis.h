@@ -38,6 +38,15 @@ namespace StochHMM{
 	typedef std::vector<std::vector<std::vector<float> > > float_3D;
 	typedef std::vector<std::vector<std::vector<double> > > double_3D;
 	typedef std::vector<std::vector<std::vector<long double> > > long_double_3D;
+	
+	struct nthScore{
+		int16_t st_tb;
+		int16_t score_tb;
+		double score;
+		nthScore():st_tb(0),score_tb(0),score(-INFINITY){};
+		nthScore(int16_t st, int16_t tb, double sc):st_tb(st),score_tb(tb),score(sc){};
+		
+	};
 
 	
 	/*! \class Trellis
@@ -110,6 +119,9 @@ namespace StochHMM{
 		
 		void naive_stochastic_forward();
 		void naive_stochastic_forward(model* h, sequences* sqs);
+		
+		void naive_nth_viterbi(size_t n);
+		void naive_nth_viterbi(model* h, sequences* sqs, size_t n);
 		
 		/*-----------   Simple Model Decoding Algorithms ------------*/
 		/* These algorithms are for use with models that do not define explicit
@@ -279,12 +291,14 @@ namespace StochHMM{
 		double_2D*  dbl_backward_score;
 		double_2D*	dbl_posterior_score;
 		double_3D*  dbl_baum_welch_score;
+		std::vector<std::vector<std::vector<nthScore >* > >* naive_nth_scores;
 		
 		//Ending Cells
 		double	ending_viterbi_score;
 		int16_t	ending_viterbi_tb;
 		double	ending_forward_prob;
 		double	ending_backward_prob;
+		std::vector<nthScore>* ending_nth_viterbi;
 
 //		std::vector<tb_score>*    ending_stoch_tb;
 //		std::vector<tb_score>*    ending_nth_viterbi;
@@ -304,6 +318,9 @@ namespace StochHMM{
 		std::vector<std::vector<double>* > complex_emissions;
 		std::vector<std::vector<std::map<uint16_t,double>* >* >* complex_transitions;
 	};
+	
+	void sort_scores(std::vector<nthScore>& nth_scores);
+	bool _vec_sort(const nthScore& i, const nthScore& j);
 	
 }
 

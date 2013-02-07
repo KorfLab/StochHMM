@@ -183,11 +183,13 @@ void perform_stochastic_decoding(model* hmm, sequences* seqs){
     
     if (viterbi){
 		//TODO: stochashic_viterbi() should check model and choose the appropriate algorithm
+		//trell.naive_stochastic_viterbi();
 		trell.stochastic_viterbi();
     }
     else if (forward){
 		//TODO: stochashic_forward() should check model and choose the appropriate algorithm
-        trell.stochastic_forward();
+		trell.naive_stochastic_forward();
+        //trell.stochastic_forward();
     }
 	else if (posterior){
 		//TODO: posterior() should check model and choose the appropriate algorithm
@@ -216,7 +218,8 @@ void perform_viterbi_decoding(model* hmm, sequences* seqs){
 void perform_nbest_decoding(model* hmm, sequences* seqs){
 	trellis trell(hmm,seqs);
 	//TODO: nth_viterbi() should check model and choose the appropriate algorithm
-	trell.nth_viterbi();
+	//trell.nth_viterbi();
+	trell.naive_nth_viterbi(3);
 	
 }
 

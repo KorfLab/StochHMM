@@ -76,16 +76,16 @@ namespace StochHMM {
 		std::bitset<STATE_MAX>* from_trans(NULL);
 		
 		//Calculate Viterbi from transitions from INIT (initial) state
-		for(size_t i = 0; i < state_size; ++i){
-			if ((*initial_to)[i]){  //if the bitset is set (meaning there is a transition to this state), calculate the viterbi
+		for(size_t st = 0; st < state_size; ++st){
+			if ((*initial_to)[st]){  //if the bitset is set (meaning there is a transition to this state), calculate the viterbi
 				
-				viterbi_temp = (*hmm)[i]->get_emission_prob(*seqs,0) + getTransition(init, i, 0);
+				viterbi_temp = (*hmm)[st]->get_emission_prob(*seqs,0) + getTransition(init, st, 0);
 				
 				if (viterbi_temp > -INFINITY){
-					if ((*scoring_current)[i] < viterbi_temp){
-						(*scoring_current)[i] = viterbi_temp;
+					if ((*scoring_current)[st] < viterbi_temp){
+						(*scoring_current)[st] = viterbi_temp;
 					}
-					next_states |= (*(*hmm)[i]->getTo());
+					next_states |= (*(*hmm)[st]->getTo());
 				}
 			}
 		}
@@ -132,12 +132,14 @@ namespace StochHMM {
 				//Get list of states that are valid previous states
 				from_trans = (*hmm)[st_current]->getFrom();
 				
-				
 				for (size_t st_previous = 0; st_previous < state_size ; ++st_previous) {  //for previous states
+					if (!(*from_trans)[st_previous]){
+						continue;
+					}
 					
 					//Check that previous state has transition to current state
 					//and that the previous viterbi score is not -INFINITY
-					if ((*from_trans)[st_previous] && (*scoring_previous)[st_previous] != -INFINITY){
+					if ((*scoring_previous)[st_previous] != -INFINITY){
 						viterbi_temp = getTransition((*hmm)[st_previous], st_current , position) + emission + (*scoring_previous)[st_previous];
 						
 						
@@ -179,6 +181,18 @@ namespace StochHMM {
 	}
 	
 	
+	void trellis::naive_viterbi(model* h, sequences* sqs){
+		//Initialize the table
+		hmm = h;
+		seqs = sqs;
+		seq_size		= seqs->getLength();
+		state_size		= hmm->state_size();
+		exDef_defined	= seqs->exDefDefined();
+		
+		//TODO: determine which model and chose the type of algorithm to use;
+		naive_viterbi();
+
+	}
 	
 	
 	void trellis::naive_viterbi(){
@@ -234,7 +248,7 @@ namespace StochHMM {
 						
 						if (viterbi_temp > (*dbl_viterbi_score)[position][st_current]){
 							(*dbl_viterbi_score)[position][st_current] = viterbi_temp;
-							(*traceback_table)[position][st_current] = previous;
+							(*traceback_table)[position][st_current] = st_previous;
 						}
 					}
 				}
@@ -254,7 +268,6 @@ namespace StochHMM {
 					}
 				}
 			}
-			
 		}
 		return;
 	}
