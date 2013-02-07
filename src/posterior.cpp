@@ -10,6 +10,29 @@
 
 namespace StochHMM {
 	
+	void trellis::posterior(){
+		if (hmm->isBasic()){
+			simple_posterior();
+		}
+	}
+	
+	void trellis::posterior(model *h, sequences* sqs){
+		hmm = h;
+		seqs = sqs;
+		seq_size		= seqs->getLength();
+		state_size		= hmm->state_size();
+		exDef_defined	= seqs->exDefDefined();
+		
+		if (posterior_score!=NULL){
+			delete posterior_score;
+			posterior_score = NULL;
+		}
+		ending_backward_prob = -INFINITY;
+		ending_forward_prob  = -INFINITY;
+		
+		posterior();
+	}
+	
 	void trellis::simple_posterior(model* h, sequences* sqs){
 		hmm = h;
 		seqs = sqs;
@@ -17,51 +40,20 @@ namespace StochHMM {
 		state_size		= hmm->state_size();
 		exDef_defined	= seqs->exDefDefined();
 		
-        simple_posterior();
+		if (posterior_score!=NULL){
+			delete posterior_score;
+			posterior_score = NULL;
+		}
+		ending_backward_prob = -INFINITY;
+		ending_forward_prob  = -INFINITY;
+		
+		if (hmm->isBasic()){
+			simple_posterior();
+		}		
 	}
+
 	
 	void trellis::simple_posterior(){
-		
-		if (!hmm->isBasic()){
-			std::cerr << "Model isn't a simple/basic HMM.  Use complex algorithms\n";
-			return;
-		}
-		
-		if (forward_score == NULL){
-			simple_forward();
-		}
-		
-		if (backward_score == NULL){
-			simple_backward();
-		}
-		
-		if (abs(ending_backward_prob - ending_forward_prob) > 0.0000001){
-			std::cerr << "Ending Forward and Backward Probabilities are not equal.\n Check the model.\t" << __FUNCTION__ << std::endl;
-			exit(2);
-		}
-		
-		posterior_score = new(std::nothrow) float_2D(seq_size, std::vector<float>(state_size,-INFINITY));
-		
-		for(size_t position = 0;position < seq_size; ++position){
-			for(size_t state = 0; state < state_size; ++state){
-				(*posterior_score)[position][state] = ((*forward_score)[position][state] + (*backward_score)[position][state]) - ending_forward_prob;
-			}
-		}
-		
-		//		for(size_t position = 0;position < seq_size; ++position){
-		//			for(size_t state = 0; state < state_size; ++state){
-		//				std::cout << exp((*posterior_score)[position][state]);
-		//			}
-		//			std::cout << std::endl;
-		//		}
-		
-		//		std::cout << "here" << std::endl;
-		
-		return;
-	}
-	
-	
-	void trellis::simple_posterior_second(){
 		
 		if (!hmm->isBasic()){
 			std::cerr << "Model isn't a simple/basic HMM.  Use complex algorithms\n";
@@ -146,7 +138,7 @@ namespace StochHMM {
 					
 					
 					if ((*scoring_previous)[previous] != -INFINITY){
-                        forward_temp = getTransition((*hmm)[previous], current , position) + emission + (*scoring_previous)[previous];
+                        forward_temp = (*scoring_previous)[previous] + emission + getTransition((*hmm)[previous], current , position);
 						
 						if ((*scoring_current)[current] == -INFINITY){
 							(*scoring_current)[current] = forward_temp;
@@ -171,7 +163,6 @@ namespace StochHMM {
 		
 		
         ending_forward_prob = -INFINITY;
-		
         for(size_t i = 0; i < state_size ;++i){
             if ((*scoring_previous)[i] != -INFINITY){
                 forward_temp = (*scoring_previous)[i] + (*hmm)[i]->getEndTrans();
@@ -181,20 +172,18 @@ namespace StochHMM {
 						ending_forward_prob = forward_temp;
 					}
 					else{
-						ending_forward_prob = addLog(ending_forward_prob,forward_temp);
+						ending_forward_prob = addLog(forward_temp, ending_forward_prob);
 					}
                 }
             }
         }
-		
-		
-		
-
 
 		// Perform Backward Algorithm
-		double  backward_temp(-INFINITY);
+		double  backward_temp(-INFINITY);		
 		scoring_previous->assign(state_size, -INFINITY);
 		scoring_current->assign(state_size, -INFINITY);
+		std::vector<float> posterior_sum(seq_size,-INFINITY);
+
 		
 		std::bitset<STATE_MAX>* ending_from = hmm->getEndingFrom();
 
@@ -211,8 +200,6 @@ namespace StochHMM {
 			}
 		}
 
-
-
 		for(size_t position = seq_size-2; position != SIZE_T_MAX ; --position ){
 
 			//Swap current_states and next states sets
@@ -221,8 +208,12 @@ namespace StochHMM {
 			next_states.reset();
 
 			for (size_t i=0;i<state_size;++i){
-				(*posterior_score)[position+1][i] += (*scoring_current)[i];
-				(*posterior_score)[position+1][i] -= ending_forward_prob;
+				if ((*posterior_score)[position+1][i] != -INFINITY && (*scoring_current)[i]!= -INFINITY){
+					(*posterior_score)[position+1][i] = ((double)(*posterior_score)[position+1][i] + (double)(*scoring_current)[i]) - ending_forward_prob;
+					if ((*posterior_score)[position+1][i] > -7.6009){  //Above significant value;
+						posterior_sum[position+1] = addLog(posterior_sum[position+1], (*posterior_score)[position+1][i]);
+					}
+				}
 			}
 
 			//Swap current and previous viterbi scores
@@ -262,7 +253,7 @@ namespace StochHMM {
 
 					if ((*scoring_previous)[st_previous] != -INFINITY){
 						
-						backward_temp = getTransition((*hmm)[st_current], st_previous , position) + emission + (*scoring_previous)[st_previous];
+						backward_temp =(*scoring_previous)[st_previous] + emission + getTransition((*hmm)[st_current], st_previous , position);
 
 						if ((*scoring_current)[st_current] == -INFINITY){
 							(*scoring_current)[st_current] = backward_temp;
@@ -278,8 +269,8 @@ namespace StochHMM {
 		}
 
 		for (size_t i=0;i<state_size;++i){
-			(*posterior_score)[0][i] += (*scoring_current)[i];
-			(*posterior_score)[0][i] -= ending_forward_prob;
+			(*posterior_score)[0][i] = ((double)(*posterior_score)[0][i] + (double)(*scoring_current)[i]) - ending_forward_prob;
+			posterior_sum[0] = addLog(posterior_sum[0], (*posterior_score)[0][i]);
 		}
 		
 
@@ -296,7 +287,7 @@ namespace StochHMM {
 						ending_backward_prob = backward_temp;
 					}
 					else{
-						ending_backward_prob = addLog(ending_backward_prob,backward_temp);
+						ending_backward_prob = addLog(backward_temp, ending_backward_prob);
 					}
 				}
 			}
@@ -306,9 +297,111 @@ namespace StochHMM {
 			std::cerr << "Ending sequence probabilities calculated by Forward and Backward algorithm are different.  They should be the same.\t" << __FUNCTION__ << std::endl;
 		}
 		
+		
+		
+		for (size_t i=0;i<seq_size;i++){
+			for(size_t j=0;j<state_size;j++){
+				if ((*posterior_score)[i][j] == -INFINITY){
+					continue;
+				}
+//				std::cout << "Sum:\t" << exp(posterior_sum[i]) << std::endl;
+//				std::cout << "Score:\t" << exp((*posterior_score)[i][j]) << std::endl;
+				
+				if ((*posterior_score)[i][j] > -7.6009){  //Above significant value;
+					(*posterior_score)[i][j] -= posterior_sum[i];
+				}
+				else{
+					(*posterior_score)[i][j] = -INFINITY;
+				}
+			}
+		}
+		
+		
 		delete scoring_previous;
 		delete scoring_current;
 		scoring_previous = NULL;
 		scoring_current = NULL;
 	}
+	
+	
+	void trellis::traceback_posterior(traceback_path& path){
+		if (posterior_score == NULL){
+			std::cerr << __FUNCTION__ << " called before trellis::posterior was completed\n";
+			exit(2);
+		}
+		
+		double max(-INFINITY);
+		int max_ptr(SIZE_T_MAX);
+		for(size_t position=seq_size-1; position > 0 ;position--){
+			max = -INFINITY;
+			max_ptr = SIZE_T_MAX ;
+			
+            for (size_t st=0; st < state_size; st++){
+                if ((*posterior_score)[position][st] > max){
+					max = (*posterior_score)[position][st];
+					max_ptr = st;
+				}
+                
+			}
+            path.push_back(max_ptr);
+        }
+		return;
+	}
+	
+	void trellis::traceback_stoch_posterior(traceback_path& path){
+		for (size_t position =seq_size-1; position != SIZE_MAX; --position){
+            double random=((double)rand()/((double)(RAND_MAX)+(double)(1)));
+            double cumulative_prob(0.0);
+            
+			for (size_t st = 0; st < state_size ; ++st){
+                cumulative_prob+=exp((*posterior_score)[position][st]);
+                if (random < cumulative_prob){
+                    path.push_back(st);
+                }
+            }
+        }
+		return;
+	}
+	
+	void trellis::traceback_stoch_posterior(multiTraceback& paths, size_t reps){
+		for (size_t i = 0; i < reps; i++){
+			traceback_path path(hmm);
+			traceback_stoch_posterior(path);
+			paths.assign(path);
+		}
+		return;
+	}
+	
+	//	void trellis::simple_posterior(){
+	//
+	//		if (!hmm->isBasic()){
+	//			std::cerr << "Model isn't a simple/basic HMM.  Use complex algorithms\n";
+	//			return;
+	//		}
+	//
+	//		if (forward_score == NULL){
+	//			simple_forward();
+	//		}
+	//
+	//		if (backward_score == NULL){
+	//			simple_backward();
+	//		}
+	//
+	//		if (abs(ending_backward_prob - ending_forward_prob) > 0.0000001){
+	//			std::cerr << "Ending Forward and Backward Probabilities are not equal.\n Check the model.\t" << __FUNCTION__ << std::endl;
+	//			exit(2);
+	//		}
+	//
+	//		posterior_score = new(std::nothrow) float_2D(seq_size, std::vector<float>(state_size,-INFINITY));
+	//
+	//		for(size_t position = 0;position < seq_size; ++position){
+	//			for(size_t state = 0; state < state_size; ++state){
+	//				(*posterior_score)[position][state] = ((*forward_score)[position][state] + (*backward_score)[position][state]) - ending_forward_prob;
+	//			}
+	//		}
+	//		
+	//		return;
+	//	}
+	
+	
 }

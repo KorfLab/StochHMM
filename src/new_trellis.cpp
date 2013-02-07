@@ -28,9 +28,10 @@ namespace StochHMM {
 		forward_score	= NULL;
 		backward_score	= NULL;
 		posterior_score	= NULL;
-		naive_forward_score = NULL;
-		naive_viterbi_score = NULL;
-		naive_backward_score= NULL;
+		dbl_forward_score = NULL;
+		dbl_viterbi_score = NULL;
+		dbl_backward_score= NULL;
+		dbl_posterior_score = NULL;
 		
 		ending_viterbi_score = -INFINITY;
 		ending_viterbi_tb = -1;
@@ -62,9 +63,10 @@ namespace StochHMM {
 		forward_score		= NULL;
 		backward_score		= NULL;
 		posterior_score		= NULL;
-		naive_forward_score = NULL;
-		naive_viterbi_score = NULL;
-		naive_backward_score= NULL;
+		dbl_forward_score	= NULL;
+		dbl_viterbi_score	= NULL;
+		dbl_backward_score	= NULL;
+		dbl_posterior_score = NULL;
 		
 		ending_viterbi_score = -INFINITY;
 		ending_viterbi_tb = -1;
@@ -89,9 +91,10 @@ namespace StochHMM {
 		delete forward_score;
 		delete backward_score;
 		delete posterior_score;
-		delete naive_forward_score;
-		delete naive_viterbi_score;
-		delete naive_backward_score;
+		delete dbl_forward_score;
+		delete dbl_viterbi_score;
+		delete dbl_backward_score;
+		delete dbl_posterior_score;
 		
 		delete scoring_previous;
 		delete scoring_current;
@@ -105,9 +108,10 @@ namespace StochHMM {
 		forward_score		= NULL;
 		backward_score		= NULL;
 		posterior_score		= NULL;
-		naive_forward_score	= NULL;
-		naive_viterbi_score	= NULL;
-		naive_backward_score= NULL;
+		dbl_forward_score	= NULL;
+		dbl_viterbi_score	= NULL;
+		dbl_backward_score	= NULL;
+		dbl_posterior_score	= NULL;
 		
 		scoring_previous	= NULL;
 		scoring_current		= NULL;
@@ -139,9 +143,10 @@ namespace StochHMM {
 		delete alt_scoring_current;
 		delete alt_scoring_previous;
 		
-		delete naive_forward_score;
-		delete naive_backward_score;
-		delete naive_viterbi_score;
+		delete dbl_forward_score;
+		delete dbl_backward_score;
+		delete dbl_viterbi_score;
+		delete dbl_posterior_score;
 		
 		traceback_table		= NULL;
 		stochastic_table	= NULL;
@@ -158,9 +163,10 @@ namespace StochHMM {
 		alt_scoring_current	= NULL;
 		alt_scoring_previous= NULL;
 		
-		naive_forward_score	= NULL;
-		naive_backward_score= NULL;
-		naive_viterbi_score	= NULL;
+		dbl_forward_score	= NULL;
+		dbl_viterbi_score	= NULL;
+		dbl_backward_score	= NULL;
+		dbl_posterior_score	= NULL;
 		
 		ending_viterbi_score = -INFINITY;
 		ending_viterbi_tb = -1;

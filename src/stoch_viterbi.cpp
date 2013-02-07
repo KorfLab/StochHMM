@@ -9,7 +9,37 @@
 #include "new_trellis.h"
 
 namespace StochHMM{
+	
+	void trellis::stochastic_viterbi(model* h, sequences *sqs){
+		hmm = h;
+		seqs = sqs;
+		seq_size		= seqs->getLength();
+		state_size		= hmm->state_size();
+		exDef_defined	= seqs->exDefDefined();
+		
+		
+		stochastic_viterbi();
+		
+	}
+	
 	void trellis::stochastic_viterbi(){
+		if (hmm->isBasic()){
+			simple_stochastic_viterbi();
+		}
+	}
+	
+	
+	void trellis::simple_stochastic_viterbi(model* h, sequences* sqs){
+		hmm = h;
+		seqs = sqs;
+		seq_size		= seqs->getLength();
+		state_size		= hmm->state_size();
+		exDef_defined	= seqs->exDefDefined();
+		
+		simple_stochastic_viterbi();
+	}
+	
+	void trellis::simple_stochastic_viterbi(){
 		scoring_previous = new (std::nothrow) std::vector<double> (state_size,-INFINITY);
 		scoring_current  = new (std::nothrow) std::vector<double> (state_size,-INFINITY);
 		stochastic_table = new (std::nothrow) stochTable(seq_size);
@@ -27,25 +57,19 @@ namespace StochHMM{
 		std::bitset<STATE_MAX>* from_trans(NULL);
 		
 		//Calculate Viterbi from transitions from INIT (initial) state
-		for(size_t i = 0; i < state_size; ++i){
-			if ((*initial_to)[i]){  //if the bitset is set (meaning there is a transition to this state), calculate the viterbi
+		for(size_t st = 0; st < state_size; ++st){
+			if ((*initial_to)[st]){  //if the bitset is set (meaning there is a transition to this state), calculate the viterbi
 				
-				viterbi_temp = (*hmm)[i]->get_emission_prob(*seqs,0) + getTransition(init, i, 0);;
+				viterbi_temp = (*hmm)[st]->get_emission_prob(*seqs,0) + getTransition(init, st, 0);;
 				
 				if (viterbi_temp > -INFINITY){
-					if ((*scoring_current)[i] < viterbi_temp){
-						(*scoring_current)[i] = viterbi_temp;
+					if ((*scoring_current)[st] < viterbi_temp){
+						(*scoring_current)[st] = viterbi_temp;
 					}
-					next_states |= (*(*hmm)[i]->getTo());
+					next_states |= (*(*hmm)[st]->getTo());
 				}
 			}
 		}
-		
-		//		for(size_t i=0; i < state_size; ++i){
-		//			std::cout << "Position: 0" << std::endl;
-		//			std::cout << exp((*viterbi_current)[i]) << std::endl;
-		//		}
-		//
 		
 		for(size_t position = 1; position < seq_size ; ++position ){
 			
@@ -65,45 +89,37 @@ namespace StochHMM{
 				exDef_position = seqs->exDefDefined(position);
 			}
 			
-			//			std::cout << "\nPosition:\t" << position << "\t";
-			//			std::cout << "Letter:\t" << seqs->seqValue(0, position) << std::endl;
-			
-			for (size_t i = 0; i < state_size; ++i){ //i is current state that emits value
-				if (!current_states[i]){
+			for (size_t st_current = 0; st_current < state_size; ++st_current){ //i is current state that emits value
+				if (!current_states[st_current]){
 					continue;
 				}
 				
-				//current_state = (*hmm)[i];
-				//emission = current_state->get_emission(*seqs,position);
-				emission = (*hmm)[i]->get_emission_prob(*seqs, position);
+				emission = (*hmm)[st_current]->get_emission_prob(*seqs, position);
 				
-				//				std::cout << "State Emission:\t" << i << "\t" << exp(emission) << std::endl;
 				
 				if (exDef_defined && exDef_position){
-					emission += seqs->getWeight(position, i);
+					emission += seqs->getWeight(position, st_current);
 				}
 				
-				from_trans = (*hmm)[i]->getFrom();
+				from_trans = (*hmm)[st_current]->getFrom();
 				
-				for (size_t j = 0; j < state_size ; ++j) {  //j is previous state
-					if (!(*from_trans)[j]){
+				for (size_t st_previous = 0; st_previous < state_size ; ++st_previous) {  //j is previous state
+					if (!(*from_trans)[st_previous]){
 						continue;
 					}
 					
-					if ((*scoring_previous)[j] != -INFINITY){
-						viterbi_temp = getTransition((*hmm)[j], i , position) + emission + (*scoring_previous)[j];
+					if ((*scoring_previous)[st_previous] != -INFINITY){
+						viterbi_temp = getTransition((*hmm)[st_previous], st_current , position) + emission + (*scoring_previous)[st_previous];
 						
-						
-						//						std::cout << "Temp Viterbi:\tTransFrom: "<< j << "\tto\t" << i << "\t" << viterbi_temp / log(2) << std::endl;
 						//Save partial value to stochastic table
-						stochastic_table->push(position-1,i,j,viterbi_temp);
+						stochastic_table->push(position-1,st_current,st_previous,viterbi_temp);
 						
-						if (viterbi_temp > (*scoring_current)[i]){
+						if (viterbi_temp > (*scoring_current)[st_current]){
 							
-							(*scoring_current)[i] = viterbi_temp;
+							(*scoring_current)[st_current] = viterbi_temp;
 						}
 						
-						next_states |= (*(*hmm)[i]->getTo());
+						next_states |= (*(*hmm)[st_current]->getTo());
 					}
 				}
 			}
@@ -116,15 +132,15 @@ namespace StochHMM{
 		scoring_previous = scoring_current;
 		scoring_current = swap_ptr;
 		
-		for(size_t i = 0; i < state_size ;++i){
-			if ((*scoring_previous)[i] > -INFINITY){
-				viterbi_temp = (*scoring_previous)[i] + (*hmm)[i]->getEndTrans();
+		for(size_t st_previous = 0; st_previous < state_size ;++st_previous){
+			if ((*scoring_previous)[st_previous] > -INFINITY){
+				viterbi_temp = (*scoring_previous)[st_previous] + (*hmm)[st_previous]->getEndTrans();
 				
-				stochastic_table->push(seq_size-1,SIZE_T_MAX, i,viterbi_temp);
+				stochastic_table->push(seq_size-1,SIZE_T_MAX, st_previous,viterbi_temp);
 				
 				if (viterbi_temp > ending_viterbi_score){
 					ending_viterbi_score = viterbi_temp;
-					ending_viterbi_tb = i;
+					ending_viterbi_tb = st_previous;
 				}
 			}
 		}

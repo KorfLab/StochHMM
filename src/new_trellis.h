@@ -32,10 +32,12 @@ namespace StochHMM{
 	typedef std::vector<std::vector<int16_t> > int_2D;
 	typedef std::vector<std::vector<float> > float_2D;
 	typedef std::vector<std::vector<double> > double_2D;
+	typedef std::vector<std::vector<long double> > long_double_2D;
 
 	typedef std::vector<std::vector<std::vector<uint16_t> > > int_3D;
 	typedef std::vector<std::vector<std::vector<float> > > float_3D;
 	typedef std::vector<std::vector<std::vector<double> > > double_3D;
+	typedef std::vector<std::vector<std::vector<long double> > > long_double_3D;
 
 	
 	/*! \class Trellis
@@ -50,6 +52,8 @@ namespace StochHMM{
 		trellis(model* h , sequences* sqs);
 		~trellis();
 		void reset();
+		inline model* getModel(){return hmm;}
+		inline sequences* getSeq(){return seqs;}
 		
 		/*-----------   Decoding Algorithms ------------*/
 		
@@ -92,9 +96,6 @@ namespace StochHMM{
 		void naive_forward();
 		void naive_forward(model* h, sequences* sqs);
 		
-		std::string naive_forward_stringify();
-		void naive_forward_print();
-		
 		void naive_backward();
 		void naive_backward(model* h, sequences* sqs);
 		
@@ -103,6 +104,12 @@ namespace StochHMM{
 		
 		void naive_baum_welch();
 		void naive_baum_welch(model* h, sequences* sqs);
+		
+		void naive_stochastic_viterbi();
+		void naive_stochastic_viterbi(model* h, sequences* sqs);
+		
+		void naive_stochastic_forward();
+		void naive_stochastic_forward(model* h, sequences* sqs);
 		
 		/*-----------   Simple Model Decoding Algorithms ------------*/
 		/* These algorithms are for use with models that do not define explicit
@@ -125,9 +132,7 @@ namespace StochHMM{
 		
 		void simple_posterior();
 		void simple_posterior(model* h, sequences* sqs);
-		
-		void simple_posterior_second();
-		
+				
 		void simple_stochastic_viterbi();
 		void simple_stochastic_viterbi(model* h, sequences* sqs);
 		
@@ -198,11 +203,17 @@ namespace StochHMM{
 				
 		void traceback(traceback_path& path);
         void traceback(traceback_path&,size_t);
+		void traceback_posterior(traceback_path& path);
+		
+		void traceback_stoch_posterior(traceback_path& path);
+		void traceback_stoch_posterior(multiTraceback&, size_t reps);
 		void traceback_stoch_forward(multiTraceback&,size_t);
 		void traceback_stoch_viterbi(multiTraceback&,size_t);
 		void traceback_nth_viterbi(multiTraceback&);
 		
 		void stochastic_traceback(traceback_path& path);
+
+		
 		
 		
 		inline bool store(){return store_values;}
@@ -214,27 +225,24 @@ namespace StochHMM{
 		void export_trellis(std::string& file);
 		inline model* get_model(){return hmm;}
 		
-		inline float_2D* getPosteriorScores(){
-			return posterior_score;
-		}
-		
-
-		
-		
 		//Model Baum-Welch Updating
 		void update_transitions();
 		void update_emissions();
 		
 		
 		/*----------- Accessors ---------------*/
-		inline double_2D* get_naive_forward_scores(){return naive_forward_score;}
-		inline double_2D* get_naive_backward_scores(){return naive_backward_score;}
-		inline double_2D* get_naive_viterbi_scores(){return naive_viterbi_score;}
+		inline double_2D* get_naive_forward_scores(){return dbl_forward_score;}
+		inline double_2D* get_naive_backward_scores(){return dbl_backward_score;}
+		inline double_2D* get_naive_viterbi_scores(){return dbl_viterbi_score;}
+		inline double_2D* get_dbl_posterior(){return dbl_posterior_score;}
+		
+		
 		inline float_2D* getForwardTable(){return forward_score;}
 		inline float_2D* getBackwardTable(){return backward_score;}
+		inline float_2D* getPosteriorTable(){return posterior_score;}
+		
 		inline double getForwardProbability(){return ending_forward_prob;}
 		inline double getBackwardProbability(){return ending_backward_prob;}
-//		inline double getProbOfSeq(){return ending_posterior;}
 
 		
 	private:
@@ -256,24 +264,25 @@ namespace StochHMM{
 		bool exDef_defined;
 		
 		//Traceback Tables
-		int_2D*		traceback_table;          //Simple traceback table
+		int_2D*		traceback_table;	//Simple traceback table
 		int_3D*		nth_traceback;      //Nth-Viterbi traceback table
 		stochTable* stochastic_table;
 		
 		//Score Tables
-		float_2D*	viterbi_score;      //Storing viterbi scores
+		float_2D*	viterbi_score;      //Storing Viterbi scores
 		float_2D*	forward_score;      //Storing Forward scores
 		float_2D*	backward_score;     //Storing Backward scores
-		float_2D*	posterior_score;	//Store posterior scores
-		double_2D*  naive_forward_score;
-		double_2D*	naive_viterbi_score;
-		double_2D*  naive_backward_score;
-		double_3D*  naive_baum_welch_score;
+		float_2D*	posterior_score;	//Storing Posterior scores
+		
+		double_2D*  dbl_forward_score;
+		double_2D*	dbl_viterbi_score;
+		double_2D*  dbl_backward_score;
+		double_2D*	dbl_posterior_score;
+		double_3D*  dbl_baum_welch_score;
 		
 		//Ending Cells
 		double	ending_viterbi_score;
 		int16_t	ending_viterbi_tb;
-		//		double	ending_posterior;
 		double	ending_forward_prob;
 		double	ending_backward_prob;
 
