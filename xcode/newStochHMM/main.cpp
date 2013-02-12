@@ -219,29 +219,13 @@ void perform_nbest_decoding(model* hmm, sequences* seqs){
 	trellis trell(hmm,seqs);
 	size_t nth = opt.iopt("-nbest");
 	
-	clock_t start = clock();
 	trell.naive_nth_viterbi(nth);
-	clock_t stop = clock();
-	
-	std::cout << stop-start/(double) CLOCKS_PER_SEC << std::endl;
-	
+		
 	for(size_t i=0;i<nth;i++){
 		traceback_path path(hmm);
 		trell.traceback_nth(path, i);
 		print_output(&path, seqs->getHeader());
 	}
-	
-	start = clock();
-	trell.simple_nth_viterbi(nth);
-	stop = clock();
-	std::cout << stop-start/(double) CLOCKS_PER_SEC << std::endl;
-	
-	for(size_t i=0;i<nth;i++){
-		traceback_path path(hmm);
-		trell.traceback_nth(path, i);
-		print_output(&path, seqs->getHeader());
-	}
-	
 }
 
 void perform_posterior(model* hmm, sequences* seqs){
