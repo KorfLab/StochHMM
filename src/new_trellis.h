@@ -38,14 +38,42 @@ namespace StochHMM{
 	typedef std::vector<std::vector<std::vector<float> > > float_3D;
 	typedef std::vector<std::vector<std::vector<double> > > double_3D;
 	typedef std::vector<std::vector<std::vector<long double> > > long_double_3D;
+//	typedef std::vector<std::vector<std::vector<std::pair<int16_t,int16_t> >
 	
-	struct nthScore{
+	class nthScore{
+	public:
 		int16_t st_tb;
 		int16_t score_tb;
 		double score;
 		nthScore():st_tb(0),score_tb(0),score(-INFINITY){};
 		nthScore(int16_t st, int16_t tb, double sc):st_tb(st),score_tb(tb),score(sc){};
 		
+	};
+	
+//	struct nthTrace{
+//		int16_t st_tb;
+//		int16_t score_tb;
+//		nthTrace():st_tb(0),score_tb(0){};
+//		nthTrace(int16_t st, int16_t tb):st_tb(st),score_tb(tb){};
+//	};
+	
+	class nthTrace{
+	public:
+		std::map<int32_t,int32_t> tb;
+		
+		inline void assign(int16_t st, int16_t n_score, int16_t tb_ptr, int16_t tb_sc){
+			tb[(((int32_t) st) << 16 | n_score)] = (((int32_t)tb_ptr) << 16) | tb_sc;
+		}
+		
+		inline void get(int16_t& st, int16_t& n_score){
+			int32_t key_val = (((int32_t) st) << 16 | n_score);
+			if (tb.count(key_val)){
+				st = -1;
+			}
+			int32_t val = tb[key_val];
+			st	= (val >> 16) & 0xFFFF;
+			n_score	= val & 0xFFFF;
+		}
 	};
 
 	
@@ -153,6 +181,9 @@ namespace StochHMM{
 		
 		void simple_baum_welch();
 		void simple_baum_welch(model* h, sequences* sqs);
+		
+		void simple_nth_viterbi(size_t n);
+		void simple_nth_viterbi(model* h, sequences* sqs, size_t n);
 
 		
 		/*-----------   Fast Complex Model Decoding Algorithms  ----------*/
@@ -214,7 +245,8 @@ namespace StochHMM{
 		/*---------   Standard Traceback Algorithms --------*/
 				
 		void traceback(traceback_path& path);
-        void traceback(traceback_path&,size_t);
+        void traceback(traceback_path& path ,size_t position, size_t state);
+		void traceback_nth(traceback_path& path, size_t n);
 		void traceback_posterior(traceback_path& path);
 		
 		void traceback_stoch_posterior(traceback_path& path);
@@ -266,6 +298,8 @@ namespace StochHMM{
 		
 		model* hmm;		//HMM model
         sequences* seqs; //Digitized Sequences
+		size_t nth_size; //Size of N to calculate;
+		
 		
 		size_t state_size;	//Number of States
 		size_t seq_size;	//Length of Sequence
@@ -277,7 +311,7 @@ namespace StochHMM{
 		
 		//Traceback Tables
 		int_2D*		traceback_table;	//Simple traceback table
-		int_3D*		nth_traceback;      //Nth-Viterbi traceback table
+//		int_3D*		nth_traceback_table;//Nth-Viterbi traceback table
 		stochTable* stochastic_table;
 		
 		//Score Tables
@@ -292,6 +326,9 @@ namespace StochHMM{
 		double_2D*	dbl_posterior_score;
 		double_3D*  dbl_baum_welch_score;
 		std::vector<std::vector<std::vector<nthScore >* > >* naive_nth_scores;
+		
+		
+		std::vector<nthTrace>*  nth_traceback_table;
 		
 		//Ending Cells
 		double	ending_viterbi_score;
@@ -317,6 +354,10 @@ namespace StochHMM{
 		
 		std::vector<std::vector<double>* > complex_emissions;
 		std::vector<std::vector<std::map<uint16_t,double>* >* >* complex_transitions;
+		
+		std::vector<std::vector<nthScore> >* nth_scoring_current;
+		std::vector<std::vector<nthScore> >* nth_scoring_previous;
+		std::vector<std::vector<nthScore> >* nth_swap_ptr;
 	};
 	
 	void sort_scores(std::vector<nthScore>& nth_scores);

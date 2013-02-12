@@ -13,6 +13,7 @@ namespace StochHMM {
 	trellis::trellis(){
 		hmm=NULL;
 		seqs=NULL;
+		nth_size=SIZE_T_MAX;
 		
 		seq_size=0;
 		state_size=0;
@@ -21,44 +22,9 @@ namespace StochHMM {
 		store_values=false;
 		exDef_defined=false;
 		
-		traceback_table	= NULL;
-		stochastic_table= NULL;
-		nth_traceback	= NULL;
-		viterbi_score	= NULL;
-		forward_score	= NULL;
-		backward_score	= NULL;
-		posterior_score	= NULL;
-		dbl_forward_score = NULL;
-		dbl_viterbi_score = NULL;
-		dbl_backward_score= NULL;
-		dbl_posterior_score = NULL;
-		
-		ending_viterbi_score = -INFINITY;
-		ending_viterbi_tb = -1;
-//		ending_posterior = -INFINITY;
-		ending_forward_prob = -INFINITY;
-		ending_backward_prob= -INFINITY;
-		
-		scoring_current = NULL;
-		scoring_previous= NULL;
-		alt_scoring_current = NULL;
-		alt_scoring_previous = NULL;
-	}
-	
-	trellis::trellis(model* h, sequences* sqs){
-		hmm=h;
-		seqs=sqs;
-		
-		seq_size		= seqs->getLength();
-		state_size		= hmm->state_size();
-		
-		type = SIMPLE;
-		store_values=false;
-		exDef_defined	= seqs->exDefDefined();
-		
 		traceback_table		= NULL;
 		stochastic_table	= NULL;
-		nth_traceback		= NULL;
+
 		viterbi_score		= NULL;
 		forward_score		= NULL;
 		backward_score		= NULL;
@@ -73,6 +39,54 @@ namespace StochHMM {
 //		ending_posterior = -INFINITY;
 		ending_forward_prob = -INFINITY;
 		ending_backward_prob= -INFINITY;
+		
+		naive_nth_scores	= NULL;
+		ending_nth_viterbi	= NULL;
+		nth_traceback_table	= NULL;
+		nth_scoring_previous= NULL;
+		nth_scoring_current = NULL;
+		
+		scoring_current = NULL;
+		scoring_previous= NULL;
+		alt_scoring_current = NULL;
+		alt_scoring_previous = NULL;
+	}
+	
+	trellis::trellis(model* h, sequences* sqs){
+		hmm=h;
+		seqs=sqs;
+		nth_size=SIZE_T_MAX;
+		
+		seq_size		= seqs->getLength();
+		state_size		= hmm->state_size();
+		
+		type = SIMPLE;
+		store_values=false;
+		exDef_defined	= seqs->exDefDefined();
+		
+		traceback_table		= NULL;
+		stochastic_table	= NULL;
+		nth_traceback_table	= NULL;
+		viterbi_score		= NULL;
+		forward_score		= NULL;
+		backward_score		= NULL;
+		posterior_score		= NULL;
+		dbl_forward_score	= NULL;
+		dbl_viterbi_score	= NULL;
+		dbl_backward_score	= NULL;
+		dbl_posterior_score = NULL;
+		
+		ending_viterbi_score = -INFINITY;
+		ending_viterbi_tb = -1;
+//		ending_posterior = -INFINITY;
+		ending_forward_prob = -INFINITY;
+		ending_backward_prob= -INFINITY;
+		
+		naive_nth_scores	= NULL;
+		ending_nth_viterbi	= NULL;
+		nth_traceback_table	= NULL;
+		nth_scoring_previous= NULL;
+		nth_scoring_current = NULL;
 
 		scoring_current = NULL;
 		scoring_previous= NULL;
@@ -86,7 +100,7 @@ namespace StochHMM {
 	trellis::~trellis(){
 		delete traceback_table;
 		delete stochastic_table;
-		delete nth_traceback;
+
 		delete viterbi_score;
 		delete forward_score;
 		delete backward_score;
@@ -96,6 +110,12 @@ namespace StochHMM {
 		delete dbl_backward_score;
 		delete dbl_posterior_score;
 		
+		delete naive_nth_scores;
+		delete ending_nth_viterbi;
+		delete nth_traceback_table;
+		delete nth_scoring_current;
+		delete nth_scoring_previous;
+		
 		delete scoring_previous;
 		delete scoring_current;
 		delete alt_scoring_previous;
@@ -103,7 +123,7 @@ namespace StochHMM {
 		
 		traceback_table		= NULL;
 		stochastic_table	= NULL;
-		nth_traceback		= NULL;
+
 		viterbi_score		= NULL;
 		forward_score		= NULL;
 		backward_score		= NULL;
@@ -112,6 +132,12 @@ namespace StochHMM {
 		dbl_viterbi_score	= NULL;
 		dbl_backward_score	= NULL;
 		dbl_posterior_score	= NULL;
+		
+		naive_nth_scores	= NULL;
+		ending_nth_viterbi	= NULL;
+		nth_traceback_table	= NULL;
+		nth_scoring_previous= NULL;
+		nth_scoring_current = NULL;
 		
 		scoring_previous	= NULL;
 		scoring_current		= NULL;
@@ -122,6 +148,7 @@ namespace StochHMM {
 	void trellis::reset(){
 		hmm=NULL;
 		seqs=NULL;
+		nth_size=SIZE_T_MAX;
 		state_size=0;
 		seq_size=0;
 		type= SIMPLE;
@@ -130,7 +157,6 @@ namespace StochHMM {
 		
 		delete traceback_table;
 		delete stochastic_table;
-		delete nth_traceback;
 		
 		delete viterbi_score;
 		delete forward_score;
@@ -148,9 +174,15 @@ namespace StochHMM {
 		delete dbl_viterbi_score;
 		delete dbl_posterior_score;
 		
+		delete naive_nth_scores;
+		delete ending_nth_viterbi;
+		delete nth_traceback_table;
+		delete nth_scoring_current;
+		delete nth_scoring_previous;
+		
 		traceback_table		= NULL;
 		stochastic_table	= NULL;
-		nth_traceback		= NULL;
+		nth_traceback_table	= NULL;
 		
 		viterbi_score		= NULL;
 		forward_score		= NULL;
@@ -167,6 +199,12 @@ namespace StochHMM {
 		dbl_viterbi_score	= NULL;
 		dbl_backward_score	= NULL;
 		dbl_posterior_score	= NULL;
+		
+		naive_nth_scores	= NULL;
+		ending_nth_viterbi	= NULL;
+		nth_traceback_table	= NULL;
+		nth_scoring_previous= NULL;
+		nth_scoring_current = NULL;
 		
 		ending_viterbi_score = -INFINITY;
 		ending_viterbi_tb = -1;
@@ -178,6 +216,7 @@ namespace StochHMM {
 	}
 	
 	
+	//TODO:  Fix getTransitions to work with all transition types
 	double trellis::getTransition(state* st, size_t trans_to_state, size_t sequencePosition){
 		double transition_prob(-INFINITY);
         transition* trans = st->getTrans(trans_to_state);
@@ -220,6 +259,11 @@ namespace StochHMM {
         return transition_prob;		
 	}
 	
+	
+	//! Traceback to get the duration length of the state.
+	//! If duration is already being tracked in the table then it will return value +1
+	//! Otherwise, it will traceback through the trellis until the traceback identifier is reached
+	//! \return length of traceback (Giving duration)
 	size_t trellis::get_explicit_duration_length(transition* trans, size_t sequencePosition, size_t state_iter, size_t to_state){
 		
 		if ((*explicit_duration_previous)[state_iter]!=0){
@@ -263,11 +307,12 @@ namespace StochHMM {
 	
 	
 	
+	
 	//!Perform traceback through trellis
-    //!\return [out] path trackback_path
+    //!\return path trackback_path
     void trellis::traceback(traceback_path& path){
 				
-		if (seq_size==0){
+		if (seq_size==0 || traceback_table == NULL){
 			return;
 		}
 		
@@ -278,20 +323,99 @@ namespace StochHMM {
             path.setScore(ending_viterbi_score);
             path.push_back(ending_viterbi_tb);
             
-			uint16_t pointer = ending_viterbi_tb;
+			int16_t pointer = ending_viterbi_tb;
 			
             for( size_t position = seq_size -1 ; position>0 ; position--){
 				pointer = (*traceback_table)[position][pointer];
+				
+				if (pointer == -1){
+					std::cerr << "No valid path at Position: " << position << std::endl;
+					return;
+				}
+				
 				path.push_back(pointer);
             }
         }
         return;
     }
 	
+	void trellis::traceback(traceback_path& path, size_t position, size_t state){
+		if (seq_size == 0 || traceback_table == NULL){
+			return;
+		}
+		
+		int16_t pointer = (*traceback_table)[position][state];
+		if (pointer == -1){
+			std::cerr << "No valid path at State: " << state <<  " from Position: " << position << std::endl;
+			return;
+		}
+		
+		for( size_t pos = position - 1 ; pos>0 ; pos--){
+			pointer = (*traceback_table)[pos][pointer];
+			
+			if (pointer == -1){
+				std::cerr << "No valid path at State: " << state <<  " from Position: " << position << std::endl;
+				return;
+			}
+			
+			path.push_back(pointer);
+		}
+		
+		return;
+	}
+	
 	
 	void trellis::stochastic_traceback(traceback_path& path){
 		
 		stochastic_table->traceback(path);
+		return;
+	}
+	
+	
+	//TODO: Finish nth traceback function
+	void trellis::traceback_nth(traceback_path& path, size_t n){
+		if (seq_size == 0 || n > nth_size || (nth_traceback_table == NULL && naive_nth_scores == NULL)){
+			return;
+		}
+		
+		if (nth_traceback_table != NULL){
+			int16_t st_pointer = (*ending_nth_viterbi)[n].st_tb;
+			int16_t sc_pointer = (*ending_nth_viterbi)[n].score_tb;
+			
+			path.setScore((*ending_nth_viterbi)[n].score);
+			path.push_back(st_pointer);
+			
+			
+			for( size_t position = seq_size -1 ; position>0 ; position--){
+				(*nth_traceback_table)[position].get(st_pointer,sc_pointer);
+				
+				if (st_pointer == -1){
+					std::cerr << "No valid path at Position: " << position << std::endl;
+					return;
+				}
+				
+				path.push_back(st_pointer);
+            }
+			
+		}
+		else{
+			int16_t st_pointer = (*ending_nth_viterbi)[n].st_tb;
+			int16_t sc_pointer = (*ending_nth_viterbi)[n].score_tb;
+			
+			path.setScore((*ending_nth_viterbi)[n].score);
+			path.push_back(st_pointer);
+			
+			for( size_t position = seq_size -1 ; position>0 ; position--){
+				nthScore& temp = (*(*naive_nth_scores)[position][st_pointer])[sc_pointer];
+				st_pointer = temp.st_tb;
+				sc_pointer = temp.score_tb;
+				if (st_pointer == -1){
+					std::cerr << "No valid path at Position: " << position << std::endl;
+					return;
+				}
+				path.push_back(st_pointer);
+            }
+		}
 		return;
 	}
 
