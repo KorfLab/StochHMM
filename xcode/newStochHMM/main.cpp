@@ -31,7 +31,7 @@
 #include "hmm.h"
 #include "sequence.h"
 #include "seqTracks.h"
-#include "new_trellis.h"
+#include "trellis.h"
 #include "state.h"
 #include "seqTracks.h"
 #include "traceback_path.h"

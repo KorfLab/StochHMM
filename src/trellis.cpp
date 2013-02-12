@@ -1,490 +1,428 @@
 //
-//  newTrellis.cpp
-
-
-//Copyright (c) 2007-2012 Paul C Lott 
-//University of California, Davis
-//Genome and Biomedical Sciences Facility
-//UC Davis Genome Center
-//Ian Korf Lab
-//Website: www.korflab.ucdavis.edu
-//Email: lottpaul@gmail.com
+//  new_trellis.cpp
+//  StochHMM
 //
-//Permission is hereby granted, free of charge, to any person obtaining a copy of
-//this software and associated documentation files (the "Software"), to deal in
-//the Software without restriction, including without limitation the rights to
-//use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-//the Software, and to permit persons to whom the Software is furnished to do so,
-//subject to the following conditions:
+//  Created by Paul Lott on 11/13/12.
+//  Copyright (c) 2012 Korf Lab, Genome Center, UC Davis, Davis, CA. All rights reserved.
 //
-//The above copyright notice and this permission notice shall be included in all
-//copies or substantial portions of the Software.
-//
-//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-//FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-//COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-//IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-//CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include "trellis.h"
-namespace StochHMM{
 
-    //  Input:  HMM* model, sequences* sequences, int type of trellis
-    //  Types of Trellis:  Simple, Stochastic, Nth
-    //   
-    //  Stores pointer to trellis in trell variable
-    // 
-    //----------------------------------------------------------------------------//
-    //! Create a trellis
-    //! \param mdl Pointer to model
-    //! \param seqs Pointer to sequences
-    //! \param type  Type of trellis to setup
 
-    trellis::trellis(model* mdl, sequences* seqs, trellisType type):path(mdl),stochPath(mdl){
-        hmm=mdl;
-        seq=seqs;
+namespace StochHMM {
+	trellis::trellis(){
+		hmm=NULL;
+		seqs=NULL;
+		nth_size=SIZE_T_MAX;
+		
+		seq_size=0;
+		state_size=0;
+		
+		type = SIMPLE;
+		store_values=false;
+		exDef_defined=false;
+		
+		traceback_table		= NULL;
+		stochastic_table	= NULL;
+
+		viterbi_score		= NULL;
+		forward_score		= NULL;
+		backward_score		= NULL;
+		posterior_score		= NULL;
+		dbl_forward_score	= NULL;
+		dbl_viterbi_score	= NULL;
+		dbl_backward_score	= NULL;
+		dbl_posterior_score = NULL;
+		
+		ending_viterbi_score = -INFINITY;
+		ending_viterbi_tb = -1;
+//		ending_posterior = -INFINITY;
+		ending_forward_prob = -INFINITY;
+		ending_backward_prob= -INFINITY;
+		
+		naive_nth_scores	= NULL;
+		ending_nth_viterbi	= NULL;
+		nth_traceback_table	= NULL;
+		nth_scoring_previous= NULL;
+		nth_scoring_current = NULL;
+		
+		scoring_current = NULL;
+		scoring_previous= NULL;
+		alt_scoring_current = NULL;
+		alt_scoring_previous = NULL;
+	}
+	
+	trellis::trellis(model* h, sequences* sqs){
+		hmm=h;
+		seqs=sqs;
+		nth_size=SIZE_T_MAX;
+		
+		seq_size		= seqs->getLength();
+		state_size		= hmm->state_size();
+		
+		type = SIMPLE;
+		store_values=false;
+		exDef_defined	= seqs->exDefDefined();
+		
+		traceback_table		= NULL;
+		stochastic_table	= NULL;
+		nth_traceback_table	= NULL;
+		viterbi_score		= NULL;
+		forward_score		= NULL;
+		backward_score		= NULL;
+		posterior_score		= NULL;
+		dbl_forward_score	= NULL;
+		dbl_viterbi_score	= NULL;
+		dbl_backward_score	= NULL;
+		dbl_posterior_score = NULL;
+		
+		ending_viterbi_score = -INFINITY;
+		ending_viterbi_tb = -1;
+//		ending_posterior = -INFINITY;
+		ending_forward_prob = -INFINITY;
+		ending_backward_prob= -INFINITY;
+		
+		naive_nth_scores	= NULL;
+		ending_nth_viterbi	= NULL;
+		nth_traceback_table	= NULL;
+		nth_scoring_previous= NULL;
+		nth_scoring_current = NULL;
+
+		scoring_current = NULL;
+		scoring_previous= NULL;
+		alt_scoring_current = NULL;
+		alt_scoring_previous = NULL;
+
+	}
+	
+	
+	
+	trellis::~trellis(){
+		delete traceback_table;
+		delete stochastic_table;
+
+		delete viterbi_score;
+		delete forward_score;
+		delete backward_score;
+		delete posterior_score;
+		delete dbl_forward_score;
+		delete dbl_viterbi_score;
+		delete dbl_backward_score;
+		delete dbl_posterior_score;
+		
+		delete naive_nth_scores;
+		delete ending_nth_viterbi;
+		delete nth_traceback_table;
+		delete nth_scoring_current;
+		delete nth_scoring_previous;
+		
+		delete scoring_previous;
+		delete scoring_current;
+		delete alt_scoring_previous;
+		delete alt_scoring_current;
+		
+		traceback_table		= NULL;
+		stochastic_table	= NULL;
+
+		viterbi_score		= NULL;
+		forward_score		= NULL;
+		backward_score		= NULL;
+		posterior_score		= NULL;
+		dbl_forward_score	= NULL;
+		dbl_viterbi_score	= NULL;
+		dbl_backward_score	= NULL;
+		dbl_posterior_score	= NULL;
+		
+		naive_nth_scores	= NULL;
+		ending_nth_viterbi	= NULL;
+		nth_traceback_table	= NULL;
+		nth_scoring_previous= NULL;
+		nth_scoring_current = NULL;
+		
+		scoring_previous	= NULL;
+		scoring_current		= NULL;
+		alt_scoring_previous= NULL;
+		alt_scoring_current	= NULL;
+	}
+	
+	void trellis::reset(){
+		hmm=NULL;
+		seqs=NULL;
+		nth_size=SIZE_T_MAX;
+		state_size=0;
+		seq_size=0;
+		type= SIMPLE;
+		store_values = false;
+		exDef_defined = false;
+		
+		delete traceback_table;
+		delete stochastic_table;
+		
+		delete viterbi_score;
+		delete forward_score;
+		delete backward_score;
+		delete posterior_score;
+		
+		delete scoring_current;
+		delete scoring_previous;
+		
+		delete alt_scoring_current;
+		delete alt_scoring_previous;
+		
+		delete dbl_forward_score;
+		delete dbl_backward_score;
+		delete dbl_viterbi_score;
+		delete dbl_posterior_score;
+		
+		delete naive_nth_scores;
+		delete ending_nth_viterbi;
+		delete nth_traceback_table;
+		delete nth_scoring_current;
+		delete nth_scoring_previous;
+		
+		traceback_table		= NULL;
+		stochastic_table	= NULL;
+		nth_traceback_table	= NULL;
+		
+		viterbi_score		= NULL;
+		forward_score		= NULL;
+		backward_score		= NULL;
+		posterior_score		= NULL;
+		
+		scoring_current		= NULL;
+		scoring_previous	= NULL;
+		
+		alt_scoring_current	= NULL;
+		alt_scoring_previous= NULL;
+		
+		dbl_forward_score	= NULL;
+		dbl_viterbi_score	= NULL;
+		dbl_backward_score	= NULL;
+		dbl_posterior_score	= NULL;
+		
+		naive_nth_scores	= NULL;
+		ending_nth_viterbi	= NULL;
+		nth_traceback_table	= NULL;
+		nth_scoring_previous= NULL;
+		nth_scoring_current = NULL;
+		
+		ending_viterbi_score = -INFINITY;
+		ending_viterbi_tb = -1;
+//		ending_posterior = -INFINITY;
+		ending_forward_prob = -INFINITY;
+		ending_backward_prob= -INFINITY;
+		
+		
+	}
+	
+	
+	//TODO:  Fix getTransitions to work with all transition types
+	double trellis::getTransition(state* st, size_t trans_to_state, size_t sequencePosition){
+		double transition_prob(-INFINITY);
+        transition* trans = st->getTrans(trans_to_state);
+		if (trans==NULL){
+			return transition_prob;
+		}
+				
+		transType trans_type= trans->getTransitionType();
         
-        stoch=false;
-        simple=false;
         
-        forwardCompleted=false;
-        viterbiCompleted=false;
-        backwardCompleted=false;
-        posteriorCompleted=false;
         
-        trell=NULL;
-        
-        switch (type){
-            case 0:
-                _initSimple();  //Init trell with pointer to simple trellis
-                break;
-            case 1:
-                _initStochastic();  //Init trell to stochastic trellis
-                break;
-            default:
-                break;
+		
+        if (trans_type == STANDARD ){  //if the transition type is standard then just return the standard probability
+			
+            transition_prob= trans->getTransition(0,NULL);
+        }
+        else if (trans_type == DURATION){
+			
+//            //TODO: Check traceback_length function
+//			if ((*explicit_duration_current)[st->getIterator()] != 0 ){
+//				transition_prob = trans->getTransition((*explicit_duration_current)[st->getIterator()]+1,NULL);
+//			}
+//			else{
+				size_t size = get_explicit_duration_length(trans,sequencePosition, st->getIterator(), trans_to_state);
+				transition_prob=trans->getTransition(size,NULL);
+//				(*explicit_duration_current)[st->getIterator()]=size;
+//			}
+			
+        }
+        else if (trans_type == LEXICAL){
+            transition_prob=trans->getTransition(sequencePosition, seqs);
         }
         
-        return;
-    }
-    
-    
-
-    //!Setup the trellis as a simple trellis and create the trellis
-    bool trellis::_initSimple(){
-        if (simple || stoch){
-            simple=true;
-            stoch=false;
-            delete trell;
+        //TODO:  Fix the exFuncTraceback(...)
+        //Is external function define for the transition
+        if (trans->FunctionDefined()){
+//            transition_prob+=exFuncTraceback(trans->getExtFunction());
         }
         
-        trell=new(std::nothrow) simpleTrellis(hmm,seq);
-        if (trell==NULL){
-            std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
-            exit(1);
-        }
-        return true;
-    }
+        return transition_prob;		
+	}
+	
+	
+	//! Traceback to get the duration length of the state.
+	//! If duration is already being tracked in the table then it will return value +1
+	//! Otherwise, it will traceback through the trellis until the traceback identifier is reached
+	//! \return length of traceback (Giving duration)
+	size_t trellis::get_explicit_duration_length(transition* trans, size_t sequencePosition, size_t state_iter, size_t to_state){
+		
+		if ((*explicit_duration_previous)[state_iter]!=0){
+			return (*explicit_duration_previous)[state_iter]+1;
+		}
+		
+		
+		//If it hasn't been defined then traceback until the ending parameter is reached
+		
+		size_t length(0);
+	
+		
+		size_t tbState(state_iter);  //First traceback pointer to use in traceback_table
+		
+		//tracebackIdentifier traceback_identifier = previousState->transi[transitionTo].traceback_identifier;
+		tracebackIdentifier traceback_identifier = trans->getTracebackIdentifier();
+		
+		//string identifier = previousState->transi[transitionTo].traceback_string;
+		std::string identifier = trans->getTracebackString();
+		
+		
+		for(size_t trellPos=sequencePosition-1 ; trellPos != SIZE_MAX ;trellPos--){
+			//for(;trellisPos>=0;trellisPos--){
+			length++;
+			//state=trellis.trell[trellisPos][state].ptr;  //Get previous state traceback
+			
+			tbState = (*traceback_table)[trellPos][tbState];
+			state* st = hmm->getState(tbState);
+			
+			//Check to see if stop conditions of traceback are met, if so break;
+			if(traceback_identifier == START_INIT && tbState == -1) {break;}
+			else if (traceback_identifier == DIFF_STATE  && state_iter != st->getIterator())	{ break;}
+			else if (traceback_identifier == STATE_NAME  && identifier.compare(st->getName())==0)	{ break;}
+			else if (traceback_identifier == STATE_LABEL && identifier.compare(st->getLabel())==0)	{ break;}
+			else if (traceback_identifier == STATE_GFF   && identifier.compare(st->getGFF())==0)	{ break;}
+			
+		}
+		return length+1;
 
-
-    //!Setup the trellis as a stochastic trellis and create the trellis
-    bool trellis::_initStochastic(){
-        if (simple || stoch){
-            simple=false;
-            stoch=true;
-            delete trell;
-        }
-        
-        trell=new(std::nothrow) stochTrellis(hmm,seq);
-        if (trell==NULL){
-            std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
-            exit(1);
-        }
-        return true;
-    }
-
-
-    //!Perform viterbi algorithm
-    void trellis::viterbi(){
-        
-        
-        (*this)->initViterbi();
-        
-        while ((*this)->moveToNext()){
-            (*this)->calcViterbi();
-    #ifdef DEBUG_VERBOSE
-            std::cout <<"Current State: " <<  (*this)->currentState <<std::endl;
-            std::cout <<"Sequence position: " <<  (*this)->sequencePosition <<std::endl;
-            std::cout <<"Viterbi Score: " << (*this)->getViterbi()/log(2) <<std::endl << std::endl;
-    #endif
-        
-        } 
-        
-        (*this)->calcEndViterbi();
-        //(*this)->finalize();
-        (*this)->resetCounters();
-        
-        viterbiCompleted=true;
-    }
-    
-    
-    
-    //!Perform Nth viterbi algorithm
-    void trellis::nthViterbi(size_t n){
-        
-        (*this)->initNthViterbi(n);
-        
-        while ((*this)->moveToNext()){
-            (*this)->calcNthViterbi(n);
-#ifdef DEBUG_VERBOSE
-            std::cout <<"Current State: " <<  (*this)->currentState <<std::endl;
-            std::cout <<"Sequence position: " <<  (*this)->sequencePosition <<std::endl;
-            std::cout <<"Viterbi Score: " << (*this)->getViterbi()/log(2) <<std::endl << std::endl;
-#endif
-            
-        }
-        
-        (*this)->calcNthEndViterbi(n);
-        //(*this)->finalize();
-        (*this)->resetCounters();
-        
-        viterbiCompleted=true;
-        nthViterbiCompleted = true;
-    }
-    
-
-    
-    
-    //!Perform forward algorithm
-    void trellis::forward(){
-        
-        if (!hmm->isBasic()){
-            this->forwardViterbi();
-            return;
-        }
-        
-        (*this)->initForward();
-        
-        while ((*this)->moveToNext()){
-            (*this)->calcForward();
-
-
-    #ifdef DEBUG_VERBOSE
-            std::cout <<"Current State: " <<  (*this)->currentState <<std::endl;
-            std::cout <<"Sequence position: " <<  (*this)->sequencePosition <<std::endl;
-            std::cout <<"Forward Score: " << exp((*this)->getForward()) <<std::endl << std::endl;
-    #endif
-
-        
-        } 
-
-        (*this)->calcEndForward();
-
-        
-
-
-    #ifdef DEBUG_VERBOSE
-        std::cout << "Sequence Probability: " << exp((*this)->probabilityOfSequence)  << std::endl;
-    #endif
-        (*this)->resetCounters();
-        forwardCompleted=true;
-        
-        return;
-    }
-
-    //!Perform the backward algorithm
-    void trellis::backward(){
-        
-        if (!hmm->isBasic()){
-            this->viterbi();
-        }
-        
-        (*this)->initBackward();
-        
-        
-        while ((*this)->moveToPrevious()){
-            
-            (*this)->calcBackward();
-            
-            
-#ifdef DEBUG_VERBOSE
-            std::cout <<"Current State: " <<  (*this)->currentState <<std::endl;
-            std::cout <<"Previous State: " << (*this)->previousState <<std::endl;
-            std::cout <<"Sequence position: " <<  (*this)->sequencePosition - 1 <<std::endl;
-            std::cout <<"Backward Score: " << exp((*this)->getBackward((*this)->sequencePosition-1,(*this)->currentState)) <<std::endl << std::endl;
-#endif
-            
-            
-        }
-        // TODO:  Implement calcBeginBackward(); May not really need to do this because we already get P(sequence) from forward algorithm
-        
-        //(*this)->calcBeginBackward();   
-        
-        (*this)->resetCounters();
-        backwardCompleted=true;
-    }
-
-
-
-
-    //!Perform the forward and Viterbi algorithm
-    void trellis::forwardViterbi(){
-        
-        (*this)->initForwardViterbi();
-        
-        while ((*this)->moveToNext()){
-            (*this)->calcForwardViterbi();
-        }
-        
-        (*this)->calcEndForwardViterbi();
-        
-        (*this)->resetCounters();
-        
-        forwardCompleted=true;
-        viterbiCompleted=true;
-        
-        return;
-    }
-
-
-    //!Perform both forward and Backward algorithms
-    void trellis::posterior(){
-        
-        if (!hmm->isBasic()){
-            this->forwardViterbi();
-        }
+	}
+	
+	
+	
+	
+	//!Perform traceback through trellis
+    //!\return path trackback_path
+    void trellis::traceback(traceback_path& path){
+				
+		if (seq_size==0 || traceback_table == NULL){
+			return;
+		}
+		
+		if (ending_viterbi_score == -INFINITY){
+			return;
+		}
         else{
-            //Perform Forward
-            forward();
-        }
-        
-        backward();
-        
-        (*this)->calcPosterior();
-        
-        //(*this)->calcBeginBackward();
-        posteriorCompleted=true;
-        forwardCompleted=true;
-        backwardCompleted=true;
-        
-    }
-
-    
-    //!Perform both forward, viterbi, and backward algorithm
-    void trellis::decodeAll(){
-        //Perform Forward & Viterbi
-        forwardViterbi();
-        backward();
-        
-        (*this)->calcPosterior();
-        
-        forwardCompleted=true;
-        backwardCompleted=true;
-        posteriorCompleted=true;
-        viterbiCompleted=true;
-        
-    }
-
-    //Perform a traceback on the trellis
-    traceback_path* trellis::traceback(){
-        if (path.size()!=0){
-            path.clear();
-        }
-        
-        (*this)->traceback(path);
-        
-        if (path.size() == 0){
+            path.setScore(ending_viterbi_score);
+            path.push_back(ending_viterbi_tb);
             
-            std::string info = "Path not valid"  + seq->getHeader() ;
-            
-            //errorInfo(sInvalidTraceback, info.c_str());
-            std::cerr << info << std::endl;
-            exit(1);
-        }
-        
-        return &path;
-    }
-    
-    
-    //Perform a nth viterbi traceback on the trellis
-    //Return the nth traceback path
-    traceback_path* trellis::nth_traceback(size_t n){
-        if (stochPath.size()!=0){
-            stochPath.clear();
-        }
-        
-        (*this)->traceback(stochPath, n);
-        
-        if (stochPath.size() == 0){
-            
-            std::string info = "Path not valid"  + seq->getHeader() ;
-            
-            //errorInfo(sInvalidTraceback, info.c_str());
-            std::cerr << info << std::endl;
-            exit(1);
-        }
-        
-        return &stochPath;
-    }
-
-    
-
-    //!Performs one stochastic traceback using viterbi data stores the traceback_path pointer to pathif path is already define then we delete it
-    
-    traceback_path* trellis::stochasticViterbiTraceback(){
-        if (stochPath.size()!=0){
-            stochPath.clear();
-        }
-        
-        (*this)->traceStochViterbi(stochPath);
-        
-        return &stochPath;
-    }
-
-
-    //!Performs one stochastic traceback using forward data stores the traceback_path pointer to pathif path is already define then we delete it
-    traceback_path* trellis::stochasticForwardTraceback(){
-        if (stochPath.size()!=0){
-            stochPath.clear();
-        }
-        
-        (*this)->traceStochForward(stochPath);
-        
-        return &stochPath;
-    }
-    
-    
-    //!Perform multiple stochastic Tracebacks on the trellis
-    //!\param numberOfTracebacks  Number of tracebacks to perform
-    //!\param type Type of decoding to use (enum decodingType)
-    multiTraceback* trellis::stochasticTraceback(size_t numberOfTracebacks,decodingType type){
-        if (paths.size()!=0){
-            paths.clear();
-        }
-        
-        size_t numberOfPaths(0);
-        while(numberOfPaths<numberOfTracebacks){
-            if (type==VITERBI){
-                stochasticViterbiTraceback();
-            }
-            else if (type==FORWARD){
-                stochasticForwardTraceback();
-            }
-            else{
-                stochasticPosteriorTraceback();
-            }
-            
-            if (stochPath.size()!=0){
-                numberOfPaths++;
-                paths.assign(stochPath);
-                stochPath.clear();
+			int16_t pointer = ending_viterbi_tb;
+			
+            for( size_t position = seq_size -1 ; position>0 ; position--){
+				pointer = (*traceback_table)[position][pointer];
+				
+				if (pointer == -1){
+					std::cerr << "No valid path at Position: " << position << std::endl;
+					return;
+				}
+				
+				path.push_back(pointer);
             }
         }
-        return &paths;
-    }
-
-
-
-    //!Perform a set number of tracebacks using the decodingType                                                           
-    //!\param numberOfTracebacks  Number of tracebacks to perform
-    //!\return multiTraceback&
-    multiTraceback* trellis::stochasticViterbiTraceback(size_t numberOfTracebacks){
-        if (paths.size()!=0){
-            paths.clear();
-        }
-        
-        size_t numberOfPaths(0);
-        
-        while(numberOfPaths<numberOfTracebacks){
-            stochasticViterbiTraceback();
-        
-            if (stochPath.size()!=0){
-                numberOfPaths++;
-                paths.assign(stochPath);
-                stochPath.clear();
-            }
-        }
-        return &paths;
-    }
-
-
-   
-    //!Perform a set number of tracebacks using the decodingType                                                           
-    multiTraceback* trellis::stochasticForwardTraceback(size_t numberOfTracebacks){
-        if (paths.size()!=0){
-            paths.clear();
-        }
-        
-        size_t numberOfPaths(0);
-        
-        while(numberOfPaths<numberOfTracebacks){
-            stochasticForwardTraceback();
-            
-            if (stochPath.size()!=0){
-                numberOfPaths++;
-                paths.assign(stochPath);
-                stochPath.clear();
-            }
-        }
-        return &paths;
-    }
-    
-    //!Perform a set number of tracebacks using the decodingType
-    multiTraceback* trellis::stochasticPosteriorTraceback(size_t numberOfTracebacks){
-        if (paths.size()!=0){
-            paths.clear();
-        }
-        
-        size_t numberOfPaths(0);
-        
-        while(numberOfPaths<numberOfTracebacks){
-            stochasticPosteriorTraceback();
-            
-            if (stochPath.size()!=0){
-                numberOfPaths++;
-                paths.assign(stochPath);
-                stochPath.clear();
-            }
-        }
-        return &paths;
-    }
-    
-    //!Perform a traceback using the posterior score
-    traceback_path* trellis::posteriorTraceback(){
-        if (path.size()!=0){
-            path.clear();
-        }
-        
-        if (backwardCompleted && forwardCompleted){
-            (*this)->tracePosterior(path);
-        }
-        else{
-            std::cerr << "Must complete forward and backward algorithm before tracing posterior";
-        }
-        
-        
-        return &path;
-    }
-    
-    traceback_path* trellis::stochasticPosteriorTraceback(){
-        if (stochPath.size()!=0){
-            stochPath.clear();
-        }
-        
-        if (backwardCompleted && forwardCompleted){
-            (*this)->traceStochPosterior(stochPath);
-        }
-        else{
-            std::cerr << "Must complete forward and backward algorithm before tracing posterior";
-        }
-        return &stochPath;
-    }
-
-    //!Print the trellis to stdout
-    void trellis::print(){
-        (*this)->print();
         return;
     }
+	
+	void trellis::traceback(traceback_path& path, size_t position, size_t state){
+		if (seq_size == 0 || traceback_table == NULL){
+			return;
+		}
+		
+		int16_t pointer = (*traceback_table)[position][state];
+		if (pointer == -1){
+			std::cerr << "No valid path at State: " << state <<  " from Position: " << position << std::endl;
+			return;
+		}
+		
+		for( size_t pos = position - 1 ; pos>0 ; pos--){
+			pointer = (*traceback_table)[pos][pointer];
+			
+			if (pointer == -1){
+				std::cerr << "No valid path at State: " << state <<  " from Position: " << position << std::endl;
+				return;
+			}
+			
+			path.push_back(pointer);
+		}
+		
+		return;
+	}
+	
+	
+	void trellis::stochastic_traceback(traceback_path& path){
+		
+		stochastic_table->traceback(path);
+		return;
+	}
+	
+	
+	//TODO: Finish nth traceback function
+	void trellis::traceback_nth(traceback_path& path, size_t n){
+		if (seq_size == 0 || n > nth_size || (nth_traceback_table == NULL && naive_nth_scores == NULL)){
+			return;
+		}
+		
+		if (nth_traceback_table != NULL){
+			int16_t st_pointer = (*ending_nth_viterbi)[n].st_tb;
+			int16_t sc_pointer = (*ending_nth_viterbi)[n].score_tb;
+			
+			path.setScore((*ending_nth_viterbi)[n].score);
+			path.push_back(st_pointer);
+			
+			
+			for( size_t position = seq_size -1 ; position>0 ; position--){
+				(*nth_traceback_table)[position].get(st_pointer,sc_pointer);
+				
+				if (st_pointer == -1){
+					std::cerr << "No valid path at Position: " << position << std::endl;
+					return;
+				}
+				
+				path.push_back(st_pointer);
+            }
+			
+		}
+		else{
+			int16_t st_pointer = (*ending_nth_viterbi)[n].st_tb;
+			int16_t sc_pointer = (*ending_nth_viterbi)[n].score_tb;
+			
+			path.setScore((*ending_nth_viterbi)[n].score);
+			path.push_back(st_pointer);
+			
+			for( size_t position = seq_size -1 ; position>0 ; position--){
+				nthScore& temp = (*(*naive_nth_scores)[position][st_pointer])[sc_pointer];
+				st_pointer = temp.st_tb;
+				sc_pointer = temp.score_tb;
+				if (st_pointer == -1){
+					std::cerr << "No valid path at Position: " << position << std::endl;
+					return;
+				}
+				path.push_back(st_pointer);
+            }
+		}
+		return;
+	}
 
+	
+
+	
 }
+
+
+

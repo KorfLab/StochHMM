@@ -13,7 +13,7 @@
 #include <time.h>
 //#include "mem_trellis.h"
 //#include "mem_viterbi.h"
-#include "new_trellis.h"
+#include "trellis.h"
 #include "hmm.h"
 #include "state.h"
 #include "sequence.h"
