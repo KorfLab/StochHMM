@@ -127,7 +127,7 @@ namespace StochHMM{
     //! \param b  Shape parameter
     double beta_negative_binomial_pdf(int k, int n, double a, double b){
         double pmf = bin_coef(n+k-1, k);
-        pmf*=gamma(a+n)*gamma(b+k)*gamma(a+b)/(gamma(a+b+n+k)*gamma(a)*gamma(b));
+        pmf*=tgamma(a+n)*tgamma(b+k)*tgamma(a+b)/(tgamma(a+b+n+k)*tgamma(a)*tgamma(b));
         return pmf;
     }
     
@@ -416,7 +416,7 @@ namespace StochHMM{
             std::cerr << "Chi PDF: Incorrect parameters\n";
             exit(2);
         }
-        return (powf(2, 1-(k/2))*powf(x, k-1)*exp(-1*(powf(x, 2)/2)))/gamma(k/2);
+        return (powf(2, 1-(k/2))*powf(x, k-1)*exp(-1*(powf(x, 2)/2)))/tgamma(k/2);
     }
     
     
@@ -429,7 +429,7 @@ namespace StochHMM{
             exit(2);
         }
         
-        return (powf(x, (k/2)-1)*exp(-1*x/2))/(powf(2, k/2)*gamma(k/2));
+        return (powf(x, (k/2)-1)*exp(-1*x/2))/(powf(2, k/2)*tgamma(k/2));
     }
     
     
@@ -443,7 +443,7 @@ namespace StochHMM{
             exit(2);
         }
         
-        return (powf(2, -1*v/2)*powf(x, -1*(v/2)-1)*exp(-1/(2*x)))/gamma(v/2);
+        return (powf(2, -1*v/2)*powf(x, -1*(v/2)-1)*exp(-1/(2*x)))/tgamma(v/2);
     }
     
     //!Scaled Inverse Chi-squared probability distribution function
@@ -458,7 +458,7 @@ namespace StochHMM{
         double numerator = powf(sigma_sqrd*(v/2),v/2);
         numerator *= exp((-1*v*sigma_sqrd)/(2*x));
         
-        double denominator = gamma(v/2);
+        double denominator = tgamma(v/2);
         denominator *= powf(x, 1+(v/2));
         
         return numerator/denominator;
@@ -566,7 +566,7 @@ namespace StochHMM{
             exit(2);
 		}
 		
-		return (pow(beta,alpha)/gamma(alpha))*pow(x,alpha-1)*exp(-beta*x);
+		return (pow(beta,alpha)/tgamma(alpha))*pow(x,alpha-1)*exp(-beta*x);
 	}
 	
 	//!Inverse Gamma probability distribution
@@ -578,7 +578,7 @@ namespace StochHMM{
 			std::cerr << "Inverse Gamma PDF: Incorrect parameters\n";
             exit(2);
 		}
-		return (pow(beta,alpha)/gamma(alpha))*pow(x,-1*alpha-1)*exp(-beta/x);
+		return (pow(beta,alpha)/tgamma(alpha))*pow(x,-1*alpha-1)*exp(-beta/x);
 	}
 	
 	//!Half Normal probability distribution
@@ -692,7 +692,7 @@ namespace StochHMM{
 			exit(2);
 		}
 		
-		return (pow(2*mu,2)/(gamma(mu)*pow(w, mu)))*pow(x,2*mu-1)*exp(-1*(mu/w)*pow(x,2));
+		return (pow(2*mu,2)/(tgamma(mu)*pow(w, mu)))*pow(x,2*mu-1)*exp(-1*(mu/w)*pow(x,2));
 	}
 	
 	
@@ -793,7 +793,7 @@ namespace StochHMM{
 			std::cerr << "Generalized normal PDF: Incorrect parameters\n";
 			exit(2);
 		}
-		return beta/(2*alpha*gamma(1/beta))*exp(-1*pow(abs(x-mu)/alpha, beta));
+		return beta/(2*alpha*tgamma(1/beta))*exp(-1*pow(abs(x-mu)/alpha, beta));
 	}
 	
 	//!Hyperbolic secant probability distribution function
@@ -846,7 +846,7 @@ namespace StochHMM{
 			std::cerr << "Student's t-PDF: Incorrect parameters\n";
 			exit(2);
 		}
-		double i = gamma((v+1)/2)/(sqrt(v*PI)*gamma(v/2));
+		double i = tgamma((v+1)/2)/(sqrt(v*PI)*tgamma(v/2));
 		return i * pow(1+(pow(x,2)/v),-1*(v+1)/2);
 	}
 	
@@ -919,12 +919,12 @@ namespace StochHMM{
 	//! \param	x	Vector of values
 	//! \param	alpha	concentration parameters where a_i>0
 	double dirichlet_pdf(std::vector<double>& x, std::vector<double>& alpha){
-		double gsum_alpha = gamma(sumVector(alpha));
+		double gsum_alpha = tgamma(sumVector(alpha));
 		
 		//Calc product of gamma transformed alpha values
-		double b_n(gamma(alpha[0]));
+		double b_n(tgamma(alpha[0]));
 		for (size_t i=1; i < alpha.size(); ++i){
-			b_n*=gamma(alpha[i]);
+			b_n*=tgamma(alpha[i]);
 		}
 		
 		double b = 1 / (b_n/gsum_alpha);  //Calculate B(alpha)
