@@ -189,10 +189,6 @@ namespace StochHMM{
 		delete nth_scoring_current;
 		nth_scoring_previous = NULL;
 		nth_scoring_current  = NULL;
-		
-		std::cout << "Ending:\t" << (*ending_nth_viterbi)[0].score << std::endl;
-		std::cout << "Ending:\t" << (*ending_nth_viterbi)[1].score << std::endl;
-		std::cout << "Ending:\t" << (*ending_nth_viterbi)[2].score << std::endl;
 	}
 	
 	void trellis::naive_nth_viterbi(size_t n){
@@ -297,11 +293,6 @@ namespace StochHMM{
 		}
 		
 		ending_nth_viterbi = temp_scores;
-		
-		std::cout << "Ending:\t" << (*ending_nth_viterbi)[0].score << std::endl;
-		std::cout << "Ending:\t" << (*ending_nth_viterbi)[1].score << std::endl;
-		std::cout << "Ending:\t" << (*ending_nth_viterbi)[2].score << std::endl;
-		
 		
 		return;
 	}
