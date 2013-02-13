@@ -294,11 +294,11 @@ namespace StochHMM{
 		return;
 	}
 	
-	
-	size_t lexicalTable::convertIndex(size_t old_row, size_t old_column){
-		//Decompose previous value from indices to digital letter value
-		
-	}
+	//TODO:  NEED TO COMPLETE THIS FUNCTION
+//	size_t lexicalTable::convertIndex(size_t old_row, size_t old_column){
+//		//Decompose previous value from indices to digital letter value
+//		
+//	}
 	
 	
 	void lexicalTable::init_array_dimension_values(){

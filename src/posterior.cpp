@@ -331,10 +331,10 @@ namespace StochHMM {
 		}
 		
 		double max(-INFINITY);
-		int max_ptr(SIZE_T_MAX);
+		int max_ptr(-1);
 		for(size_t position=seq_size-1; position > 0 ;position--){
 			max = -INFINITY;
-			max_ptr = SIZE_T_MAX ;
+			max_ptr = -1 ;
 			
             for (size_t st=0; st < state_size; st++){
                 if ((*posterior_score)[position][st] > max){
