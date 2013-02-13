@@ -37,7 +37,7 @@
 #include "traceback_path.h"
 #include "options.h"
 
-#include "StochHMM_Usage.h"
+#include "StochHMM_usage.h"
 using namespace StochHMM;
 
 void import_model(model&);

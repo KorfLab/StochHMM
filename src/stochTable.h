@@ -10,6 +10,7 @@
 #define __StochHMM__stoch_table__
 
 #include <iostream>
+#include "stochMath.h"
 #include "traceback_path.h"
 
 namespace StochHMM {

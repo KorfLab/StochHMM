@@ -35,6 +35,15 @@
 #include <stdint.h>
 #include <algorithm>
 
+#ifndef SIZE_T_MAX
+#define SIZE_T_MAX ((size_t)-1)
+#endif
+
+#ifndef UINT16_MAX
+#define UINT16_MAX 65535
+#endif
+
+
 namespace StochHMM{
     
     #define PI 3.145926535897932
