@@ -33,11 +33,22 @@ src \
 # Add inputs and outputs from these tool invocations to the build variables 
 O_SRCS += \
 ./src/StochHMM.o \
-./src/basicTrellis.o \
-./src/emm.o \
+./src/PDF.o \
+./src/trellis.o \
+./src/viterbi.o \
+./src/stoch_viterbi.o \
+./src/stoch_forward.o \
+./src/nth_best.o \
+./src/stochTable.o \
+./src/backward.o \
+./src/forward.o \
+./src/baum_welch.o \
+./src/forward_viterbi.o \
+./src/posterior.o \
 ./src/externDefinitions.o \
 ./src/externalFuncs.o \
 ./src/hmm.o \
+./src/emm.o \
 ./src/index.o \
 ./src/lexicalTable.o \
 ./src/modelTemplate.o \
@@ -46,28 +57,34 @@ O_SRCS += \
 ./src/seqTracks.o \
 ./src/sequence.o \
 ./src/sequences.o \
-./src/simpleTrellis.o \
 ./src/state.o \
-./src/stochErr.o \
 ./src/stochMath.o \
-./src/stochasticTrellis.o \
 ./src/table.o \
 ./src/text.o \
 ./src/traceback_path.o \
 ./src/track.o \
 ./src/transitions.o \
-./src/trellis.o \
-./src/trellisCells.o \
 ./src/userFunctions.o \
 ./src/weight.o 
 
 CPP_SRCS += \
 ./src/StochHMM.cpp \
-./src/basicTrellis.cpp \
-./src/emm.cpp \
+./src/PDF.cpp \
+./src/trellis.cpp \
+./src/viterbi.cpp \
+./src/stoch_viterbi.cpp \
+./src/stoch_forward.cpp \
+./src/nth_best.cpp \
+./src/stochTable.cpp \
+./src/backward.cpp \
+./src/forward.cpp \
+./src/baum_welch.cpp \
+./src/forward_viterbi.cpp \
+./src/posterior.cpp \
 ./src/externDefinitions.cpp \
 ./src/externalFuncs.cpp \
 ./src/hmm.cpp \
+./src/emm.cpp \
 ./src/index.cpp \
 ./src/lexicalTable.cpp \
 ./src/modelTemplate.cpp \
@@ -76,28 +93,34 @@ CPP_SRCS += \
 ./src/seqTracks.cpp \
 ./src/sequence.cpp \
 ./src/sequences.cpp \
-./src/simpleTrellis.cpp \
 ./src/state.cpp \
-./src/stochErr.cpp \
 ./src/stochMath.cpp \
-./src/stochasticTrellis.cpp \
 ./src/table.cpp \
 ./src/text.cpp \
 ./src/traceback_path.cpp \
 ./src/track.cpp \
 ./src/transitions.cpp \
-./src/trellis.cpp \
-./src/trellisCells.cpp \
 ./src/userFunctions.cpp \
 ./src/weight.cpp 
 
 OBJS += \
 ./src/StochHMM.o \
-./src/basicTrellis.o \
-./src/emm.o \
+./src/PDF.o \
+./src/trellis.o \
+./src/viterbi.o \
+./src/stoch_viterbi.o \
+./src/stoch_forward.o \
+./src/nth_best.o \
+./src/stochTable.o \
+./src/backward.o \
+./src/forward.o \
+./src/baum_welch.o \
+./src/forward_viterbi.o \
+./src/posterior.o \
 ./src/externDefinitions.o \
 ./src/externalFuncs.o \
 ./src/hmm.o \
+./src/emm.o \
 ./src/index.o \
 ./src/lexicalTable.o \
 ./src/modelTemplate.o \
@@ -106,28 +129,34 @@ OBJS += \
 ./src/seqTracks.o \
 ./src/sequence.o \
 ./src/sequences.o \
-./src/simpleTrellis.o \
 ./src/state.o \
-./src/stochErr.o \
 ./src/stochMath.o \
-./src/stochasticTrellis.o \
 ./src/table.o \
 ./src/text.o \
 ./src/traceback_path.o \
 ./src/track.o \
 ./src/transitions.o \
-./src/trellis.o \
-./src/trellisCells.o \
 ./src/userFunctions.o \
 ./src/weight.o 
 
 CPP_DEPS += \
 ./src/StochHMM.d \
-./src/basicTrellis.d \
-./src/emm.d \
+./src/PDF.d \
+./src/trellis.d \
+./src/viterbi.d \
+./src/stoch_viterbi.d \
+./src/stoch_forward.d \
+./src/nth_best.d \
+./src/stochTable.d \
+./src/backward.d \
+./src/forward.d \
+./src/baum_welch.d \
+./src/forward_viterbi.d \
+./src/posterior.d \
 ./src/externDefinitions.d \
 ./src/externalFuncs.d \
 ./src/hmm.d \
+./src/emm.d \
 ./src/index.d \
 ./src/lexicalTable.d \
 ./src/modelTemplate.d \
@@ -136,18 +165,13 @@ CPP_DEPS += \
 ./src/seqTracks.d \
 ./src/sequence.d \
 ./src/sequences.d \
-./src/simpleTrellis.d \
 ./src/state.d \
-./src/stochErr.d \
 ./src/stochMath.d \
-./src/stochasticTrellis.d \
 ./src/table.d \
 ./src/text.d \
 ./src/traceback_path.d \
 ./src/track.d \
 ./src/transitions.d \
-./src/trellis.d \
-./src/trellisCells.d \
 ./src/userFunctions.d \
 ./src/weight.d 
 
