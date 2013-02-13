@@ -40,14 +40,14 @@
 #include "newStochHMM_Usage.h"
 using namespace StochHMM;
 
+void import_model(model&);
+void import_sequence(model&);
+
 void perform_viterbi_decoding(model* hmm, sequences* seqs);
 void perform_nbest_decoding(model* hmm, sequences* seqs);
 void perform_posterior(model* hmm, sequences* seqs);
 void perform_stochastic_decoding(model* hmm, sequences* seqs);
 
-
-void import_model(model&);
-void import_sequence(model&);
 
 traceback_path* perform_traceback(trellis&);
 multiTraceback* perform_stochastic_traceback(trellis&);
@@ -66,6 +66,7 @@ opt_parameters commandline[]={
 	//Required
     {"-model:-m"    ,OPT_STRING     ,true   ,"",    {}},
     {"-seq:-s:-track",OPT_STRING    ,true   ,"",    {}},
+	{"-fastq"		,OPT_NONE		,false	,"",	{}},
 	//Debug
     {"-debug:-d"    ,OPT_FLAG		,false  ,"",    {"model","seq","paths"}},
 	//Non-Stochastic Decoding
@@ -128,7 +129,6 @@ int main(int argc, const char * argv[])
 			return 0;
 		}
 		else if(opt.isSet("-viterbi")){
-			//Perform decoding
 			perform_viterbi_decoding(job->getModel(), job->getSeqs());
 		}
 		else if (opt.isSet("-nbest")){
@@ -137,8 +137,6 @@ int main(int argc, const char * argv[])
 		else if (opt.isSet("-stochastic")){
 			perform_stochastic_decoding(job->getModel(), job->getSeqs());
 		}
-		
-		
 
 		job = jobs.getJob();
 	}
@@ -147,6 +145,7 @@ int main(int argc, const char * argv[])
     
 }
 
+//Import the model from file
 void import_model(model& hmm){
     if (!opt.isSet("-model")){
         std::cerr <<"No model file provided.\n" << usage << std::endl;
@@ -161,39 +160,76 @@ void import_model(model& hmm){
     }
 }
 
+//Load sequences from file (Default FASTA)
 void import_sequence(model& hmm){
     
     if (!opt.isSet("-seq")){
         std::cerr << "No sequence file provided.\n" << usage << std::endl;
     }
+	else if (opt.isSet("-fastq")){
+		jobs.loadSeqs(hmm,opt.sopt("-seq"),FASTQ);
+	}
     else{
         jobs.loadSeqs(hmm, opt.sopt("-seq"), FASTA);
     }
 }
 
+//Perform Viterbi decoding and print the output
+void perform_viterbi_decoding(model* hmm, sequences* seqs){
+    trellis trell(hmm,seqs);
+	trell.viterbi();
+	
+	traceback_path* tb(NULL);
+	tb = perform_traceback(trell);
+	print_output(tb, seqs->getHeader());
+    return;
+}
+
+//Perform nth-best decoding and print the output
+void perform_nbest_decoding(model* hmm, sequences* seqs){
+	trellis trell(hmm,seqs);
+	size_t nth = opt.iopt("-nbest");
+	
+	trell.naive_nth_viterbi(nth);
+	
+	for(size_t i=0;i<nth;i++){
+		traceback_path path(hmm);
+		trell.traceback_nth(path, i);
+		print_output(&path, seqs->getHeader());
+	}
+}
+
+
+//Perform stochastic decoding
 void perform_stochastic_decoding(model* hmm, sequences* seqs){
     
     
-    bool viterbi = (opt.isFlagSet("-stochastic", "viterbi") || opt.isSet("-viterbi")) ? true : false;
-    bool forward = (opt.isFlagSet("-stochastic", "forward")) ? true : false;
-    bool posterior = (opt.isFlagSet("-stochastic", "posterior")) ? true : false;
+    bool viterbi	= (opt.isFlagSet("-stochastic", "viterbi") || opt.isSet("-viterbi")) ? true : false;
+    bool forward	= (opt.isFlagSet("-stochastic", "forward")) ? true : false;
+    bool posterior	= (opt.isFlagSet("-stochastic", "posterior")) ? true : false;
 	
     trellis trell(hmm,seqs);
+	
+	int repetitions = opt.iopt("-rep");
     
     
     if (viterbi){
-		//TODO: stochashic_viterbi() should check model and choose the appropriate algorithm
-		//trell.naive_stochastic_viterbi();
 		trell.stochastic_viterbi();
+		multiTraceback paths;
+		trell.stochastic_traceback(paths, repetitions);
+		print_output(&paths, seqs->getHeader());
     }
     else if (forward){
-		//TODO: stochashic_forward() should check model and choose the appropriate algorithm
-		trell.naive_stochastic_forward();
-        //trell.stochastic_forward();
+		trell.stochastic_forward();
+		multiTraceback paths;
+		trell.stochastic_traceback(paths, repetitions);
+		print_output(&paths, seqs->getHeader());
     }
 	else if (posterior){
-		//TODO: posterior() should check model and choose the appropriate algorithm
 		trell.posterior();
+		multiTraceback paths;
+		trell.traceback_stoch_posterior(paths, repetitions);
+		print_output(&paths, seqs->getHeader());
 	}
     else{
         std::cerr << usage << "\nNo Stochastic decoding option set\n";
@@ -204,30 +240,7 @@ void perform_stochastic_decoding(model* hmm, sequences* seqs){
 }
 
 
-void perform_viterbi_decoding(model* hmm, sequences* seqs){
-    trellis trell(hmm,seqs);
-	//TODO: viterbi() should check model and choose the appropriate algorithm
-	trell.viterbi();
-	
-	traceback_path* tb(NULL);
-	tb = perform_traceback(trell);
-	print_output(tb, seqs->getHeader());
-    return;
-}
-
-void perform_nbest_decoding(model* hmm, sequences* seqs){
-	trellis trell(hmm,seqs);
-	size_t nth = opt.iopt("-nbest");
-	
-	trell.naive_nth_viterbi(nth);
-		
-	for(size_t i=0;i<nth;i++){
-		traceback_path path(hmm);
-		trell.traceback_nth(path, i);
-		print_output(&path, seqs->getHeader());
-	}
-}
-
+//Perform posterior decoding and print the output
 void perform_posterior(model* hmm, sequences* seqs){
 	trellis trell(hmm,seqs);
 	
@@ -245,6 +258,35 @@ void perform_posterior(model* hmm, sequences* seqs){
 	}
 	
 	return;
+}
+
+
+
+void print_output(multiTraceback* tb, std::string& header){
+    
+    tb->finalize();
+    
+    bool previous(true);
+    
+    if (opt.isSet("-hits")){
+        tb->print_hits();
+        previous=false;
+    }
+    
+    if (opt.isSet("-gff")){
+        tb->print_gff(header);
+        previous=false;
+    }
+    
+    if (opt.isSet("-label")){
+        tb->print_label();
+        previous=false;
+    }
+    
+    //Print path by default if nothing else is set
+    if (opt.isSet("-path") || previous){
+        tb->print_path();
+    }
 }
 
 
@@ -274,13 +316,16 @@ void print_output(traceback_path* tb, std::string& header){
     return;
 }
 
+
 traceback_path* perform_traceback(trellis& trell){
 	traceback_path* path = new(std::nothrow) traceback_path(trell.get_model());
 	trell.traceback(*path);
     return path;
 }
 
-
+//Print the posterior probabilities for each state at each position
+//Each state is in separate column
+//Each row is on different row
 void print_posterior(trellis& trell){
 	model* hmm = trell.getModel();
 	float_2D* table = trell.getPosteriorTable();
@@ -307,7 +352,7 @@ void print_posterior(trellis& trell){
 	
 	
 	std::cout <<"Posterior Probabilities Table\n";
-	std::cout <<"Model:\t" << hmm->getName();
+	std::cout <<"Model:\t" << hmm->getName() << "\n";
 	std::cout <<"Sequence:\t" << trell.getSeq()->getHeader() << "\n";
 	std::cout <<"Probability of Sequence from Forward: Natural Log'd\t" << trell.getForwardProbability() << "\n";
 	std::cout <<"Probability of Sequence from Backward:Natural Log'd\t" << trell.getBackwardProbability() << "\n";

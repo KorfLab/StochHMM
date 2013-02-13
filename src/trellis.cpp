@@ -372,6 +372,17 @@ namespace StochHMM {
 	}
 	
 	
+	void trellis::stochastic_traceback(multiTraceback& paths, size_t reps){
+		for(size_t i=0;i<reps;i++){
+			traceback_path pth(hmm);
+			stochastic_table->traceback(pth);
+			paths.assign(pth);
+		}
+		return;
+	}
+	
+	
+	
 	//TODO: Finish nth traceback function
 	void trellis::traceback_nth(traceback_path& path, size_t n){
 		if (seq_size == 0 || n > nth_size || (nth_traceback_table == NULL && naive_nth_scores == NULL)){

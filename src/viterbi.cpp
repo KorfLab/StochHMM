@@ -26,6 +26,9 @@ namespace StochHMM {
 		if (hmm->isBasic()){
 			simple_viterbi();
 		}
+		else{
+			sparse_complex_viterbi();
+		}
 	}
 	
 	void trellis::simple_viterbi(model* h, sequences* sqs){
@@ -652,7 +655,8 @@ namespace StochHMM {
 		scoring_current = NULL;
 	}
 	
-	
+	//!Store transition in a table  (more memory, but faster than sparse complex)
+	//!Need testing and more develepment;
 	void trellis::fast_complex_viterbi(){
 		
 		//Initialize the traceback table

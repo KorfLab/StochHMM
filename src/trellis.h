@@ -250,14 +250,14 @@ namespace StochHMM{
 		void traceback_posterior(traceback_path& path);
 		
 		void traceback_stoch_posterior(traceback_path& path);
-		void traceback_stoch_posterior(multiTraceback&, size_t reps);
-		void traceback_stoch_forward(multiTraceback&,size_t);
-		void traceback_stoch_viterbi(multiTraceback&,size_t);
+		void traceback_stoch_posterior(multiTraceback& paths , size_t reps);
+		
+
+		
 		void traceback_nth_viterbi(multiTraceback&);
 		
 		void stochastic_traceback(traceback_path& path);
-
-		
+		void stochastic_traceback(multiTraceback&,size_t);
 		
 		
 		inline bool store(){return store_values;}
