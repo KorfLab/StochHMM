@@ -1,37 +1,37 @@
 //state.cpp
- //Copyright (c) 2007-2012 Paul C Lott 
- //University of California, Davis
- //Genome and Biomedical Sciences Facility
- //UC Davis Genome Center
- //Ian Korf Lab
- //Website: www.korflab.ucdavis.edu
- //Email: lottpaul@gmail.com
- //
- //Permission is hereby granted, free of charge, to any person obtaining a copy of
- //this software and associated documentation files (the "Software"), to deal in
- //the Software without restriction, including without limitation the rights to
- //use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
- //the Software, and to permit persons to whom the Software is furnished to do so,
- //subject to the following conditions:
- //
- //The above copyright notice and this permission notice shall be included in all
- //copies or substantial portions of the Software.
- //
- //THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- //IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- //FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- //COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- //IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//Copyright (c) 2007-2012 Paul C Lott
+//University of California, Davis
+//Genome and Biomedical Sciences Facility
+//UC Davis Genome Center
+//Ian Korf Lab
+//Website: www.korflab.ucdavis.edu
+//Email: lottpaul@gmail.com
+//
+//Permission is hereby granted, free of charge, to any person obtaining a copy of
+//this software and associated documentation files (the "Software"), to deal in
+//the Software without restriction, including without limitation the rights to
+//use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+//the Software, and to permit persons to whom the Software is furnished to do so,
+//subject to the following conditions:
+//
+//The above copyright notice and this permission notice shall be included in all
+//copies or substantial portions of the Software.
+//
+//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+//FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+//COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+//IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+//CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include "state.h"
 namespace StochHMM{
-
+	
     //!Create a state object
     state::state():stateIterator(SIZE_MAX),endi(NULL){
         transi = new std::vector<transition*>;
     }
-
+	
     //!Create a state from string
     //! Parses the string to create a state
     //! \param txt String representation of a state
@@ -52,18 +52,18 @@ namespace StochHMM{
     }
     
     
-
-//state::state(int size){
-//	name="";
-//	gff="";
-//	label="";
-//	endi=new transitions(STANDARD);
-//	for (int i=0;i<size;i++){
-//		//trans.push_back(0);
-//		//log_trans.push_back(MIN);
-//		transi.push_back(initial);
-//	}
-//}
+	
+	//state::state(int size){
+	//	name="";
+	//	gff="";
+	//	label="";
+	//	endi=new transitions(STANDARD);
+	//	for (int i=0;i<size;i++){
+	//		//trans.push_back(0);
+	//		//log_trans.push_back(MIN);
+	//		transi.push_back(initial);
+	//	}
+	//}
     
     
     //!Parses state from string
@@ -91,7 +91,7 @@ namespace StochHMM{
         if (!_parseHeader(header)){
             return false;
         }
-       
+		
         
         //Extract and Parse Transition Information
         std::string trans = (emissionInfo==std::string::npos) ? txt.substr(transitionsInfo) : txt.substr(transitionsInfo, emissionInfo - transitionsInfo);
@@ -112,7 +112,7 @@ namespace StochHMM{
         else{
             //Check name is INIT.   Only INIT state can not have an emission
             if (name.compare("INIT")!=0){
-                std::cerr << "No emission defined for State: " << name << std::endl; 
+                std::cerr << "No emission defined for State: " << name << std::endl;
                 return false;
             }
         }
@@ -121,7 +121,7 @@ namespace StochHMM{
     }
     
     //!Parse the state header information and assign to class variables
-    //!Required header information includes then NAME and PATH_LABEL 
+    //!Required header information includes then NAME and PATH_LABEL
     //!Optonal header information includes GFF_DESC
     //! \param txt String representation of state header
     bool state::_parseHeader(std::string& txt){
@@ -183,7 +183,7 @@ namespace StochHMM{
                 return false;
             }
         }
-            
+		
         return true;
     }
     
@@ -212,7 +212,7 @@ namespace StochHMM{
             
             //DETERMINE TYPE
             transType tp;
-            if (head.contains("STANDARD")){tp=STANDARD;} 
+            if (head.contains("STANDARD")){tp=STANDARD;}
             else if (head.contains("DURATION")){tp=DURATION;}
             else if (head.contains("LEXICAL")){tp=LEXICAL;}
             else{
@@ -227,7 +227,7 @@ namespace StochHMM{
             else if (head.contains("LOG")){valtyp=LOG_PROB;}
             else if (head.contains("COUNTS")){valtyp=COUNTS;}
             else {
-                std::cerr << "Unrecognized Transition value type( P(X), LOG, COUNTS): " << txt << std::endl; 
+                std::cerr << "Unrecognized Transition value type( P(X), LOG, COUNTS): " << txt << std::endl;
                 return false;
                 //Error not recognized value type
             }
@@ -261,7 +261,7 @@ namespace StochHMM{
                 }
                 
             }
-
+			
             else if (tp==DURATION || tp==LEXICAL ){
                 transition* temp = new(std::nothrow) transition(tp);
                 
@@ -322,7 +322,7 @@ namespace StochHMM{
     
     
     //Get a string representation for the state
-    //! \return std::string 
+    //! \return std::string
     std::string state::stringify(){
         std::string stateString;
         stateString+="STATE:\n";
@@ -404,16 +404,16 @@ namespace StochHMM{
         
         return stateString;
     }
-
+	
     //! Get the emission value from a state at a particular position in the sequence
     //! \param seqs Sequences the model is analyzing
     //! \param iter Position in the sequence
-    double state::get_emission(sequences &seqs, size_t iter){
+    double state::get_emission_prob(sequences &seqs, size_t iter){
         double value=0;
         for(int i=0;i<emission.size();i++){
-    #ifdef DEBUG_VERBOSE
+#ifdef DEBUG_VERBOSE
             //cout << i << "\t" << emission[i].get_emission(seqs,iter) << endl;
-    #endif
+#endif
             
             value+=emission[i]->get_emission(seqs,iter);  //Pass sequences type to get_emission for each emission in the state
         }
@@ -425,11 +425,14 @@ namespace StochHMM{
     //! \param seqs Sequences the model is analyzing
     //! \param to State that transition is being calculated to
     //! \param iter Position in the sequence
-    double state::get_trans(sequences &seqs, int to, int iter){
+    double state::get_transition_prob(sequences &seqs, size_t to, size_t iter){
         double value;
         
-        if ((*transi)[to]->transition_type==STANDARD){
-            value=(*transi)[to]->log_trans;
+        if ((*transi)[to]==NULL){
+            return -INFINITY;
+        }
+        else if ((*transi)[to]->transition_type==STANDARD){
+            value = (*transi)[to]->log_trans;
         }
         else{
             std::cerr << "Need to implement this functionality" <<std::endl;
@@ -441,11 +444,14 @@ namespace StochHMM{
     
     //! Get the log probability transitioning to end from the state
     double state::getEndTrans(){
+        if (endi==NULL){
+            return -INFINITY;
+        }
         return endi->log_trans;
     }
     
-    //TODO: complete teh checkLabels function
-    //! Checks the label tags for traceback and combine identifiers 
+    //TODO: complete the checkLabels function
+    //! Checks the label tags for traceback and combine identifiers
     void state::checkLabels(std::set<std::string>& labels, std::set<std::string>& gff, std::set<std::string>& name){
         for(size_t i = 0;i<(*transi).size();i++){
             transitionFuncParam* func = (*transi)[i]->getExtFunction();
@@ -495,7 +501,7 @@ namespace StochHMM{
                         }
                     }
                 }
-
+				
             }
         }
         
@@ -505,14 +511,16 @@ namespace StochHMM{
     
     /* On initial import of the states they are pushed on the transi vector in
      the order written in model.   However, the analysis requires that they be
-     in the particular position defined by state iterator.  
+     in the particular position defined by state iterator.
      
      This function puts the transitions in the proper order for analysis
      */
     void state::_finalizeTransitions(std::map<std::string,state*>& state_index){
+		
+		//Get size # of states, but correct by -1 because
+		//initial state will be kept separate.
         size_t number_of_states = state_index.size();
-        
-        std::vector<transition*>* fixed_trans = new std::vector<transition*>(number_of_states,NULL);
+        std::vector<transition*>* fixed_trans = new std::vector<transition*>(number_of_states-1,NULL);
         
         //Find the proper place for the transition and put it in the correct position
         for(size_t i = 0; i < transi->size(); i++){
@@ -528,4 +536,38 @@ namespace StochHMM{
         transi = fixed_trans;
         return;
     }
+	
+	
+	bool state::hasComplexEmission(){
+		for(size_t i=0; i < emission.size() ; ++i){
+			if (emission[i]->isComplex()){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
+	
+	bool state::hasComplexTransition(){
+		for(size_t i=0;i<(*transi).size();++i){
+			
+			if ((*transi)[i]==NULL){
+				continue;
+			}
+			
+			if ((*transi)[i]->isComplex()){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	bool state::isSimple(){
+		if (!hasComplexEmission() && ! hasComplexTransition()){
+			return true;
+		}
+		return false;
+	}
+	
 }

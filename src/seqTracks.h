@@ -56,7 +56,7 @@ namespace StochHMM{
     
     //!\enum enum SeqFileFormat {FASTA,  FASTQ};
     //!File format of the sequences
-    enum SeqFileFormat {FASTA,  FASTQ};
+    enum SeqFileFormat {FASTA, FASTQ};
     
     //!\enum enum SeqFilesType {SINGLE, MULTI};
     //!Sequence files have single track or multiple track sequences per file
@@ -89,8 +89,10 @@ namespace StochHMM{
         //Constructor
         seqTracks();
         
+		
         //Single Model, Single Seq File
-        seqTracks(model&, std::string&, SeqFileFormat);
+		seqTracks(model&, std::string&);
+		seqTracks(model&, std::string&, SeqFileFormat);
         seqTracks(model&, std::string&, SeqFileFormat, TrackFuncs*);
         
         //Single Model, Multiple Seq File)
@@ -113,6 +115,7 @@ namespace StochHMM{
         //MUTATORS
                 
         ////////////////  Single Model , Single Sequence File  ////////////////////////
+		bool loadSeqs(model&, std::string&);
         bool loadSeqs(model&, std::string&, SeqFileFormat); // <-Main Function
         bool loadSeqs(model&, std::string&, SeqFileFormat, TrackFuncs*); // <-Main Function
         

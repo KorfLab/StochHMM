@@ -32,15 +32,30 @@
 #include <map>
 #include <string>
 #include <vector>
+#include "PDF.h"
 namespace StochHMM{
 
     
-    //!\typedef Pointer to function that takes int, string ptr, string ptr
+    //! \typedef Pointer to function that takes int, string ptr, string ptr
     //typedef double  (*pt2StateFunc) (const std::string*, const std::string*, size_t);
     typedef double  (*transitionFunc) (const std::string*, const size_t, const std::string*, const size_t);
-    
+	
+	//! \typdef emissionFunc
+	//! \brief Pointer to emmission function
+	//! Passed a string and position as size_t
     typedef double  (*emissionFunc) (const std::string*, const size_t);
-    
+	
+	//! \typedef pdfFunc
+	//! \brief Pointer to Univariate Continuous Probability Density Function
+	//! \param[in] double Given value
+	//! \param[in] std::vector<double>* Paramenters for PDF
+	typedef double	(*pdfFunc)(const double, const std::vector<double>*);
+	
+	//! \typedef multiPdfFunc
+	//! Pointer to function that takes reference to array that contains emission
+	//! multiple REAL_NUMBER values. 
+	typedef double	(*multiPdfFunc)(const std::vector<double>&);
+	
 
     //!\typedef Pointer to Function that takes a string and returns a vector<float>
     typedef std::vector<double>* (*pt2TrackFunc) (const std::string*);
@@ -48,26 +63,44 @@ namespace StochHMM{
     //!\typedef Pointer to function that takes a string and returns a double
     typedef double (*pt2Attrib) (const std::string*);
 
-    //The map stores the pointers to the different functions by const char* word.
-    //!Allows the user to create and integrate their own functions into the model
-    //!By specifying the name in the model, and assigning the ptr in the externalFuncs class.
-    //!At any State or transition their function will be called and return float
-    //!The float will then be applied in the trellis added* to transition or emission.   (**Adding in log space)
+    //! The map stores the pointers to the different functions by const char* word.
+    //! Allows the user to create and integrate their own functions into the model
+    //! By specifying the name in the model, and assigning the ptr in the externalFuncs class.
+    //! At any State or transition their function will be called and return float
+    //! The float will then be applied in the trellis added to transition or emission.
+	//! (**Adding in log space)
 
-    //!\class StateFuncs
-    //!Stores pointers to user functions used by the State's Emissions and Transitions
+    //! \class StateFuncs
+    //! Stores pointers to user functions used by the State's Emissions and Transitions
     class StateFuncs{
     public:
+		StateFuncs();
         
         void assignTransitionFunction(std::string&, transitionFunc);
-        void assignEmmissionFunction(std::string&, emissionFunc);
+        void assignTransitionFunction(const char*,  transitionFunc);
+		
+		void assignEmmissionFunction(std::string&, emissionFunc);
+		void assignEmmissionFunction(const char*,  emissionFunc);
+
+		void assignPDFFunction(std::string&, pdfFunc);
+		void assignPDFFunction(const char*,  pdfFunc);
+
+		void assignMultivariatePdfFunction(std::string&, multiPdfFunc);
+		void assignMultivariatePdfFunction(const char*,  multiPdfFunc);
+		
+		void loadUnivariatePdf();
         
         transitionFunc* getTransitionFunction(std::string&);
         emissionFunc* getEmissionFunction(std::string&);
+		pdfFunc* getPDFFunction(std::string&);
+		multiPdfFunc* getMultivariatePdfFunction(std::string&);
+		
         
     private:
         std::map<std::string, transitionFunc> transitionFunctions;
-        std::map<std::string, emissionFunc> emissionFunctions;
+        std::map<std::string, emissionFunc> emissionFunctions; 
+		std::map<std::string, pdfFunc> pdfFunctions; //For continuous emissions
+		std::map<std::string, multiPdfFunc> multiPdfFunctions;
     };
 
 

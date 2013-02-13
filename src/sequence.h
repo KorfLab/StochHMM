@@ -45,6 +45,8 @@
 namespace StochHMM{
     //! \class sequence
     //! Contains individual sequence information and functions to deal with importing and digitizing the sequence
+	//! Sequence can be either real numbers (double values)  or sequence(characters or words) discrete values
+	//! class sequence supports 255 discrete values.
     class sequence{
     public:
         
@@ -97,7 +99,7 @@ namespace StochHMM{
         inline bool exDefDefined(){if (external){return true;} return false;};
         
         double realValue(size_t);  // Returns Sequence Value at position
-        short  seqValue (size_t);  // Returns Digitized Value at position
+        uint8_t  seqValue (size_t);  // Returns Digitized Value at position
         //char   charValue(size_t);  // Returns Alpha Character Value at position
         
         //!Get the size of the sequence
@@ -147,8 +149,10 @@ namespace StochHMM{
         bool reverse();
         
         bool digitize();
+		
+		inline std::vector<uint8_t>* getDigitalSeq(){return seq;}
         
-        
+        inline uint8_t operator[](size_t index){return (*seq)[index];}
         //void getNext (std::ifstream&, track*);
         
         // Digitizes the character sequence using the track alphabet
@@ -168,17 +172,15 @@ namespace StochHMM{
                                  //Stores defined states for given sequence 
 
         // FIXME:: DIGITIZED SEQUENCES STORED AS SHORT.  NEED TO STANDARDIZE BOTH TRACK AND SEQUENCE CLASS (Track stores as (int) but sequence stores as short.
-        std::vector<short>* seq; // Digitized Sequence
+        std::vector<uint8_t>* seq; // Digitized Sequence
         std::vector<double>* real; // Real Number Sequence
         std::vector<int>* mask; //Stores State masking information for training
-        int max_mask;
+        int max_mask;  //Maximum mask number
         
         
         std::string undigitized;  //Undigitized sequence
         
         bool _digitize();  //Digitize the sequence
-        
-
     };
     
     

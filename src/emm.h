@@ -43,85 +43,107 @@
 namespace StochHMM{
 
 
-/*! Emissions for model
- Contains the emission definition. Each emissions contains the probability, the log(p(x), and counts
- Counts are used for calculating lower order emissions from higher order.  This is only applicable
- at the beginning of the sequence.  
- Each emission depends on some track or function, an emission can have multiple tracks.
- Or in other words output a single character from each track it is associated with.
- Tracks can be either alphabetic, real numbers values.
- Emissions can also call an external function that is user defined.
- If ambiguity is defined in the alphabet, the emission score can be defined as such
- If ambiguity is not defined the returned value will be -INFINITY
- */
+	/*! Emissions for model
+	 Contains the emission definition. Each emissions contains the probability, the log(p(x), and counts
+	 Counts are used for calculating lower order emissions from higher order.  This is only applicable
+	 at the beginning of the sequence.  
+	 Each emission depends on some track or function, an emission can have multiple tracks.
+	 Or in other words output a single character from each track it is associated with.
+	 Tracks can be either alphabetic, real numbers values.
+	 Emissions can also call an external function that is user defined.
+	 If ambiguity is defined in the alphabet, the emission score can be defined as such
+	 If ambiguity is not defined the returned value will be -INFINITY
+	 */
 
-class emm{
-public:
-    emm(); //!Constructs an empty emission
-    emm(std::string&); //!Constructs emission from a string;
-    
-    ~emm();
-    
-    friend class state;
-    friend class model;
-    
-    //MUTATORS
-    bool parse(std::string&, tracks&, weights*, StateFuncs* );
-    
-    //!Set the emission to a Real Number
-    inline void setRealNumber(){real_number=true;};
-    
-    //!Set the emission to be the complement 1-P of given value
-    inline void setComplement(){complement=true;};
-    
-    void setLexicalFunction(emissionFunc*);
-    
-    //ACCESSORS
-    
-    bool isReal();
-    
-    //!Check to see if emission will return the complement (1-P) value of emission
-    inline bool isComplement(){return complement;};
-    
-	double get_emission(sequences& , size_t );
-    
-    //! Get the external Functions defined for the emission
-    //! \return externalFuncs*
-    inline emissionFuncParam* getExtFunction(){return tagFunc;};
-    
-    //! Print the string representation of the emission to stdout
-    inline void print(){std::cout << stringify()<<std::endl;};
-    
-    std::string stringify();
-            
-private:
-    
-    //size_t track_size;
-    bool real_number;
-    
-    bool continuous;
-    
-    bool complement;
-    
-    track* realTrack;
-    
-    
-    //Lexical Scoring Tables
-    lexicalTable scores;
-    
-    
-    //Lexical Function Only
-    bool function;
-    emissionFuncParam* lexFunc;
-    
-    
-    //TODO:  Implement the external Function capabilities
-    emissionFuncParam* tagFunc;
-    
-    //Private Methods
-    bool _processTags(std::string&, tracks&, weights*, StateFuncs*);
-        
-};
+	class emm{
+	public:
+		emm(); //!Constructs an empty emission
+		emm(std::string&); //!Constructs emission from a string;
+		
+		~emm();
+		
+		friend class state;
+		friend class model;
+		
+		//MUTATORS
+		bool parse(std::string&, tracks&, weights*, StateFuncs* );
+		
+		//!Set the emission to a Real Number
+		inline void setRealNumber(){real_number=true;};
+		
+		//!Set the emission to be the complement 1-P of given value
+		inline void setComplement(){complement=true;};
+		
+		void setLexicalFunction(emissionFunc*);
+		
+		//ACCESSORS
+		
+		bool isReal();
+		
+		//!Check to see if emission will return the complement (1-P) value of emission
+		inline bool isComplement(){return complement;};
+		
+		double get_emission(sequences& , size_t );
+		
+		//! Get the external Functions defined for the emission
+		//! \return externalFuncs*
+		inline emissionFuncParam* getExtFunction(){return tagFunc;};
+		
+		//! Print the string representation of the emission to stdout
+		inline void print(){std::cout << stringify()<<std::endl;};
+		
+		std::string stringify();
+		
+		inline lexicalTable* getTables(){return &scores;};
+		inline bool isSimple(){
+			if (!function && tagFunc==NULL){return true;}
+			return false;
+		}
+		
+		inline bool isComplex(){
+			if (function || tagFunc){return true;}
+			return false;
+		}
+		
+	private:
+		
+		//size_t track_size;
+		bool real_number;
+		bool continuous;
+		bool multi_continuous;
+		bool complement;
+		
+		track* realTrack;
+		
+		//Lexical Scoring Tables
+		lexicalTable scores;
+		
+		//Lexical Function Only
+		bool function;
+		emissionFuncParam* lexFunc;
+		
+		//Continuous Univariate Distribution
+		pdfFunc* pdf;
+		std::string pdfName;
+		std::vector<double>* dist_parameters;
+		
+		
+		//TODO: Implement Continuous Multivariate Distributions
+		//Continuous Multivariate Distribution
+		multiPdfFunc* multiPdf;			//Pointer to multivariate function
+		std::string multiPdfName;		//Name of function according to StateFuncs
+		size_t number_of_tracks;		//Number of tracks in multi-emission
+		std::vector<track*>* trcks;		//Tracks used
+		std::vector<size_t>* track_indices; //Indices of tracks used
+		std::vector<double>* pass_values;  //Array to pass values to multivariate function
+		
+		//TODO:  Implement the external Function capabilities
+		emissionFuncParam* tagFunc;
+		
+		//Private Methods
+		bool _processTags(std::string&, tracks&, weights*, StateFuncs*);
+			
+	};
 
 }
 #endif /*EMM_H*/

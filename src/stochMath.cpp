@@ -30,174 +30,6 @@
 namespace StochHMM{
 
     
-    double addLog(double& first, double& second){
-        //cout << first <<endl;
-        //cout << second <<endl;
-        if (first==-INFINITY){
-            return second;
-        }
-        else if (second==-INFINITY){
-            return first;
-        }
-        else if (first>second){
-            return first+log(1+exp(second-first));
-        }
-        else{
-            return second+log(1+exp(first-second));
-        }
-    }
-    
-    //----------------------------------------------------------------------------//
-    // Description: addVectorCombinatorial                                                              
-    // Adds the values of vectors combinatorial
-    // Example [ 1 4 ] + [ 2 7 ] = [ 2 6 8 11 ] 
-    // 
-    //----------------------------------------------------------------------------//
-    void addVectorCombinatorial(std::vector<int>& result, std::vector<int>& lhs, std::vector<int>& rhs){
-        
-        if (result.size()>0){
-            result.clear();
-        }
-        
-        //If either vector is empty then return copy of the other
-        if (lhs.size()==0){
-            result.assign(rhs.begin(),rhs.end());
-            return;
-        }
-        else if (rhs.size()==0){
-            result.assign(lhs.begin(),lhs.end());
-            return;
-        }
-        
-        for(size_t i=0;i<lhs.size();i++){
-            for(size_t j=0;j<rhs.size();j++){
-                result.push_back(lhs[i]+rhs[j]);
-            }
-        }
-        return;
-    }
-    
-    
-    void addVectorCombinatorial(std::vector<double>& result, std::vector<double>& lhs, std::vector<double>& rhs){
-        if (result.size()>0){
-            result.clear();  //Make sure result is empty
-        }
-        
-        //If either vector is empty then return copy of the other
-        if (lhs.size()==0){
-            result.assign(rhs.begin(),rhs.end());
-            return;
-        }
-        else if (rhs.size()==0){
-            result.assign(lhs.begin(),lhs.end());
-            return;
-        }
-        
-        for(size_t i=0;i<lhs.size();i++){
-            for(size_t j=0;j<rhs.size();j++){
-                result.push_back(lhs[i]+rhs[j]);
-            }
-        }
-        return;
-    }
-    
-    
-    void multiplyVectorCombinatorial(std::vector<double>& result, std::vector<double>&lhs, std::vector<double>&rhs){
-        if (result.size()>0){
-            result.clear();
-        }
-        
-        //If either vector is empty then return copy of the other
-        if (lhs.size()==0){
-            result.assign(rhs.begin(),rhs.end());
-            return;
-        }
-        else if (rhs.size()==0){
-            result.assign(lhs.begin(),lhs.end());
-            return;
-        }
-        
-        for(size_t i=0;i<lhs.size();i++){
-            for(size_t j=0;j<rhs.size();j++){
-                result.push_back(lhs[i]*rhs[j]);
-            }
-        }
-        return;
-    }
-    
-    void multiplyVectorCombinatorial(std::vector<int>& result, std::vector<int>&lhs, std::vector<int>&rhs){
-        if (result.size()>0){
-            result.clear();
-        }
-        
-        //If either vector is empty then return copy of the other
-        if (lhs.size()==0){
-            result.assign(rhs.begin(),rhs.end());
-            return;
-        }
-        else if (rhs.size()==0){
-            result.assign(lhs.begin(),lhs.end());
-            return;
-        }
-        
-        
-        for(size_t i=0;i<lhs.size();i++){
-            for(size_t j=0;j<rhs.size();j++){
-                result.push_back(lhs[i]*rhs[j]);
-            }
-        }
-        return;
-    }
-    
-    
-    void addValueToVector(std::vector<int>& vec, int value){
-        for(size_t i=0;i<vec.size();i++){
-            vec[i]+=value;
-        }
-        return;
-    }
-    
-    void addValueToVector(std::vector<double>& vec, double value){
-        for(size_t i=0;i<vec.size();i++){
-            vec[i]+=value;
-        }
-        return;
-    }
-    
-    
-    void multiplyValueToVector(std::vector<double>& vec, double value){
-        for(size_t i=0;i<vec.size();i++){
-            vec[i]*=value;
-        }
-        return;
-    }
-    
-    void multiplyValueToVector(std::vector<int>& vec, int value){
-        for(size_t i=0;i<vec.size();i++){
-            vec[i]*=value;
-        }
-        return;
-    }
-    
-    
-    void divideValueToVector(std::vector<int>& vec, int value){
-        for(size_t i=0;i<vec.size();i++){
-            vec[i]/=value;
-        }
-        return;
-    }
-    
-    
-    void divideValueToVector(std::vector<double>& vec, double value){
-        for(size_t i=0;i<vec.size();i++){
-            vec[i]/=value;
-        }
-        return;
-    }
-    
-    
-    
-    
     void generateUnknownIndices(std::vector<int>& results, int alphabetSize, int order ,int value){
         results.assign(alphabetSize,0);
         for (int i=0;i<alphabetSize;i++){
@@ -205,60 +37,7 @@ namespace StochHMM{
         }
         return;
     }
-    
-    
-    
-    double sumVector(std::vector<double>& data){
-        double sum=0;
-        for(size_t i=0;i<data.size();i++){
-            sum+=data[i];
-        }
-        return sum;
-    }
-    
-    
-    
-    double minVector(std::vector<double>& data){
-        return *min_element(data.begin(), data.end()); 
-    }
-    
-    
-    double maxVector(std::vector<double>& data){
-        return *max_element(data.begin(), data.end());
-    }
-    
-    
-    double avgVector(std::vector<double>& data){
-        return sumVector(data) / double(data.size());
-    }
-    
-    void logVector(std::vector<double>& data){
-        for(size_t i=0;i<data.size();i++){
-            data[i]=log(data[i]);
-        }
-        return;
-    }
-    
-    void expVector(std::vector<double>& data){
-        for(size_t i=0;i<data.size();i++){
-            data[i]=exp(data[i]);
-        }
-        return;
-    }
-    
-    void probVector(std::vector<double>& data){
-        double sum=sumVector(data);
-        for(size_t iter=0;iter<data.size();iter++){
-            if (sum==0){
-                data[iter]=0;
-            }
-            else{
-                data[iter]/=sum;
-            }
-        }
-        return;
-    }
-    
+
     
     //Linear interpolation of y value given two pair<x,y> and x value
     double interpolate(std::pair<double,double>& a, std::pair<double,double>& b, double& cx){
@@ -273,67 +52,7 @@ namespace StochHMM{
         return a.second+((cx-a.first)/(b.first-a.first))*(b.second-a.second);
     }
     
-    
-    template <class T>
-	T min(std::vector<T> &set){
-		T min =set[0];
-		for(long i=set.size()-1;i>0;i--){
-			if (set[i]<min){ min=set[i];}
-		}
-		return min;
-    }
-    
-    template <class T>
-	T max(std::vector<T> &set){
-		T max=set[0];
-		for(long i=set.size()-1;i>0;i--){
-			if (set[i]>max){ max=set[i];}
-		}
-		return min;
-    }
-    
-    template <class T>
-	T construct_histogram (std::vector<T> &set,int N_bins){
-		T mini=min(set);
-		T maxi=max(set);
-		T delta=(maxi-mini+1)/N_bins;
-        std::vector<T> bin (N_bins,0);
-		for(size_t i=set.size()-1;i>=0;i--){
-			T value=floor((set[i]-mini)/delta);
-			bin(value)=bin(value)+1/(set.size()*delta);
-		}
-		return bin;
-    }
-    
-    template <class T>
-	T smooth_histogram (std::vector<T> histo, int intervals, int window_size, int iterations){
-        std::vector<T> s_histo=histo;
-		for (int i=1;i<=iterations;i++){
-			for (int b=0;b<=intervals-window_size;b++){
-				int c=b+floor((window_size-1)/2);
-				s_histo[c]=0;
-				for (int j=b;j<=b+window_size-1;i++){
-					s_histo[c]=s_histo[c]+histo[j]/window_size;
-				}
-			}
-			for (int b=0;b<=((window_size-1)/2)-1;b++){
-				s_histo=s_histo[floor((window_size-1)/2)];
-			}
-			for (int b=intervals-window_size+1+floor((window_size-1)/2); b<=intervals-1;i++){
-				s_histo[b]=s_histo[intervals-window_size+floor((window_size-1) / 2)];
-			}
-			histo=s_histo;
-		}
-		T sum=0;
-		for (int b=0;b<=intervals-1;b++){
-			sum+=sum+s_histo[b];
-		}
-		for (int b=0;b<=intervals-1;b++){
-			s_histo[b]/=sum;
-		}
-		return s_histo;
-	}
-    
+    //Shannon's entropy
     float entropy (std::vector<float> &set){
         float entropy=0;
         for(size_t i=0;i<set.size();i++){
@@ -341,9 +60,34 @@ namespace StochHMM{
         }
         return entropy*-1;
     }
+	
+	//Shannon's entropy
+	double entropy (std::vector<double> &set){
+        double entropy=0;
+        for(size_t i=0;i<set.size();i++){
+            entropy+=set[i]*(log(set[i])/log(2));
+        }
+        return entropy*-1;
+    }
     
+	//Shannon's Relative Entropy (Kullback-Liebler Convergence)
+	//Normalized for A->B and B->A
     float rel_entropy (std::vector<float> &set, std::vector<float> &set2){
         float rel_entropy=0;
+        if (set.size()!=set2.size()){
+            std::cerr << "Distributions aren't the same size";
+        }
+        
+        for(size_t i=0;i<set.size();i++){
+            rel_entropy+=0.5*(set[i]* (log (set[i]/set2[i]) /log(2) )+set2[i]*(log(set2[i]/set[i])/log(2)));
+        }
+        return rel_entropy;
+    }
+	
+	//Shannon's Relative Entropy (Kullback-Liebler Convergence)
+	//Normalized for A->B and B->A
+	double rel_entropy (std::vector<double> &set, std::vector<double> &set2){
+        double rel_entropy=0;
         if (set.size()!=set2.size()){
             std::cerr << "Distributions aren't the same size";
         }
@@ -494,7 +238,7 @@ namespace StochHMM{
         return floor(f);
     }
     
-    
+    //Calculate the binomial coefficient
     double bin_coef (double n, double r){
         double c=0;
         for(int i=r+1;i<=n;i++) {c+=log(i);}

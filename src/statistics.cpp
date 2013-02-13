@@ -27,14 +27,6 @@
 #include "statistics.h"
 namespace StochHMM{
     
-    
-        
-    
-    
-    
-    
-    
-    
     template <class T>
     T min(std::vector<T> &set){
         T min =set[0];

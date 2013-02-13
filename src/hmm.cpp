@@ -1,31 +1,31 @@
 //hmm.cpp
- //Copyright (c) 2007-2012 Paul C Lott 
- //University of California, Davis
- //Genome and Biomedical Sciences Facility
- //UC Davis Genome Center
- //Ian Korf Lab
- //Website: www.korflab.ucdavis.edu
- //Email: lottpaul@gmail.com
- //
- //Permission is hereby granted, free of charge, to any person obtaining a copy of
- //this software and associated documentation files (the "Software"), to deal in
- //the Software without restriction, including without limitation the rights to
- //use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
- //the Software, and to permit persons to whom the Software is furnished to do so,
- //subject to the following conditions:
- //
- //The above copyright notice and this permission notice shall be included in all
- //copies or substantial portions of the Software.
- //
- //THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- //IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- //FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- //COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- //IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//Copyright (c) 2007-2012 Paul C Lott
+//University of California, Davis
+//Genome and Biomedical Sciences Facility
+//UC Davis Genome Center
+//Ian Korf Lab
+//Website: www.korflab.ucdavis.edu
+//Email: lottpaul@gmail.com
+//
+//Permission is hereby granted, free of charge, to any person obtaining a copy of
+//this software and associated documentation files (the "Software"), to deal in
+//the Software without restriction, including without limitation the rights to
+//use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+//the Software, and to permit persons to whom the Software is furnished to do so,
+//subject to the following conditions:
+//
+//The above copyright notice and this permission notice shall be included in all
+//copies or substantial portions of the Software.
+//
+//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+//FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+//COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+//IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+//CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "hmm.h"
 namespace StochHMM{
-
+	
     
     //! Import multiple models
     //! \param modelFile Path to multiple model file
@@ -44,9 +44,9 @@ namespace StochHMM{
         
         //Check file header for correct type
         getline(MOD, input, '\n');
-    #ifdef DEBUG_MODEL
+#ifdef DEBUG_MODEL
         std::cout << input <<std::endl;
-    #endif
+#endif
         if (input.compare("#STOCHHMM MODEL FILE")==0){
             MOD.close();
             model* temp= new(std::nothrow) model;
@@ -63,9 +63,9 @@ namespace StochHMM{
             std::vector<std::string> filenames;
             
             while (getline(MOD,input,'\n')){
-    #ifdef DEBUG_MODEL
+#ifdef DEBUG_MODEL
                 sd::cout << input <<endl;
-    #endif
+#endif
                 //Need to check input to make sure its valid;
                 //cout << input <<endl;
                 if (input.compare("")==0){
@@ -99,45 +99,45 @@ namespace StochHMM{
         }
         return;
     }
-
-
-// TODO:  Change to getModelByAttrib(); 
-//
-////----------------------------------------------------------------------------//
-//// Description: getGCModel(float gc)                                                             
-//// Returns a pointer to the model that has the closest GC range(calculated from 
-//// midpoint to the sequence's gc percentage
-//// 
-////----------------------------------------------------------------------------//
-//model* models::getGCModel(float gc){
-//    
-//    model *model=NULL;
-//    gc*=100.0f;  //Get percentage
-//    float min=100.0f;
-//    size_t minIterator=0;
-//    
-//    for(size_t iter=0; iter<models.size(); iter++){
-//        //get distance from midpoint to sequences GC%
-//        float start=models[iter]->getLowerRange();
-//        float stop=models[iter]->getUpperRange();
-//        float midpoint=(stop-start)/2.0f;
-//        midpoint+=start;
-//        
-//        float distance =fabs(midpoint - gc);  
-//        
-//        if (distance<min){  //if it is a minimum keep track of it
-//            minIterator=iter;
-//            min=distance;
-//        }
-//    }
-//    
-//    if (min<100.0f){   //If we've seen a min then return it else return NULL
-//        model=models[minIterator];
-//    }
-//    
-//    return model;   //return pointer to HMM
-//}
-
+	
+	
+	// TODO:  Change to getModelByAttrib();
+	//
+	////----------------------------------------------------------------------------//
+	//// Description: getGCModel(float gc)
+	//// Returns a pointer to the model that has the closest GC range(calculated from
+	//// midpoint to the sequence's gc percentage
+	////
+	////----------------------------------------------------------------------------//
+	//model* models::getGCModel(float gc){
+	//
+	//    model *model=NULL;
+	//    gc*=100.0f;  //Get percentage
+	//    float min=100.0f;
+	//    size_t minIterator=0;
+	//
+	//    for(size_t iter=0; iter<models.size(); iter++){
+	//        //get distance from midpoint to sequences GC%
+	//        float start=models[iter]->getLowerRange();
+	//        float stop=models[iter]->getUpperRange();
+	//        float midpoint=(stop-start)/2.0f;
+	//        midpoint+=start;
+	//
+	//        float distance =fabs(midpoint - gc);
+	//
+	//        if (distance<min){  //if it is a minimum keep track of it
+	//            minIterator=iter;
+	//            min=distance;
+	//        }
+	//    }
+	//
+	//    if (min<100.0f){   //If we've seen a min then return it else return NULL
+	//        model=models[minIterator];
+	//    }
+	//
+	//    return model;   //return pointer to HMM
+	//}
+	
     //!Get pointer to model at index position
     //! \param iter Index iterator for position
     //! \return pointer to model
@@ -149,7 +149,7 @@ namespace StochHMM{
             return NULL;
         }
     }
-
+	
     
     
     //!Create a model
@@ -163,31 +163,36 @@ namespace StochHMM{
         
         finalized=false;
         basicModel=true;
-        initial=NULL;
-        scaling=NULL;
-        templatedStates=NULL;
-        attribTwo=false;
+		attribTwo=false;
+
+        initial						= NULL;
+        scaling						= NULL;
+        templatedStates				= NULL;
+        explicit_duration_states	= NULL;
+		complex_emission_states		= NULL;
+		complex_transition_states	= NULL;
+		
         range[0]=-INFINITY;
         range[1]=-INFINITY;
         
         return;
     }
     
-//    //TODO: more model constructors based on additional templates and weights to pass to import/parse
-//    //!Create a model file
-//    //! \param modelFile Filename of model file
-//    //! \param funcs  Pointer to State functions defined by programmer
-//    model::model(std::string& modelFile, StateFuncs* funcs){
-//        ending=new state();
-//        finalized=false;
-//        basicModel=true;
-//        initial=NULL;
-//        scaling=NULL;
-//        templatedStates=NULL;
-//        attribTwo=false;
-//        import(modelFile,funcs);
-//        return;
-//    }
+	//    //TODO: more model constructors based on additional templates and weights to pass to import/parse
+	//    //!Create a model file
+	//    //! \param modelFile Filename of model file
+	//    //! \param funcs  Pointer to State functions defined by programmer
+	//    model::model(std::string& modelFile, StateFuncs* funcs){
+	//        ending=new state();
+	//        finalized=false;
+	//        basicModel=true;
+	//        initial=NULL;
+	//        scaling=NULL;
+	//        templatedStates=NULL;
+	//        attribTwo=false;
+	//        import(modelFile,funcs);
+	//        return;
+	//    }
     
     //TODO: multiple import function for templates and weights...
     //!Import the model file and parse it
@@ -209,15 +214,15 @@ namespace StochHMM{
         return parse(modelString,NULL,NULL,NULL);
     }
     
-
-    //!Parses text model file 
+	
+    //!Parses text model file
     //!Splits the model into sections that are then parsed by the individiual classes
-    //!parse() functions.    
+    //!parse() functions.
     bool model::parse(const std::string& model, StateFuncs* funcs, templates* tmpls, weights* scl ){
         
         templatedStates=tmpls;
         scaling=scl;
-
+		
         //std::cout << model <<std::endl;
         
         size_t header = model.find("MODEL INFORMATION");
@@ -243,7 +248,7 @@ namespace StochHMM{
             else if (nlCharNum!=std::string::npos){
                 nlChar=nlCharNum+5;
             }
-            else{  //No divider line 
+            else{  //No divider line
                 nlChar=model.find("\n",header);
                 nlChar++;
             }
@@ -270,7 +275,7 @@ namespace StochHMM{
             else if (nlCharNum!=std::string::npos){
                 nlChar=nlCharNum+5;
             }
-            else{  //No divider line 
+            else{  //No divider line
                 nlChar=model.find("\n",track);
                 nlChar++;
             }
@@ -286,10 +291,10 @@ namespace StochHMM{
             std::cerr << "Required section: TRACK SYMBOL DEFINITIONS missing from the model" << std::endl;
             return false;
         }
-    
-//        else{
-//            errorInfo(sMissingTrackDefinition, "Required section: TRACK SYMBOL DEFINITIONS missing from the model")
-//        }
+		
+		//        else{
+		//            errorInfo(sMissingTrackDefinition, "Required section: TRACK SYMBOL DEFINITIONS missing from the model")
+		//        }
         
         //Parse Ambiguous Characters (Optional)
         if (ambig!=std::string::npos){
@@ -304,7 +309,7 @@ namespace StochHMM{
             else if (nlCharNum!=std::string::npos){
                 nlChar=nlCharNum+5;
             }
-            else{  //No divider line 
+            else{  //No divider line
                 nlChar=model.find("\n",ambig);
                 nlChar++;
             }
@@ -331,7 +336,7 @@ namespace StochHMM{
             else if (nlCharNum!=std::string::npos){
                 nlChar=nlCharNum+5;
             }
-            else{  //No divider line 
+            else{  //No divider line
                 nlChar=model.find("\n",scale);
                 nlChar++;
             }
@@ -344,8 +349,8 @@ namespace StochHMM{
             }
             //std::cout << scale << "\t" << scaleTxt << std::endl;
         }
-
-            
+		
+		
         
         //Parse Templated Tracks (Optional)
         if (templ!=std::string::npos){
@@ -361,7 +366,7 @@ namespace StochHMM{
             else if (nlCharNum!=std::string::npos){
                 nlChar=nlCharNum+5;
             }
-            else{  //No divider line 
+            else{  //No divider line
                 nlChar=model.find("\n",templ);
                 nlChar++;
             }
@@ -377,7 +382,7 @@ namespace StochHMM{
         //Parse State Definitions (Required)
         if (st!=std::string::npos){
             size_t blankNum = model.find("####\n",st);
-            size_t blankEq  = model.find("====\n",st); 
+            size_t blankEq  = model.find("====\n",st);
             
             blank=model.find("####\n",st);
             
@@ -413,8 +418,8 @@ namespace StochHMM{
         
         return true;
     }
-
-        
+	
+	
     //Parse model header information
     bool model::_parseHeader(std::string& txt){
         stringList lst;
@@ -555,7 +560,7 @@ namespace StochHMM{
         return true;
     }
     
-
+	
     bool model::_parseTracks(std::string& txt){
         stringList lst;
         lst.splitString(txt, "\n");
@@ -585,7 +590,7 @@ namespace StochHMM{
         }
         return true;
     }
-        
+	
     bool model::_parseAmbiguous(std::string& txt){
         stringList lst;
         lst.splitString(txt, "\n");
@@ -717,7 +722,7 @@ namespace StochHMM{
         statesByName[st->getName()]=st;
         return;
     };
-
+	
     
     //Split states into individual state strings
     bool model::_splitStates(std::string& txt ,stringList& sts){
@@ -748,7 +753,7 @@ namespace StochHMM{
             else{
                 sts.push_back(st);
             }
-        
+			
             start=txt.find("STATE:",end);
             
         }
@@ -760,7 +765,7 @@ namespace StochHMM{
             std::cerr << "No template provided for State Definitions.  Please provide the template in the model or when calling HMM class" << std::endl;
             exit(1);
             
-                //errorInfo(sMissingTemplate, "No template provided for State Definitions.  Please provide the template in the model or when calling HMM class");
+			//errorInfo(sMissingTemplate, "No template provided for State Definitions.  Please provide the template in the model or when calling HMM class");
         }
         std::string templateName;
         std::string templateIdentifier;
@@ -795,7 +800,7 @@ namespace StochHMM{
             std::cerr << "State Template definition doesn't contain \"IDENTIFIER:\" keyword in first line of State definition of the template.   Please check formatting\n";
             return false;
         }
-
+		
         //Process Template Variables
         std::string lastTag;
         for(size_t i=1;i<lst.size();i++){
@@ -821,7 +826,7 @@ namespace StochHMM{
         if (!_splitStates(filledTemplate, sts)){ //Split the templated states
             std::cerr << "Unable to split templated states\n" << sts.stringify() << std::endl;
             return false;
-        } 
+        }
         
         return true;
     }
@@ -866,6 +871,8 @@ namespace StochHMM{
             std::set<std::string> labels;
             std::set<std::string> gff;
             std::set<std::string> name;
+			
+			explicit_duration_states = new(std::nothrow) std::vector<bool>(states.size(),false);
             
             //Create temporary hash of states for layout
             for(size_t i=0;i<states.size();i++){
@@ -873,48 +880,115 @@ namespace StochHMM{
                 gff.insert(states[i]->getGFF());
                 gff.insert(states[i]->getName());
             }
+			
+			for (size_t i=0; i < states.size() ; ++i){
+				states[i]->setIter(i);
+			}
+			
             
             
-            //Add states To and From transition 
-            _addStateToFromTransition(initial);
+            //Add states To and From transition
+            
             for(size_t i=0;i<states.size();i++){
-                states[i]->setIter(i);
+				states[i]->checkLabels(labels,gff,name);
                 _addStateToFromTransition(states[i]);
-                states[i]->checkLabels(labels,gff,name);
+                
             }
-            
-            //Now that we've seen all the states in the model
+			
+			_addStateToFromTransition(initial);
+			
+			
+			//Now that we've seen all the states in the model
             //We need to fix the States transitions vector transi, so that the state
-            //iterator correlates to the position within the vector 
+            //iterator correlates to the position within the vector
             for(size_t i=0;i<states.size();i++){
                 states[i]->_finalizeTransitions(statesByName);
             }
-            
+			initial->_finalizeTransitions(statesByName);
             
             //Check to see if model is basic model
-            for(size_t i=0;i<states.size();i++){
-                std::vector<transition*>* transitions = states[i]->getTransitions();
-                for(size_t trans=0;trans<transitions->size();trans++){
-                    if ((*transitions)[trans]->FunctionDefined()){
-                        basicModel=false;
-                        break;
-                    }
-                    else if ((*transitions)[trans]->getTransitionType()!=STANDARD || (*transitions)[trans]->getTransitionType()!=LEXICAL){
-                        basicModel=false;
-                        break;
-                    }
-                }
-                
-                if (!basicModel){
-                    break;
-                }
-            }
-            
+			//Meaning that the model doesn't call outside functions or perform
+			//Tracebacks for explicit duration.
+			//If explicit duration exist then we'll keep track of which states
+			//they are in explicit_duration_states
+//            for(size_t i=0;i<states.size();i++){
+//                std::vector<transition*>* transitions = states[i]->getTransitions();
+//                for(size_t trans=0;trans<transitions->size();trans++){
+//					if ((*transitions)[trans] == NULL){
+//						continue;
+//					}
+//					
+//                    if ((*transitions)[trans]->FunctionDefined()){
+//                        basicModel=false;
+//                        break;
+//                    }
+//                    else if ((*transitions)[trans]->getTransitionType()!=STANDARD || (*transitions)[trans]->getTransitionType()!=LEXICAL){
+//						
+//						if ((*transitions)[trans]->getTransitionType() == DURATION){
+//							(*explicit_duration_states)[i]=true;
+//						}
+//						
+//                        basicModel=false;
+//                        break;
+//                    }
+//                }
+//            }
+			
+			checkBasicModel();
+			checkExplicitDurationStates();
+			checkTopology();
             finalized=true;
         }
+		
         return;
         
     }
+	
+	void model::checkBasicModel(){
+		basicModel = true;
+		delete complex_emission_states;
+		delete complex_transition_states;
+		complex_emission_states = NULL;
+		complex_transition_states = NULL;
+		
+		complex_emission_states		= new(std::nothrow) std::vector<bool>(state_size(),false);
+		complex_transition_states	= new(std::nothrow) std::vector<bool>(state_size(),false);
+		
+		for(size_t st = 0 ; st<state_size(); ++st){
+			(*complex_emission_states)[st]	= states[st]->hasComplexEmission();
+			(*complex_transition_states)[st]= states[st]->hasComplexTransition();
+			
+			if ((*complex_emission_states)[st] || (*complex_transition_states)[st]){
+				basicModel = false;
+			}
+		}
+		
+		return;
+	}
+	
+	
+	void model::checkExplicitDurationStates(){
+		delete explicit_duration_states;
+		explicit_duration_states = NULL;
+		explicit_duration_states = new(std::nothrow) std::vector<bool>(state_size(),false);
+		
+		for(size_t i=0;i<states.size();i++){
+			
+			std::vector<transition*>* transitions = states[i]->getTransitions();
+		
+			for(size_t trans=0;trans<transitions->size();trans++){
+				if ((*transitions)[trans]== NULL){
+					continue;
+				}
+				
+				if ((*transitions)[trans]->getTransitionType() == DURATION){
+					(*explicit_duration_states)[i]=true;
+				}
+			}
+		}
+		
+		return;
+	}
     
     void model::_addStateToFromTransition(state* st){
         std::vector<transition*>* trans;
@@ -930,10 +1004,7 @@ namespace StochHMM{
                 if (st!=initial){
                     temp->addFromState(st);
                 }
-                
-                
             }
-            
         }
         
         if (st->endi){
@@ -945,14 +1016,14 @@ namespace StochHMM{
     //!Get pointer to track by track name
     //!\param name track name
     //!\return pointer to track
-    //!\return NULL if track with given name doesn't exist in the model 
+    //!\return NULL if track with given name doesn't exist in the model
     track* model::getTrack(const std::string& name){
         return trcks.getTrack(name);
     }
     
     
     //!Get string representation of model
-    //!\return std::string 
+    //!\return std::string
     std::string model::stringify(){
         std::string model;
         std::string lnSep(50,'=');
@@ -1050,40 +1121,40 @@ namespace StochHMM{
             gv << "\tsize=\"8,5\"\n";
             gv << "\tnode [shape = circle];\n";
             
-            std::vector<state*>* temp;
-            
-            if (q0){
-                temp=initial->getTo();
-                for(size_t temp_iter=0; temp_iter < temp->size(); temp_iter++){
-                    gv << "\tINIT -> " << (*temp)[temp_iter]->getName() << ";\n";
-                }
-            }
-            
-            
-            for(size_t state_iter=0; state_iter < states.size(); state_iter++){
-                temp = states[state_iter]->getTo();
-                std::string stName=states[state_iter]->getName();
-                
-                if (stName.find_first_of("0123456789")==0){
-                    stName.insert(0,"_");
-                }
-                
-                
-                for(size_t temp_iter=0; temp_iter < temp->size(); temp_iter++){
-                    std::string tempName=(*temp)[temp_iter]->getName();
-                    
-                    if (tempName.find_first_of("0123456789")==0){
-                        tempName.insert(0,"_");
-                    }
-                    
-                    gv << "\t" << stName << " -> " << tempName << ";\n";
-                }
-                
-                
-                if (q0 && states[state_iter]->endi){
-                    gv << "\t" << stName << " -> END;\n"; 
-                }
-            }
+//            std::bitset<STATE_MAX>* temp;
+//            
+//            if (q0){
+//                temp=initial->getTo();
+//                for(size_t temp_iter=0; temp_iter < temp->size(); temp_iter++){
+//                    //gv << "\tINIT -> " << (*temp)[temp_iter]->getName() << ";\n";
+//                }
+//            }
+//            
+//            
+//            for(size_t state_iter=0; state_iter < states.size(); state_iter++){
+//                temp = states[state_iter]->getTo();
+//                std::string stName=states[state_iter]->getName();
+//                
+//                if (stName.find_first_of("0123456789")==0){
+//                    stName.insert(0,"_");
+//                }
+//                
+//                
+//                for(size_t temp_iter=0; temp_iter < temp->size(); temp_iter++){
+//                    //std::string tempName=(*temp)[temp_iter]->getName();
+//                    
+//                    if (tempName.find_first_of("0123456789")==0){
+//                        tempName.insert(0,"_");
+//                    }
+//                    
+//                    gv << "\t" << stName << " -> " << tempName << ";\n";
+//                }
+//                
+//                
+//                if (q0 && states[state_iter]->endi){
+//                    gv << "\t" << stName << " -> END;\n";
+//                }
+//            }
             
             gv << "}\n";
         }
@@ -1113,6 +1184,82 @@ namespace StochHMM{
         
         return abs(mid-val);
     }
+	
+	
+	bool model::checkTopology(){
+		
+		std::vector<bool> states_visited (states.size(),false);
+		std::vector<uint16_t> visited;
+		
+		bool ending_defined(false);
+		
+		_checkTopology(initial, visited);
+		
+		while (visited.size()>0){
+			uint16_t st_iter = visited.back();
+			visited.pop_back();
+			
+			if (!states_visited[st_iter]){
+				std::vector<uint16_t> tmp_visited;
+				_checkTopology(states[st_iter],tmp_visited);
+				size_t num_visited = tmp_visited.size();
+				
+				//Check orphaned
+				if (num_visited == 0 ){
+					//No transitions
+					std::cerr << "State: "  << states[st_iter]->getName() << " has not transitions defined\n";
+				}
+				else if (num_visited == 1 && tmp_visited[0] == st_iter){
+					//Orphaned
+					if(states[st_iter]->getEnding() == NULL){
+						std::cerr << "State: "  << states[st_iter]->getName() << " is an orphaned state that has only transition to itself\n";
+					}
+					else{
+						std::cerr << "State: "  << states[st_iter]->getName() << " may be an orphaned state that only has transitions to itself and END state.\n";
+					}
+				}
+				
+				for(size_t i=0; i < tmp_visited.size(); i++){
+					if (!states_visited[tmp_visited[i]]){
+						visited.push_back(tmp_visited[i]);
+					}
+				}
+				
+				states_visited[st_iter] = true;
+			}
+		}
+		
+		//Check for defined ending
+		for(size_t i=0; i< states.size() ; i++){
+			if ( states[i]->getEnding() != NULL){
+				ending_defined = true;
+				break;
+			}
+		}
+		
+		if (!ending_defined){
+			std::cerr << "No END state defined in the model\n";
+		}
+		
+		for(size_t i=0; i< states_visited.size(); i++){
+			if (!states_visited[i]){
+				std::cerr << "State: "  << states[i]->getName() << " doesn't have valid model topology\n\
+				Please check the model transitions\n";
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	void model::_checkTopology(state* st, std::vector<uint16_t>& visited){
+		for(size_t i = 0 ; i < st->transi->size() ; i++){
+			if (st->transi->at(i) != NULL){
+				visited.push_back(st->transi->at(i)->getState()->getIterator());
+			}
+			
+		}
+		return;
+	}
     
     
     void print_vec (std::vector<std::vector<double> > &x){

@@ -26,38 +26,5 @@
  //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include "table.h"
-namespace StochHMM{
 
 
-//constructor inline
-Table::Table(int seq, int states){
-	header=std::vector<std::string>(states);
-    std::vector<double> initial(states,0);
-    std::vector<std::vector<double> > next(seq,initial);
-	data=next;
-	x=states;
-	y=seq;
-}
-
-
-void Table::print(){
-	
-	//print header;
-    std::cout << "Position";
-	for(int i=0;i<x;i++){
-        std::cout << "\t" << header[i];
-	}
-    std::cout << std::endl;
-	
-	//For every position print the row of states
-	for(int i=0;i<y;i++){
-        std::cout << i+1;
-		for(int j=0;j<x;j++){
-            std::cout <<"\t" << data[i][j];
-		}
-        std::cout << std::endl;
-	}
-}
-
-
-}

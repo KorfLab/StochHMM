@@ -159,6 +159,17 @@ public:
     
     inline bool LexFunctionDefined(){return function;}
     std::string getLexicalFunctionName(){return lexFunc->getName();}
+	
+	inline bool isSimple(){
+		if (transition_type != DURATION && func == NULL && !function){
+			return true;
+		}
+		return false;
+	}
+	
+	inline bool isComplex(){
+		return !isSimple();
+	}
     
     void print();
     std::string stringify();

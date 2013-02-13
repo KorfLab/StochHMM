@@ -33,26 +33,23 @@
 #include <vector>
 
 namespace StochHMM{
-
-/*! \class Table
  
  
- */
-class Table {	
-public:
-	Table(int,int);
+	template <typename T>
 	
-	
-    std::vector<std::string> header;
-    std::vector<std::vector<double> > data;
-	int x;
-	int y;
-	
-	void print();
-			
-private:
-};
+	class table{
+	private:
+		std::vector<std::vector<T> >* tbl;
+		size_t rows;
+		size_t columns;
+		
+	public:
+		table();
+		void print();
+		T& operator[](size_t);
 
-    
+	};
+	
 }
+
 #endif /*TABLE_H*/
