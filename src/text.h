@@ -129,6 +129,7 @@ namespace StochHMM{
         size_t indexOf(const std::string&);
         size_t indexOf(const std::string&,size_t);
         bool contains(const std::string&);
+		bool containsExact(const std::string& txt);
         void print();
         std::string stringify();
         

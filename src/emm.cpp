@@ -241,7 +241,7 @@ namespace StochHMM{
             }
             
             std::vector<int> tempOrder;
-            line.splitString(ln[idx],"\t:,");
+            line.splitString(ln[idx],"\t:, ");
             
             size_t orderIdx = line.indexOf("ORDER");
             orderIdx++;

@@ -56,6 +56,15 @@ namespace StochHMM{
         }
         return false;
     }
+	
+	bool stringList::containsExact(const std::string& txt){
+		for (size_t i=0;i<line.size();i++){
+            if (line[i].compare(txt) == 0){
+                return true;
+            }
+        }
+        return false;
+	}
     
     //! Searches the stringList for matching string and returns the index position of first match
     //! \param txt String to search stringList for

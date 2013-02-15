@@ -103,9 +103,6 @@ int main(int argc, const char * argv[])
     //Check that model argument is defined and import the model
     import_model(hmm);
     
-    if (opt.isFlagSet("-debug", "model")){
-        hmm.print();
-    }
 	
 	if (opt.isFlagSet("-debug", "paths")){
 		hmm.writeGraphViz("Model_Path-debug.viz", true);

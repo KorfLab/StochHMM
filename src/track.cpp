@@ -355,19 +355,20 @@ namespace StochHMM{
         size_t closing;
         size_t start=0;
         
-        opening=text.find_first_of('{');
+        opening=text.find_first_of('[');
         while(opening!=std::string::npos){
             std::pair<std::string,std::vector<std::string> > amb;
             amb.first=text.substr(start,opening-start);
+			clear_whitespace(amb.first, "\t ");
             
-            closing=text.find_first_of('}',opening);
+            closing=text.find_first_of(']',opening);
             if (closing!=std::string::npos){
                 std::string tempString=text.substr(opening+1,closing-opening-1);
                 split_line(amb.second, tempString);
             }
             start=text.find_first_not_of(',',closing+1);
             results.push_back(amb);
-            opening=text.find_first_of('{',closing);
+            opening=text.find_first_of('[',closing);
         }
         
         return;
@@ -448,7 +449,6 @@ namespace StochHMM{
         std::string ambigString;
         std::string lnSep(50,'=');
         trackString+="TRACK SYMBOL DEFINITIONS\n" + lnSep + "\n";
-        //ambigString+="AMBIGUOUS SYMBOL DEFINITIONS\n" + lnSep + "\n";
         
         for(size_t i=0;i<trks.size();i++){
             trackString+=trks[i]->stringify();
