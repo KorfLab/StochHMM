@@ -39,6 +39,9 @@
 #include "emm.h"
 namespace StochHMM{
 	
+	
+	
+	
 	class matrixPosition;
 	
 	//Position Weight Matrix Class
@@ -111,6 +114,10 @@ namespace StochHMM{
 		emm* bgWeight; //Background weight
 	};
 	
+	
+	/*! \class matrixPosition
+	 Stores weight information for a position in the position weight matrix
+	 */
 	class matrixPosition{
 	public:
 		matrixPosition();
@@ -127,14 +134,13 @@ namespace StochHMM{
 		inline size_t transitionsSize(){return transitions.size();}
 		std::string stringify();
 		
-		
 	private:
-		emm* positionMatrix;
-		bool thresholdSet;
-		float threshold;
-		std::vector<emm*> transitions;
-		std::vector<std::string> transition_names;
-		std::string name;
+		emm* positionMatrix;	//Weight information for position
+		bool thresholdSet;		//True if a threshold is set for this position(global threshold)
+		float threshold;		//Global threshold for position
+		std::vector<emm*> transitions;	//The next weights after this position (Transitions)
+		std::vector<std::string> transition_names; //Next weights after this position
+		std::string name;		//Name assigned to this position
 	};
 
 	
