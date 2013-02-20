@@ -38,12 +38,15 @@ namespace StochHMM{
         
         ~lexicalTable();
         
-        double getValue(sequences&,size_t);
+        double getValue(sequences&, size_t);
+		double getValue(sequence& , size_t);
 		
 		//!Initialize the final emission table with ambiguous characters
 		//Creates the log_emission simpleTable
 		void initialize_emission_table();
-		double get_reduced_order(sequences& seq, size_t position);
+		double getReducedOrder(sequences& seqs, size_t position);
+		
+		double getReducedOrder(sequence& seq, size_t position);
                 
         std::vector<std::vector<double> >* getCountsTable();
         std::vector<std::vector<double> >* getProbabilityTable();

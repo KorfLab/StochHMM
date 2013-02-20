@@ -527,6 +527,29 @@ namespace StochHMM{
             return out;
         }
     }
+	
+	//! Converts a vector of size_t into a string delimited by a character c
+    //! \param input Vector of integers to be converted
+    //! \param c Character to use as a delimiter
+    std::string join(std::vector<size_t> &input, char c){
+        std::string out;
+        if (input.size()==0){
+            out="";
+            return out;
+        }
+        else if (input.size()==1){
+            out=int_to_string(input[0]);
+            return out;
+        }
+        else{
+            out=int_to_string(input[0]);
+            for(int i=1;i<input.size();i++){
+                out+=c;
+                out+=int_to_string(input[i]);
+            }
+            return out;
+        }
+    }
 
     //! Convert an integer to a string
     //! \param input Integer you want to convert to string;

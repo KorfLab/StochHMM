@@ -160,7 +160,7 @@ namespace StochHMM{
         sequence* getReal(int);
         
         size_t size(void){return jobQueue.size();}
-        inline int getTrackCount(){return trackCount;}
+        inline size_t getTrackCount(){return trackCount;}
         
         void print();
         void getInformation();

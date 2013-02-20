@@ -369,5 +369,15 @@ namespace StochHMM{
         
         return val;
     }
+	
+	double emissionFuncParam::evaluate(sequence& seq , size_t pos){
+        double val = (*emissionFunction)(seq.getUndigitized(),pos);
+        
+        if (emissionFuncScaling!=NULL){
+            val = emissionFuncScaling->getWeightedScore(val);
+        }
+        
+        return val;
+    }
     
 }

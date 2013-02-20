@@ -107,12 +107,27 @@ namespace StochHMM{
     double lexicalTable::getValue(sequences& seqs, size_t pos){
         
 		if (max_order>pos){
-			return get_reduced_order(seqs, pos);
+			return getReducedOrder(seqs, pos);
 		}
 		
 		size_t index(0);
 		for(size_t i=0;i<dimensions;i++){
 			index += seqs[subarray_sequence[i]][pos - subarray_position[i]] * subarray_value[i];
+		}
+		
+		return (*log_emission)[index];
+    }
+	
+	//Return emission probability of sequences
+    double lexicalTable::getValue(sequence& seq, size_t pos){
+        
+		if (max_order>pos){
+			return getReducedOrder(seq, pos);
+		}
+		
+		size_t index(0);
+		for(size_t i=0;i<dimensions;i++){
+			index += seq[pos - subarray_position[i]] * subarray_value[i];
 		}
 		
 		return (*log_emission)[index];
@@ -456,7 +471,7 @@ namespace StochHMM{
 	//Calculate lower order emission from the current table values
 	//Given order and position/sequence
 	//Calculate the values using Index and [all alphabets] for higher orders
-	double lexicalTable::get_reduced_order(sequences& seqs, size_t position){		
+	double lexicalTable::getReducedOrder(sequences& seqs, size_t position){
 		Index indices;
 		for(size_t i=0;i<dimensions;i++){
 			Index subtotal;
@@ -508,6 +523,64 @@ namespace StochHMM{
 		}
 		return -INFINITY;
 	}
+	
+	
+	//Calculate lower order emission from the current table values
+	//Given order and position/sequence
+	//Calculate the values using Index and [all alphabets] for higher orders
+	double lexicalTable::getReducedOrder(sequence& seq, size_t position){
+		Index indices;
+		for(size_t i=0;i<dimensions;i++){
+			Index subtotal;
+			size_t sq = subarray_sequence[i];
+			size_t pos = subarray_position[i];
+			
+			if (subarray_position[i] > position){
+				subtotal.setAmbiguous(trcks[sq]->getUnambiguousSet());
+			}
+			else if (seq[position - pos] > max_unambiguous[sq]){
+				subtotal.setAmbiguous(trcks[sq]->getAmbiguousSet(seq[position-pos]));
+			}
+			else{
+				subtotal+=seq[position-pos];
+			}
+			
+			subtotal *= subarray_value[i];
+			indices  += subtotal;
+		}
+		
+		if (unknownScoreType == AVERAGE_SCORE || unknownScoreType == NO_SCORE){
+			double temp(0);
+			for(size_t i=0;i<indices.size();i++){
+				temp+=exp((*log_emission)[indices[i]]);
+			}
+			temp /= indices.size();
+			temp = log(temp);
+			return temp;
+		}
+		else if (unknownScoreType == LOWEST_SCORE){
+			double temp(INFINITY);
+			for(size_t i=0;i<indices.size();i++){
+				double val = (*log_emission)[indices[i]];
+				if (val < temp){
+					temp = val;
+				}
+			}
+			return temp;
+		}
+		else if (unknownScoreType == HIGHEST_SCORE){
+			double temp(-INFINITY);
+			for(size_t i=0;i<indices.size();i++){
+				double val = (*log_emission)[indices[i]];
+				if (val > temp){
+					temp = val;
+				}
+			}
+			return temp;
+		}
+		return -INFINITY;
+	}
+
 	
 	double lexicalTable::getAmbiguousScore(std::vector<uint8_t>& letters){
 		Index indices;

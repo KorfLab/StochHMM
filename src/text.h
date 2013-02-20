@@ -160,6 +160,7 @@ namespace StochHMM{
     void getKeyValue(std::string&,std::string&,std::string&);
 
     std::string join(std::vector<int>&, char);
+	std::string join(std::vector<size_t>&, char);
     std::string join(std::vector<short>&,char);
     std::string join(std::vector<double>&, char);
     std::string join(std::vector<std::string>&, char);

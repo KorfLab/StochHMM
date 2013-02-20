@@ -52,7 +52,7 @@ namespace StochHMM{
 		typedef std::numeric_limits< double > dbl;
 		std::cout << std::setprecision(dbl::digits10);
 		
-		for (size_t position = seq_size-2; position != SIZE_T_MAX ; position--){
+		for (size_t position = seq_size-2; position != SIZE_MAX ; position--){
 			
 			for(size_t st_current = 0; st_current < state_size ; st_current++){
 				
@@ -173,7 +173,7 @@ namespace StochHMM{
 		}
 		
 		
-		for(size_t position = seq_size-2; position != SIZE_T_MAX ; --position ){
+		for(size_t position = seq_size-2; position != SIZE_MAX ; --position ){
 			
 			//Swap current_states and next states sets
 			current_states.reset();

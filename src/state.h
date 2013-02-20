@@ -41,8 +41,12 @@
 #define SIZE_MAX ((size_t)-1)
 #endif
 
-namespace StochHMM{
+//Define size of bitset.  If not set in makefile then will use default 1024.
+#ifndef STATE_MAX
 #define STATE_MAX 1024
+#endif
+
+namespace StochHMM{
 
     class transition;
     

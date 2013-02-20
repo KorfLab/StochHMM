@@ -158,6 +158,7 @@ namespace StochHMM{
         
         double evaluate(const std::string*,size_t);
         double evaluate(sequences&, size_t);
+		double evaluate(sequence&, size_t);
         
         void print(); //! prints the string representation of the externFuncs to stdout
         std::string stringify();  //! Return string representation of the externFuncs definition in the model 

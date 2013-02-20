@@ -136,7 +136,7 @@ namespace StochHMM{
     //! \param position  Position in the sequence
     //! \param stateIter Index of state to get weight
     //! \return double value of weight to apply to state at the position
-    double ExDefSequence::getWeight(size_t position, int stateIter){
+    double ExDefSequence::getWeight(size_t position, size_t stateIter){
         if (defs[position]){
             return defs[position]->getWeight(stateIter);
         }

@@ -239,7 +239,7 @@ namespace StochHMM {
     //!Get the weight for the state at a certain position in the sequence
     //! \param position Position with the sequence
     //! \param stateIter integer iterator of the state
-    double sequences::getWeight(size_t position, int stateIter){
+    double sequences::getWeight(size_t position, size_t stateIter){
         return external->getWeight(position, stateIter);
     }
     

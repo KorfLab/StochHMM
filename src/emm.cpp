@@ -33,6 +33,7 @@ namespace StochHMM{
         complement			= false;
         continuous			= false;
 		multi_continuous	= false;
+		realTrack			= NULL;
         
         function			= false;
         lexFunc				= NULL;
@@ -46,7 +47,7 @@ namespace StochHMM{
 		pass_values			= NULL;
 		track_indices		= NULL;
 		
-        tagFunc				=NULL;
+        tagFunc				= NULL;
     }
 
         
@@ -84,7 +85,7 @@ namespace StochHMM{
         stringList line;
         line.splitString(ln[idx], "\t,: ");
         
-        size_t typeBegin;
+        size_t typeBegin(0);
         
         valueType  valtyp;
         if (line.contains("P(X)")){
@@ -182,7 +183,7 @@ namespace StochHMM{
 			
 			
 			size_t parameter_idx = line.indexOf("PARAMETERS");
-			if (parameter_idx != SIZE_T_MAX){
+			if (parameter_idx != SIZE_MAX){
 				std::cerr << "Passing parameters to multivariate PDF isn't currently supported\n";
 			}
 			
@@ -397,6 +398,224 @@ namespace StochHMM{
         
         return true;
     }
+	
+	//!Parse an emission from text
+    //!\param txt  String representation of emission
+    //!\param trks Tracks used by the model
+    //!\param wts Weights used by the model
+    //!\param funcs State functions used by the model
+    bool emm::parse(std::string& txt,track* trk){
+        
+        stringList ln;
+        ln.splitString(txt,"\n");
+        size_t idx;
+        if (ln.contains("EMISSION")){
+            idx = ln.indexOf("EMISSION");
+        }
+        else{
+            std::cerr << "Missing EMISSION tag from emission. Please check the formatting.   This is what was handed to the emission class:\n " <<  txt << std::endl;
+            return false;
+        }
+        
+        stringList line;
+        line.splitString(ln[idx], "\t,: ");
+        
+        size_t typeBegin(0);
+        
+        valueType  valtyp;
+        if (line.contains("P(X)")){
+            typeBegin = line.indexOf("P(X)");
+            valtyp=PROBABILITY;
+        }
+        else if (line.contains("LOG")){
+            typeBegin = line.indexOf("LOG");
+            valtyp=LOG_PROB;
+        }
+        else if (line.contains("COUNTS")){
+            typeBegin = line.indexOf("COUNTS");
+            valtyp=COUNTS ;
+        }
+		else {
+            std::string info = "Couldn't parse Value type in the Emission: " + txt  + " Please check the formatting.   The allowed types are: P(X), LOG, COUNTS, or REAL_NUMBER. \n";
+            std::cerr << info << std::endl;
+            
+            //errorInfo(sCantParseLine, info.c_str());
+        }
+        
+        
+        //remaining tracks and Orders then set Track
+        std::vector<track*> temp_tracks;
+		temp_tracks.push_back(trk);
+        
+		
+		if (ln.contains("ORDER")){
+			idx=ln.indexOf("ORDER");
+		}
+		else{
+			std::cerr << "Couldn't find ORDER in non-Real_Number emission.  Please check the formatting" << std::endl;
+			return false;
+			//errorInfo(sCantParseLine, "Couldn't find ORDER in non-Real_Number emission.  Please check the formatting\n");
+		}
+		
+		std::vector<int> temp_order;
+		line.splitString(ln[idx],"\t:,");
+		
+		size_t orderIdx = line.indexOf("ORDER");
+		orderIdx++;
+		
+		size_t ambIdx;
+		bool containsAmbig = line.contains("AMBIGUOUS");
+		
+		if (containsAmbig){ambIdx=line.indexOf("AMBIGUOUS");}
+		else{ ambIdx= line.size();}
+		
+		for(size_t i=orderIdx;i<ambIdx;i++){
+			
+			int temp_value;
+			if (!stringToInt(line[i], temp_value)){
+				std::cerr << "Emission Order not numeric" << std::endl;
+				return false;
+			}
+			
+			if (temp_value>32){
+				std::cerr << "Emission order is greater than 32.  Must be 32 or less" << std::endl;
+				return false;
+			}
+			
+			temp_order.push_back(temp_value);
+		}
+		
+		if (temp_order.size() == temp_tracks.size()){
+			for(size_t i=0;i<temp_order.size();i++){
+				scores.addTrack(temp_tracks[i], temp_order[i]);
+			}
+		}
+		else{
+			std::cerr << "Different number of tracks and orders parsed in Emission: " << txt << " Check the formatting of the Emission" << std::endl;
+			return false;
+		}
+		
+		
+		//Parse Ambiguous Tag Info
+		if (containsAmbig){
+			ambIdx++;
+			if (line.size()<=ambIdx){
+				std::cerr << "No scoring type after AMBIGUOUS label\nAssuming AVG\n";
+				scores.setUnkScoreType(AVERAGE_SCORE);
+			}
+			else if (line[ambIdx].compare("AVG")==0){scores.setUnkScoreType(AVERAGE_SCORE);}
+			else if (line[ambIdx].compare("MAX")==0){scores.setUnkScoreType(HIGHEST_SCORE);}
+			else if (line[ambIdx].compare("MIN")==0){scores.setUnkScoreType(LOWEST_SCORE);}
+			else if (line[ambIdx].compare("P(X)")==0)
+			{
+				scores.setUnkScoreType(DEFINED_SCORE);
+				
+				ambIdx++;
+				if (ambIdx>=line.size()){
+					std::cerr << "Missing Ambiguous Value" << std::endl;
+					
+					return false;
+				}
+				
+				double tempValue;
+				if (!stringToDouble(line[ambIdx], tempValue)){
+					std::cerr << "Ambiguous Value couldn't be parsed: "<< line[ambIdx] << std::endl;
+					return false;
+				}
+				
+				scores.setUnkScore(log(tempValue));
+			}
+			else if (line[ambIdx].compare("LOG")==0){
+				scores.setUnkScoreType(DEFINED_SCORE);
+				ambIdx++;
+				
+				if (ambIdx>=line.size()){
+					std::cerr << "Missing Ambiguous Value" << std::endl;
+					
+					return false;
+				}
+				
+				double tempValue;
+				if (!stringToDouble(line[ambIdx], tempValue)){
+					std::cerr << "Ambiguous Value couldn't be parsed: "<< line[ambIdx] << std::endl;
+					return false;
+				}
+				
+				scores.setUnkScore(tempValue);
+			}
+		}
+		
+		//Get Tables
+		int expectedColumns = 1;
+		int expectedRows = 1;
+		for(size_t i = 0; i<scores.getNumberOfAlphabets(); i++){
+			expectedColumns*=scores.getAlphaSize(i);
+			expectedRows*=POWER[scores.getOrder(i)][scores.getAlphaSize(i)-1];
+		}
+		
+		std::vector<std::vector<double> >* log_prob = scores.getLogProbabilityTable();
+		std::vector<std::vector<double> >* prob = scores.getProbabilityTable();
+		std::vector<std::vector<double> >* counts = scores.getCountsTable();
+		
+		
+		for (size_t iter = 2; iter< ln.size();iter++){
+			
+			
+			//If it's the first line check for a '#' indicating that the column header is present
+			if (iter==2 && ln[iter][0]=='@'){
+				continue;
+			}
+			
+			line.splitString(ln[iter],"\t ");
+			
+			//Check for Row header
+			if (line[0][0]=='@'){
+				line.pop_ith(0);
+			}
+			
+			
+			std::vector<double> temp = line.toVecDouble();
+			if (temp.size() != expectedColumns){
+				std::string info = "The following line couldn't be parsed into the required number of columns.   Expected Columns: " + int_to_string(expectedColumns) + "\n The line appears as: "  + ln[iter] ;
+				
+				std::cerr << info << std::endl;
+				return false;
+				//errorInfo(sCantParseLine, info.c_str());
+			}
+			else{
+				if (valtyp == PROBABILITY){
+					prob->push_back(temp);
+					logVector(temp);
+					log_prob->push_back(temp);
+				}
+				else if (valtyp == LOG_PROB){
+					log_prob->push_back(temp);
+					expVector(temp);
+					prob->push_back(temp);
+				}
+				else if (valtyp == COUNTS){
+					counts->push_back(temp);
+					probVector(temp);
+					prob->push_back(temp);
+					logVector(temp);
+					log_prob->push_back(temp);
+				}
+			}
+		}
+		
+		if (log_prob->size() != expectedRows){
+			std::cerr << " The Emission table doesn't contain enough rows.  Expected Rows: " << expectedRows << " \n Please check the Emission Table and formatting for " <<  txt << std::endl;
+			return false;
+		}
+		
+		scores.initialize_emission_table();
+		
+		if (tagFunc != NULL){
+			std::cerr << "Not NULL" << std::endl;
+		}
+        return true;
+    }
+
     
     bool emm::_processTags(std::string& txt, tracks& trks,weights* wts, StateFuncs* funcs){
         stringList lst = extractTag(txt);
@@ -481,6 +700,58 @@ namespace StochHMM{
         
         if (tagFunc!=NULL){
             final_emission+=tagFunc->evaluate(seqs, pos);
+        }
+        
+        return final_emission;
+    }
+	
+	
+	//!Calculate the emission value given a position in the sequence
+    //!If emission is a real number it will return the value from the real number track
+    //!If emission is a sequence then it will get the value and return it
+    //!\param seqs  Sequences to use
+    //!\param iter Position within the sequences
+    //!\return double log(prob) value of emission
+    double emm::get_emission(sequence& seq,size_t pos){
+        double final_emission;
+        
+        if (real_number){
+            
+            final_emission=seq.realValue(pos);
+            if (complement){
+                final_emission=log(1-exp(final_emission));
+            }
+        }
+        else if (function){
+            final_emission=lexFunc->evaluate(seq, pos);
+        }
+		else if (multi_continuous){
+			//Get all values from the tracks
+			for (size_t i = 0; i < number_of_tracks ; ++i){
+				(*pass_values)[i] = seq.realValue(pos);
+			}
+			
+			final_emission = (*multiPdf)(*pass_values);
+			
+			if (complement){
+				final_emission=log(1-exp(final_emission));
+			}
+		}
+		else if (continuous){
+			
+			final_emission = (*pdf)(seq.realValue(pos),dist_parameters);
+			
+			if (complement){
+				final_emission=log(1-exp(final_emission));
+			}
+		}
+        else{
+            final_emission=scores.getValue(seq, pos);
+        }
+        
+        
+        if (tagFunc!=NULL){
+            final_emission+=tagFunc->evaluate(seq, pos);
         }
         
         return final_emission;

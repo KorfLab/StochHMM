@@ -150,7 +150,7 @@ namespace StochHMM{
 				if (viterbi_temp ==  -INFINITY){
 					continue;
 				}
-				stochastic_table->push(seq_size-1,SIZE_T_MAX, st_previous,viterbi_temp);
+				stochastic_table->push(seq_size-1,SIZE_MAX, st_previous,viterbi_temp);
 				
 				if (viterbi_temp > ending_viterbi_score){
 					ending_viterbi_score = viterbi_temp;
@@ -251,7 +251,7 @@ namespace StochHMM{
 				
 				if ((*dbl_viterbi_score)[seq_size-1][st_previous] != -INFINITY){
 					viterbi_temp = (*dbl_viterbi_score)[seq_size-1][st_previous] + (*hmm)[st_previous]->getEndTrans();
-					stochastic_table->push(seq_size-1,SIZE_T_MAX, st_previous,viterbi_temp);
+					stochastic_table->push(seq_size-1,SIZE_MAX, st_previous,viterbi_temp);
 					
 					if (viterbi_temp > ending_viterbi_score){
 						ending_viterbi_score = viterbi_temp;

@@ -147,7 +147,7 @@ namespace StochHMM {
 				if (forward_temp ==  -INFINITY){
 					continue;
 				}
-				stochastic_table->push(seq_size-1,SIZE_T_MAX, st_previous,forward_temp);
+				stochastic_table->push(seq_size-1,SIZE_MAX, st_previous,forward_temp);
                 
                 if (forward_temp > -INFINITY){
 					if (ending_forward_prob == -INFINITY){
@@ -245,7 +245,7 @@ namespace StochHMM {
 				
 				if ((*dbl_forward_score)[seq_size-1][st_previous] != -INFINITY){
 					forward_temp = (*dbl_forward_score)[seq_size-1][st_previous] + (*hmm)[st_previous]->getEndTrans();
-					stochastic_table->push(seq_size-1,SIZE_T_MAX, st_previous,forward_temp);
+					stochastic_table->push(seq_size-1,SIZE_MAX, st_previous,forward_temp);
 					
 					ending_forward_prob = addLog(forward_temp, ending_forward_prob);
 				}

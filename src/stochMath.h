@@ -35,8 +35,8 @@
 #include <stdint.h>
 #include <algorithm>
 
-#ifndef SIZE_T_MAX
-#define SIZE_T_MAX ((size_t)-1)
+#ifndef SIZE_MAX
+#define SIZE_MAX ((size_t)-1)
 #endif
 
 #ifndef UINT16_MAX
@@ -305,8 +305,8 @@ namespace StochHMM{
     }
 	
     
-    //??  
-    void generateUnknownIndices(std::vector<int>&,int,int,int);
+    //  
+    void generateUnknownIndices(std::vector<size_t>&,int,int,int);
 
     
     /*! \fn T sumVector(std::vector<T>& data)
@@ -485,7 +485,7 @@ namespace StochHMM{
 		T maxi=max(set);
 		T delta=(maxi-mini+1)/N_bins;
         std::vector<T> bin (N_bins,0);
-		for(size_t i=set.size()-1;i != SIZE_T_MAX;i--){
+		for(size_t i=set.size()-1;i != SIZE_MAX;i--){
 			T value=floor((set[i]-mini)/delta);
 			bin(value)=bin(value)+1/(set.size()*delta);
 		}

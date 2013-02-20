@@ -9,7 +9,9 @@
 #include "stochTable.h"
 
 namespace StochHMM {
-
+	
+	//!  stochTable constructor
+	//! \param [in] seq_size  Size of sequence
 	stochTable::stochTable(size_t seq_size){
 		
 		state_val = new(std::nothrow) std::vector<stoch_value>;
@@ -34,7 +36,13 @@ namespace StochHMM {
 		state_val = NULL;
 		position = NULL;
 	}
-
+	
+	//! Pushes the information for traceback pointer onto the table
+	//! \param pos Position of current traceback pointer in sequence
+	//! \param st  Current State
+	//! \param st_to Previous State
+	//! \param value Unnormalized value of traceback pointer
+	//! \sa stochTable::finalize
 	void stochTable::push(size_t pos, size_t st, size_t st_to, float value){
 		if (pos != last_position){
 			(*position)[last_position] = state_val->size()-1;
@@ -43,15 +51,19 @@ namespace StochHMM {
 		
 		state_val->push_back( stoch_value(st,st_to,value));
 	}
-
+	
+	//! Finalized stochTable
+	//! Normalizes the traceback pointer values and calculates the previous cell
+	//! iterator within the previous position segment.  This speeds up the
+	//! the referencing necessary for tracebacks across the traceback table.
 	void stochTable::finalize(){
 		(*position)[last_position] = state_val->size()-1;
 		
 		last_position = 0;
 		
 		double sum(-INFINITY);
-		int current_state(-1);
-		int state_start(-1);
+		int16_t current_state(-1);
+		size_t state_start(-1);
 		
 		//For each position in the sequence we want to normalize the viterbi values
 		//for the state from previous states
@@ -91,7 +103,7 @@ namespace StochHMM {
 			}
 			
 			//Set values for next loop
-			state_start = (*position)[i]+1;
+			state_start = (*position)[i] + 1;
 			current_state = -1;
 		}
 		
@@ -105,8 +117,12 @@ namespace StochHMM {
 		
 		return;
 	}
-
-	uint16_t stochTable::get_state_position(size_t pos, uint16_t state){
+	
+	//! Returns the states iterator position within the array
+	//! \param pos Position within the sequence
+	//! \param state Iterator of state that you want
+	//! \return Position within the table where state can be found
+	size_t stochTable::get_state_position(size_t pos, uint16_t state){
 		size_t start_val = (pos == 0) ? 0 : (*position)[pos-1]+1;
 		for (size_t i = start_val ; i <= (*position)[pos] ;  ++i){
 			if ((*state_val)[i].state_id == state){
@@ -116,19 +132,30 @@ namespace StochHMM {
 		
 		return UINT16_MAX;
 	}
-
+	
+	//! Prints the stochTable to stdout
 	void stochTable::print(){
+		std::cout << stringify();
+		return;
+	}
+	
+	//! Stringify the stochTable
+	std::string stochTable::stringify(){
+		std::stringstream str;
+		
 		last_position = 0;
 		
 		for(size_t i=0;i<position->size();++i){
 			for (size_t j = (i==0) ? 0 : (*position)[i-1]+1 ; j <= (*position)[i] ; ++j ){
-				std::cout << (*state_val)[j].state_id <<":"<< (*state_val)[j].state_prev << " : " << (*state_val)[j].prob << "\t";
+				str << (*state_val)[j].state_id <<":"<< (*state_val)[j].state_prev << " : " << (*state_val)[j].prob << "\t";
 			}
-			std::cout << std::endl;
+			str << std::endl;
 		}
-		return;
+		return str.str();
 	}
 	
+	//! Traceback through the table using the traceback probabilities
+	//! \param[out] path Reference to traceback_path
 	void stochTable::traceback(traceback_path& path){
 		
 		double random((double)rand()/((double)(RAND_MAX)+(double)(1)));
@@ -150,7 +177,8 @@ namespace StochHMM {
 			}
 		}
 		
-		for(size_t i = position->size()-2; i != SIZE_T_MAX ; --i){
+		//For the rest of the table traceback to the beginning of the sequence
+		for(size_t i = position->size()-2; i != SIZE_MAX ; --i){
 			random = (double)rand()/((double)(RAND_MAX)+(double)(1));
 			std::cout << random << std::endl;
 			cumulative_prob = 0;

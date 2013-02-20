@@ -200,7 +200,7 @@ namespace StochHMM {
 			}
 		}
 
-		for(size_t position = seq_size-2; position != SIZE_T_MAX ; --position ){
+		for(size_t position = seq_size-2; position != SIZE_MAX ; --position ){
 
 			//Swap current_states and next states sets
 			current_states.reset();
@@ -331,12 +331,12 @@ namespace StochHMM {
 		}
 		
 		double max(-INFINITY);
-		int max_ptr(-1);
+		int16_t max_ptr(-1);
 		for(size_t position=seq_size-1; position > 0 ;position--){
 			max = -INFINITY;
 			max_ptr = -1 ;
 			
-            for (size_t st=0; st < state_size; st++){
+            for (int16_t st=0; st < state_size; st++){
                 if ((*posterior_score)[position][st] > max){
 					max = (*posterior_score)[position][st];
 					max_ptr = st;
@@ -353,7 +353,7 @@ namespace StochHMM {
             double random=((double)rand()/((double)(RAND_MAX)+(double)(1)));
             double cumulative_prob(0.0);
             
-			for (size_t st = 0; st < state_size ; ++st){
+			for (int16_t st = 0; st < state_size ; ++st){
                 cumulative_prob+=exp((*posterior_score)[position][st]);
                 if (random < cumulative_prob){
                     path.push_back(st);

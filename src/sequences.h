@@ -141,16 +141,17 @@ namespace StochHMM {
         //!All of the sequence(s) should be the same length 
         //!\return size_t value of length of all sequences
         inline size_t getLength(){
-            if (related_sequences){
-                return length; // Get length of related sequence
-            }
-            return 0;
-        }; 
+			return length;
+//            if (related_sequences){
+//                return length; // Get length of related sequence
+//            }
+//            return 0;
+        };
         
         
         bool exDefDefined(size_t); // Is External definition set for state(i)
         bool exDefDefined(size_t,size_t);// Is External definitiion set for state (i) and position (j);
-        double getWeight(size_t,int); //! Get Weight value for state at position
+        double getWeight(size_t,size_t); //! Get Weight value for state at position
         bool exDefDefined();//! Is External definition defined 
         
         //!Print the string representation of digitized sequencs to the stdout

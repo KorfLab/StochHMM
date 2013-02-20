@@ -40,6 +40,9 @@
 #include "StochHMM_usage.h"
 using namespace StochHMM;
 
+#define STATE_MAX 1024
+
+
 void import_model(model&);
 void import_sequence(model&);
 

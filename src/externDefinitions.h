@@ -86,7 +86,7 @@ namespace StochHMM{
         bool isWeighted(int); // Is position weighted
         bool isWeighted(int,int); // Is position and state weighted
         
-        double getWeight(size_t,int); // Get Weighted Value for position and state
+        double getWeight(size_t,size_t); // Get Weighted Value for position and state
         
         void print();  // print ExDefSequence to stdout
         std::string stringify(); // Get string representation of ExDefSequence
@@ -114,7 +114,7 @@ namespace StochHMM{
         
         inline void setState(int stIter){absolute=true; weightedState=stIter;};
         virtual inline void assignWeight(int stateIter,double val){weightedState=stateIter;absolute=true;};
-        virtual inline double getWeight(int stateIter){if (stateIter==weightedState){ return 0;} else { return -INFINITY;}};
+        virtual inline double getWeight(size_t stateIter){if (stateIter==weightedState){ return 0;} else { return -INFINITY;}};
         virtual std::string stringify();
         
     protected:

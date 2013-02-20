@@ -13,7 +13,7 @@ namespace StochHMM {
 	trellis::trellis(){
 		hmm=NULL;
 		seqs=NULL;
-		nth_size=SIZE_T_MAX;
+		nth_size=SIZE_MAX;
 		
 		seq_size=0;
 		state_size=0;
@@ -55,7 +55,7 @@ namespace StochHMM {
 	trellis::trellis(model* h, sequences* sqs){
 		hmm=h;
 		seqs=sqs;
-		nth_size=SIZE_T_MAX;
+		nth_size=SIZE_MAX;
 		
 		seq_size		= seqs->getLength();
 		state_size		= hmm->state_size();
@@ -148,7 +148,7 @@ namespace StochHMM {
 	void trellis::reset(){
 		hmm=NULL;
 		seqs=NULL;
-		nth_size=SIZE_T_MAX;
+		nth_size=SIZE_MAX;
 		state_size=0;
 		seq_size=0;
 		type= SIMPLE;

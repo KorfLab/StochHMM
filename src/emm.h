@@ -67,6 +67,7 @@ namespace StochHMM{
 		
 		//MUTATORS
 		bool parse(std::string&, tracks&, weights*, StateFuncs* );
+		bool parse(std::string& txt,track* trk);
 		
 		//!Set the emission to a Real Number
 		inline void setRealNumber(){real_number=true;};
@@ -84,6 +85,7 @@ namespace StochHMM{
 		inline bool isComplement(){return complement;};
 		
 		double get_emission(sequences& , size_t );
+		double get_emission(sequence&, size_t);
 		
 		//! Get the external Functions defined for the emission
 		//! \return externalFuncs*

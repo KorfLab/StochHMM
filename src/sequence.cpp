@@ -33,6 +33,7 @@ namespace StochHMM{
     //!Create a sequence datatype
     sequence::sequence(){
         realSeq=false;
+		real = NULL;
         seq=NULL;
         mask=NULL;
         seqtrk  = NULL;
@@ -471,6 +472,8 @@ namespace StochHMM{
             std::cerr << "Can't digitize sequence without a valid track defined\n";
             return false;
         }
+		
+		
         
         stringList lst;
         clear_whitespace(undigitized,"\n");
@@ -480,6 +483,13 @@ namespace StochHMM{
         else{
             lst.fromAlpha(undigitized, 1);
         }
+		
+		if (seq == NULL){
+			seq = new std::vector<uint8_t>(lst.size());
+		}
+		else{
+			seq->assign(lst.size(),0);
+		}
         
         for (size_t i=0;i<lst.size();i++){
             short symbl = seqtrk->symbolIndex(lst[i]);
@@ -490,7 +500,7 @@ namespace StochHMM{
                 return false;
             }
             
-            seq->push_back(symbl);
+            (*seq)[i] = symbl;
         }
         
         undigitized.clear();  //Once sequence is digitized we don't need the old seqeunce string

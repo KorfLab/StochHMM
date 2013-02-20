@@ -150,7 +150,7 @@ namespace StochHMM{
         ambigCharacter amb(this,ambChar,defs);
         ambiguousSymbols.push_back(amb);
         
-		int index = symbolIndices.size();  //Get the index position and new digital reference value
+		int index = (int) symbolIndices.size();  //Get the index position and new digital reference value
 		
 		if (index >= 255){
 			std::cerr << "Maximum number of discrete symbols reached at 255\n";
