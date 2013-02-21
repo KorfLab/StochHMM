@@ -213,7 +213,21 @@ namespace StochHMM{
         std::string modelString=slurpFile(modelFile);
         return parse(modelString,NULL,NULL,NULL);
     }
+	
+	
+	bool model::importFromString(std::string& modelString, StateFuncs* funcs){
+        return parse(modelString,funcs,NULL,NULL);
+    }
     
+	
+    bool model::importFromString(std::string& modelString, StateFuncs* funcs, templates* tmpls, weights* scl){
+        return parse(modelString, funcs, tmpls, scl);
+    }
+    
+	
+    bool model::importFromString(std::string& modelString){
+        return parse(modelString,NULL,NULL,NULL);
+    }
 	
     //!Parses text model file
     //!Splits the model into sections that are then parsed by the individiual classes

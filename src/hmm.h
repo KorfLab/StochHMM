@@ -173,6 +173,11 @@ namespace StochHMM{
 		bool import(std::string&);
 		bool import(std::string&, StateFuncs*, templates*, weights*);
 		
+		bool importFromString(std::string&);
+		bool importFromString(std::string&,StateFuncs*);
+		bool importFromString(std::string&, StateFuncs*, templates*, weights*);
+		
+		
 		bool parse(const std::string&, StateFuncs*, templates*, weights*);
 		bool parse(std::string&,std::string&);
 		
