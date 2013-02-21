@@ -610,7 +610,7 @@ namespace StochHMM{
         lst.splitString(txt, "\n");
         for(size_t i=0;i<lst.size();i++){
             stringList ln;
-            ln.splitString(lst[i],":\t ");
+            ln.splitString(lst[i],":");
             track* trk = getTrack(ln[0]);
             if (trk!=NULL){
                 if (!trk->parseAmbiguous(ln[1])){
@@ -852,7 +852,7 @@ namespace StochHMM{
             size_t nameLineEnding=states[i].find_first_of("\n",nameHeader);
             std::string name = states[i].substr(nameHeader+5,nameLineEnding-(nameHeader+5));
             clear_whitespace(name, " \t\n");
-            if (names.contains(name)){
+			if (names.containsExact(name)){
                 std::cerr << "State with name of: " << name << " is defined twice in the model\n";
                 return false;
             }
