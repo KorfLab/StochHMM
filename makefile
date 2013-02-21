@@ -165,6 +165,7 @@ STOCHHMMLIB_CPP_DEPS += \
 ./src/sequence.d \
 ./src/sequences.d 
  
+	
 
 # Each subdirectory must supply rules for building sources it contributes
 src/%.o: ../src/%.cpp
@@ -195,15 +196,15 @@ bin_dir:
 
 # Tool invocations
 #Create Static Library
-libStochHMM.a: $(OBJS) $(USER_OBJS)
-	@echo 'Building target: $@'
+libStochHMM.a: $(STOCHHMMLIB_OBJS)
+	@echo 'Building target: $@' 
 	@echo 'Invoking: GCC Archiver'
 	ar -r  "bin/libStochHMM.a" $(STOCHHMMLIB_OBJS) $(STOCHHMMLIB_LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 #Compile StochHMM application using Static Library
-StochHMM: $(OBJS) $(USER_OBJS)
+StochHMM: $(STOCHHMM_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: C++ Linker'
 	g++  -o "bin/StochHMM" $(STOCHHMM_OBJS) $(STOCHHMM_LIBS)
@@ -213,7 +214,7 @@ StochHMM: $(OBJS) $(USER_OBJS)
 
 # Other Targets
 clean:
-	-$(RM) $(STOCHHMMLIB_SRCS)$(STOCHHMMLIB_CPP_SRCS)$(STOCHHMMLIB_CPP_OBJS)$(STOCHHMMLIB_CPP_DEPS)$(STOCHHMM_SRCS)$(STOCHHMM_CPP_SRCS)$(STOCHHMM_OBJS)$(STOCHHMM_CPP_DEPS) bin /
+	-$(RM) $(STOCHHMMLIB_SRCS)$(STOCHHMMLIB_CPP_OBJS)$(STOCHHMMLIB_CPP_DEPS)$(STOCHHMM_SRCS)$(STOCHHMM_OBJS)$(STOCHHMM_CPP_DEPS) bin/
 	-@echo ' '
 
 .PHONY: all clean dependents
