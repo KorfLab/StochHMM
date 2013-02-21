@@ -28,14 +28,7 @@
 #include <iomanip>
 #include <time.h>
 #include <fstream>
-#include "hmm.h"
-#include "sequence.h"
-#include "seqTracks.h"
-#include "trellis.h"
-#include "state.h"
-#include "seqTracks.h"
-#include "traceback_path.h"
-#include "options.h"
+#include "StochHMMlib.h"
 
 #include "StochHMM_usage.h"
 using namespace StochHMM;
