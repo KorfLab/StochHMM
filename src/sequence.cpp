@@ -195,6 +195,29 @@ namespace StochHMM{
     }
     
     sequence& sequence::operator= (const sequence& rhs){
+		
+		//Clean up if necessary 
+		if (external != NULL){
+			delete external;
+			external = NULL;
+		}
+		
+		if (seq!= NULL){
+			delete seq;
+			seq = NULL;
+		}
+		
+		if (real!=NULL){
+			delete real;
+			seq = NULL;
+		}
+		
+		if (mask!= NULL){
+			delete mask;
+			mask = NULL;
+		}
+		
+		//Copy rhs over to this
         realSeq = rhs.realSeq;
         header  = rhs.header;
         attrib  = rhs.attrib;
@@ -284,7 +307,9 @@ namespace StochHMM{
     //! \return std::string String representation of the sequence
     std::string sequence::stringify(){
         std::string output;
-        output+= header +"\n";
+		if (!header.empty()){
+			 output+= header +"\n";
+		}
         
         if (!seq && !realSeq){
             output+=undigitized;
@@ -325,9 +350,12 @@ namespace StochHMM{
         if (!seq){  //If the sequence is not digitized yet.  Return the undigitized version 
             return undigitized;
         }
-        
+		
         std::string output;
-        output+= header +"\n";
+		if (!header.empty()){
+			output+= header +"\n";
+		}
+		
         if (seqtrk!=NULL){
             size_t alphaMax = seqtrk->getAlphaMax();
             
@@ -337,7 +365,6 @@ namespace StochHMM{
                     output+=" ";
                 }
             }
-            output+="\n";
         }
         else {
             std::cerr << "track pointer is not defined.   Can't undigitize sequence without valid track\n";
@@ -677,8 +704,17 @@ namespace StochHMM{
     void sequence::setSeq (std::string& sq, track* tr){
         realSeq= false;
         undigitized = sq;
-        seqtrk = tr;
-        _digitize();
+		
+		if (tr!= NULL){
+			seqtrk = tr;
+			_digitize();
+			length = seq->size();
+		}
+		else{
+			length = sq.size();
+		}
+		
+		return;
     }
     
     //!Set the sequence from a vector of doubles
@@ -688,6 +724,10 @@ namespace StochHMM{
         seqtrk = tr;
         realSeq = true;
         real=rl;
+		
+		length = rl->size();
+		
+		return;
     }
     
     
@@ -862,6 +902,64 @@ namespace StochHMM{
         
         std::cerr << "No undigitized sequence exists to convert\n";
         return false;
+    }
+	
+	
+	void sequence::shuffle(){
+		
+		if (realSeq){
+			std::random_shuffle(real->begin(), real->end());
+		}
+		else if (seq!=NULL){
+			std::random_shuffle(seq->begin(), seq->end());
+		}
+		else{
+			std::random_shuffle(undigitized.begin(), undigitized.end());
+		}
+		return;
+	}
+	
+	
+	
+	sequence random_sequence(std::vector<double>& freq, size_t length, track* tr){
+        sequence random_seq;
+        
+        if (tr==NULL){
+            std::cerr << "Track is not defined" << std::endl;
+            return random_seq;
+        }
+        
+        size_t alphaSize=tr->getAlphaSize();
+        size_t freqSize=freq.size();
+		
+        if (alphaSize!=freqSize){
+            std::cerr << "Frequency distribution size and Alphabet size must be the same." << std::endl;
+            return random_seq;
+        }
+        
+        //Create CDF of frequency distribution
+        std::vector<std::pair<double,std::string> > cdf;
+        double sum = 0.0;
+        for(size_t i=0;i<freqSize;++i){
+            sum+=freq[i];
+            std::pair<double,std::string> val (sum, tr->getAlpha(i));
+            cdf.push_back(val);
+        }
+        
+        //Generate random sequence
+        std::string random_string;
+        for(size_t j=0;j<length;++j){
+            double val = ((double)rand()/((double)(RAND_MAX)+(double)(1))); //Generate random
+            for (size_t m=0;m<freqSize;++m){ //Check to see which value is
+                if (cdf[m].first>=val){
+                    random_string+=cdf[m].second;
+                    break;
+                }
+            }
+        }
+        
+        random_seq.setSeq(random_string, tr);
+        return random_seq;
     }
     
 }

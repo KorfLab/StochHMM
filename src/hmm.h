@@ -340,6 +340,8 @@ namespace StochHMM{
 	
 	void print_vec (std::vector<std::vector<double> >&);
 	
-	
+	//    void markov_length_distribution(model*);
+	//
+	//    void markov_generate_sequence(model*);
 }
 #endif /*HMM_H*/

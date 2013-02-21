@@ -54,15 +54,15 @@ namespace StochHMM{
         
         sequence();
         sequence(bool);  //True if Real number track, False if alpha
-        sequence(trackType);
+						 //sequence(trackType);
         sequence(std::vector<double>*,track*);
         sequence(std::string&, track*);
         sequence(char* , track*);
+		
         ~sequence();
         
         //Copy Constructors
         sequence(const sequence&);
-        
         sequence& operator= (const sequence&);
         
         friend class sequences;
@@ -109,6 +109,11 @@ namespace StochHMM{
         //! Get the pointer to the track that is defined for the sequence;
         //! \return pointer to track
         inline track* getTrack(){return seqtrk;};
+		
+		inline void setTrack(track* tr){
+			seqtrk = tr;
+			return;
+		}
         
         
         //! Print the string represntation of the sequence to stdout
@@ -150,6 +155,8 @@ namespace StochHMM{
         
         bool digitize();
 		
+		void shuffle();
+		
 		inline std::vector<uint8_t>* getDigitalSeq(){return seq;}
         
         inline uint8_t operator[](size_t index){return (*seq)[index];}
@@ -183,7 +190,9 @@ namespace StochHMM{
         bool _digitize();  //Digitize the sequence
     };
     
-    
+    sequence random_sequence(std::vector<double>& freq, size_t length, track* tr);
+//	sequence random_sequence(emm*);    
+//  sequence translate();
     
 }
 #endif /*SEQUENCE_H*/

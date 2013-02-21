@@ -331,4 +331,5 @@ namespace StochHMM {
         }
         return;
     }
+	
 }

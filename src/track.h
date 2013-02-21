@@ -89,6 +89,7 @@ namespace StochHMM{
         
         //TODO: Complete definition of constructor
         track(TrackFuncs*);
+		track(std::vector<std::string>&);
         
         friend class state;
         friend class model;
@@ -122,19 +123,23 @@ namespace StochHMM{
         //! \param typ enum trackType
         inline void setAlphaType(trackType typ){alpha_type=typ;};
         
+		
         bool addAlphabetChar(std::string&);
-        bool addAlphabetChar(std::vector<std::string>& , std::vector<std::string>&);
-        bool addAlphabetChar(const char *);
-        
+		bool addAlphabetChar(const char *);
+		bool addAlphabetChar(std::vector<std::string>&);
+		bool addAlphabetChar(size_t chSize, const char * characters[]);
+		bool addAlphabetChar(std::string& character, std::string& complement);
+		bool addAlphabetChar(size_t chSize, const char* characters[], const char* complements[]);
+		bool addAlphabetChar(std::vector<std::string>& characters , std::vector<std::string>& complements);
+		
         void addComplement(std::string&, std::string&);
         void addComplement(const char *, const char *);
+		bool addComplement(std::vector<std::string>& characters, std::vector<std::string>& complements);
         
         //! Set ambiguous character flag to true
         //! This will allow ambiguous characters to be processed in sequence
         //! Without this flag, only strict track characters or values are allowed
         inline void setAmbiguous(){ambiguous=true; return;};
-        
-        
         void addAmbiguous(std::string&,std::vector<std::string>&);
         
         
@@ -214,9 +219,13 @@ namespace StochHMM{
 	
 		inline std::vector<size_t>& getUnambiguousSet(){ return unambiguous; }
         
-        void print();
-        std::string stringify();
+		
+		std::string stringify();
         std::string stringifyAmbig();
+		
+		//! Print the string representation of the track to stdout
+        inline void print(){ std::cout << stringify() << std::endl;}
+        
         std::string convertIndexToWord(size_t,size_t);
 		void convertIndexToDigital(size_t,size_t,uint8_t*);
 		

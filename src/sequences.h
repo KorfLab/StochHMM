@@ -198,6 +198,7 @@ namespace StochHMM {
         bool related_sequences;
         bool same_length;
     };
+		
 
 }
 

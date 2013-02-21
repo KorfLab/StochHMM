@@ -56,6 +56,21 @@ namespace StochHMM{
         complementSet=false;
     }
 	
+	track::track(std::vector<std::string>& characters){
+		
+		trackIndex=std::numeric_limits<size_t>::max();
+        ambiguous=false;
+        defaultAmbiguous=-1;
+        trackFunctionDefined= false;
+        maxSize=0;
+		max_ambiguous =0;
+		max_unambiguous =0;
+        complementSet=false;
+		
+		addAlphabetChar(characters);
+		setAlphaType(ALPHA_NUM);
+	}
+	
     //!Get the letter/word that has a given digitized value
     //! \param iter integer value of digital symbol
     //! \return std::string The string value in the undigitized sequence that is associated with the integer digitized value;
@@ -92,34 +107,78 @@ namespace StochHMM{
 		
 		max_unambiguous = index;
 		unambiguous.push_back(index);
+		setAlphaType(ALPHA_NUM);
         
 		return true;
     }
     
     bool track::addAlphabetChar(const char *character){
         std::string string_character(character);
+		setAlphaType(ALPHA_NUM);
+		
+		if (string_character.size()>maxSize){maxSize=string_character.size();};
+
         return addAlphabetChar(string_character);
     }
     
+	bool track::addAlphabetChar(std::vector<std::string>& characters){
+		for(size_t i=0;i<characters.size();i++){
+            addAlphabetChar(characters[i]);
+        }
+		
+		setAlphaType(ALPHA_NUM);
+		
+		return true;
+	}
+	
+	
+	bool track::addAlphabetChar(size_t chSize, const char * characters[]){
+		for(size_t i =0; i < chSize; i++ ){
+			addAlphabetChar(characters[i]);
+		}
+		return true;
+	}
+	
+	
+	bool track::addAlphabetChar(std::string& character, std::string& complement){
+		addAlphabetChar(character);
+		addComplement(character, complement);
+		complementSet = true;
+		setAlphaType(ALPHA_NUM);
+		return true;
+	}
+	
+	bool track::addAlphabetChar(size_t chSize, const char* characters[], const char* complements[]){
+		for(size_t i=0;i<chSize;i++){
+            addAlphabetChar(characters[i]);
+			addComplement(characters[i], complements[i]);
+        }
+        
+        complementSet = true;
+		setAlphaType(ALPHA_NUM);
+        
+        return true;
+	}
+	
 	
 	//FIXME:  Need to fix the code below and test
 	//Complements added by Ken
-    bool track::addAlphabetChar(std::vector<std::string>& characters, std::vector<std::string>& complement_char){
+    bool track::addAlphabetChar(std::vector<std::string>& characters, std::vector<std::string>& complements){
         
-        if (characters.size() != complement_char.size()){
+        if (characters.size() != complements.size()){
             //Error Message
+			std::cerr << "Number of Complement characters and Characters don't match.\n";
+			return false;
         }
         
         
         for(size_t i=0;i<characters.size();i++){
             addAlphabetChar(characters[i]);
-        }
-        
-        for (size_t j=0;j<characters.size();j++){
-            addComplement(characters[j], complement_char[j]);
+			addComplement(characters[i], complements[i]);
         }
         
         complementSet = true;
+		setAlphaType(ALPHA_NUM);
         
         return true;
     }
@@ -140,7 +199,22 @@ namespace StochHMM{
         
         return;
     }
+	
+	bool track::addComplement(std::vector<std::string>& characters, std::vector<std::string>& complements){
+		
+		if (characters.size() != complements.size()){
+			std::cerr << "Number of Complement characters and Characters don't match.\n";
+			return false;
+        }
+		
+		for(size_t i=0;i<characters.size();i++){
+			addComplement(characters[i], complements[i]);
+        }
+		
+		return true;
+	}
     
+	
     //!Add an ambiguous character/word definition to the track
     //! \param ambChar  word/symbol fore the ambiguous character
     void track::addAmbiguous(std::string& ambChar, std::vector<std::string>& defs){
@@ -234,10 +308,6 @@ namespace StochHMM{
         return true;
     }
 	
-    //! Print the string representation of the track to stdout
-    void track::print(){
-        std::cout << stringify() << std::endl;
-    }
     
     //! Get the string representation of the track
     //! \return std::string Definition of the track as in model
