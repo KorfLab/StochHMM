@@ -18,15 +18,17 @@ STOCHHMMLIB_OBJS :=
 STOCHHMMLIB_CPP_DEPS :=
 
 #Application Source Files
-STOCHHMM_SRCS := ./src/StochHMM.o
-STOCHHMM_CPP_SRCS := ./src/StochHMM.cpp
-STOCHHMM_OBJS := ./src/StochHMM.o
-STOCHHMM_CPP_DEPS := ./src/StochHMM.d
-STOCHHMM_LIBS := ./bin/libStochHMM.a
+STOCHHMM_SRCS := ./src/StochHMM.o 
+STOCHHMM_CPP_SRCS := ./src/StochHMM.cpp 
+STOCHHMM_OBJS := ./src/StochHMM.o 
+STOCHHMM_CPP_DEPS := ./src/StochHMM.d 
+STOCHHMM_LIBS := ./bin/libStochHMM.a 
 
+#Library Header Files
 
 #Library Source Files
 STOCHHMMLIB_SRCS += \
+./src/pwm.o \
 ./src/PDF.o \
 ./src/trellis.o \
 ./src/viterbi.o \
@@ -62,6 +64,7 @@ STOCHHMMLIB_SRCS += \
 
 
 STOCHHMMLIB_CPP_SRCS += \
+./src/pwm.cpp \
 ./src/PDF.cpp \
 ./src/trellis.cpp \
 ./src/viterbi.cpp \
@@ -97,6 +100,7 @@ STOCHHMMLIB_CPP_SRCS += \
  
 
 STOCHHMMLIB_OBJS += \
+./src/pwm.o \
 ./src/PDF.o \
 ./src/trellis.o \
 ./src/viterbi.o \
@@ -132,6 +136,7 @@ STOCHHMMLIB_OBJS += \
 
 
 STOCHHMMLIB_CPP_DEPS += \
+./src/pwm.d \
 ./src/PDF.d \
 ./src/trellis.d \
 ./src/viterbi.d \
@@ -168,7 +173,7 @@ STOCHHMMLIB_CPP_DEPS += \
 	
 
 # Each subdirectory must supply rules for building sources it contributes
-src/%.o: ../src/%.cpp
+./src/%.o: ./src/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
 	g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
@@ -199,7 +204,9 @@ bin_dir:
 libStochHMM.a: $(STOCHHMMLIB_OBJS)
 	@echo 'Building target: $@' 
 	@echo 'Invoking: GCC Archiver'
-	ar -r  "bin/libStochHMM.a" $(STOCHHMMLIB_OBJS) $(STOCHHMMLIB_LIBS)
+	ar rcv "bin/libStochHMM.a" $(STOCHHMMLIB_OBJS)
+	ranlib "bin/libStochHMM.a"
+	chmod 644 "bin/libStochHMM.a"
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -214,7 +221,7 @@ StochHMM: $(STOCHHMM_OBJS)
 
 # Other Targets
 clean:
-	-$(RM) $(STOCHHMMLIB_SRCS)$(STOCHHMMLIB_CPP_OBJS)$(STOCHHMMLIB_CPP_DEPS)$(STOCHHMM_SRCS)$(STOCHHMM_OBJS)$(STOCHHMM_CPP_DEPS) bin/
+	-$(RM) $(STOCHHMMLIB_SRCS) $(STOCHHMMLIB_CPP_OBJS) $(STOCHHMMLIB_CPP_DEPS) $(STOCHHMM_SRCS) $(STOCHHMM_OBJS) $(STOCHHMM_CPP_DEPS) bin/
 	-@echo ' '
 
 .PHONY: all clean dependents

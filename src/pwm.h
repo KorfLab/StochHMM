@@ -33,6 +33,7 @@
 #include <algorithm>
 #include <vector>
 #include <list>
+#include <bitset>
 #include "track.h"
 #include "sequences.h"
 #include "stochTypes.h"
