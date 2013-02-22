@@ -139,10 +139,11 @@ all: libStochHMM.a
 
 # Tool invocations
 #Create Static Library
+#libtool -static  $(OBJS) -o libStochHMM.a
 libStochHMM.a: $(OBJS)
 	@echo 'Building target: $@' 
 	@echo 'Invoking: GCC Archiver'
-	libtool -static  $(OBJS) -o libStochHMM.a
+	ar rcv libStochHMM.a $(OBJS)  
 	ranlib libStochHMM.a
 	chmod 644 libStochHMM.a
 	@echo 'Finished building target: $@'
