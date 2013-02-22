@@ -65,7 +65,7 @@ StochHMM: $(OBJS)
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS) $(CPP_DEPS) bin/
+	-$(RM) $(OBJS) $(CPP_DEPS) bin/StochHMM
 	cd src; ${MAKE} clean;
 	-@echo ' '
 

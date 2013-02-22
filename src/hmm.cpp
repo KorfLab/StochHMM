@@ -77,7 +77,7 @@ namespace StochHMM{
             }
             MOD.close();
             
-            for(int i=0;i<filenames.size();i++){
+            for(size_t i=0;i<filenames.size();i++){
                 model* temp=new(std::nothrow) model;
                 
                 if (temp==NULL){
@@ -88,7 +88,7 @@ namespace StochHMM{
                 hmms.push_back(temp);
             }
             
-            for(int i=0;i<filenames.size();i++){
+            for(size_t i=0;i<filenames.size();i++){
                 hmms[i]->import(filenames[i],funcs);
                 hmms[i]->print();
             }
@@ -1280,9 +1280,9 @@ namespace StochHMM{
         size_t sze=x.size();
         size_t internal_sze=x[0].size();
         
-        for(int j=0;j<sze;j++){
+        for(size_t j=0;j<sze;j++){
             //cout << j << "\t";
-            for(int i=0;i<internal_sze;i++){
+            for(size_t i=0;i<internal_sze;i++){
                 std::cout << x[j][i] << '\t' ;
             }
             std::cout << std::endl;

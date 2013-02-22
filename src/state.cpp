@@ -28,8 +28,8 @@
 namespace StochHMM{
 	
     //!Create a state object
-    state::state():stateIterator(SIZE_MAX),endi(NULL){
-        transi = new std::vector<transition*>;
+    state::state():endi(NULL), stateIterator(SIZE_MAX){
+        transi = new (std::nothrow) std::vector<transition*>;
     }
 	
     //!Create a state from string
@@ -39,7 +39,7 @@ namespace StochHMM{
     //! \param trcks Tracks defined for model
     //! \param wts Pointer to all weight defined for the model
     //! \param funcs State functions defined for the model
-    state::state(std::string& txt, stringList& names,tracks& trcks, weights* wts, StateFuncs* funcs):stateIterator(SIZE_MAX),endi(NULL){
+    state::state(std::string& txt, stringList& names,tracks& trcks, weights* wts, StateFuncs* funcs):endi(NULL), stateIterator(SIZE_MAX){
         
         //endi=new transition(STANDARD);
         transi = new std::vector<transition*>;
@@ -410,7 +410,7 @@ namespace StochHMM{
     //! \param iter Position in the sequence
     double state::get_emission_prob(sequences &seqs, size_t iter){
         double value=0;
-        for(int i=0;i<emission.size();i++){
+        for(size_t i=0;i<emission.size();i++){
 #ifdef DEBUG_VERBOSE
             //cout << i << "\t" << emission[i].get_emission(seqs,iter) << endl;
 #endif

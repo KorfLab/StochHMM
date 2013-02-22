@@ -74,8 +74,8 @@ namespace StochHMM{
     //!Example: Function would be SIDD, the track we would use to get the sidd track
     //!would be a DNA sequence track.
     struct ppTrack{
-        int trackNumber;
-        int trackToUse;
+        size_t trackNumber;
+        size_t trackToUse;
         StochHMM::pt2TrackFunc* func;
     };
 
@@ -205,7 +205,7 @@ namespace StochHMM{
         
         //Threading Variables
         std::queue<seqJob*> jobQueue; //used to be trcks
-        int jobs;  //Counts of # of jobs waiting
+        size_t jobs;  //Counts of # of jobs waiting
         int exit_thread;  //set to 0 if file stream is EOF
         
         

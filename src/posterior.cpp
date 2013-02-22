@@ -336,7 +336,7 @@ namespace StochHMM {
 			max = -INFINITY;
 			max_ptr = -1 ;
 			
-            for (int16_t st=0; st < state_size; st++){
+            for (size_t st=0; st < state_size; st++){
                 if ((*posterior_score)[position][st] > max){
 					max = (*posterior_score)[position][st];
 					max_ptr = st;
@@ -353,10 +353,10 @@ namespace StochHMM {
             double random=((double)rand()/((double)(RAND_MAX)+(double)(1)));
             double cumulative_prob(0.0);
             
-			for (int16_t st = 0; st < state_size ; ++st){
+			for (size_t st = 0; st < state_size ; ++st){
                 cumulative_prob+=exp((*posterior_score)[position][st]);
                 if (random < cumulative_prob){
-                    path.push_back(st);
+                    path.push_back( (int16_t) st);
                 }
             }
         }

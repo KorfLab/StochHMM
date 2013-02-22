@@ -125,7 +125,7 @@ namespace StochHMM{
                 }
                 else if (tp->type==OPT_FLAG){
                     tp->set=false;
-                    for(int k=0;k<param[i].preset.size();k++){
+                    for(size_t k=0;k<param[i].preset.size();k++){
                         if (k>=MAX_ALLOWABLE){
                             std::cerr << "More presets than allowed OPT_FLAG" <<std::endl;
                             exit(0);

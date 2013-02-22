@@ -178,7 +178,7 @@ namespace StochHMM{
     
     //!Destroy seqTracks
     seqTracks::~seqTracks(){
-        for(int i=0;i<filehandles.size();i++){
+        for(size_t i=0;i<filehandles.size();i++){
             if (filehandles[i]!=NULL){
                 filehandles[i]->close();
             }
@@ -671,7 +671,7 @@ namespace StochHMM{
     //!Print the seqTracks to stdout
     void seqTracks::print(){
         
-        for (int i=0;i<jobQueue.size();i++){
+        for (size_t i=0;i<jobQueue.size();i++){
             //jobQueue[i]->print_seq();
         }
         return;
@@ -712,7 +712,7 @@ namespace StochHMM{
         
         //std::cout << importTracks.size() << std::endl;
         
-        for(int i=0;i<importTracks.size();i++){
+        for(size_t i=0;i<importTracks.size();i++){
             bool success;
 
             if (importTracks[i].second == REAL){
@@ -864,7 +864,7 @@ namespace StochHMM{
             
             //Check that all sequences are same length.
             size_t lengthOfAll=SIZE_MAX;
-            for (int i=0;i<trackCount;i++){
+            for (size_t i=0;i<trackCount;i++){
                 
                 size_t length=temp_job->set->getLength(i);
                 if (lengthOfAll==SIZE_MAX){

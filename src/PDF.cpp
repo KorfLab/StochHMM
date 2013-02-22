@@ -82,7 +82,7 @@ namespace StochHMM{
 	//!Iterative calculations don't make this appropriate for using with emissions
 	//! \param k Value or Number of successful trials
     //! \param p Probability of Success for each trial of N trials
-    double poisson_binomial_pdf(int k, std::vector<double>& p){
+    double poisson_binomial_pdf(size_t k, std::vector<double>& p){
 		if (k > p.size()){
 			std::cerr << "Poisson Binomial PDF Function: k > n \n";
             exit(2);

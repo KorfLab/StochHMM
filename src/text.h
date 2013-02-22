@@ -172,6 +172,7 @@ namespace StochHMM{
     std::string double_to_string(float);
     
     bool stringToInt(std::string&, int&);
+	bool stringToInt(std::string&, size_t&);
     bool stringToDouble(std::string&, double&);
 
     bool isNumeric(const std::string&);

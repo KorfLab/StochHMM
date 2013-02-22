@@ -40,7 +40,7 @@ namespace StochHMM{
     //! \param del Delimiter characters to use to split string
     //! \param remove True will remove whitespace, False will leave whitespace
     
-    stringList::stringList(std::string& txt, std::string& ws, std::string& del,bool remove):whitespace(ws),delimiters(del),removeWS(remove)
+    stringList::stringList(std::string& txt, std::string& ws, std::string& del,bool remove):removeWS(remove), whitespace(ws),delimiters(del)
     {
         splitString(txt);
         return;
@@ -143,7 +143,6 @@ namespace StochHMM{
     //! \param txt String to be split
     //! \param del Delimiters to use to split evaluated as single characters, not whole string
     void stringList::splitString(const std::string& txt, const std::string& del){
-        
         delimiters=del;
         splitString(txt);
         return;
@@ -283,7 +282,7 @@ namespace StochHMM{
     //! Returns true if text delimiters ":,[space]\\t" are found in the string
     //! \param txt String used to find delimiter
     bool stringList::foundAlphaDelimiter(const std::string& txt){
-        for(int i=0;i<txt.size();i++){
+        for(size_t i=0;i<txt.size();i++){
             switch(txt[i]){
                     case ':':
                     return true;
@@ -529,7 +528,7 @@ namespace StochHMM{
         }
         else{
             out=int_to_string(input[0]);
-            for(int i=1;i<input.size();i++){
+            for(size_t i=1;i<input.size();i++){
                 out+=c;
                 out+=int_to_string(input[i]);
             }
@@ -552,7 +551,7 @@ namespace StochHMM{
         }
         else{
             out=int_to_string(input[0]);
-            for(int i=1;i<input.size();i++){
+            for(size_t i=1;i<input.size();i++){
                 out+=c;
                 out+=int_to_string(input[i]);
             }
@@ -613,6 +612,20 @@ namespace StochHMM{
         
         return true;
     }
+	
+	//!Convert string to integer
+    //!\param txt Text representation of integer
+    //!\param val Integer to be assigned
+    //!\return true if conversion is valid
+    //!\return false if conversion can't be performed
+    bool stringToInt(std::string& txt, size_t& val){
+        std::istringstream input(txt);
+        if (!(input >> val)){
+            return false;
+        }
+        
+        return true;
+    }
     
     
     //!Convert string to double
@@ -646,7 +659,7 @@ namespace StochHMM{
         }
         else{
             out=int_to_string(input[0]);
-            for(int i=1;i<input.size();i++){
+            for(size_t i=1;i<input.size();i++){
                 out+=c;
                 out+=int_to_string(input[i]);
             }
@@ -669,7 +682,7 @@ namespace StochHMM{
         }
         else{
             out=double_to_string(input[0]);
-            for(int i=1;i<input.size();i++){
+            for(size_t i=1;i<input.size();i++){
                 out+=c;
                 out+=double_to_string(input[i]);
             }

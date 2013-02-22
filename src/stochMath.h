@@ -135,7 +135,7 @@ namespace StochHMM{
     T integerPower(T base, T exponent){
         bool negative(false);
         T max = std::numeric_limits<T>::max();
-        if (base<1){    //If 
+        if (base<1){    
             base=abs(base);
             if (exponent%2!=0){
                 negative=true;
@@ -306,7 +306,7 @@ namespace StochHMM{
 	
     
     //  
-    void generateUnknownIndices(std::vector<size_t>&,int,int,int);
+    void generateUnknownIndices(std::vector<size_t>&,size_t,size_t,size_t);
 
     
     /*! \fn T sumVector(std::vector<T>& data)

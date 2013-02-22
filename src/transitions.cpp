@@ -242,7 +242,7 @@ namespace StochHMM{
             exit(1);
         }
         
-        for(int j=2;j<txt.size();j++){
+        for(size_t j=2;j<txt.size();j++){
             
             stringList ln;
             ln.splitString(txt[j],"\t");
@@ -251,7 +251,7 @@ namespace StochHMM{
                 return false;
             }
             
-            int index(0);
+            size_t index(0);
             if (!stringToInt(ln[0], index)){
                 std::cerr << "Distribution position value not numeric:\t" << ln[0] << std::endl;
                 return false;
@@ -270,7 +270,7 @@ namespace StochHMM{
             
             //Fill the lower range up to index with the first value
             //Extend values to lower
-            while (distribution->size()<index-1){
+            while (distribution->size()< index-1){
                 distribution->push_back(value);
             }
     #ifdef DEBUG_MODEL
@@ -446,8 +446,8 @@ namespace StochHMM{
             
             
             //Get Tables
-            int expectedColumns = 1;
-            int expectedRows = 1;
+            size_t expectedColumns(1);
+            size_t expectedRows(1);
             for(size_t i = 0; i<scoreTable.getNumberOfAlphabets(); i++){
                 expectedColumns*=scoreTable.getAlphaSize(i);
                 expectedRows*=POWER[scoreTable.getOrder(i)][scoreTable.getAlphaSize(i)-1];

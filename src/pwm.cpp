@@ -35,8 +35,8 @@ namespace StochHMM{
 		simpleThreshold = -INFINITY;
 		currentThreshold = &simpleThreshold;
 		bgWeight = NULL;
-		min_spacer = INFINITY;
-		max_spacer = -INFINITY;
+		min_spacer = SIZE_MAX;
+		max_spacer = 0;
 		return;
 	}
 	
@@ -237,7 +237,7 @@ namespace StochHMM{
 		size_t nameHeader = txt.find("NAME:");
 		size_t transHeader = txt.find("TRANSITION:");
 		size_t thresholdHeader = txt.find("THRESHOLD:");
-		size_t emmHeader = txt.find("EMISSION:");
+		//size_t emmHeader = txt.find("EMISSION:");
 		size_t end = txt.find("//END");
 		
 		if (end != std::string::npos){
@@ -588,7 +588,7 @@ namespace StochHMM{
 		size_t seq_size = seqs->getLength();
 		size_t motif_size = weightMatrix.size();
 		size_t front_size = frontWeightMatrix.size();
-		size_t back_size = backWeightMatrix.size();
+		//size_t back_size = backWeightMatrix.size();
 		
 		if (seq_size < motif_size + max_spacer){
 			return;
@@ -639,7 +639,7 @@ namespace StochHMM{
 		size_t seq_size = seq->getLength();
 		size_t motif_size = weightMatrix.size();
 		size_t front_size = frontWeightMatrix.size();
-		size_t back_size = backWeightMatrix.size();
+		//size_t back_size = backWeightMatrix.size();
 		
 		if (seq_size < motif_size + max_spacer){
 			return;

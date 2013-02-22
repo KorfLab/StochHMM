@@ -256,7 +256,7 @@ namespace StochHMM{
                 }
                 
                 bool px=line[1].compare("P(X)")==0;
-                for(int i=2;i<line.size();i++){
+                for(size_t i=2;i<line.size();i++){
                     
                     double tempValue;
                     if (!stringToDouble(line[i], tempValue)){
@@ -281,7 +281,7 @@ namespace StochHMM{
                 }
                 
                 bool px = line[1].compare("P(X)")==0;
-                for(int i=2;i<line.size();i++){
+                for(size_t i=2;i<line.size();i++){
                     
                     double tempValue;
                     if (!stringToDouble(line[i], tempValue)){

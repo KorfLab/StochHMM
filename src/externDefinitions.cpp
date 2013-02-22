@@ -78,7 +78,7 @@ namespace StochHMM{
     
     //!Print the External definitions to stdout 
     void ExDefSequence::print(){
-        for(int i=0;i<defs.size();i++){
+        for(size_t i = 0;i<defs.size();i++){
             if (defs[i]!=NULL){
                 std::cout << i  << "\t" << defs[i]->stringify() << std::endl;
             }
@@ -102,7 +102,7 @@ namespace StochHMM{
     //!external definition at position in sequence is absolute
     //! \param position Position in teh sequence
     //! \return true if the external definition is absolute
-    bool ExDefSequence::isAbsolute(int position){
+    bool ExDefSequence::isAbsolute(size_t position){
         if (defs[position]!=NULL && defs[position]->isAbsolute()){
             return true;
         }
@@ -114,7 +114,7 @@ namespace StochHMM{
     //!Get the absolute state defined for the position in the sequence
     //!\param position Position of the sequence
     //!\return integer indice to state
-    int ExDefSequence::getAbsState(int position){
+    size_t ExDefSequence::getAbsState(size_t position){
         if(defs[position]->isAbsolute()){
             return defs[position]->getState();
         }
@@ -128,7 +128,7 @@ namespace StochHMM{
     //! \param position Position in the sequence
     //! \return true if the external definition is weighted
     //
-    bool ExDefSequence::isWeighted(int position){
+    bool ExDefSequence::isWeighted(size_t position){
         return !defs[position]->isAbsolute();
     }
 
@@ -164,7 +164,7 @@ namespace StochHMM{
     //!Assign a what to a particular state
     //! \param stateIter  integer Iterator to the state
     //! \param logValue  Log base 2 value of weight to apply 
-    void weightDef::assignWeight(int stateIter, double logValue){
+    void weightDef::assignWeight(size_t stateIter, double logValue){
         weights[stateIter]+=logValue;
         return;
     }
@@ -243,9 +243,9 @@ namespace StochHMM{
         bool stop=false;
         bool state=false;
         
-        int startPosition(-1);
-        int stopPosition(-1);
-        std::vector<int> path;
+        size_t startPosition(SIZE_MAX);
+        size_t stopPosition(SIZE_MAX);
+        std::vector<size_t> path;
         
         for (size_t i=2;i<ln.size();i++){
             std::string& tag=ln[i];
@@ -286,7 +286,7 @@ namespace StochHMM{
                 split_line(traces, trace);
                 
                 //Check trace size;
-                int expectedSize=stopPosition-startPosition+1;
+                size_t expectedSize=stopPosition-startPosition+1;
                 
                 if (traces.size()!=expectedSize){
                     std::cerr << "Expected external definition trace size: " << expectedSize << "\n but got " << trace << std::endl; 
@@ -294,7 +294,7 @@ namespace StochHMM{
                 }
                 path.assign(traces.size(),-2);
                 
-                for(int k=0;k<traces.size();k++){
+                for(size_t k=0;k<traces.size();k++){
                     if (info.names.count(traces[k])){
                         path[k]=info.names[traces[k]];
                     }
@@ -310,11 +310,11 @@ namespace StochHMM{
                 std::cerr << "Invalid tag found in sequence external definition: " << ln[i] <<std::endl;
             }
         }
-                
+        
         //If everything is defined correctly then return true
         if (start && stop && state){
-            for(int i=startPosition-1;i<stopPosition;i++){
-                int state=path[i-(startPosition-1)];
+            for(size_t i=startPosition-1;i<stopPosition;i++){
+                size_t state=path[i-(startPosition-1)];
                 if (defs[i]){
                     if (!defs[i]->absolute){
                         std::cerr << "Absolute overlaps weighted state definition" << std::endl;
@@ -350,11 +350,11 @@ namespace StochHMM{
         bool value=false;
         bool valType=false;
         
-        int startPosition;
-        int stopPosition;
+        size_t startPosition(0);
+        size_t stopPosition(0);
         
-        std::set<int> definedStates;
-        std::set<int>::iterator setIterator;
+        std::set<size_t> definedStates;
+        std::set<size_t>::iterator setIterator;
         double val;
         
         
@@ -382,7 +382,7 @@ namespace StochHMM{
             }
             else if (tag.compare("END")==0){
                 
-                int tempInt;
+                size_t tempInt;
                 if (!stringToInt(ln[line_iter+1], tempInt)){
                     std::cerr << "Value in External Definition END is not numeric: " << ln[line_iter+1] << std::endl;
                     return false;
@@ -399,7 +399,7 @@ namespace StochHMM{
                 line_iter++;
             }
             else if (tag.compare("STATE_LABEL")==0){
-                std::vector<int>& temp=info.label[ln[line_iter+1]];
+                std::vector<size_t>& temp=info.label[ln[line_iter+1]];
                 for(size_t temp_iter=0; temp_iter < temp.size();temp_iter++){
                     definedStates.insert(temp[temp_iter]);
                 }
@@ -407,7 +407,7 @@ namespace StochHMM{
                 line_iter++;
             }
             else if (tag.compare("STATE_GFF")==0){
-                std::vector<int>& temp = info.gff[ln[line_iter+1]];
+                std::vector<size_t>& temp = info.gff[ln[line_iter+1]];
                 for(size_t temp_iter=0; temp_iter < temp.size(); temp_iter++){
                     definedStates.insert(temp[temp_iter]);
                 }
@@ -455,7 +455,7 @@ namespace StochHMM{
         
         //If everything is define correctly then return true
         if (start && stop && state && value && valType){
-            for (int position=startPosition-1; position < stopPosition; position++){
+            for (size_t position=startPosition-1; position < stopPosition; position++){
                 //Already have a defined external def at position
                 if (defs[position]){
                     if (defs[position]->absolute){

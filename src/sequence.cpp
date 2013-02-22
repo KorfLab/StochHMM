@@ -316,12 +316,12 @@ namespace StochHMM{
         }
         
         if (realSeq){
-            for(int i=0;i<length;i++){
+            for(size_t i=0;i<length;i++){
                 output+= double_to_string((*real)[i]) + " ";
             }
         }
         else{
-            for(int i=0;i<length;i++){
+            for(size_t i=0;i<length;i++){
                 output+= int_to_string((int)(*seq)[i]) + " ";
             }
         }
@@ -329,7 +329,7 @@ namespace StochHMM{
         
         if (mask){
             output += "\n";
-            for(int i=0;i<length;i++){
+            for(size_t i=0;i<length;i++){
                 output+= int_to_string((int)(*mask)[i]) + " ";
             }
         }
@@ -359,7 +359,7 @@ namespace StochHMM{
         if (seqtrk!=NULL){
             size_t alphaMax = seqtrk->getAlphaMax();
             
-            for (int i=0;i<length;i++){
+            for (size_t i=0;i<length;i++){
                 output+=seqtrk->getAlpha((*seq)[i]);
                 if (alphaMax!=1){
                     output+=" ";
@@ -840,7 +840,7 @@ namespace StochHMM{
         }
         else if (seq!=NULL){
             
-            for (int i = 0; i < seq->size(); i++) {
+            for (size_t i = 0; i < seq->size(); i++) {
                 (*seq)[i] = seqtrk->getComplementIndex((*seq)[i]);
             }
             

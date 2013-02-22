@@ -181,6 +181,7 @@ namespace StochHMM{
         
         
         std::string getAlpha(int);
+		std::string getAlpha(size_t);
         
         
         uint8_t symbolIndex(std::string&);
@@ -210,7 +211,7 @@ namespace StochHMM{
         //! \return size_t Number of ambiguous characters/words defined
         inline size_t getAmbiguousSize(){return ambiguousSymbols.size();};
         
-        std::string getAmbiguousCharacter(int);
+        std::string getAmbiguousCharacter(size_t);
         
         
         //! Get the indices of characters that an ambiguous character represents

@@ -42,9 +42,9 @@ namespace StochHMM{
     //!\struct stateInfo
     //!\brief Contains state information for quick reference between states information 
     struct stateInfo{
-        std::map<std::string,int> names; //Map string iterators by name
-        std::map<std::string,std::vector<int> > gff; //Map states iterators by GFF tags
-        std::map<std::string,std::vector<int> > label; //Map states iterators by Label tags
+        std::map<std::string,size_t> names; //Map string iterators by name
+        std::map<std::string,std::vector<size_t> > gff; //Map states iterators by GFF tags
+        std::map<std::string,std::vector<size_t> > label; //Map states iterators by Label tags
     };
     
     class ExDef;
@@ -80,11 +80,11 @@ namespace StochHMM{
         //ACCESSOR
         bool defined(size_t); // Is ExDef defined at position
         
-        bool isAbsolute(int); // Is ExDef Absolute at position
-        int getAbsState(int); // Absolute State at position
+        bool isAbsolute(size_t); // Is ExDef Absolute at position
+        size_t getAbsState(size_t); // Absolute State at position
         
-        bool isWeighted(int); // Is position weighted
-        bool isWeighted(int,int); // Is position and state weighted
+        bool isWeighted(size_t); // Is position weighted
+        bool isWeighted(size_t,size_t); // Is position and state weighted
         
         double getWeight(size_t,size_t); // Get Weighted Value for position and state
         
@@ -109,18 +109,18 @@ namespace StochHMM{
         
         friend class ExDefSequence;
         
-        inline int getState(){return weightedState;};
+        inline size_t getState(){return weightedState;};
         inline bool isAbsolute(){return absolute;};
         
-        inline void setState(int stIter){absolute=true; weightedState=stIter;};
-        virtual inline void assignWeight(int stateIter,double val){weightedState=stateIter;absolute=true;};
-        virtual inline double getWeight(size_t stateIter){if (stateIter==weightedState){ return 0;} else { return -INFINITY;}};
+        inline void setState(size_t stIter){absolute=true; weightedState=stIter;};
+        virtual inline void assignWeight(size_t stateIter,double val){weightedState=stateIter;absolute=true;};
+        virtual inline double getWeight(size_t stateIter){if ( stateIter == weightedState){ return 0;} else { return -INFINITY;}};
         virtual std::string stringify();
         
     protected:
         bool absolute; //is it absolute
         //state* st;
-        int weightedState;  //index iterator to state
+        size_t weightedState;  //index iterator to state
     };
 
 
@@ -133,7 +133,7 @@ namespace StochHMM{
         friend class ExDefSequence;
         
         inline double getWeight(size_t stateIter){return weights[stateIter];};
-        void assignWeight(int,double);
+        void assignWeight(size_t,double);
         std::string stringify();
     private:
         std::vector<double> weights;

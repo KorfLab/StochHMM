@@ -330,8 +330,8 @@ namespace StochHMM{
             }
         
             //Get Tables
-            int expectedColumns = 1;
-            int expectedRows = 1;
+            size_t expectedColumns(1);
+            size_t expectedRows(1);
             for(size_t i = 0; i<scores.getNumberOfAlphabets(); i++){
                 expectedColumns*=scores.getAlphaSize(i);
                 expectedRows*=POWER[scores.getOrder(i)][scores.getAlphaSize(i)-1];
@@ -546,8 +546,8 @@ namespace StochHMM{
 		}
 		
 		//Get Tables
-		int expectedColumns = 1;
-		int expectedRows = 1;
+		size_t expectedColumns(1);
+		size_t expectedRows(1);
 		for(size_t i = 0; i<scores.getNumberOfAlphabets(); i++){
 			expectedColumns*=scores.getAlphaSize(i);
 			expectedRows*=POWER[scores.getOrder(i)][scores.getAlphaSize(i)-1];

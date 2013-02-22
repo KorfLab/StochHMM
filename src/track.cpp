@@ -85,6 +85,21 @@ namespace StochHMM{
 			return "";
 		}
     }
+	
+	//!Get the letter/word that has a given digitized value
+    //! \param iter integer value of digital symbol
+    //! \return std::string The string value in the undigitized sequence that is associated with the integer digitized value;
+    std::string track::getAlpha(size_t iter){
+		if (iter<=max_unambiguous){
+			return alphabet[iter];
+		}
+		else if (iter <= max_ambiguous){
+			return getAmbiguousCharacter(iter);
+		}
+		else{
+			return "";
+		}
+    }
     
     //FIXME: Have it check before adding value
     //! Add a letter/word symbol to the track
@@ -297,7 +312,7 @@ namespace StochHMM{
         else{
             setAlphaType(ALPHA_NUM);
 			
-            for(int i=1;i<lst.size();i++){
+            for(size_t i=1;i<lst.size();i++){
                 if (!addAlphabetChar(lst[i])){
                     std::cerr << "Track import failed, because number of symbols exceeded 255. Alternatively, you can create a real number track for different emissions" << std::endl;
                     return false;
@@ -336,7 +351,7 @@ namespace StochHMM{
         std::string output;
         output+=name + ":\t";
         for (size_t i = max_unambiguous+1; i <= max_ambiguous; i++){
-            if (i>max_unambiguous+1){ output+= ",";}
+            if (i > (size_t) max_unambiguous+1){ output+= ",";}
             
             output+=getAmbiguousCharacter(i);
             output+="{";
@@ -448,7 +463,7 @@ namespace StochHMM{
     //! Get the string representation of the ambigous character defined by integer value
     //! If ambiguous character isn't defined, return value is "*"
     //! \param val Integer value representing the ambiguous character
-    std::string track::getAmbiguousCharacter(int val){
+    std::string track::getAmbiguousCharacter(size_t val){
         if (getAmbiguousSize()==0){
             return "*";
         }

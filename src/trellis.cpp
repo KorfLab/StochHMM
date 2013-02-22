@@ -294,7 +294,7 @@ namespace StochHMM {
 			state* st = hmm->getState(tbState);
 			
 			//Check to see if stop conditions of traceback are met, if so break;
-			if(traceback_identifier == START_INIT && tbState == -1) {break;}
+			if(traceback_identifier == START_INIT && tbState == SIZE_MAX) {break;}
 			else if (traceback_identifier == DIFF_STATE  && state_iter != st->getIterator())	{ break;}
 			else if (traceback_identifier == STATE_NAME  && identifier.compare(st->getName())==0)	{ break;}
 			else if (traceback_identifier == STATE_LABEL && identifier.compare(st->getLabel())==0)	{ break;}

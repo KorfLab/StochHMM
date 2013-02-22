@@ -30,9 +30,9 @@
 namespace StochHMM{
 
     
-    void generateUnknownIndices(std::vector<size_t>& results, int alphabetSize, int order ,int value){
+    void generateUnknownIndices(std::vector<size_t>& results, size_t alphabetSize, size_t order ,size_t value){
         results.assign(alphabetSize,0);
-        for (size_t i = 0; i < alphabetSize; i++){
+        for (size_t i = 0; i < (size_t) alphabetSize; i++){
             results[i]= (size_t)value + i * (size_t) POWER[order-1][alphabetSize-1];
         }
         return;
