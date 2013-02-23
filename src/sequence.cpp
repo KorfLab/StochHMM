@@ -506,30 +506,47 @@ namespace StochHMM{
         clear_whitespace(undigitized,"\n");
         if (seqtrk->getAlphaMax()>1){
             lst.splitString(undigitized, " ,\t");
+			
+			if (seq == NULL){
+				seq = new std::vector<uint8_t>(lst.size());
+			}
+			else{
+				seq->assign(lst.size(),0);
+			}
+			
+			for (size_t i=0;i<lst.size();i++){
+				uint8_t symbl = seqtrk->symbolIndex(lst[i]);
+				
+				//Check ambiguous here
+//				if (!seqtrk->isAmbiguousSet()){
+//					std::cerr << "Can't digitize ambiguous character without ambiguous characters being allowed in the model." << std::endl;
+//					return false;
+//				}
+				
+				(*seq)[i] = symbl;
+			}
         }
         else{
-            lst.fromAlpha(undigitized, 1);
+			if (seq == NULL){
+				seq = new std::vector<uint8_t>(undigitized.size());
+			}
+			else{
+				seq->assign(undigitized.size(),0);
+			}
+			
+			for (size_t i=0; i<undigitized.size();i++){
+				uint8_t symbl = seqtrk->symbolIndex(undigitized[i]);
+				
+				
+//				//Check ambiguous here
+//				if (!seqtrk->isAmbiguousSet()){
+//					std::cerr << "Can't digitize ambiguous character without ambiguous characters being allowed in the model." << std::endl;
+//					return false;
+//				}
+				(*seq)[i] = symbl;
+			}
         }
 		
-		if (seq == NULL){
-			seq = new std::vector<uint8_t>(lst.size());
-		}
-		else{
-			seq->assign(lst.size(),0);
-		}
-        
-        for (size_t i=0;i<lst.size();i++){
-            short symbl = seqtrk->symbolIndex(lst[i]);
-            
-            //Check ambiguous here
-            if (!seqtrk->isAmbiguousSet() && symbl<0){
-                std::cerr << "Can't digitize ambiguous character without ambiguous characters being allowed in the model." << std::endl;
-                return false;
-            }
-            
-            (*seq)[i] = symbl;
-        }
-        
         undigitized.clear();  //Once sequence is digitized we don't need the old seqeunce string
         
         return true;

@@ -344,4 +344,28 @@ namespace StochHMM {
         return;
     }
 	
+	void sequences::getFastas(const std::string& filename, track* tr){
+		std::ifstream file;
+		file.open(filename.c_str());
+		if (!file.is_open()){
+			std::cerr << "Couln't open the file:" << filename << "\n";
+			exit(2);
+		}
+		while(!file.eof()){
+			sequence* sq = new(std::nothrow) sequence(false);
+			
+			if (sq==NULL){
+				std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
+				exit(1);
+			}
+			bool success = sq->getFasta(file, tr);
+			
+			if (!success){
+				delete sq;
+			}
+			addSeq(sq,tr);
+		}
+		return;
+	}
+	
 }

@@ -371,12 +371,10 @@ namespace StochHMM{
 		if (simple){
 			scoreSimple(seqs);
 		}
-		
-		if (undefinedSpacer){
+		else if (undefinedSpacer){
 			scoreUndefSpacer(seqs);
 		}
-		
-		if (variableSpacer){
+		else if (variableSpacer){
 			scoreVariableSpacer(seqs);
 		}
 		return;
@@ -386,12 +384,10 @@ namespace StochHMM{
 		if (simple){
 			scoreSimple(seq);
 		}
-		
-		if (undefinedSpacer){
+		else if (undefinedSpacer){
 			scoreUndefSpacer(seq);
 		}
-		
-		if (variableSpacer){
+		else if (variableSpacer){
 			scoreVariableSpacer(seq);
 		}
 		return;
@@ -409,29 +405,13 @@ namespace StochHMM{
 	
 	
 	void PWM::scoreSimple(sequences* seqs){
-		size_t seq_size = seqs->getLength();
-		size_t motif_size = weightMatrix.size();
-		
-		if (seq_size < motif_size){
-			return;
+		size_t numberSeqs = seqs->size();
+		for (size_t i=0;i < numberSeqs ;i++){
+			sequence* sq = seqs->getSeq(i);
+			std::cout << sq->getHeader() << std::endl;
+			scoreSimple(sq);
 		}
-		
-		float score(0);
-		for(size_t position = 0; position < seq_size - motif_size; position++){
-			score = 0;
-			for (size_t motif_pos = 0; motif_pos < motif_size; motif_pos ++){
-				score += weightMatrix[motif_pos]->getEmissionValue(seqs,position+motif_pos);
-				if (score <= *currentThreshold){
-					break;
-				}
-			}
-			
-			if (score <= *currentThreshold){
-				continue;
-			}
-			
-			std::cout << position << "\t" << score << "\n";
-		}
+		return;
 	}
 	
 	void PWM::scoreSimple(sequence* seq){
@@ -443,13 +423,22 @@ namespace StochHMM{
 		}
 		
 		float score(0);
-		for(size_t position = 0; position < seq_size - motif_size; position++){
+		for(size_t position = 0; position <= seq_size - motif_size; position++){
 			score = 0;
+			currentThreshold = &simpleThreshold;
+			
 			for (size_t motif_pos = 0; motif_pos < motif_size; motif_pos ++){
 				score += weightMatrix[motif_pos]->getEmissionValue(seq,position+motif_pos);
+				
+				if (weightMatrix[motif_pos]->isThresholdSet()){
+					currentThreshold = weightMatrix[motif_pos]->getThresholdPtr();
+				}
+				
+				
 				if (score <= *currentThreshold){
 					break;
 				}
+				
 			}
 			
 			if (score <= *currentThreshold){
@@ -461,62 +450,11 @@ namespace StochHMM{
 	}
 	
 	void PWM::scoreUndefSpacer(sequences* seqs){
-		size_t seq_size = seqs->getLength();
-		size_t motif_size = weightMatrix.size();
-		size_t front_size = frontWeightMatrix.size();
-		size_t back_size = backWeightMatrix.size();
-		
-		if (seq_size < motif_size + max_spacer){
-			return;
-		}
-		
-		float front_score(0);
-		float back_score(0);
-		float sumScore(0);
-		size_t spacerSize(0);
-		for(size_t position = 0; position < seq_size - (motif_size + max_spacer); position++){
-			front_score = 0;
-			back_score = 0;
-			sumScore = 0;
-			//Calculate the Front motif score
-			for (size_t front_pos = 0; front_pos < front_size; front_pos++){
-				front_score += frontWeightMatrix[front_pos]->getEmissionValue(seqs,position+front_pos);
-				if (front_score <= *currentThreshold){
-					break;
-				}
-			}
-			
-			if (front_score <= *currentThreshold){
-				continue;
-			}
-			
-			//Calculate the back scores
-			for(size_t sp = 0; sp < undefSpacerSizes.size(); sp++){
-				spacerSize = undefSpacerSizes[sp];
-				
-				//Check to see if back_motif was previously calculated.
-				//If it was then get score and assign score.
-				
-				//If not then calculate
-				size_t back_pos(0);
-				for(; back_pos < back_size; back_pos++){
-					back_score += backWeightMatrix[back_pos]->getEmissionValue(seqs, position+front_size+spacerSize+back_pos);
-					sumScore = front_score+back_score;
-					if (front_score+back_score <= *currentThreshold){
-						break;
-					}
-				}
-				
-				//TODO: Assign score to list
-				//Assign score of backward
-				if (back_pos == back_size){
-					//std::cout << "We've made it through" << std::endl;
-				}
-				
-				if (sumScore >= *currentThreshold){
-					std::cout << position << "\t" <<spacerSize << "\t" << sumScore << "\n";
-				}
-			}
+		size_t numberSeqs = seqs->size();
+		for (size_t i=0;i < numberSeqs ;i++){
+			sequence* sq = seqs->getSeq(i);
+			std::cout << sq->getHeader() << std::endl;
+			scoreUndefSpacer(sq);
 		}
 		return;
 	}
@@ -585,52 +523,11 @@ namespace StochHMM{
 	
 	
 	void PWM::scoreVariableSpacer(sequences* seqs){
-		size_t seq_size = seqs->getLength();
-		size_t motif_size = weightMatrix.size();
-		size_t front_size = frontWeightMatrix.size();
-		//size_t back_size = backWeightMatrix.size();
-		
-		if (seq_size < motif_size + max_spacer){
-			return;
-		}
-		
-		float score(0);
-		float sumScore(0);
-		size_t spacerSize(0);
-		for(size_t position = 0; position < seq_size - (motif_size + max_spacer); position++){
-			score = 0;
-			sumScore = 0;
-			//Calculate the Front motif score
-			for (size_t front_pos = 0; front_pos < front_size; front_pos++){
-				score += frontWeightMatrix[front_pos]->getEmissionValue(seqs,position+front_pos);
-				if (score <= *currentThreshold){
-					break;
-				}
-			}
-			
-			if (score <= *currentThreshold){
-				continue;
-			}
-			
-			//Calculate the back scores
-			for(size_t sp = 0; sp < variableSpacerMatrix.size(); sp++){
-				
-				//Check to see if back_motif was previously calculated.
-				//If it was then get score and assign score.
-				
-				//If not then calculate
-				
-				score+=variableSpacerMatrix[sp]->getEmissionValue(seqs, position+front_size+sp);
-				
-				if ((*variableTransition)[sp]){
-					sumScore = calculateBack(seqs, position+front_size+sp+1, score);
-					if (sumScore >= *currentThreshold){
-						std::cout << position << "\t" <<spacerSize << "\t" << sumScore << "\n";
-					}
-				}
-				
-				
-			}
+		size_t numberSeqs = seqs->size();
+		for (size_t i=0;i < numberSeqs ;i++){
+			sequence* sq = seqs->getSeq(i);
+			std::cout << sq->getHeader() << std::endl;
+			scoreVariableSpacer(sq);
 		}
 		return;
 	}
@@ -647,7 +544,6 @@ namespace StochHMM{
 		
 		float score(0);
 		float sumScore(0);
-		size_t spacerSize(0);
 		for(size_t position = 0; position < seq_size - (motif_size + max_spacer); position++){
 			score = 0;
 			sumScore = 0;
@@ -676,7 +572,7 @@ namespace StochHMM{
 				if ((*variableTransition)[sp]){
 					sumScore = calculateBack(seq, position+front_size+sp+1, score);
 					if (sumScore >= *currentThreshold){
-						std::cout << position << "\t" <<spacerSize << "\t" << sumScore << "\n";
+						std::cout << position << "\t" << (sp+1) << "\t" << sumScore << "\n";
 					}
 				}
 				
@@ -824,13 +720,12 @@ namespace StochHMM{
 			size_t firstMultiTrans(SIZE_MAX);
 			size_t backWeightStart(SIZE_MAX);
 			for(size_t i=0 ; i < weightMatrix.size(); i++){
-				
-				
 				if (weightMatrix[i]->transitionsSize() > 1){
 					firstMultiTrans = i;
 					std::vector<std::string>& tmp = weightMatrix[i]->getTransitionNames();
 					for( size_t j = 0; j < tmp.size(); j++){
-						size_t indx = positionNames[tmp[i]];
+						size_t indx = positionNames[tmp[j]];
+						
 						if (indx > i+1){
 							backWeightStart = indx;
 							break;
