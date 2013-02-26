@@ -243,7 +243,7 @@ namespace StochHMM{
         size_t track  = model.find("TRACK SYMBOL DEFINITIONS");
         size_t ambig  = model.find("AMBIGUOUS SYMBOL DEFINITIONS");
         size_t templ  = model.find("TEMPLATED STATES");
-        size_t scale  = model.find("SCALING VALUES");
+        size_t scale  = model.find("SCALING FUNCTIONS");
         size_t st = model.find("STATE DEFINITIONS");
         size_t blank;
         size_t nlChar;
@@ -336,7 +336,7 @@ namespace StochHMM{
             //std::cout << ambig << "\t" << amb << std::endl;
         }
         
-        //Parse Scaling Values (Optional)
+        //Parse Scaling Function (Optional)
         if (scale!=std::string::npos){
             blank=model.find("\n\n",scale);
             
