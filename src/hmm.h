@@ -48,6 +48,7 @@
 #include "weight.h"
 //#include "transInfoParse.h"   // Transitions Information Parsing
 #include "modelTemplate.h"
+#include "stateInfo.h"
 namespace StochHMM{
 	
 	
@@ -105,8 +106,11 @@ namespace StochHMM{
 		//!Get pointer to the state at index
 		inline state*  getState(size_t iter){return states[iter];}
 		
+		//Get pointer to state by the name
 		state* getState(const std::string&);
 		
+		
+		//!Get state by using iterator value
 		inline state* operator[](size_t iter){return states[iter];}
 		
 		//!Get vector of states that state at index transitions to
@@ -120,6 +124,8 @@ namespace StochHMM{
 		
 		//!Get list of states that transition to the ending state
 		inline std::bitset<STATE_MAX>* getEndingFrom(){return &(ending->from);}
+		
+		inline stateInfo* getStateInfo(){return &info;}
 		
 		//q0 transitions
 		
@@ -258,9 +264,11 @@ namespace StochHMM{
 		
 		tracks trcks; //tracks...
 		
-		std::map<std::string,state*> statesByName;
-		
 		std::vector<state*> states;
+
+		std::map<std::string,state*> stateByName; //Ptr to state stored by State name;
+		stateInfo info;
+		
 		
 		state* initial;
 		state* ending;
@@ -274,6 +282,7 @@ namespace StochHMM{
 		
 		std::vector<bool>* complex_transition_states;
 		std::vector<bool>* complex_emission_states;
+		
 		
 		
 		bool _parseHeader(std::string&);

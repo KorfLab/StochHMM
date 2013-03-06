@@ -110,6 +110,30 @@ int main(int argc, const char * argv[])
     
     seqJob *job=jobs.getJob();
 	
+	
+	std::string filename;
+	opt.getopt("-posterior",filename);
+	
+	std::ofstream file;
+	std::streambuf* oldCoutStream(NULL);
+	bool file_open(false);
+
+	
+	if (!filename.empty()){
+		oldCoutStream = std::cout.rdbuf();
+		
+		file.open(filename.c_str());
+		std::cout << std::setprecision(3);
+		std::cout << std::fixed;
+		if (!file.is_open()){
+			std::cerr << "Couldn't open file for posterior" << std::endl;
+			exit(1);
+		}
+		file_open = true;
+		std::cout.rdbuf(file.rdbuf());
+	}
+	
+	
 	while (job != NULL){
 		//Print sequences if -debug seq option defined
 		if (opt.isFlagSet("-debug","seq")){
@@ -118,7 +142,10 @@ int main(int argc, const char * argv[])
 		
 		
 		if (opt.isSet("-posterior")){
+			
 			perform_posterior(&hmm, job->getSeqs());
+			
+			
 		}
 		else if(opt.isSet("-viterbi")){
 			perform_viterbi_decoding(job->getModel(), job->getSeqs());
@@ -131,6 +158,11 @@ int main(int argc, const char * argv[])
 		}
 		
 		job = jobs.getJob();
+	}
+	
+	if (file_open){
+		std::cout.rdbuf(oldCoutStream);
+		file.close();
 	}
     
     return 0;
@@ -322,27 +354,6 @@ void print_posterior(trellis& trell){
 	model* hmm = trell.getModel();
 	float_2D* table = trell.getPosteriorTable();
 	
-	std::ofstream file;
-	std::string filename;
-	std::streambuf* oldCoutStream(NULL);
-	bool file_open(false);
-	opt.getopt("-posterior",filename);
-	
-	if (!filename.empty()){
-		oldCoutStream = std::cout.rdbuf();
-		
-		file.open(filename.c_str());
-		std::cout << std::setprecision(3);
-		std::cout << std::fixed;
-		if (!file.is_open()){
-			std::cerr << "Couldn't open file for posterior" << std::endl;
-			exit(1);
-		}
-		file_open = true;
-		std::cout.rdbuf(file.rdbuf());
-	}
-	
-	
 	std::cout <<"Posterior Probabilities Table\n";
 	std::cout <<"Model:\t" << hmm->getName() << "\n";
 	std::cout <<"Sequence:\t" << trell.getSeq()->getHeader() << "\n";
@@ -368,13 +379,6 @@ void print_posterior(trellis& trell){
 		}
 		std::cout << "\n";
 	}
-	
-	if (file_open){
-		std::cout.rdbuf(oldCoutStream);
-		file.close();
-	}
-	
-	
 	return;
 	
 }

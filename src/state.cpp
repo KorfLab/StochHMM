@@ -344,23 +344,23 @@ namespace StochHMM{
             transType tp = (*transi)[i]->getTransitionType();
             if (tp == STANDARD){
                 if (standardString.empty()){
-                    standardString+="TRANSITONS:\tSTANDARD:\tLOG\n";
+                    standardString+="TRANSITION:\tSTANDARD:\tLOG\n";
                 }
                 standardString+=(*transi)[i]->stringify() + "\n";
             }
             else if (tp == DURATION){
-                distribString+="TRANSITONS:\tDURATION:\tLOG\n";
+                distribString+="TRANSITION:\tDURATION:\tLOG\n";
                 distribString+=(*transi)[i]->stringify();
                 
             }
             else if (tp == LEXICAL){
                 if ((*transi)[i]->LexFunctionDefined()){
-                    lexicalString+="TRANSITIONS:\tLEXICAL:\tFUNCTION:\t";
+                    lexicalString+="TRANSITION:\tLEXICAL:\tFUNCTION:\t";
                     lexicalString+=(*transi)[i]->getLexicalFunctionName();
                     lexicalString+="\n";
                 }
                 else{
-                    lexicalString+="TRANSITONS:\tLEXICAL:\tLOG\n";
+                    lexicalString+="TRANSITION:\tLEXICAL:\tLOG\n";
                     lexicalString+=(*transi)[i]->stringify();
                 }
                 
@@ -371,7 +371,7 @@ namespace StochHMM{
         //Process Transition to Ending;
         if (endi!=NULL){
             if (standardString.empty()){
-                standardString+="TRANSITONS:\tSTANDARD:\tLOG\n";
+                standardString+="TRANSITIONS:\tSTANDARD:\tLOG\n";
             }
             standardString+=endi->stringify();
         }

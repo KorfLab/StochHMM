@@ -182,7 +182,7 @@ namespace StochHMM{
         
         int TrackToUseForAttrib;
         
-        stateInfo info;
+        stateInfo* info;
         
         std::vector<std::pair<int,trackType> > importTracks;
         std::vector<ppTrack> postprocessTracks;
@@ -219,7 +219,7 @@ namespace StochHMM{
         bool _loadFASTQ(std::vector<std::string>&, SeqFilesType);
         
         
-        bool _initStateInfo(void);
+        bool _initImportTrackInfo(void);
         void _reset();
         void _init();
         bool _open();

@@ -186,6 +186,8 @@ namespace StochHMM {
         }
 		
 		sequence& operator[](size_t index){return *seq[index];}
+		
+		void getFastas(const std::string& , track*);
         
     private:
         //EXTERNAL DEFINITIONS

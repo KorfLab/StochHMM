@@ -54,6 +54,7 @@ namespace StochHMM{
 		max_ambiguous =0;
 		max_unambiguous =0;
         complementSet=false;
+		charIndices = NULL;
     }
 	
 	track::track(std::vector<std::string>& characters){
@@ -66,6 +67,7 @@ namespace StochHMM{
 		max_ambiguous =0;
 		max_unambiguous =0;
         complementSet=false;
+		charIndices = NULL;
 		
 		addAlphabetChar(characters);
 		setAlphaType(ALPHA_NUM);
@@ -254,7 +256,7 @@ namespace StochHMM{
 	
     //! Get symbol assigned integer value
     //! \param symbol word/letter/symbol that we want to get it's assigned integer value
-    uint8_t track::symbolIndex(std::string& symbol){
+    uint8_t track::symbolIndex(const std::string& symbol){
         if (symbolIndices.count(symbol)==0){  //If isn't found in the hash
             if (ambiguous){ //Return default character if ambiguous is set
                 return defaultAmbiguous;
@@ -262,12 +264,40 @@ namespace StochHMM{
             else{
                 std::cerr << "Encountered an ambiguous character in the sequence.  No ambiguous characters are allowed because they weren't set in the model.   To allow ambiguous characters, please add an \" Ambiguous Character Definition\" to the model" << std::endl;
                 exit(1);
-                //return -1;
-                //errorInfo(sCantHandleAmbiguousCharacter, "Ambiguous character handling is off but ambiguous character was encountered");
             }
         }
         else{
             return symbolIndices[symbol];
+        }
+    }
+	
+	//! Get symbol assigned integer value
+    //! \param symbol word/letter/symbol that we want to get it's assigned integer value
+    uint8_t track::symbolIndex(unsigned char symbol){
+		
+		if (maxSize != 1){
+			std::cerr << "Track Max Symbols Size:\t" << maxSize << "\t Must use function track::symbolIndex(const std::string& symbol)\n";
+		}
+		
+		if (charIndices == NULL){
+			charIndices = new (std::nothrow) std::vector<uint8_t>(255,255);
+			for(std::map<std::string,uint8_t>::iterator it = symbolIndices.begin(); it != symbolIndices.end(); it++){
+				(*charIndices)[(it->first)[0]] = it->second;
+			}
+		}
+		
+		
+		if ((*charIndices)[symbol]==255){  //If isn't found in the array
+            if (ambiguous){ //Return default character if ambiguous is set
+                return defaultAmbiguous;
+            }
+            else{
+                std::cerr << "Encountered an ambiguous character in the sequence.  No ambiguous characters are allowed because they weren't set in the model.   To allow ambiguous characters, please add an \" Ambiguous Character Definition\" to the model" << std::endl;
+                exit(1);
+            }
+        }
+        else{
+            return (*charIndices)[symbol];
         }
     }
     

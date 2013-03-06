@@ -290,7 +290,8 @@ namespace StochHMM{
         }
         
         //Get State Information and Determine # of tracks to import
-        _initStateInfo();
+		info = mod.getStateInfo();
+        _initImportTrackInfo();
         fileType = (importTracks.size()>1) ? MULTI_TRACK : SINGLE_TRACK;
         
         _open();
@@ -338,7 +339,8 @@ namespace StochHMM{
         }
         
         //Get State Information and Determine # of tracks to import
-        _initStateInfo();
+		info = mod.getStateInfo();
+        _initImportTrackInfo();
         
         
         size_t tracksToImport = importTracks.size();
@@ -426,7 +428,8 @@ namespace StochHMM{
         }
         
         //Get State Information and Determine # of tracks to import
-        _initStateInfo();
+		info = hmms->getModel(0)->getStateInfo();
+        _initImportTrackInfo();
         fileType = (importTracks.size()>1) ? MULTI_TRACK : SINGLE_TRACK;
         
         
@@ -502,7 +505,8 @@ namespace StochHMM{
         }
         
         //Get State Information and Determine # of tracks to import
-        _initStateInfo();
+        info = hmms->getModel(0)->getStateInfo();
+        _initImportTrackInfo();
         
         size_t tracksToImport = importTracks.size();
         if (fileType == SINGLE_TRACK && tracksToImport>1){
@@ -615,7 +619,7 @@ namespace StochHMM{
     
     // TODO: fix PT2TRACKFUNC function assignment
     
-    bool seqTracks::_initStateInfo(){
+    bool seqTracks::_initImportTrackInfo(){
         model* temp = NULL;
         
         if (hmms!=NULL){
@@ -636,15 +640,6 @@ namespace StochHMM{
         }
         
         modelTracks = temp->getTracks();
-        
-        //Get State Names, Labels and Paths for ExDefs
-        for(size_t i=0;i<temp->state_size();i++){
-            
-            info.gff[temp->getStateGFF(i)].push_back(i);
-            info.label[temp->getStateLabel(i)].push_back(i);
-            info.names[temp->getStateName(i)]=i;
-        }
-        
         
         //Determine which tracks to import and which to get by using track functions
         track* tempTrack;
@@ -740,10 +735,10 @@ namespace StochHMM{
                 }
                 
                 if (fileType == SINGLE_TRACK){
-                    success = sq->getFasta(*filehandles[i], (*modelTracks)[importTracks[i].first]);
+                    success = sq->getFasta(*filehandles[i], (*modelTracks)[importTracks[i].first], info);
                 }
                 else{
-                    success = sq->getFasta(*filehandles[0], (*modelTracks)[importTracks[i].first]);
+                    success = sq->getFasta(*filehandles[0], (*modelTracks)[importTracks[i].first], info);
                 }             
             }
             else{

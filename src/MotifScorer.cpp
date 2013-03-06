@@ -21,21 +21,21 @@ using namespace StochHMM;
 int main(int argc, const char * argv[])
 {
 	PWM mat;
-	mat.import("RSS_undefined_spacer.txt");
+	//mat.import("RSS23standard.txt");
+	mat.import("Heptamer.txt");
 	//std::cout << mat.stringify() << std::endl;
 	
-	std::ifstream in_file;
-	in_file.open("RSS.fa");
+	sequences seqs;
+	seqs.getFastas("chr22.fa",mat.getTrack());
 	
-	sequence* sq = new (std::nothrow) sequence;
-	sq->getFasta(in_file, mat.getTrack());
+	mat.score(&seqs);
 	
-//	sequences seqs;
 //	seqs.addSeq(sq, mat.getTrack());
 //	
 //	mat.score(&seqs);
 	
-	mat.score(sq);
+	//mat.score(sq);
+	//std::cout << sq->getHeader() << std::endl;
 	
 }
 

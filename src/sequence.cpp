@@ -379,7 +379,7 @@ namespace StochHMM{
     //! \param file File stream 
     //! \param trk Track to use for digitizing sequence
     //! \return true if function was able to get a sequence from the file
-    bool sequence::getFasta(std::ifstream& file, track* trk){
+    bool sequence::getFasta(std::ifstream& file, track* trk,stateInfo* info){
         
         seqtrk=trk;
         
@@ -412,7 +412,15 @@ namespace StochHMM{
             }
             else if (nl_peek=='['){
                 success = _digitize();
-                //external=getExDef(file,nextSeq->size());
+				if (info == NULL){
+					std::cerr << "Found brackets [] in fasta sequence.\nHEADER: " << header << "\nCan't import External Definitions without stateInfo from HMM model.  Pass stateInfo from model to " << __FUNCTION__ << std::endl;
+					exit(2);
+				}
+				else{
+					external= new (std::nothrow) ExDefSequence(seq->size());
+					external->parse(file, *info);
+				}
+                
             }
             else if (nl_peek==EOF){
                 success = _digitize();
@@ -506,30 +514,47 @@ namespace StochHMM{
         clear_whitespace(undigitized,"\n");
         if (seqtrk->getAlphaMax()>1){
             lst.splitString(undigitized, " ,\t");
+			
+			if (seq == NULL){
+				seq = new std::vector<uint8_t>(lst.size());
+			}
+			else{
+				seq->assign(lst.size(),0);
+			}
+			
+			for (size_t i=0;i<lst.size();i++){
+				uint8_t symbl = seqtrk->symbolIndex(lst[i]);
+				
+				//Check ambiguous here
+//				if (!seqtrk->isAmbiguousSet()){
+//					std::cerr << "Can't digitize ambiguous character without ambiguous characters being allowed in the model." << std::endl;
+//					return false;
+//				}
+				
+				(*seq)[i] = symbl;
+			}
         }
         else{
-            lst.fromAlpha(undigitized, 1);
+			if (seq == NULL){
+				seq = new std::vector<uint8_t>(undigitized.size());
+			}
+			else{
+				seq->assign(undigitized.size(),0);
+			}
+			
+			for (size_t i=0; i<undigitized.size();i++){
+				uint8_t symbl = seqtrk->symbolIndex(undigitized[i]);
+				
+				
+//				//Check ambiguous here
+//				if (!seqtrk->isAmbiguousSet()){
+//					std::cerr << "Can't digitize ambiguous character without ambiguous characters being allowed in the model." << std::endl;
+//					return false;
+//				}
+				(*seq)[i] = symbl;
+			}
         }
 		
-		if (seq == NULL){
-			seq = new std::vector<uint8_t>(lst.size());
-		}
-		else{
-			seq->assign(lst.size(),0);
-		}
-        
-        for (size_t i=0;i<lst.size();i++){
-            short symbl = seqtrk->symbolIndex(lst[i]);
-            
-            //Check ambiguous here
-            if (!seqtrk->isAmbiguousSet() && symbl<0){
-                std::cerr << "Can't digitize ambiguous character without ambiguous characters being allowed in the model." << std::endl;
-                return false;
-            }
-            
-            (*seq)[i] = symbl;
-        }
-        
         undigitized.clear();  //Once sequence is digitized we don't need the old seqeunce string
         
         return true;
@@ -630,7 +655,7 @@ namespace StochHMM{
     //! \param file File stream to file
     //! \param trk Track to used to digitize
     //! \return true if the sequence was successfully imported
-    bool sequence::getReal(std::ifstream& file, track* trk){
+    bool sequence::getReal(std::ifstream& file, track* trk, stateInfo* info){
         seqtrk=trk;
                 
         //get header
@@ -665,7 +690,15 @@ namespace StochHMM{
             }
             else if (nl_peek=='['){
                 _digitize();
-                //external=getExDef(file,nextSeq->size());
+                if (info == NULL){
+					std::cerr << "Found brackets [] in fasta sequence.\nHEADER: " << header << "\nCan't import External Definitions without stateInfo from HMM model.  Pass stateInfo from model to " << __FUNCTION__ << std::endl;
+					exit(2);
+				}
+				else{
+					external= new (std::nothrow) ExDefSequence(seq->size());
+					external->parse(file, *info);
+				}
+
             }
             else if (nl_peek==EOF){
                 _digitize();

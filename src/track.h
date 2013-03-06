@@ -184,7 +184,8 @@ namespace StochHMM{
 		std::string getAlpha(size_t);
         
         
-        uint8_t symbolIndex(std::string&);
+        uint8_t symbolIndex(const std::string&);
+		uint8_t symbolIndex(unsigned char);
         
         uint8_t getComplementIndex(uint8_t val);
         uint8_t getComplementIndex(std::string&);
@@ -275,6 +276,8 @@ namespace StochHMM{
         std::vector<ambigCharacter> ambiguousSymbols;
         
         std::map<std::string,uint8_t> symbolIndices;
+		//std::map<char,uint8_t>* charIndices;
+		std::vector<uint8_t>* charIndices;
         
         void _splitAmbiguousList(std::vector<std::pair<std::string ,std::vector<std::string> > >&, const std::string&);
     };

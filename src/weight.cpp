@@ -445,7 +445,7 @@ namespace StochHMM{
         std::string weightString;
         std::string lnSep(50,'=');
         
-        weightString+= "SCALING VALUES\n" + lnSep + "\n";
+        weightString+= "SCALING FUNCTIONS\n" + lnSep + "\n";
         std::map<std::string,weight*>::iterator it;
         for(it=wts.begin();it!=wts.end();it++){
             weightString+="SCALE:\t" + (*it).first + "\n";

@@ -29,8 +29,8 @@
 
 
 namespace StochHMM{
-    
-    //!Creates an ExDefSequence
+	
+	//!Creates an ExDefSequence
     //! \param size amount of ExDef in the sequence
     ExDefSequence::ExDefSequence(size_t size):defs(size){
     }
@@ -155,17 +155,24 @@ namespace StochHMM{
     }
 
     //!Create a weightDef type
-    weightDef::weightDef():ExDef(){
+    weightDef::weightDef(size_t state_size):ExDef(){
         absolute=false;
-        weightedState=-2;
+        weightedState=SIZE_MAX;
+		weights.assign(state_size, 0);
         //st=NULL;
     }
     
-    //!Assign a what to a particular state
+    //!Assign a weight to a particular state
     //! \param stateIter  integer Iterator to the state
-    //! \param logValue  Log base 2 value of weight to apply 
+    //! \param logValue  Log value of weight to apply 
     void weightDef::assignWeight(size_t stateIter, double logValue){
-        weights[stateIter]+=logValue;
+		if (weights[stateIter]== -INFINITY){
+			weights[stateIter]=logValue;
+		}
+		else{
+			weights[stateIter]+=logValue;
+		}
+        
         return;
     }
     
@@ -295,8 +302,8 @@ namespace StochHMM{
                 path.assign(traces.size(),-2);
                 
                 for(size_t k=0;k<traces.size();k++){
-                    if (info.names.count(traces[k])){
-                        path[k]=info.names[traces[k]];
+                    if (info.stateIterByName.count(traces[k])){
+                        path[k]=info.stateIterByName[traces[k]];
                     }
                     else{
                         std::cerr << "External definition Trace state name: " << traces[k] << " doesn't exist in the model" << std::endl;
@@ -344,11 +351,11 @@ namespace StochHMM{
     
     //! Parse the weightDef from stringList give the stateInfo
     bool ExDefSequence::_parseWeightDef(stringList& ln, stateInfo& info){
-        bool start=false;
-        bool stop=false;
-        bool state=false;
-        bool value=false;
-        bool valType=false;
+        bool start(false);
+        bool stop(false);
+        bool state(false);
+        bool value(false);
+        bool valType(false);
         
         size_t startPosition(0);
         size_t stopPosition(0);
@@ -394,12 +401,12 @@ namespace StochHMM{
                 line_iter++;
             }
             else if (tag.compare("STATE_NAME")==0){
-                definedStates.insert(info.names[ln[line_iter+1]]);
+                definedStates.insert(info.stateIterByName[ln[line_iter+1]]);
                 state=true;
                 line_iter++;
             }
             else if (tag.compare("STATE_LABEL")==0){
-                std::vector<size_t>& temp=info.label[ln[line_iter+1]];
+                std::vector<size_t>& temp=info.stateIterByLabel[ln[line_iter+1]];
                 for(size_t temp_iter=0; temp_iter < temp.size();temp_iter++){
                     definedStates.insert(temp[temp_iter]);
                 }
@@ -407,7 +414,7 @@ namespace StochHMM{
                 line_iter++;
             }
             else if (tag.compare("STATE_GFF")==0){
-                std::vector<size_t>& temp = info.gff[ln[line_iter+1]];
+                std::vector<size_t>& temp = info.stateIterByGff[ln[line_iter+1]];
                 for(size_t temp_iter=0; temp_iter < temp.size(); temp_iter++){
                     definedStates.insert(temp[temp_iter]);
                 }
@@ -464,7 +471,7 @@ namespace StochHMM{
                     }
                 }
                 else{
-                    defs[position]=new(std::nothrow) weightDef();
+                    defs[position]=new(std::nothrow) weightDef(info.stateIterByName.size());
                     
                     if (defs[position]==NULL){
                         std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;

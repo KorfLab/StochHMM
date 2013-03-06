@@ -133,6 +133,7 @@ namespace StochHMM{
 		inline float* getThresholdPtr(){return &threshold;}
 		inline float getThreshold(){return threshold;}
 		inline size_t transitionsSize(){return transitions.size();}
+		inline bool isThresholdSet(){return thresholdSet;}
 		std::string stringify();
 		
 	private:
