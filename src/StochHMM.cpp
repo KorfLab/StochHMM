@@ -119,7 +119,6 @@ int main(int argc, const char * argv[])
 		
 		if (opt.isSet("-posterior")){
 			perform_posterior(&hmm, job->getSeqs());
-			return 0;
 		}
 		else if(opt.isSet("-viterbi")){
 			perform_viterbi_decoding(job->getModel(), job->getSeqs());
