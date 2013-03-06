@@ -125,7 +125,8 @@ template <typename T>
 void sparseArray<T>::insert(size_t pos,T& val){
 	flag.insert(pos, 1);
 	flag.set(pos);
-	array.insert(array.begin()+pos,val);
+	size_t array_iter = flag.count_before(pos);
+	array.insert(array.begin()+array_iter,val);
 	return;
 }
 
@@ -165,7 +166,7 @@ T& sparseArray<T>::operator[](size_t pos){
 	size_t array_iter = flag.count_before(pos);
 	array.insert(array.begin()+array_iter,T());
 	
-	return array[pos];
+	return array[array_iter];
 }
 
 
@@ -206,7 +207,7 @@ const T& sparseArray<T>::operator[](size_t pos)const {
 	size_t array_iter = flag.count_before(pos);
 	array.insert(array.begin()+array_iter,T());
 	
-	return array[pos];
+	return array[array_iter];
 }
 
 

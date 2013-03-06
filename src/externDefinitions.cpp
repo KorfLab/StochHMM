@@ -29,59 +29,28 @@
 
 
 namespace StochHMM{
-	
-	//!Creates an ExDefSequence
-    //! \param size amount of ExDef in the sequence
-    ExDefSequence::ExDefSequence(size_t size):defs(size){
-    }
-    
     
     //!Copy constructor for ExDefSequence
-    ExDefSequence::ExDefSequence(const ExDefSequence& rhs){
-        for(size_t i=0;i<defs.size();i++){
-            ExDef* temp = new(std::nothrow) ExDef(*(rhs.defs[i]));
-            
-            if (temp==NULL){
-                std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
-                exit(1);
-            }
-            
-            defs.push_back(temp);
-        }
-    }
+//    ExDefSequence::ExDefSequence(const ExDefSequence& rhs){
+//		defs = rhs.defs;
+//    }
     
-    //!Delete an ExDefSequence
-    ExDefSequence::~ExDefSequence(){
-        for(size_t i=0;i<defs.size();i++){
-            if (defs[i]!=NULL){
-                delete defs[i];
-            }
-        }
-    }
-    
-    
-    ExDefSequence& ExDefSequence::operator=(const ExDefSequence& rhs){
-        for(size_t i=0;i<defs.size();i++){
-            ExDef* temp = new(std::nothrow) ExDef(*(rhs.defs[i]));
-            
-            if (temp==NULL){
-                std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
-                exit(1);
-            }
-            
-            defs.push_back(temp);
-        }
-        
-        return *this;
-    }
+//    ExDefSequence& ExDefSequence::operator=(const ExDefSequence& rhs){
+//		for(size_t i=0; i < defs.size() ;++i){
+//			if (defs.defined(i)){
+//				defs[i] = new (std::nothrow) 
+//			}
+//		}
+//        return *this;
+//    }
     
     
     //!Print the External definitions to stdout 
     void ExDefSequence::print(){
         for(size_t i = 0;i<defs.size();i++){
-            if (defs[i]!=NULL){
-                std::cout << i  << "\t" << defs[i]->stringify() << std::endl;
-            }
+			if (defs.defined(i)){
+				std::cout << i  << "\t" << defs[i]->stringify() << std::endl;
+			}
         }
         return;
     }
@@ -90,7 +59,7 @@ namespace StochHMM{
     //! \param position Position of the sequence to check for external definition
     bool ExDefSequence::defined(size_t position){
         
-        if (defs[position]!=NULL){
+        if (defs.defined(position)){
             return true;
         }
         else{
@@ -103,19 +72,19 @@ namespace StochHMM{
     //! \param position Position in teh sequence
     //! \return true if the external definition is absolute
     bool ExDefSequence::isAbsolute(size_t position){
-        if (defs[position]!=NULL && defs[position]->isAbsolute()){
-            return true;
-        }
-        else{
-            return false;
-        }
+		if (defs.defined(position) && defs[position]->isAbsolute()){
+			return true;
+		}
+	
+		return false;
     }
     
     //!Get the absolute state defined for the position in the sequence
     //!\param position Position of the sequence
     //!\return integer indice to state
     size_t ExDefSequence::getAbsState(size_t position){
-        if(defs[position]->isAbsolute()){
+		
+        if(defs.defined(position) && defs[position]->isAbsolute()){
             return defs[position]->getState();
         }
         else{
@@ -129,7 +98,10 @@ namespace StochHMM{
     //! \return true if the external definition is weighted
     //
     bool ExDefSequence::isWeighted(size_t position){
-        return !defs[position]->isAbsolute();
+		if (defs.defined(position)){
+			return !defs[position]->isAbsolute();
+		}
+        return false;
     }
 
     //! Get the weight for the external definition at a position in the sequence
@@ -137,7 +109,7 @@ namespace StochHMM{
     //! \param stateIter Index of state to get weight
     //! \return double value of weight to apply to state at the position
     double ExDefSequence::getWeight(size_t position, size_t stateIter){
-        if (defs[position]){
+		if (defs.defined(position)){
             return defs[position]->getWeight(stateIter);
         }
         else{
@@ -155,10 +127,10 @@ namespace StochHMM{
     }
 
     //!Create a weightDef type
-    weightDef::weightDef(size_t state_size):ExDef(){
+    weightDef::weightDef(size_t state_size):ExDef(), weights(state_size){
         absolute=false;
         weightedState=SIZE_MAX;
-		weights.assign(state_size, 0);
+		//weights.assign(state_size, 0);
         //st=NULL;
     }
     
@@ -166,8 +138,8 @@ namespace StochHMM{
     //! \param stateIter  integer Iterator to the state
     //! \param logValue  Log value of weight to apply 
     void weightDef::assignWeight(size_t stateIter, double logValue){
-		if (weights[stateIter]== -INFINITY){
-			weights[stateIter]=logValue;
+		if (!weights.defined(stateIter)){
+			weights[stateIter] = logValue;
 		}
 		else{
 			weights[stateIter]+=logValue;
@@ -322,7 +294,7 @@ namespace StochHMM{
         if (start && stop && state){
             for(size_t i=startPosition-1;i<stopPosition;i++){
                 size_t state=path[i-(startPosition-1)];
-                if (defs[i]){
+                if (defs.defined(i)){
                     if (!defs[i]->absolute){
                         std::cerr << "Absolute overlaps weighted state definition" << std::endl;
                         
@@ -332,17 +304,10 @@ namespace StochHMM{
                     }
                 }
                 else{
-                    defs[i] = new(std::nothrow) ExDef;
-                    
-                    if (defs[i]==NULL){
-                        std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;
-                        exit(1);
-                    }
-                    
-                    defs[i]->setState(state);
+					defs[i] = new (std::nothrow) ExDef;
+					defs[i]->setState(state);
                 }
             }
-            
             return true;
         }
         
@@ -464,14 +429,14 @@ namespace StochHMM{
         if (start && stop && state && value && valType){
             for (size_t position=startPosition-1; position < stopPosition; position++){
                 //Already have a defined external def at position
-                if (defs[position]){
+                if (defs.defined(position)){
                     if (defs[position]->absolute){
                         std::cerr << "Can't add weight to absolute external definition" << std::endl;
                         return false;
                     }
                 }
                 else{
-                    defs[position]=new(std::nothrow) weightDef(info.stateIterByName.size());
+                    defs[position] = new(std::nothrow) weightDef(info.stateIterByName.size());
                     
                     if (defs[position]==NULL){
                         std::cerr << "OUT OF MEMORY\nFile" << __FILE__ << "Line:\t"<< __LINE__ << std::endl;

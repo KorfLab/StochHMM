@@ -37,6 +37,7 @@
 #include "text.h"
 #include <stdlib.h>
 #include "stateInfo.h"
+#include "sparseArray.h"
 
 namespace StochHMM{
     
@@ -55,16 +56,19 @@ namespace StochHMM{
     public:
         //Constructor
 		ExDefSequence(){};
-		ExDefSequence(size_t);
+		
+		//!Creates an ExDefSequence
+		//! \param size amount of ExDef in the sequence
+		ExDefSequence(size_t size):defs(size){};
         
         //Copy Constructor
-        ExDefSequence(const ExDefSequence&);
+        //ExDefSequence(const ExDefSequence&);
         
         //Destructor
-        ~ExDefSequence();
+        //~ExDefSequence();
         
         //Copy Operator
-        ExDefSequence& operator=(const ExDefSequence&);
+        //ExDefSequence& operator=(const ExDefSequence&);
         
         friend class sequences;
         
@@ -87,8 +91,10 @@ namespace StochHMM{
         std::string stringify(); // Get string representation of ExDefSequence
         
     private:
-        std::vector<ExDef*> defs;
-        //bool enabled;
+		sparseArray<ExDef*> defs;
+		//std::vector<ExDef*> defs;
+        
+		//bool enabled;
         bool _parseAbsDef(stringList& ln,stateInfo&);
         bool _parseWeightDef(stringList& ln,stateInfo&);
     };
@@ -127,11 +133,18 @@ namespace StochHMM{
         
         friend class ExDefSequence;
         
-        inline double getWeight(size_t stateIter){return weights[stateIter];};
+        inline double getWeight(size_t stateIter){
+			if (weights.defined(stateIter)){
+				return weights[stateIter];
+			}
+			return 0;
+		};
+
         void assignWeight(size_t,double);
         std::string stringify();
     private:
-        std::vector<double> weights;
+		sparseArray<double> weights;
+		//std::vector<double> weights;
     };
 
 }
