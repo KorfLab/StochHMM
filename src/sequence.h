@@ -29,6 +29,7 @@
 #define SEQUENCE_H
 
 #include <vector>
+#include <stdlib.h>
 #include <string>
 #include <iostream>
 #include <math.h>
@@ -36,9 +37,9 @@
 #include <algorithm>
 #include "text.h"
 #include "track.h"
+#include "stateInfo.h"
 #include "externDefinitions.h"
 #include "index.h"
-#include <stdlib.h>
 
 //!  \file 
 
@@ -71,7 +72,7 @@ namespace StochHMM{
         //ACCESSOR
         
         //!Get reference to undigitized sequence
-        std::string* getUndigitized(){
+        inline std::string* getUndigitized(){
             if (!undigitized.empty() || seq->empty()){
                 return &undigitized;
             }
@@ -133,15 +134,21 @@ namespace StochHMM{
         
         void setSeq(std::string&,track*);
         void setRealSeq(std::vector<double>*,track*);
-
-        bool getFasta(std::ifstream&, track*);
-        bool getMaskedFasta(std::ifstream&, track*);
+		
+		inline bool getFasta(std::ifstream& file){return getFasta(file,NULL,NULL);}
+        inline bool getFasta(std::ifstream& file, track* trk){ return getFasta(file,trk,NULL);}
+		bool getFasta(std::ifstream&, track*, stateInfo*);
+        
+		
+		bool getMaskedFasta(std::ifstream&, track*);
         bool getFastq(std::ifstream&, track*);
         
-        
-        bool getReal (std::ifstream&, track*);
+        inline bool getReal (std::ifstream& file){return getReal(file,NULL,NULL);}
+		inline bool getReal (std::ifstream& file, track* trk){ return getReal(file,trk,NULL);}
+		bool getReal (std::ifstream&, track*, stateInfo*);
+		
         int  getMaxMask(){return max_mask;}
-        int getMask(size_t);
+        int  getMask(size_t);
     
         std::string getSymbol(size_t) const;
         

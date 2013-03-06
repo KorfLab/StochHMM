@@ -712,11 +712,11 @@ namespace StochHMM{
             
             if (st->getName() == "INIT"){
                 initial=st;
-                statesByName[st->getName()]=st;
+                stateByName[st->getName()]=st;
             }
             else{
                 states.push_back(st);
-                statesByName[st->getName()]=st;
+                stateByName[st->getName()]=st;
             }
         }
         
@@ -733,7 +733,7 @@ namespace StochHMM{
     //! \param st Pointer to state
     void model::addState(state* st){
         states.push_back(st);
-        statesByName[st->getName()]=st;
+        stateByName[st->getName()]=st;
         return;
     };
 	
@@ -869,13 +869,14 @@ namespace StochHMM{
     //!\return pointer to state if it exists;
     //!\return NULL if state doesn't exist in model
     state* model::getState(const std::string& txt){
-        if (statesByName.count(txt)){
-            return statesByName[txt];
+        if (stateByName.count(txt)){
+            return stateByName[txt];
         }
         else {
             return NULL;
         }
     }
+	
     
     //!Finalize the model before performing decoding
     //!Sets transitions, checks labels, Determines if model is basic or requires intermittent tracebacks
@@ -916,9 +917,9 @@ namespace StochHMM{
             //We need to fix the States transitions vector transi, so that the state
             //iterator correlates to the position within the vector
             for(size_t i=0;i<states.size();i++){
-                states[i]->_finalizeTransitions(statesByName);
+                states[i]->_finalizeTransitions(stateByName);
             }
-			initial->_finalizeTransitions(statesByName);
+			initial->_finalizeTransitions(stateByName);
             
             //Check to see if model is basic model
 			//Meaning that the model doesn't call outside functions or perform
@@ -951,6 +952,18 @@ namespace StochHMM{
 			checkBasicModel();
 			checkExplicitDurationStates();
 			checkTopology();
+			
+			
+			//Assign StateInfo
+			for(size_t i=0; i < states.size();i++){
+				std::string& st_name = states[i]->getName();
+				
+				info.stateIterByName[st_name]=i;
+				info.stateIterByLabel[st_name].push_back(i);
+				info.stateIterByGff[st_name].push_back(i);
+			}
+			
+			
             finalized=true;
         }
 		

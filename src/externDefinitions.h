@@ -36,16 +36,11 @@
 #include <set>
 #include "text.h"
 #include <stdlib.h>
+#include "stateInfo.h"
 
 namespace StochHMM{
     
-    //!\struct stateInfo
-    //!\brief Contains state information for quick reference between states information 
-    struct stateInfo{
-        std::map<std::string,size_t> names; //Map string iterators by name
-        std::map<std::string,std::vector<size_t> > gff; //Map states iterators by GFF tags
-        std::map<std::string,std::vector<size_t> > label; //Map states iterators by Label tags
-    };
+    
     
     class ExDef;
     class weightDef;
@@ -59,8 +54,8 @@ namespace StochHMM{
     class ExDefSequence{
     public:
         //Constructor
-        ExDefSequence(size_t);
-        
+		ExDefSequence(){};
+		ExDefSequence(size_t);
         
         //Copy Constructor
         ExDefSequence(const ExDefSequence&);
@@ -128,7 +123,7 @@ namespace StochHMM{
     //! Model weights the states at the position with a value
     class weightDef:public ExDef{
     public:
-        weightDef();
+        weightDef(size_t);
         
         friend class ExDefSequence;
         

@@ -379,7 +379,7 @@ namespace StochHMM{
     //! \param file File stream 
     //! \param trk Track to use for digitizing sequence
     //! \return true if function was able to get a sequence from the file
-    bool sequence::getFasta(std::ifstream& file, track* trk){
+    bool sequence::getFasta(std::ifstream& file, track* trk,stateInfo* info){
         
         seqtrk=trk;
         
@@ -412,7 +412,15 @@ namespace StochHMM{
             }
             else if (nl_peek=='['){
                 success = _digitize();
-                //external=getExDef(file,nextSeq->size());
+				if (info == NULL){
+					std::cerr << "Found brackets [] in fasta sequence.\nHEADER: " << header << "\nCan't import External Definitions without stateInfo from HMM model.  Pass stateInfo from model to " << __FUNCTION__ << std::endl;
+					exit(2);
+				}
+				else{
+					external= new (std::nothrow) ExDefSequence(seq->size());
+					external->parse(file, *info);
+				}
+                
             }
             else if (nl_peek==EOF){
                 success = _digitize();
@@ -647,7 +655,7 @@ namespace StochHMM{
     //! \param file File stream to file
     //! \param trk Track to used to digitize
     //! \return true if the sequence was successfully imported
-    bool sequence::getReal(std::ifstream& file, track* trk){
+    bool sequence::getReal(std::ifstream& file, track* trk, stateInfo* info){
         seqtrk=trk;
                 
         //get header
@@ -682,7 +690,15 @@ namespace StochHMM{
             }
             else if (nl_peek=='['){
                 _digitize();
-                //external=getExDef(file,nextSeq->size());
+                if (info == NULL){
+					std::cerr << "Found brackets [] in fasta sequence.\nHEADER: " << header << "\nCan't import External Definitions without stateInfo from HMM model.  Pass stateInfo from model to " << __FUNCTION__ << std::endl;
+					exit(2);
+				}
+				else{
+					external= new (std::nothrow) ExDefSequence(seq->size());
+					external->parse(file, *info);
+				}
+
             }
             else if (nl_peek==EOF){
                 _digitize();
