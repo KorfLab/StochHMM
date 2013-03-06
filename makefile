@@ -20,7 +20,7 @@ STOCHHMM_LIBS := src/libStochHMM.a
 %.o: %.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	g++ -O3 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
@@ -58,7 +58,7 @@ StochHMM_obj:
 StochHMM: $(OBJS)	
 	@echo 'Building target: $@'
 	@echo 'Invoking: C++ Linker'
-	g++  -o "bin/StochHMM" $(OBJS) $(STOCHHMM_LIBS)
+	g++ -O3 -g3 -Wall  -o "bin/StochHMM" $(OBJS) $(STOCHHMM_LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
