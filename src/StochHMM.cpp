@@ -24,6 +24,8 @@
 //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
 #include <string>
 #include <iomanip>
 #include <time.h>
@@ -353,32 +355,45 @@ traceback_path* perform_traceback(trellis& trell){
 void print_posterior(trellis& trell){
 	model* hmm = trell.getModel();
 	float_2D* table = trell.getPosteriorTable();
-	
-	std::cout <<"Posterior Probabilities Table\n";
-	std::cout <<"Model:\t" << hmm->getName() << "\n";
-	std::cout <<"Sequence:\t" << trell.getSeq()->getHeader() << "\n";
-	std::cout <<"Probability of Sequence from Forward: Natural Log'd\t" << trell.getForwardProbability() << "\n";
-	std::cout <<"Probability of Sequence from Backward:Natural Log'd\t" << trell.getBackwardProbability() << "\n";
-	
 	size_t state_size = hmm->state_size();
+	char cstr[200];
 	
-	//Print State names for header
-	std::cout << "Position";
-	for(size_t i=0; i < state_size; i++){
-		std::cout << "\t";
-		std::cout << hmm->getStateName(i);
+	std::string output;
+	output+="Posterior Probabilities Table\n";
+	output+="Model:\t" + hmm->getName() + "\n";
+	output+="Sequence:\t" + trell.getSeq()->getHeader() + "\n";
+	sprintf(cstr, "Probability of Sequence from Forward: Natural Log'd\t%f\n",trell.getForwardProbability());
+	output+= cstr;
+	sprintf(cstr, "Probability of Sequence from Backward:Natural Log'd\t%f\n",trell.getBackwardProbability());
+	output+= cstr;
+	output+= "Position";
+	for(size_t i=0;i< state_size; ++i){
+		output+= "\t" + hmm->getStateName(i);
 	}
-	std::cout << "\n";
-	
-	for(size_t position = 0; position < table->size(); position++){
-		std::cout << position+1;
+	output+="\n";
+
+	for(size_t position = 0; position < table->size(); ++position){
+		sprintf(cstr, "%li", position+1);
+		output+= cstr;
 		for (size_t st = 0 ; st < state_size ; st++){
-			std::cout << "\t";
-			
-			std::cout << exp((*table)[position][st]);
+			float val  = exp((*table)[position][st]);
+			if (val<= 0.001){
+				output+="\t0";
+			}
+			else if (val == 1.0){
+				output+="\t1";
+			}
+			else{
+				sprintf(cstr,"\t%.3f", exp((*table)[position][st]));
+				output+= cstr;
+			}
+
 		}
-		std::cout << "\n";
+		output+="\n";
 	}
+
+	std::cout << output << std::endl;
+	
 	return;
 	
 }
