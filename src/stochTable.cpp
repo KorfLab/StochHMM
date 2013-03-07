@@ -154,16 +154,18 @@ namespace StochHMM {
 		return str.str();
 	}
 	
+	
+	//TODO: Test stochastic tracebacks
 	//! Traceback through the table using the traceback probabilities
 	//! \param[out] path Reference to traceback_path
 	void stochTable::traceback(traceback_path& path){
 		
 		double random((double)rand()/((double)(RAND_MAX)+(double)(1)));
 		double cumulative_prob(0.0);
-		std::cout << random << std::endl;
+		//std::cout << random << std::endl;
 		
 		size_t offset(0);
-		uint16_t state_prev;
+		uint16_t state_prev(UINT16_MAX);
 		
 		//Get traceback from END state
 		for(size_t i = (*position)[position->size()-2]+1 ; i <= position->back() ; ++i){
@@ -172,7 +174,7 @@ namespace StochHMM {
 				state_prev = (*state_val)[i].state_prev;
 				path.push_back(state_prev);
 				offset = (*state_val)[i].prev_cell;
-				std::cout << "Chose:\t" << state_prev << std::endl;
+				//std::cout << "Chose:\t" << state_prev << std::endl;
 				break;
 			}
 		}
@@ -180,12 +182,12 @@ namespace StochHMM {
 		//For the rest of the table traceback to the beginning of the sequence
 		for(size_t i = position->size()-2; i != SIZE_MAX ; --i){
 			random = (double)rand()/((double)(RAND_MAX)+(double)(1));
-			std::cout << random << std::endl;
+			//std::cout << random << std::endl;
 			cumulative_prob = 0;
 			
 			for (size_t cells = (i == 0) ? 0 + offset : (*position)[i-1]+offset+1; cells < (*position)[i] ; ++cells){
 				if ((*state_val)[cells].state_id != state_prev ){
-					std::cout << "Houston, We have an error!" << std::endl;
+					//std::cout << "Houston, We have an error!" << std::endl;
 				}
                 
 				cumulative_prob+=(*state_val)[cells].prob;
@@ -194,7 +196,7 @@ namespace StochHMM {
                     state_prev = (*state_val)[cells].state_prev;
 					path.push_back(state_prev);
 					offset = (*state_val)[cells].prev_cell;
-					std::cout << "Chose:\t" << state_prev << std::endl;
+					//std::cout << "Chose:\t" << state_prev << std::endl;
 					break;
                 }
             }
