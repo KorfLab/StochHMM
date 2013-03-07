@@ -137,7 +137,7 @@ namespace StochHMM{
         if (transFuncTraceback){
             //Process Traceback Combining Commands
             std::string combineLabels[] = {"COMBINE_LABEL","COMBINE_GFF","COMBINE_STATE", "NO_COMBINE"};
-            const combineIdentifier comtyps[] = {STATELABEL,STATEGFF,STATENAME};
+            const combineIdentifier comtyps[] = {STATELABEL,STATEGFF,STATENAME,FULL};
             bool combineTypeProvided=false;
             for(int i=0;i<4;i++){
                 if (lst.contains(combineLabels[i])){

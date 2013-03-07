@@ -56,7 +56,6 @@ void print_output(traceback_path*, std::string&);
 void print_posterior(trellis&);
 
 
-#pragma mark Options
 //Sets the command-line options for the program
 opt_parameters commandline[]={
 	//Help

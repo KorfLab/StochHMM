@@ -423,6 +423,7 @@ namespace StochHMM{
                 
             }
             else if (nl_peek==EOF){
+				getline(file,line,'\n');
                 success = _digitize();
                 break;
             }
