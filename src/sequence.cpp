@@ -399,7 +399,7 @@ namespace StochHMM{
         }
         
         getline(file,header,'\n');
-        bool success;
+        bool success(false);
         //get sequence
         std::string line;
         while(getline(file,line,'\n')){

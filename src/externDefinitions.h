@@ -101,6 +101,8 @@ namespace StochHMM{
         
         //Constructor
         ExDef();
+		
+		virtual ~ExDef(){};
         
         friend class ExDefSequence;
         
@@ -125,6 +127,8 @@ namespace StochHMM{
     public:
         weightDef(size_t);
         
+		~weightDef(){};
+		
         friend class ExDefSequence;
         
         inline double getWeight(size_t stateIter){return weights[stateIter];};
