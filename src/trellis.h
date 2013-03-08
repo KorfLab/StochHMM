@@ -306,7 +306,7 @@ namespace StochHMM{
 		double getEndingTransition(size_t);
         double getTransition(state* st, size_t trans_to_state, size_t sequencePosition);
         size_t get_explicit_duration_length(transition* trans, size_t sequencePosition,size_t state_iter, size_t to_state);
-        double exFuncTraceback(transitionFuncParam*);
+        double transitionFuncTraceback(state* st, size_t position, transitionFuncParam* func);
 		
 		
 		model* hmm;		//HMM model

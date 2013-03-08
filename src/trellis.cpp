@@ -234,26 +234,17 @@ namespace StochHMM {
             transition_prob= trans->getTransition(0,NULL);
         }
         else if (trans_type == DURATION){
-			
-//            //TODO: Check traceback_length function
-//			if ((*explicit_duration_current)[st->getIterator()] != 0 ){
-//				transition_prob = trans->getTransition((*explicit_duration_current)[st->getIterator()]+1,NULL);
-//			}
-//			else{
-				size_t size = get_explicit_duration_length(trans,sequencePosition, st->getIterator(), trans_to_state);
-				transition_prob=trans->getTransition(size,NULL);
-//				(*explicit_duration_current)[st->getIterator()]=size;
-//			}
-			
+			//Calculate the duration length
+			size_t size = get_explicit_duration_length(trans,sequencePosition, st->getIterator(), trans_to_state);
+			transition_prob=trans->getTransition(size,NULL);
         }
         else if (trans_type == LEXICAL){
             transition_prob=trans->getTransition(sequencePosition, seqs);
         }
         
-        //TODO:  Fix the exFuncTraceback(...)
         //Is external function define for the transition
         if (trans->FunctionDefined()){
-//            transition_prob+=exFuncTraceback(trans->getExtFunction());
+            transition_prob+=transitionFuncTraceback(st, sequencePosition, trans->getExtFunction());
         }
         
         return transition_prob;		
@@ -261,8 +252,9 @@ namespace StochHMM {
 	
 	
 	//! Traceback to get the duration length of the state.
-	//! If duration is already being tracked in the table then it will return value +1
-	//! Otherwise, it will traceback through the trellis until the traceback identifier is reached
+	//! If duration is already being tracked in the table then it will return
+	//! value +1.  Otherwise, it will traceback through the trellis until the
+	//! traceback identifier is reached. 
 	//! \return length of traceback (Giving duration)
 	size_t trellis::get_explicit_duration_length(transition* trans, size_t sequencePosition, size_t state_iter, size_t to_state){
 		
@@ -305,6 +297,89 @@ namespace StochHMM {
 
 	}
 	
+    //! When a transitionFunc is to be called it must performs a traceback
+	//! and get the required sequence to pass to the function
+	//! \param 
+    double trellis::transitionFuncTraceback(state* st, size_t position,transitionFuncParam* func){
+        
+        std::vector<int> tracebackPath;
+        std::vector<std::string> tracebackString;
+                
+       //How far to traceback
+        tracebackIdentifier traceback_identifier = func->getTracebackType();
+        const std::string& tracebackIdentifierName = func->getTracebackName();
+        
+        
+        //What to combine
+        combineIdentifier combineIdent = func->getCombineType();
+        const std::string& combineIdentName = func->getCombineName();
+        
+        
+        //Deterimine which track to use
+        track* alphaTrack = func->getTrack();
+        size_t trackIndex = alphaTrack->getIndex();
+        if (!alphaTrack->isAlpha()){
+            
+			std::cerr << "External transition function called on track that isn't discrete (ALPHANUMERIC)\n";
+			exit(2);
+            
+        }
+        
+        const sequence* seq = seqs->getSeq(trackIndex);
+        uint16_t tb_state(st->getIterator());
+		uint16_t starting_state = tb_state;
+
+		
+        for(size_t trellisPos = position-1; trellisPos != SIZE_MAX ; --trellisPos){
+            
+            tracebackPath.push_back(tb_state);
+            
+            if ((combineIdent == FULL) ||
+                (combineIdent == STATENAME && combineIdentName.compare(st->getName())==0)||
+                (combineIdent == STATELABEL && combineIdentName.compare(st->getLabel())==0)||
+                (combineIdent == STATEGFF && combineIdentName.compare(st->getGFF())==0))
+
+            {
+                tracebackString.push_back(seq->getSymbol(trellisPos));
+            }
+			
+            tb_state= (*traceback_table)[trellisPos][tb_state];
+            state* temp_st = hmm->getState(tb_state);
+
+            //Check to see if stop conditions of traceback are met, if so break;
+            if(traceback_identifier == START_INIT && tb_state == -1) {break;}
+            else if (traceback_identifier == DIFF_STATE  && starting_state != tb_state) {  break;}
+            else if (traceback_identifier == STATE_NAME  && tracebackIdentifierName.compare(temp_st->getName())==0){ break;}
+            else if (traceback_identifier == STATE_LABEL && tracebackIdentifierName.compare(temp_st->getLabel())==0) {  break;}
+            else if (traceback_identifier == STATE_GFF   && tracebackIdentifierName.compare(temp_st->getGFF())==0) {  break;}
+        }
+        
+        size_t length=tracebackPath.size();
+        std::string CombinedString;
+		
+        size_t maxSymbolSize = alphaTrack->getAlphaMax();
+		//For single letter characters
+        if (maxSymbolSize ==1){
+            for(std::vector<std::string>::reverse_iterator rit = tracebackString.rbegin(); rit!=tracebackString.rend();++rit){
+                CombinedString+=(*rit);
+            }
+        }
+		else{  // For kmer words > 1 in length
+			std::vector<std::string>::reverse_iterator rit = tracebackString.rbegin();
+			CombinedString+=(*rit);
+			++rit;
+			for(; rit!=tracebackString.rend();++rit){
+				CombinedString+="," + (*rit);
+            }
+		}
+        
+		//Call the transitionFunc and get the score back
+        double transitionValue = func->evaluate(seqs->getUndigitized(trackIndex), position, &CombinedString, length);
+        
+        return transitionValue;
+    }
+
+	
 	
 	
 	
@@ -339,6 +414,11 @@ namespace StochHMM {
         return;
     }
 	
+	
+	//!Perform a traceback starting at position and state given
+	//! \param [out] traceback_path
+	//! \param position Position to start traceback
+	//! \param state State to begin traceback
 	void trellis::traceback(traceback_path& path, size_t position, size_t state){
 		if (seq_size == 0 || traceback_table == NULL){
 			return;
