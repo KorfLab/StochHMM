@@ -12,7 +12,7 @@ namespace StochHMM {
 	
 	//!  stochTable constructor
 	//! \param [in] seq_size  Size of sequence
-	stochTable::stochTable(size_t seq_size){
+	stochTable::stochTable(size_t seq_size):state_val(NULL){
 		
 		state_val = new(std::nothrow) std::vector<stoch_value>;
 		state_val->reserve(seq_size);

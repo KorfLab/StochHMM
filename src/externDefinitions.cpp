@@ -327,7 +327,7 @@ namespace StochHMM{
         
         std::set<size_t> definedStates;
         std::set<size_t>::iterator setIterator;
-        double val;
+        double val(0);
         
         
         for (size_t line_iter=2; line_iter < ln.size();line_iter++){
