@@ -26,8 +26,6 @@
 
 #include "transitions.h"
 namespace StochHMM{
-
-#pragma mark Initiation
     
     //!Create a transition of a certain type
     //! \param type enum transType (STANDARD, DURATION, LEXICAL)
@@ -289,7 +287,7 @@ namespace StochHMM{
         
         //Process Transition
         stringList line;
-        size_t idx;
+        size_t idx(0);
         std::string functionName("");
         
         if (txt.contains("FUNCTION")){
@@ -365,7 +363,7 @@ namespace StochHMM{
             }
             line.splitString(txt[idx],"\t:,");
             
-            size_t ambIdx;
+            size_t ambIdx(0);
             bool containsAmbig=line.contains("AMBIGUOUS");
             if (containsAmbig){
                 ambIdx=line.indexOf("AMBIGUOUS");
@@ -512,9 +510,6 @@ namespace StochHMM{
         return true;
     }
 
-    
-    
-    #pragma mark Accessor
     
     //!Print the transition to stdout
     void transition::print(){

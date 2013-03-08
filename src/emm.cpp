@@ -87,7 +87,7 @@ namespace StochHMM{
         
         size_t typeBegin(0);
         
-        valueType  valtyp;
+        valueType  valtyp(PROBABILITY);
         if (line.contains("P(X)")){
             typeBegin = line.indexOf("P(X)");
             valtyp=PROBABILITY;
@@ -419,20 +419,19 @@ namespace StochHMM{
         
         stringList line;
         line.splitString(ln[idx], "\t,: ");
-        
-        size_t typeBegin(0);
-        
-        valueType  valtyp;
+		//size_t typeBegin(0);
+                
+        valueType  valtyp(PROBABILITY);
         if (line.contains("P(X)")){
-            typeBegin = line.indexOf("P(X)");
+            //typeBegin = line.indexOf("P(X)");
             valtyp=PROBABILITY;
         }
         else if (line.contains("LOG")){
-            typeBegin = line.indexOf("LOG");
+            //typeBegin = line.indexOf("LOG");
             valtyp=LOG_PROB;
         }
         else if (line.contains("COUNTS")){
-            typeBegin = line.indexOf("COUNTS");
+            //typeBegin = line.indexOf("COUNTS");
             valtyp=COUNTS ;
         }
 		else {

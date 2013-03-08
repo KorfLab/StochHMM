@@ -56,7 +56,6 @@ void print_output(traceback_path*, std::string&);
 void print_posterior(trellis&);
 
 
-#pragma mark Options
 //Sets the command-line options for the program
 opt_parameters commandline[]={
 	//Help
@@ -373,7 +372,7 @@ void print_posterior(trellis& trell){
 	output+="\n";
 
 	for(size_t position = 0; position < table->size(); ++position){
-		sprintf(cstr, "%li", position+1);
+		sprintf(cstr, "%ld", position+1);
 		output+= cstr;
 		for (size_t st = 0 ; st < state_size ; st++){
 			float val  = exp((*table)[position][st]);

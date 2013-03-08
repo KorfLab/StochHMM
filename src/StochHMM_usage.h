@@ -9,9 +9,8 @@
 #ifndef StochHMM_StochHMM_usage_h
 #define StochHMM_StochHMM_usage_h
 
-#pragma mark Usage
 const char usage[]  = "\n\
-StochHMM - Stochastic Hidden Markov Model Framework (version 0.25) Date: February 14, 2013\n\
+StochHMM - Stochastic Hidden Markov Model Framework (version 0.27) Date: March 7, 2013\n\
 \n\
 Usage: StochHMM -model <model_file>  -seq <seq_file> [options]\n\
 \n\

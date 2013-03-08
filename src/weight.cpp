@@ -207,12 +207,12 @@ namespace StochHMM{
         std::vector<double> yVal;
         
         bool min=false;
-        double minXVal;
-        double minYVal;
+        double minXVal(0);
+        double minYVal(0);
         
         bool max=false;
-        double maxXVal;
-        double maxYVal;
+        double maxXVal(0);
+        double maxYVal(0);
         
         for(size_t i=0;i<lst.size();i++){
             stringList line;
