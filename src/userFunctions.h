@@ -79,8 +79,8 @@ namespace StochHMM{
         void assignTransitionFunction(std::string&, transitionFunc);
         void assignTransitionFunction(const char*,  transitionFunc);
 		
-		void assignEmmissionFunction(std::string&, emissionFunc);
-		void assignEmmissionFunction(const char*,  emissionFunc);
+		void assignEmissionFunction(std::string&, emissionFunc);
+		void assignEmissionFunction(const char*,  emissionFunc);
 
 		void assignPDFFunction(std::string&, pdfFunc);
 		void assignPDFFunction(const char*,  pdfFunc);
@@ -88,7 +88,6 @@ namespace StochHMM{
 		void assignMultivariatePdfFunction(std::string&, multiPdfFunc);
 		void assignMultivariatePdfFunction(const char*,  multiPdfFunc);
 		
-		void loadUnivariatePdf();
         
         transitionFunc* getTransitionFunction(std::string&);
         emissionFunc* getEmissionFunction(std::string&);
@@ -101,6 +100,7 @@ namespace StochHMM{
         std::map<std::string, emissionFunc> emissionFunctions; 
 		std::map<std::string, pdfFunc> pdfFunctions; //For continuous emissions
 		std::map<std::string, multiPdfFunc> multiPdfFunctions;
+		void _loadUnivariatePdf();
     };
 
 

@@ -30,7 +30,7 @@ namespace StochHMM{
     
 	
 	StateFuncs::StateFuncs(){
-		loadUnivariatePdf();
+		_loadUnivariatePdf();
 	}
     
     //!Assign a transition function to the StateFuncs class
@@ -63,7 +63,7 @@ namespace StochHMM{
     //!Assign a emission function to the StateFuncs class
     //!\param str Name of function
     //!\param ptrFunc  pt2StateFunc to use for StateFunc
-    void StateFuncs::assignEmmissionFunction(std::string& str, emissionFunc ptrFunc){
+    void StateFuncs::assignEmissionFunction(std::string& str, emissionFunc ptrFunc){
         
         if (emissionFunctions.count(str)==0){
             emissionFunctions[str]=ptrFunc;
@@ -79,9 +79,9 @@ namespace StochHMM{
         }
     }
 	
-	void StateFuncs::assignEmmissionFunction(const char* str, emissionFunc ptrFunc){
+	void StateFuncs::assignEmissionFunction(const char* str, emissionFunc ptrFunc){
 		std::string st(str);
-		assignEmmissionFunction(st, ptrFunc);
+		assignEmissionFunction(st, ptrFunc);
 	}
 	
 	
@@ -195,7 +195,7 @@ namespace StochHMM{
 	
 	
 	
-	void StateFuncs::loadUnivariatePdf(){
+	void StateFuncs::_loadUnivariatePdf(){
 		//Discrete with finite support
 		assignPDFFunction("BINOMIAL", static_cast<double (*)(const double , const std::vector<double>*)> (binomial_pdf));
 		assignPDFFunction("BETA_BINOMIAL",static_cast<double (*)(const double, const std::vector<double>*)> (beta_binomial_pdf));
@@ -269,38 +269,6 @@ namespace StochHMM{
 		assignPDFFunction("GENERALIZED_PARETO",  static_cast<double (*)(const double, const std::vector<double>*)> (generalized_pareto_pdf));
 						  
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 	
     
     
