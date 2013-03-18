@@ -1,0 +1,68 @@
+#StochHMM - A Flexible hidden Markov model application and C++ library.
+
+StochHMM is an easy to use and flexible hidden Markov model (HMM)
+application and C++ library. It implements HMMs from a simple
+user-defined text file. Thereby, allowing researchers to focus on the
+design and optimization of the model rather than spending precious time
+implementing HMM algorithms.
+
+StochHMM implements standard HMM, HMM with duration and in the future
+will implement hidden semi-Markov model architectures and algorithms. It
+grants researchers the power to integrate additional datasets in their
+HMM to improve predictions. Finally, it adapts HMM algorithms to provide
+stochastic decoding giving researchers the ability to explore and rank
+sub-optimal predictions.
+
+We are providing StochHMM source which can be compiled and used a a 
+standalone application and/or static C++ library to give researchers the
+ability to rapidly develop HMMs.
+
+StochHMM and compiles on Windows, Mac OSX, and Linux. We are providing
+StochHMM under the MIT open source license to increase accessibility and
+to give researchers the ability to use it in derivative works without
+restrictions.  See COPYING
+
+StochHMM is developed by Paul Lott, Korf Lab, University of California, Davis
+
+##Additional References:
+
+1.  Schroeder, D. I., Lott, P., Korf, I. & LaSalle, J. M. Large-scale
+methylation domains mark a functional subset of neuronally expressed
+genes. Genome Res 21, 1583–1591 (2011).
+
+2.	Ginno, P. A., Lott, P. L., Christensen, H. C., Korf, I. & Chédin,
+F. R-loop formation is a distinctive characteristic of unmethylated
+human CpG island promoters. Mol. Cell 45, 814–825 (2012).
+
+#For Questions, Suggestions, or Assistance, please contact Paul Lott
+#(lottpaul@gmail.com)
+
+
+#Installation
+
+To compile StochHMM in Unix command-line (Linux, Mac OS X)
+
+ $ ./configure
+ $ make
+Compiled application ./stochhmm will be located in the projects root folder and the static
+library will be in the src/ folder.
+
+
+To compile StochHMM in XCode (Mac OS X only)
+
+1. Open the StochHMM.xcodeproj in the Xcode directory.   
+2. Select the Debug/Release within the StochHMM Scheme. 
+3. Select Run
+
+Compiled target will be accessible from Xcode
+
+
+#Examples
+To run the examples,
+
+$ cd bin/
+$ stochhmm -model ../examples/Dice.hmm -seq ../examples/Dice.fa -viterbi -label
+$ stochhmm -model ../examples/3_16Eddy.hmm -seq ../example/3_16Eddy.fa -viterbi -gff
+$ stochhmm -model ../examples/3_16Eddy.hmm -seq ../example/3_17Eddy.fa -posterior
+$ stochhmm -model ../examples/Dice.hmm -seq ../examples/Dice.fa -stochastic viterbi -rep 10 -label
+$ stochhmm -model ../examples/Dice.hmm -seq ../examples/Dice.fa -stochastic posterior -rep 10 -label
