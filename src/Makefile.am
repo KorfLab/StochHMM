@@ -32,5 +32,7 @@ libstochhmm_a_SOURCES = \
 	seqJobs.cpp \
 	seqTracks.cpp \
 	sequence.cpp \
-	sequences.cpp 
+	sequences.cpp \
+	bitwise_ops.cpp \
+	dynamic_bitset.cpp 
 INCLUDES = -I ./

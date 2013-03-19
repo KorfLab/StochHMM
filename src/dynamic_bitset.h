@@ -12,6 +12,7 @@
 #include <iostream>
 #include <vector>
 #include <math.h>
+#include <stdlib.h>
 #include <stdint.h>
 #include "bitwise_ops.h"
 

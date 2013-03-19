@@ -81,7 +81,8 @@ am_libstochhmm_a_OBJECTS = pwm.$(OBJEXT) PDF.$(OBJEXT) \
 	track.$(OBJEXT) emm.$(OBJEXT) externalFuncs.$(OBJEXT) \
 	modelTemplate.$(OBJEXT) transitions.$(OBJEXT) weight.$(OBJEXT) \
 	options.$(OBJEXT) seqJobs.$(OBJEXT) seqTracks.$(OBJEXT) \
-	sequence.$(OBJEXT) sequences.$(OBJEXT)
+	sequence.$(OBJEXT) sequences.$(OBJEXT) bitwise_ops.$(OBJEXT) \
+	dynamic_bitset.$(OBJEXT)
 libstochhmm_a_OBJECTS = $(am_libstochhmm_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -222,7 +223,9 @@ libstochhmm_a_SOURCES = \
 	seqJobs.cpp \
 	seqTracks.cpp \
 	sequence.cpp \
-	sequences.cpp 
+	sequences.cpp \
+	bitwise_ops.cpp \
+	dynamic_bitset.cpp 
 
 INCLUDES = -I ./
 all: all-am
@@ -305,6 +308,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/PDF.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/backward.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/baum_welch.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bitwise_ops.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dynamic_bitset.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emm.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/externDefinitions.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/externalFuncs.Po@am__quote@

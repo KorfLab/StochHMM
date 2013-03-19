@@ -326,8 +326,8 @@ namespace StochHMM {
         }
         
         const sequence* seq = seqs->getSeq(trackIndex);
-        uint16_t tb_state(st->getIterator());
-		uint16_t starting_state = tb_state;
+        int16_t tb_state(st->getIterator());
+		int16_t starting_state = tb_state;
 
 		
         for(size_t trellisPos = position-1; trellisPos != SIZE_MAX ; --trellisPos){

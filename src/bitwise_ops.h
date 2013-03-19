@@ -12,8 +12,18 @@
 #include <iostream>
 #include <math.h>
 #include <stdint.h>
+#include <stdlib.h>
 
 namespace StochHMM {
+#ifndef CHAR_BIT
+#define CHAR_BIT 8
+#endif
+	
+	
+#ifndef SIZE_MAX
+#define SIZE_MAX ((size_t)-1)
+#endif
+	
 
 	std::string intToBinString(uint32_t val);
 	size_t msb(uint32_t val);
