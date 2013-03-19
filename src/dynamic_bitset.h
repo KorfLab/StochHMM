@@ -117,8 +117,8 @@ namespace StochHMM {
 		bool none();
 		
 		void push_back(bool);
-		size_t count();
-		size_t count_before(size_t);
+		size_t count() const;
+		size_t count_before(size_t) const;
 		
 		size_t find_first() const;
 		size_t find_first(size_t pos) const;

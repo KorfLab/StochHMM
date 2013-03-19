@@ -994,7 +994,7 @@ namespace StochHMM {
 	//!Returns the number of 1's in the bitset
 	//!\ref bits.sephan-brumme countBits population
 	//!\return size_t number of bits set in bitset
-	size_t dynamic_bitset::count(){
+	size_t dynamic_bitset::count() const{
 		size_t population(0);
 		for (size_t i=0; i < num_ints; i++){
 			uint32_t x = array[i];
@@ -1016,7 +1016,7 @@ namespace StochHMM {
 	//!Returns the number of 1's in the bitset to the right of the current position
 	//!\ref bits.sephan-brumme countBits population
 	//!\return size_t number of bits set in bitset
-	size_t dynamic_bitset::count_before(size_t pos){
+	size_t dynamic_bitset::count_before(size_t pos) const{
 		size_t current_int  = pos/32;
 		size_t current_pos  = pos%32;
 		

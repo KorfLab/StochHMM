@@ -172,43 +172,15 @@ namespace StochHMM {
 
 
 	//!Returns reference to object at position
-	//!If the position is beyond the length, the sparse array will get extended.
 	//!If it is defined it will return a reference to the position
-	//!If it is not defined and within the current length of the sparseArray and
-	//! after all the currently set values , it will get added to the end of the array
-	//!If it is not defined and within the current lenght of the sparseArray and
-	//! before other currently set values, then it will get inserted into the array
 	template <typename T>
-	const T& sparseArray<T>::operator[](size_t pos)const {
-		
-		//Increase size of flags if necessary
-		if (flag.size() <= pos){
-			flag.resize(pos);
-		}
+	const T& sparseArray<T>::operator[](size_t pos) const{
 		
 		//if called on defined data then return reference
 		if (defined(pos)){
 			return array[flag.count_before(pos)];
 		}
 		
-		//if called on undefined data then that value will be added as set and returned
-		//with default value of type
-		
-		//If position is beyond the last set position then we can simply add it to
-		//the array
-		if (flag.find_last() < pos){
-			flag.set(pos);
-			array.resize(array.size()+1);
-			return array.back();
-		}
-		
-		//Otherwise, we need to insert the position into the array
-		//Uses default constructor of typename T
-		flag.set(pos);
-		size_t array_iter = flag.count_before(pos);
-		array.insert(array.begin()+array_iter,T());
-		
-		return array[array_iter];
 	}
 
 
