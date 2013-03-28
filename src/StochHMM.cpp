@@ -113,7 +113,19 @@ int main(int argc, const char * argv[])
 	
 	
 	std::string filename;
-	opt.getopt("-posterior",filename);
+	if (opt.isSet("-posterior")){
+		opt.getopt("-posterior",filename);
+	}
+	else if (opt.isSet("-gff")){
+		opt.getopt("-gff", filename);
+	}
+	else if (opt.isSet("-path")){
+		opt.getopt("-path", filename);
+	}
+	else if (opt.isSet("-label")){
+		opt.getopt("-label", filename);
+	}
+	
 	
 	std::ofstream file;
 	std::streambuf* oldCoutStream(NULL);
@@ -143,10 +155,7 @@ int main(int argc, const char * argv[])
 		
 		
 		if (opt.isSet("-posterior")){
-			
 			perform_posterior(&hmm, job->getSeqs());
-			
-			
 		}
 		else if(opt.isSet("-viterbi")){
 			perform_viterbi_decoding(job->getModel(), job->getSeqs());
