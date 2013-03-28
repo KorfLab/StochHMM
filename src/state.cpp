@@ -527,6 +527,10 @@ namespace StochHMM{
             transition* temp = (*transi)[i];
             std::string name = temp->getName();
             state* st = state_index[name];
+			if (st == NULL){
+				std::cerr << "State: " << name << " was declared but not defined in the model." << std::endl;
+				exit(2);
+			}
             size_t index = st->getIterator();
             (*fixed_trans)[index]=temp;
             (*transi)[i]=NULL;
