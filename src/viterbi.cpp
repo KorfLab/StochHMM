@@ -127,6 +127,7 @@ namespace StochHMM {
 				if (exDef_defined && exDef_position){
 					emission += seqs->getWeight(position, st_current);
 				}
+
 				
 				if (emission == -INFINITY){
 					continue;
@@ -144,7 +145,6 @@ namespace StochHMM {
 					//and that the previous viterbi score is not -INFINITY
 					if ((*scoring_previous)[st_previous] != -INFINITY){
 						viterbi_temp = getTransition((*hmm)[st_previous], st_current , position) + emission + (*scoring_previous)[st_previous];
-						
 						
 						if (viterbi_temp > (*scoring_current)[st_current]){
 							(*scoring_current)[st_current] = viterbi_temp;

@@ -110,9 +110,15 @@ namespace StochHMM{
 			return getReducedOrder(seqs, pos);
 		}
 		
-		size_t index(0);
-		for(size_t i=0;i<dimensions;i++){
+		size_t index(seqs[subarray_sequence[0]][pos - subarray_position[0]] * subarray_value[0]);
+		
+		for(size_t i=1;i<dimensions;i++){
 			index += seqs[subarray_sequence[i]][pos - subarray_position[i]] * subarray_value[i];
+		}
+		
+		if (index > array_size){
+			std::cerr << "Index is out of range of lookup table in lexicalTable" << std::endl;
+			exit(2);
 		}
 		
 		return (*log_emission)[index];
@@ -125,9 +131,15 @@ namespace StochHMM{
 			return getReducedOrder(seq, pos);
 		}
 		
-		size_t index(0);
-		for(size_t i=0;i<dimensions;i++){
+		size_t index(seq[pos - subarray_position[0]] * subarray_value[0]);
+		
+		for(size_t i=1;i<dimensions;i++){
 			index += seq[pos - subarray_position[i]] * subarray_value[i];
+		}
+		
+		if (index > array_size){
+			std::cerr << "Index is out of range of lookup table in lexicalTable" << std::endl;
+			exit(2);
 		}
 		
 		return (*log_emission)[index];
@@ -604,6 +616,7 @@ namespace StochHMM{
 			}
 			temp /= indices.size();
 			temp = log(temp);
+						
 			return temp;
 		}
 		else if (unknownScoreType == LOWEST_SCORE){

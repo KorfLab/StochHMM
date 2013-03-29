@@ -384,14 +384,14 @@ namespace StochHMM{
             if (i > (size_t) max_unambiguous+1){ output+= ",";}
             
             output+=getAmbiguousCharacter(i);
-            output+="{";
+            output+="[";
             
             std::vector<size_t>& regChar = getAmbiguousSet(i);
             for(size_t k = 0; k<regChar.size();k++){
                 if (k>0){output+=",";}
                 output+=alphabet[regChar[k]];
             }
-            output+="}";
+            output+="]";
         }
         return output;
     }
@@ -456,6 +456,9 @@ namespace StochHMM{
         std::vector<std::pair<std::string,std::vector<std::string> > > temp;
         
         _splitAmbiguousList(temp, txt);
+		if (temp.size()==0){
+			return false;
+		}
         setAmbiguous();
         for (size_t i=0;i<temp.size();i++){
             addAmbiguous(temp[i].first, temp[i].second);

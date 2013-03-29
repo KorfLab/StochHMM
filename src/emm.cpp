@@ -660,7 +660,7 @@ namespace StochHMM{
     //!\param iter Position within the sequences
     //!\return double log(prob) value of emission
     double emm::get_emission(sequences& seqs,size_t pos){
-        double final_emission;
+        double final_emission(-INFINITY);
         
         if (real_number){
             

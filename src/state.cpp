@@ -409,12 +409,8 @@ namespace StochHMM{
     //! \param seqs Sequences the model is analyzing
     //! \param iter Position in the sequence
     double state::get_emission_prob(sequences &seqs, size_t iter){
-        double value=0;
-        for(size_t i=0;i<emission.size();i++){
-#ifdef DEBUG_VERBOSE
-            //cout << i << "\t" << emission[i].get_emission(seqs,iter) << endl;
-#endif
-            
+        double value(emission[0]->get_emission(seqs,iter));
+        for(size_t i=1;i<emission.size();i++){
             value+=emission[i]->get_emission(seqs,iter);  //Pass sequences type to get_emission for each emission in the state
         }
         return value;

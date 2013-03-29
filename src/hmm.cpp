@@ -331,7 +331,10 @@ namespace StochHMM{
             std::string amb(model.substr(nlChar,blank-nlChar));
             
             if (!_parseAmbiguous(amb)){
-                return false;
+				
+				std::cerr << "Model Line:\t"  << amb << std::endl;
+				exit(2);
+                //return false;
             }
             //std::cout << ambig << "\t" << amb << std::endl;
         }
@@ -619,9 +622,7 @@ namespace StochHMM{
                 }
             }
             else{
-                std::string info = "Ambiguous Characters Section\nSupplied track name doesn't correspond to any previously parsed tracks.\nPlease check the formatting and names.\n Unfound Name: " + ln[0];
-                //errorInfo(sAmbigousCharacterDoesntMatchTrack, info.c_str());
-                
+                std::string info = "Ambiguous Characters Section\nSupplied track name doesn't correspond to any previously parsed tracks.\nPlease check the formatting and names.\n Unfound Name: " + ln[0];                
                 std::cerr << info << std::endl;
                 return false;
             }

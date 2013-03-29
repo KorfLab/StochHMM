@@ -153,7 +153,6 @@ int main(int argc, const char * argv[])
 			job->getSeqs()->print();
 		}
 		
-		
 		if (opt.isSet("-posterior")){
 			perform_posterior(&hmm, job->getSeqs());
 		}
