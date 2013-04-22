@@ -103,8 +103,8 @@ namespace StochHMM {
 	
 	
 	//Multivariate Distributions
-	double dirichlet_pdf(std::vector<double>& x, std::vector<double>& alpha);
-	double multivariate_ewens_pdf(std::vector<double>& x, double theta);
+	double dirichlet_pdf(const std::vector<double>& x, const std::vector<double>& alpha) ;
+	double multivariate_ewens_pdf(const std::vector<double>& x,const double theta);
 
 	
 	
@@ -594,6 +594,15 @@ namespace StochHMM {
 			exit(2);
 		}
 		return log(generalized_pareto_pdf(x, (*param)[0], (*param)[1], (*param)[2]));
+	}
+	
+	inline double dirichlet_multi_pdf(const std::vector<double>* x, const std::vector<double>* param){
+		return log(dirichlet_pdf(*x, *param));
+	}
+	
+	
+	inline double ewens_multi_pdf(const std::vector<double>* x, const std::vector<double>* param){
+		return log(multivariate_ewens_pdf(*x, (*param)[0]));
 	}
 
    

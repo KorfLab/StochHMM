@@ -918,7 +918,7 @@ namespace StochHMM{
 	//!Dirichlet Distribution
 	//! \param	x	Vector of values
 	//! \param	alpha	concentration parameters where a_i>0
-	double dirichlet_pdf(std::vector<double>& x, std::vector<double>& alpha){
+	double dirichlet_pdf(const std::vector<double>& x, const std::vector<double>& alpha) {
 		double gsum_alpha = tgamma(sumVector(alpha));
 		
 		//Calc product of gamma transformed alpha values
@@ -940,7 +940,7 @@ namespace StochHMM{
 	//!Multivariate Ewen's probability distribution function
 	//! \param	x	# of individual allele represented in sample
 	//! \param	theta	Parameter: details of evolutionary model
-	double multivariate_ewens_pdf(std::vector<double>& x, double theta){
+	double multivariate_ewens_pdf(const std::vector<double>& x, const double theta){
 		
 		double n = factorial(x.size());
 		double d(theta);

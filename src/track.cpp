@@ -259,6 +259,7 @@ namespace StochHMM{
     uint8_t track::symbolIndex(const std::string& symbol){
         if (symbolIndices.count(symbol)==0){  //If isn't found in the hash
             if (ambiguous){ //Return default character if ambiguous is set
+				std::cerr << symbol << "not found in HMM definitions. Using default ambiguous character.\n"; 
                 return defaultAmbiguous;
             }
             else{

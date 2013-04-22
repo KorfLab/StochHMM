@@ -127,6 +127,8 @@ namespace StochHMM{
 		//Continuous Univariate Distribution
 		pdfFunc* pdf;
 		std::string pdfName;
+		
+		//Parameters for Univariate and Multivariate Distributions
 		std::vector<double>* dist_parameters;
 		
 		

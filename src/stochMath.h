@@ -322,6 +322,19 @@ namespace StochHMM{
         return sum;
     }
 	
+	/*! \fn T sumVector(std::vector<T>& data)
+     \brief Sum the vector and return the sum
+     \param data Vector of doubles
+     */
+	template<class T>
+    T sumVector(const std::vector<T>& data){
+        double sum=0;
+        for(size_t i=0;i<data.size();i++){
+            sum+=data[i];
+        }
+        return sum;
+    }
+	
 	/*! \fn T productVector(std::vector<T>& data)
      \brief Multiply terms in vector and return the product
      \param data Vector of T

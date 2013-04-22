@@ -183,9 +183,18 @@ namespace StochHMM{
 			
 			
 			size_t parameter_idx = line.indexOf("PARAMETERS");
-			if (parameter_idx != SIZE_MAX){
-				std::cerr << "Passing parameters to multivariate PDF isn't currently supported\n";
+			
+			dist_parameters = new(std::nothrow) std::vector<double>;
+			
+			if(parameter_idx != SIZE_MAX){
+				for(size_t i = parameter_idx+1 ; i< line.size() ; i++){
+					double value;
+					stringToDouble(line[i], value);
+					dist_parameters->push_back(value);
+				}
 			}
+			
+			return true;
 			
 		}
 		else if (continuous){
@@ -207,12 +216,14 @@ namespace StochHMM{
 			size_t parameter_idx = line.indexOf("PARAMETERS");
 			dist_parameters = new(std::nothrow) std::vector<double>;
 			
-			for(size_t i = parameter_idx+1 ; i< line.size() ; i++){
-				double value;
-				stringToDouble(line[i], value);
-				dist_parameters->push_back(value);
-			}
 			
+			if(parameter_idx != SIZE_MAX){
+				for(size_t i = parameter_idx+1 ; i< line.size() ; i++){
+					double value;
+					stringToDouble(line[i], value);
+					dist_parameters->push_back(value);
+				}
+			}
 			
             pdf = funcs->getPDFFunction(pdfName);
             
@@ -678,7 +689,7 @@ namespace StochHMM{
 				(*pass_values)[i] = seqs.realValue((*track_indices)[i], pos);
 			}
 			
-			final_emission = (*multiPdf)(*pass_values);
+			final_emission = (*multiPdf)(pass_values, dist_parameters);
 			
 			if (complement){
 				final_emission=log(1-exp(final_emission));
@@ -730,7 +741,7 @@ namespace StochHMM{
 				(*pass_values)[i] = seq.realValue(pos);
 			}
 			
-			final_emission = (*multiPdf)(*pass_values);
+			final_emission = (*multiPdf)(pass_values, dist_parameters);
 			
 			if (complement){
 				final_emission=log(1-exp(final_emission));

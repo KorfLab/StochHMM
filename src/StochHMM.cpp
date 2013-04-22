@@ -184,7 +184,8 @@ void import_model(model& hmm){
         std::cerr <<"No model file provided.\n" << usage << std::endl;
     }
     else{
-        hmm.import(opt.sopt("-model"));
+		StateFuncs default_functions;
+        hmm.import(opt.sopt("-model"),&default_functions);
     }
     
     //If -debug model is defined then print model to stdout;

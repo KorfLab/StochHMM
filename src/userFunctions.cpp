@@ -31,6 +31,7 @@ namespace StochHMM{
 	
 	StateFuncs::StateFuncs(){
 		_loadUnivariatePdf();
+		_loadMultivariatePdf();
 	}
     
     //!Assign a transition function to the StateFuncs class
@@ -270,6 +271,11 @@ namespace StochHMM{
 						  
 	}
 	
+	
+	void StateFuncs::_loadMultivariatePdf(){
+		assignMultivariatePdfFunction("DIRICHLET",static_cast<double(*)(const std::vector<double>*, const std::vector<double>*)>(dirichlet_multi_pdf));
+		assignMultivariatePdfFunction("EWENS",static_cast<double(*)(const std::vector<double>*, const std::vector<double>*)>(ewens_multi_pdf));
+	}
     
     
     //!Assign a function to the TrackFuncs class

@@ -52,9 +52,9 @@ namespace StochHMM{
 	typedef double	(*pdfFunc)(const double, const std::vector<double>*);
 	
 	//! \typedef multiPdfFunc
-	//! Pointer to function that takes reference to array that contains emission
-	//! multiple REAL_NUMBER values. 
-	typedef double	(*multiPdfFunc)(const std::vector<double>&);
+	//! Pointer to function that takes reference to array (variables) and pointer to vector
+	//! that contains multivariate function paramenters.
+	typedef double	(*multiPdfFunc)(const std::vector<double>*, const std::vector<double>*);
 	
 
     //!\typedef Pointer to Function that takes a string and returns a vector<float>
@@ -101,6 +101,7 @@ namespace StochHMM{
 		std::map<std::string, pdfFunc> pdfFunctions; //For continuous emissions
 		std::map<std::string, multiPdfFunc> multiPdfFunctions;
 		void _loadUnivariatePdf();
+		void _loadMultivariatePdf();
     };
 
 
