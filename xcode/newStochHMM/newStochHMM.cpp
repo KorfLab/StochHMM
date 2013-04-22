@@ -118,6 +118,7 @@ int main(int argc, const char * argv[])
     seqJob *job=jobs.getJob();
 	
 	while (job != NULL){
+		
 		//Print sequences if -debug seq option defined
 		if (opt.isFlagSet("-debug","seq")){
 			job->getSeqs()->print();

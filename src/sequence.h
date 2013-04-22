@@ -72,6 +72,9 @@ namespace StochHMM{
         //ACCESSOR
         
         //!Get reference to undigitized sequence
+		//!If sequence hasn't been undigitized then it will undigitize it and
+		//!store the result.   (Only undigitizes the sequence once, then passes
+		//!reference to undigitized sequence)
         inline std::string* getUndigitized(){
             if (!undigitized.empty() || seq->empty()){
                 return &undigitized;
@@ -121,8 +124,14 @@ namespace StochHMM{
         //! Prints the digitized version
         inline void print(){std::cout << stringify() << std::endl;}; //Print sequence to stdout
         std::string stringify(); // Get sequence as string
-        std::string undigitize(); //Undigitize the sequences based on alphabet
-        
+		
+		
+		//! Undigitize the sequence
+		//! If the sequence has not been digitized then it will return directly
+		//! If the sequence has been digitized then it will undigitize it and return it
+		//! \return character or word sequence from fasta
+        std::string undigitize();
+		
         //MUTATOR
         //!Set the sequence attribute value
         //!\param attr Value of attributes for sequence;
@@ -154,14 +163,18 @@ namespace StochHMM{
         
         void get_index(size_t position, int order, std::pair<Index, Index>& word_index);
         
+		
+		//! Returns the header of the sequence as a std::string
         inline std::string getHeader() { return header; }
         
         bool reverseComplement();
         bool complement();
         bool reverse();
         
+		//!Converts sequence digital based on track alphabet
         bool digitize();
 		
+		//! Shuffles the sequence using std::random_shuffle
 		void shuffle();
 		
 		inline std::vector<uint8_t>* getDigitalSeq(){return seq;}
@@ -169,7 +182,6 @@ namespace StochHMM{
         inline uint8_t operator[](size_t index){return (*seq)[index];}
         //void getNext (std::ifstream&, track*);
         
-        // Digitizes the character sequence using the track alphabet
         
         //bool _checkSequence(); //!Check the sequence adheres to the track alphabet
 
@@ -196,7 +208,13 @@ namespace StochHMM{
         
         bool _digitize();  //Digitize the sequence
     };
-    
+	
+	
+	
+	//!Randomly generate a sequence based on Probabilities of each character
+	//! \param freq  Reference to std::vector<double> that contains frequencies of alphabet corresponding to alphabet in track
+	//! \param length  Length of sequence to generate
+	//! \param tr Pointer to StochHMM::track where alphabet and ambiguous characters are defined
     sequence random_sequence(std::vector<double>& freq, size_t length, track* tr);
 //	sequence random_sequence(emm*);    
 //  sequence translate();

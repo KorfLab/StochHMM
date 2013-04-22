@@ -39,8 +39,8 @@ double loaded(const double val, const std::vector<double>* param){
 
 
 int main(int argc, const char * argv[])
-{
-    srand(time(NULL));
+{	
+	srand(time(NULL));
 	model hmm;
 	StateFuncs functions;
 	functions.assignPDFFunction("FAIR", *fair);
@@ -97,6 +97,8 @@ int main(int argc, const char * argv[])
     jobs.loadSeqs(hmm, seq_file, FASTA);
     
     seqJob *job=jobs.getJob();
+	
+
 	
 	//sequences* temp = job->getSeqs();
 	//temp->print();

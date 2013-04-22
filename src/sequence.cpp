@@ -352,9 +352,9 @@ namespace StochHMM{
         }
 		
         std::string output;
-		if (!header.empty()){
-			output+= header +"\n";
-		}
+//		if (!header.empty()){
+//			output+= header +"\n";
+//		}
 		
         if (seqtrk!=NULL){
             size_t alphaMax = seqtrk->getAlphaMax();
@@ -367,7 +367,7 @@ namespace StochHMM{
             }
         }
         else {
-            std::cerr << "track pointer is not defined.   Can't undigitize sequence without valid track\n";
+            std::cerr << "Track is not defined.  Can't undigitize sequence without valid track\n";
         }
         
         return output;
@@ -870,7 +870,7 @@ namespace StochHMM{
             std::cerr<< "sequence::complement isn't defined for real valued sequences\n";
         }
         else if (seqtrk==NULL){
-            std::cerr << "track is not defined.  Can't complement without defined complement in track\n";
+            std::cerr << "StochHMM::track is not defined.  Can't complement without defined complement in track\n";
         }
         else if (seq!=NULL){
             
@@ -920,7 +920,7 @@ namespace StochHMM{
         return true;
     }
     
-    //! Digitize a sequences
+    // Digitize a sequences
     bool sequence::digitize(){
         if (realSeq){
             return true;
@@ -939,6 +939,7 @@ namespace StochHMM{
     }
 	
 	
+	//Shuffles the sequence
 	void sequence::shuffle(){
 		
 		if (realSeq){
@@ -954,7 +955,7 @@ namespace StochHMM{
 	}
 	
 	
-	
+	//Randomly generate a sequence based on Probabilities of each character
 	sequence random_sequence(std::vector<double>& freq, size_t length, track* tr){
         sequence random_seq;
         
