@@ -11,7 +11,6 @@ var searchData=
   ['replacechar',['replaceChar',['../group___text.html#ga98f2f125252b54b1f227988ae44d424b',1,'StochHMM']]],
   ['reserve',['reserve',['../class_stoch_h_m_m_1_1dynamic__bitset.html#a119a2afb7d3ba2b81d0b0a577bd321cd',1,'StochHMM::dynamic_bitset::reserve()'],['../class_stoch_h_m_m_1_1sparse_array.html#ac5437f6d5eff0c68780944d27b36e7d3',1,'StochHMM::sparseArray::reserve()']]],
   ['reset',['reset',['../class_stoch_h_m_m_1_1dynamic__bitset.html#af490cac4ed0f4a22af54e784ea7de3e9',1,'StochHMM::dynamic_bitset::reset()'],['../class_stoch_h_m_m_1_1dynamic__bitset.html#a7088ce4b7d1fd2787151f848b128f982',1,'StochHMM::dynamic_bitset::reset(size_t pos)']]],
-  ['resetcounters',['resetCounters',['../class_stoch_h_m_m_1_1basic_trellis.html#a314ef4383eb967b4defdca4df120b23c',1,'StochHMM::basicTrellis']]],
   ['resize',['resize',['../class_stoch_h_m_m_1_1dynamic__bitset.html#a18a942cdd7e8a6e6af1ebcfeafdc9b41',1,'StochHMM::dynamic_bitset::resize()'],['../class_stoch_h_m_m_1_1sparse_array.html#acc3c611e4330190d62779cdcbe6920bd',1,'StochHMM::sparseArray::resize()']]],
   ['reverse',['reverse',['../class_stoch_h_m_m_1_1sequence.html#ae012923860db511882407aa87658f3f7',1,'StochHMM::sequence']]],
   ['reversecomplement',['reverseComplement',['../class_stoch_h_m_m_1_1sequence.html#ae9d70ad95f1f76f068cd2fe3d3f0a3a6',1,'StochHMM::sequence']]],

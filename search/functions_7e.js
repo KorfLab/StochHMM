@@ -8,6 +8,5 @@ var searchData=
   ['_7esequence',['~sequence',['../class_stoch_h_m_m_1_1sequence.html#ab906ca56375a6e3b83f98bd4a073073e',1,'StochHMM::sequence']]],
   ['_7esequences',['~sequences',['../class_stoch_h_m_m_1_1sequences.html#a33b78307e44b698a35adf6169dd8d372',1,'StochHMM::sequences']]],
   ['_7estate',['~state',['../class_stoch_h_m_m_1_1state.html#a7666c1a1912dad5e1cf9aa4de1cf47e6',1,'StochHMM::state']]],
-  ['_7estocherr',['~stochErr',['../class_stoch_h_m_m_1_1stoch_err.html#ab46325b467373832e74dbe68d02b924c',1,'StochHMM::stochErr']]],
   ['_7etemplates',['~templates',['../class_stoch_h_m_m_1_1templates.html#a34cf70b27d21e81a8afab0c1b1808c56',1,'StochHMM::templates']]]
 ];

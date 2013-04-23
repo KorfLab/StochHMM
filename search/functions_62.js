@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['back',['back',['../class_stoch_h_m_m_1_1stoch_err.html#a7ca53307cb150888ddaf6f08403bcac0',1,'StochHMM::stochErr']]],
-  ['backward',['backward',['../class_stoch_h_m_m_1_1trellis.html#a84f65e967f6904cf1e75f343f0f472ea',1,'StochHMM::trellis']]],
   ['balanced_5fbrackets',['balanced_brackets',['../group___text.html#ga1bdb409efab2d170ecb74f8537afbc44',1,'StochHMM::balanced_brackets(const std::string &amp;text, const std::string &amp;brackets, size_t offset)'],['../group___text.html#ga99d531d5a6e0bbb1aee2cffbdcef7d4b',1,'StochHMM::balanced_brackets(const std::string &amp;text, const std::string &amp;brackets)']]],
-  ['basictrellis',['basicTrellis',['../class_stoch_h_m_m_1_1basic_trellis.html#af75c6e04fc22c813d5265d8bd6081703',1,'StochHMM::basicTrellis']]],
   ['begin',['begin',['../class_stoch_h_m_m_1_1multi_traceback.html#aa0c295c5f60f8a8dedfbb65557afe9fe',1,'StochHMM::multiTraceback']]],
   ['beta_5fbinomial_5fpdf',['beta_binomial_pdf',['../group___p_d_f.html#gaa1fed912d16e8c9975dbd6399ec84783',1,'StochHMM']]],
   ['beta_5fnegative_5fbinomial_5fpdf',['beta_negative_binomial_pdf',['../group___p_d_f.html#gac1bc1c50beade0e15b10cae790659964',1,'StochHMM']]],

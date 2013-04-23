@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['table',['table',['../class_stoch_h_m_m_1_1table.html',1,'StochHMM']]],
-  ['tb_5fscore',['tb_score',['../struct_stoch_h_m_m_1_1tb__score.html',1,'StochHMM']]],
   ['templates',['templates',['../class_stoch_h_m_m_1_1templates.html',1,'StochHMM']]],
   ['traceback_5fpath',['traceback_path',['../class_stoch_h_m_m_1_1traceback__path.html',1,'StochHMM']]],
   ['track',['track',['../class_stoch_h_m_m_1_1track.html',1,'StochHMM']]],

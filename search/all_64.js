@@ -1,7 +1,6 @@
 var searchData=
 [
   ['dagum_5fpdf',['dagum_pdf',['../group___p_d_f.html#gaca5586cbd2d2555b02c39506d1b62239',1,'StochHMM']]],
-  ['decodeall',['decodeAll',['../class_stoch_h_m_m_1_1trellis.html#ac4e2ea056de03cf83a142ba4230e0576',1,'StochHMM::trellis']]],
   ['decodingtype',['decodingType',['../namespace_stoch_h_m_m.html#a634bb996fa40baf63767d67cef578238',1,'StochHMM']]],
   ['defined',['defined',['../class_stoch_h_m_m_1_1_ex_def_sequence.html#a38bfd2e9b0958bf40462b7758106ebed',1,'StochHMM::ExDefSequence::defined()'],['../class_stoch_h_m_m_1_1sparse_array.html#a6f5d7c9d8ee9063385b59dfd8f5d521e',1,'StochHMM::sparseArray::defined()']]],
   ['degenerate_5fpdf',['degenerate_pdf',['../group___p_d_f.html#ga367e60c53a922286005cf2891b649ad1',1,'StochHMM']]],
