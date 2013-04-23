@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>StochHMM: Main Page</title>
+<title>StochHMM: src/stochhmmUsage.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -37,11 +37,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
+      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -60,7 +60,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -75,15 +80,70 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">StochHMM Documentation</div>  </div>
+<div class="title">stochhmmUsage.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a href="stochhmm_usage_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ae2bb377fa3ddc2c1ca300f43c4728f81"><td class="memItemLeft" align="right" valign="top">const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stochhmm_usage_8h.html#ae2bb377fa3ddc2c1ca300f43c4728f81">usage</a> []</td></tr>
+</table>
+<hr/><h2>Variable Documentation</h2>
+<a class="anchor" id="ae2bb377fa3ddc2c1ca300f43c4728f81"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char usage[]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line"><span class="stringliteral">&quot;\n\</span></div>
+<div class="line"><span class="stringliteral">StochHMM- Stochastic Hidden Markov Model Framework (version 0.2)\n\</span></div>
+<div class="line"><span class="stringliteral">usage: StochHMM -model &lt;model_file&gt;  -seq &lt;seq_file&gt; [options]\n\</span></div>
+<div class="line"><span class="stringliteral">\n\</span></div>
+<div class="line"><span class="stringliteral">example: StochHMM -model Arabidopsis.hmm -seq Arab412.fasta -viterbi -gff -label -path \n\</span></div>
+<div class="line"><span class="stringliteral">\n\</span></div>
+<div class="line"><span class="stringliteral">Command Line options:\n\</span></div>
+<div class="line"><span class="stringliteral">\t-help or -h           print usage statement\n\</span></div>
+<div class="line"><span class="stringliteral">\n\</span></div>
+<div class="line"><span class="stringliteral">Files: reqires a sequence file and a model file\n\</span></div>
+<div class="line"><span class="stringliteral">\t-model file\t\timport model file\n\</span></div>
+<div class="line"><span class="stringliteral">\t-seq file\t\t\timport sequence file in fasta format\n\</span></div>
+<div class="line"><span class="stringliteral">\n\</span></div>
+<div class="line"><span class="stringliteral">Non-stochastic Decoding:  Different algorithms available for decoding\n\</span></div>
+<div class="line"><span class="stringliteral">\t-viterbi\t\t\tperforms viterbi traceback\n\</span></div>
+<div class="line"><span class="stringliteral">\n\</span></div>
+<div class="line"><span class="stringliteral">Output options:\n\</span></div>
+<div class="line"><span class="stringliteral">\t-gff\t\t\t\tprints path in GFF format\n\</span></div>
+<div class="line"><span class="stringliteral">\t-path\t\t\tprints state path according to state number\n\</span></div>
+<div class="line"><span class="stringliteral">\t-label\t\t\tprints state path as labels\n\</span></div>
+<div class="line"><span class="stringliteral">\t-trellis\t\t\tprint the trellis values\n\</span></div>
+<div class="line"><span class="stringliteral">\n\</span></div>
+<div class="line"><span class="stringliteral">Written by Paul Lott at University of California, Davis\n\</span></div>
+<div class="line"><span class="stringliteral">Please direct any questions, suggestions or bugs reports to Paul Lott at plott@ucdavis.edu\n\</span></div>
+<div class="line"><span class="stringliteral">\n\</span></div>
+<div class="line"><span class="stringliteral">&quot;</span></div>
+</div><!-- fragment -->
+<p>Definition at line <a class="el" href="stochhmm_usage_8h_source.html#l00010">10</a> of file <a class="el" href="stochhmm_usage_8h_source.html">stochhmmUsage.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 29 2013 16:17:47 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 29 2013 16:17:44 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>StochHMM: Main Page</title>
+<title>StochHMM: src/seqTracks.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -37,11 +37,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
+      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -60,7 +60,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -75,15 +80,61 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">StochHMM Documentation</div>  </div>
+<div class="title">seqTracks.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+<div class="textblock"><code>#include &lt;string&gt;</code><br/>
+<code>#include &lt;vector&gt;</code><br/>
+<code>#include &lt;fstream&gt;</code><br/>
+<code>#include &lt;map&gt;</code><br/>
+<code>#include &lt;queue&gt;</code><br/>
+<code>#include &quot;<a class="el" href="text_8h_source.html">text.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="traceback__path_8h_source.html">traceback_path.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="hmm_8h_source.html">hmm.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="sequences_8h_source.html">sequences.h</a>&quot;</code><br/>
+<code>#include &lt;stdlib.h&gt;</code><br/>
+</div>
+<p><a href="seq_tracks_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_stoch_h_m_m_1_1pp_track.html">StochHMM::ppTrack</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_tracks.html">StochHMM::seqTracks</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespace_stoch_h_m_m"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></td></tr>
+<tr class="memdesc:namespace_stoch_h_m_m"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="traceback__path_8h.html">traceback_path.h</a> <br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a7e915f1895626c747973dc285457a42c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42c">StochHMM::SeqFileFormat</a> { <a class="el" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42ca4cae7b871050786522aebf8762ec5e55">StochHMM::FASTA</a>, 
+<a class="el" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42ca5dd782e31ed15b145ab9e0580fa6424d">StochHMM::FASTQ</a>
+ }</td></tr>
+<tr class="memitem:a21c4b50449b98555d1521444c7884f76"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76">StochHMM::SeqFilesType</a> { <a class="el" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76ad337e28bb92cd6c319a91c9a5b365565">StochHMM::SINGLE_TRACK</a>, 
+<a class="el" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76a7566ebf6fb7565e06068c2e11162d5b4">StochHMM::MULTI_TRACK</a>
+ }</td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Contains functions to import FASTA/FASTQ sequences from files and select the applicable model to deal with that sequence. It was set up to generate a seqJob for each sequence, then select a model, and then allow the programmer to thread the decoding algorithm. </p>
+
+<p>Definition in file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 29 2013 16:17:47 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 29 2013 16:17:44 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

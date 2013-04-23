@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['d',['d',['../class_stoch_h_m_m_1_1opt__data.html#a66f789a1c01b04a9664b075e496da89e',1,'StochHMM::opt_data']]],
+  ['dagum_5fpdf',['dagum_pdf',['../group___p_d_f.html#gaca5586cbd2d2555b02c39506d1b62239',1,'StochHMM::dagum_pdf(double x, double p, double a, double b)'],['../group___p_d_f.html#ga222a520938a8384cc7127c0867db863b',1,'StochHMM::dagum_pdf(const double x, const std::vector&lt; double &gt; *param)']]],
+  ['data',['data',['../class_stoch_h_m_m_1_1opt__data.html#afe1c71ededc6ee3a3207bb0baeb3d24e',1,'StochHMM::opt_data']]],
+  ['decodeall',['decodeAll',['../class_stoch_h_m_m_1_1trellis.html#ac4e2ea056de03cf83a142ba4230e0576',1,'StochHMM::trellis']]],
+  ['decodingtype',['decodingType',['../namespace_stoch_h_m_m.html#a634bb996fa40baf63767d67cef578238',1,'StochHMM']]],
+  ['default_5fvalue',['default_value',['../class_stoch_h_m_m_1_1opt__data.html#a12a87dbc322389693f73a2a983a75de3',1,'StochHMM::opt_data']]],
+  ['defined',['defined',['../class_stoch_h_m_m_1_1_ex_def_sequence.html#a38bfd2e9b0958bf40462b7758106ebed',1,'StochHMM::ExDefSequence']]],
+  ['defined_5fscore',['DEFINED_SCORE',['../namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521a6b21a727a6bb9967aeb5de84f8293080',1,'StochHMM']]],
+  ['definedstates',['DefinedStates',['../class_stoch_h_m_m_1_1basic_trellis.html#a86c27c5ff1444dde9100c2cc6909c0d2',1,'StochHMM::basicTrellis']]],
+  ['degenerate_5fdistribution',['degenerate_distribution',['../namespace_stoch_h_m_m.html#a6ef2da3410f38cf68df4253722eddfef',1,'StochHMM']]],
+  ['degenerate_5fpdf',['degenerate_pdf',['../group___p_d_f.html#ga367e60c53a922286005cf2891b649ad1',1,'StochHMM::degenerate_pdf(double value, double k)'],['../group___p_d_f.html#gad9a4b8c44887bb38e9081658661556ec',1,'StochHMM::degenerate_pdf(const double value, const std::vector&lt; double &gt; *param)']]],
+  ['determinealphabet',['determineAlphabet',['../classtraining_seqs.html#a6a939bde0a241199cbafe469aac35e84',1,'trainingSeqs']]],
+  ['diagonal',['DIAGONAL',['../namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fbad9940f3b381b1cff3f27d2c9c6f0017f',1,'StochHMM']]],
+  ['diff_5fstate',['DIFF_STATE',['../namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a4854244905e0725bfd743559f2825d97',1,'StochHMM']]],
+  ['digitize',['digitize',['../class_stoch_h_m_m_1_1sequence.html#a17c42b953affaf5d8868e20ba96223e8',1,'StochHMM::sequence']]],
+  ['dirichlet_5fpdf',['dirichlet_pdf',['../group___p_d_f.html#ga5f1b49dcfad4195cdcc66de800fb7779',1,'StochHMM']]],
+  ['discrete_5funiform_5fcdf',['discrete_uniform_cdf',['../namespace_stoch_h_m_m.html#a1ca616e835271b6d0c717f1b793340ad',1,'StochHMM']]],
+  ['discrete_5funiform_5fpdf',['discrete_uniform_pdf',['../group___p_d_f.html#gabcaf8d22a7040daf39a302757c97cd9b',1,'StochHMM::discrete_uniform_pdf(int position, int a, int b)'],['../group___p_d_f.html#ga5fb7b3c6f4b00938f536de88af1480ff',1,'StochHMM::discrete_uniform_pdf(const double position, const std::vector&lt; double &gt; *param)']]],
+  ['distributions_2ecpp',['distributions.cpp',['../distributions_8cpp.html',1,'']]],
+  ['distributions_2eh',['distributions.h',['../distributions_8h.html',1,'']]],
+  ['dividevaluetovector',['divideValueToVector',['../namespace_stoch_h_m_m.html#a0ec745154fd5c6e0ca113d21abea6aaf',1,'StochHMM']]],
+  ['dopt',['dopt',['../class_stoch_h_m_m_1_1options.html#a195fcf95ef76ea286d9fd6cb0cc83381',1,'StochHMM::options']]],
+  ['double_5fto_5fstring',['double_to_string',['../group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7',1,'StochHMM::double_to_string(double input)'],['../group___text.html#ga593ec6959903daf28efe176538f2e20f',1,'StochHMM::double_to_string(float input)']]],
+  ['duration',['DURATION',['../namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0a318aeefa858c2510dba13533a5ac9a34',1,'StochHMM']]]
+];
