@@ -234,7 +234,13 @@ namespace StochHMM {
             transition_prob= trans->getTransition(0,NULL);
         }
         else if (trans_type == DURATION){
-			//Calculate the duration length
+			
+			//If the traceback_table isn't defined, then we need to generate it using the viterbi algorithm
+			if (traceback_table==NULL){
+				(*this).viterbi();
+			}
+			
+			//Calculate the duration length from the traceback table
 			size_t size = get_explicit_duration_length(trans,sequencePosition, st->getIterator(), trans_to_state);
 			transition_prob=trans->getTransition(size,NULL);
         }
@@ -244,6 +250,12 @@ namespace StochHMM {
         
         //Is external function define for the transition
         if (trans->FunctionDefined()){
+			
+			//If the traceback_table isn't defined, then we need to generate it using the viterbi algorithm
+			if (traceback_table==NULL){
+				(*this).viterbi();
+			}
+			
             transition_prob+=transitionFuncTraceback(st, sequencePosition, trans->getExtFunction());
         }
         

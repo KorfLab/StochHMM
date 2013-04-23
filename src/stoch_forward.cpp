@@ -22,17 +22,17 @@ namespace StochHMM {
 	
 	
 	void trellis::stochastic_forward(){
-		if (hmm->isBasic()){
+		//if (hmm->isBasic()){
 			simple_stochastic_forward();
-		}
+		//}
 	}
 	
 	void trellis::simple_stochastic_forward(){
 		
-		if (!hmm->isBasic()){
-			std::cerr << "Model isn't a simple/basic HMM.  Use complex algorithms\n";
-			return;
-		}
+//		if (!hmm->isBasic()){
+//			std::cerr << "Model isn't a simple/basic HMM.  Use complex algorithms\n";
+//			return;
+//		}
 		
 		
 		scoring_current = new (std::nothrow) std::vector<double> (state_size,-INFINITY);

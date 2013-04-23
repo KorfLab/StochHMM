@@ -117,8 +117,8 @@ namespace StochHMM{
 		void forward();
 		void forward(model* h, sequences* sqs);
 		
-		void forward_viterbi();
-		void forward_viterbi(model* h, sequences* sqs);
+//		void forward_viterbi();
+//		void forward_viterbi(model* h, sequences* sqs);
 		
 		void backward();
 		void backward(model* h, sequences* sqs);
@@ -174,8 +174,8 @@ namespace StochHMM{
 		void simple_viterbi();
 		void simple_viterbi(model* h, sequences* sqs);
 				
-		void simple_forward_viterbi();
-		void simple_forward_viterbi(model* h, sequences* sqs);
+//		void simple_forward_viterbi();
+//		void simple_forward_viterbi(model* h, sequences* sqs);
 		
 		void simple_forward();
 		void simple_forward(model* h, sequences* sqs);
@@ -213,9 +213,9 @@ namespace StochHMM{
 		
 		void fast_complex_viterbi();
 		void fast_complex_viterbi(model* h, sequences* sqs);
-		
-		void fast_complex_forward_viterbi();
-		void fast_complex_forward_viterbi(model* h, sequences* sqs);
+//		
+//		void fast_complex_forward_viterbi();
+//		void fast_complex_forward_viterbi(model* h, sequences* sqs);
 		
 		void fast_complex_backward();
 		void fast_complex_backward(model* h, sequences* sqs);
@@ -242,8 +242,8 @@ namespace StochHMM{
 		void sparse_complex_viterbi();
 		void sparse_complex_viterbi(model* h, sequences* sqs);
 		
-		void sparse_complex_foward_viterbi();
-		void sparse_complex_foward_viterbi(model* h, sequences* sqs);
+//		void sparse_complex_foward_viterbi();
+//		void sparse_complex_foward_viterbi(model* h, sequences* sqs);
 		
 		void sparse_complex_backward();
 		void sparse_complex_backward(model* h, sequences* sqs);

@@ -27,7 +27,7 @@ namespace StochHMM {
 			simple_viterbi();
 		}
 		else{
-			sparse_complex_viterbi();
+			fast_complex_viterbi();
 		}
 	}
 	
@@ -557,7 +557,7 @@ namespace StochHMM {
 			
 			//TODO: Check use of external definitions below.
 			
-			std::cout << "\nPosition:\t" << position << "\n";
+			//std::cout << "\nPosition:\t" << position << "\n";
 			//			std::cout << "Letter:\t" << seqs->seqValue(0, position) << std::endl;
 			
             for (size_t st_current = 0; st_current < state_size; ++st_current){ //i is current state that emits value
@@ -680,6 +680,8 @@ namespace StochHMM {
         double  viterbi_temp(-INFINITY);
         double  emission(-INFINITY);
         bool	exDef_position(false);
+		ending_viterbi_tb = -1;
+		ending_viterbi_score = -INFINITY;
 		
 		
 		//If model is not a basic model, then we need to initialize the explicit duration vector
@@ -732,7 +734,7 @@ namespace StochHMM {
 			
 			//TODO: Check use of external definitions below.
 			
-			std::cout << "\nPosition:\t" << position << "\n";
+			//std::cout << "\nPosition:\t" << position << "\n";
 			//			std::cout << "Letter:\t" << seqs->seqValue(0, position) << std::endl;
 			
             for (size_t i = 0; i < state_size; ++i){ //i is current state that emits value
@@ -761,7 +763,7 @@ namespace StochHMM {
                     if ((*scoring_previous)[j] != -INFINITY){
                         viterbi_temp = getTransition((*hmm)[j], i , position) + emission + (*scoring_previous)[j];
                         
-						std::cout << exp(getTransition((*hmm)[j],i,position)) << std::endl;
+						//std::cout << exp(getTransition((*hmm)[j],i,position)) << std::endl;
 						
 						//						std::cout << "Temp Viterbi:\tTransFrom: "<< j << "\tto\t" << i << "\t" << viterbi_temp / log(2) << std::endl;
                         

@@ -34,4 +34,72 @@
 #include "stochTable.h"
 #include "traceback_path.h"
 
+
+/*!
+   @mainpage  StochHMM: A Flexible C++ Hidden Markov Library and Application
+	
+	StochHMM implements HMM from simple text files.   It implements traditional
+ HMM algorithms in addition to providing additional flexibility.  The additional
+ flexibility is provided by allowing researchers to integrate additional data into
+ the HMM framework.  For Documentation on model syntax and designing a model, see
+ Github wiki.   http://www.github.com/KorfLab/StochHMM
+ 
+ Here are a few of the ways that StochHMM allows the use to integrate additional
+ data sources:
+	1. Multiple Emission States
+	2. Weighting or Explicitly Defining State paths on a sequence
+	3. Linking States Emissions/Transitions to external user-defined functions
+ 
+ 
+ 1. Multiple Emission States
+ StochHMM allows the user to provide multiple sequences.   These sequences are then
+ handled by the emissions.  These sequences can be REAL numbers or discrete characters/words.
+ StochHMM allows each state to have many emissions (Discrete or Continuous).  Discrete emissions
+ can be independent of each other or joint distributions.   The continuous emissions
+ can be considered in multiple ways.   1)  They can be considered as raw probabilities which 
+ will be integrated without transformation.  2) They can be considered as values to be plugged
+ into a Univariate Probability Distribution Function or Multivariate PDF (In the case of multiple
+ REAL sequences.
+ 
+ Each states emissions are user-defined, so one state may have emissions from two
+ different sequences, while another may only have a single emission from a single sequence.
+ 
+ 2. Weighting or Explicitly Defining State paths to follow on a sequence.
+ Often, we have some prior knowledge about the sequence.   If this is the case,
+ we may want to integrate that into the model, without redesigning or retraining the model (a timely endeavor).
+ StochHMM allows the user to explicitly define a State path (By name of state, or category of state).
+ In addition, StochHMM also allows the user to weight a states path (By name of State or category of state defined by user)
+ This allows the user to restrict the predicted path or weight their prior knowledge.
+ 
+ 
+ 3. Linking States Emissions or Transitions to external user-defined functions
+ When that transition/emission is evaluated the function is called and can provide an emission.
+ 
+ While this may provide one way of addressing a weakness of HMMs, which is that they do not handle long
+ range dependencies.  We see it rather as a way to link together existing utilities or functions that 
+ provide additional information.   In this way, we can link divergent datasets or function within
+ the HMM trellis in order to arrive at a better prediction. 
+
+ 
+  
+ Traditional Decoding Algorithms:
+	- Forward
+	- Backward
+	- Viterbi
+	- Posterior
+	- N-best Viterbi
+ 
+ 
+ Additional Stochastic Sampling Decoding Algorithms:
+	- Stochastic Forward
+	- Stochastic Viterbi
+	- Stochastic Posterior
+ 
+ 
+ Korf Lab 
+ Genome Center
+ University of California, Davis
+ 
+ */
+
 #endif

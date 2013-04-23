@@ -23,9 +23,9 @@ namespace StochHMM{
 	
 	
 	void trellis::backward(){
-		if (hmm->isBasic()){
+		//if (hmm->isBasic()){
 			simple_backward();
-		}
+		//}
 	}
 	
 	
@@ -130,10 +130,10 @@ namespace StochHMM{
 	//Performs the backward algorithm using the model
 	void trellis::simple_backward(){
 		
-		if (!hmm->isBasic()){
-			std::cerr << "Model isn't a simple/basic HMM.  Use complex algorithms\n";
-			return;
-		}
+//		if (!hmm->isBasic()){
+//			std::cerr << "Model isn't a simple/basic HMM.  Use complex algorithms\n";
+//			return;
+//		}
 		
 		//Allocate backward score table
 		backward_score = new (std::nothrow) float_2D(seq_size, std::vector<float>(state_size,-INFINITY));

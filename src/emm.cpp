@@ -61,7 +61,7 @@ namespace StochHMM{
         tagFunc	=	NULL;
     }
     
-    //!Parse an emission from text
+    //!Parse an emission from text model file
     //!\param txt  String representation of emission
     //!\param trks Tracks used by the model
     //!\param wts Weights used by the model
@@ -87,6 +87,7 @@ namespace StochHMM{
         
         size_t typeBegin(0);
         
+		//Determine Emission Type and set appropriate flags
         valueType  valtyp(PROBABILITY);
         if (line.contains("P(X)")){
             typeBegin = line.indexOf("P(X)");
@@ -147,7 +148,7 @@ namespace StochHMM{
             }
         }
         
-        
+        //Real Number Emissions
         if (real_number){
             
             if (tempTracks.size()>1){
@@ -158,6 +159,7 @@ namespace StochHMM{
             realTrack = tempTracks[0];
             return true;
         }
+		//Multivariate Continuous PDF emission
 		else if (multi_continuous){
 			if (tempTracks.size()==1){
 				std::cerr << "Only a single track listed under MULTI_CONTINUOUS\n\
@@ -197,6 +199,7 @@ namespace StochHMM{
 			return true;
 			
 		}
+		//U
 		else if (continuous){
 			
 			if (tempTracks.size()>1){
@@ -230,7 +233,10 @@ namespace StochHMM{
             return true;
 		}
         else if (function){
+			//Get function name
             std::string& functionName = line[typeBegin+1];
+			
+			//Set parameters for function
             lexFunc = new(std::nothrow) emissionFuncParam(functionName,funcs,tempTracks[0]);
             
             if (lexFunc==NULL){
@@ -240,7 +246,7 @@ namespace StochHMM{
             
             return true;
         }
-        else{
+        else{  //Traditional Lexcical Emission
             
             
             if (ln.contains("ORDER")){
@@ -301,6 +307,9 @@ namespace StochHMM{
                 else if (line[ambIdx].compare("AVG")==0){scores.setUnkScoreType(AVERAGE_SCORE);}
                 else if (line[ambIdx].compare("MAX")==0){scores.setUnkScoreType(HIGHEST_SCORE);}
                 else if (line[ambIdx].compare("MIN")==0){scores.setUnkScoreType(LOWEST_SCORE);}
+				
+				//Constant values assigned for Ambiguous characters
+				//Can either be passed as P(X) or LOG
                 else if (line[ambIdx].compare("P(X)")==0)
                 {
                     scores.setUnkScoreType(DEFINED_SCORE);
@@ -340,7 +349,7 @@ namespace StochHMM{
                 }
             }
         
-            //Get Tables
+            //Get Emission Tables
             size_t expectedColumns(1);
             size_t expectedRows(1);
             for(size_t i = 0; i<scores.getNumberOfAlphabets(); i++){
@@ -626,7 +635,8 @@ namespace StochHMM{
         return true;
     }
 
-    
+	
+	//!Parses the Emission Function Tag information from the text model definition
     bool emm::_processTags(std::string& txt, tracks& trks,weights* wts, StateFuncs* funcs){
         stringList lst = extractTag(txt);
                 
@@ -661,8 +671,6 @@ namespace StochHMM{
     }
 
 
-//TODO: Need to double check everything in this function
-//TODO: It's too important to have a bug in it.
     
     //!Calculate the emission value given a position in the sequence
     //!If emission is a real number it will return the value from the real number track
@@ -767,168 +775,6 @@ namespace StochHMM{
         return final_emission;
     }
 
-
-//    // TODO:  Test this function and use to get the required order not just the zeroth order
-//
-//    // TODO: Track index returning wrong value;
-//    //! Calculate the emission probability for a reduced-order emission
-//    //! Reduced order is called when the order distribution defined is greater then the position in the sequence. For example, when we want to find the what came 5bp before but we're only at position 1 of the sequence.
-//    //! \param seqs pointer to sequences
-//    //! \param position Position in the sequence
-//    //! \return double Score of the transition
-//    double emm::_get_reduced_order(sequences& seqs, int iter){
-//        int x=0;
-//        size_t size=trcks.size();
-//        int total_size=1;
-//        
-//        
-//        for(size_t i=0;i<size;i++){
-//            int index=trcks[i]->getIndex();
-//            
-//            int letter=seqs.seqValue(index,iter);
-//            int x_subtotal=0;
-//            x_subtotal+=letter;
-//            for(size_t j=i+1;j<size;j++){
-//                x_subtotal*=alphabets[j];
-//            }
-//            total_size*=alphabets[i];
-//            x+=x_subtotal;
-//        }
-//        
-//        std::vector<double> temp (total_size,0);
-//        
-//        double sum=0;
-//        for(size_t i=0;i<counts->size();i++){
-//            for(size_t j=0;j<(*counts)[i].size();j++){
-//                temp[j]+=(*counts)[i][j];
-//                //cout << counts[i][j] <<endl;
-//                sum+=(*counts)[i][j];
-//            }
-//        }
-//        
-//        
-//        if (sum>0 && temp[x]>0){
-//            return log(temp[x]/sum);
-//        }
-//        else {
-//            return -INFINITY;
-//        }
-//    }
-//
-//
-//    double emm::_getScore(Index& xVal, Index& yVal){
-//        if (!xVal.isAmbiguous() && !yVal.isAmbiguous()){
-//            return (*log_emm)[yVal[0]][xVal[0]];
-//        }
-//        
-//        std::vector<double> scores;
-//        for(size_t i=0;i<yVal.size();i++){
-//            for(size_t j=0;j<xVal.size();j++){
-//                scores.push_back((*log_emm)[yVal[0]][xVal[0]]);
-//            }
-//        }
-//        
-//        if (unknownScoreType==AVERAGE_SCORE){
-//            return avgVector(scores);
-//        }
-//        else if (unknownScoreType==LOWEST_SCORE){
-//            return minVector(scores);
-//        }
-//        else if (unknownScoreType==HIGHEST_SCORE){
-//            return maxVector(scores);
-//        }
-//        
-//        return -INFINITY;
-//    }
-//
-//
-//    //Calculate the index for emissions.   Emissions can be compound tracks, so we need to calculate
-//    //index for those where we may have an emission A1 or ATG120 and the index for the conditional sequence
-//    double emm::_getValue(sequences& seqs, int iter){
-//        
-//        Index xValue;
-//        Index yValue;
-//        
-//        size_t size=trcks.size();
-//        
-//        //Determining Index for applicable sequences and each track
-//        for(size_t i=0;i<size;i++){
-//            int index=trcks[i]->getIndex();
-//            int letter=seqs.seqValue(index,iter);
-//            
-//            Index x_subtotal;
-//
-//            if (letter<0){
-//                if (unknownScoreType==DEFINED_SCORE){
-//                    return unknownDefinedScore;
-//                }
-//                else if (unknownScoreType==NO_SCORE){
-//                    
-//                }
-//                else{
-//                    x_subtotal.setAmbiguous(trcks[i]->getAmbiguousSet(letter));
-//                }
-//                
-//            }
-//            else{
-//                x_subtotal+=letter;
-//            }
-//            
-//            for(size_t j=i+1;j<size;j++){
-//                x_subtotal*=alphabets[j];
-//            }
-//            
-//            xValue+=x_subtotal;
-//            
-//            Index y_subtotal;
-//            
-//            if (order[i]==0){
-//                continue;
-//            }
-//            else{
-//                
-//                for(int k=order[i];k>=1;k--){
-//                    int prev_letter=seqs.seqValue(index,iter-k);
-//                    Index letter;
-//                    if (prev_letter<0){
-//                        if (unknownScoreType==DEFINED_SCORE){
-//                            return unknownDefinedScore;
-//                        }
-//                        else if (unknownScoreType==NO_SCORE){
-//                            return -INFINITY;
-//                        }
-//                        else{
-//                            letter.setAmbiguous(trcks[i]->getAmbiguousSet(prev_letter));
-//                            y_subtotal+=letter*POWER[k-1][alphabets[i]-1];
-//                        }
-//                    }
-//                    else{
-//                        y_subtotal+=prev_letter*POWER[k-1][alphabets[i]-1];
-//                    }
-//                }
-//                
-//                for(size_t j=i+1;j<size;j++){
-//                    y_subtotal*=POWER[order[j]][alphabets[j]-1];  //Calculate offset based on order of next track and the alphabet size -1 of the next track
-//                }
-//            }
-//            yValue+=y_subtotal;
-//        }
-//        
-//        return _getScore(xValue,yValue);
-//    }
-    
-//    //!Add a track to an emission
-//    //!\param trk Pointer to track
-//    //!\param orderValue order of emission from track
-//    void emm::addTrack(track* trk,int orderValue){
-//        trcks.push_back(trk);
-//        alphabets.push_back(trk->getAlphaSize());
-//        order.push_back(orderValue);
-//        if (orderValue>max_order){
-//            max_order=orderValue;
-//        }
-//        
-//    }
     
     
     //!Is the emission from a real Number track
@@ -943,20 +789,6 @@ namespace StochHMM{
         }
     }
 
-//    //!Set the type of counts in the emission 2D table provided by the user
-//    //!\param temp vector of vectors of doubles 
-//    //!\param emmType Type of value (COUNTS, PROBABILITY, LOG_PROB)
-//    void emm::assignMatrix(std::vector<std::vector<double > >* temp, valueType emmType){
-//        if (emmType==COUNTS){
-//            counts=temp;
-//        }
-//        else if (emmType == PROBABILITY){
-//            emmi=temp;
-//        }
-//        else if (emmType == LOG_PROB){
-//            log_emm=temp;
-//        }
-//    }
         
     //Get the string representation of the emission
     //\return std::string 
@@ -982,9 +814,10 @@ namespace StochHMM{
             }
             emissionString+="\n";
         }
+		//Univariate Continuous PDF emission 
 		else if (continuous){
 			emissionString+=realTrack->getName();
-			emissionString+="\tCONTINUOUS";
+			emissionString+=":\tCONTINUOUS";
 			
 			if (tagFunc){
                 emissionString+=tagFunc->stringify();
@@ -997,9 +830,28 @@ namespace StochHMM{
 			emissionString+= "\n";
 			
 		}
+		else if (multi_continuous){
+			for (size_t i=0; i < number_of_tracks; i++) {
+				if (i>0){
+					emissionString+=",";
+				}
+				emissionString+=(*trcks)[i]->getName();
+			}
+			emissionString+=":\tMULTI_CONTINUOUS";
+			
+			if (tagFunc){
+                emissionString+=tagFunc->stringify();
+            }
+            emissionString+="\n\t";
+			
+			emissionString+="PDF:\t";
+			emissionString+=pdfName + "\tPARAMETERS:\t";
+			emissionString+=join(*dist_parameters, ',');
+			emissionString+= "\n";
+		}
         else if (function){
             emissionString+=lexFunc->getTrack()->getName();
-            emissionString+="\tFUNCTION:\t";
+            emissionString+=":\tFUNCTION:\t";
             emissionString+=lexFunc->getName();
             emissionString+="\t";
             

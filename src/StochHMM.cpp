@@ -101,9 +101,9 @@ int main(int argc, const char * argv[])
     import_model(hmm);
     
 	
-	if (opt.isFlagSet("-debug", "paths")){
-		hmm.writeGraphViz("Model_Path-debug.viz", true);
-	}
+//	if (opt.isFlagSet("-debug", "paths")){
+//		hmm.writeGraphViz("Model_Path-debug.viz", true);
+//	}
 	
     
     //Check and import sequence(s)

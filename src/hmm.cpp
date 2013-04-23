@@ -1138,57 +1138,57 @@ namespace StochHMM{
     //!Create graphvis file for the state of the model
     //!\param filepath  complete path to use for graphviz file
     //!\param q0 TRUE will draw the initial state
-    void model::writeGraphViz(std::string filepath,bool q0){
-        std::ofstream gv (filepath.c_str());
-        if (gv.is_open()){
-            std::string modelName=name;
-            replaceChar(modelName, ' ', '_');
-            
-            gv << "digraph " << modelName << " {\n";
-            gv << "\tratio=LR\n";
-            gv << "\tsize=\"8,5\"\n";
-            gv << "\tnode [shape = circle];\n";
-            
-//            std::bitset<STATE_MAX>* temp;
+//    void model::writeGraphViz(std::string filepath,bool q0){
+//        std::ofstream gv (filepath.c_str());
+//        if (gv.is_open()){
+//            std::string modelName=name;
+//            replaceChar(modelName, ' ', '_');
 //            
-//            if (q0){
-//                temp=initial->getTo();
-//                for(size_t temp_iter=0; temp_iter < temp->size(); temp_iter++){
-//                    //gv << "\tINIT -> " << (*temp)[temp_iter]->getName() << ";\n";
-//                }
-//            }
+//            gv << "digraph " << modelName << " {\n";
+//            gv << "\tratio=LR\n";
+//            gv << "\tsize=\"8,5\"\n";
+//            gv << "\tnode [shape = circle];\n";
 //            
+////            std::bitset<STATE_MAX>* temp;
+////            
+////            if (q0){
+////                temp=initial->getTo();
+////                for(size_t temp_iter=0; temp_iter < temp->size(); temp_iter++){
+////                    //gv << "\tINIT -> " << (*temp)[temp_iter]->getName() << ";\n";
+////                }
+////            }
+////            
+////            
+////            for(size_t state_iter=0; state_iter < states.size(); state_iter++){
+////                temp = states[state_iter]->getTo();
+////                std::string stName=states[state_iter]->getName();
+////                
+////                if (stName.find_first_of("0123456789")==0){
+////                    stName.insert(0,"_");
+////                }
+////                
+////                
+////                for(size_t temp_iter=0; temp_iter < temp->size(); temp_iter++){
+////                    //std::string tempName=(*temp)[temp_iter]->getName();
+////                    
+////                    if (tempName.find_first_of("0123456789")==0){
+////                        tempName.insert(0,"_");
+////                    }
+////                    
+////                    gv << "\t" << stName << " -> " << tempName << ";\n";
+////                }
+////                
+////                
+////                if (q0 && states[state_iter]->endi){
+////                    gv << "\t" << stName << " -> END;\n";
+////                }
+////            }
 //            
-//            for(size_t state_iter=0; state_iter < states.size(); state_iter++){
-//                temp = states[state_iter]->getTo();
-//                std::string stName=states[state_iter]->getName();
-//                
-//                if (stName.find_first_of("0123456789")==0){
-//                    stName.insert(0,"_");
-//                }
-//                
-//                
-//                for(size_t temp_iter=0; temp_iter < temp->size(); temp_iter++){
-//                    //std::string tempName=(*temp)[temp_iter]->getName();
-//                    
-//                    if (tempName.find_first_of("0123456789")==0){
-//                        tempName.insert(0,"_");
-//                    }
-//                    
-//                    gv << "\t" << stName << " -> " << tempName << ";\n";
-//                }
-//                
-//                
-//                if (q0 && states[state_iter]->endi){
-//                    gv << "\t" << stName << " -> END;\n";
-//                }
-//            }
-            
-            gv << "}\n";
-        }
-        gv.close();
-        
-    }
+//            gv << "}\n";
+//        }
+//        gv.close();
+//        
+//    }
     
     //!Get pointer to weight by name of weight
     //! \param name Name of weight
@@ -1213,6 +1213,7 @@ namespace StochHMM{
         return abs(mid-val);
     }
 	
+
 	
 	bool model::checkTopology(){
 		
@@ -1280,6 +1281,7 @@ namespace StochHMM{
 	}
 	
 	void model::_checkTopology(state* st, std::vector<uint16_t>& visited){
+		//Follow transitions to see if every state is visited
 		for(size_t i = 0 ; i < st->transi->size() ; i++){
 			if (st->transi->at(i) != NULL){
 				visited.push_back(st->transi->at(i)->getState()->getIterator());

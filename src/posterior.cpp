@@ -11,9 +11,9 @@
 namespace StochHMM {
 	
 	void trellis::posterior(){
-		if (hmm->isBasic()){
+		//if (hmm->isBasic()){
 			simple_posterior();
-		}
+		//}
 	}
 	
 	void trellis::posterior(model *h, sequences* sqs){
@@ -55,10 +55,10 @@ namespace StochHMM {
 	
 	void trellis::simple_posterior(){
 		
-		if (!hmm->isBasic()){
-			std::cerr << "Model isn't a simple/basic HMM.  Use complex algorithms\n";
-			return;
-		}
+//		if (!hmm->isBasic()){
+//			std::cerr << "Model isn't a simple/basic HMM.  Use complex algorithms\n";
+//			return;
+//		}
 		
 		//posterior_score = new (std::nothrow) float_2D(seq_size, std::vector<float>(state_size,-INFINITY));
 		posterior_score = new (std::nothrow) double_2D(seq_size, std::vector<double>(state_size,-INFINITY));

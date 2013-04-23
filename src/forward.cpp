@@ -25,9 +25,9 @@ namespace StochHMM {
 	
 	
 	void trellis::forward(){
-		if (hmm->isBasic()){
+		//if (hmm->isBasic()){
 			simple_forward();
-		}
+		//}
 	}
 
 	
@@ -43,10 +43,10 @@ namespace StochHMM {
 	
 	void trellis::simple_forward(){
 		
-		if (!hmm->isBasic()){
-			std::cerr << "Model isn't a simple/basic HMM.  Use complex algorithms\n";
-			return;
-		}
+//		if (!hmm->isBasic()){
+//			std::cerr << "Model isn't a simple/basic HMM.  Use complex algorithms\n";
+//			return;
+//		}
 		
 		forward_score	= new (std::nothrow) float_2D(seq_size, std::vector<float>(state_size,-INFINITY));
 		scoring_current = new (std::nothrow) std::vector<double> (state_size,-INFINITY);
