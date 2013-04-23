@@ -118,13 +118,15 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>allowable</b> 
 <p>Colums of table: Option tag- all possible alternatives separated by colon Option type- what type will it be passed Option required - If option is required to run the it should be true, else false Option default - Default value for option Secondary Tag - List of possible secondary tags.</p>
 <p>Usage: <a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html">opt_parameters</a> commandline[] - { {"-help:-h" ,OPT_NONE, false, "", {}}, {"-model:-m",OPT_STRING, true, "",{}}, {"-play:-p", OPT_FLAG, false, "", {"Ball", "Train"} } int opts_size=sizeof(commandline)/sizeof(commandline[0]); //required to automatically figure # of options defined</p>
 <p>options opt; int main (int argc,const char *argv[]){ opt.set_paramenters(commandline,opt_size,usage); //sets up the options you've defined in commandline variable opt.parse_commandline(argc,argv); //Parses the commandline and assigns the variables; To get the string value from model string filename=sopt("-model"); To see if scale was set if (optset("-scale")) double scale=sopt("-scale"); //Return value of scale option return 1; }; </p>
+
+<p>Definition at line <a class="el" href="options_8h_source.html#l00071">71</a> of file <a class="el" href="options_8h_source.html">options.h</a>.</p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="options_8h_source.html">options.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

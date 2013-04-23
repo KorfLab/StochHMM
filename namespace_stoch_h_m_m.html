@@ -879,6 +879,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>WID</b> = 80</td></tr>
 <p>Pointer to emmission function Passed a string and position as size_t. </p>
 <p>emissionFunc </p>
 
+<p>Definition at line <a class="el" href="user_functions_8h_source.html#l00046">46</a> of file <a class="el" href="user_functions_8h_source.html">userFunctions.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ab99ca2cb1963df8ca0751cdaabfd664a"></a>
@@ -891,6 +893,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>WID</b> = 80</td></tr>
       </table>
 </div><div class="memdoc">
 <p>Pointer to function that takes reference to array (variables) and pointer to vector that contains multivariate function paramenters. </p>
+
+<p>Definition at line <a class="el" href="user_functions_8h_source.html#l00057">57</a> of file <a class="el" href="user_functions_8h_source.html">userFunctions.h</a>.</p>
 
 </div>
 </div>
@@ -913,6 +917,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>WID</b> = 80</td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="user_functions_8h_source.html#l00052">52</a> of file <a class="el" href="user_functions_8h_source.html">userFunctions.h</a>.</p>
+
 </div>
 </div>
 <hr/><h2>Enumeration Type Documentation</h2>
@@ -927,6 +933,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>WID</b> = 80</td></tr>
 </div><div class="memdoc">
 <p>enum combineIdentifier { FULL , STATENAME , STATELABEL , STATEGFF}; *Describes how a traceback will be processed Types of Combine Identifiers FULL = No traceback editing will occur STATENAME = Edit out all the states that aren't of given State Name STATELABEL= Edit out all the states that aren't of given State Label STATEGFF = Edit out all the states that aren't of given GFF Tag </p>
 
+<p>Definition at line <a class="el" href="stoch_types_8h_source.html#l00061">61</a> of file <a class="el" href="stoch_types_8h_source.html">stochTypes.h</a>.</p>
+<div class="fragment"><div class="line">{ FULL , STATENAME , STATELABEL , STATEGFF};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a634bb996fa40baf63767d67cef578238"></a>
@@ -940,6 +949,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>WID</b> = 80</td></tr>
 </div><div class="memdoc">
 <p>{VITERBI, POSTERIOR}; *Type of decoding to perform. VITERBI = Traceback performed using viterbi value FORWARD = Traceback performed using stochastic forward value POSTERIOR = Traceback performed using posterior value </p>
 
+<p>Definition at line <a class="el" href="stoch_types_8h_source.html#l00077">77</a> of file <a class="el" href="stoch_types_8h_source.html">stochTypes.h</a>.</p>
+<div class="fragment"><div class="line">{VITERBI, FORWARD, POSTERIOR};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ab3edcfc49b7b4cde06be65596e20ccf0"></a>
@@ -953,6 +965,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>WID</b> = 80</td></tr>
 </div><div class="memdoc">
 <p>{ DIFF_STATE , STATE_NAME , STATE_LABEL , STATE_GFF , START_INIT }; Traceback identifier describe how stochHMM will traceback when using duration dependent distributions Types of Tracebacks DIFF_STATE = Traceback current state until a different state is encountered STATE_NAME = Traceback until STATE_NAME changes from current state, essentially the same as DIFF_STATE STATE_LABEL = Traceback until a State with a different label is encountered STATE_GFF = Traceback until a State witha a different GFF tag is encountered START_INIT = Traceback until the start of the sequence </p>
 
+<p>Definition at line <a class="el" href="stoch_types_8h_source.html#l00051">51</a> of file <a class="el" href="stoch_types_8h_source.html">stochTypes.h</a>.</p>
+<div class="fragment"><div class="line">{ DIFF_STATE , STATE_NAME , STATE_LABEL , STATE_GFF , START_INIT };</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="af40bae3e87d67dfcd79c715bc86a9f53"></a>
@@ -966,6 +981,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>WID</b> = 80</td></tr>
 </div><div class="memdoc">
 <p>Track types UNDEFINED = NOT DEFINED BY USER ALPHA_NUM = Alphabet is letter or word based (discrete) REAL = Real number values (continuous) EXTERNAL = ??? </p>
 
+<p>Definition at line <a class="el" href="stoch_types_8h_source.html#l00085">85</a> of file <a class="el" href="stoch_types_8h_source.html">stochTypes.h</a>.</p>
+<div class="fragment"><div class="line">{UNDEFINED, ALPHA_NUM , REAL , EXTERNAL};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="abd39452195cb84156f854de4262b27a8"></a>
@@ -979,6 +997,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>WID</b> = 80</td></tr>
 </div><div class="memdoc">
 <p>{SIMPLE, STOCH, NTH}; *Defines what type of trellis cells to use *Types of trellis SIMPLE = <a class="el" href="class_trellis.html" title="Implements the HMM scoring trellis and algorithms.">Trellis</a> will only contain single viterbi, forward, and backward values STOCH = <a class="el" href="class_trellis.html" title="Implements the HMM scoring trellis and algorithms.">Trellis</a> will contain multiple viterbi,forward,backward values and traceback probabilities for stochastic tracebacks NTH = <a class="el" href="class_trellis.html" title="Implements the HMM scoring trellis and algorithms.">Trellis</a> will contain N viterbi values for top N tracebacks </p>
 
+<p>Definition at line <a class="el" href="stoch_types_8h_source.html#l00070">70</a> of file <a class="el" href="stoch_types_8h_source.html">stochTypes.h</a>.</p>
+<div class="fragment"><div class="line">{SIMPLE, STOCH, NTH};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a1e8fd62725355537ac3968148e0be521"></a>
@@ -992,6 +1013,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>WID</b> = 80</td></tr>
 </div><div class="memdoc">
 <p>enum unknownCharScoringType { DEFINED_SCORE, AVERAGE_SCORE, LOWEST_SCORE, HIGHEST_SCORE, NO_SCORE}; How to score unknown or ambiguous characters when encountered in emission or transition Scoring types: DEFINED_SCORE = user-defined score AVERAGE_SCORE = average of all possible scores LOWEST_SCORE = lowest of the possible scores HIGHEST_SCORE = highest of the possible scores NO_SCORE = No score will be defined (Produces error if unknown alphabet encountered) </p>
 
+<p>Definition at line <a class="el" href="stoch_types_8h_source.html#l00098">98</a> of file <a class="el" href="stoch_types_8h_source.html">stochTypes.h</a>.</p>
+<div class="fragment"><div class="line">{ DEFINED_SCORE, AVERAGE_SCORE, LOWEST_SCORE, HIGHEST_SCORE, NO_SCORE};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ab4c259b67b1db89217aca6fe556d6835"></a>
@@ -1005,6 +1029,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>WID</b> = 80</td></tr>
 </div><div class="memdoc">
 <p>Value types that are provided by user *PROBABILITY = basic probability between [0,1] *LOG_ODDS = log odds score *COUNTS = word counts *LOG_PROG = log2 value of probability *PERCENTAGE = [0,100] or 100*Probability </p>
 
+<p>Definition at line <a class="el" href="stoch_types_8h_source.html#l00108">108</a> of file <a class="el" href="stoch_types_8h_source.html">stochTypes.h</a>.</p>
+<div class="fragment"><div class="line">{PROBABILITY, LOG_ODDS, COUNTS, LOG_PROB, PERCENTAGE}; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/><h2>Function Documentation</h2>
@@ -1043,6 +1070,22 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Log'd sum of two values </dd></dl>
 
+<p>Definition at line <a class="el" href="stoch_math_8h_source.html#l00179">179</a> of file <a class="el" href="stoch_math_8h_source.html">stochMath.h</a>.</p>
+<div class="fragment"><div class="line">                               {</div>
+<div class="line">        <span class="keywordflow">if</span> (first==-INFINITY){</div>
+<div class="line">            <span class="keywordflow">return</span> second;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (second==-INFINITY){</div>
+<div class="line">            <span class="keywordflow">return</span> first;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (first&gt;second){</div>
+<div class="line">            <span class="keywordflow">return</span> first+log(1+exp(second-first));</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">return</span> second+log(1+exp(first-second));</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a1532ed1ad723ff0e54be573ce6ad6703"></a>
@@ -1076,6 +1119,13 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Beta probability distribution function *param x Value 0&lt;x&lt;1 *param a Shape parameter a&gt;0 *param b Shape parameter b&gt;0 </p>
 
+<p>Definition at line <a class="el" href="stoch_math_8cpp_source.html#l00207">207</a> of file <a class="el" href="stoch_math_8cpp_source.html">stochMath.cpp</a>.</p>
+<div class="fragment"><div class="line">                                            {</div>
+<div class="line">        <span class="keywordtype">float</span> constant = 1/beta(a,b);</div>
+<div class="line">        constant*=pow(x,a-1) * pow(1-x,b-1);</div>
+<div class="line">        <span class="keywordflow">return</span> constant;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a3332499db32946b9183f18da42b0b9dc"></a>
@@ -1103,6 +1153,14 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Binomial coefficient *number of combinations possible given k unordered outcomes from n possibilities *param n number of items *param k number in set </p>
 
+<p>Definition at line <a class="el" href="statistics_8cpp_source.html#l00181">181</a> of file <a class="el" href="statistics_8cpp_source.html">statistics.cpp</a>.</p>
+<div class="fragment"><div class="line">                                 {</div>
+<div class="line">        <span class="keywordtype">float</span> c=0;</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=k+1;i&lt;=n;i++) {c+=log(i);}</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j=1;j&lt;=(n-k);j++) {c-=log(j);}</div>
+<div class="line">        <span class="keywordflow">return</span> exp(c);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a2aea4b602ac2f2091d31dfce4675d8b9"></a>
@@ -1136,6 +1194,14 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Binomial Cumulative Distribution Function *param k Number of successes *param n Number of trials *param p Probability of success *If we can get an incomplete beta function. We can update this function and </p>
 
+<p>Definition at line <a class="el" href="statistics_8cpp_source.html#l00210">210</a> of file <a class="el" href="statistics_8cpp_source.html">statistics.cpp</a>.</p>
+<div class="fragment"><div class="line">                                            {</div>
+<div class="line">        std::vector&lt;float&gt; param (2,0.0);</div>
+<div class="line">        param[0]=n;</div>
+<div class="line">        param[1]=p;</div>
+<div class="line">        <span class="keywordflow">return</span> summation(<a class="code" href="group___p_d_f.html#ga09673744215acf9a5b4cab9d66e2dff7">binomial_pdf</a>,0,k,param);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a2b19fdcc53640cfc99984b0c985e0c58"></a>
@@ -1169,6 +1235,11 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Binomial probability mass function *param k Number of successes *param n Number of trials *param p Probability of success </p>
 
+<p>Definition at line <a class="el" href="statistics_8cpp_source.html#l00192">192</a> of file <a class="el" href="statistics_8cpp_source.html">statistics.cpp</a>.</p>
+<div class="fragment"><div class="line">                                            {</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(n,k)*pow(p,k)*pow(1-p,n-k);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a32153177994125a0f4e1a0f2aa8386b9"></a>
@@ -1196,6 +1267,11 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Binomial probaility mass function *param k Number of successes *param param std::vector&lt;float&gt; (n=number of trials, p=probability of success) </p>
 
+<p>Definition at line <a class="el" href="statistics_8cpp_source.html#l00199">199</a> of file <a class="el" href="statistics_8cpp_source.html">statistics.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                     {</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="code" href="group___p_d_f.html#ga09673744215acf9a5b4cab9d66e2dff7">binomial_pdf</a>(k, param[0],param[1]);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="abb01cee7a0614c646d8335d21ad1626c"></a>
@@ -1244,6 +1320,27 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00101">101</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                                {</div>
+<div class="line">        <span class="keywordtype">double</span> cdf = 0;</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;maximum;i++){</div>
+<div class="line">            <span class="keywordtype">double</span> newAlpha = (double) i + a;</div>
+<div class="line">            <span class="keywordtype">double</span> newBeta  = (double)(trials-i) + b;</div>
+<div class="line">            <span class="keywordtype">double</span> pmf      = <a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(trials,i) * (beta(newAlpha,newBeta)/ beta(a,b));</div>
+<div class="line">            cdf+=pmf;</div>
+<div class="line">            <span class="keywordtype">double</span> val=cdf;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (val&gt;=1.0){</div>
+<div class="line">                dist.push_back(1.0);</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                dist.push_back(val);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a013a27db8a0349f2c77a03665609ca75"></a>
@@ -1285,6 +1382,25 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00048">48</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                    {</div>
+<div class="line">        <span class="comment">//http://en.wikipedia.org/wiki/Binomial_distribution</span></div>
+<div class="line">        <span class="keywordtype">double</span> cdf=0;</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;maximum;i++){</div>
+<div class="line">            <span class="keywordtype">double</span> pmf=<a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(trials,i)*pow(prob,i)*pow(1-prob,trials-i);</div>
+<div class="line">            cdf+=pmf;</div>
+<div class="line">            <span class="keywordtype">double</span> val=cdf;</div>
+<div class="line">            <span class="keywordflow">if</span> (val&gt;=1.0){</div>
+<div class="line">                dist.push_back(1.0);</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                dist.push_back(val);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a80e7997be7ca1f19c08a047d29fbd6ca"></a>
@@ -1320,6 +1436,13 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>double Value of CDF at x </dd></dl>
 
+<p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00252">252</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                          {</div>
+<div class="line">        <span class="keywordtype">double</span> val = 1.0/tgamma(df/2.0);</div>
+<div class="line">        <span class="keywordtype">double</span> div = <a class="code" href="namespace_stoch_h_m_m.html#a8d3a54392b1f33dcba7f165434eccc80" title="http://wwwC/.rskey.org/CMS/index.php/the-library/11">igamma_lower</a>(df/2.0,x/2.0);</div>
+<div class="line">        <span class="keywordflow">return</span> val*div;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a6f6b9644cec6bf0e9d8d08bb5e5fcf59"></a>
@@ -1354,6 +1477,15 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00141">141</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                          {</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;value;i++){</div>
+<div class="line">            dist.push_back(0);</div>
+<div class="line">        }</div>
+<div class="line">        dist.push_back(1);</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="abbab11e35463d5b5c80a3d5875033e14"></a>
@@ -1388,6 +1520,20 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00309">309</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                              {</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;maximum;i++){</div>
+<div class="line">            <span class="keywordtype">double</span> val=1-exp(-1*lambda*i);</div>
+<div class="line">            <span class="keywordflow">if</span> (val==0){</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                dist.push_back(val);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a6c876a6422a16a62ecf810e9d7868397"></a>
@@ -1436,6 +1582,25 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00212">212</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                      {</div>
+<div class="line">        <span class="comment">//http://en.wikipedia.org/wiki/Hypergeometric_distribution</span></div>
+<div class="line">        <span class="keywordtype">double</span> cdf=0;</div>
+<div class="line">        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> k=0;k&lt;maximum;k++){ <span class="comment">//k = number of successes</span></div>
+<div class="line">            <span class="keywordtype">double</span> pmf=((double)<a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(m,k) * (double)<a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(N-m,n-k))/(<span class="keywordtype">double</span>) <a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(N,n);</div>
+<div class="line">            cdf+=pmf;</div>
+<div class="line">            <span class="keywordtype">double</span> val=cdf;</div>
+<div class="line">            <span class="keywordflow">if</span> (val&gt;=1){</div>
+<div class="line">                dist.push_back(1.0);</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                dist.push_back(val);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a8ac8950385258c8ae0e40c49f4106f8c"></a>
@@ -1469,6 +1634,20 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Discrete Uniform Cumulative Distribution *a href = "http://en.wikipedia.org/wiki/Uniform_distribution_(discrete)"&gt; </p>
 
+<p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00167">167</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                               {</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k=0;k&lt;=upper;k++){</div>
+<div class="line">            <span class="keywordflow">if</span> (k&lt;lower){</div>
+<div class="line">                dist.push_back(0);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (k&gt;=lower &amp;&amp; k&lt;=upper){</div>
+<div class="line">                <span class="keywordtype">double</span> val=(k-lower+1)/(upper-lower+1);</div>
+<div class="line">                dist.push_back(val);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a1ca616e835271b6d0c717f1b793340ad"></a>
@@ -1502,6 +1681,19 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Discrete Uniform CDF *param a Minimum position *param b Maximum position *param position Position to calculate </p>
 
+<p>Definition at line <a class="el" href="statistics_8cpp_source.html#l00163">163</a> of file <a class="el" href="statistics_8cpp_source.html">statistics.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                          {</div>
+<div class="line">        <span class="keywordflow">if</span> (position&lt;a){</div>
+<div class="line">            <span class="keywordflow">return</span> 0;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (position&gt;=b){</div>
+<div class="line">            <span class="keywordflow">return</span> 1;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">return</span> (<span class="keywordtype">float</span>)(position-a+1)/(b-a+1);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a936d6e0be2b0efa67f5415a320c81fb7"></a>
@@ -1544,6 +1736,11 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="stoch_math_8cpp_source.html#l00051">51</a> of file <a class="el" href="stoch_math_8cpp_source.html">stochMath.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                                        {</div>
+<div class="line">        <span class="keywordflow">return</span> a.second+((cx-a.first)/(b.first-a.first))*(b.second-a.second);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a64c008dbb45645975f4e8ecb27717788"></a>
@@ -1583,6 +1780,20 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Hypergeometric Cumulative Distribution Function *param n Number of draws from Population *param N Size of population *param m Number of successes in Population *param k Number of successes </p>
 
+<p>Definition at line <a class="el" href="statistics_8cpp_source.html#l00224">224</a> of file <a class="el" href="statistics_8cpp_source.html">statistics.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                         {</div>
+<div class="line">        <span class="keywordflow">if</span> (n==N){</div>
+<div class="line">            <span class="keywordflow">return</span> 1.0;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordtype">double</span> prob=0;</div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=1; i&lt;=n;i++){</div>
+<div class="line">                prob+=(<a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(m, k)*<a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(N-m,i-k))/<a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(N, i);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">return</span> prob;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="af0a177792bd806a4c17285f5c2c22dc7"></a>
@@ -1620,6 +1831,45 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>zero if underflow or overflow occurs. </dd></dl>
 
+<p>Definition at line <a class="el" href="stoch_math_8h_source.html#l00135">135</a> of file <a class="el" href="stoch_math_8h_source.html">stochMath.h</a>.</p>
+<div class="fragment"><div class="line">                                      {</div>
+<div class="line">        <span class="keywordtype">bool</span> negative(<span class="keyword">false</span>);</div>
+<div class="line">        T max = std::numeric_limits&lt;T&gt;::max();</div>
+<div class="line">        <span class="keywordflow">if</span> (base&lt;1){    </div>
+<div class="line">            base=abs(base);</div>
+<div class="line">            <span class="keywordflow">if</span> (exponent%2!=0){</div>
+<div class="line">                negative=<span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        T result = 1;</div>
+<div class="line">        <span class="keywordflow">while</span> (exponent)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">if</span> (exponent &amp; 1){</div>
+<div class="line">                <span class="keywordflow">if</span> (result &gt; max/base){  <span class="comment">//Determine if value of result*base &gt; INT_MAX;</span></div>
+<div class="line">                    <span class="keywordflow">return</span> 0;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                result *= base;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            exponent &gt;&gt;= 1;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (exponent != 0){</div>
+<div class="line">                <span class="keywordflow">if</span> (base &gt; max/base){ <span class="comment">//Determine if value of base*base &gt; INT_MAX;</span></div>
+<div class="line">                    <span class="keywordflow">return</span> 0;</div>
+<div class="line">                }</div>
+<div class="line">                base *= base;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (negative){</div>
+<div class="line">            <span class="keywordflow">return</span> (-1*result);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> (result);</div>
+<div class="line">        </div>
+<div class="line">    };</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="afa5f255f6976f352370e9ed2bd0380b4"></a>
@@ -1662,6 +1912,14 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="stoch_math_8cpp_source.html#l00043">43</a> of file <a class="el" href="stoch_math_8cpp_source.html">stochMath.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                                        {</div>
+<div class="line">        <span class="comment">//std::cout &lt;&lt; a.first &lt;&lt; &quot;\t&quot; &lt;&lt; a.second &lt;&lt;std::endl;</span></div>
+<div class="line">        <span class="comment">//std::cout &lt;&lt; b.first &lt;&lt; &quot;\t&quot; &lt;&lt; b.second &lt;&lt;std::endl;</span></div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> a.second+(b.second-a.second)*((cx-a.first)/(b.first-a.first));</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a9f420c490a7aac6c0fd33173cf0fe3bc"></a>
@@ -1687,6 +1945,11 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Logit function Inverse of the sigmoidal logistic function *Also known as log-odds score or ratio </p>
 
+<p>Definition at line <a class="el" href="stoch_math_8h_source.html#l00581">581</a> of file <a class="el" href="stoch_math_8h_source.html">stochMath.h</a>.</p>
+<div class="fragment"><div class="line">                                 {</div>
+<div class="line">        <span class="keywordflow">return</span> log(x/(1-x));</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a3d706179e011758bfe2afc7310e2f0a6"></a>
@@ -1716,6 +1979,19 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Left Shift with shift off *Shifts the value to the left by n bits. The bits that would get shifted off value are returned in lsb </p>
 
+<p>Definition at line <a class="el" href="bitwise__ops_8h_source.html#l00055">55</a> of file <a class="el" href="bitwise__ops_8h_source.html">bitwise_ops.h</a>.</p>
+<div class="fragment"><div class="line">                                 {</div>
+<div class="line">                T temp(val);</div>
+<div class="line">                <span class="keywordflow">if</span> (n&gt;=(<span class="keyword">sizeof</span>(T)*CHAR_BIT)){</div>
+<div class="line">                        val = 0;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                        val &lt;&lt;=n;</div>
+<div class="line">                }</div>
+<div class="line">                n%=32;</div>
+<div class="line">                <span class="keywordflow">return</span> temp &gt;&gt; ((<span class="keyword">sizeof</span>(T)*CHAR_BIT) - n);</div>
+<div class="line">        };</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a25491fc7bbfd5ddc6a4ee13c750e114d"></a>
@@ -1759,6 +2035,13 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>value with bits that are shifted off val in lsb </dd></dl>
 
+<p>Definition at line <a class="el" href="bitwise__ops_8h_source.html#l00091">91</a> of file <a class="el" href="bitwise__ops_8h_source.html">bitwise_ops.h</a>.</p>
+<div class="fragment"><div class="line">                                               {</div>
+<div class="line">                T temp(val);</div>
+<div class="line">                val = (val &lt;&lt; n) | old_val;</div>
+<div class="line">                <span class="keywordflow">return</span> temp &gt;&gt; ((<span class="keyword">sizeof</span>(T)*CHAR_BIT) - n);</div>
+<div class="line">        };</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ae876fe30c767c46c89689e6a37c69231"></a>
@@ -1786,6 +2069,15 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Returns integer's higher bits from position up to msb *Lower bits are set to zero </p>
 
+<p>Definition at line <a class="el" href="bitwise__ops_8cpp_source.html#l00086">86</a> of file <a class="el" href="bitwise__ops_8cpp_source.html">bitwise_ops.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                   {</div>
+<div class="line">                <span class="keywordflow">if</span> (pos&gt;=32){</div>
+<div class="line">                        <span class="keywordflow">return</span> 0;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">return</span> val &amp; ~((1 &lt;&lt; pos) - 1);</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ac734d15427c0cc11a67fcba5f2bedd78"></a>
@@ -1813,6 +2105,17 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Returns integer's lower bits from position down to lsb *Higher bits are set to zero </p>
 
+<p>Definition at line <a class="el" href="bitwise__ops_8cpp_source.html#l00096">96</a> of file <a class="el" href="bitwise__ops_8cpp_source.html">bitwise_ops.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                     {</div>
+<div class="line">                <span class="keywordflow">if</span> (pos &gt;31){</div>
+<div class="line">                        <span class="keywordflow">return</span> 0;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (pos == 31){</div>
+<div class="line">                        <span class="keywordflow">return</span> val &amp; (1&lt;&lt;31);</div>
+<div class="line">                }       </div>
+<div class="line">                <span class="keywordflow">return</span> val &amp; ((1 &lt;&lt; pos+1) - 1);</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a40db1860c55bde213494bd874cea396c"></a>
@@ -1846,6 +2149,22 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>check to make sure this is right; </p>
 
+<p>Definition at line <a class="el" href="statistics_8cpp_source.html#l00322">322</a> of file <a class="el" href="statistics_8cpp_source.html">statistics.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                        {</div>
+<div class="line">        <span class="keywordtype">double</span> prob=1.0;</div>
+<div class="line">        <span class="keywordtype">double</span> denom=1.0;</div>
+<div class="line">        <span class="keywordflow">if</span> (r.size()==p.size()){<span class="keywordflow">return</span> 0.0;}</div>
+<div class="line">        <span class="keywordflow">else</span> {</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;r.size();i++){</div>
+<div class="line">                prob*=p[i];</div>
+<div class="line">                denom*=gamma_func(r[i]);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> gamma_func((n+1)/denom)*prob;   <span class="comment">///check to make sure this is right;</span></div>
+<div class="line"><span class="comment"></span>    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a3f305fa042635af136454996192fd14e"></a>
@@ -1873,6 +2192,13 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Overloaded ostream for using dynamic_bitsets in ostream *Usage: std::cout &lt;&lt; bs &lt;&lt; ....; </p>
 
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00270">270</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                              {</div>
+<div class="line">                output &lt;&lt; bs.stringify();</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">return</span> output;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a3f10fd6b39687b61ff3b4fdcff85382c"></a>
@@ -1907,6 +2233,42 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="_p_d_f_8cpp_source.html#l00085">85</a> of file <a class="el" href="_p_d_f_8cpp_source.html">PDF.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                               {</div>
+<div class="line">                <span class="keywordflow">if</span> (k &gt; p.size()){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Poisson Binomial PDF Function: k &gt; n \n&quot;</span>;</div>
+<div class="line">            exit(2);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Calculate K=0</span></div>
+<div class="line">                <span class="keywordtype">double</span> prob(1.0);</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i &lt; p.size(); ++i){</div>
+<div class="line">                        prob*=(1-p[i]);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span>(k &gt; 0){</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="comment">//Calculate T(i)</span></div>
+<div class="line">                        std::vector&lt;double&gt; t(0,p.size());</div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i &lt; p.size(); ++i){</div>
+<div class="line">                                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; p.size(); ++j){</div>
+<div class="line">                                        t[i] += pow(p[j]/(1-p[j]), i);</div>
+<div class="line">                                }</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordtype">double</span> temp(0);</div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i &lt; k; ++i){</div>
+<div class="line">                                temp+= pow(-1,i-1) * prob * t[i];</div>
+<div class="line">                                prob = temp;</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        prob *= 1/k;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">        <span class="keywordflow">return</span> prob;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="affbd8ea98c86e27abf220b82e13d1eb3"></a>
@@ -1924,6 +2286,13 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Population distance (Hamming Distance) *Returns the number of bits set in the 32bit integer </p>
 
+<p>Definition at line <a class="el" href="bitwise__ops_8cpp_source.html#l00076">76</a> of file <a class="el" href="bitwise__ops_8cpp_source.html">bitwise_ops.cpp</a>.</p>
+<div class="fragment"><div class="line">                                     {</div>
+<div class="line">                val = val - ((val &gt;&gt; 1) &amp; 0x55555555);                    <span class="comment">// reuse input as temporary</span></div>
+<div class="line">                val = (val &amp; 0x33333333) + ((val &gt;&gt; 2) &amp; 0x33333333);     <span class="comment">// temp</span></div>
+<div class="line">                <span class="keywordflow">return</span> ((val + (val &gt;&gt; 4) &amp; 0xF0F0F0F) * 0x1010101) &gt;&gt; 24; <span class="comment">// count</span></div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a1491755ab4a3573ff353c5cbd8db7382"></a>
@@ -1950,6 +2319,15 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="stoch_math_8h_source.html#l00343">343</a> of file <a class="el" href="stoch_math_8h_source.html">stochMath.h</a>.</p>
+<div class="fragment"><div class="line">                                       {</div>
+<div class="line">        <span class="keywordtype">double</span> product=data[0];</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;data.size();++i){</div>
+<div class="line">            product*=data[i];</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> product;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a1f4897351f61a7fa0565c79b6f7c783c"></a>
@@ -1991,6 +2369,48 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="sequence_8cpp_source.html#l00959">959</a> of file <a class="el" href="sequence_8cpp_source.html">sequence.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                                   {</div>
+<div class="line">        sequence random_seq;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (tr==NULL){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Track is not defined&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span> random_seq;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">size_t</span> alphaSize=tr-&gt;getAlphaSize();</div>
+<div class="line">        <span class="keywordtype">size_t</span> freqSize=freq.size();</div>
+<div class="line">                </div>
+<div class="line">        <span class="keywordflow">if</span> (alphaSize!=freqSize){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Frequency distribution size and Alphabet size must be the same.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span> random_seq;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Create CDF of frequency distribution</span></div>
+<div class="line">        std::vector&lt;std::pair&lt;double,std::string&gt; &gt; cdf;</div>
+<div class="line">        <span class="keywordtype">double</span> sum = 0.0;</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;freqSize;++i){</div>
+<div class="line">            sum+=freq[i];</div>
+<div class="line">            std::pair&lt;double,std::string&gt; val (sum, tr-&gt;getAlpha(i));</div>
+<div class="line">            cdf.push_back(val);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Generate random sequence</span></div>
+<div class="line">        std::string random_string;</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j=0;j&lt;length;++j){</div>
+<div class="line">            <span class="keywordtype">double</span> val = ((double)rand()/((double)(RAND_MAX)+(double)(1))); <span class="comment">//Generate random</span></div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> m=0;m&lt;freqSize;++m){ <span class="comment">//Check to see which value is</span></div>
+<div class="line">                <span class="keywordflow">if</span> (cdf[m].first&gt;=val){</div>
+<div class="line">                    random_string+=cdf[m].second;</div>
+<div class="line">                    <span class="keywordflow">break</span>;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        random_seq.setSeq(random_string, tr);</div>
+<div class="line">        <span class="keywordflow">return</span> random_seq;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ad3cada7623c923014992a8bfad75d07b"></a>
@@ -2018,6 +2438,19 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <p>Shannon's Relative entropy (Kullback-Leibler Divergence) *Normalized for A-&gt;B and B-&gt;A </p>
 
+<p>Definition at line <a class="el" href="statistics_8cpp_source.html#l00098">98</a> of file <a class="el" href="statistics_8cpp_source.html">statistics.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                     {</div>
+<div class="line">        <span class="keywordtype">float</span> <a class="code" href="namespace_stoch_h_m_m.html#ad3cada7623c923014992a8bfad75d07b">rel_entropy</a>=0;</div>
+<div class="line">        <span class="keywordflow">if</span> (<span class="keyword">set</span>.size()!=set2.size()){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Distributions aren&#39;t the same size&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<span class="keyword">set</span>.size();i++){</div>
+<div class="line">            rel_entropy+=0.5*(<span class="keyword">set</span>[i]* (log (<span class="keyword">set</span>[i]/set2[i]) /log(2) )+set2[i]*(log(set2[i]/<span class="keyword">set</span>[i])/log(2)));</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> rel_entropy;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a64a3859adfc5289c932a23213007949c"></a>
@@ -2047,6 +2480,19 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Right Shift with shift off *Shifts the value to the right by n bits. The bits that would get shifted off value are returned in msb </p>
 
+<p>Definition at line <a class="el" href="bitwise__ops_8h_source.html#l00071">71</a> of file <a class="el" href="bitwise__ops_8h_source.html">bitwise_ops.h</a>.</p>
+<div class="fragment"><div class="line">                                 {</div>
+<div class="line">                T temp(val);</div>
+<div class="line">                <span class="keywordflow">if</span> (n&gt;=(<span class="keyword">sizeof</span>(T)*CHAR_BIT)){</div>
+<div class="line">                        val = 0;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                        val &gt;&gt;=n;</div>
+<div class="line">                }</div>
+<div class="line">                n%=32;</div>
+<div class="line">                <span class="keywordflow">return</span> temp &lt;&lt; ((<span class="keyword">sizeof</span>(T)*CHAR_BIT) - n);</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a7ce6d88d473556bd0ccc5bdf9d617394"></a>
@@ -2089,6 +2535,13 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="bitwise__ops_8h_source.html#l00103">103</a> of file <a class="el" href="bitwise__ops_8h_source.html">bitwise_ops.h</a>.</p>
+<div class="fragment"><div class="line">                                               {</div>
+<div class="line">                T temp(val);</div>
+<div class="line">                val = (val&gt;&gt;n) | old_val;</div>
+<div class="line">                <span class="keywordflow">return</span> temp &lt;&lt; ((<span class="keyword">sizeof</span>(T)*CHAR_BIT) - n);</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="abb36848ca04cd343ece5630561a24576"></a>
@@ -2137,6 +2590,28 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00074">74</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                                {</div>
+<div class="line">        <span class="keywordtype">double</span> cdf = 0;</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;maximum;i++){</div>
+<div class="line">            <span class="keywordtype">double</span> newAlpha = (double) i + a;</div>
+<div class="line">            <span class="keywordtype">double</span> newBeta  = (double)(trials-i) + b;</div>
+<div class="line">            <span class="keywordtype">double</span> pmf      = <a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(trials,i) * (beta(newAlpha,newBeta)/ beta(a,b));</div>
+<div class="line">            cdf+=pmf;</div>
+<div class="line">            <span class="keywordtype">double</span> val=1-cdf;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (val&lt;=0){</div>
+<div class="line">                dist.push_back(1.0);</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                dist.push_back(val);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">        </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ae85cdb77003d7eb11c3130e1ef438268"></a>
@@ -2178,6 +2653,24 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00026">26</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                    {</div>
+<div class="line">        <span class="comment">//http://en.wikipedia.org/wiki/Binomial_distribution</span></div>
+<div class="line">        <span class="keywordtype">double</span> cdf=0;</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;maximum;i++){</div>
+<div class="line">            <span class="keywordtype">double</span> pmf=<a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(trials,i)*pow(prob,i)*pow(1-prob,trials-i);</div>
+<div class="line">            cdf+=pmf;</div>
+<div class="line">            <span class="keywordtype">double</span> val=1-cdf;</div>
+<div class="line">            <span class="keywordflow">if</span> (val&lt;=0){</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                dist.push_back(val);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a775983c15ffef75bfa907b14a14a14a3"></a>
@@ -2212,6 +2705,27 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00263">263</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                        {</div>
+<div class="line">        <span class="comment">//http://en.wikipedia.org/wiki/Chi-square_distribution</span></div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">double</span> i=1; i&lt;maximum;i++){</div>
+<div class="line">            <span class="comment">//CDF Value</span></div>
+<div class="line">            <span class="keywordtype">double</span> val=1.0/tgamma(df/2.0);</div>
+<div class="line">            <span class="keywordtype">double</span> div=<a class="code" href="namespace_stoch_h_m_m.html#a8d3a54392b1f33dcba7f165434eccc80" title="http://wwwC/.rskey.org/CMS/index.php/the-library/11">igamma_lower</a>(df/2.0, i/2.0);</div>
+<div class="line">            val*=div;</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//CCDF value</span></div>
+<div class="line">            val = 1-val;</div>
+<div class="line">            <span class="keywordflow">if</span> (fabs(val)&lt;0.00001){</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                dist.push_back(val);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a02b866962161b4991eec95776de880b2"></a>
@@ -2246,6 +2760,15 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00127">127</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                          {</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;value;i++){</div>
+<div class="line">            dist.push_back(1);</div>
+<div class="line">        }</div>
+<div class="line">        dist.push_back(0);</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a02fd6da4e9493af00591c0265e9be33f"></a>
@@ -2280,6 +2803,20 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00292">292</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                              {</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;maximum;i++){</div>
+<div class="line">            <span class="keywordtype">double</span> val=exp(-1*lambda*i);</div>
+<div class="line">            <span class="keywordflow">if</span> (val==0){</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                dist.push_back(val);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a988a18c0f7a0ceadc9676fc39381464f"></a>
@@ -2328,6 +2865,24 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00188">188</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                      {</div>
+<div class="line">        <span class="comment">//http://en.wikipedia.org/wiki/Hypergeometric_distribution</span></div>
+<div class="line">        <span class="keywordtype">double</span> cdf=0;</div>
+<div class="line">        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> k=0;k&lt;maximum;k++){ <span class="comment">//k = number of successes</span></div>
+<div class="line">            <span class="keywordtype">double</span> pmf=((double)<a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(m,k) * (double)<a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(N-m,n-k))/(<span class="keywordtype">double</span>) <a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(N,n);</div>
+<div class="line">            cdf+=pmf;</div>
+<div class="line">            <span class="keywordtype">double</span> val=1-cdf;</div>
+<div class="line">            <span class="keywordflow">if</span> (val&lt;=0){</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                dist.push_back(val);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aba4fdfdbfbbb611505c9e74a55b363c5"></a>
@@ -2354,6 +2909,15 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="stoch_math_8h_source.html#l00317">317</a> of file <a class="el" href="stoch_math_8h_source.html">stochMath.h</a>.</p>
+<div class="fragment"><div class="line">                                   {</div>
+<div class="line">        <span class="keywordtype">double</span> sum=0;</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;data.size();i++){</div>
+<div class="line">            sum+=data[i];</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> sum;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a3947226db5674e6ad06ffd7d997216c4"></a>
@@ -2387,12 +2951,26 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 <p>Discrete Uniform Survival Function *a href = "http://en.wikipedia.org/wiki/Uniform_distribution_(discrete)"&gt; </p>
 
+<p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00152">152</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                               {</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k=0;k&lt;=upper;k++){</div>
+<div class="line">            <span class="keywordflow">if</span> (k&lt;lower){</div>
+<div class="line">                dist.push_back(1);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (k&gt;=lower &amp;&amp; k&lt;=upper){</div>
+<div class="line">                <span class="keywordtype">double</span> val=(k-lower+1)/(upper-lower+1);</div>
+<div class="line">                dist.push_back(1-val);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

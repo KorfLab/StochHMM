@@ -129,6 +129,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>weight class contains scaling factors for external scores </p>
 <p>weight class contains either an *1. Absolute scaling value: meaning the returned value multiplied by constant *2. Score Mapping: x and y values describing the transformation from x=returned score to y the scaled score. If the returned value isn't equal to a specific y the score is interpolated or extrapolated. If the return score x&lt;MIN then="" y="scaled" min="" if="" the="" return="" score="" x&gt;=""&gt;MAX then y=scaled MAX Scores provided to weight should be log(Prob) It will return a log(Prob) scaled score </p>
+
+<p>Definition at line <a class="el" href="weight_8h_source.html#l00056">56</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a48f7c71efbccd5bc9a88b4ee33fb2c9f"></a>
 <div class="memitem">
@@ -152,6 +154,46 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>double F(x) which interpolated or extrapolated as necessary </dd></dl>
 
+<p>Definition at line <a class="el" href="weight_8cpp_source.html#l00127">127</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
+<div class="fragment"><div class="line">                                               {</div>
+<div class="line">        <span class="comment">//Find score that flanks or is equal to the score we supply</span></div>
+<div class="line">        <span class="comment">//If there is one equal to then we return it, otherwise</span></div>
+<div class="line">        <span class="comment">//we get the two values and interpolate the score linearly</span></div>
+<div class="line">        <span class="comment">//unless we are on the ends then we extrapolate</span></div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (absolute){</div>
+<div class="line">            <span class="keywordflow">return</span> score + absoluteValue;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (maxValue!=NULL &amp;&amp; score &gt; maxValue-&gt;first){</div>
+<div class="line">            <span class="keywordflow">return</span> maxValue-&gt;second;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (maxValue!=NULL &amp;&amp; score &lt; minValue-&gt;first){</div>
+<div class="line">            <span class="keywordflow">return</span> minValue-&gt;second;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::vector&lt;std::pair&lt;double,double&gt; &gt;::iterator it;</div>
+<div class="line">            </div>
+<div class="line">            std::pair&lt;double,double&gt; temp (score,0);</div>
+<div class="line">            </div>
+<div class="line">            it=lower_bound(vals-&gt;begin(),vals-&gt;end(),temp ,compXval);</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//std::cout &lt;&lt; (*it).first &lt;&lt; &quot;\t&quot; &lt;&lt; exp((*it).first) &lt;&lt;std::endl;</span></div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> ((*it).first==score){</div>
+<div class="line">                <span class="keywordflow">return</span> (*it).second;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (it==vals-&gt;begin()){ <span class="comment">//extrapolate based on beginning</span></div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="namespace_stoch_h_m_m.html#a936d6e0be2b0efa67f5415a320c81fb7" title="Extrapolates the Y value of point given by cx and two previous points.">extrapolate</a>((*it),(*(it+1)),score);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (it==vals-&gt;end()){  <span class="comment">//extrapolate based on end</span></div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="namespace_stoch_h_m_m.html#a936d6e0be2b0efa67f5415a320c81fb7" title="Extrapolates the Y value of point given by cx and two previous points.">extrapolate</a>((*(it-2)), (*(it-1)),score);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="namespace_stoch_h_m_m.html#afa5f255f6976f352370e9ed2bd0380b4" title="Interpolates the y value given cx and two surrounding points on either side a and b...">interpolate</a>((*(it-1)),(*it),score);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="af43a303a0bbaffe23dd1246f904dd187"></a>
@@ -177,6 +219,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Checks to see if weight is defined as a constant </p>
 <dl class="section return"><dt>Returns:</dt><dd>bool TRUE if weight is defined as a constant, else FALSE </dd></dl>
 
+<p>Definition at line <a class="el" href="weight_8h_source.html#l00067">67</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> absolute;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="abde2b1db61da9e09b52febae4727c73b"></a>
@@ -201,6 +246,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 <p>Prints out the weight type to text. Includes the x and F(x) vectors and MIN and MAX </p>
 
+<p>Definition at line <a class="el" href="weight_8h_source.html#l00089">89</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
+<div class="fragment"><div class="line">{std::cout &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1weight.html#adf9900f59e5fe8890212143f6ead07ee">stringify</a>() &lt;&lt; std::endl;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ab30408d118b2523af5b7c6986a4943b3"></a>
@@ -232,6 +280,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="weight_8h_source.html#l00103">103</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
+<div class="fragment"><div class="line">{absoluteValue=val; absolute=<span class="keyword">true</span>; <span class="keywordflow">return</span>;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a3afe01c95afa16dd5ca7f715830c14d7"></a>
@@ -266,6 +317,22 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="weight_8cpp_source.html#l00050">50</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                 {</div>
+<div class="line">        <span class="keywordflow">if</span> (maxValue!=NULL){</div>
+<div class="line">            <span class="keyword">delete</span> maxValue;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        maxValue=<span class="keyword">new</span>(std::nothrow) std::pair&lt;double,double&gt;;</div>
+<div class="line">        <span class="keywordflow">if</span> (maxValue==NULL){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">        maxValue-&gt;first=x;</div>
+<div class="line">        maxValue-&gt;second=y;</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aeb279922c774f3acd9e51171af263245"></a>
@@ -300,6 +367,22 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="weight_8cpp_source.html#l00065">65</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                 {</div>
+<div class="line">        <span class="keywordflow">if</span> (minValue!=NULL){</div>
+<div class="line">            <span class="keyword">delete</span> minValue;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        minValue=<span class="keyword">new</span>(std::nothrow) std::pair&lt;double,double&gt;;</div>
+<div class="line">        <span class="keywordflow">if</span> (minValue==NULL){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">        minValue-&gt;first=x;</div>
+<div class="line">        minValue-&gt;second=y;</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a70d47c6cfbe6fff590c2c6d309415f17"></a>
@@ -348,6 +431,31 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="weight_8cpp_source.html#l00096">96</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                                                                                           {</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (vals!=NULL){</div>
+<div class="line">            <span class="keyword">delete</span> vals;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        vals=<span class="keyword">new</span>(std::nothrow) std::vector&lt;std::pair&lt;double,double&gt; &gt;;</div>
+<div class="line">        <span class="keywordflow">if</span> (vals==NULL){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (xVals.size()!=yVals.size()){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;X-Y values are not the same size.&quot;</span> &lt;&lt;std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;xVals.size();i++){</div>
+<div class="line">            std::pair&lt;double,double&gt; xy (xVals[i],yVals[i]);</div>
+<div class="line">            vals-&gt;push_back(xy);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a21c934de118373502edfe7e08fdd3b58"></a>
@@ -382,6 +490,22 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="weight_8cpp_source.html#l00080">80</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                             {</div>
+<div class="line">        <span class="keywordflow">if</span> (maxValue==NULL &amp;&amp; minValue==NULL){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1weight.html#a70d47c6cfbe6fff590c2c6d309415f17">setWeights</a>(xVals, yVals, NULL, NULL);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (maxValue==NULL){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1weight.html#a70d47c6cfbe6fff590c2c6d309415f17">setWeights</a>(xVals, yVals, minValue, NULL);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (minValue==NULL){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1weight.html#a70d47c6cfbe6fff590c2c6d309415f17">setWeights</a>(xVals, yVals, NULL, maxValue);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1weight.html#a70d47c6cfbe6fff590c2c6d309415f17">setWeights</a>(xVals,yVals,minValue,maxValue);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a83a97dd299f46bce877ce111fad3ae41"></a>
@@ -410,6 +534,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Returns the number of mapped values = equal to size of xVals handed to setWeights(...) </p>
 <dl class="section return"><dt>Returns:</dt><dd>size_t value of vector size; </dd></dl>
 
+<p>Definition at line <a class="el" href="weight_8h_source.html#l00084">84</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> vals-&gt;size();};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="adf9900f59e5fe8890212143f6ead07ee"></a>
@@ -426,16 +553,52 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 <p>Converts weights to string </p>
 
+<p>Definition at line <a class="el" href="weight_8cpp_source.html#l00166">166</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
+<div class="fragment"><div class="line">                               {</div>
+<div class="line">        std::string scaleString;</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Process Values and scaled values;</span></div>
+<div class="line">        scaleString+= <span class="stringliteral">&quot;\tVALUE:\tLOG\t[&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;vals-&gt;size();i++){</div>
+<div class="line">            <span class="keywordflow">if</span> (i&gt;0){</div>
+<div class="line">                scaleString+= <span class="stringliteral">&quot;,&quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">            scaleString+= <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>((*vals)[i].first);</div>
+<div class="line">        }</div>
+<div class="line">        scaleString+= <span class="stringliteral">&quot;]\n&quot;</span>;</div>
+<div class="line">        </div>
+<div class="line">        scaleString+= <span class="stringliteral">&quot;\tSCALED:\tLOG\t[&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;vals-&gt;size();i++){</div>
+<div class="line">            <span class="keywordflow">if</span> (i&gt;0){</div>
+<div class="line">                scaleString+= <span class="stringliteral">&quot;,&quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">            scaleString+= <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>((*vals)[i].second);</div>
+<div class="line">        }</div>
+<div class="line">        scaleString+=<span class="stringliteral">&quot;]\n&quot;</span>;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (minValue!=NULL){</div>
+<div class="line">            scaleString+= <span class="stringliteral">&quot;\tMIN_VALUE:\tLOG\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(minValue-&gt;first) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">            scaleString+= <span class="stringliteral">&quot;\tMIN_SCALED:\tLOG\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(minValue-&gt;second) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (maxValue!=NULL){</div>
+<div class="line">            scaleString+= <span class="stringliteral">&quot;\tMAX_VALUE:\tLOG\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(maxValue-&gt;first) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">            scaleString+= <span class="stringliteral">&quot;\tMAX_SCALED:\tLOG\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(maxValue-&gt;second) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> scaleString;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="weight_8h_source.html">weight.h</a></li>
-<li>weight.cpp</li>
+<li><a class="el" href="weight_8cpp_source.html">weight.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

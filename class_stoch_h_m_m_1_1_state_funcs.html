@@ -125,6 +125,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdf
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>(**Adding in log space) </p>
 <p>The map stores the pointers to the different functions by const char* word. Allows the user to create and integrate their own functions into the model By specifying the name in the model, and assigning the ptr in the externalFuncs class. At any State or transition their function will be called and return float The float will then be applied in the trellis added to transition or emission. Stores pointers to user functions used by the State's Emissions and Transitions </p>
+
+<p>Definition at line <a class="el" href="user_functions_8h_source.html#l00075">75</a> of file <a class="el" href="user_functions_8h_source.html">userFunctions.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="ac7fa4184ed198c2c400e81b8fcae7884"></a>
 <div class="memitem">
@@ -158,6 +160,23 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdf
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00067">67</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                               {</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (emissionFunctions.count(str)==0){</div>
+<div class="line">            emissionFunctions[str]=ptrFunc;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function Name: &quot;</span> &lt;&lt; str &lt;&lt; <span class="stringliteral">&quot; already exists.   You need to choose a new function name that doesn&#39;t already exist. For reference here are a list of names already assigned as external functions\nAssigned Names:\n&quot;</span>;</div>
+<div class="line">            </div>
+<div class="line">            std::map&lt;std::string,emissionFunc&gt;::iterator it;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">for</span>(it=emissionFunctions.begin();it!=emissionFunctions.end();it++){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; it-&gt;first &lt;&lt;std::endl;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a6b6a97f3da82534ad8fea7828042ce87"></a>
@@ -192,6 +211,22 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdf
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00116">116</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                                          {</div>
+<div class="line">                <span class="keywordflow">if</span> (multiPdfFunctions.count(str)==0){</div>
+<div class="line">                        multiPdfFunctions[str]=ptrFunc;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function Name: &quot;</span> &lt;&lt; str &lt;&lt; <span class="stringliteral">&quot; already exists.   You need to choose a new function name that doesn&#39;t already exist. For reference here are a list of names already assigned as external functions\nAssigned Names:\n&quot;</span>;</div>
+<div class="line">            </div>
+<div class="line">            std::map&lt;std::string,multiPdfFunc&gt;::iterator it;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">for</span>(it=multiPdfFunctions.begin();it!=multiPdfFunctions.end();it++){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; it-&gt;first &lt;&lt;std::endl;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="abb244c9e8942260cee8b1749dfc7c90e"></a>
@@ -226,6 +261,22 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdf
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00093">93</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                         {</div>
+<div class="line">                <span class="keywordflow">if</span> (pdfFunctions.count(str)==0){</div>
+<div class="line">                        pdfFunctions[str]=ptrFunc;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function Name: &quot;</span> &lt;&lt; str &lt;&lt; <span class="stringliteral">&quot; already exists.   You need to choose a new function name that doesn&#39;t already exist. For reference here are a list of names already assigned as external functions\nAssigned Names:\n&quot;</span>;</div>
+<div class="line">            </div>
+<div class="line">            std::map&lt;std::string,pdfFunc&gt;::iterator it;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">for</span>(it=pdfFunctions.begin();it!=pdfFunctions.end();it++){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; it-&gt;first &lt;&lt;std::endl;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ac23f19c0b1ffc4ae7f2a8fce5995888e"></a>
@@ -260,6 +311,23 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdf
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00040">40</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                                   {</div>
+<div class="line">     </div>
+<div class="line">         <span class="keywordflow">if</span> (transitionFunctions.count(str)==0){</div>
+<div class="line">             transitionFunctions[str]=ptrFunc;</div>
+<div class="line">         }</div>
+<div class="line">         <span class="keywordflow">else</span>{</div>
+<div class="line">             std::cerr &lt;&lt; <span class="stringliteral">&quot;Function Name: &quot;</span> &lt;&lt; str &lt;&lt; <span class="stringliteral">&quot; already exists.   You need to choose a new function name that doesn&#39;t already exist. For reference here are a list of names already assigned as external functions\nAssigned Names:\n&quot;</span>;</div>
+<div class="line">         </div>
+<div class="line">             std::map&lt;std::string,transitionFunc&gt;::iterator it;</div>
+<div class="line">             </div>
+<div class="line">             <span class="keywordflow">for</span>(it=transitionFunctions.begin();it!=transitionFunctions.end();it++){</div>
+<div class="line">                 std::cerr &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; it-&gt;first &lt;&lt;std::endl;</div>
+<div class="line">             }</div>
+<div class="line">         }</div>
+<div class="line">     };</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a1e38f951a26f7e96b7777bf7c87e437f"></a>
@@ -284,6 +352,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdf
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>pt2StateFunc* </dd></dl>
 
+<p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00156">156</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                {</div>
+<div class="line">        <span class="keywordflow">if</span> (emissionFunctions.count(name)){</div>
+<div class="line">            <span class="keywordflow">return</span> &amp;emissionFunctions[name];</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function named: &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; was not initialized. &quot;</span> &lt;&lt;std::endl;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">return</span> NULL;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a090801e052dbdec88c4fdeddbfa8887d"></a>
@@ -308,6 +388,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdf
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>pdfFunc* </dd></dl>
 
+<p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00186">186</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                       {</div>
+<div class="line">        <span class="keywordflow">if</span> (multiPdfFunctions.count(name)){</div>
+<div class="line">            <span class="keywordflow">return</span> &amp;multiPdfFunctions[name];</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function named: &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; was not initialized. &quot;</span> &lt;&lt;std::endl;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">return</span> NULL;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ac411cc022d49ce5ae57d6a8df57e1018"></a>
@@ -332,6 +424,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdf
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>pdfFunc* </dd></dl>
 
+<p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00171">171</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                      {</div>
+<div class="line">        <span class="keywordflow">if</span> (pdfFunctions.count(name)){</div>
+<div class="line">            <span class="keywordflow">return</span> &amp;pdfFunctions[name];</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function named: &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; was not initialized. &quot;</span> &lt;&lt;std::endl;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">return</span> NULL;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a0bfc3a304278f619092a156681eda51b"></a>
@@ -356,16 +460,28 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdf
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>pt2StateFunc* </dd></dl>
 
+<p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00141">141</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                    {</div>
+<div class="line">        <span class="keywordflow">if</span> (transitionFunctions.count(name)){</div>
+<div class="line">            <span class="keywordflow">return</span> &amp;transitionFunctions[name];</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function named: &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; was not initialized. &quot;</span> &lt;&lt;std::endl;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">return</span> NULL;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="user_functions_8h_source.html">userFunctions.h</a></li>
-<li>userFunctions.cpp</li>
+<li><a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

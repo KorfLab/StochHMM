@@ -164,6 +164,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Lexical table stores the log2 probabilities for both emissions and lexical transitions. </p>
+
+<p>Definition at line <a class="el" href="lexical_table_8h_source.html#l00031">31</a> of file <a class="el" href="lexical_table_8h_source.html">lexicalTable.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a68d21a550a91ae82ae73b272208513f2"></a>
 <div class="memitem">
@@ -197,6 +199,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="lexical_table_8cpp_source.html#l00158">158</a> of file <a class="el" href="lexical_table_8cpp_source.html">lexicalTable.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                        {</div>
+<div class="line">        trcks.push_back(trk);</div>
+<div class="line">        alphabets.push_back(trk-&gt;getAlphaSize());</div>
+<div class="line">        order.push_back(orderValue);</div>
+<div class="line">        <span class="keywordflow">if</span> (orderValue&gt;max_order){</div>
+<div class="line">            max_order=orderValue;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a636282d4067df0f13bfeaf39bd3f817f"></a>
@@ -231,6 +244,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="lexical_table_8cpp_source.html#l00171">171</a> of file <a class="el" href="lexical_table_8cpp_source.html">lexicalTable.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                                         {</div>
+<div class="line">        <span class="keywordflow">if</span> (emmType==COUNTS){</div>
+<div class="line">            counts=temp;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (emmType == PROBABILITY){</div>
+<div class="line">            prob=temp;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (emmType == LOG_PROB){</div>
+<div class="line">            logProb=temp;</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#abbb120b9335dea4067170fe62a9538ab" title="Initialize the final emission table with ambiguous characters.">initialize_emission_table</a>();</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aeb1a35912d089e165de43c3c35b9e3e4"></a>
@@ -256,6 +283,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 <p>Get the alphabet sizes for all tracks used in emission </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::vector&lt;int&gt; </dd></dl>
 
+<p>Definition at line <a class="el" href="lexical_table_8h_source.html#l00087">87</a> of file <a class="el" href="lexical_table_8h_source.html">lexicalTable.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> alphabets;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a8dbdb3a447b9fa056954f9d7cb14fbe3"></a>
@@ -281,6 +311,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 <p>Get Log(prob) emission table </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::vector&lt;std::vector&lt;double&gt; &gt; </dd></dl>
 
+<p>Definition at line <a class="el" href="lexical_table_8h_source.html#l00083">83</a> of file <a class="el" href="lexical_table_8h_source.html">lexicalTable.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> *logProb;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a1516c1242e82b229a2449c6710735606"></a>
@@ -306,6 +339,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 <p>Get Orders of lexical emission will use for all tracks </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::vector&lt;int&gt; </dd></dl>
 
+<p>Definition at line <a class="el" href="lexical_table_8h_source.html#l00078">78</a> of file <a class="el" href="lexical_table_8h_source.html">lexicalTable.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> order;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a8fa209c6bb18b5764f00b6d84a360065"></a>
@@ -338,6 +374,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>track* Track in emission </dd></dl>
 
+<p>Definition at line <a class="el" href="lexical_table_8h_source.html#l00070">70</a> of file <a class="el" href="lexical_table_8h_source.html">lexicalTable.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> trcks[iter];};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a59b720c8669399e13c7dfb4c0118930f"></a>
@@ -369,6 +408,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="lexical_table_8h_source.html#l00062">62</a> of file <a class="el" href="lexical_table_8h_source.html">lexicalTable.h</a>.</p>
+<div class="fragment"><div class="line">{unknownScoreType=type;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ad9ad8a859d35b7d0a0b7a841e075c98e"></a>
@@ -394,16 +436,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 <p>Get the number of tracks defined in emission </p>
 <dl class="section return"><dt>Returns:</dt><dd>size_t </dd></dl>
 
+<p>Definition at line <a class="el" href="lexical_table_8h_source.html#l00074">74</a> of file <a class="el" href="lexical_table_8h_source.html">lexicalTable.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> trcks.size();};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="lexical_table_8h_source.html">lexicalTable.h</a></li>
-<li>lexicalTable.cpp</li>
+<li><a class="el" href="lexical_table_8cpp_source.html">lexicalTable.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

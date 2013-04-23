@@ -149,6 +149,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Emissions for model Contains the emission definition. Each emissions contains the probability, the log(p(x), and counts Counts are used for calculating lower order emissions from higher order. This is only applicable at the beginning of the sequence. Each emission depends on some track or function, an emission can have multiple tracks. Or in other words output a single character from each track it is associated with. Tracks can be either alphabetic, real numbers values. Emissions can also call an external function that is user defined. If ambiguity is defined in the alphabet, the emission score can be defined as such If ambiguity is not defined the returned value will be -INFINITY </p>
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00058">58</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aa54b9142ce68426ec436c8b15c11f38a"></a>
 <div class="memitem">
@@ -166,6 +168,16 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <p>Constructs emission from a string;. </p>
 <p>Destroy an emission. </p>
 
+<p>Definition at line <a class="el" href="emm_8cpp_source.html#l00055">55</a> of file <a class="el" href="emm_8cpp_source.html">emm.cpp</a>.</p>
+<div class="fragment"><div class="line">             {</div>
+<div class="line">        <span class="keyword">delete</span> lexFunc;</div>
+<div class="line">        <span class="keyword">delete</span> tagFunc;</div>
+<div class="line">        <span class="keyword">function</span> =      <span class="keyword">false</span>;</div>
+<div class="line"></div>
+<div class="line">        lexFunc =       NULL;</div>
+<div class="line">        tagFunc =       NULL;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
@@ -202,6 +214,52 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>double log(prob) value of emission </dd></dl>
 
+<p>Definition at line <a class="el" href="emm_8cpp_source.html#l00681">681</a> of file <a class="el" href="emm_8cpp_source.html">emm.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                      {</div>
+<div class="line">        <span class="keywordtype">double</span> final_emission(-INFINITY);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (real_number){</div>
+<div class="line">            </div>
+<div class="line">            final_emission=seqs.realValue(realTrack-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a2c18fbb6e1c6aa8aa41a33d07bc6e279">getIndex</a>(),pos);</div>
+<div class="line">            <span class="keywordflow">if</span> (complement){</div>
+<div class="line">                final_emission=log(1-exp(final_emission));</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">function</span>){</div>
+<div class="line">            final_emission=lexFunc-&gt;evaluate(seqs, pos);</div>
+<div class="line">        }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (multi_continuous){</div>
+<div class="line">                        <span class="comment">//Get all values from the tracks</span></div>
+<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; number_of_tracks ; ++i){</div>
+<div class="line">                                (*pass_values)[i] = seqs.realValue((*track_indices)[i], pos);</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        final_emission = (*multiPdf)(pass_values, dist_parameters);</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (complement){</div>
+<div class="line">                                final_emission=log(1-exp(final_emission));</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (continuous){</div>
+<div class="line">                        </div>
+<div class="line">                        final_emission = (*pdf)(seqs.realValue(realTrack-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a2c18fbb6e1c6aa8aa41a33d07bc6e279">getIndex</a>(),pos),dist_parameters);</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (complement){</div>
+<div class="line">                                final_emission=log(1-exp(final_emission));</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            final_emission=scores.getValue(seqs, pos);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (tagFunc!=NULL){</div>
+<div class="line">            final_emission+=tagFunc-&gt;evaluate(seqs, pos);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> final_emission;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="addea95b05b0ba37ce8fc0cb85ccdcbc4"></a>
@@ -237,6 +295,52 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>double log(prob) value of emission </dd></dl>
 
+<p>Definition at line <a class="el" href="emm_8cpp_source.html#l00733">733</a> of file <a class="el" href="emm_8cpp_source.html">emm.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                    {</div>
+<div class="line">        <span class="keywordtype">double</span> final_emission;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (real_number){</div>
+<div class="line">            </div>
+<div class="line">            final_emission=seq.realValue(pos);</div>
+<div class="line">            <span class="keywordflow">if</span> (complement){</div>
+<div class="line">                final_emission=log(1-exp(final_emission));</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">function</span>){</div>
+<div class="line">            final_emission=lexFunc-&gt;evaluate(seq, pos);</div>
+<div class="line">        }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (multi_continuous){</div>
+<div class="line">                        <span class="comment">//Get all values from the tracks</span></div>
+<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; number_of_tracks ; ++i){</div>
+<div class="line">                                (*pass_values)[i] = seq.realValue(pos);</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        final_emission = (*multiPdf)(pass_values, dist_parameters);</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (complement){</div>
+<div class="line">                                final_emission=log(1-exp(final_emission));</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (continuous){</div>
+<div class="line">                        </div>
+<div class="line">                        final_emission = (*pdf)(seq.realValue(pos),dist_parameters);</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (complement){</div>
+<div class="line">                                final_emission=log(1-exp(final_emission));</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            final_emission=scores.getValue(seq, pos);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (tagFunc!=NULL){</div>
+<div class="line">            final_emission+=tagFunc-&gt;evaluate(seq, pos);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> final_emission;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a7565d01d1c90561cf48ffe175fc98d4e"></a>
@@ -262,6 +366,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <p>Get the external Functions defined for the emission </p>
 <dl class="section return"><dt>Returns:</dt><dd>externalFuncs* </dd></dl>
 
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00092">92</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> tagFunc;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a45b77f5140432fa2bb9edc9015fb910b"></a>
@@ -281,6 +388,16 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <dd>
 false if track is alphanumerical track </dd></dl>
 
+<p>Definition at line <a class="el" href="emm_8cpp_source.html#l00783">783</a> of file <a class="el" href="emm_8cpp_source.html">emm.cpp</a>.</p>
+<div class="fragment"><div class="line">                    {</div>
+<div class="line">        <span class="keywordflow">if</span> (real_number &amp;&amp; realTrack-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a4ce8b421ac3f61a6093d81867b4a981f">getAlphaType</a>()==REAL){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a52af53ba74c5cd581643ae4da9eeb080"></a>
@@ -329,6 +446,360 @@ false if track is alphanumerical track </dd></dl>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="emm_8cpp_source.html#l00069">69</a> of file <a class="el" href="emm_8cpp_source.html">emm.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                               {</div>
+<div class="line">        <span class="keywordflow">if</span> (!_processTags(txt,trks, wts, funcs)){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        stringList ln;</div>
+<div class="line">        ln.splitString(txt,<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line">        <span class="keywordtype">size_t</span> idx;</div>
+<div class="line">        <span class="keywordflow">if</span> (ln.contains(<span class="stringliteral">&quot;EMISSION&quot;</span>)){</div>
+<div class="line">            idx = ln.indexOf(<span class="stringliteral">&quot;EMISSION&quot;</span>);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Missing EMISSION tag from emission. Please check the formatting.   This is what was handed to the emission class:\n &quot;</span> &lt;&lt;  txt &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        stringList line;</div>
+<div class="line">        line.splitString(ln[idx], <span class="stringliteral">&quot;\t,: &quot;</span>);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">size_t</span> typeBegin(0);</div>
+<div class="line">        </div>
+<div class="line">                <span class="comment">//Determine Emission Type and set appropriate flags</span></div>
+<div class="line">        <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835">valueType</a>  valtyp(PROBABILITY);</div>
+<div class="line">        <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;P(X)&quot;</span>)){</div>
+<div class="line">            typeBegin = line.indexOf(<span class="stringliteral">&quot;P(X)&quot;</span>);</div>
+<div class="line">            valtyp=PROBABILITY;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;LOG&quot;</span>)){</div>
+<div class="line">            typeBegin = line.indexOf(<span class="stringliteral">&quot;LOG&quot;</span>);</div>
+<div class="line">            valtyp=LOG_PROB;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;COUNTS&quot;</span>)){</div>
+<div class="line">            typeBegin = line.indexOf(<span class="stringliteral">&quot;COUNTS&quot;</span>);</div>
+<div class="line">            valtyp=COUNTS ;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;REAL_NUMBER&quot;</span>)){</div>
+<div class="line">            typeBegin = line.indexOf(<span class="stringliteral">&quot;REAL_NUMBER&quot;</span>);</div>
+<div class="line">            real_number = <span class="keyword">true</span>;</div>
+<div class="line">            <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;COMPLEMENT&quot;</span>) || line.contains(<span class="stringliteral">&quot;1-P(X)&quot;</span>)) {</div>
+<div class="line">                complement=<span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;MULTI_CONTINUOUS&quot;</span>)){</div>
+<div class="line">                        typeBegin = line.indexOf(<span class="stringliteral">&quot;MULTI_CONTINUOUS&quot;</span>);</div>
+<div class="line">                        multi_continuous=<span class="keyword">true</span>;</div>
+<div class="line">                        <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;COMPLEMENT&quot;</span>) || line.contains(<span class="stringliteral">&quot;1-P(X)&quot;</span>)) {</div>
+<div class="line">                complement=<span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;CONTINUOUS&quot;</span>)){</div>
+<div class="line">                        typeBegin = line.indexOf(<span class="stringliteral">&quot;CONTINUOUS&quot;</span>);</div>
+<div class="line">                        continuous=<span class="keyword">true</span>;</div>
+<div class="line">                        <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;COMPLEMENT&quot;</span>) || line.contains(<span class="stringliteral">&quot;1-P(X)&quot;</span>)) {</div>
+<div class="line">                complement=<span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;FUNCTION&quot;</span>)){</div>
+<div class="line">            typeBegin = line.indexOf(<span class="stringliteral">&quot;FUNCTION&quot;</span>);</div>
+<div class="line">            <span class="keyword">function</span>=<span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> {</div>
+<div class="line">            std::string info = <span class="stringliteral">&quot;Couldn&#39;t parse Value type in the Emission: &quot;</span> + txt  + <span class="stringliteral">&quot; Please check the formatting.   The allowed types are: P(X), LOG, COUNTS, or REAL_NUMBER. \n&quot;</span>;</div>
+<div class="line">            std::cerr &lt;&lt; info &lt;&lt; std::endl;</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//errorInfo(sCantParseLine, info.c_str());</span></div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//remaining tracks and Orders then set Track</span></div>
+<div class="line">        std::vector&lt;track*&gt; tempTracks;</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;typeBegin;i++){</div>
+<div class="line">            track* tk = trks.getTrack(line[i]);</div>
+<div class="line">            <span class="keywordflow">if</span> (tk==NULL){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Emissions tried to add a track named: &quot;</span> &lt;&lt; line[i] &lt;&lt; <span class="stringliteral">&quot; . However, there isn&#39;t a matching track in the model.  Please check to model formatting.\n&quot;</span>;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                tempTracks.push_back(tk);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Real Number Emissions</span></div>
+<div class="line">        <span class="keywordflow">if</span> (real_number){</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (tempTracks.size()&gt;1){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Multiple tracks listed under Real Track Emission Definition\n&quot;</span>;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            realTrack = tempTracks[0];</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">                <span class="comment">//Multivariate Continuous PDF emission</span></div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (multi_continuous){</div>
+<div class="line">                        <span class="keywordflow">if</span> (tempTracks.size()==1){</div>
+<div class="line">                                std::cerr &lt;&lt; <span class="stringliteral">&quot;Only a single track listed under MULTI_CONTINUOUS\n\</span></div>
+<div class="line"><span class="stringliteral">                                Use CONTINUOUS instead of MULTI-CONTINUOUS\n&quot;</span>;</div>
+<div class="line">                                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="comment">//Assign track information</span></div>
+<div class="line">                        track_indices = <span class="keyword">new</span> std::vector&lt;size_t&gt;;</div>
+<div class="line">                        trcks = <span class="keyword">new</span> std::vector&lt;track*&gt; (tempTracks);</div>
+<div class="line">                        number_of_tracks = trcks-&gt;size();</div>
+<div class="line">                        pass_values = <span class="keyword">new</span> std::vector&lt;double&gt; (number_of_tracks,-INFINITY);</div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; number_of_tracks ; ++i){</div>
+<div class="line">                                track_indices-&gt;push_back((*trcks)[i]-&gt;getIndex());</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        idx = ln.indexOf(<span class="stringliteral">&quot;PDF&quot;</span>);</div>
+<div class="line">                        line.splitString(ln[idx],<span class="stringliteral">&quot;\t:, &quot;</span>);</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordtype">size_t</span> function_idx = line.indexOf(<span class="stringliteral">&quot;PDF&quot;</span>) + 1;</div>
+<div class="line">                        multiPdfName = line[function_idx];</div>
+<div class="line">            multiPdf = funcs-&gt;getMultivariatePdfFunction(multiPdfName);</div>
+<div class="line">                        </div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordtype">size_t</span> parameter_idx = line.indexOf(<span class="stringliteral">&quot;PARAMETERS&quot;</span>);</div>
+<div class="line">                        </div>
+<div class="line">                        dist_parameters = <span class="keyword">new</span>(std::nothrow) std::vector&lt;double&gt;;</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span>(parameter_idx != SIZE_MAX){</div>
+<div class="line">                                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = parameter_idx+1 ; i&lt; line.size() ; i++){</div>
+<div class="line">                                        <span class="keywordtype">double</span> value;</div>
+<div class="line">                                        <a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[i], value);</div>
+<div class="line">                                        dist_parameters-&gt;push_back(value);</div>
+<div class="line">                                }</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">                        </div>
+<div class="line">                }</div>
+<div class="line">                <span class="comment">//U</span></div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (continuous){</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (tempTracks.size()&gt;1){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Multiple tracks listed under CONTINUOUS Track Emission Definition\n\</span></div>
+<div class="line"><span class="stringliteral">                                Must use MULTI_CONTINUOUS for multivariate emissions\n&quot;</span>;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            realTrack = tempTracks[0];</div>
+<div class="line">                        </div>
+<div class="line">                        idx = ln.indexOf(<span class="stringliteral">&quot;PDF&quot;</span>);</div>
+<div class="line">                        line.splitString(ln[idx],<span class="stringliteral">&quot;\t:, &quot;</span>);</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordtype">size_t</span> function_idx = line.indexOf(<span class="stringliteral">&quot;PDF&quot;</span>) + 1;</div>
+<div class="line">                        pdfName = line[function_idx];</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordtype">size_t</span> parameter_idx = line.indexOf(<span class="stringliteral">&quot;PARAMETERS&quot;</span>);</div>
+<div class="line">                        dist_parameters = <span class="keyword">new</span>(std::nothrow) std::vector&lt;double&gt;;</div>
+<div class="line">                        </div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span>(parameter_idx != SIZE_MAX){</div>
+<div class="line">                                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = parameter_idx+1 ; i&lt; line.size() ; i++){</div>
+<div class="line">                                        <span class="keywordtype">double</span> value;</div>
+<div class="line">                                        <a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[i], value);</div>
+<div class="line">                                        dist_parameters-&gt;push_back(value);</div>
+<div class="line">                                }</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">            pdf = funcs-&gt;getPDFFunction(pdfName);</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">                }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">function</span>){</div>
+<div class="line">                        <span class="comment">//Get function name</span></div>
+<div class="line">            std::string&amp; functionName = line[typeBegin+1];</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="comment">//Set parameters for function</span></div>
+<div class="line">            lexFunc = <span class="keyword">new</span>(std::nothrow) emissionFuncParam(functionName,funcs,tempTracks[0]);</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (lexFunc==NULL){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{  <span class="comment">//Traditional Lexcical Emission</span></div>
+<div class="line">            </div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (ln.contains(<span class="stringliteral">&quot;ORDER&quot;</span>)){</div>
+<div class="line">                idx=ln.indexOf(<span class="stringliteral">&quot;ORDER&quot;</span>);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t find ORDER in non-Real_Number emission.  Please check the formatting&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                <span class="comment">//errorInfo(sCantParseLine, &quot;Couldn&#39;t find ORDER in non-Real_Number emission.  Please check the formatting\n&quot;);</span></div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            std::vector&lt;int&gt; tempOrder;</div>
+<div class="line">            line.splitString(ln[idx],<span class="stringliteral">&quot;\t:, &quot;</span>);</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordtype">size_t</span> orderIdx = line.indexOf(<span class="stringliteral">&quot;ORDER&quot;</span>);</div>
+<div class="line">            orderIdx++;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordtype">size_t</span> ambIdx; </div>
+<div class="line">            <span class="keywordtype">bool</span> containsAmbig = line.contains(<span class="stringliteral">&quot;AMBIGUOUS&quot;</span>);</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (containsAmbig){ambIdx=line.indexOf(<span class="stringliteral">&quot;AMBIGUOUS&quot;</span>);}</div>
+<div class="line">            <span class="keywordflow">else</span>{ ambIdx= line.size();}</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=orderIdx;i&lt;ambIdx;i++){</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">int</span> tempValue;</div>
+<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(line[i], tempValue)){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Emission Order not numeric&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (tempValue&gt;32){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Emission order is greater than 32.  Must be 32 or less&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                tempOrder.push_back(tempValue);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (tempOrder.size() == tempTracks.size()){</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;tempOrder.size();i++){</div>
+<div class="line">                    scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a68d21a550a91ae82ae73b272208513f2">addTrack</a>(tempTracks[i], tempOrder[i]);</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Different number of tracks and orders parsed in Emission: &quot;</span> &lt;&lt; txt &lt;&lt; <span class="stringliteral">&quot; Check the formatting of the Emission&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//Parse Ambiguous Tag Info</span></div>
+<div class="line">            <span class="keywordflow">if</span> (containsAmbig){</div>
+<div class="line">                ambIdx++;</div>
+<div class="line">                <span class="keywordflow">if</span> (line.size()&lt;=ambIdx){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;No scoring type after AMBIGUOUS label\nAssuming AVG\n&quot;</span>;</div>
+<div class="line">                    scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(AVERAGE_SCORE);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;AVG&quot;</span>)==0){scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(AVERAGE_SCORE);}</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;MAX&quot;</span>)==0){scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(HIGHEST_SCORE);}</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;MIN&quot;</span>)==0){scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(LOWEST_SCORE);}</div>
+<div class="line">                                </div>
+<div class="line">                                <span class="comment">//Constant values assigned for Ambiguous characters</span></div>
+<div class="line">                                <span class="comment">//Can either be passed as P(X) or LOG</span></div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;P(X)&quot;</span>)==0)</div>
+<div class="line">                {</div>
+<div class="line">                    scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(DEFINED_SCORE);</div>
+<div class="line">                    </div>
+<div class="line">                    ambIdx++;</div>
+<div class="line">                    <span class="keywordflow">if</span> (ambIdx&gt;=line.size()){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Missing Ambiguous Value&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                    }</div>
+<div class="line">                                    </div>
+<div class="line">                    <span class="keywordtype">double</span> tempValue;</div>
+<div class="line">                    <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[ambIdx], tempValue)){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Ambiguous Value couldn&#39;t be parsed: &quot;</span>&lt;&lt; line[ambIdx] &lt;&lt; std::endl;</div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                    }</div>
+<div class="line">                    </div>
+<div class="line">                    scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a6205d81408d19fb30da0729b0d68c860" title="Set a given score to be returned for unknownCharScoringType.">setUnkScore</a>(log(tempValue));</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;LOG&quot;</span>)==0){</div>
+<div class="line">                    scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(DEFINED_SCORE);</div>
+<div class="line">                    ambIdx++;</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="keywordflow">if</span> (ambIdx&gt;=line.size()){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Missing Ambiguous Value&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                    }</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="keywordtype">double</span> tempValue;</div>
+<div class="line">                    <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[ambIdx], tempValue)){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Ambiguous Value couldn&#39;t be parsed: &quot;</span>&lt;&lt; line[ambIdx] &lt;&lt; std::endl;</div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                    }</div>
+<div class="line">                    </div>
+<div class="line">                    scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a6205d81408d19fb30da0729b0d68c860" title="Set a given score to be returned for unknownCharScoringType.">setUnkScore</a>(tempValue);</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">        </div>
+<div class="line">            <span class="comment">//Get Emission Tables</span></div>
+<div class="line">            <span class="keywordtype">size_t</span> expectedColumns(1);</div>
+<div class="line">            <span class="keywordtype">size_t</span> expectedRows(1);</div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i&lt;scores.getNumberOfAlphabets(); i++){</div>
+<div class="line">                expectedColumns*=scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#aeb1a35912d089e165de43c3c35b9e3e4">getAlphaSize</a>(i);</div>
+<div class="line">                expectedRows*=POWER[scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a1516c1242e82b229a2449c6710735606">getOrder</a>(i)][scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#aeb1a35912d089e165de43c3c35b9e3e4">getAlphaSize</a>(i)-1];</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            std::vector&lt;std::vector&lt;double&gt; &gt;* log_prob = scores.getLogProbabilityTable();</div>
+<div class="line">            std::vector&lt;std::vector&lt;double&gt; &gt;* prob = scores.getProbabilityTable();</div>
+<div class="line">            std::vector&lt;std::vector&lt;double&gt; &gt;* counts = scores.getCountsTable();</div>
+<div class="line">            </div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> iter = 2; iter&lt; ln.size();iter++){</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//If it&#39;s the first line check for a &#39;#&#39; indicating that the column header is present</span></div>
+<div class="line">                <span class="keywordflow">if</span> (iter==2 &amp;&amp; ln[iter][0]==<span class="charliteral">&#39;@&#39;</span>){</div>
+<div class="line">                    <span class="keywordflow">continue</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                line.splitString(ln[iter],<span class="stringliteral">&quot;\t &quot;</span>);</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Check for Row header</span></div>
+<div class="line">                <span class="keywordflow">if</span> (line[0][0]==<span class="charliteral">&#39;@&#39;</span>){</div>
+<div class="line">                    line.pop_ith(0);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                std::vector&lt;double&gt; temp = line.toVecDouble();</div>
+<div class="line">                <span class="keywordflow">if</span> (temp.size() != expectedColumns){</div>
+<div class="line">                    std::string info = <span class="stringliteral">&quot;The following line couldn&#39;t be parsed into the required number of columns.   Expected Columns: &quot;</span> + <a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(expectedColumns) + <span class="stringliteral">&quot;\n The line appears as: &quot;</span>  + ln[iter] ;</div>
+<div class="line">                    </div>
+<div class="line">                    std::cerr &lt;&lt; info &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                    <span class="comment">//errorInfo(sCantParseLine, info.c_str());</span></div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                    <span class="keywordflow">if</span> (valtyp == PROBABILITY){</div>
+<div class="line">                        prob-&gt;push_back(temp);</div>
+<div class="line">                        logVector(temp);</div>
+<div class="line">                        log_prob-&gt;push_back(temp);</div>
+<div class="line">                    }</div>
+<div class="line">                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (valtyp == LOG_PROB){</div>
+<div class="line">                        log_prob-&gt;push_back(temp);</div>
+<div class="line">                        expVector(temp);</div>
+<div class="line">                        prob-&gt;push_back(temp);</div>
+<div class="line">                    }</div>
+<div class="line">                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (valtyp == COUNTS){</div>
+<div class="line">                        counts-&gt;push_back(temp);</div>
+<div class="line">                        probVector(temp);</div>
+<div class="line">                        prob-&gt;push_back(temp);</div>
+<div class="line">                        logVector(temp);</div>
+<div class="line">                        log_prob-&gt;push_back(temp);</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (log_prob-&gt;size() != expectedRows){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot; The Emission table doesn&#39;t contain enough rows.  Expected Rows: &quot;</span> &lt;&lt; expectedRows &lt;&lt; <span class="stringliteral">&quot; \n Please check the Emission Table and formatting for &quot;</span> &lt;&lt;  txt &lt;&lt; std::endl;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">                        </div>
+<div class="line">                        scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#abbb120b9335dea4067170fe62a9538ab" title="Initialize the final emission table with ambiguous characters.">initialize_emission_table</a>();</div>
+<div class="line">                        </div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a7226ce9e5bf85ea596f897bdcf0dc664"></a>
@@ -365,16 +836,228 @@ false if track is alphanumerical track </dd></dl>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="emm_8cpp_source.html#l00427">427</a> of file <a class="el" href="emm_8cpp_source.html">emm.cpp</a>.</p>
+<div class="fragment"><div class="line">                                            {</div>
+<div class="line">        </div>
+<div class="line">        stringList ln;</div>
+<div class="line">        ln.splitString(txt,<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line">        <span class="keywordtype">size_t</span> idx;</div>
+<div class="line">        <span class="keywordflow">if</span> (ln.contains(<span class="stringliteral">&quot;EMISSION&quot;</span>)){</div>
+<div class="line">            idx = ln.indexOf(<span class="stringliteral">&quot;EMISSION&quot;</span>);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Missing EMISSION tag from emission. Please check the formatting.   This is what was handed to the emission class:\n &quot;</span> &lt;&lt;  txt &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        stringList line;</div>
+<div class="line">        line.splitString(ln[idx], <span class="stringliteral">&quot;\t,: &quot;</span>);</div>
+<div class="line">                <span class="comment">//size_t typeBegin(0);</span></div>
+<div class="line">                </div>
+<div class="line">        <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835">valueType</a>  valtyp(PROBABILITY);</div>
+<div class="line">        <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;P(X)&quot;</span>)){</div>
+<div class="line">            <span class="comment">//typeBegin = line.indexOf(&quot;P(X)&quot;);</span></div>
+<div class="line">            valtyp=PROBABILITY;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;LOG&quot;</span>)){</div>
+<div class="line">            <span class="comment">//typeBegin = line.indexOf(&quot;LOG&quot;);</span></div>
+<div class="line">            valtyp=LOG_PROB;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;COUNTS&quot;</span>)){</div>
+<div class="line">            <span class="comment">//typeBegin = line.indexOf(&quot;COUNTS&quot;);</span></div>
+<div class="line">            valtyp=COUNTS ;</div>
+<div class="line">        }</div>
+<div class="line">                <span class="keywordflow">else</span> {</div>
+<div class="line">            std::string info = <span class="stringliteral">&quot;Couldn&#39;t parse Value type in the Emission: &quot;</span> + txt  + <span class="stringliteral">&quot; Please check the formatting.   The allowed types are: P(X), LOG, COUNTS, or REAL_NUMBER. \n&quot;</span>;</div>
+<div class="line">            std::cerr &lt;&lt; info &lt;&lt; std::endl;</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//errorInfo(sCantParseLine, info.c_str());</span></div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//remaining tracks and Orders then set Track</span></div>
+<div class="line">        std::vector&lt;track*&gt; temp_tracks;</div>
+<div class="line">                temp_tracks.push_back(trk);</div>
+<div class="line">        </div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (ln.contains(<span class="stringliteral">&quot;ORDER&quot;</span>)){</div>
+<div class="line">                        idx=ln.indexOf(<span class="stringliteral">&quot;ORDER&quot;</span>);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t find ORDER in non-Real_Number emission.  Please check the formatting&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                        <span class="comment">//errorInfo(sCantParseLine, &quot;Couldn&#39;t find ORDER in non-Real_Number emission.  Please check the formatting\n&quot;);</span></div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                std::vector&lt;int&gt; temp_order;</div>
+<div class="line">                line.splitString(ln[idx],<span class="stringliteral">&quot;\t:,&quot;</span>);</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">size_t</span> orderIdx = line.indexOf(<span class="stringliteral">&quot;ORDER&quot;</span>);</div>
+<div class="line">                orderIdx++;</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">size_t</span> ambIdx;</div>
+<div class="line">                <span class="keywordtype">bool</span> containsAmbig = line.contains(<span class="stringliteral">&quot;AMBIGUOUS&quot;</span>);</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (containsAmbig){ambIdx=line.indexOf(<span class="stringliteral">&quot;AMBIGUOUS&quot;</span>);}</div>
+<div class="line">                <span class="keywordflow">else</span>{ ambIdx= line.size();}</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=orderIdx;i&lt;ambIdx;i++){</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordtype">int</span> temp_value;</div>
+<div class="line">                        <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(line[i], temp_value)){</div>
+<div class="line">                                std::cerr &lt;&lt; <span class="stringliteral">&quot;Emission Order not numeric&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (temp_value&gt;32){</div>
+<div class="line">                                std::cerr &lt;&lt; <span class="stringliteral">&quot;Emission order is greater than 32.  Must be 32 or less&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        temp_order.push_back(temp_value);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (temp_order.size() == temp_tracks.size()){</div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;temp_order.size();i++){</div>
+<div class="line">                                scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a68d21a550a91ae82ae73b272208513f2">addTrack</a>(temp_tracks[i], temp_order[i]);</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Different number of tracks and orders parsed in Emission: &quot;</span> &lt;&lt; txt &lt;&lt; <span class="stringliteral">&quot; Check the formatting of the Emission&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Parse Ambiguous Tag Info</span></div>
+<div class="line">                <span class="keywordflow">if</span> (containsAmbig){</div>
+<div class="line">                        ambIdx++;</div>
+<div class="line">                        <span class="keywordflow">if</span> (line.size()&lt;=ambIdx){</div>
+<div class="line">                                std::cerr &lt;&lt; <span class="stringliteral">&quot;No scoring type after AMBIGUOUS label\nAssuming AVG\n&quot;</span>;</div>
+<div class="line">                                scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(AVERAGE_SCORE);</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;AVG&quot;</span>)==0){scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(AVERAGE_SCORE);}</div>
+<div class="line">                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;MAX&quot;</span>)==0){scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(HIGHEST_SCORE);}</div>
+<div class="line">                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;MIN&quot;</span>)==0){scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(LOWEST_SCORE);}</div>
+<div class="line">                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;P(X)&quot;</span>)==0)</div>
+<div class="line">                        {</div>
+<div class="line">                                scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(DEFINED_SCORE);</div>
+<div class="line">                                </div>
+<div class="line">                                ambIdx++;</div>
+<div class="line">                                <span class="keywordflow">if</span> (ambIdx&gt;=line.size()){</div>
+<div class="line">                                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Missing Ambiguous Value&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                                        </div>
+<div class="line">                                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                                }</div>
+<div class="line">                                </div>
+<div class="line">                                <span class="keywordtype">double</span> tempValue;</div>
+<div class="line">                                <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[ambIdx], tempValue)){</div>
+<div class="line">                                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Ambiguous Value couldn&#39;t be parsed: &quot;</span>&lt;&lt; line[ambIdx] &lt;&lt; std::endl;</div>
+<div class="line">                                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                                }</div>
+<div class="line">                                </div>
+<div class="line">                                scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a6205d81408d19fb30da0729b0d68c860" title="Set a given score to be returned for unknownCharScoringType.">setUnkScore</a>(log(tempValue));</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;LOG&quot;</span>)==0){</div>
+<div class="line">                                scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(DEFINED_SCORE);</div>
+<div class="line">                                ambIdx++;</div>
+<div class="line">                                </div>
+<div class="line">                                <span class="keywordflow">if</span> (ambIdx&gt;=line.size()){</div>
+<div class="line">                                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Missing Ambiguous Value&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                                        </div>
+<div class="line">                                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                                }</div>
+<div class="line">                                </div>
+<div class="line">                                <span class="keywordtype">double</span> tempValue;</div>
+<div class="line">                                <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[ambIdx], tempValue)){</div>
+<div class="line">                                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Ambiguous Value couldn&#39;t be parsed: &quot;</span>&lt;&lt; line[ambIdx] &lt;&lt; std::endl;</div>
+<div class="line">                                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                                }</div>
+<div class="line">                                </div>
+<div class="line">                                scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a6205d81408d19fb30da0729b0d68c860" title="Set a given score to be returned for unknownCharScoringType.">setUnkScore</a>(tempValue);</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Get Tables</span></div>
+<div class="line">                <span class="keywordtype">size_t</span> expectedColumns(1);</div>
+<div class="line">                <span class="keywordtype">size_t</span> expectedRows(1);</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i&lt;scores.getNumberOfAlphabets(); i++){</div>
+<div class="line">                        expectedColumns*=scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#aeb1a35912d089e165de43c3c35b9e3e4">getAlphaSize</a>(i);</div>
+<div class="line">                        expectedRows*=POWER[scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a1516c1242e82b229a2449c6710735606">getOrder</a>(i)][scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#aeb1a35912d089e165de43c3c35b9e3e4">getAlphaSize</a>(i)-1];</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                std::vector&lt;std::vector&lt;double&gt; &gt;* log_prob = scores.getLogProbabilityTable();</div>
+<div class="line">                std::vector&lt;std::vector&lt;double&gt; &gt;* prob = scores.getProbabilityTable();</div>
+<div class="line">                std::vector&lt;std::vector&lt;double&gt; &gt;* counts = scores.getCountsTable();</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> iter = 2; iter&lt; ln.size();iter++){</div>
+<div class="line">                        </div>
+<div class="line">                        </div>
+<div class="line">                        <span class="comment">//If it&#39;s the first line check for a &#39;#&#39; indicating that the column header is present</span></div>
+<div class="line">                        <span class="keywordflow">if</span> (iter==2 &amp;&amp; ln[iter][0]==<span class="charliteral">&#39;@&#39;</span>){</div>
+<div class="line">                                <span class="keywordflow">continue</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        line.splitString(ln[iter],<span class="stringliteral">&quot;\t &quot;</span>);</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="comment">//Check for Row header</span></div>
+<div class="line">                        <span class="keywordflow">if</span> (line[0][0]==<span class="charliteral">&#39;@&#39;</span>){</div>
+<div class="line">                                line.pop_ith(0);</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        </div>
+<div class="line">                        std::vector&lt;double&gt; temp = line.toVecDouble();</div>
+<div class="line">                        <span class="keywordflow">if</span> (temp.size() != expectedColumns){</div>
+<div class="line">                                std::string info = <span class="stringliteral">&quot;The following line couldn&#39;t be parsed into the required number of columns.   Expected Columns: &quot;</span> + <a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(expectedColumns) + <span class="stringliteral">&quot;\n The line appears as: &quot;</span>  + ln[iter] ;</div>
+<div class="line">                                </div>
+<div class="line">                                std::cerr &lt;&lt; info &lt;&lt; std::endl;</div>
+<div class="line">                                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                                <span class="comment">//errorInfo(sCantParseLine, info.c_str());</span></div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">else</span>{</div>
+<div class="line">                                <span class="keywordflow">if</span> (valtyp == PROBABILITY){</div>
+<div class="line">                                        prob-&gt;push_back(temp);</div>
+<div class="line">                                        logVector(temp);</div>
+<div class="line">                                        log_prob-&gt;push_back(temp);</div>
+<div class="line">                                }</div>
+<div class="line">                                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (valtyp == LOG_PROB){</div>
+<div class="line">                                        log_prob-&gt;push_back(temp);</div>
+<div class="line">                                        expVector(temp);</div>
+<div class="line">                                        prob-&gt;push_back(temp);</div>
+<div class="line">                                }</div>
+<div class="line">                                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (valtyp == COUNTS){</div>
+<div class="line">                                        counts-&gt;push_back(temp);</div>
+<div class="line">                                        probVector(temp);</div>
+<div class="line">                                        prob-&gt;push_back(temp);</div>
+<div class="line">                                        logVector(temp);</div>
+<div class="line">                                        log_prob-&gt;push_back(temp);</div>
+<div class="line">                                }</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (log_prob-&gt;size() != expectedRows){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot; The Emission table doesn&#39;t contain enough rows.  Expected Rows: &quot;</span> &lt;&lt; expectedRows &lt;&lt; <span class="stringliteral">&quot; \n Please check the Emission Table and formatting for &quot;</span> &lt;&lt;  txt &lt;&lt; std::endl;</div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#abbb120b9335dea4067170fe62a9538ab" title="Initialize the final emission table with ambiguous characters.">initialize_emission_table</a>();</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (tagFunc != NULL){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Not NULL&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                }</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="emm_8h_source.html">emm.h</a></li>
-<li>emm.cpp</li>
+<li><a class="el" href="emm_8cpp_source.html">emm.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

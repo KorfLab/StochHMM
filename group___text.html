@@ -162,6 +162,45 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00758">758</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                                                             {</div>
+<div class="line">        <span class="keywordtype">char</span> opening = brackets[0];</div>
+<div class="line">        <span class="keywordtype">char</span> closing = brackets[1];</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">int</span> currentTotal(0);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">size_t</span> start;</div>
+<div class="line">        <span class="keywordtype">size_t</span> found;</div>
+<div class="line">        found=text.find_first_of(opening,offset);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (found!=std::string::npos){</div>
+<div class="line">            start=found;</div>
+<div class="line">            currentTotal++;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">return</span> std::make_pair(0,0);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">while</span>(currentTotal!=0){</div>
+<div class="line">            found++;</div>
+<div class="line">            found=text.find_first_of(brackets,found);</div>
+<div class="line">            <span class="keywordflow">if</span> (found!=std::string::npos){</div>
+<div class="line">                <span class="keywordflow">if</span> (text[found]==opening){</div>
+<div class="line">                    currentTotal++;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (text[found]==closing){</div>
+<div class="line">                    currentTotal--;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                <span class="keywordflow">return</span> std::make_pair(0,0);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> std::make_pair(start,found);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ga99d531d5a6e0bbb1aee2cffbdcef7d4b"></a>
@@ -196,6 +235,11 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00800">800</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                                              {</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="code" href="group___text.html#ga1bdb409efab2d170ecb74f8537afbc44">balanced_brackets</a>(text,brackets,0);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ga2904cf1af30b23b7f44a416b594c7bf6"></a>
@@ -230,6 +274,19 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00435">435</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                           {</div>
+<div class="line">        <span class="keywordtype">size_t</span> found;</div>
+<div class="line">        found=input.find_first_of(white);</div>
+<div class="line">        <span class="comment">//found=input.find_first_of(&quot;\t\n &quot;);</span></div>
+<div class="line">        <span class="keywordflow">while</span>(found!=std::string::npos){</div>
+<div class="line">            input.erase(found,1);</div>
+<div class="line">            <span class="comment">//found=input.find_first_of(&quot;\t\n &quot;);</span></div>
+<div class="line">            found=input.find_first_of(white);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ga8c2dffdf4f3aba28fc06e10e465fdcf7"></a>
@@ -253,6 +310,14 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00585">585</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                            {</div>
+<div class="line">        std::stringstream ss;</div>
+<div class="line">        ss &lt;&lt; input;</div>
+<div class="line">        std::string s=ss.str();</div>
+<div class="line">        <span class="keywordflow">return</span> s;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ga593ec6959903daf28efe176538f2e20f"></a>
@@ -276,6 +341,14 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00594">594</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                           {</div>
+<div class="line">        std::stringstream ss;</div>
+<div class="line">        ss &lt;&lt; input;</div>
+<div class="line">        std::string s=ss.str();</div>
+<div class="line">        <span class="keywordflow">return</span> s;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="gabad7e59fdc834721ee71b12524c40002"></a>
@@ -299,6 +372,18 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00743">743</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                         {</div>
+<div class="line">        stringList lst;</div>
+<div class="line">        std::pair&lt;size_t,size_t&gt; tagCoord = <a class="code" href="group___text.html#ga1bdb409efab2d170ecb74f8537afbc44">balanced_brackets</a>(txt,<span class="stringliteral">&quot;[]&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">if</span> (tagCoord.first!=tagCoord.second){</div>
+<div class="line">            std::string tag = txt.substr(tagCoord.first+1,tagCoord.second-tagCoord.first-1);</div>
+<div class="line">            txt.erase(tagCoord.first,tagCoord.second-tagCoord.first+1);</div>
+<div class="line">            lst.splitString(tag,<span class="stringliteral">&quot;:\t &quot;</span>);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> lst;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ga423cf7d1707638ac6c526bb10e7cc599"></a>
@@ -340,6 +425,33 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00467">467</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                    {</div>
+<div class="line">        <span class="keywordtype">size_t</span> found=txt.find(<span class="stringliteral">&quot;&lt;&lt;&quot;</span>);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (found==std::string::npos){</div>
+<div class="line">            <a class="code" href="group___text.html#ga0b39adb00f98cdbf548db31ccb7abb68">removeLeadingWS</a>(txt,<span class="stringliteral">&quot;\t \n&quot;</span>);</div>
+<div class="line">            value=txt;</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordtype">size_t</span> ending=txt.find(<span class="stringliteral">&quot;&gt;&gt;&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">if</span> (ending!=std::string::npos){</div>
+<div class="line">                key=txt.substr(found+2,ending-(found+2));</div>
+<div class="line">                stringList lst;</div>
+<div class="line">                lst.splitString(txt,<span class="stringliteral">&quot;=&quot;</span>);</div>
+<div class="line">                <a class="code" href="group___text.html#ga0b39adb00f98cdbf548db31ccb7abb68">removeLeadingWS</a>(lst[1],<span class="stringliteral">&quot;\t \n&quot;</span>);</div>
+<div class="line">                value= lst[1];</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Missing closing brackets on Key\n&quot;</span>;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ga85eb97cbbeb8e493349a04ffaabb1bbf"></a>
@@ -363,6 +475,14 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00564">564</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                      {</div>
+<div class="line">        std::stringstream ss;</div>
+<div class="line">        ss &lt;&lt; input;</div>
+<div class="line">        std::string s=ss.str();</div>
+<div class="line">        <span class="keywordflow">return</span> s;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ga3d9012b75742539fbf315c0725778aa9"></a>
@@ -386,6 +506,14 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00574">574</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                         {</div>
+<div class="line">        std::stringstream ss;</div>
+<div class="line">        ss &lt;&lt; input;</div>
+<div class="line">        std::string s=ss.str();</div>
+<div class="line">        <span class="keywordflow">return</span> s;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ga7297a0284778c0591fa5505d24ff491d"></a>
@@ -409,6 +537,19 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00808">808</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                        {</div>
+<div class="line">        <span class="keywordtype">size_t</span> found;</div>
+<div class="line">        found = str.find_first_not_of(<span class="stringliteral">&quot;0123456789.-eE&quot;</span>);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (found!=std::string::npos){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ga3538626ea8a3ae77e33bda5d63206c23"></a>
@@ -443,6 +584,27 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00519">519</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                 {</div>
+<div class="line">        std::string out;</div>
+<div class="line">        <span class="keywordflow">if</span> (input.size()==0){</div>
+<div class="line">            out=<span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> out;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (input.size()==1){</div>
+<div class="line">            out=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[0]);</div>
+<div class="line">            <span class="keywordflow">return</span> out;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            out=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[0]);</div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;input.size();i++){</div>
+<div class="line">                out+=c;</div>
+<div class="line">                out+=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[i]);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">return</span> out;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ga5e62d476cb2624cc2ccc8fda22638f55"></a>
@@ -477,6 +639,27 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00542">542</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                    {</div>
+<div class="line">        std::string out;</div>
+<div class="line">        <span class="keywordflow">if</span> (input.size()==0){</div>
+<div class="line">            out=<span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> out;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (input.size()==1){</div>
+<div class="line">            out=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[0]);</div>
+<div class="line">            <span class="keywordflow">return</span> out;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            out=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[0]);</div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;input.size();i++){</div>
+<div class="line">                out+=c;</div>
+<div class="line">                out+=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[i]);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">return</span> out;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ga653785a899ab843126ce160cfece2ea0"></a>
@@ -511,6 +694,27 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00650">650</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                   {</div>
+<div class="line">        std::string out;</div>
+<div class="line">        <span class="keywordflow">if</span> (input.size()==0){</div>
+<div class="line">            out=<span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> out;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (input.size()==1){</div>
+<div class="line">            out=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[0]);</div>
+<div class="line">            <span class="keywordflow">return</span> out;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            out=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[0]);</div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;input.size();i++){</div>
+<div class="line">                out+=c;</div>
+<div class="line">                out+=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[i]);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">return</span> out;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="gaddca5829807c3a7d46e17d70a2539326"></a>
@@ -545,6 +749,27 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00673">673</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                    {</div>
+<div class="line">        std::string out;</div>
+<div class="line">        <span class="keywordflow">if</span> (input.size()==0){</div>
+<div class="line">            out=<span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> out;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (input.size()==1){</div>
+<div class="line">            out=<a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(input[0]);</div>
+<div class="line">            <span class="keywordflow">return</span> out;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            out=<a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(input[0]);</div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;input.size();i++){</div>
+<div class="line">                out+=c;</div>
+<div class="line">                out+=<a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(input[i]);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">return</span> out;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="gaa0e001e5f6c961318831de04ac65eb0c"></a>
@@ -579,6 +804,23 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00696">696</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                       {</div>
+<div class="line">        std::string out;</div>
+<div class="line">        <span class="keywordtype">size_t</span> sz=input.size();</div>
+<div class="line">        <span class="keywordflow">if</span> (sz==1){</div>
+<div class="line">            out = input[0];</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sz&gt;1){</div>
+<div class="line">            out+=input[0];</div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;sz;i++){</div>
+<div class="line">                out+= c + input[i];</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> out;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ga0b39adb00f98cdbf548db31ccb7abb68"></a>
@@ -613,6 +855,18 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00450">450</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                            {</div>
+<div class="line">        <span class="keywordtype">size_t</span> start = txt.find_first_not_of(ws);</div>
+<div class="line">        <span class="keywordflow">if</span> (start==std::string::npos){</div>
+<div class="line">            txt=<span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            txt=txt.substr(start);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ga98f2f125252b54b1f227988ae44d424b"></a>
@@ -654,6 +908,16 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00507">507</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                             {</div>
+<div class="line">        <span class="keywordtype">size_t</span> found = txt.find(ch);</div>
+<div class="line">        <span class="keywordflow">while</span>(found!=std::string::npos){</div>
+<div class="line">            txt[found]=replaceCh;</div>
+<div class="line">            found=txt.find(ch);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="gafad8e125317894c8056a5706c4590b9b"></a>
@@ -678,6 +942,19 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>string that contains complete file </dd></dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00823">823</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                        {</div>
+<div class="line">        std::ifstream in(file.c_str(),std::ifstream::in);</div>
+<div class="line">        <span class="keywordflow">if</span> (!in.good()){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;File doesn&#39;t exist:&quot;</span> &lt;&lt; file;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">            </div>
+<div class="line">        std::stringstream sstr;</div>
+<div class="line">        sstr &lt;&lt; in.rdbuf();</div>
+<div class="line">        <span class="keywordflow">return</span> sstr.str();</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ga4cec2ea0c1f6cbeb092d15b9867443b0"></a>
@@ -712,6 +989,31 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00716">716</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                {</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//split line accoring to delimiters;</span></div>
+<div class="line">        <span class="keywordtype">size_t</span> found=input.find_first_of(<span class="stringliteral">&quot;\&quot;, \n\t&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">while</span>(found!=std::string::npos){</div>
+<div class="line">            <span class="keywordflow">if</span> (found&gt;0){</div>
+<div class="line">                line.push_back(input.substr(0,found));</div>
+<div class="line">                <span class="comment">//cout &lt;&lt; line.back() &lt;&lt; endl;</span></div>
+<div class="line">                input=input.substr(found+1);</div>
+<div class="line">                <span class="comment">//cout &lt;&lt; input &lt;&lt; endl;</span></div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                input.erase(found,1);</div>
+<div class="line">                <span class="comment">//cout &lt;&lt; input &lt;&lt;endl;</span></div>
+<div class="line">            }</div>
+<div class="line">            found=input.find_first_of(<span class="stringliteral">&quot;\&quot;, \n\t&quot;</span>);</div>
+<div class="line">            <span class="comment">//cout &lt;&lt;input &lt;&lt;endl;</span></div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">if</span> (input.size()&gt;0){</div>
+<div class="line">            line.push_back(input);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ga68bd6b3175dd081e05a72e7cff42a7d8"></a>
@@ -749,6 +1051,15 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <dd>
 false if conversion can't be performed </dd></dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00636">636</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                    {</div>
+<div class="line">        std::istringstream input(txt);</div>
+<div class="line">        <span class="keywordflow">if</span>(!(input &gt;&gt; val)){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ga4797b0d53af278c2adb72a47f20cfe7d"></a>
@@ -786,6 +1097,16 @@ false if conversion can't be performed </dd></dl>
 <dd>
 false if conversion can't be performed </dd></dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00607">607</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                              {</div>
+<div class="line">        std::istringstream input(txt);</div>
+<div class="line">        <span class="keywordflow">if</span> (!(input &gt;&gt; val)){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ga4bdd998a0f8a1a1997277b05babc677e"></a>
@@ -823,12 +1144,22 @@ false if conversion can't be performed </dd></dl>
 <dd>
 false if conversion can't be performed </dd></dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00621">621</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                 {</div>
+<div class="line">        std::istringstream input(txt);</div>
+<div class="line">        <span class="keywordflow">if</span> (!(input &gt;&gt; val)){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:57 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

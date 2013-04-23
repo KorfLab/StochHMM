@@ -161,6 +161,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Stores one traceback path information for a sequence </p>
+
+<p>Definition at line <a class="el" href="traceback__path_8h_source.html#l00063">63</a> of file <a class="el" href="traceback__path_8h_source.html">traceback_path.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a7c6dc56b913af51b4115c6766d443750"></a>
 <div class="memitem">
@@ -183,6 +185,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00035">35</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
+<div class="fragment"><div class="line">                                             {</div>
+<div class="line">        hmm=modl;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
@@ -217,6 +224,83 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00109">109</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                               {</div>
+<div class="line">        std::string current_label=<span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">        <span class="keywordtype">long</span> <span class="keywordtype">long</span> start=0;</div>
+<div class="line">        <span class="keywordtype">size_t</span> path_size=<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7af71ae5e73b710c3fa9acb42547e9c9" title="Returns the size (ie. length) of the traceback_path.">size</a>();</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k = path_size-1;k != SIZE_MAX; k--){</div>
+<div class="line">            state* st = hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3" title="Get pointer to the state at index.">getState</a>(trace_path[k]);</div>
+<div class="line">            std::string new_label=st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a19f06f455f339e01577e163570b1e2b2">getGFF</a>();</div>
+<div class="line">            <span class="keywordflow">if</span> (new_label.compare(<span class="stringliteral">&quot;&quot;</span>)==0){</div>
+<div class="line">                <span class="keywordflow">if</span> (start&gt;0){</div>
+<div class="line">                    gff_feature ln;</div>
+<div class="line">                    ln.seqname=sequenceName;</div>
+<div class="line">                    ln.source=hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a00e9429e7f06f053563d1e7439860cd1" title="Get the Name of the Model.">getName</a>();</div>
+<div class="line">                    ln.feature=current_label;</div>
+<div class="line">                    ln.start=start;</div>
+<div class="line">                    ln.end=path_size-(k+1);</div>
+<div class="line">                    ln.score=<span class="charliteral">&#39;.&#39;</span>;</div>
+<div class="line">                    ln.strand=<span class="charliteral">&#39;+&#39;</span>;</div>
+<div class="line">                    ln.frame=<span class="charliteral">&#39;.&#39;</span>;</div>
+<div class="line">                    ln.attribute=<span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">                    </div>
+<div class="line">                    pth.push_back(ln);</div>
+<div class="line">                    </div>
+<div class="line">                    start=0;</div>
+<div class="line">                    current_label=new_label;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> {</div>
+<div class="line">                    <span class="keywordflow">continue</span>;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> {</div>
+<div class="line">                <span class="keywordflow">if</span>(k==0){</div>
+<div class="line">                    gff_feature ln;</div>
+<div class="line">                    ln.seqname=sequenceName;</div>
+<div class="line">                    ln.source=hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a00e9429e7f06f053563d1e7439860cd1" title="Get the Name of the Model.">getName</a>();</div>
+<div class="line">                    ln.feature=current_label;</div>
+<div class="line">                    ln.start=start;</div>
+<div class="line">                    ln.end=path_size-(k+1);</div>
+<div class="line">                    ln.score=<span class="charliteral">&#39;.&#39;</span>;</div>
+<div class="line">                    ln.strand=<span class="charliteral">&#39;+&#39;</span>;</div>
+<div class="line">                    ln.frame=<span class="charliteral">&#39;.&#39;</span>;</div>
+<div class="line">                    ln.attribute=<span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">                    </div>
+<div class="line">                    pth.push_back(ln);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (start==0){</div>
+<div class="line">                    start=path_size-k;</div>
+<div class="line">                    current_label=new_label;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (new_label.compare(current_label)==0){</div>
+<div class="line">                    <span class="keywordflow">continue</span>;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> {</div>
+<div class="line">                    gff_feature ln;</div>
+<div class="line">                    ln.seqname=sequenceName;</div>
+<div class="line">                    ln.source=hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a00e9429e7f06f053563d1e7439860cd1" title="Get the Name of the Model.">getName</a>();</div>
+<div class="line">                    ln.feature=current_label;</div>
+<div class="line">                    ln.start=start;</div>
+<div class="line">                    ln.end=path_size-(k+1);</div>
+<div class="line">                    ln.score=<span class="charliteral">&#39;.&#39;</span>;</div>
+<div class="line">                    ln.strand=<span class="charliteral">&#39;+&#39;</span>;</div>
+<div class="line">                    ln.frame=<span class="charliteral">&#39;.&#39;</span>;</div>
+<div class="line">                    ln.attribute=<span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">                    </div>
+<div class="line">                    pth.push_back(ln);</div>
+<div class="line">                    </div>
+<div class="line">                    start=path_size-k;</div>
+<div class="line">                    current_label=new_label;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aea195fe532a99d6d9d510bbdcd3e99ae"></a>
@@ -240,6 +324,21 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00082">82</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
+<div class="fragment"><div class="line">                                            {</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (pth.size()&gt;0){</div>
+<div class="line">            pth.clear();</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k=trace_path.size()-1; k!=SIZE_MAX; k--){</div>
+<div class="line">            state* st = hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3" title="Get pointer to the state at index.">getState</a>(trace_path[k]);</div>
+<div class="line">            pth+=st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#ac58f8dfc39b64abbba92a94029565cc9">getLabel</a>();</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ae9be05bf054e5bf3cd76c2d66946d0ee"></a>
@@ -263,6 +362,15 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00098">98</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                      {</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k = trace_path.size()-1; k != SIZE_MAX; k--){</div>
+<div class="line">            state* st = hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3" title="Get pointer to the state at index.">getState</a>(trace_path[k]);</div>
+<div class="line">            pth.push_back(st-&gt;getName());</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a8e1387c5d888895e35dd164a0b816549"></a>
@@ -286,6 +394,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00064">64</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                {</div>
+<div class="line">        pth=trace_path;</div>
+<div class="line">        return ;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a7b51383ba6b26732099d0aa75a162880"></a>
@@ -309,16 +423,21 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00041">41</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
+<div class="fragment"><div class="line">                                           {</div>
+<div class="line">        trace_path.push_back(state);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="traceback__path_8h_source.html">traceback_path.h</a></li>
-<li>traceback_path.cpp</li>
+<li><a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

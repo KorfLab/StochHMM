@@ -110,6 +110,8 @@ Public Member Functions</h2></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Stores pointer to user functions used to create Real Number Tracks. </p>
+
+<p>Definition at line <a class="el" href="user_functions_8h_source.html#l00109">109</a> of file <a class="el" href="user_functions_8h_source.html">userFunctions.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="addb4898201238a442c28b968f4655994"></a>
 <div class="memitem">
@@ -143,6 +145,23 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00284">284</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                       {</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (functions.count(str)==0){</div>
+<div class="line">            functions[str]=ptrFunc;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function Name: &quot;</span> &lt;&lt; str &lt;&lt; <span class="stringliteral">&quot; already exists.   You need to choose a new function name that doesn&#39;t already exist. For reference here are a list of names already assigned as external functions\nAssigned Names:\n&quot;</span>;</div>
+<div class="line">            </div>
+<div class="line">            std::map&lt;std::string,pt2TrackFunc&gt;::iterator it;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">for</span>(it=functions.begin();it!=functions.end();it++){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; it-&gt;first &lt;&lt;std::endl;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    };</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="afa19684201044430ffdda10ca7145355"></a>
@@ -167,16 +186,28 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>pt2TrackFunc* </dd></dl>
 
+<p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00305">305</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                        {</div>
+<div class="line">        <span class="keywordflow">if</span> (functions.count(name)){</div>
+<div class="line">            <span class="keywordflow">return</span> &amp;functions[name];</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function named: &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; was not initialized. &quot;</span> &lt;&lt;std::endl;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">return</span> NULL;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="user_functions_8h_source.html">userFunctions.h</a></li>
-<li>userFunctions.cpp</li>
+<li><a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

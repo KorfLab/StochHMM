@@ -152,7 +152,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Transition information for each state. </p>
-<pre class="fragment">  </pre> </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<pre class="fragment">  </pre> 
+<p>Definition at line <a class="el" href="transitions_8h_source.html#l00054">54</a> of file <a class="el" href="transitions_8h_source.html">transitions.h</a>.</p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a944455b569a5c20f0c93a1f185ef52dd"></a>
 <div class="memitem">
 <div class="memproto">
@@ -174,6 +176,19 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="transitions_8cpp_source.html#l00032">32</a> of file <a class="el" href="transitions_8cpp_source.html">transitions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                        {</div>
+<div class="line">        transition_type=type;</div>
+<div class="line">        traceback_identifier=DIFF_STATE;</div>
+<div class="line">        log_trans=-INFINITY;        </div>
+<div class="line">        extendedValue=-INFINITY;</div>
+<div class="line">                <span class="keyword">function</span>=<span class="keyword">false</span>;</div>
+<div class="line">        func    = NULL;</div>
+<div class="line">        lexFunc = NULL;</div>
+<div class="line">        toState = NULL;</div>
+<div class="line">                func    = NULL;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ad7213a59642ff8f569ab4c8c3799e9c2"></a>
@@ -215,6 +230,18 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="transitions_8cpp_source.html#l00048">48</a> of file <a class="el" href="transitions_8cpp_source.html">transitions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                         {</div>
+<div class="line">        transition_type=type;</div>
+<div class="line">        traceback_identifier = DIFF_STATE;</div>
+<div class="line">        log_trans = -INFINITY;</div>
+<div class="line">        func=NULL;</div>
+<div class="line">        lexFunc=NULL;</div>
+<div class="line">        <span class="keyword">function</span>=<span class="keyword">false</span>;</div>
+<div class="line">        toState=NULL;</div>
+<div class="line">                func = NULL;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
@@ -241,6 +268,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
 <p>Get pointer to externalFuncs </p>
 <dl class="section return"><dt>Returns:</dt><dd>externalFuncs* Pointer to external function definition in transition </dd></dl>
 
+<p>Definition at line <a class="el" href="transitions_8h_source.html#l00157">157</a> of file <a class="el" href="transitions_8h_source.html">transitions.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> func;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aef83e0694115d3de846b6945a031b460"></a>
@@ -266,6 +296,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
 <p>Get the name of state that transition is to </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::string Name of the state that transition is to </dd></dl>
 
+<p>Definition at line <a class="el" href="transitions_8h_source.html#l00129">129</a> of file <a class="el" href="transitions_8h_source.html">transitions.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> stateName;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a76557c67c0fdc78b12a3ea3bc3a1febb"></a>
@@ -291,6 +324,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
 <p>Get pointer to stte that transition is to </p>
 <dl class="section return"><dt>Returns:</dt><dd>state* Pointer to state that transitioning to </dd></dl>
 
+<p>Definition at line <a class="el" href="transitions_8h_source.html#l00133">133</a> of file <a class="el" href="transitions_8h_source.html">transitions.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> toState;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a4b5769b7b26685e5dfd5540a7c90b6cd"></a>
@@ -317,6 +353,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>tracebackIdentifier </dd></dl>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0">tracebackIdentifier</a> </dd></dl>
 
+<p>Definition at line <a class="el" href="transitions_8h_source.html#l00145">145</a> of file <a class="el" href="transitions_8h_source.html">transitions.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> traceback_identifier;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ae1c7d74bdfa8a85ef1347d5827cdd82b"></a>
@@ -342,6 +381,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
 <p>Get the string (GFF/Label/State Name) Traceback is to </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::string name that traceback is to </dd></dl>
 
+<p>Definition at line <a class="el" href="transitions_8h_source.html#l00149">149</a> of file <a class="el" href="transitions_8h_source.html">transitions.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> traceback_string;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a50da471f7e318275f049b7e3f14a0225"></a>
@@ -377,6 +419,37 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>double Score of the transition </dd></dl>
 
+<p>Definition at line <a class="el" href="transitions_8cpp_source.html#l00601">601</a> of file <a class="el" href="transitions_8cpp_source.html">transitions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                              {</div>
+<div class="line">         <span class="keywordflow">if</span> (transition_type==STANDARD){</div>
+<div class="line">             <span class="keywordflow">return</span> log_trans;</div>
+<div class="line">         }</div>
+<div class="line">         <span class="keywordflow">else</span> <span class="keywordflow">if</span> (transition_type==DURATION){</div>
+<div class="line">             </div>
+<div class="line">             <span class="keywordflow">if</span> (pos &gt;= distribution-&gt;size()){   <span class="comment">// Check that size corresponds to zero index or one index.....</span></div>
+<div class="line">                 <span class="keywordflow">return</span> extendedValue;</div>
+<div class="line">             }</div>
+<div class="line">             <span class="keywordflow">else</span>{</div>
+<div class="line">                 <span class="keywordflow">return</span> (*distribution)[pos-1];</div>
+<div class="line">             }</div>
+<div class="line">         }</div>
+<div class="line">         <span class="keywordflow">else</span> <span class="keywordflow">if</span> (transition_type==LEXICAL){</div>
+<div class="line">             </div>
+<div class="line">             <span class="keywordtype">double</span> value;</div>
+<div class="line">             </div>
+<div class="line">             <span class="keywordflow">if</span> (<span class="keyword">function</span>){</div>
+<div class="line">                 value = lexFunc-&gt;evaluate(*seqs, pos);</div>
+<div class="line">             }</div>
+<div class="line">             <span class="keywordflow">else</span>{</div>
+<div class="line">                 value = scoreTable.getValue(*seqs,pos);</div>
+<div class="line">             }</div>
+<div class="line">            <span class="keywordflow">return</span> value;</div>
+<div class="line">         }</div>
+<div class="line">         <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">return</span> -INFINITY; </div>
+<div class="line">         }</div>
+<div class="line">     }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aaf5209b81d8e3bd7c336748cfdbc4d7a"></a>
@@ -403,6 +476,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>transType </dd></dl>
 <dl class="section see"><dt>See also:</dt><dd>transType </dd></dl>
 
+<p>Definition at line <a class="el" href="transitions_8h_source.html#l00140">140</a> of file <a class="el" href="transitions_8h_source.html">transitions.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> transition_type;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ad5b8f4df50ef8b5771319bdb4614e728"></a>
@@ -465,6 +541,23 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="transitions_8cpp_source.html#l00067">67</a> of file <a class="el" href="transitions_8cpp_source.html">transitions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                                                                            {</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (!_processTags(txt,trks, wts, funcs)){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t properly process tag from: &quot;</span>&lt;&lt; txt &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (transition_type == STANDARD){</div>
+<div class="line">            <span class="keywordflow">if</span> (!_parseStandard(txt,names, valtyp)){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t parse the Standard Transition&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ae214752883819d70cca0f14079ca9e92"></a>
@@ -527,6 +620,32 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="transitions_8cpp_source.html#l00090">90</a> of file <a class="el" href="transitions_8cpp_source.html">transitions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                                                                             {</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//txt.print();</span></div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (!_processTags(txt[1],trks, wts, funcs)){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t properly process tag from: &quot;</span>&lt;&lt; txt[1] &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (transition_type == DURATION ){</div>
+<div class="line">            <span class="keywordflow">if</span> (!_parseDuration(txt, names, valtyp)){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t parse Duration Transition&quot;</span> &lt;&lt;std::endl;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (transition_type == LEXICAL){</div>
+<div class="line">            <span class="keywordflow">if</span> (!_parseLexical(txt, names, valtyp, trks, funcs)){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t parse Lexical Transition&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a32ea9bbf8df00da2a0aaadd26026b10b"></a>
@@ -558,6 +677,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="transitions_8h_source.html#l00098">98</a> of file <a class="el" href="transitions_8h_source.html">transitions.h</a>.</p>
+<div class="fragment"><div class="line">{distribution=dst;}; <span class="comment">//Check that distribution is survival function</span></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ab2f57cfb8ddca23efb92637a430b59f9"></a>
@@ -589,6 +711,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="transitions_8h_source.html#l00072">72</a> of file <a class="el" href="transitions_8h_source.html">transitions.h</a>.</p>
+<div class="fragment"><div class="line">{stateName=txt;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="af053d45aa8a24feddb4c1e930b89aaee"></a>
@@ -620,6 +745,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="transitions_8h_source.html#l00076">76</a> of file <a class="el" href="transitions_8h_source.html">transitions.h</a>.</p>
+<div class="fragment"><div class="line">{toState=st;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a8115ddd8cfb50d1956a69d1366035d34"></a>
@@ -652,6 +780,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
 </dl>
 <dl class="section see"><dt>See also:</dt><dd>enum <a class="el" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0">tracebackIdentifier</a> </dd></dl>
 
+<p>Definition at line <a class="el" href="transitions_8h_source.html#l00087">87</a> of file <a class="el" href="transitions_8h_source.html">transitions.h</a>.</p>
+<div class="fragment"><div class="line">{traceback_identifier = tbIdt;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a48c7cd355669d9aa3c9b4e78000957e3"></a>
@@ -683,6 +814,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="transitions_8h_source.html#l00091">91</a> of file <a class="el" href="transitions_8h_source.html">transitions.h</a>.</p>
+<div class="fragment"><div class="line">{traceback_string = txt;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a60bd08123d01d067155ee787674d43a1"></a>
@@ -714,6 +848,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="transitions_8h_source.html#l00103">103</a> of file <a class="el" href="transitions_8h_source.html">transitions.h</a>.</p>
+<div class="fragment"><div class="line">{log_trans=value;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a71e28e8a5af03f7b9e5d2963e67fe1ef"></a>
@@ -746,6 +883,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
 </dl>
 <dl class="section see"><dt>See also:</dt><dd>enum transType </dd></dl>
 
+<p>Definition at line <a class="el" href="transitions_8h_source.html#l00081">81</a> of file <a class="el" href="transitions_8h_source.html">transitions.h</a>.</p>
+<div class="fragment"><div class="line">{transition_type=type;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a318b00aa1f690a81687a6d81a04edba5"></a>
@@ -763,16 +903,93 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
 <p>Convert the transition to a string representation as shown in the model file </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::string Representation of the transition </dd></dl>
 
+<p>Definition at line <a class="el" href="transitions_8cpp_source.html#l00521">521</a> of file <a class="el" href="transitions_8cpp_source.html">transitions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                   {</div>
+<div class="line">        std::string transString;</div>
+<div class="line">        <span class="keywordflow">if</span> (transition_type == STANDARD){</div>
+<div class="line">            transString+=<span class="stringliteral">&quot;\t&quot;</span> + stateName + <span class="stringliteral">&quot;:\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(log_trans);</div>
+<div class="line">            <span class="keywordflow">if</span> (func!=NULL){</div>
+<div class="line">                transString+=<span class="stringliteral">&quot;\t&quot;</span> + func-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#ae6123ce62a2a1a9742599b26c4e26d03" title="prints the string representation of the externFuncs to stdout">stringify</a>();</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (transition_type == DURATION){</div>
+<div class="line">            transString+=<span class="stringliteral">&quot;\t&quot;</span> + stateName + <span class="stringliteral">&quot;:\t&quot;</span> ;</div>
+<div class="line">            transString+= (traceback_identifier==STATE_NAME) ? <span class="stringliteral">&quot;TO_STATE:\t&quot;</span> + traceback_string :</div>
+<div class="line">                          (traceback_identifier==STATE_LABEL) ? <span class="stringliteral">&quot;TO_LABEL:\t&quot;</span> + traceback_string :</div>
+<div class="line">                          (traceback_identifier==STATE_GFF) ? <span class="stringliteral">&quot;TO_GFF:\t&quot;</span> + traceback_string : <span class="stringliteral">&quot;DIFF_STATE&quot;</span> ;</div>
+<div class="line">            <span class="keywordflow">if</span> (func!=NULL){</div>
+<div class="line">                transString+=<span class="stringliteral">&quot;\t&quot;</span> + func-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#ae6123ce62a2a1a9742599b26c4e26d03" title="prints the string representation of the externFuncs to stdout">stringify</a>();</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            transString+=<span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;distribution-&gt;size();i++){</div>
+<div class="line">                transString+= <span class="stringliteral">&quot;\t\t&quot;</span> + <a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>((<span class="keywordtype">int</span>) i+1) + <span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>((*distribution)[i]) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (transition_type == LEXICAL){</div>
+<div class="line">            transString+=<span class="stringliteral">&quot;\t&quot;</span> + stateName + <span class="stringliteral">&quot;:\t&quot;</span>;</div>
+<div class="line">            </div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (<span class="keyword">function</span>){</div>
+<div class="line">                transString+=lexFunc-&gt;<a class="code" href="class_stoch_h_m_m_1_1emission_func_param.html#a8cbdaac4b51e7eb61b5ab9aa26f56bbc">getTrackName</a>();</div>
+<div class="line">                <span class="keywordflow">if</span> (func!=NULL){</div>
+<div class="line">                    transString+=<span class="stringliteral">&quot;\t&quot;</span> + func-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#ae6123ce62a2a1a9742599b26c4e26d03" title="prints the string representation of the externFuncs to stdout">stringify</a>();</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;scoreTable.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#ad9ad8a859d35b7d0a0b7a841e075c98e">trackSize</a>();i++){</div>
+<div class="line">                    <span class="keywordflow">if</span> (i&gt;0){</div>
+<div class="line">                        transString+=<span class="stringliteral">&quot;,&quot;</span>;</div>
+<div class="line">                    }</div>
+<div class="line">                    transString+=scoreTable.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a8fa209c6bb18b5764f00b6d84a360065">getTrack</a>(i)-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#aef2e0ba6264ad17c0dfb13eec6134adb">getName</a>();</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (func!=NULL){</div>
+<div class="line">                    transString+=<span class="stringliteral">&quot;\t&quot;</span> + func-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#ae6123ce62a2a1a9742599b26c4e26d03" title="prints the string representation of the externFuncs to stdout">stringify</a>();</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                transString+=<span class="stringliteral">&quot;\n\t\tORDER:\t&quot;</span>;</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;scoreTable.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#ad9ad8a859d35b7d0a0b7a841e075c98e">trackSize</a>();i++){</div>
+<div class="line">                    <span class="keywordflow">if</span> (i&gt;0){</div>
+<div class="line">                        transString+=<span class="stringliteral">&quot;,&quot;</span>;</div>
+<div class="line">                    }</div>
+<div class="line">                    transString+=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(scoreTable.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a1516c1242e82b229a2449c6710735606">getOrder</a>(i));</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521">unknownCharScoringType</a> ambtemp = scoreTable.getAmbScoringType();</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (ambtemp!=NO_SCORE){</div>
+<div class="line">                    transString+=<span class="stringliteral">&quot;\tAMBIGUOUS:\t&quot;</span>;</div>
+<div class="line">                    transString+=(ambtemp==HIGHEST_SCORE)? <span class="stringliteral">&quot;MAX&quot;</span>:</div>
+<div class="line">                    (ambtemp==LOWEST_SCORE)? <span class="stringliteral">&quot;MIN&quot;</span>:</div>
+<div class="line">                    (ambtemp==AVERAGE_SCORE)? <span class="stringliteral">&quot;AVG&quot;</span>: <span class="stringliteral">&quot;LOG:&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(scoreTable.getAmbDefinedScore());</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                transString+=<span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Print the probability table</span></div>
+<div class="line">                <span class="comment">//Output Column Headers</span></div>
+<div class="line">                transString+=scoreTable.stringify();</div>
+<div class="line"></div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> transString;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="transitions_8h_source.html">transitions.h</a></li>
-<li>transitions.cpp</li>
+<li><a class="el" href="transitions_8cpp_source.html">transitions.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

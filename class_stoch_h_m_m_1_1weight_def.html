@@ -145,6 +145,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>weightedState</b></
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_stoch_h_m_m_1_1weight_def.html">weightDef</a> defines weighted external definitions. Model weights the states at the position with a value </p>
+
+<p>Definition at line <a class="el" href="extern_definitions_8h_source.html#l00132">132</a> of file <a class="el" href="extern_definitions_8h_source.html">externDefinitions.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a99c05b143ab8e55bafeb6d53ac954f60"></a>
 <div class="memitem">
@@ -188,16 +190,28 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>weightedState</b></
 
 <p>Reimplemented from <a class="el" href="class_stoch_h_m_m_1_1_ex_def.html">StochHMM::ExDef</a>.</p>
 
+<p>Definition at line <a class="el" href="extern_definitions_8cpp_source.html#l00140">140</a> of file <a class="el" href="extern_definitions_8cpp_source.html">externDefinitions.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                 {</div>
+<div class="line">                <span class="keywordflow">if</span> (!weights.<a class="code" href="class_stoch_h_m_m_1_1sparse_array.html#a6f5d7c9d8ee9063385b59dfd8f5d521e">defined</a>(stateIter)){</div>
+<div class="line">                        weights[stateIter] = logValue;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                        weights[stateIter]+=logValue;</div>
+<div class="line">                }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="extern_definitions_8h_source.html">externDefinitions.h</a></li>
-<li>externDefinitions.cpp</li>
+<li><a class="el" href="extern_definitions_8cpp_source.html">externDefinitions.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

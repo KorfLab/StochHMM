@@ -151,6 +151,8 @@ class StochHMM::sparseArray&lt; T &gt;</h3>
 
 <p>SparseArray is a template class that stores the values in a sparse array The values in the array are indexed by a dynamic bitset. For example, to get the value at iterator 5, we need to convert that iterator to the iterator of the std::vector array. This is essentially the number of values that are stored before the value at the 5th position.</p>
 <p>SparseArray uses std::vector. This means that it will incure an increased cost of inserting and deleting values. </p>
+
+<p>Definition at line <a class="el" href="sparse_array_8h_source.html#l00029">29</a> of file <a class="el" href="sparse_array_8h_source.html">sparseArray.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a6f5d7c9d8ee9063385b59dfd8f5d521e"></a>
 <div class="memitem">
@@ -180,6 +182,9 @@ template&lt;typename T&gt; </div>
 <dd>
 false if element is not defined at position </dd></dl>
 
+<p>Definition at line <a class="el" href="sparse_array_8h_source.html#l00064">64</a> of file <a class="el" href="sparse_array_8h_source.html">sparseArray.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> flag[pos];}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="abfb38faa7ac0e10628d0f7a22ca847ff"></a>
@@ -216,6 +221,15 @@ template&lt;typename T&gt; </div>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="sparse_array_8h_source.html#l00126">126</a> of file <a class="el" href="sparse_array_8h_source.html">sparseArray.h</a>.</p>
+<div class="fragment"><div class="line">                                                    {</div>
+<div class="line">                flag.<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a686ac3d37cb9eb2fa8cbe14542025ed9">insert</a>(pos, 1);</div>
+<div class="line">                flag.<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a5541c2862d98e0178770b30b05979a40">set</a>(pos);</div>
+<div class="line">                <span class="keywordtype">size_t</span> array_iter = flag.<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#afe7dd40dd61b5dfafdfddf660f37e471">count_before</a>(pos);</div>
+<div class="line">                array.insert(array.begin()+array_iter,val);</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a320d754a3e982421dd2b4554769c61ab"></a>
@@ -235,6 +249,38 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Returns reference to object at position *If the position is beyond the length, the sparse array will get extended. *If it is defined it will return a reference to the position *If it is not defined and within the current length of the <a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">sparseArray</a> and after all the currently set values , it will get added to the end of the array *If it is not defined and within the current lenght of the <a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">sparseArray</a> and before other currently set values, then it will get inserted into the array </p>
 
+<p>Definition at line <a class="el" href="sparse_array_8h_source.html#l00142">142</a> of file <a class="el" href="sparse_array_8h_source.html">sparseArray.h</a>.</p>
+<div class="fragment"><div class="line">                                               {</div>
+<div class="line">                <span class="comment">//Increase size of flags if necessary</span></div>
+<div class="line">                <span class="keywordflow">if</span> (flag.size() &lt;= pos){</div>
+<div class="line">                        flag.<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a18a942cdd7e8a6e6af1ebcfeafdc9b41">resize</a>(pos);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//if called on defined data then return reference</span></div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sparse_array.html#a6f5d7c9d8ee9063385b59dfd8f5d521e">defined</a>(pos)){</div>
+<div class="line">                        <span class="keywordflow">return</span> array[flag.<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#afe7dd40dd61b5dfafdfddf660f37e471">count_before</a>(pos)];</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//if called on undefined data then that value will be added as set and returned</span></div>
+<div class="line">                <span class="comment">//with default value of type</span></div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//If position is beyond the last set position then we can simply add it to</span></div>
+<div class="line">                <span class="comment">//the array</span></div>
+<div class="line">                <span class="keywordflow">if</span> (flag.<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a9329172e386934e0b731556ce1a193b3">find_last</a>() &lt; pos){</div>
+<div class="line">                        flag.<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a5541c2862d98e0178770b30b05979a40">set</a>(pos);</div>
+<div class="line">                        array.resize(array.size()+1);</div>
+<div class="line">                        <span class="keywordflow">return</span> array.back();</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Otherwise, we need to insert the position into the array</span></div>
+<div class="line">                <span class="comment">//Uses default constructor of typename T</span></div>
+<div class="line">                flag.<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a5541c2862d98e0178770b30b05979a40">set</a>(pos);</div>
+<div class="line">                <span class="keywordtype">size_t</span> array_iter = flag.<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#afe7dd40dd61b5dfafdfddf660f37e471">count_before</a>(pos);</div>
+<div class="line">                array.insert(array.begin()+array_iter,T());</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">return</span> array[array_iter];</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ae2b217691177ffe028651e707a6875d2"></a>
@@ -254,6 +300,16 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>Returns reference to object at position *If it is defined it will return a reference to the position </p>
 
+<p>Definition at line <a class="el" href="sparse_array_8h_source.html#l00177">177</a> of file <a class="el" href="sparse_array_8h_source.html">sparseArray.h</a>.</p>
+<div class="fragment"><div class="line">                                                           {</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//if called on defined data then return reference</span></div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sparse_array.html#a6f5d7c9d8ee9063385b59dfd8f5d521e">defined</a>(pos)){</div>
+<div class="line">                        <span class="keywordflow">return</span> array[flag.<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#afe7dd40dd61b5dfafdfddf660f37e471">count_before</a>(pos)];</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -262,7 +318,7 @@ template&lt;typename T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

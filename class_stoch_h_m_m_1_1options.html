@@ -118,6 +118,8 @@ Public Member Functions</h2></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Parse, Store, and access commandline options data. </p>
+
+<p>Definition at line <a class="el" href="options_8h_source.html#l00104">104</a> of file <a class="el" href="options_8h_source.html">options.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a195fcf95ef76ea286d9fd6cb0cc83381"></a>
 <div class="memitem">
@@ -141,6 +143,23 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>double </dd></dl>
 
+<p>Definition at line <a class="el" href="options_8cpp_source.html#l00457">457</a> of file <a class="el" href="options_8cpp_source.html">options.cpp</a>.</p>
+<div class="fragment"><div class="line">                                           {</div>
+<div class="line">        <span class="keywordflow">if</span> (opts.count(param)){</div>
+<div class="line">            <span class="keywordflow">if</span> (opts[param]-&gt;<span class="keyword">set</span> &amp;&amp; opts[param]-&gt;type==OPT_INT){</div>
+<div class="line">                <span class="keywordflow">return</span> opts[param]-&gt;data.d;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Option: &quot;</span> &lt;&lt; param &lt;&lt; <span class="stringliteral">&quot; not set or not of type OPT_DOUBLE\n&quot;</span>;</div>
+<div class="line">                exit(2);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Option: &quot;</span> &lt;&lt; param &lt;&lt;<span class="stringliteral">&quot; type doesn&#39;t exist\n&quot;</span>;</div>
+<div class="line">            exit(2);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a9bf2b67b41735f3a8bc9f1196b7b519c"></a>
@@ -178,6 +197,24 @@ Public Member Functions</h2></td></tr>
 <dd>
 false if option does not exist </dd></dl>
 
+<p>Definition at line <a class="el" href="options_8cpp_source.html#l00303">303</a> of file <a class="el" href="options_8cpp_source.html">options.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                    {</div>
+<div class="line">        <span class="keywordflow">if</span> (opts.count(param)){</div>
+<div class="line">            <span class="keywordflow">if</span> (opts[param]-&gt;<span class="keyword">set</span> &amp;&amp; opts[param]-&gt;type==OPT_INT){</div>
+<div class="line">                value=opts[param]-&gt;data.i;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Option: &quot;</span> &lt;&lt; param &lt;&lt; <span class="stringliteral">&quot; not set or not of type OPT_INT\n&quot;</span>;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Option: &quot;</span> &lt;&lt; param &lt;&lt;<span class="stringliteral">&quot; type doesn&#39;t exist\n&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ab7522021bcaa93648668469f141b44a1"></a>
@@ -215,6 +252,24 @@ false if option does not exist </dd></dl>
 <dd>
 false if option does not exist </dd></dl>
 
+<p>Definition at line <a class="el" href="options_8cpp_source.html#l00326">326</a> of file <a class="el" href="options_8cpp_source.html">options.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                       {</div>
+<div class="line">        <span class="keywordflow">if</span> (opts.count(param)){</div>
+<div class="line">            <span class="keywordflow">if</span> (opts[param]-&gt;<span class="keyword">set</span> &amp;&amp; opts[param]-&gt;type==OPT_DOUBLE){</div>
+<div class="line">                value=opts[param]-&gt;data.d;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Option: &quot;</span> &lt;&lt; param &lt;&lt; <span class="stringliteral">&quot; not set or not of type OPT_DOUBLE\n&quot;</span>;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Option: &quot;</span> &lt;&lt; param &lt;&lt;<span class="stringliteral">&quot; type doesn&#39;t exist\n&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a1bf9b1dcc49120d2d238382d10d5cd7e"></a>
@@ -252,6 +307,24 @@ false if option does not exist </dd></dl>
 <dd>
 false if option does not exist </dd></dl>
 
+<p>Definition at line <a class="el" href="options_8cpp_source.html#l00349">349</a> of file <a class="el" href="options_8cpp_source.html">options.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                          {</div>
+<div class="line">        <span class="keywordflow">if</span> (opts.count(param)){</div>
+<div class="line">            <span class="keywordflow">if</span> (opts[param]-&gt;<span class="keyword">set</span> &amp;&amp; opts[param]-&gt;type==OPT_STRING){</div>
+<div class="line">                value=opts[param]-&gt;str;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Option: &quot;</span> &lt;&lt; param &lt;&lt; <span class="stringliteral">&quot; not set or not of type OPT_STRING\n&quot;</span>;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Option: &quot;</span> &lt;&lt; param &lt;&lt;<span class="stringliteral">&quot; type doesn&#39;t exist\n&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a9b4366923dfe5f5de25e11c5e93de9a9"></a>
@@ -276,6 +349,23 @@ false if option does not exist </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>int </dd></dl>
 
+<p>Definition at line <a class="el" href="options_8cpp_source.html#l00437">437</a> of file <a class="el" href="options_8cpp_source.html">options.cpp</a>.</p>
+<div class="fragment"><div class="line">                                        {</div>
+<div class="line">        <span class="keywordflow">if</span> (opts.count(param)){</div>
+<div class="line">            <span class="keywordflow">if</span> (opts[param]-&gt;<span class="keyword">set</span> &amp;&amp; opts[param]-&gt;type==OPT_INT){</div>
+<div class="line">                <span class="keywordflow">return</span> opts[param]-&gt;data.i;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Option: &quot;</span> &lt;&lt; param &lt;&lt; <span class="stringliteral">&quot; not set or not of type OPT_INT\n&quot;</span>;</div>
+<div class="line">                exit(2);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Option: &quot;</span> &lt;&lt; param &lt;&lt;<span class="stringliteral">&quot; type doesn&#39;t exist\n&quot;</span>;</div>
+<div class="line">            exit(2);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="abfe10326b47d065a1289e989346038c8"></a>
@@ -313,6 +403,30 @@ false if option does not exist </dd></dl>
 <dd>
 false if secondary option is not set </dd></dl>
 
+<p>Definition at line <a class="el" href="options_8cpp_source.html#l00372">372</a> of file <a class="el" href="options_8cpp_source.html">options.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                            {</div>
+<div class="line">        std::string secondary=sec;</div>
+<div class="line">        <span class="keywordflow">if</span> (opts.count(param)){</div>
+<div class="line">            <span class="keywordflow">if</span> (opts[param]-&gt;<span class="keyword">set</span> &amp;&amp; opts[param]-&gt;type==OPT_FLAG){</div>
+<div class="line">                <span class="keywordflow">if</span> (opts[param]-&gt;flags.count(secondary)){</div>
+<div class="line">                    <span class="keywordflow">return</span> opts[param]-&gt;flags[secondary];</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> {</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Secondary command: &quot;</span> &lt;&lt; secondary &lt;&lt; <span class="stringliteral">&quot; doesn&#39;t exist.\n&quot;</span>;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                <span class="comment">//cerr &lt;&lt; &quot;Option: &quot; &lt;&lt; param &lt;&lt; &quot; not set or not of type OPT_FLAG\n&quot;;</span></div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Option: &quot;</span> &lt;&lt; param &lt;&lt;<span class="stringliteral">&quot; type doesn&#39;t exist\n&quot;</span>;</div>
+<div class="line">            exit(2);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a6903fcd2bb32637409cc5bccece934cc"></a>
@@ -339,6 +453,17 @@ false if secondary option is not set </dd></dl>
 <dd>
 false if option is not set or didn't exist in commandline argument </dd></dl>
 
+<p>Definition at line <a class="el" href="options_8cpp_source.html#l00402">402</a> of file <a class="el" href="options_8cpp_source.html">options.cpp</a>.</p>
+<div class="fragment"><div class="line">                                        {</div>
+<div class="line">        <span class="keywordflow">if</span> (opts.count(param)){</div>
+<div class="line">            <span class="keywordflow">return</span> opts[param]-&gt;set;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Option: &quot;</span> &lt;&lt; param &lt;&lt;<span class="stringliteral">&quot; type doesn&#39;t exist\n&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a2488d7c3774582836140ebf67ec9a13c"></a>
@@ -373,6 +498,143 @@ false if option is not set or didn't exist in commandline argument </dd></dl>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="options_8cpp_source.html#l00161">161</a> of file <a class="el" href="options_8cpp_source.html">options.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                {</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=1;i&lt;argc;i++){</div>
+<div class="line">            std::string tag=argv[i];</div>
+<div class="line">            <span class="keywordflow">if</span> (tag[0]!=<span class="charliteral">&#39;-&#39;</span>){</div>
+<div class="line">                std::cout &lt;&lt; <span class="stringliteral">&quot;Unpaired/Unknown commandline argument:\t&quot;</span> &lt;&lt; tag &lt;&lt;std::endl;</div>
+<div class="line">                std::cout &lt;&lt; usage &lt;&lt; std::endl; <span class="comment">//Print Usage statement</span></div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (opts.count(tag)){</div>
+<div class="line">                std::string secondary;</div>
+<div class="line">                opts[tag]-&gt;set=<span class="keyword">true</span>;</div>
+<div class="line">                <span class="keywordflow">switch</span> (opts[tag]-&gt;type) {</div>
+<div class="line">                    <span class="keywordflow">case</span> OPT_NONE:</div>
+<div class="line">                        <span class="keywordflow">break</span>;</div>
+<div class="line">                    <span class="keywordflow">case</span> OPT_INT:</div>
+<div class="line">                        <span class="keywordflow">if</span> (i+1==argc){</div>
+<div class="line">                            <span class="keywordflow">if</span> (!opts[tag]-&gt;default_value){</div>
+<div class="line">                                std::cerr &lt;&lt; <span class="stringliteral">&quot;Command:\t&quot;</span> &lt;&lt; tag &lt;&lt;<span class="stringliteral">&quot; is missing a secondary command line argument\n&quot;</span>;</div>
+<div class="line">                                std::cout &lt;&lt; usage &lt;&lt; std::endl; <span class="comment">//Print Usage statement</span></div>
+<div class="line">                                exit(2);</div>
+<div class="line">                            }</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (argv[i+1][0]==<span class="charliteral">&#39;-&#39;</span>){</div>
+<div class="line">                            <span class="keywordflow">if</span> (!opts[tag]-&gt;default_value){</div>
+<div class="line">                                std::cerr &lt;&lt; <span class="stringliteral">&quot;Command:\t&quot;</span> &lt;&lt; tag &lt;&lt;<span class="stringliteral">&quot; is missing a secondary command line argument\n&quot;</span>;</div>
+<div class="line">                            }</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">else</span>{</div>
+<div class="line">                            <span class="comment">//Probably need to check to make sure that the argument is a number;</span></div>
+<div class="line">                            opts[tag]-&gt;data.i=atoi(argv[++i]);</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">break</span>;</div>
+<div class="line">                    <span class="keywordflow">case</span> OPT_DOUBLE:</div>
+<div class="line">                        <span class="keywordflow">if</span> (i+1==argc){</div>
+<div class="line">                            <span class="keywordflow">if</span> (!opts[tag]-&gt;default_value){</div>
+<div class="line">                                std::cerr &lt;&lt; <span class="stringliteral">&quot;Command:\t&quot;</span> &lt;&lt; tag &lt;&lt;<span class="stringliteral">&quot; is missing a argument\n&quot;</span>;</div>
+<div class="line">                                std::cout &lt;&lt; usage &lt;&lt; std::endl; <span class="comment">//Print Usage statement</span></div>
+<div class="line">                                exit(2);</div>
+<div class="line">                            }</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (argv[i+1][0]==<span class="charliteral">&#39;-&#39;</span>){</div>
+<div class="line">                            <span class="keywordflow">if</span> (!opts[tag]-&gt;default_value){</div>
+<div class="line">                                std::cerr &lt;&lt; <span class="stringliteral">&quot;Command:\t&quot;</span> &lt;&lt; tag &lt;&lt;<span class="stringliteral">&quot; is missing a secondary command line argument\n&quot;</span>;</div>
+<div class="line">                            }</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">else</span>{</div>
+<div class="line">                            opts[tag]-&gt;data.i=atof(argv[++i]);</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">break</span>;</div>
+<div class="line">                    <span class="keywordflow">case</span> OPT_STRING:</div>
+<div class="line">                        <span class="comment">//Check that secondary doesn&#39;t start with a dash;</span></div>
+<div class="line">                        <span class="keywordflow">if</span> (i+1==argc){</div>
+<div class="line">                            secondary=<span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">else</span>{</div>
+<div class="line">                            secondary=argv[i+1];</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (secondary[0]==<span class="charliteral">&#39;-&#39;</span>){</div>
+<div class="line">                            <span class="keywordflow">if</span> (!opts[tag]-&gt;default_value){</div>
+<div class="line">                                opts[tag]-&gt;str=<span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">                            }</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">else</span>{</div>
+<div class="line">                            i++;</div>
+<div class="line">                            <span class="keywordflow">if</span> (opts[tag]-&gt;restricted){</div>
+<div class="line">                                <span class="keywordflow">if</span> (opts[tag]-&gt;flags.count(secondary)){</div>
+<div class="line">                                    opts[tag]-&gt;str=secondary;</div>
+<div class="line">                                }</div>
+<div class="line">                                <span class="keywordflow">else</span>{</div>
+<div class="line">                                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Secondary option for:\t&quot;</span> &lt;&lt; tag &lt;&lt; <span class="stringliteral">&quot;  -&gt;&quot;</span> &lt;&lt; secondary &lt;&lt; <span class="stringliteral">&quot; is not allowed.\n&quot;</span>;</div>
+<div class="line">                                    std::cout &lt;&lt; usage &lt;&lt; std::endl; <span class="comment">//Print Usage statement</span></div>
+<div class="line">                                    exit(2);</div>
+<div class="line">                                }</div>
+<div class="line">                            }</div>
+<div class="line">                            <span class="keywordflow">else</span>{</div>
+<div class="line">                                <span class="keywordflow">if</span> (secondary.compare(<span class="stringliteral">&quot;&quot;</span>)==0){</div>
+<div class="line">                                    <span class="keywordflow">if</span> (!opts[tag]-&gt;default_value){</div>
+<div class="line">                                        opts[tag]-&gt;str=secondary;</div>
+<div class="line">                                    }</div>
+<div class="line">                                }</div>
+<div class="line">                                <span class="keywordflow">else</span>{</div>
+<div class="line">                                    opts[tag]-&gt;str=secondary;</div>
+<div class="line">                                }</div>
+<div class="line">                            }</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">break</span>;</div>
+<div class="line">                    <span class="keywordflow">case</span> OPT_FLAG:</div>
+<div class="line">                        <span class="keywordflow">if</span> (i+1==argc){</div>
+<div class="line">                            std::cerr &lt;&lt; <span class="stringliteral">&quot;Command:\t&quot;</span> &lt;&lt; tag &lt;&lt;<span class="stringliteral">&quot; is missing a secondary command line argument\n&quot;</span>;</div>
+<div class="line">                            std::cout &lt;&lt; usage &lt;&lt; std::endl; <span class="comment">//Print Usage statement</span></div>
+<div class="line">                            exit(2);</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        secondary=argv[++i];</div>
+<div class="line">                        <span class="keywordflow">if</span> (opts[tag]-&gt;flags.count(secondary)){</div>
+<div class="line">                            opts[tag]-&gt;flags[secondary]=<span class="keyword">true</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">else</span>{</div>
+<div class="line">                            std::cerr &lt;&lt; <span class="stringliteral">&quot;Secondary option for:\t&quot;</span> &lt;&lt; tag &lt;&lt; <span class="stringliteral">&quot;  -&gt;&quot;</span> &lt;&lt; secondary &lt;&lt; <span class="stringliteral">&quot; is not allowed.\n&quot;</span>;</div>
+<div class="line">                            std::cout &lt;&lt; usage &lt;&lt; std::endl; <span class="comment">//Print Usage statement</span></div>
+<div class="line">                            exit(2);</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">break</span>;</div>
+<div class="line">                    <span class="keywordflow">default</span>:</div>
+<div class="line">                        <span class="keywordflow">break</span>;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//check that all required are now set;</span></div>
+<div class="line">        <span class="keywordtype">bool</span> <span class="keyword">set</span>(<span class="keyword">true</span>);</div>
+<div class="line">        std::map&lt;std::string,bool&gt; RequiredNotSet;</div>
+<div class="line">        std::map&lt;std::string,opt_data*&gt;::iterator it;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(it=opts.begin();it!=opts.end();it++){</div>
+<div class="line">            <span class="keywordflow">if</span> ((*it).second-&gt;required &amp;&amp; !(*it).second-&gt;set){</div>
+<div class="line">                <span class="keyword">set</span>=<span class="keyword">false</span>;</div>
+<div class="line">                RequiredNotSet[alternatives[(*it).first]]=<span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (!<span class="keyword">set</span>){</div>
+<div class="line">            std::map&lt;std::string,bool&gt;::iterator it;</div>
+<div class="line">            <span class="keywordflow">for</span>(it=RequiredNotSet.begin();it!=RequiredNotSet.end();it++){</div>
+<div class="line">                std::cout &lt;&lt; <span class="stringliteral">&quot;Required option:\t&quot;</span> &lt;&lt; (*it).first &lt;&lt;<span class="stringliteral">&quot; not set on command-line\n&quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">            std::cout &lt;&lt; usage &lt;&lt;std::endl;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="acf4588749c0c109dc3be7f49b162fa0a"></a>
@@ -414,6 +676,129 @@ false if option is not set or didn't exist in commandline argument </dd></dl>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="options_8cpp_source.html#l00034">34</a> of file <a class="el" href="options_8cpp_source.html">options.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                                         {</div>
+<div class="line">        </div>
+<div class="line">        usage=usageStatement;</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Process paramaters</span></div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;size;i++){</div>
+<div class="line">            <span class="comment">//Get possible commandline tags and split possible tags;</span></div>
+<div class="line">            std::string opt_tag=param[i].commandline_tag;</div>
+<div class="line">            std::vector&lt;std::string&gt; tags;</div>
+<div class="line">            <span class="keywordtype">size_t</span> found=opt_tag.find_first_of(<span class="stringliteral">&quot;:&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">if</span> (found==std::string::npos){</div>
+<div class="line">                tags.push_back(opt_tag);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                <span class="keywordflow">while</span> (found!=std::string::npos){</div>
+<div class="line">                    tags.push_back(opt_tag.substr(0,found));</div>
+<div class="line">                    opt_tag.erase(0,found+1);</div>
+<div class="line">                    found=opt_tag.find_first_of(<span class="stringliteral">&quot;:&quot;</span>);</div>
+<div class="line">                    <span class="keywordflow">if</span> (found==std::string::npos){</div>
+<div class="line">                        tags.push_back(opt_tag);</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">// Check allowable;</span></div>
+<div class="line">            <span class="keywordtype">int</span> allowable_defined=0;</div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0;j&lt;MAX_ALLOWABLE;j++){</div>
+<div class="line">                <span class="keywordflow">if</span> (param[i].allowable[j]!=<span class="stringliteral">&quot;&quot;</span>){</div>
+<div class="line">                    allowable_defined++;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                    <span class="keywordflow">break</span>;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//Make assignments to opt_data </span></div>
+<div class="line">            opt_data *tp= <span class="keyword">new</span>(std::nothrow) opt_data;</div>
+<div class="line">            <span class="keywordflow">if</span> (tp==NULL){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            tp-&gt;type=param[i].type;</div>
+<div class="line">            tp-&gt;required=param[i].required;</div>
+<div class="line">            </div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//Process restricted/allowable secondary options parameters</span></div>
+<div class="line">            <span class="keywordflow">if</span> (allowable_defined&gt;0){</div>
+<div class="line">                tp-&gt;restricted =<span class="keyword">true</span>;</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k=0;k&lt;allowable_defined;k++){</div>
+<div class="line">                    tp-&gt;flags[param[i].allowable[k]]=<span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> {</div>
+<div class="line">                tp-&gt;restricted =<span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//Determine presets and assign</span></div>
+<div class="line">            <span class="keywordflow">if</span> (param[i].preset.compare(<span class="stringliteral">&quot;&quot;</span>)!=0){</div>
+<div class="line">                <span class="keywordflow">if</span> (tp-&gt;type==OPT_INT){</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="keywordtype">double</span> tempValue;</div>
+<div class="line">                    std::istringstream input(param[i].preset);</div>
+<div class="line">                    <span class="keywordflow">if</span>(!(input&gt;&gt;tempValue)){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t convert preset to numerical integer: &quot;</span> &lt;&lt; param[i].preset &lt;&lt; std::endl;</div>
+<div class="line">                        tp-&gt;set=<span class="keyword">false</span>;</div>
+<div class="line">                    }</div>
+<div class="line">                    <span class="keywordflow">else</span>{</div>
+<div class="line">                        tp-&gt;data.i=tempValue;</div>
+<div class="line">                        tp-&gt;default_value=<span class="keyword">true</span>;</div>
+<div class="line">                        tp-&gt;set=<span class="keyword">false</span>;</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tp-&gt;type==OPT_DOUBLE){</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="keywordtype">double</span> tempValue;</div>
+<div class="line">                    std::istringstream input(param[i].preset);</div>
+<div class="line">                    <span class="keywordflow">if</span>(!(input &gt;&gt; tempValue)){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t convert preset to numerical double: &quot;</span> &lt;&lt; param[i].preset &lt;&lt; std::endl;</div>
+<div class="line">                        tp-&gt;set=<span class="keyword">false</span>;</div>
+<div class="line">                    }</div>
+<div class="line">                    <span class="keywordflow">else</span>{</div>
+<div class="line">                        tp-&gt;data.d=tempValue;</div>
+<div class="line">                        tp-&gt;default_value=<span class="keyword">true</span>;</div>
+<div class="line">                        tp-&gt;set=<span class="keyword">false</span>;</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tp-&gt;type==OPT_STRING){</div>
+<div class="line">                    tp-&gt;str=param[i].preset;</div>
+<div class="line">                    tp-&gt;default_value = <span class="keyword">true</span>;</div>
+<div class="line">                    tp-&gt;set=<span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tp-&gt;type==OPT_FLAG){</div>
+<div class="line">                    tp-&gt;set=<span class="keyword">false</span>;</div>
+<div class="line">                    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k=0;k&lt;param[i].preset.size();k++){</div>
+<div class="line">                        <span class="keywordflow">if</span> (k&gt;=MAX_ALLOWABLE){</div>
+<div class="line">                            std::cerr &lt;&lt; <span class="stringliteral">&quot;More presets than allowed OPT_FLAG&quot;</span> &lt;&lt;std::endl;</div>
+<div class="line">                            exit(0);</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordtype">char</span> c=param[i].preset[k];</div>
+<div class="line">                        <span class="keywordflow">if</span> (c==<span class="charliteral">&#39;1&#39;</span>){</div>
+<div class="line">                            tp-&gt;flags[param[i].allowable[k]]=<span class="keyword">true</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">else</span>{</div>
+<div class="line">                            tp-&gt;flags[param[i].allowable[k]]=<span class="keyword">false</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//Assign the possible tags to map. Linked to pointer to opt_data</span></div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j=0; j&lt;tags.size();j++){</div>
+<div class="line">                <span class="comment">//cout &lt;&lt; tags[j] &lt;&lt; endl;</span></div>
+<div class="line">                opts[tags[j]]=tp;</div>
+<div class="line">                alternatives[tags[j]]=tags[0];</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="abc552cfdbe95db3dbd9da8ab062b3d83"></a>
@@ -438,16 +823,33 @@ false if option is not set or didn't exist in commandline argument </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>std::string </dd></dl>
 
+<p>Definition at line <a class="el" href="options_8cpp_source.html#l00416">416</a> of file <a class="el" href="options_8cpp_source.html">options.cpp</a>.</p>
+<div class="fragment"><div class="line">                                              {</div>
+<div class="line">        <span class="keywordflow">if</span> (opts.count(param)){</div>
+<div class="line">            <span class="keywordflow">if</span> (opts[param]-&gt;<span class="keyword">set</span> &amp;&amp; opts[param]-&gt;type==OPT_STRING){</div>
+<div class="line">                <span class="keywordflow">return</span> opts[param]-&gt;str;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Option: &quot;</span> &lt;&lt; param &lt;&lt; <span class="stringliteral">&quot; not set or not of type OPT_STRING\n&quot;</span>;</div>
+<div class="line">                exit(2);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Option: &quot;</span> &lt;&lt; param &lt;&lt;<span class="stringliteral">&quot; type doesn&#39;t exist\n&quot;</span>;</div>
+<div class="line">            exit(2);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="options_8h_source.html">options.h</a></li>
-<li>options.cpp</li>
+<li><a class="el" href="options_8cpp_source.html">options.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

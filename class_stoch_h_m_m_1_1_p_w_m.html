@@ -137,7 +137,10 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>stringify</b> 
 <tr class="memitem:a29304ddbe937a46f439a76aa131f383e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a29304ddbe937a46f439a76aa131f383e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr>
 </table>
-<hr/><h2>Member Function Documentation</h2>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00050">50</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+</div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a3a05877ba27e439e1fce6d79b2d34d89"></a>
 <div class="memitem">
 <div class="memproto">
@@ -159,6 +162,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00047">47</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+<div class="fragment"><div class="line">                                       {</div>
+<div class="line">                std::string modelString=<a class="code" href="group___text.html#gafad8e125317894c8056a5706c4590b9b">slurpFile</a>(file);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a29df1c1c3f4ad1fe51a9f057a6577c63">parse</a>(modelString);</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a17b17d47b6878aaa10b2d9ed948aad41"></a>
@@ -182,6 +191,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00056">56</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+<div class="fragment"><div class="line">                                        {</div>
+<div class="line">                std::string fl(file);</div>
+<div class="line">                <span class="keyword">import</span>(fl);</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a29df1c1c3f4ad1fe51a9f057a6577c63"></a>
@@ -205,16 +220,169 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00065">65</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+<div class="fragment"><div class="line">                                              {</div>
+<div class="line">                <span class="keywordtype">size_t</span> thresh = matrix.find(<span class="stringliteral">&quot;THRESHOLD DEFINITION&quot;</span>);</div>
+<div class="line">        <span class="keywordtype">size_t</span> track  = matrix.find(<span class="stringliteral">&quot;TRACK SYMBOL DEFINITIONS&quot;</span>);</div>
+<div class="line">        <span class="keywordtype">size_t</span> ambig  = matrix.find(<span class="stringliteral">&quot;AMBIGUOUS SYMBOL DEFINITIONS&quot;</span>);</div>
+<div class="line">        <span class="keywordtype">size_t</span> pwm = matrix.find(<span class="stringliteral">&quot;POSITION WEIGHT DEFINITIONS&quot;</span>);</div>
+<div class="line">                <span class="keywordtype">size_t</span> back = matrix.find(<span class="stringliteral">&quot;BACKGROUND DEFINITION&quot;</span>);</div>
+<div class="line">                <span class="keywordtype">size_t</span> space = matrix.find(<span class="stringliteral">&quot;SPACER DEFINITIONS&quot;</span>);</div>
+<div class="line">                <span class="keywordtype">size_t</span> blank;</div>
+<div class="line">        <span class="keywordtype">size_t</span> nlChar;</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (thresh != std::string::npos){</div>
+<div class="line">                        blank=matrix.find(<span class="stringliteral">&quot;\n\n&quot;</span>,thresh);</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordtype">size_t</span> nlCharEq = matrix.rfind(<span class="stringliteral">&quot;####\n&quot;</span>,blank);</div>
+<div class="line">                        <span class="keywordtype">size_t</span> nlCharNum= matrix.rfind(<span class="stringliteral">&quot;====\n&quot;</span>,blank);</div>
+<div class="line">                        <span class="comment">//Check for optional dividing line</span></div>
+<div class="line">                        <span class="keywordflow">if</span> (nlCharEq!=std::string::npos){</div>
+<div class="line">                                nlChar=nlCharEq+5;</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (nlCharNum!=std::string::npos){</div>
+<div class="line">                                nlChar=nlCharNum+5;</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">else</span>{  <span class="comment">//No divider line</span></div>
+<div class="line">                                nlChar=matrix.find(<span class="stringliteral">&quot;\n&quot;</span>,thresh);</div>
+<div class="line">                                nlChar++;</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        </div>
+<div class="line">                        std::string thr (matrix.substr(nlChar,blank-nlChar));</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (!_parseThreshold(thr)){</div>
+<div class="line">                                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (track != std::string::npos){</div>
+<div class="line">                        blank=matrix.find(<span class="stringliteral">&quot;\n\n&quot;</span>,track);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordtype">size_t</span> nlCharEq = matrix.rfind(<span class="stringliteral">&quot;####\n&quot;</span>,blank);</div>
+<div class="line">            <span class="keywordtype">size_t</span> nlCharNum= matrix.rfind(<span class="stringliteral">&quot;====\n&quot;</span>,blank);</div>
+<div class="line">            <span class="comment">//Check for optional dividing line</span></div>
+<div class="line">            <span class="keywordflow">if</span> (nlCharEq!=std::string::npos){</div>
+<div class="line">                nlChar=nlCharEq+5;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (nlCharNum!=std::string::npos){</div>
+<div class="line">                nlChar=nlCharNum+5;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{  <span class="comment">//No divider line</span></div>
+<div class="line">                nlChar=matrix.find(<span class="stringliteral">&quot;\n&quot;</span>,track);</div>
+<div class="line">                nlChar++;</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line"></div>
+<div class="line">            std::string trck (matrix.substr(nlChar,blank-nlChar));</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> (!_parseTrack(trck)){</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">                        </div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Required section: TRACK SYMBOL DEFINITIONS missing from the model&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (ambig != std::string::npos){</div>
+<div class="line">                        blank=matrix.find(<span class="stringliteral">&quot;\n\n&quot;</span>,ambig);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordtype">size_t</span> nlCharEq = matrix.rfind(<span class="stringliteral">&quot;####\n&quot;</span>,blank);</div>
+<div class="line">            <span class="keywordtype">size_t</span> nlCharNum= matrix.rfind(<span class="stringliteral">&quot;====\n&quot;</span>,blank);</div>
+<div class="line">            <span class="comment">//Check for optional dividing line</span></div>
+<div class="line">            <span class="keywordflow">if</span> (nlCharEq!=std::string::npos){</div>
+<div class="line">                nlChar=nlCharEq+5;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (nlCharNum!=std::string::npos){</div>
+<div class="line">                nlChar=nlCharNum+5;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{  <span class="comment">//No divider line</span></div>
+<div class="line">                nlChar=matrix.find(<span class="stringliteral">&quot;\n&quot;</span>,ambig);</div>
+<div class="line">                nlChar++;</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line">            std::string amb(matrix.substr(nlChar,blank-nlChar));</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> (!_parseAmbiguous(amb)){</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (back!= std::string::npos){</div>
+<div class="line">                        blank=matrix.find(<span class="stringliteral">&quot;\n\n&quot;</span>,back);</div>
+<div class="line">                        </div>
+<div class="line">            <span class="keywordtype">size_t</span> nlCharEq = matrix.rfind(<span class="stringliteral">&quot;####\n&quot;</span>,blank);</div>
+<div class="line">            <span class="keywordtype">size_t</span> nlCharNum= matrix.rfind(<span class="stringliteral">&quot;====\n&quot;</span>,blank);</div>
+<div class="line">            <span class="comment">//Check for optional dividing line</span></div>
+<div class="line">            <span class="keywordflow">if</span> (nlCharEq!=std::string::npos){</div>
+<div class="line">                nlChar=nlCharEq+5;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (nlCharNum!=std::string::npos){</div>
+<div class="line">                nlChar=nlCharNum+5;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{  <span class="comment">//No divider line</span></div>
+<div class="line">                nlChar=matrix.find(<span class="stringliteral">&quot;\n&quot;</span>,back);</div>
+<div class="line">                nlChar++;</div>
+<div class="line">            }</div>
+<div class="line">                        </div>
+<div class="line">            std::string background(matrix.substr(nlChar,blank-nlChar));</div>
+<div class="line">                        </div>
+<div class="line">            <span class="keywordflow">if</span> (!_parseBackground(background)){</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Parse the positions</span></div>
+<div class="line">                <span class="keywordflow">if</span> (pwm != std::string::npos){</div>
+<div class="line">                        std::string positions = matrix.substr(pwm);</div>
+<div class="line">                        _parsePositions(positions);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Parse the Spacer Information</span></div>
+<div class="line">                <span class="keywordflow">if</span> (space != std::string::npos){</div>
+<div class="line">                        blank=matrix.find(<span class="stringliteral">&quot;\n\n&quot;</span>,space);</div>
+<div class="line">                        </div>
+<div class="line">            <span class="keywordtype">size_t</span> nlCharEq = matrix.rfind(<span class="stringliteral">&quot;####\n&quot;</span>,blank);</div>
+<div class="line">            <span class="keywordtype">size_t</span> nlCharNum= matrix.rfind(<span class="stringliteral">&quot;====\n&quot;</span>,blank);</div>
+<div class="line">            <span class="comment">//Check for optional dividing line</span></div>
+<div class="line">            <span class="keywordflow">if</span> (nlCharEq!=std::string::npos){</div>
+<div class="line">                nlChar=nlCharEq+5;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (nlCharNum!=std::string::npos){</div>
+<div class="line">                nlChar=nlCharNum+5;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{  <span class="comment">//No divider line</span></div>
+<div class="line">                nlChar=matrix.find(<span class="stringliteral">&quot;\n&quot;</span>,space);</div>
+<div class="line">                nlChar++;</div>
+<div class="line">            }</div>
+<div class="line">                        </div>
+<div class="line">            std::string spacer(matrix.substr(nlChar,blank-nlChar));</div>
+<div class="line">                        </div>
+<div class="line">            <span class="keywordflow">if</span> (!_parseSpacer(spacer)){</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                _finalizeTransitions();</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="pwm_8h_source.html">pwm.h</a></li>
-<li>pwm.cpp</li>
+<li><a class="el" href="pwm_8cpp_source.html">pwm.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

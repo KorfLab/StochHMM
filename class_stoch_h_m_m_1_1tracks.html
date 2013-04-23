@@ -114,7 +114,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:afb51d97096755de6673f5c33252a0c66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the each track in tracks to stdout. <br/></td></tr>
 <tr class="memitem:ad534d8df6e70506a90d03936983abc60"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1tracks.html#ad534d8df6e70506a90d03936983abc60">stringify</a> ()</td></tr>
 </table>
-<hr/><h2>Member Function Documentation</h2>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="track_8h_source.html#l00287">287</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+</div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a1b990adc3b42567dfc2b1b9284e9ba0d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -137,6 +140,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>pointer to track if it exists, NULL otherwise </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00542">542</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                {</div>
+<div class="line">        <span class="keywordflow">if</span> (index.count(name)){</div>
+<div class="line">            <span class="keywordflow">return</span> trks[index[name]];</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">return</span> NULL;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a80a3be7bf921f632eaa258a554cf8d9a"></a>
@@ -163,6 +176,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <dd>
 -1 if track doesn't exist in tracks </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00529">529</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+<div class="fragment"><div class="line">                                               {</div>
+<div class="line">        <span class="keywordflow">if</span> (index.count(name)){</div>
+<div class="line">            <span class="keywordflow">return</span> index[name];</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">return</span> SIZE_MAX;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ae4f7114ed259e43c54fdef4b0f5570a7"></a>
@@ -186,6 +209,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00511">511</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+<div class="fragment"><div class="line">                                   {</div>
+<div class="line">        std::string&amp; name= tk-&gt;name;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (!index.count(name)){</div>
+<div class="line">            index[tk-&gt;getName()]=trks.size();</div>
+<div class="line">            trks.push_back(tk);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Track with name: &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; already exists.  Cannot add tracks with the same name\n&quot;</span>;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ad534d8df6e70506a90d03936983abc60"></a>
@@ -203,16 +241,40 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Get string representation of each track in tracks </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::string String representation of tracks as in model file </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00566">566</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+<div class="fragment"><div class="line">                               {</div>
+<div class="line">        std::string trackString;</div>
+<div class="line">        std::string ambigString;</div>
+<div class="line">        std::string lnSep(50,<span class="charliteral">&#39;=&#39;</span>);</div>
+<div class="line">        trackString+=<span class="stringliteral">&quot;TRACK SYMBOL DEFINITIONS\n&quot;</span> + lnSep + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;trks.size();i++){</div>
+<div class="line">            trackString+=trks[i]-&gt;stringify();</div>
+<div class="line">            <span class="keywordflow">if</span> (trks[i]-&gt;isAmbiguousSet()){</div>
+<div class="line">                ambigString+=trks[i]-&gt;stringifyAmbig();</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">if</span> (!ambigString.empty()){</div>
+<div class="line">            ambigString=<span class="stringliteral">&quot;AMBIGUOUS SYMBOL DEFINITIONS\n&quot;</span> + lnSep + <span class="stringliteral">&quot;\n&quot;</span>+ ambigString;</div>
+<div class="line">            trackString+=<span class="stringliteral">&quot;\n&quot;</span> + ambigString + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            trackString+=<span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> trackString;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="track_8h_source.html">track.h</a></li>
-<li>track.cpp</li>
+<li><a class="el" href="track_8cpp_source.html">track.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

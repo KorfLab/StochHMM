@@ -107,7 +107,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a184004490c3efd6eea61fac6ee812b57"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a184004490c3efd6eea61fac6ee812b57"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>addModel</b> (<a class="el" href="class_stoch_h_m_m_1_1model.html">model</a> *)</td></tr>
 </table>
-<hr/><h2>Member Function Documentation</h2>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00327">327</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+</div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a287c21ac381e5e61d25a47ea6b95142a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -130,6 +133,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addModel</b> (<a clas
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>pointer to model </dd></dl>
 
+<p>Definition at line <a class="el" href="hmm_8cpp_source.html#l00144">144</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
+<div class="fragment"><div class="line">                                       {</div>
+<div class="line">        <span class="keywordflow">if</span> (iter&lt;this-&gt;<a class="code" href="class_stoch_h_m_m_1_1models.html#acccd6101165f462525b6198e1dc368e2">size</a>()) {</div>
+<div class="line">            <span class="keywordflow">return</span> hmms[iter];</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">return</span> NULL;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ad6b69f097812bff3fa5c3beff886cf5a"></a>
@@ -164,6 +177,77 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addModel</b> (<a clas
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="hmm_8cpp_source.html#l00033">33</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                    {</div>
+<div class="line">        std::ifstream MOD;</div>
+<div class="line">        MOD.open(modelFile.c_str());</div>
+<div class="line">        <span class="keywordflow">if</span> (MOD.fail()){</div>
+<div class="line">            std::string info = <span class="stringliteral">&quot;Model file not found: &quot;</span> + modelFile;</div>
+<div class="line">            std::cerr &lt;&lt; info &lt;&lt; std::endl;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Input is assigned to &quot;input&quot; &amp; get first line</span></div>
+<div class="line">        std::string input;</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Check file header for correct type</span></div>
+<div class="line">        getline(MOD, input, <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><span class="preprocessor">#ifdef DEBUG_MODEL</span></div>
+<div class="line"><span class="preprocessor"></span>        std::cout &lt;&lt; input &lt;&lt;std::endl;</div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="preprocessor"></span>        <span class="keywordflow">if</span> (input.compare(<span class="stringliteral">&quot;#STOCHHMM MODEL FILE&quot;</span>)==0){</div>
+<div class="line">            MOD.close();</div>
+<div class="line">            model* temp= <span class="keyword">new</span>(std::nothrow) model;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (temp==NULL){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            hmms.push_back(temp);</div>
+<div class="line">            hmms[0]-&gt;import(modelFile,funcs);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (input.compare(<span class="stringliteral">&quot;#STOCHHMM MODELS&quot;</span>)==0){</div>
+<div class="line">            std::vector&lt;std::string&gt; filenames;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">while</span> (getline(MOD,input,<span class="charliteral">&#39;\n&#39;</span>)){</div>
+<div class="line"><span class="preprocessor">#ifdef DEBUG_MODEL</span></div>
+<div class="line"><span class="preprocessor"></span>                sd::cout &lt;&lt; input &lt;&lt;endl;</div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="preprocessor"></span>                <span class="comment">//Need to check input to make sure its valid;</span></div>
+<div class="line">                <span class="comment">//cout &lt;&lt; input &lt;&lt;endl;</span></div>
+<div class="line">                <span class="keywordflow">if</span> (input.compare(<span class="stringliteral">&quot;&quot;</span>)==0){</div>
+<div class="line">                    <span class="keywordflow">break</span>;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                    filenames.push_back(input);</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            MOD.close();</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;filenames.size();i++){</div>
+<div class="line">                model* temp=<span class="keyword">new</span>(std::nothrow) model;</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (temp==NULL){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                    exit(1);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                hmms.push_back(temp);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;filenames.size();i++){</div>
+<div class="line">                hmms[i]-&gt;import(filenames[i],funcs);</div>
+<div class="line">                hmms[i]-&gt;print();</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Header for &quot;</span> &lt;&lt; modelFile &lt;&lt;  <span class="stringliteral">&quot;does not indicate that it is a StochHMM model file.\n&quot;</span>;</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Header should be:  #STOCHHMM MODEL FILE \n&quot;</span> &lt;&lt; <span class="stringliteral">&quot;Header given: &quot;</span> &lt;&lt; input &lt;&lt;std::endl;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a49e2c3592e8b30bb9112d45d13babfeb"></a>
@@ -196,6 +280,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addModel</b> (<a clas
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>pointer to model </dd></dl>
 
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00337">337</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<div class="fragment"><div class="line">                                                     {</div>
+<div class="line">                        <span class="keywordflow">if</span> (iter&gt;hmms.size()-1){</div>
+<div class="line">                                <span class="keywordflow">return</span> NULL;</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">return</span> hmms[iter];</div>
+<div class="line">                };</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="acccd6101165f462525b6198e1dc368e2"></a>
@@ -221,16 +314,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addModel</b> (<a clas
 <p>Get the number of model </p>
 <dl class="section return"><dt>Returns:</dt><dd>size_t </dd></dl>
 
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00347">347</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> hmms.size();};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="hmm_8h_source.html">hmm.h</a></li>
-<li>hmm.cpp</li>
+<li><a class="el" href="hmm_8cpp_source.html">hmm.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

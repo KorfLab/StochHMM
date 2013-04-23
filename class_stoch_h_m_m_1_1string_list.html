@@ -171,6 +171,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Stringlist is an list of strings that contains parsed comments and can be used to split string or remove whitespace from a string. </p>
+
+<p>Definition at line <a class="el" href="text_8h_source.html#l00055">55</a> of file <a class="el" href="text_8h_source.html">text.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a18e8038519dd0a10ca6b4fdcf63629f2"></a>
 <div class="memitem">
@@ -186,6 +188,12 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div><div class="memdoc">
 <p>Create a new <a class="el" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a> Remove whitespace set to true by default. </p>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00032">32</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                          {</div>
+<div class="line">        removeWS=<span class="keyword">true</span>;</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aeebe807a0e30f850790bed41ac928bc5"></a>
@@ -234,6 +242,13 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00043">43</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                                   :removeWS(<span class="keyword">remove</span>), whitespace(ws),delimiters(del)</div>
+<div class="line">    {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">splitString</a>(txt);</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
@@ -258,6 +273,16 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00051">51</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                 {</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i&lt;line.size();i++){</div>
+<div class="line">            <span class="keywordflow">if</span> (line[i].find(txt) != std::string::npos){</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a87c83c20ab626afbb5ae1087394a0140"></a>
@@ -292,6 +317,25 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00264">264</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                               {</div>
+<div class="line">        line.clear();</div>
+<div class="line">                comment.clear();</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (foundAlphaDelimiter(txt)){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">splitString</a>(txt,<span class="stringliteral">&quot;;, \t&quot;</span>);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">splitString</a>(txt,alpha);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (this-&gt;<a class="code" href="class_stoch_h_m_m_1_1string_list.html#aa66b0d5fa9a0bec45d6638be23408b71" title="Return the amount of strings in the stringList.">size</a>()&gt;0){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a96abb92a33ff00cc25cc1b7db65ffb5d"></a>
@@ -327,6 +371,13 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00308">308</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                          {</div>
+<div class="line">        std::string temp;</div>
+<div class="line">        getline(in, temp, <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a87c83c20ab626afbb5ae1087394a0140">fromAlpha</a>(temp,alpha);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a57c91ce5608adbe7dda475b0004c9e1b"></a>
@@ -368,6 +419,20 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00319">319</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                         {</div>
+<div class="line">        whitespace=ws;</div>
+<div class="line">        delimiters = del;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d67344bc1913b3ad2f86d4869e2d661">processString</a>(txt);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1string_list.html#aa66b0d5fa9a0bec45d6638be23408b71" title="Return the amount of strings in the stringList.">size</a>()&gt;0){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a73036242b16b152c5326323a82ca9bd8"></a>
@@ -409,6 +474,15 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00337">337</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                         {</div>
+<div class="line">        whitespace=ws;</div>
+<div class="line">        delimiters = del;</div>
+<div class="line">        std::string temp;</div>
+<div class="line">        getline(in, temp, <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a57c91ce5608adbe7dda475b0004c9e1b">fromDef</a>(temp, ws, del);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a8ac6be3e9d57cc7ce917581d994bc5a8"></a>
@@ -433,6 +507,19 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00241">241</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                           {</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1string_list.html#af001d4f5c6330af830c5f69e7703eb3b">setWhitespace</a>(<span class="stringliteral">&quot;\t\n &quot;</span>);</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a2655c2c8298f1be7e0e00d863609d54d">setDelimiters</a>(<span class="stringliteral">&quot;:,&quot;</span>);</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d67344bc1913b3ad2f86d4869e2d661">processString</a>(txt);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1string_list.html#aa66b0d5fa9a0bec45d6638be23408b71" title="Return the amount of strings in the stringList.">size</a>()&gt;0){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a7e9ad93ddc1ee513fc925efa725135af"></a>
@@ -457,6 +544,13 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00255">255</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                           {</div>
+<div class="line">        std::string temp;</div>
+<div class="line">        getline(in, temp, <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a8ac6be3e9d57cc7ce917581d994bc5a8">fromNext</a>(temp);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a91b69c5882881c0df97c0966ab435522"></a>
@@ -481,6 +575,19 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00220">220</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                            {</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1string_list.html#af001d4f5c6330af830c5f69e7703eb3b">setWhitespace</a>(<span class="stringliteral">&quot;\t&quot;</span>);</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a2655c2c8298f1be7e0e00d863609d54d">setDelimiters</a>(<span class="stringliteral">&quot;:, \n&quot;</span>);</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d67344bc1913b3ad2f86d4869e2d661">processString</a>(txt);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1string_list.html#aa66b0d5fa9a0bec45d6638be23408b71" title="Return the amount of strings in the stringList.">size</a>()&gt;0){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a33a5ae907910ac9fb7e15af7bea2e226"></a>
@@ -505,6 +612,13 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00233">233</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                            {</div>
+<div class="line">        std::string temp;</div>
+<div class="line">        getline(in, temp, <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a91b69c5882881c0df97c0966ab435522">fromTrack</a>(temp);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a9f7ae7f7ed0157c4c748cdd5bdd5c0bc"></a>
@@ -528,6 +642,20 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00195">195</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                          {             </div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#af001d4f5c6330af830c5f69e7703eb3b">setWhitespace</a>(<span class="stringliteral">&quot;\t&quot;</span>);</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a2655c2c8298f1be7e0e00d863609d54d">setDelimiters</a>(<span class="stringliteral">&quot;:\n&quot;</span>);</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d67344bc1913b3ad2f86d4869e2d661">processString</a>(txt);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1string_list.html#aa66b0d5fa9a0bec45d6638be23408b71" title="Return the amount of strings in the stringList.">size</a>()&gt;0){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a3e5f8b68d05aa0966f821656ab0fb76e"></a>
@@ -551,6 +679,13 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00211">211</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                          {</div>
+<div class="line">        std::string temp;</div>
+<div class="line">        getline(in, temp, <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a9f7ae7f7ed0157c4c748cdd5bdd5c0bc">fromTxt</a>(temp);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a73596f1c9e18935f03bf6aa84a76b1e9"></a>
@@ -574,6 +709,16 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00071">71</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                  {</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i&lt;line.size();i++){</div>
+<div class="line">            <span class="keywordflow">if</span> (line[i].find(txt) != std::string::npos){</div>
+<div class="line">                <span class="keywordflow">return</span> i;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> SIZE_MAX;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a1eda8ba68879932f98ceb410275babc6"></a>
@@ -608,6 +753,16 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00083">83</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                            {</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=pos;i&lt;line.size();i++){</div>
+<div class="line">            <span class="keywordflow">if</span> (line[i].find(txt) != std::string::npos){</div>
+<div class="line">                <span class="keywordflow">return</span> i;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> SIZE_MAX;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aa299c26678780ffbe2e4a0b19b5446f4"></a>
@@ -639,6 +794,9 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8h_source.html#l00103">103</a> of file <a class="el" href="text_8h_source.html">text.h</a>.</p>
+<div class="fragment"><div class="line">{line.push_back(txt);};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a7a0f3826aa2945a148dcc9bf45dba3e6"></a>
@@ -670,6 +828,9 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8h_source.html#l00113">113</a> of file <a class="el" href="text_8h_source.html">text.h</a>.</p>
+<div class="fragment"><div class="line">{line=lst.line; comment=lst.comment; whitespace=lst.whitespace; delimiters=lst.delimiters;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a7d1a5a67f397d3be8a7f32e4f7d6a8f9"></a>
@@ -701,6 +862,9 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8h_source.html#l00118">118</a> of file <a class="el" href="text_8h_source.html">text.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> line[iter];};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a3d67344bc1913b3ad2f86d4869e2d661"></a>
@@ -718,6 +882,24 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div><div class="memdoc">
 <p>Removes Comments, Removes Whitespace, and splits the string Whitespace and Split delimiters are required to be previously set in <a class="el" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a> </p>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00094">94</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                {</div>
+<div class="line">        line.clear();</div>
+<div class="line">        comment.clear();</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Extract Comments</span></div>
+<div class="line">                comment=<a class="code" href="group___text.html#gae1e21893ae48aaa6969040d19e5085d7" title="Find first comment character and then return everything following the character.">parseComment</a>(txt, <span class="charliteral">&#39;#&#39;</span>);</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Remove Whitespace</span></div>
+<div class="line">        <span class="keywordflow">if</span> (removeWS){</div>
+<div class="line">            <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(txt, whitespace);</div>
+<div class="line">        }</div>
+<div class="line">                </div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">splitString</a>(txt);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ad2917e18c0d24243237ca6b5e26fbb4b"></a>
@@ -749,6 +931,9 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8h_source.html#l00107">107</a> of file <a class="el" href="text_8h_source.html">text.h</a>.</p>
+<div class="fragment"><div class="line">{line.push_back(txt);};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a8aac8660baaa5ec2e5dd6d9451fc241d"></a>
@@ -765,6 +950,13 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div><div class="memdoc">
 <p>Parses out the comments and stores the comment delimited by "#" *Comment can be accessed by command <a class="el" href="class_stoch_h_m_m_1_1string_list.html#ae352f81984d36369e2c5588f2999b1e2" title="Return any comments parsed from the line.">getComment()</a>; </p>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00414">414</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                   {</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> iter=0;iter&lt;line.size();iter++){</div>
+<div class="line">            comment+=<a class="code" href="group___text.html#gae1e21893ae48aaa6969040d19e5085d7" title="Find first comment character and then return everything following the character.">parseComment</a>(line[iter], <span class="charliteral">&#39;#&#39;</span>);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a1465a905712ca408761af4b80413ed76"></a>
@@ -788,6 +980,14 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00185">185</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                 {</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;this-&gt;<a class="code" href="class_stoch_h_m_m_1_1string_list.html#aa66b0d5fa9a0bec45d6638be23408b71" title="Return the amount of strings in the stringList.">size</a>();i++){</div>
+<div class="line">            <a class="code" href="group___text.html#ga0b39adb00f98cdbf548db31ccb7abb68">removeLeadingWS</a>((*<span class="keyword">this</span>)[i],ws);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a2655c2c8298f1be7e0e00d863609d54d"></a>
@@ -819,6 +1019,9 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8h_source.html#l00074">74</a> of file <a class="el" href="text_8h_source.html">text.h</a>.</p>
+<div class="fragment"><div class="line">{delimiters=txt;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="af001d4f5c6330af830c5f69e7703eb3b"></a>
@@ -850,6 +1053,9 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8h_source.html#l00070">70</a> of file <a class="el" href="text_8h_source.html">text.h</a>.</p>
+<div class="fragment"><div class="line">{whitespace=txt;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a1eac87241f01b5a3c47e393eb63f97f9"></a>
@@ -884,6 +1090,25 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00163">163</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                     {</div>
+<div class="line">                line.clear();</div>
+<div class="line">        comment.clear();</div>
+<div class="line">        <span class="keywordtype">size_t</span> initial=txt.find(del);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">do</span> {</div>
+<div class="line">            <span class="keywordtype">size_t</span> found=txt.find(del,initial+1);</div>
+<div class="line">            std::string st=txt.substr(initial,found-initial);</div>
+<div class="line">            initial=found;</div>
+<div class="line">            <span class="keywordflow">if</span> (st.size()&gt;0){</div>
+<div class="line">                                line.push_back(st);</div>
+<div class="line">                        }</div>
+<div class="line">            </div>
+<div class="line">        } <span class="keywordflow">while</span> (initial!=std::string::npos);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a3d525d294b34a1f0677ae846f5af33fd"></a>
@@ -907,6 +1132,30 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00116">116</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                    {</div>
+<div class="line">        </div>
+<div class="line">        line.clear();</div>
+<div class="line">        comment.clear();</div>
+<div class="line">        </div>
+<div class="line">                <span class="keywordtype">size_t</span> found  = SIZE_MAX;</div>
+<div class="line">                <span class="keywordtype">size_t</span> initial= SIZE_MAX;</div>
+<div class="line">        <span class="keywordflow">do</span> {</div>
+<div class="line">            found++;</div>
+<div class="line">            initial=found;</div>
+<div class="line">            </div>
+<div class="line">            found=txt.find_first_of(delimiters.c_str(),found);</div>
+<div class="line">            std::string st=txt.substr(initial,found-initial);</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (st.size()&gt;0){</div>
+<div class="line">                                line.push_back(st);</div>
+<div class="line">                        }</div>
+<div class="line">            </div>
+<div class="line">        } <span class="keywordflow">while</span> (found!=std::string::npos);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="abda5a78b8a3e9a915c45d6b6845319ac"></a>
@@ -941,6 +1190,13 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00145">145</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                          {</div>
+<div class="line">        delimiters=del;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">splitString</a>(txt);</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aa0001412c430bac613941da657c07bd0"></a>
@@ -958,6 +1214,16 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <p>Joins the <a class="el" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a> into string using "\t" and return string </p>
 <dl class="section return"><dt>Returns:</dt><dd>string of <a class="el" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a> joined by "\\t" </dd></dl>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00402">402</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                   {</div>
+<div class="line">        std::string output=<a class="code" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">join</a>(line,<span class="charliteral">&#39;\t&#39;</span>);</div>
+<div class="line">        <span class="keywordflow">if</span> (comment.size()&gt;0){</div>
+<div class="line">            output+=<span class="stringliteral">&quot;#&quot;</span>+ comment;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> output;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aae8eb698ad8e564d3ebdf6fce1a97039"></a>
@@ -976,16 +1242,29 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <p>Returns the list as a Vector of Doubles. </p>
 <p>Returns the values in the <a class="el" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a> as std::vector of doubles. </p>
 
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00358">358</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+<div class="fragment"><div class="line">                                             {</div>
+<div class="line">        std::vector&lt;double&gt; temp;</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> iter=0;iter&lt;line.size();iter++){</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordtype">double</span> val;</div>
+<div class="line">            </div>
+<div class="line">            <a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[iter], val);</div>
+<div class="line">            temp.push_back(val);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> temp;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="text_8h_source.html">text.h</a></li>
-<li>text.cpp</li>
+<li><a class="el" href="text_8cpp_source.html">text.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

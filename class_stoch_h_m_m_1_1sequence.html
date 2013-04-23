@@ -195,6 +195,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>sequenceStream</b></
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Sequence can be either real numbers (double values) or sequence(characters or words) discrete values class sequence supports 255 discrete values.</p>
 <p>Contains individual sequence information and functions to deal with importing and digitizing the sequence </p>
+
+<p>Definition at line <a class="el" href="sequence_8h_source.html#l00051">51</a> of file <a class="el" href="sequence_8h_source.html">sequence.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ada433353d7e309e4344a05de36a514d6"></a>
 <div class="memitem">
@@ -217,6 +219,35 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>sequenceStream</b></
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="sequence_8cpp_source.html#l00048">48</a> of file <a class="el" href="sequence_8cpp_source.html">sequence.cpp</a>.</p>
+<div class="fragment"><div class="line">                                    :mask(NULL){</div>
+<div class="line">        <span class="keywordflow">if</span> (realTrack){</div>
+<div class="line">            real=<span class="keyword">new</span>(std::nothrow) std::vector&lt;double&gt;;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (real==NULL){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            seq=NULL;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            real=NULL;</div>
+<div class="line">            seq=<span class="keyword">new</span>(std::nothrow) std::vector&lt;uint8_t&gt;;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (seq==NULL){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        realSeq = realTrack;</div>
+<div class="line">        seqtrk  = NULL;</div>
+<div class="line">        length  = 0;</div>
+<div class="line">        max_mask=-1;</div>
+<div class="line">        external= NULL;</div>
+<div class="line">        attrib  = -INFINITY;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a656c47722416857d3fb8b622177798b7"></a>
@@ -252,6 +283,17 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>sequenceStream</b></
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="sequence_8cpp_source.html#l00079">79</a> of file <a class="el" href="sequence_8cpp_source.html">sequence.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                       :mask(NULL){</div>
+<div class="line">        realSeq = <span class="keyword">true</span>;</div>
+<div class="line">        seqtrk  = tr;</div>
+<div class="line">        real    = vec;</div>
+<div class="line">        external= NULL;</div>
+<div class="line">        attrib  = -INFINITY;</div>
+<div class="line">        length  = vec-&gt;size();</div>
+<div class="line">        max_mask=-1;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="af039639ee0678d35d881641618b58c1c"></a>
@@ -286,6 +328,27 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>sequenceStream</b></
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="sequence_8cpp_source.html#l00116">116</a> of file <a class="el" href="sequence_8cpp_source.html">sequence.cpp</a>.</p>
+<div class="fragment"><div class="line">                                              :mask(NULL){</div>
+<div class="line">        length  = 0;</div>
+<div class="line">        max_mask=-1;</div>
+<div class="line">        real    = NULL;</div>
+<div class="line">        seq     = <span class="keyword">new</span>(std::nothrow) std::vector&lt;uint8_t&gt;;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (seq==NULL){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        external= NULL;</div>
+<div class="line">        attrib  = -INFINITY;</div>
+<div class="line">        realSeq = <span class="keyword">false</span>;</div>
+<div class="line">        seqtrk  = tr;</div>
+<div class="line">        undigitized = sq;</div>
+<div class="line">        _digitize();</div>
+<div class="line">        length=seq-&gt;size();</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a3b76571c840daf64db1f9910df0029c1"></a>
@@ -320,6 +383,27 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>sequenceStream</b></
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="sequence_8cpp_source.html#l00092">92</a> of file <a class="el" href="sequence_8cpp_source.html">sequence.cpp</a>.</p>
+<div class="fragment"><div class="line">                                         :mask(NULL){</div>
+<div class="line">        length  = 0;</div>
+<div class="line">        max_mask=-1;</div>
+<div class="line">        real    = NULL;</div>
+<div class="line">        seq     = <span class="keyword">new</span>(std::nothrow) std::vector&lt;uint8_t&gt;;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (seq==NULL){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        external= NULL;</div>
+<div class="line">        attrib  = -INFINITY;</div>
+<div class="line">        realSeq = <span class="keyword">false</span>;</div>
+<div class="line">        seqtrk  = tr;</div>
+<div class="line">        undigitized = sq;</div>
+<div class="line">        _digitize();</div>
+<div class="line">        length=seq-&gt;size();</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ac63d80f88e4ba6a5158559d07131a2b6"></a>
@@ -337,6 +421,51 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>sequenceStream</b></
 </div><div class="memdoc">
 <p>Copy constructor for sequence </p>
 
+<p>Definition at line <a class="el" href="sequence_8cpp_source.html#l00153">153</a> of file <a class="el" href="sequence_8cpp_source.html">sequence.cpp</a>.</p>
+<div class="fragment"><div class="line">                                         {</div>
+<div class="line">        realSeq = rhs.realSeq;</div>
+<div class="line">        header  = rhs.header;</div>
+<div class="line">        attrib  = rhs.attrib;</div>
+<div class="line">        length  = rhs.length;</div>
+<div class="line">        seqtrk  = rhs.seqtrk;</div>
+<div class="line">        external= rhs.external;  <span class="comment">//Need copy constructor for this</span></div>
+<div class="line">        max_mask= rhs.max_mask;</div>
+<div class="line">        undigitized=rhs.undigitized;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (rhs.seq!=NULL){</div>
+<div class="line">            seq = <span class="keyword">new</span>(std::nothrow) std::vector&lt;uint8_t&gt;(*rhs.seq);</div>
+<div class="line">            <span class="keywordflow">if</span> (seq==NULL){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            seq=NULL;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (rhs.real!=NULL){</div>
+<div class="line">            real = <span class="keyword">new</span>(std::nothrow) std::vector&lt;double&gt;(*rhs.real);</div>
+<div class="line">            <span class="keywordflow">if</span> (real==NULL){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            real=NULL;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (rhs.mask!=NULL){</div>
+<div class="line">            mask = <span class="keyword">new</span>(std::nothrow) std::vector&lt;int&gt;(*rhs.mask);</div>
+<div class="line">            <span class="keywordflow">if</span> (mask==NULL){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            mask = NULL;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
@@ -355,6 +484,47 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>sequenceStream</b></
 <p>Complements the sequence. </p>
 <dl class="section return"><dt>Returns:</dt><dd>true if complementation was successful </dd></dl>
 
+<p>Definition at line <a class="el" href="sequence_8cpp_source.html#l00868">868</a> of file <a class="el" href="sequence_8cpp_source.html">sequence.cpp</a>.</p>
+<div class="fragment"><div class="line">                              {</div>
+<div class="line">        <span class="keywordflow">if</span> (realSeq){</div>
+<div class="line">            std::cerr&lt;&lt; <span class="stringliteral">&quot;sequence::complement isn&#39;t defined for real valued sequences\n&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (seqtrk==NULL){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;StochHMM::track is not defined.  Can&#39;t complement without defined complement in track\n&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (seq!=NULL){</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; seq-&gt;size(); i++) {</div>
+<div class="line">                (*seq)[i] = seqtrk-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#abeee301c1b08069c856aac4b1b8b16c2">getComplementIndex</a>((*seq)[i]);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> {</div>
+<div class="line">            <span class="keywordtype">size_t</span> undigitized_size=undigitized.size();</div>
+<div class="line">            <span class="keywordflow">if</span> (undigitized_size&gt;0){</div>
+<div class="line">                <span class="keywordtype">size_t</span> max_size = seqtrk-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a548bf92e3a6ec84e79a0496ec51d621e">getAlphaMax</a>();</div>
+<div class="line">                <span class="keywordflow">if</span> (max_size ==1){</div>
+<div class="line">                    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;undigitized_size;i++){</div>
+<div class="line">                        std::string character = seqtrk-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a3986bf756cb25a7637c31608d66e2d49">getComplementSymbol</a>(undigitized[i]);</div>
+<div class="line">                        undigitized[i] = character[0];</div>
+<div class="line">                    }</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">                    </div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Complement on undigitized sequence isn&#39;t defined for track alphabets that are more than one character\n&quot;</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;No sequence defined\n&quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aff6d39d021daf7ea0ab2a48bc3d96b44"></a>
@@ -382,6 +552,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>sequenceStream</b></
 <dd>
 false if no External definition exists for sequence </dd></dl>
 
+<p>Definition at line <a class="el" href="sequence_8h_source.html#l00103">103</a> of file <a class="el" href="sequence_8h_source.html">sequence.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">if</span> (external){<span class="keywordflow">return</span> <span class="keyword">true</span>;} <span class="keywordflow">return</span> <span class="keyword">false</span>;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="af323e1725126c72c90303497166899cc"></a>
@@ -407,6 +580,9 @@ false if no External definition exists for sequence </dd></dl>
 <p>Get the attribute value for the sequence *Selection of model may use this value to determine which model to use </p>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a484e8eb1c0b446af59e471cd70952bf0">setAttrib</a> </dd></dl>
 
+<p>Definition at line <a class="el" href="sequence_8h_source.html#l00094">94</a> of file <a class="el" href="sequence_8h_source.html">sequence.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> attrib;}; <span class="comment">//Returns the Attribute value for the sequence</span></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a65528e0b31c9d062b2bad180b9fde545"></a>
@@ -432,6 +608,9 @@ false if no External definition exists for sequence </dd></dl>
 <p>Get pointer to <a class="el" href="class_stoch_h_m_m_1_1_ex_def_sequence.html">ExDefSequence</a> for the sequence </p>
 <dl class="section return"><dt>Returns:</dt><dd>ExDefSequence* </dd></dl>
 
+<p>Definition at line <a class="el" href="sequence_8h_source.html#l00098">98</a> of file <a class="el" href="sequence_8h_source.html">sequence.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> external;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ab9ead0dcc13a9732aeaa68bd54412818"></a>
@@ -473,6 +652,64 @@ false if no External definition exists for sequence </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>true if function was able to get a sequence from the file </dd></dl>
 
+<p>Definition at line <a class="el" href="sequence_8cpp_source.html#l00382">382</a> of file <a class="el" href="sequence_8cpp_source.html">sequence.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                        {</div>
+<div class="line">        </div>
+<div class="line">        seqtrk=trk;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (!file.good()){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Find next header mark </span></div>
+<div class="line">        <span class="keywordflow">while</span>(file.peek() != <span class="charliteral">&#39;&gt;&#39;</span>){</div>
+<div class="line">            std::string temp;</div>
+<div class="line">            getline(file,temp,<span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (!file.good()){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Sequence doesn&#39;t contain a header \&quot;&gt;\&quot; &quot;</span>&lt;&lt; std::endl;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        getline(file,header,<span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line">        <span class="keywordtype">bool</span> success(<span class="keyword">false</span>);</div>
+<div class="line">        <span class="comment">//get sequence</span></div>
+<div class="line">        std::string line;</div>
+<div class="line">        <span class="keywordflow">while</span>(getline(file,line,<span class="charliteral">&#39;\n&#39;</span>)){</div>
+<div class="line">            undigitized+=line;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordtype">char</span> nl_peek=file.peek();  <span class="comment">// see if we have new sequence header on the next line</span></div>
+<div class="line">            <span class="keywordflow">if</span> (nl_peek==<span class="charliteral">&#39;&gt;&#39;</span>){</div>
+<div class="line">                success = _digitize();</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (nl_peek==<span class="charliteral">&#39;[&#39;</span>){</div>
+<div class="line">                success = _digitize();</div>
+<div class="line">                                <span class="keywordflow">if</span> (info == NULL){</div>
+<div class="line">                                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Found brackets [] in fasta sequence.\nHEADER: &quot;</span> &lt;&lt; header &lt;&lt; <span class="stringliteral">&quot;\nCan&#39;t import External Definitions without stateInfo from HMM model.  Pass stateInfo from model to &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; std::endl;</div>
+<div class="line">                                        exit(2);</div>
+<div class="line">                                }</div>
+<div class="line">                                <span class="keywordflow">else</span>{</div>
+<div class="line">                                        external= <span class="keyword">new</span> (std::nothrow) ExDefSequence(seq-&gt;size());</div>
+<div class="line">                                        external-&gt;<a class="code" href="class_stoch_h_m_m_1_1_ex_def_sequence.html#a42ae44388bfd91a97750f1818971b801">parse</a>(file, *info);</div>
+<div class="line">                                }</div>
+<div class="line">                </div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (nl_peek==EOF){</div>
+<div class="line">                                getline(file,line,<span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line">                success = _digitize();</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                <span class="keywordflow">continue</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        length=seq-&gt;size();</div>
+<div class="line">        <span class="keywordflow">return</span> success;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a8380c028b5a8b03043a0a5d7e3e451d7"></a>
@@ -508,6 +745,86 @@ false if no External definition exists for sequence </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>true if the sequence was successfully imported </dd></dl>
 
+<p>Definition at line <a class="el" href="sequence_8cpp_source.html#l00574">574</a> of file <a class="el" href="sequence_8cpp_source.html">sequence.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                        {</div>
+<div class="line">        seqtrk=trk;</div>
+<div class="line">            </div>
+<div class="line">        <span class="keywordflow">if</span> (!file.good()){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Find first line that starts with &quot;@&quot; and Get header</span></div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Move down until the next line has a &quot;@&quot;</span></div>
+<div class="line">        <span class="keywordflow">while</span>(file.peek() != <span class="charliteral">&#39;@&#39;</span> &amp;&amp; file.good()){</div>
+<div class="line">            std::string temp;</div>
+<div class="line">            getline(file,temp,<span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Get Header (One line)</span></div>
+<div class="line">        <span class="keywordflow">if</span> (file.good()){</div>
+<div class="line">            getline(file,header,<span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        std::string <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a7661edf85053bb4b175246e88a4f69b9" title="Create a sequence datatype.">sequence</a>=<span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">        <span class="comment">//Get sequence (Multiple Lines)</span></div>
+<div class="line">        <span class="keywordflow">if</span> (file.good()){</div>
+<div class="line">            <span class="keywordflow">while</span>(getline(file,sequence,<span class="charliteral">&#39;\n&#39;</span>)){</div>
+<div class="line">                undigitized+=<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a7661edf85053bb4b175246e88a4f69b9" title="Create a sequence datatype.">sequence</a>;</div>
+<div class="line"></div>
+<div class="line">                <span class="keywordtype">char</span> nl_peek=file.peek();  <span class="comment">// see if we have new sequence header on the next line</span></div>
+<div class="line">                <span class="keywordflow">if</span> (nl_peek==<span class="charliteral">&#39;+&#39;</span>){  <span class="comment">//If next line begins with + then we are at a </span></div>
+<div class="line">                    <span class="keywordflow">break</span>;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (nl_peek==EOF){</div>
+<div class="line">                    <span class="keywordflow">break</span>;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                    <span class="keywordflow">continue</span>;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        _digitize();</div>
+<div class="line">        </div>
+<div class="line">        std::string quality_string;</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Get Quality String (Multiple Lines)</span></div>
+<div class="line">        <span class="keywordflow">if</span> (file.good()){</div>
+<div class="line">            <span class="keywordflow">while</span>(getline(file,sequence,<span class="charliteral">&#39;\n&#39;</span>)){</div>
+<div class="line">                quality_string+=<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a7661edf85053bb4b175246e88a4f69b9" title="Create a sequence datatype.">sequence</a>;</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">char</span> nl_peek=file.peek();  <span class="comment">// see if we have new sequence header on the next line</span></div>
+<div class="line">                <span class="keywordflow">if</span> (nl_peek==<span class="charliteral">&#39;@&#39;</span>){  <span class="comment">//If next line begins with + then we are at a</span></div>
+<div class="line">                    <span class="keywordflow">if</span> (quality_string.size() &lt; undigitized.size()){</div>
+<div class="line">                        <span class="keywordflow">continue</span>;</div>
+<div class="line">                    }</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="keywordflow">break</span>;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (nl_peek==EOF){</div>
+<div class="line">                    <span class="keywordflow">break</span>;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                    <span class="keywordflow">continue</span>;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        length=seq-&gt;size();</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a2a0aa52f1b421bedd7e47dfcb48e0042"></a>
@@ -549,6 +866,65 @@ false if no External definition exists for sequence </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>true if the sequence was successfully imported </dd></dl>
 
+<p>Definition at line <a class="el" href="sequence_8cpp_source.html#l00659">659</a> of file <a class="el" href="sequence_8cpp_source.html">sequence.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                        {</div>
+<div class="line">        seqtrk=trk;</div>
+<div class="line">                </div>
+<div class="line">        <span class="comment">//get header</span></div>
+<div class="line">        <span class="keywordflow">while</span>(file.peek() != <span class="charliteral">&#39;@&#39;</span> &amp;&amp; !file.eof()){</div>
+<div class="line">            std::string temp;</div>
+<div class="line">            getline(file,temp,<span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line">        }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (file.eof()){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;No header found for sequence.  Header should start line with \&quot;@\&quot;.\n&quot;</span>;</div>
+<div class="line">                        exit(2);</div>
+<div class="line">                }</div>
+<div class="line">        </div>
+<div class="line">        std::string <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a7661edf85053bb4b175246e88a4f69b9" title="Create a sequence datatype.">sequence</a>=<span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">        getline(file,sequence,<span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line">        header=<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a7661edf85053bb4b175246e88a4f69b9" title="Create a sequence datatype.">sequence</a>;</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//get sequence</span></div>
+<div class="line">        std::string line;</div>
+<div class="line">        stringList lst;</div>
+<div class="line">        <span class="keywordflow">while</span>(getline(file,line,<span class="charliteral">&#39;\n&#39;</span>)){</div>
+<div class="line">            lst.splitString(line,<span class="stringliteral">&quot;,\t &quot;</span>);</div>
+<div class="line">            std::vector&lt;double&gt; temp (lst.toVecDouble());</div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;temp.size();i++){</div>
+<div class="line">                real-&gt;push_back(temp[i]);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordtype">char</span> nl_peek=file.peek();  <span class="comment">// see if we have new sequence header on the next line</span></div>
+<div class="line">            <span class="keywordflow">if</span> (nl_peek==<span class="charliteral">&#39;&gt;&#39;</span>){</div>
+<div class="line">                _digitize();</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (nl_peek==<span class="charliteral">&#39;[&#39;</span>){</div>
+<div class="line">                _digitize();</div>
+<div class="line">                <span class="keywordflow">if</span> (info == NULL){</div>
+<div class="line">                                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Found brackets [] in fasta sequence.\nHEADER: &quot;</span> &lt;&lt; header &lt;&lt; <span class="stringliteral">&quot;\nCan&#39;t import External Definitions without stateInfo from HMM model.  Pass stateInfo from model to &quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; std::endl;</div>
+<div class="line">                                        exit(2);</div>
+<div class="line">                                }</div>
+<div class="line">                                <span class="keywordflow">else</span>{</div>
+<div class="line">                                        external= <span class="keyword">new</span> (std::nothrow) ExDefSequence(seq-&gt;size());</div>
+<div class="line">                                        external-&gt;<a class="code" href="class_stoch_h_m_m_1_1_ex_def_sequence.html#a42ae44388bfd91a97750f1818971b801">parse</a>(file, *info);</div>
+<div class="line">                                }</div>
+<div class="line"></div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (nl_peek==EOF){</div>
+<div class="line">                _digitize();</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                <span class="keywordflow">continue</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        length=real-&gt;size();</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a4f1af4805a74eb48d71c5a46792c96a6"></a>
@@ -574,6 +950,21 @@ false if no External definition exists for sequence </dd></dl>
 <dl class="section return"><dt>Returns:</dt><dd>string String of the symbol </dd></dl>
 <dl class="section see"><dt>See also:</dt><dd>track::getAlpha(short) </dd></dl>
 
+<p>Definition at line <a class="el" href="sequence_8cpp_source.html#l00772">772</a> of file <a class="el" href="sequence_8cpp_source.html">sequence.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                 {</div>
+<div class="line">        <span class="keywordflow">if</span> (realSeq){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Can&#39;t get symbol of real values\n&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (seqtrk==NULL){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;track is undefined for sequence\n&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> seqtrk-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a6a233038df789a2b0a0796a1f51a9931">getAlpha</a>((*seq)[pos]);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ae3ec9ad2158459675129ca80ca987c16"></a>
@@ -599,6 +990,9 @@ false if no External definition exists for sequence </dd></dl>
 <p>Get the pointer to the track that is defined for the sequence; </p>
 <dl class="section return"><dt>Returns:</dt><dd>pointer to track </dd></dl>
 
+<p>Definition at line <a class="el" href="sequence_8h_source.html#l00115">115</a> of file <a class="el" href="sequence_8h_source.html">sequence.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> seqtrk;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a106791bd98ed6b55bf257ff350a74f2c"></a>
@@ -623,6 +1017,17 @@ false if no External definition exists for sequence </dd></dl>
 </div><div class="memdoc">
 <p>Get reference to undigitized sequence If sequence hasn't been undigitized then it will undigitize it and *store the result. (Only undigitizes the sequence once, then passes *reference to undigitized sequence) </p>
 
+<p>Definition at line <a class="el" href="sequence_8h_source.html#l00078">78</a> of file <a class="el" href="sequence_8h_source.html">sequence.h</a>.</p>
+<div class="fragment"><div class="line">                                          {</div>
+<div class="line">            <span class="keywordflow">if</span> (!undigitized.empty() || seq-&gt;empty()){</div>
+<div class="line">                <span class="keywordflow">return</span> &amp;undigitized;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> {</div>
+<div class="line">                undigitized = <a class="code" href="class_stoch_h_m_m_1_1sequence.html#adec874da223aa69e0f2291d8f08a4fac">undigitize</a>();</div>
+<div class="line">                <span class="keywordflow">return</span> &amp;undigitized;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ab7999f328ae141e21143ee226a6b58fd"></a>
@@ -647,6 +1052,9 @@ false if no External definition exists for sequence </dd></dl>
 </div><div class="memdoc">
 <p>Print the string represntation of the sequence to stdout Prints the digitized version </p>
 
+<p>Definition at line <a class="el" href="sequence_8h_source.html#l00125">125</a> of file <a class="el" href="sequence_8h_source.html">sequence.h</a>.</p>
+<div class="fragment"><div class="line">{std::cout &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a1903ef644d684252973aced22799dd52">stringify</a>() &lt;&lt; std::endl;}; <span class="comment">//Print sequence to stdout</span></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="afb44bebc50247cad16a6603c74eec0a1"></a>
@@ -671,6 +1079,22 @@ false if no External definition exists for sequence </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>positioin </dd></dl>
 
+<p>Definition at line <a class="el" href="sequence_8cpp_source.html#l00289">289</a> of file <a class="el" href="sequence_8cpp_source.html">sequence.cpp</a>.</p>
+<div class="fragment"><div class="line">                                             {</div>
+<div class="line">        <span class="keywordflow">if</span> (realSeq){</div>
+<div class="line">            <span class="keywordflow">if</span> (real!=NULL){</div>
+<div class="line">                <span class="keywordflow">return</span> (*real)[position];</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Values have not been imported.\n&quot;</span>;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">                </div>
+<div class="line">        }</div>
+<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Invalid sequence type queried in sequence class&quot;</span> &lt;&lt;std::endl;</div>
+<div class="line">        exit(1);</div>
+<div class="line">    };</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ae012923860db511882407aa87658f3f7"></a>
@@ -688,6 +1112,43 @@ false if no External definition exists for sequence </dd></dl>
 <p>Reverse the sequence; If mask is defined, the mask will also be reversed </p>
 <dl class="section return"><dt>Returns:</dt><dd>true if reverse was successfully performed on sequence </dd></dl>
 
+<p>Definition at line <a class="el" href="sequence_8cpp_source.html#l00829">829</a> of file <a class="el" href="sequence_8cpp_source.html">sequence.cpp</a>.</p>
+<div class="fragment"><div class="line">                          {</div>
+<div class="line">        <span class="keywordflow">if</span> (realSeq){</div>
+<div class="line">            <span class="keywordflow">if</span> (real!=NULL){</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1sequence.html#ae012923860db511882407aa87658f3f7">std::reverse</a>(real-&gt;begin(), real-&gt;end());</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (seq!=NULL){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequence.html#ae012923860db511882407aa87658f3f7">std::reverse</a>(seq-&gt;begin(), seq-&gt;end());</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (mask!=NULL){</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1sequence.html#ae012923860db511882407aa87658f3f7">std::reverse</a>(mask-&gt;begin(), mask-&gt;end());</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Handle non-digitized sequence</span></div>
+<div class="line">        <span class="keywordflow">if</span> (seqtrk!=NULL){</div>
+<div class="line">            <span class="keywordtype">size_t</span> max_size = seqtrk-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a548bf92e3a6ec84e79a0496ec51d621e">getAlphaMax</a>();</div>
+<div class="line">            <span class="keywordflow">if</span> (max_size ==1){</div>
+<div class="line">                <span class="keywordflow">if</span> (undigitized.size()&gt;0){</div>
+<div class="line">                    <a class="code" href="class_stoch_h_m_m_1_1sequence.html#ae012923860db511882407aa87658f3f7">std::reverse</a>(undigitized.begin(),undigitized.end());</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;No sequence is defined to reverse\n&quot;</span>;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Reverse on undigitized sequence isn&#39;t defined for track alphabets that are more than one character\n&quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ae9d70ad95f1f76f068cd2fe3d3f0a3a6"></a>
@@ -705,6 +1166,19 @@ false if no External definition exists for sequence </dd></dl>
 <p>Reverses and complements the sequence </p>
 <dl class="section return"><dt>Returns:</dt><dd>true if both reverse and complement were successful </dd></dl>
 
+<p>Definition at line <a class="el" href="sequence_8cpp_source.html#l00911">911</a> of file <a class="el" href="sequence_8cpp_source.html">sequence.cpp</a>.</p>
+<div class="fragment"><div class="line">                                     {</div>
+<div class="line">        <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1sequence.html#ae012923860db511882407aa87658f3f7">reverse</a>()){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Unable to perform reverseComplement on sequence because reverse failed\n&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        };</div>
+<div class="line">        <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a0ed0193f57d875959377631b650f7fb3">complement</a>()){</div>
+<div class="line">             std::cerr &lt;&lt; <span class="stringliteral">&quot;Unable to perform reverseComplement on sequence because complement failed\n&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        };</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a3f767574938a8e42bdc5e7cbc8d0e468"></a>
@@ -729,6 +1203,23 @@ false if no External definition exists for sequence </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>short integer value of symbol at positiion </dd></dl>
 
+<p>Definition at line <a class="el" href="sequence_8cpp_source.html#l00270">270</a> of file <a class="el" href="sequence_8cpp_source.html">sequence.cpp</a>.</p>
+<div class="fragment"><div class="line">                                              {</div>
+<div class="line">        <span class="keywordflow">if</span> (!realSeq){</div>
+<div class="line">            <span class="keywordflow">if</span> (seq!=NULL){</div>
+<div class="line">                <span class="keywordflow">return</span> (*seq)[position];</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;sequence has not been digitized. \n&quot;</span>;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Invalid sequence type queried in sequence class&quot;</span> &lt;&lt;std::endl;</div>
+<div class="line">        exit(1);</div>
+<div class="line">        </div>
+<div class="line">    };</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a484e8eb1c0b446af59e471cd70952bf0"></a>
@@ -760,6 +1251,9 @@ false if no External definition exists for sequence </dd></dl>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="sequence_8h_source.html#l00138">138</a> of file <a class="el" href="sequence_8h_source.html">sequence.h</a>.</p>
+<div class="fragment"><div class="line">{attrib=attr;}; <span class="comment">//!Set the attribute value</span></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aba4b98895eef2b1bf7a14dca25d0944f"></a>
@@ -793,6 +1287,9 @@ false if no External definition exists for sequence </dd></dl>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="sequence_8h_source.html#l00142">142</a> of file <a class="el" href="sequence_8h_source.html">sequence.h</a>.</p>
+<div class="fragment"><div class="line">{header=head;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ac8718c30b916b3ffa52f0425b6788deb"></a>
@@ -827,6 +1324,17 @@ false if no External definition exists for sequence </dd></dl>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="sequence_8cpp_source.html#l00757">757</a> of file <a class="el" href="sequence_8cpp_source.html">sequence.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                             {</div>
+<div class="line">        seqtrk = tr;</div>
+<div class="line">        realSeq = <span class="keyword">true</span>;</div>
+<div class="line">        real=rl;</div>
+<div class="line">                </div>
+<div class="line">                length = rl-&gt;size();</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a600aafee705d57c6e76c8eb67170e529"></a>
@@ -861,6 +1369,23 @@ false if no External definition exists for sequence </dd></dl>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="sequence_8cpp_source.html#l00738">738</a> of file <a class="el" href="sequence_8cpp_source.html">sequence.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                  {</div>
+<div class="line">        realSeq= <span class="keyword">false</span>;</div>
+<div class="line">        undigitized = sq;</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (tr!= NULL){</div>
+<div class="line">                        seqtrk = tr;</div>
+<div class="line">                        _digitize();</div>
+<div class="line">                        length = seq-&gt;size();</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                        length = sq.size();</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a1f5d5edaebf1d71995c7826ca0ab2a37"></a>
@@ -887,6 +1412,9 @@ false if no External definition exists for sequence </dd></dl>
 <p>Get the size of the sequence </p>
 <dl class="section return"><dt>Returns:</dt><dd>size_t size of the sequence </dd></dl>
 
+<p>Definition at line <a class="el" href="sequence_8h_source.html#l00111">111</a> of file <a class="el" href="sequence_8h_source.html">sequence.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">if</span> (realSeq){<span class="keywordflow">return</span> real-&gt;size();} <span class="keywordflow">else</span> {<span class="keywordflow">return</span> seq-&gt;size();}};  <span class="comment">// Returns size of sequence</span></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a1903ef644d684252973aced22799dd52"></a>
@@ -904,6 +1432,40 @@ false if no External definition exists for sequence </dd></dl>
 <p>Get std::string representation of the string *If the string is a real track, then it will return a string of doubles *If the string is a non-real track, then it will return a string of shorts, where the shorts are the digitized value of the sequence according to the track </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::string String representation of the sequence </dd></dl>
 
+<p>Definition at line <a class="el" href="sequence_8cpp_source.html#l00308">308</a> of file <a class="el" href="sequence_8cpp_source.html">sequence.cpp</a>.</p>
+<div class="fragment"><div class="line">                                 {</div>
+<div class="line">        std::string output;</div>
+<div class="line">                <span class="keywordflow">if</span> (!header.empty()){</div>
+<div class="line">                         output+= header +<span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">                }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (!seq &amp;&amp; !realSeq){</div>
+<div class="line">            output+=undigitized;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (realSeq){</div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;length;i++){</div>
+<div class="line">                output+= <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>((*real)[i]) + <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;length;i++){</div>
+<div class="line">                output+= <a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>((<span class="keywordtype">int</span>)(*seq)[i]) + <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (mask){</div>
+<div class="line">            output += <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;length;i++){</div>
+<div class="line">                output+= <a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>((<span class="keywordtype">int</span>)(*mask)[i]) + <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">                </div>
+<div class="line">        output+=<span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">return</span> output;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="adec874da223aa69e0f2291d8f08a4fac"></a>
@@ -922,17 +1484,50 @@ false if no External definition exists for sequence </dd></dl>
 <dl class="section return"><dt>Returns:</dt><dd>character or word sequence from fasta</dd></dl>
 <p>Get the undigitized value of the string *If the string is a real-track then it will return the same as <a class="el" href="class_stoch_h_m_m_1_1sequence.html#a1903ef644d684252973aced22799dd52">stringify()</a> *If the string is a non-real track, it will return undigitized sequence </p>
 
+<p>Definition at line <a class="el" href="sequence_8cpp_source.html#l00344">344</a> of file <a class="el" href="sequence_8cpp_source.html">sequence.cpp</a>.</p>
+<div class="fragment"><div class="line">                                  {</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (realSeq){</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a1903ef644d684252973aced22799dd52">stringify</a>();</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (!seq){  <span class="comment">//If the sequence is not digitized yet.  Return the undigitized version </span></div>
+<div class="line">            <span class="keywordflow">return</span> undigitized;</div>
+<div class="line">        }</div>
+<div class="line">                </div>
+<div class="line">        std::string output;</div>
+<div class="line"><span class="comment">//              if (!header.empty()){</span></div>
+<div class="line"><span class="comment">//                      output+= header +&quot;\n&quot;;</span></div>
+<div class="line"><span class="comment">//              }</span></div>
+<div class="line">                </div>
+<div class="line">        <span class="keywordflow">if</span> (seqtrk!=NULL){</div>
+<div class="line">            <span class="keywordtype">size_t</span> alphaMax = seqtrk-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a548bf92e3a6ec84e79a0496ec51d621e">getAlphaMax</a>();</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i&lt;length;i++){</div>
+<div class="line">                output+=seqtrk-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a6a233038df789a2b0a0796a1f51a9931">getAlpha</a>((*seq)[i]);</div>
+<div class="line">                <span class="keywordflow">if</span> (alphaMax!=1){</div>
+<div class="line">                    output+=<span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> {</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Track is not defined.  Can&#39;t undigitize sequence without valid track\n&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> output;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="sequence_8h_source.html">sequence.h</a></li>
-<li>sequence.cpp</li>
-<li>trainingSeq.cpp</li>
+<li><a class="el" href="sequence_8cpp_source.html">sequence.cpp</a></li>
+<li><a class="el" href="training_seq_8cpp_source.html">trainingSeq.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

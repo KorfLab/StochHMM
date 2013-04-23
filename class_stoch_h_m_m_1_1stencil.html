@@ -122,6 +122,8 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>class stencil: contains individial model template and keeps track of coordinates for replacement </p>
+
+<p>Definition at line <a class="el" href="model_template_8h_source.html#l00043">43</a> of file <a class="el" href="model_template_8h_source.html">modelTemplate.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="af3743b9fcba8281ff92f520d4c947775"></a>
 <div class="memitem">
@@ -166,6 +168,38 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <p>Find all userParameters and replace</p>
 <p>Check the coordinates and replace with proper coordinats The name should be only the tagName without brackets But the start should be the position of first bracket and stop should be the position of the last bracket</p>
 
+<p>Definition at line <a class="el" href="model_template_8cpp_source.html#l00063">63</a> of file <a class="el" href="model_template_8cpp_source.html">modelTemplate.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                                                              {</div>
+<div class="line">        </div>
+<div class="line">        std::string FilledOutModel = states;</div>
+<div class="line">        <span class="keywordtype">size_t</span> beginposition=FilledOutModel.find(<span class="stringliteral">&quot;&lt;&lt;&quot;</span>);</div>
+<div class="line">        <span class="keywordtype">size_t</span> endposition=0;<span class="comment"></span></div>
+<div class="line"><span class="comment">        //!Find all userParameters and replace</span></div>
+<div class="line"><span class="comment"></span>        <span class="keywordflow">while</span> (beginposition!=std::string::npos){</div>
+<div class="line">            endposition=FilledOutModel.find(<span class="stringliteral">&quot;&gt;&gt;&quot;</span>,beginposition+1);<span class="comment"></span></div>
+<div class="line"><span class="comment">            /*!Check the coordinates and replace with proper coordinats</span></div>
+<div class="line"><span class="comment">             The name should be only the tagName without brackets</span></div>
+<div class="line"><span class="comment">             But the start should be the position of first bracket and stop</span></div>
+<div class="line"><span class="comment">             should be the position of the last bracket */</span></div>
+<div class="line">            std::string tagName=FilledOutModel.substr(beginposition+2,endposition-beginposition-2);</div>
+<div class="line">            std::string ValueToFill = UserValues[tagName];</div>
+<div class="line">            FilledOutModel.replace(beginposition,(endposition+2-beginposition),ValueToFill);</div>
+<div class="line">            beginposition=FilledOutModel.find(<span class="stringliteral">&quot;&lt;&lt;&quot;</span>,endposition+1);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        beginposition=FilledOutModel.find(<span class="stringliteral">&quot;((&quot;</span>);</div>
+<div class="line">        endposition=0;</div>
+<div class="line">        <span class="keywordflow">while</span> (beginposition!=std::string::npos){</div>
+<div class="line">            endposition=FilledOutModel.find(<span class="stringliteral">&quot;))&quot;</span>,beginposition+1);<span class="comment"></span></div>
+<div class="line"><span class="comment">            /*! */</span></div>
+<div class="line">            std::string tagName=FilledOutModel.substr(beginposition+2,endposition-beginposition-2);</div>
+<div class="line">            std::string ValueToFill = tagName + ID;</div>
+<div class="line">            FilledOutModel.replace(beginposition,(endposition+2-beginposition),ValueToFill);</div>
+<div class="line">            beginposition=FilledOutModel.find(<span class="stringliteral">&quot;((&quot;</span>,endposition+1);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> FilledOutModel;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a4437123c718b0c24093ef50ae6573830"></a>
@@ -186,16 +220,32 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <p>Takes a template string and finds all user defined variables (userParameters). Adds these to a set of strings </p>
 <p>Find all userParameters Marks </p>
 
+<p>Definition at line <a class="el" href="model_template_8cpp_source.html#l00039">39</a> of file <a class="el" href="model_template_8cpp_source.html">modelTemplate.cpp</a>.</p>
+<div class="fragment"><div class="line">                                     {</div>
+<div class="line">        </div>
+<div class="line">        states = txt;</div>
+<div class="line">        <span class="keywordtype">size_t</span> opening=txt.find(<span class="stringliteral">&quot;&lt;&lt;&quot;</span>);</div>
+<div class="line">        <span class="keywordtype">size_t</span> closing=0;<span class="comment"></span></div>
+<div class="line"><span class="comment">        //!Find all userParameters Marks</span></div>
+<div class="line"><span class="comment"></span>        <span class="keywordflow">while</span> (opening!=std::string::npos){</div>
+<div class="line">            closing=txt.find(<span class="stringliteral">&quot;&gt;&gt;&quot;</span>,opening+1);</div>
+<div class="line">            std::string tagName=txt.substr(opening+2,closing-opening-2);</div>
+<div class="line">            UserParameterKeys.insert(tagName);</div>
+<div class="line">            opening=txt.find(<span class="stringliteral">&quot;&lt;&lt;&quot;</span>,closing+1);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="model_template_8h_source.html">modelTemplate.h</a></li>
-<li>modelTemplate.cpp</li>
+<li><a class="el" href="model_template_8cpp_source.html">modelTemplate.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

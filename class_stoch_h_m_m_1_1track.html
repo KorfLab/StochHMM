@@ -193,6 +193,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Defines types of data (real-value, text-sequence) used in the model and the alphabet that a text-sequence uses. Tracks are used to digitize the sequence before decoding in HMM </p>
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00086">86</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a14cb394c945f825584d63569a4de060a"></a>
 <div class="memitem">
@@ -215,6 +217,30 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00109">109</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                   {</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (alphabet.size() &gt;= 255){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Alphabet limit reached.   Unable to add additional characters to the track:\t&quot;</span> &lt;&lt; character &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (character.size()&gt;maxSize){maxSize=character.size();};</div>
+<div class="line">        </div>
+<div class="line">                alphabet.push_back(character);</div>
+<div class="line">        </div>
+<div class="line">                <span class="keywordtype">size_t</span> index = alphabet.size()-1;</div>
+<div class="line">        </div>
+<div class="line">                symbolIndices[character]=index;</div>
+<div class="line">                </div>
+<div class="line">                max_unambiguous = index;</div>
+<div class="line">                unambiguous.push_back(index);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a714d6094e545fe160bebb2b29bbbf333">setAlphaType</a>(ALPHA_NUM);</div>
+<div class="line">        </div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a8066137833cd5df1cc0ed119204a0c86"></a>
@@ -248,6 +274,26 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00237">237</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                          {</div>
+<div class="line">                <span class="keywordflow">if</span> (defaultAmbiguous==-1){</div>
+<div class="line">                        defaultAmbiguous = max_unambiguous+1;</div>
+<div class="line">                }</div>
+<div class="line">        ambigCharacter amb(<span class="keyword">this</span>,ambChar,defs);</div>
+<div class="line">        ambiguousSymbols.push_back(amb);</div>
+<div class="line">        </div>
+<div class="line">                <span class="keywordtype">int</span> index = (int) symbolIndices.size();  <span class="comment">//Get the index position and new digital reference value</span></div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (index &gt;= 255){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Maximum number of discrete symbols reached at 255\n&quot;</span>;</div>
+<div class="line">                        exit(2);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">        symbolIndices[ambChar]=index;</div>
+<div class="line">                max_ambiguous = index;</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a6a233038df789a2b0a0796a1f51a9931"></a>
@@ -272,6 +318,19 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>std::string The string value in the undigitized sequence that is associated with the integer digitized value; </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00079">79</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+<div class="fragment"><div class="line">                                     {</div>
+<div class="line">                <span class="keywordflow">if</span> (iter&lt;=max_unambiguous){</div>
+<div class="line">                        <span class="keywordflow">return</span> alphabet[iter];</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (iter &lt;= max_ambiguous){</div>
+<div class="line">                        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#aca0dbd7837fab998e7effad83ddf48ab">getAmbiguousCharacter</a>(iter);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">                }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a637c1dc8ec86116a72d06df3640acffd"></a>
@@ -296,6 +355,19 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>std::string The string value in the undigitized sequence that is associated with the integer digitized value; </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00094">94</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+<div class="fragment"><div class="line">                                        {</div>
+<div class="line">                <span class="keywordflow">if</span> (iter&lt;=max_unambiguous){</div>
+<div class="line">                        <span class="keywordflow">return</span> alphabet[iter];</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (iter &lt;= max_ambiguous){</div>
+<div class="line">                        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#aca0dbd7837fab998e7effad83ddf48ab">getAmbiguousCharacter</a>(iter);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">                }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a548bf92e3a6ec84e79a0496ec51d621e"></a>
@@ -321,6 +393,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <p>Get the size of the largest alphabet word </p>
 <dl class="section return"><dt>Returns:</dt><dd>size_t </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8h_source.html#l00180">180</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> maxSize;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a4d3759f267996b13d71bb8e9a173c54c"></a>
@@ -346,6 +421,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <p>Get the number of characters defined in the track </p>
 <dl class="section return"><dt>Returns:</dt><dd>size_t Number of characters/words defined in the track </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8h_source.html#l00173">173</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> alphabet.size();};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a4ce8b421ac3f61a6093d81867b4a981f"></a>
@@ -372,6 +450,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>trackType Alphabet type of the track </dd></dl>
 <dl class="section see"><dt>See also:</dt><dd>enum <a class="el" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53">trackType</a> </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8h_source.html#l00169">169</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> alpha_type;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aca0dbd7837fab998e7effad83ddf48ab"></a>
@@ -395,6 +476,15 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00500">500</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                    {</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#add793f3af354f7f90741770d7a985589">getAmbiguousSize</a>()==0){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="stringliteral">&quot;*&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> ambiguousSymbols[(val-max_unambiguous)-1].getSymbol();</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a9f599bab7a7381d21f740d73ebd5bfcc"></a>
@@ -421,6 +511,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <p>Get the indices of characters that an ambiguous character represents </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::vector&lt;int&gt; </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8h_source.html#l00220">220</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> ambiguousSymbols[(val-max_unambiguous)-1].getDef();}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="add793f3af354f7f90741770d7a985589"></a>
@@ -446,6 +539,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <p>Get the number of ambiguous characters that are defined </p>
 <dl class="section return"><dt>Returns:</dt><dd>size_t Number of ambiguous characters/words defined </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8h_source.html#l00213">213</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> ambiguousSymbols.size();};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="abeee301c1b08069c856aac4b1b8b16c2"></a>
@@ -470,6 +566,23 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>int value of complement </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00593">593</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                {</div>
+<div class="line">        <span class="keywordflow">if</span> (complementSet){</div>
+<div class="line">            <span class="keywordflow">if</span> (complementAlphabet.count(val)){</div>
+<div class="line">                <span class="keywordflow">return</span> complementAlphabet[val];</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr&lt;&lt; <span class="stringliteral">&quot;Complement of &quot;</span> &lt;&lt; val &lt;&lt; <span class="stringliteral">&quot; is not set in track\n&quot;</span>;</div>
+<div class="line">                <span class="keywordflow">return</span> -1;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;No complements are set in the track\n&quot;</span>;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a24c259f1b2aa2aaa24b5e948fd019318"></a>
@@ -494,6 +607,24 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>int Defined complement string symbol of symbol </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00614">614</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                         {</div>
+<div class="line">        <span class="keywordflow">if</span> (complementSet){</div>
+<div class="line">            <span class="keywordflow">if</span> (symbolIndices.count(character)){</div>
+<div class="line">                <span class="keywordtype">int</span> characterIndex = <a class="code" href="class_stoch_h_m_m_1_1track.html#aca825987aefb56d95601eabd48b8ac93">symbolIndex</a>(character);</div>
+<div class="line">                <span class="keywordflow">return</span> complementAlphabet[characterIndex];</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr&lt;&lt; <span class="stringliteral">&quot;Complement of &quot;</span> &lt;&lt; character &lt;&lt; <span class="stringliteral">&quot; is not set in track\n&quot;</span>;</div>
+<div class="line">                <span class="keywordflow">return</span> -1;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;No complements are set in the track\n&quot;</span>;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a3986bf756cb25a7637c31608d66e2d49"></a>
@@ -518,6 +649,25 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>std::string Defined complement string symbol </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00657">657</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                            {</div>
+<div class="line">        <span class="keywordflow">if</span> (complementSet){</div>
+<div class="line">            <span class="keywordflow">if</span> (symbolIndices.count(character)){</div>
+<div class="line">                <span class="keywordtype">int</span> characterIndex = <a class="code" href="class_stoch_h_m_m_1_1track.html#aca825987aefb56d95601eabd48b8ac93">symbolIndex</a>(character);</div>
+<div class="line">                <span class="keywordtype">int</span> complement_value = complementAlphabet[characterIndex];</div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a6a233038df789a2b0a0796a1f51a9931">getAlpha</a>(complement_value);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr&lt;&lt; <span class="stringliteral">&quot;Complement of &quot;</span> &lt;&lt; character &lt;&lt; <span class="stringliteral">&quot; is not set in track\n&quot;</span>;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;No complements are set in the track\n&quot;</span>;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ad022003bace94df16a3a5181f3b9f655"></a>
@@ -542,6 +692,25 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>std::string Defined complement string symbol of symbol with digitized value </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00635">635</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                     {</div>
+<div class="line">        <span class="keywordflow">if</span> (complementSet){</div>
+<div class="line">            <span class="keywordflow">if</span> (complementAlphabet.count(value)){</div>
+<div class="line">                <span class="keywordtype">int</span> complement_value = complementAlphabet[value];</div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a6a233038df789a2b0a0796a1f51a9931">getAlpha</a>(complement_value);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr&lt;&lt; <span class="stringliteral">&quot;Complement of &quot;</span> &lt;&lt; value &lt;&lt; <span class="stringliteral">&quot; is not set in track\n&quot;</span>;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;No complements are set in the track\n&quot;</span>;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">                </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ab4aa45ef4fe9805bc16b039360483dd1"></a>
@@ -567,6 +736,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <p>Get the description of the track </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::string Description of the track </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8h_source.html#l00154">154</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> description;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a2c18fbb6e1c6aa8aa41a33d07bc6e279"></a>
@@ -592,6 +764,15 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <p>Get the index of the track </p>
 <dl class="section return"><dt>Returns:</dt><dd>int <a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a> of the track </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8h_source.html#l00158">158</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+<div class="fragment"><div class="line">                                {</div>
+<div class="line">            <span class="keywordflow">if</span> (trackIndex&lt;std::numeric_limits&lt;size_t&gt;::max()){</div>
+<div class="line">                <span class="keywordflow">return</span> trackIndex;</div>
+<div class="line">            }</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Track Index is not set in track.  Set the track index with setIndex(size_t indx) before calling.\n&quot;</span>;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        };</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aef2e0ba6264ad17c0dfb13eec6134adb"></a>
@@ -617,6 +798,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <p>Get the name of the track </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::string Name of the track </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8h_source.html#l00150">150</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> name;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a4684b917aeac79cf7b0f7d6df570604d"></a>
@@ -642,6 +826,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <p>Get name of TrackFunc defined for track </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::string Name of trackFunc defined </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8h_source.html#l00241">241</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> trackFunction;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a7ccbf6be8098e5911b3914d32072e164"></a>
@@ -669,6 +856,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <dd>
 false if it is a REAL type </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8h_source.html#l00209">209</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">if</span> (alpha_type == ALPHA_NUM){<span class="keywordflow">return</span> <span class="keyword">true</span>;} <span class="keywordflow">else</span> {<span class="keywordflow">return</span> <span class="keyword">false</span>;}};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ad7154d14625389cc8f694e59498c484e"></a>
@@ -696,6 +886,9 @@ false if it is a REAL type </dd></dl>
 <dd>
 false if not set </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8h_source.html#l00203">203</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> ambiguous;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a04e51fb4eacbec28b72e09d519846306"></a>
@@ -721,6 +914,9 @@ false if not set </dd></dl>
 <p>Check if the TrackFunction is defined for this track </p>
 <dl class="section return"><dt>Returns:</dt><dd>true if the track has a trackFunc defined </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8h_source.html#l00237">237</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> trackFunctionDefined;}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a4562832a987bb22a030f1c4c73b82aa1"></a>
@@ -745,6 +941,54 @@ false if not set </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>true if the track was parsed properly </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00310">310</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+<div class="fragment"><div class="line">                                   {</div>
+<div class="line">        stringList lst;</div>
+<div class="line">        stringList tag = <a class="code" href="group___text.html#gabad7e59fdc834721ee71b12524c40002">extractTag</a>(txt);</div>
+<div class="line">        <span class="keywordtype">size_t</span> index;</div>
+<div class="line">        </div>
+<div class="line">        lst.fromNext(txt);</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#a22f0e71cadaeaccab5562303656019fd">setName</a>(lst[0]);</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#ae59177d38cf345949d0686e440e1a450">setDescription</a>(lst.getComment());</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (lst[1].compare(<span class="stringliteral">&quot;REAL_NUMBER&quot;</span>)==0){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1track.html#a714d6094e545fe160bebb2b29bbbf333">setAlphaType</a>(REAL);</div>
+<div class="line">            <span class="keywordflow">if</span> (tag.size()&gt;0){</div>
+<div class="line">                <span class="keywordflow">if</span> (tag.contains(<span class="stringliteral">&quot;FUNCTION&quot;</span>)){</div>
+<div class="line">                    index=tag.indexOf(<span class="stringliteral">&quot;FUNCTION&quot;</span>);</div>
+<div class="line">                    trackFunction=tag[index+1];</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Real number track function tag must contain FUNCTION: and USE: . Please check the formatting of your tag.  Here is the tag as parsed: &quot;</span> &lt;&lt;  tag.stringify() &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                    </div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (tag.contains(<span class="stringliteral">&quot;USE&quot;</span>)){</div>
+<div class="line">                    index=tag.indexOf(<span class="stringliteral">&quot;USE&quot;</span>);</div>
+<div class="line">                    trackToUse=tag[index+1];</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Real number track tag must contain FUNCTION: and USE: . Please check the formatting of your tag.  Here is the tag as parsed: &quot;</span> &lt;&lt;  tag.stringify() &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">                trackFunctionDefined=<span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1track.html#a714d6094e545fe160bebb2b29bbbf333">setAlphaType</a>(ALPHA_NUM);</div>
+<div class="line">                        </div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;lst.size();i++){</div>
+<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1track.html#a14cb394c945f825584d63569a4de060a">addAlphabetChar</a>(lst[i])){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Track import failed, because number of symbols exceeded 255. Alternatively, you can create a real number track for different emissions&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a4bdf7361bae5389018b535d773232361"></a>
@@ -769,6 +1013,22 @@ false if not set </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>true if the ambiguous characters were properly parsed </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00456">456</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+<div class="fragment"><div class="line">                                            {</div>
+<div class="line">        std::vector&lt;std::pair&lt;std::string,std::vector&lt;std::string&gt; &gt; &gt; temp;</div>
+<div class="line">        </div>
+<div class="line">        _splitAmbiguousList(temp, txt);</div>
+<div class="line">                <span class="keywordflow">if</span> (temp.size()==0){</div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#a3079bae61c6d73e1a796897e3118ce4c">setAmbiguous</a>();</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i&lt;temp.size();i++){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1track.html#a8066137833cd5df1cc0ed119204a0c86">addAmbiguous</a>(temp[i].first, temp[i].second);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a714d6094e545fe160bebb2b29bbbf333"></a>
@@ -800,6 +1060,9 @@ false if not set </dd></dl>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="track_8h_source.html#l00124">124</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+<div class="fragment"><div class="line">{alpha_type=typ;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a3079bae61c6d73e1a796897e3118ce4c"></a>
@@ -824,6 +1087,9 @@ false if not set </dd></dl>
 </div><div class="memdoc">
 <p>Set ambiguous character flag to true This will allow ambiguous characters to be processed in sequence Without this flag, only strict track characters or values are allowed </p>
 
+<p>Definition at line <a class="el" href="track_8h_source.html#l00142">142</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+<div class="fragment"><div class="line">{ambiguous=<span class="keyword">true</span>; <span class="keywordflow">return</span>;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ae59177d38cf345949d0686e440e1a450"></a>
@@ -855,6 +1121,9 @@ false if not set </dd></dl>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="track_8h_source.html#l00108">108</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+<div class="fragment"><div class="line">{description=desc;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a2e10c17739bf3cbfe4d314db52cfca12"></a>
@@ -886,6 +1155,16 @@ false if not set </dd></dl>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="track_8h_source.html#l00112">112</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+<div class="fragment"><div class="line">                                         {</div>
+<div class="line">            <span class="keywordflow">if</span> (indx&lt;std::numeric_limits&lt;size_t&gt;::max()){</div>
+<div class="line">                trackIndex=indx;</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">            }</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Track index: &quot;</span> &lt;&lt; indx &lt;&lt; <span class="stringliteral">&quot; is OUT_OF_RANGE\n&quot;</span>;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a22f0e71cadaeaccab5562303656019fd"></a>
@@ -917,6 +1196,9 @@ false if not set </dd></dl>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="track_8h_source.html#l00104">104</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+<div class="fragment"><div class="line">{name=nm;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a4f3d856b99c7a2d12c31c620e16477bc"></a>
@@ -934,6 +1216,26 @@ false if not set </dd></dl>
 <p>Get the string representation of the track </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::string Definition of the track as in model </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00360">360</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+<div class="fragment"><div class="line">                              {</div>
+<div class="line">        std::string output;</div>
+<div class="line">        output+=name + <span class="stringliteral">&quot;:\t&quot;</span>;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (alpha_type == ALPHA_NUM){</div>
+<div class="line">            output+=<a class="code" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">join</a>(alphabet,<span class="charliteral">&#39;,&#39;</span>);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            output+=<span class="stringliteral">&quot;REAL_NUMBER&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">if</span> (trackFunctionDefined){</div>
+<div class="line">                output+=<span class="stringliteral">&quot;\t[FUNCTION:\t&quot;</span> + trackFunction;</div>
+<div class="line">                output+=<span class="stringliteral">&quot;\tUSE:\t&quot;</span> + trackToUse + <span class="stringliteral">&quot;]&quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        output+=<span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> output;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ad5177cd51d3cc37b7aa663b509fa3f75"></a>
@@ -951,6 +1253,26 @@ false if not set </dd></dl>
 <p>Get the string representation of the ambiguous character definitions as in model file </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::string </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00381">381</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+<div class="fragment"><div class="line">                                   {</div>
+<div class="line">        std::string output;</div>
+<div class="line">        output+=name + <span class="stringliteral">&quot;:\t&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = max_unambiguous+1; i &lt;= max_ambiguous; i++){</div>
+<div class="line">            <span class="keywordflow">if</span> (i &gt; (<span class="keywordtype">size_t</span>) max_unambiguous+1){ output+= <span class="stringliteral">&quot;,&quot;</span>;}</div>
+<div class="line">            </div>
+<div class="line">            output+=<a class="code" href="class_stoch_h_m_m_1_1track.html#aca0dbd7837fab998e7effad83ddf48ab">getAmbiguousCharacter</a>(i);</div>
+<div class="line">            output+=<span class="stringliteral">&quot;[&quot;</span>;</div>
+<div class="line">            </div>
+<div class="line">            std::vector&lt;size_t&gt;&amp; regChar = <a class="code" href="class_stoch_h_m_m_1_1track.html#a9f599bab7a7381d21f740d73ebd5bfcc">getAmbiguousSet</a>(i);</div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k = 0; k&lt;regChar.size();k++){</div>
+<div class="line">                <span class="keywordflow">if</span> (k&gt;0){output+=<span class="stringliteral">&quot;,&quot;</span>;}</div>
+<div class="line">                output+=alphabet[regChar[k]];</div>
+<div class="line">            }</div>
+<div class="line">            output+=<span class="stringliteral">&quot;]&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> output;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aca825987aefb56d95601eabd48b8ac93"></a>
@@ -974,6 +1296,23 @@ false if not set </dd></dl>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00259">259</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                     {</div>
+<div class="line">        <span class="keywordflow">if</span> (symbolIndices.count(symbol)==0){  <span class="comment">//If isn&#39;t found in the hash</span></div>
+<div class="line">            <span class="keywordflow">if</span> (ambiguous){ <span class="comment">//Return default character if ambiguous is set</span></div>
+<div class="line">                                std::cerr &lt;&lt; symbol &lt;&lt; <span class="stringliteral">&quot;not found in HMM definitions. Using default ambiguous character.\n&quot;</span>; </div>
+<div class="line">                <span class="keywordflow">return</span> defaultAmbiguous;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Encountered an ambiguous character in the sequence.  No ambiguous characters are allowed because they weren&#39;t set in the model.   To allow ambiguous characters, please add an \&quot; Ambiguous Character Definition\&quot; to the model&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">return</span> symbolIndices[symbol];</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a6e4a6f14f1251f8799d2649041525165"></a>
@@ -997,16 +1336,45 @@ false if not set </dd></dl>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00277">277</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                  {</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (maxSize != 1){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Track Max Symbols Size:\t&quot;</span> &lt;&lt; maxSize &lt;&lt; <span class="stringliteral">&quot;\t Must use function track::symbolIndex(const std::string&amp; symbol)\n&quot;</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (charIndices == NULL){</div>
+<div class="line">                        charIndices = <span class="keyword">new</span> (std::nothrow) std::vector&lt;uint8_t&gt;(255,255);</div>
+<div class="line">                        <span class="keywordflow">for</span>(std::map&lt;std::string,uint8_t&gt;::iterator it = symbolIndices.begin(); it != symbolIndices.end(); it++){</div>
+<div class="line">                                (*charIndices)[(it-&gt;first)[0]] = it-&gt;second;</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> ((*charIndices)[symbol]==255){  <span class="comment">//If isn&#39;t found in the array</span></div>
+<div class="line">            <span class="keywordflow">if</span> (ambiguous){ <span class="comment">//Return default character if ambiguous is set</span></div>
+<div class="line">                <span class="keywordflow">return</span> defaultAmbiguous;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Encountered an ambiguous character in the sequence.  No ambiguous characters are allowed because they weren&#39;t set in the model.   To allow ambiguous characters, please add an \&quot; Ambiguous Character Definition\&quot; to the model&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">return</span> (*charIndices)[symbol];</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="track_8h_source.html">track.h</a></li>
-<li>track.cpp</li>
+<li><a class="el" href="track_8cpp_source.html">track.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

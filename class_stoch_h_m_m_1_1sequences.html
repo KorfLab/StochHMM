@@ -148,6 +148,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>the track sequence(s) Each sequence have to be the same length Created to pass multiple sequence tracks of different datasets to the HMM If you need multiple unrelated sequences, use std::vector&lt;sequence&gt; instead. </p>
+
+<p>Definition at line <a class="el" href="sequences_8h_source.html#l00050">50</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a152c1f192f554b931a3394c4281432f4"></a>
 <div class="memitem">
@@ -170,6 +172,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00046">46</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+<div class="fragment"><div class="line">                                 :seq(sz,NULL){</div>
+<div class="line">        length=-1;</div>
+<div class="line">        external=NULL;</div>
+<div class="line">        related_sequences=<span class="keyword">true</span>;</div>
+<div class="line">        num_of_sequences=sz;</div>
+<div class="line">        same_length=<span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a4583b8d6c556d478b0c98de1699f5cb3"></a>
@@ -193,6 +204,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00057">57</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+<div class="fragment"><div class="line">                                  :seq(tr-&gt;size(),NULL){</div>
+<div class="line">        length=-1;</div>
+<div class="line">        external=NULL;</div>
+<div class="line">        related_sequences=<span class="keyword">true</span>;</div>
+<div class="line">        num_of_sequences=tr-&gt;size();</div>
+<div class="line">        same_length=<span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
@@ -219,6 +239,22 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00262">262</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+<div class="fragment"><div class="line">                                      {</div>
+<div class="line">        <span class="keywordflow">if</span> (related_sequences){</div>
+<div class="line">            track* trk = sq-&gt;getTrack();</div>
+<div class="line">            seq[trk-&gt;getIndex()]=sq;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a5c45ecfdf5a9e2fbdaeb0bf7e3eb1cce" title="Set Length of sequences.">setLength</a>(sq-&gt;getLength());</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            seq.push_back(sq);</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a5c45ecfdf5a9e2fbdaeb0bf7e3eb1cce" title="Set Length of sequences.">setLength</a>(sq-&gt;getLength());</div>
+<div class="line">            num_of_sequences++;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a6035752154188d4ffcb6b851e16ef7f5"></a>
@@ -254,6 +290,25 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00281">281</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                   {</div>
+<div class="line">        <span class="keywordflow">if</span> (seq.size()&gt;iter){  <span class="comment">//If position already exists just add it</span></div>
+<div class="line">            seq[iter]=sq;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{ <span class="comment">//If the position doesn&#39;t exist extend the vector, then add</span></div>
+<div class="line">            seq.resize(iter+1,NULL);</div>
+<div class="line">            seq[iter]=sq;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a5c45ecfdf5a9e2fbdaeb0bf7e3eb1cce" title="Set Length of sequences.">setLength</a>(sq-&gt;getLength());</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (!related_sequences){</div>
+<div class="line">            num_of_sequences=iter;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="acc6510fbf9d5cf570bf4130c5b952dc8"></a>
@@ -290,6 +345,29 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00303">303</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                {</div>
+<div class="line">        <span class="keywordflow">if</span> (tr!=NULL){</div>
+<div class="line">            <span class="keywordflow">if</span> (related_sequences){</div>
+<div class="line">                <span class="keywordtype">size_t</span> index = tr-&gt;getIndex();</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1sequences.html#ae52e575cc20a6388b79f9eabab4c5ce4" title="Get sequence based on alphabet.">addSeq</a>(sq,index);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1sequences.html#ae52e575cc20a6388b79f9eabab4c5ce4" title="Get sequence based on alphabet.">addSeq</a>(sq);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">if</span> (related_sequences){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Track is undefined for related sequences.  Unable to add related sequences if track is not defined\n&quot;</span>;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1sequences.html#ae52e575cc20a6388b79f9eabab4c5ce4" title="Get sequence based on alphabet.">addSeq</a>(sq);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a186a9b5085dbd0887e57a0423cea1301"></a>
@@ -314,6 +392,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>True if there is an external definition defined for the position </dd></dl>
 
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00223">223</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+<div class="fragment"><div class="line">                                          {</div>
+<div class="line">        <span class="keywordflow">if</span> (external &amp;&amp; external-&gt;defs[pos]){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ac7228a30e8531845938b5ec1381f0f85"></a>
@@ -348,6 +436,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>True if there is an external definition fo the the state and position </dd></dl>
 
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00235">235</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                            {</div>
+<div class="line">        <span class="keywordflow">if</span> (external &amp;&amp; external-&gt;defs[pos]){</div>
+<div class="line">            <span class="keywordflow">if</span> (external-&gt;<a class="code" href="class_stoch_h_m_m_1_1_ex_def_sequence.html#a38bfd2e9b0958bf40462b7758106ebed">defined</a>(stateIter)){</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a499a2ee26b7cdeaa54c518c3a6486433"></a>
@@ -367,6 +465,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 <p>Check to see if there are any external definitions defined </p>
 <dl class="section return"><dt>Returns:</dt><dd>true if there are external definitions defined </dd></dl>
 
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00247">247</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+<div class="fragment"><div class="line">                                {</div>
+<div class="line">        <span class="keywordflow">return</span> external;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a5c38dd56e58e490eddcb32993b9ab950"></a>
@@ -399,6 +502,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>double value of the attribute set for the sequence </dd></dl>
 
+<p>Definition at line <a class="el" href="sequences_8h_source.html#l00078">78</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+<div class="fragment"><div class="line">                                            {</div>
+<div class="line">            <span class="keywordflow">if</span> (iter&lt;num_of_sequences &amp;&amp; seq[iter]!=NULL){</div>
+<div class="line">                <span class="keywordflow">return</span> seq[iter]-&gt;getAttrib();  <span class="comment">//Returns attrib value for Track (i)</span></div>
+<div class="line">            }</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;No sequence defined at iterator &quot;</span> &lt;&lt; iter &lt;&lt; std::endl;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a4edbb349b6d2f93cc29a25812368e058"></a>
@@ -424,6 +536,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 <p>Get the header for the first sequence </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::string&amp; The header for the first sequence in sequences </dd></dl>
 
+<p>Definition at line <a class="el" href="sequences_8h_source.html#l00089">89</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+<div class="fragment"><div class="line">                                     {</div>
+<div class="line">            <span class="keywordflow">if</span> (num_of_sequences&gt;0 &amp;&amp; seq[0]!=NULL){</div>
+<div class="line">                <span class="keywordflow">return</span> seq[0]-&gt;header;</div>
+<div class="line">            }</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;No sequence defined.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        } </div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a15a54e9788933a14451a68063203ad53"></a>
@@ -456,6 +577,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>std::string&amp; The header for the ith sequence </dd></dl>
 
+<p>Definition at line <a class="el" href="sequences_8h_source.html#l00101">101</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+<div class="fragment"><div class="line">                                                {</div>
+<div class="line">            <span class="keywordflow">if</span> (iter&lt;num_of_sequences){</div>
+<div class="line">                <span class="keywordflow">if</span> (seq[iter]!=NULL){</div>
+<div class="line">                    <span class="keywordflow">return</span> seq[iter]-&gt;header;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;No sequence defined at iterator &quot;</span> &lt;&lt; iter &lt;&lt; std::endl;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a4330384386d607990d4f46e4ec710b27"></a>
@@ -488,6 +620,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>size_t value of length of sequence at iter </dd></dl>
 
+<p>Definition at line <a class="el" href="sequences_8h_source.html#l00134">134</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+<div class="fragment"><div class="line">                                            {</div>
+<div class="line">            <span class="keywordflow">if</span> (iter&lt;num_of_sequences &amp;&amp; seq[iter]!=NULL){</div>
+<div class="line">                <span class="keywordflow">return</span> seq[iter]-&gt;getLength(); <span class="comment">//Get lenght of sequence in position (i)</span></div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">return</span> 0;</div>
+<div class="line">        } </div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a30b024b7aa60cd8cadaf2f6733408095"></a>
@@ -513,6 +653,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 <p>Get the length of sequences in general *All of the sequence(s) should be the same length </p>
 <dl class="section return"><dt>Returns:</dt><dd>size_t value of length of all sequences </dd></dl>
 
+<p>Definition at line <a class="el" href="sequences_8h_source.html#l00144">144</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+<div class="fragment"><div class="line">                                 {</div>
+<div class="line">                        <span class="keywordflow">return</span> length;</div>
+<div class="line"><span class="comment">//            if (related_sequences){</span></div>
+<div class="line"><span class="comment">//                return length; // Get length of related sequence</span></div>
+<div class="line"><span class="comment">//            }</span></div>
+<div class="line"><span class="comment">//            return 0;</span></div>
+<div class="line">        };</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a0bb47e055e4055c5941f366feddb31d9"></a>
@@ -539,6 +688,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 <dd>
 NULL if no sequence exists at iter </dd></dl>
 
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00174">174</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+<div class="fragment"><div class="line">                                          {</div>
+<div class="line">        <span class="keywordflow">if</span>(iter&lt;seq.size()){</div>
+<div class="line">            <span class="keywordflow">return</span> seq[iter];</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> NULL;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a360ce70b661a950da79d0668a3afac9a"></a>
@@ -571,6 +729,17 @@ NULL if no sequence exists at iter </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>std::string of undigitized sequence at ith position </dd></dl>
 
+<p>Definition at line <a class="el" href="sequences_8h_source.html#l00115">115</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+<div class="fragment"><div class="line">                                                     {</div>
+<div class="line">            <span class="keywordflow">if</span> (iter&gt;seq.size()){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;getUndigitized(size_t iter) called where iter is out of range\n&quot;</span>;</div>
+<div class="line">                <span class="keywordflow">return</span> NULL;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                <span class="keywordflow">return</span> seq[iter]-&gt;getUndigitized();</div>
+<div class="line">            }</div>
+<div class="line">        };</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a0eecfd11066a4802ef3129e3641eb0d0"></a>
@@ -605,6 +774,11 @@ NULL if no sequence exists at iter </dd></dl>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00254">254</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                {</div>
+<div class="line">        <span class="keywordflow">return</span> external-&gt;<a class="code" href="class_stoch_h_m_m_1_1_ex_def_sequence.html#aeff378b2336212fc3ce2b1675223d9a9">getWeight</a>(position, stateIter);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ad8a8c85d919878bb230a3f847fc7db11"></a>
@@ -631,6 +805,9 @@ NULL if no sequence exists at iter </dd></dl>
 <p>Is External definition defined. </p>
 <p>Print the string representation of digitized sequencs to the stdout </p>
 
+<p>Definition at line <a class="el" href="sequences_8h_source.html#l00159">159</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+<div class="fragment"><div class="line">{std::cout&lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1sequences.html#af6167ae56e39f98db3a3fd24f6891f46">stringify</a>() &lt;&lt; std::endl;}; <span class="comment">//Print sequences to stdout</span></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a125334dc9cc39fe47df7780284bb27f2"></a>
@@ -666,6 +843,15 @@ NULL if no sequence exists at iter </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>double value of the real sequence at the position </dd></dl>
 
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00141">141</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                       {</div>
+<div class="line">        <span class="keywordflow">if</span> (seq[trck]-&gt;realSeq){</div>
+<div class="line">            <span class="keywordflow">return</span> seq[trck]-&gt;realValue(position);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> -INFINITY;</div>
+<div class="line">        </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a104e5ece8e8cfbc5d2c6b40f04856818"></a>
@@ -701,6 +887,15 @@ NULL if no sequence exists at iter </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>double value of the real sequence at the position </dd></dl>
 
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00153">153</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                          {</div>
+<div class="line">        <span class="keywordflow">if</span> (seq[trck]-&gt;realSeq){</div>
+<div class="line">            <span class="keywordflow">return</span> seq[trck]-&gt;realValue(position);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> -INFINITY;</div>
+<div class="line">        </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ae8f23e456cdaaccead9a7db8491b8e8f"></a>
@@ -736,6 +931,11 @@ NULL if no sequence exists at iter </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>short digitized value of the sequence based on track type </dd></dl>
 
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00166">166</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                      {</div>
+<div class="line">        <span class="keywordflow">return</span> seq[trck]-&gt;seqValue(position);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a3a2e2f4d2af3fe24f1ca10e351b456a8"></a>
@@ -767,6 +967,9 @@ NULL if no sequence exists at iter </dd></dl>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="sequences_8h_source.html#l00182">182</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+<div class="fragment"><div class="line">{external=ex;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a5c45ecfdf5a9e2fbdaeb0bf7e3eb1cce"></a>
@@ -792,6 +995,25 @@ NULL if no sequence exists at iter </dd></dl>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00329">329</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+<div class="fragment"><div class="line">                                       {</div>
+<div class="line">        <span class="keywordflow">if</span> (length == std::numeric_limits&lt;size_t&gt;::max()){</div>
+<div class="line">            length=len;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (len==length){</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            same_length=<span class="keyword">false</span>;</div>
+<div class="line">            <span class="keywordflow">if</span> (related_sequences){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Sequences have different lengths. Sequences should all have the same length because they are suppose to be related (from different datasets).  For multiple unrelated sequence types, use a different structure.\n&quot;</span>;</div>
+<div class="line">                exit(20);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a133eefa4ac161b421f820fef7c81ff07"></a>
@@ -818,6 +1040,9 @@ NULL if no sequence exists at iter </dd></dl>
 <p>Get the number of sequence type in sequences </p>
 <dl class="section return"><dt>Returns:</dt><dd>size_t value of size </dd></dl>
 
+<p>Definition at line <a class="el" href="sequences_8h_source.html#l00129">129</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> num_of_sequences;} <span class="comment">//Get number of sequences</span></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="af6167ae56e39f98db3a3fd24f6891f46"></a>
@@ -835,6 +1060,25 @@ NULL if no sequence exists at iter </dd></dl>
 <p>Get std:string representation of all the digitized sequence(s) in sequences </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::string representation of all string (digitized) </dd></dl>
 
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00184">184</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+<div class="fragment"><div class="line">                                  {</div>
+<div class="line">        std::string tmp;</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i&lt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a133eefa4ac161b421f820fef7c81ff07">size</a>(); i++){</div>
+<div class="line">            </div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (seq[i]==NULL){</div>
+<div class="line">                tmp+= <span class="stringliteral">&quot;&gt;TRACK: &quot;</span> + <a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(i) + <span class="stringliteral">&quot;:\t&quot;</span> ;</div>
+<div class="line">                tmp+= <span class="stringliteral">&quot;&lt;&lt;EMPTY&gt;&gt;\n&quot;</span> ;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                track* trk = seq[i]-&gt;getTrack();</div>
+<div class="line">                tmp+= <span class="stringliteral">&quot;&gt;&quot;</span> + trk-&gt;getName();</div>
+<div class="line">                tmp+= seq[i]-&gt;stringify();</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> tmp;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ae95c322b792e2fb7bb4da66875a68418"></a>
@@ -854,16 +1098,33 @@ NULL if no sequence exists at iter </dd></dl>
 <p>Get std::string representation of all the undigitized sequence(s) in sequences </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::string representation of all string (digitized) </dd></dl>
 
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00204">204</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+<div class="fragment"><div class="line">                                   {</div>
+<div class="line">        std::string output;</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a133eefa4ac161b421f820fef7c81ff07">size</a>();i++){</div>
+<div class="line">            <span class="keywordflow">if</span> (seq[i]==NULL){</div>
+<div class="line">                output+= <span class="stringliteral">&quot;&gt;TRACK: &quot;</span> + <a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(i) + <span class="stringliteral">&quot;:\t&quot;</span> ;</div>
+<div class="line">                output+= <span class="stringliteral">&quot;&lt;&lt;EMPTY&gt;&gt;\n&quot;</span> ;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                track* trk = seq[i]-&gt;getTrack();</div>
+<div class="line">                output+= <span class="stringliteral">&quot;&gt;&quot;</span> + trk-&gt;getName();</div>
+<div class="line">                output+= seq[i]-&gt;undigitize();</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> output;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="sequences_8h_source.html">sequences.h</a></li>
-<li>sequences.cpp</li>
+<li><a class="el" href="sequences_8cpp_source.html">sequences.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

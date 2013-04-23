@@ -167,7 +167,10 @@ Friends</h2></td></tr>
 <tr class="memitem:a6e37bb755d74e24f1b3e7e2def3b13e0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e37bb755d74e24f1b3e7e2def3b13e0"></a>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="state_8h_source.html#l00053">53</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ad577c169b7a7e4c859ca75e44ed0da9b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -221,6 +224,14 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="state_8cpp_source.html#l00042">42</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                                                :endi(NULL), stateIterator(SIZE_MAX){</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//endi=new transition(STANDARD);</span></div>
+<div class="line">        transi = <span class="keyword">new</span> std::vector&lt;transition*&gt;;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1state.html#a0cbb513086803822dc8368e277d2c28e">parse</a>(txt,names,trcks, wts,funcs);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
@@ -253,6 +264,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="state_8h_source.html#l00131">131</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+<div class="fragment"><div class="line">{emission.push_back(em);};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a2cefe7e62ed5167795cd938bccba432a"></a>
@@ -284,6 +298,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="state_8h_source.html#l00123">123</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+<div class="fragment"><div class="line">{transi-&gt;push_back(trans);};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a96de994cffc9108c7e4194a84d36e317"></a>
@@ -318,6 +335,15 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="state_8cpp_source.html#l00411">411</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                               {</div>
+<div class="line">        <span class="keywordtype">double</span> value(emission[0]-&gt;get_emission(seqs,iter));</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;emission.size();i++){</div>
+<div class="line">            value+=emission[i]-&gt;get_emission(seqs,iter);  <span class="comment">//Pass sequences type to get_emission for each emission in the state</span></div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> value;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ac2f3abf105cf945a21606e26dab86633"></a>
@@ -359,6 +385,24 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="state_8cpp_source.html#l00424">424</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                            {</div>
+<div class="line">        <span class="keywordtype">double</span> value;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> ((*transi)[to]==NULL){</div>
+<div class="line">            <span class="keywordflow">return</span> -INFINITY;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((*transi)[to]-&gt;transition_type==STANDARD){</div>
+<div class="line">            value = (*transi)[to]-&gt;log_trans;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Need to implement this functionality&quot;</span> &lt;&lt;std::endl;</div>
+<div class="line">            value = (*transi)[to]-&gt;getTransition(iter,&amp;seqs);</div>
+<div class="line">            </div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> value;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="af109fa0ba9d53419f805518b0bf7bf52"></a>
@@ -390,6 +434,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="state_8h_source.html#l00109">109</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> emission[iter];};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aeb58e53753f3c2312f8c27fbc6b67d4d"></a>
@@ -415,6 +462,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <p>Get the ending transition </p>
 <dl class="section return"><dt>Returns:</dt><dd>transition* Pointer to ending transition  not defined return value should be NULL </dd></dl>
 
+<p>Definition at line <a class="el" href="state_8h_source.html#l00104">104</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> endi;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="abc5b6b3bff0b55ce2e3ac24d37b32828"></a>
@@ -440,6 +490,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <p>Get all states that transition to this state </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::vector&lt;state*&gt;* Pointer to all state that transition to this state </dd></dl>
 
+<p>Definition at line <a class="el" href="state_8h_source.html#l00092">92</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> &amp;from;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a19f06f455f339e01577e163570b1e2b2"></a>
@@ -464,6 +517,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 </div><div class="memdoc">
 <p>Get the GFF tag to use for the state  std::string GFF tag </p>
 
+<p>Definition at line <a class="el" href="state_8h_source.html#l00074">74</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> gff;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a2c11ceb39aba9631ba41e3a5259e8da5"></a>
@@ -489,6 +545,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <p>Get the states integer index value </p>
 <dl class="section return"><dt>Returns:</dt><dd>integer </dd></dl>
 
+<p>Definition at line <a class="el" href="state_8h_source.html#l00066">66</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> stateIterator;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ac58f8dfc39b64abbba92a94029565cc9"></a>
@@ -514,6 +573,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <p>Get the Label used for the state </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::string </dd></dl>
 
+<p>Definition at line <a class="el" href="state_8h_source.html#l00078">78</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> label;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a71abeddc4bd5dd3d950c48b199a515d2"></a>
@@ -539,6 +601,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <p>Get the name of the state </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::string Name of state </dd></dl>
 
+<p>Definition at line <a class="el" href="state_8h_source.html#l00070">70</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> name;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a1aa3e052885226bd9663e5b3e9fd674a"></a>
@@ -564,6 +629,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <p>Get all states that this state has transitions to </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::vector&lt;state*&gt;* Pointer to all state that are transitioned to </dd></dl>
 
+<p>Definition at line <a class="el" href="state_8h_source.html#l00086">86</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> &amp;to;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="afb40076c4d7f0c7ceb256c7e7eec9f6b"></a>
@@ -596,6 +664,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>transition* pointer to the transition </dd></dl>
 
+<p>Definition at line <a class="el" href="state_8h_source.html#l00099">99</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> (*transi)[iter];};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ad8e37a9faab55e66832a3e782b8d4db8"></a>
@@ -621,6 +692,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <p>Get all transition defined for the state </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::vector&lt;transitions*&gt;* Pointer to all transitions in state </dd></dl>
 
+<p>Definition at line <a class="el" href="state_8h_source.html#l00082">82</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> transi;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a0cbb513086803822dc8368e277d2c28e"></a>
@@ -673,6 +747,57 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="state_8cpp_source.html#l00073">73</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                                                    {</div>
+<div class="line">        <span class="keywordtype">size_t</span> stateHeaderInfo = txt.find(<span class="stringliteral">&quot;STATE:&quot;</span>);</div>
+<div class="line">        <span class="keywordtype">size_t</span> transitionsInfo = txt.find(<span class="stringliteral">&quot;TRANSITION:&quot;</span>);</div>
+<div class="line">        <span class="keywordtype">size_t</span> emissionInfo    = txt.find(<span class="stringliteral">&quot;EMISSION:&quot;</span>);</div>
+<div class="line">        stringList lines;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (stateHeaderInfo==std::string::npos){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t identify state Header Information. Please check the formatting.  The supplied text was : &quot;</span> &lt;&lt; txt &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (transitionsInfo == std::string::npos){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t identify state Transitions Information.  Please check the formatting.  The supplied text was : &quot;</span> &lt;&lt; txt &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Extract and Parse Header Information</span></div>
+<div class="line">        std::string header = txt.substr(stateHeaderInfo,transitionsInfo-stateHeaderInfo);</div>
+<div class="line">        <span class="keywordflow">if</span> (!_parseHeader(header)){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">                </div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Extract and Parse Transition Information</span></div>
+<div class="line">        std::string trans = (emissionInfo==std::string::npos) ? txt.substr(transitionsInfo) : txt.substr(transitionsInfo, emissionInfo - transitionsInfo);</div>
+<div class="line">        <span class="comment">//std::cout &lt;&lt; trans &lt;&lt; std::endl;</span></div>
+<div class="line">        <span class="keywordflow">if</span> (!_parseTransition(trans, names, trks, wts, funcs)){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Check emissions existence  (only INIT state can have no emission)</span></div>
+<div class="line">        <span class="keywordflow">if</span> (emissionInfo != std::string::npos){</div>
+<div class="line">            std::string emmis = txt.substr(emissionInfo);</div>
+<div class="line">            <span class="keywordflow">if</span> (!_parseEmission(emmis, names, trks, wts, funcs)){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t parse the emissions for state: &quot;</span> &lt;&lt; name &lt;&lt; std::endl;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="comment">//Check name is INIT.   Only INIT state can not have an emission</span></div>
+<div class="line">            <span class="keywordflow">if</span> (name.compare(<span class="stringliteral">&quot;INIT&quot;</span>)!=0){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;No emission defined for State: &quot;</span> &lt;&lt; name &lt;&lt; std::endl;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a738d0a524c1bb8338e254650781ee18e"></a>
@@ -704,6 +829,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="state_8h_source.html#l00127">127</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+<div class="fragment"><div class="line">{endi=trans;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a61f03e8137f2f85e8f6216d9b62a9178"></a>
@@ -735,6 +863,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="state_8h_source.html#l00135">135</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+<div class="fragment"><div class="line">{name=txt;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="affdd46a537fe5f4d6bce781f90f45636"></a>
@@ -751,16 +882,99 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns:</dt><dd>std::string </dd></dl>
 
+<p>Definition at line <a class="el" href="state_8cpp_source.html#l00326">326</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+<div class="fragment"><div class="line">                              {</div>
+<div class="line">        std::string stateString;</div>
+<div class="line">        stateString+=<span class="stringliteral">&quot;STATE:\n&quot;</span>;</div>
+<div class="line">        stateString+=<span class="stringliteral">&quot;\tNAME:\t&quot;</span> + name + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (name.compare(<span class="stringliteral">&quot;INIT&quot;</span>)!=0){</div>
+<div class="line">            <span class="keywordflow">if</span> (!gff.empty()){ stateString+=<span class="stringliteral">&quot;\tGFF_DESC:\t&quot;</span> + gff + <span class="stringliteral">&quot;\n&quot;</span>;}</div>
+<div class="line">            stateString+=<span class="stringliteral">&quot;\tPATH_LABEL:\t&quot;</span> + label + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        std::string standardString;</div>
+<div class="line">        std::string distribString;</div>
+<div class="line">        std::string lexicalString;</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Get Transitions Standard, Distribution, Lexical</span></div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;transi-&gt;size();i++){</div>
+<div class="line">            <span class="keywordflow">if</span> ((*transi)[i]==NULL){ <span class="keywordflow">continue</span>;}</div>
+<div class="line">            </div>
+<div class="line">            transType tp = (*transi)[i]-&gt;getTransitionType();</div>
+<div class="line">            <span class="keywordflow">if</span> (tp == STANDARD){</div>
+<div class="line">                <span class="keywordflow">if</span> (standardString.empty()){</div>
+<div class="line">                    standardString+=<span class="stringliteral">&quot;TRANSITION:\tSTANDARD:\tLOG\n&quot;</span>;</div>
+<div class="line">                }</div>
+<div class="line">                standardString+=(*transi)[i]-&gt;stringify() + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tp == DURATION){</div>
+<div class="line">                distribString+=<span class="stringliteral">&quot;TRANSITION:\tDURATION:\tLOG\n&quot;</span>;</div>
+<div class="line">                distribString+=(*transi)[i]-&gt;stringify();</div>
+<div class="line">                </div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tp == LEXICAL){</div>
+<div class="line">                <span class="keywordflow">if</span> ((*transi)[i]-&gt;LexFunctionDefined()){</div>
+<div class="line">                    lexicalString+=<span class="stringliteral">&quot;TRANSITION:\tLEXICAL:\tFUNCTION:\t&quot;</span>;</div>
+<div class="line">                    lexicalString+=(*transi)[i]-&gt;getLexicalFunctionName();</div>
+<div class="line">                    lexicalString+=<span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                    lexicalString+=<span class="stringliteral">&quot;TRANSITION:\tLEXICAL:\tLOG\n&quot;</span>;</div>
+<div class="line">                    lexicalString+=(*transi)[i]-&gt;stringify();</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Process Transition to Ending;</span></div>
+<div class="line">        <span class="keywordflow">if</span> (endi!=NULL){</div>
+<div class="line">            <span class="keywordflow">if</span> (standardString.empty()){</div>
+<div class="line">                standardString+=<span class="stringliteral">&quot;TRANSITIONS:\tSTANDARD:\tLOG\n&quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">            standardString+=endi-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition.html#a318b00aa1f690a81687a6d81a04edba5">stringify</a>();</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (name.compare(<span class="stringliteral">&quot;INIT&quot;</span>)==0){</div>
+<div class="line">            stateString+=standardString + <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> stateString;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">if</span> (!standardString.empty()){</div>
+<div class="line">                stateString+=standardString + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (!distribString.empty()){</div>
+<div class="line">                stateString+=distribString + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (!lexicalString.empty()){</div>
+<div class="line">                stateString+=lexicalString + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Print Emissions</span></div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;emission.size();i++){</div>
+<div class="line">            stateString+=emission[i]-&gt;stringify();</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> stateString;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="state_8h_source.html">state.h</a></li>
-<li>state.cpp</li>
+<li><a class="el" href="state_8cpp_source.html">state.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

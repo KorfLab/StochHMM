@@ -148,6 +148,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> ()</td></t
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Contains multiple tracebacks. Will store them in sorted unique list (sorted in order of number of occurances); </p>
+
+<p>Definition at line <a class="el" href="traceback__path_8h_source.html#l00117">117</a> of file <a class="el" href="traceback__path_8h_source.html">traceback_path.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a36acf482408a519d9491046c146e459e"></a>
 <div class="memitem">
@@ -170,6 +172,12 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> ()</td></t
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00478">478</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                   {</div>
+<div class="line">        paths[<a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html#af35602215c8f9027e248c747b2982192" title="Get traceback_path at currently set index in multiTraceback.">path</a>]++;</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a8908e6b8acddf402e9ad7d9f8b4b7e38"></a>
@@ -186,6 +194,33 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> ()</td></t
 </div><div class="memdoc">
 <p>Generate a hit table from a multiple traceback paths Hit table is 2D table describing how many times a state was called at a particular position in the sequence </p>
 
+<p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00500">500</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
+<div class="fragment"><div class="line">                                            {</div>
+<div class="line">        <span class="keywordflow">if</span> (table!=NULL){</div>
+<div class="line">            <span class="keyword">delete</span> table;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Over the lenght of the sequence</span></div>
+<div class="line">        model* hmm = ((*pathAccess[0]).first).getModel();</div>
+<div class="line">        <span class="keywordtype">size_t</span> sequenceSize=((*pathAccess[0]).first).size();</div>
+<div class="line">        <span class="keywordtype">size_t</span> stateSize=hmm-&gt;state_size();</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        std::vector&lt;int&gt; states(stateSize,0);</div>
+<div class="line">        table = <span class="keyword">new</span> heatTable(sequenceSize,states);</div>
+<div class="line">        </div>
+<div class="line">        std::map&lt;traceback_path,int&gt;::iterator it;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>( it =paths.begin(); it!=paths.end();it++){</div>
+<div class="line">            <span class="keywordtype">int</span> count = (*it).second;</div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> position=0;position&lt;sequenceSize;position++){</div>
+<div class="line">                <span class="keywordtype">int</span> tbState=(*it).first[position];</div>
+<div class="line">                (*table)[position][tbState]+=count;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> table;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a246147c67c490a9abd03631e98f9b6b6"></a>
@@ -209,6 +244,14 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> ()</td></t
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00450">450</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
+<div class="fragment"><div class="line">                                            {</div>
+<div class="line">        <span class="keywordflow">if</span> (val&lt;=maxSize){</div>
+<div class="line">            vectorIterator=val;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a6f0b859df7b3a5d91a5e696dd108b7bc"></a>
@@ -232,16 +275,21 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> ()</td></t
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00460">460</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                       {</div>
+<div class="line">        <span class="keywordflow">return</span> (*pathAccess[val]).first;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="traceback__path_8h_source.html">traceback_path.h</a></li>
-<li>traceback_path.cpp</li>
+<li><a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

@@ -128,6 +128,8 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>stringify</b> 
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Stores weight information for a position in the position weight matrix </p>
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00122">122</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a325d7ccb4e744e1796c43df8d897f725"></a>
 <div class="memitem">
@@ -170,16 +172,89 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>stringify</b> 
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00235">235</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                           {</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">size_t</span> nameHeader = txt.find(<span class="stringliteral">&quot;NAME:&quot;</span>);</div>
+<div class="line">                <span class="keywordtype">size_t</span> transHeader = txt.find(<span class="stringliteral">&quot;TRANSITION:&quot;</span>);</div>
+<div class="line">                <span class="keywordtype">size_t</span> thresholdHeader = txt.find(<span class="stringliteral">&quot;THRESHOLD:&quot;</span>);</div>
+<div class="line">                <span class="comment">//size_t emmHeader = txt.find(&quot;EMISSION:&quot;);</span></div>
+<div class="line">                <span class="keywordtype">size_t</span> end = txt.find(<span class="stringliteral">&quot;//END&quot;</span>);</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (end != std::string::npos){</div>
+<div class="line">                        txt = txt.substr(0,end);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Parse Name</span></div>
+<div class="line">                <span class="keywordflow">if</span> (nameHeader != std::string::npos){</div>
+<div class="line">                        <span class="keywordtype">size_t</span> endline = txt.find(<span class="stringliteral">&quot;\n&quot;</span>,nameHeader);</div>
+<div class="line">                        std::string temp_name = txt.substr(nameHeader,endline-nameHeader);</div>
+<div class="line">                        stringList tmp;</div>
+<div class="line">                        tmp.splitString(temp_name, <span class="stringliteral">&quot;:&quot;</span>);</div>
+<div class="line">                        <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(tmp[1], <span class="stringliteral">&quot;\t\n &quot;</span>);</div>
+<div class="line">                        name = tmp[1];</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Position is missing NAME definition\n&quot;</span>&lt;&lt; txt &lt;&lt; std::endl;</div>
+<div class="line">                        exit(2);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Parse Transitions</span></div>
+<div class="line">                <span class="keywordflow">if</span> (transHeader != std::string::npos){</div>
+<div class="line">                        std::string temp;</div>
+<div class="line">                        <span class="keywordtype">size_t</span> endline = txt.find(<span class="stringliteral">&quot;\n&quot;</span>,transHeader);</div>
+<div class="line">                        temp = txt.substr(transHeader, endline - transHeader);</div>
+<div class="line">                        stringList transi;</div>
+<div class="line">                        transi.splitString(temp,<span class="stringliteral">&quot;:,&quot;</span>);</div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 1; i &lt; transi.size(); i++){</div>
+<div class="line">                                <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(transi[i], <span class="stringliteral">&quot; \t\n&quot;</span>);</div>
+<div class="line">                                transition_names.push_back(transi[i]);</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Parse Thresholds</span></div>
+<div class="line">                <span class="keywordflow">if</span> (thresholdHeader != std::string::npos){</div>
+<div class="line">                        <span class="keywordtype">size_t</span> endline = txt.find(<span class="stringliteral">&quot;\n&quot;</span>,thresholdHeader);</div>
+<div class="line">                        std::string temp = txt.substr(thresholdHeader, endline-thresholdHeader);</div>
+<div class="line">                        stringList tmp;</div>
+<div class="line">                        tmp.splitString(temp, <span class="stringliteral">&quot;:&quot;</span>);</div>
+<div class="line">                        <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(tmp[1], <span class="stringliteral">&quot;\t\n &quot;</span>);</div>
+<div class="line">                        threshold = atof(tmp[1].c_str());</div>
+<div class="line">                        thresholdSet = <span class="keyword">true</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">        stringList lst;</div>
+<div class="line">        lst.splitND(txt,<span class="stringliteral">&quot;EMISSION:&quot;</span>);</div>
+<div class="line">        </div>
+<div class="line">                emm* temp_emm = <span class="keyword">new</span>(std::nothrow) emm;</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (temp_emm==NULL){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                        exit(1);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (!temp_emm-&gt;parse(lst[0],trk)){</div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                positionMatrix = temp_emm;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="pwm_8h_source.html">pwm.h</a></li>
-<li>pwm.cpp</li>
+<li><a class="el" href="pwm_8cpp_source.html">pwm.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

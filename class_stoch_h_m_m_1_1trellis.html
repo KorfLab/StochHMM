@@ -284,7 +284,10 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getForwardProbabili
 <tr class="memitem:ad44ff787e0f6f343761ef1583aa0fa0c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad44ff787e0f6f343761ef1583aa0fa0c"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getBackwardProbability</b> ()</td></tr>
 </table>
-<hr/><h2>Member Function Documentation</h2>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="trellis_8h_source.html#l00099">99</a> of file <a class="el" href="trellis_8h_source.html">trellis.h</a>.</p>
+</div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a11cc8ced719de063cc227605573b6382"></a>
 <div class="memitem">
 <div class="memproto">
@@ -299,6 +302,177 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getBackwardProbabil
 </div><div class="memdoc">
 <p>Store transition in a table (more memory, but faster than sparse complex) *Need testing and more develepment; </p>
 
+<p>Definition at line <a class="el" href="viterbi_8cpp_source.html#l00660">660</a> of file <a class="el" href="viterbi_8cpp_source.html">viterbi.cpp</a>.</p>
+<div class="fragment"><div class="line">                                          {</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Initialize the traceback table</span></div>
+<div class="line">        <span class="keywordflow">if</span> (traceback_table != NULL){</div>
+<div class="line">            <span class="keyword">delete</span> traceback_table;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        traceback_table = <span class="keyword">new</span> int_2D(seq_size,std::vector&lt;int16_t&gt; (state_size,-1));</div>
+<div class="line">                scoring_previous = <span class="keyword">new</span> (std::nothrow) std::vector&lt;double&gt; (state_size,-INFINITY);</div>
+<div class="line">        scoring_current  = <span class="keyword">new</span> (std::nothrow) std::vector&lt;double&gt; (state_size,-INFINITY);</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (scoring_previous == NULL || scoring_current == NULL || traceback_table == NULL){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Can&#39;t allocate Viterbi score and traceback table. OUT OF MEMORY&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                        exit(2);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">        std::bitset&lt;STATE_MAX&gt; next_states;</div>
+<div class="line">        std::bitset&lt;STATE_MAX&gt; current_states;</div>
+<div class="line">                </div>
+<div class="line">        <span class="keywordtype">double</span>  viterbi_temp(-INFINITY);</div>
+<div class="line">        <span class="keywordtype">double</span>  emission(-INFINITY);</div>
+<div class="line">        <span class="keywordtype">bool</span>    exDef_position(<span class="keyword">false</span>);</div>
+<div class="line">                ending_viterbi_tb = -1;</div>
+<div class="line">                ending_viterbi_score = -INFINITY;</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//If model is not a basic model, then we need to initialize the explicit duration vector</span></div>
+<div class="line">                <span class="comment">//bool extend_duration keeps track of whether the transition to same state was selected.</span></div>
+<div class="line">                <span class="keywordflow">if</span> (!hmm-&gt;isBasic()){</div>
+<div class="line">                        explicit_duration_current = <span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(state_size,0);</div>
+<div class="line">                        explicit_duration_previous= <span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(state_size,0);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordtype">bool</span> extend_duration(<span class="keyword">false</span>);</div>
+<div class="line">                std::vector&lt;bool&gt;* duration = hmm-&gt;get_explicit();</div>
+<div class="line">        </div>
+<div class="line">        state* init = hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#ace28286e62583b25bd6bdf4faaf577b8" title="Get pointer to the initial state.">getInitial</a>();</div>
+<div class="line">                </div>
+<div class="line">                std::bitset&lt;STATE_MAX&gt;* initial_to = hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#af2c21a10ef39c09f00825b9405380f50" title="Get vector of states that the initial state transitions to.">getInitialTo</a>();</div>
+<div class="line">                std::bitset&lt;STATE_MAX&gt;* from_trans(NULL);</div>
+<div class="line">                </div>
+<div class="line">        <span class="comment">//Calculate Viterbi from transitions from INIT (initial) state</span></div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; state_size; ++i){</div>
+<div class="line">            <span class="keywordflow">if</span> ((*initial_to)[i]){  <span class="comment">//if the bitset is set (meaning there is a transition to this state), calculate the viterbi</span></div>
+<div class="line">                                </div>
+<div class="line">                                viterbi_temp = (*hmm)[i]-&gt;get_emission_prob(*seqs,0) + getTransition(init, i, 0);</div>
+<div class="line">                </div>
+<div class="line">                                <span class="keywordflow">if</span> (viterbi_temp &gt; -INFINITY){</div>
+<div class="line">                    <span class="keywordflow">if</span> ((*scoring_current)[i] &lt; viterbi_temp){</div>
+<div class="line">                        (*scoring_current)[i] = viterbi_temp;</div>
+<div class="line">                    }</div>
+<div class="line">                                        next_states |= (*(*hmm)[i]-&gt;getTo());</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">                </div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> position = 1; position &lt; seq_size ; ++position ){</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//Swap current and previous viterbi scores</span></div>
+<div class="line">            scoring_previous-&gt;assign(state_size,-INFINITY);</div>
+<div class="line">            swap_ptr = scoring_previous;</div>
+<div class="line">                        scoring_previous = scoring_current;</div>
+<div class="line">                        scoring_current = swap_ptr;</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//Swap current_states and next states sets</span></div>
+<div class="line">                        </div>
+<div class="line">                        current_states.reset();</div>
+<div class="line">            current_states |= next_states;</div>
+<div class="line">            next_states.reset();</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (exDef_defined){</div>
+<div class="line">                exDef_position = seqs-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a186a9b5085dbd0887e57a0423cea1301">exDefDefined</a>(position);</div>
+<div class="line">            }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="comment">//TODO: Check use of external definitions below.</span></div>
+<div class="line">                        </div>
+<div class="line">                        <span class="comment">//std::cout &lt;&lt; &quot;\nPosition:\t&quot; &lt;&lt; position &lt;&lt; &quot;\n&quot;;</span></div>
+<div class="line">                        <span class="comment">//                      std::cout &lt;&lt; &quot;Letter:\t&quot; &lt;&lt; seqs-&gt;seqValue(0, position) &lt;&lt; std::endl;</span></div>
+<div class="line">                        </div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; state_size; ++i){ <span class="comment">//i is current state that emits value</span></div>
+<div class="line">                <span class="keywordflow">if</span> (!current_states[i]){</div>
+<div class="line">                    <span class="keywordflow">continue</span>;</div>
+<div class="line">                }</div>
+<div class="line">                                </div>
+<div class="line">                <span class="comment">//current_state = (*hmm)[i];</span></div>
+<div class="line">                <span class="comment">//emission = current_state-&gt;get_emission(*seqs,position);</span></div>
+<div class="line">                emission = (*hmm)[i]-&gt;get_emission_prob(*seqs, position);</div>
+<div class="line">                                </div>
+<div class="line">                                </div>
+<div class="line">                                <span class="comment">//                              std::cout &lt;&lt; &quot;State Emission:\t&quot; &lt;&lt; i &lt;&lt; &quot;\t&quot; &lt;&lt; exp(emission) &lt;&lt; std::endl;</span></div>
+<div class="line">                                </div>
+<div class="line">                                <span class="keywordflow">if</span> (exDef_defined &amp;&amp; exDef_position){</div>
+<div class="line">                    emission += seqs-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0eecfd11066a4802ef3129e3641eb0d0">getWeight</a>(position, i);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                                from_trans = (*hmm)[i]-&gt;getFrom();</div>
+<div class="line">                                </div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; state_size ; ++j) {  <span class="comment">//j is previous state</span></div>
+<div class="line">                    <span class="keywordflow">if</span> (!(*from_trans)[j]){</div>
+<div class="line">                        <span class="keywordflow">continue</span>;</div>
+<div class="line">                    }</div>
+<div class="line">                                        </div>
+<div class="line">                    <span class="keywordflow">if</span> ((*scoring_previous)[j] != -INFINITY){</div>
+<div class="line">                        viterbi_temp = getTransition((*hmm)[j], i , position) + emission + (*scoring_previous)[j];</div>
+<div class="line">                        </div>
+<div class="line">                                                <span class="comment">//std::cout &lt;&lt; exp(getTransition((*hmm)[j],i,position)) &lt;&lt; std::endl;</span></div>
+<div class="line">                                                </div>
+<div class="line">                                                <span class="comment">//                                              std::cout &lt;&lt; &quot;Temp Viterbi:\tTransFrom: &quot;&lt;&lt; j &lt;&lt; &quot;\tto\t&quot; &lt;&lt; i &lt;&lt; &quot;\t&quot; &lt;&lt; viterbi_temp / log(2) &lt;&lt; std::endl;</span></div>
+<div class="line">                        </div>
+<div class="line">                                                </div>
+<div class="line">                                                <span class="keywordflow">if</span> (viterbi_temp &gt; (*scoring_current)[i]){</div>
+<div class="line">                                                        <span class="comment">//If transition is from same to same then if it is</span></div>
+<div class="line">                                                        <span class="comment">//explicit duration we&#39;ll need to change</span></div>
+<div class="line">                                                        extend_duration = (i==j) ? <span class="keyword">true</span> : <span class="keyword">false</span>;</div>
+<div class="line">                                                        </div>
+<div class="line">                            (*scoring_current)[i] = viterbi_temp;</div>
+<div class="line">                            (*traceback_table)[position][i] = j;</div>
+<div class="line">                        }</div>
+<div class="line">                                                </div>
+<div class="line">                                                next_states |= (*(*hmm)[i]-&gt;getTo());</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">                                </div>
+<div class="line">                                <span class="comment">//If explicit durations vector defined, and transition from-to same</span></div>
+<div class="line">                                <span class="comment">//then we&#39;ll increment the value. Otherwise, set to zero;</span></div>
+<div class="line">                                <span class="keywordflow">if</span> (explicit_duration_current){</div>
+<div class="line">                                        <span class="keywordflow">if</span> (extend_duration &amp;&amp; (*duration)[i]){</div>
+<div class="line">                                                (*explicit_duration_current)[i]=(*explicit_duration_previous)[i]+1;</div>
+<div class="line">                                                extend_duration=<span class="keyword">false</span>;</div>
+<div class="line">                                        }</div>
+<div class="line">                                        <span class="keywordflow">else</span>{</div>
+<div class="line">                                                (*explicit_duration_current)[i]=0;</div>
+<div class="line">                                        }</div>
+<div class="line">                                }</div>
+<div class="line">            }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span>(explicit_duration_current){</div>
+<div class="line">                                swap_ptr_duration = explicit_duration_previous;</div>
+<div class="line">                                explicit_duration_previous = explicit_duration_current;</div>
+<div class="line">                                explicit_duration_current= swap_ptr_duration;</div>
+<div class="line">                                explicit_duration_current-&gt;assign(state_size,0);</div>
+<div class="line">                        }</div>
+<div class="line">            </div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//TODO:  Calculate ending and set the final viterbi and traceback pointer</span></div>
+<div class="line">        <span class="comment">//Swap current and previous viterbi scores</span></div>
+<div class="line">        scoring_previous-&gt;assign(state_size,-INFINITY);</div>
+<div class="line">        swap_ptr = scoring_previous;</div>
+<div class="line">        scoring_previous = scoring_current;</div>
+<div class="line">        scoring_current = swap_ptr;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; state_size ;++i){</div>
+<div class="line">            <span class="keywordflow">if</span> ((*scoring_previous)[i] &gt; -INFINITY){</div>
+<div class="line">                viterbi_temp = (*scoring_previous)[i] + (*hmm)[i]-&gt;getEndTrans();</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (viterbi_temp &gt; ending_viterbi_score){</div>
+<div class="line">                    ending_viterbi_score = viterbi_temp;</div>
+<div class="line">                    ending_viterbi_tb = i;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keyword">delete</span> scoring_previous;</div>
+<div class="line">        <span class="keyword">delete</span> scoring_current;</div>
+<div class="line">                scoring_previous = NULL;</div>
+<div class="line">                scoring_current = NULL;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a52afd244547529eb5294c5c5176f3b4a"></a>
@@ -315,6 +489,90 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getBackwardProbabil
 </div><div class="memdoc">
 <p>Naive Backward Implements the backward algorithm (simple coded, little or no optimizations) Stores the scores as doubles in table. Scoring table accessible from trellis -&gt; getNaiveBackward(); </p>
 
+<p>Definition at line <a class="el" href="backward_8cpp_source.html#l00035">35</a> of file <a class="el" href="backward_8cpp_source.html">backward.cpp</a>.</p>
+<div class="fragment"><div class="line">                                    {</div>
+<div class="line">                dbl_backward_score = <span class="keyword">new</span> double_2D(seq_size, std::vector&lt;double&gt;(state_size,-INFINITY));</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">double</span> emission(-INFINITY);</div>
+<div class="line">                <span class="keywordtype">double</span> backward_temp(-INFINITY);</div>
+<div class="line">                <span class="keywordtype">double</span> trans(-INFINITY);</div>
+<div class="line">                <span class="keywordtype">double</span> previous(-INFINITY);</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Initialize Backward score with transition from Ending Cell</span></div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> st_current = 0 ; st_current &lt; state_size; st_current++){</div>
+<div class="line">                        trans = (*hmm)[st_current]-&gt;getEndTrans();</div>
+<div class="line">                        <span class="keywordflow">if</span> (trans != -INFINITY){</div>
+<div class="line">                                (*dbl_backward_score)[seq_size-1][st_current] = trans;</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="keyword">typedef</span> std::numeric_limits&lt; double &gt; dbl;</div>
+<div class="line">                std::cout &lt;&lt; std::setprecision(dbl::digits10);</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> position = seq_size-2; position != SIZE_MAX ; position--){</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> st_current = 0; st_current &lt; state_size ; st_current++){</div>
+<div class="line">                                </div>
+<div class="line">                                </div>
+<div class="line">                                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> st_previous = 0; st_previous &lt; state_size; st_previous++){</div>
+<div class="line">                                        </div>
+<div class="line">                                        </div>
+<div class="line">                                        previous = (*dbl_backward_score)[position+1][st_previous];</div>
+<div class="line">                                        </div>
+<div class="line">                                        <span class="keywordflow">if</span> (previous == -INFINITY){</div>
+<div class="line">                                                <span class="keywordflow">continue</span>;</div>
+<div class="line">                                        }</div>
+<div class="line">                                        </div>
+<div class="line">                                        trans = getTransition(hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3" title="Get pointer to the state at index.">getState</a>(st_current), st_previous, position);</div>
+<div class="line">                                        emission = (*hmm)[st_previous]-&gt;get_emission_prob(*seqs, position+1);</div>
+<div class="line">                                        </div>
+<div class="line">                                        </div>
+<div class="line">                                        <span class="keywordflow">if</span> (trans == -INFINITY || emission == -INFINITY){</div>
+<div class="line">                                                <span class="keywordflow">continue</span>;</div>
+<div class="line">                                        }</div>
+<div class="line">                                        </div>
+<div class="line">                                        backward_temp = previous + emission + trans;</div>
+<div class="line">                                        </div>
+<div class="line">                                        <span class="keywordflow">if</span> ((*dbl_backward_score)[position][st_current] == -INFINITY){</div>
+<div class="line">                                                (*dbl_backward_score)[position][st_current] = backward_temp;</div>
+<div class="line">                                        }</div>
+<div class="line">                                        <span class="keywordflow">else</span>{</div>
+<div class="line">                                                (*dbl_backward_score)[position][st_current] = <a class="code" href="namespace_stoch_h_m_m.html#a067454235ed85f89e1c09dc1f26c71e6">addLog</a>( backward_temp, (*dbl_backward_score)[position][st_current]);</div>
+<div class="line">                                        }</div>
+<div class="line">                                }</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Calculate Final Probability</span></div>
+<div class="line">                ending_backward_prob = -INFINITY;</div>
+<div class="line">                state* init = hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#ace28286e62583b25bd6bdf4faaf577b8" title="Get pointer to the initial state.">getInitial</a>();</div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> st_current=0; st_current &lt; state_size; st_current++ ){</div>
+<div class="line">                        <span class="keywordflow">if</span> ((*dbl_backward_score)[0][st_current] == -INFINITY){</div>
+<div class="line">                                <span class="keywordflow">continue</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        previous = (*dbl_backward_score)[0][st_current];</div>
+<div class="line">                        </div>
+<div class="line">                        trans = getTransition(init, st_current, 0);</div>
+<div class="line">                        </div>
+<div class="line">                        emission = (*hmm)[st_current]-&gt;get_emission_prob(*seqs, 0);</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (trans == -INFINITY || emission == -INFINITY){</div>
+<div class="line">                                <span class="keywordflow">continue</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                        backward_temp = previous + emission + trans;</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (ending_backward_prob == -INFINITY){</div>
+<div class="line">                                ending_backward_prob = backward_temp;</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">else</span>{</div>
+<div class="line">                                ending_backward_prob = <a class="code" href="namespace_stoch_h_m_m.html#a067454235ed85f89e1c09dc1f26c71e6">addLog</a>( backward_temp, ending_backward_prob);</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a126ebcda460c9e3fe52b7dd0cc1bd1fa"></a>
@@ -331,6 +589,195 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getBackwardProbabil
 </div><div class="memdoc">
 <p>Sparse Complex Viterbi Stores the transition duration probabilities in a hashmap (memory efficient, slower) The duratio probabilities can then be used in forward and backward algorithms. </p>
 
+<p>Definition at line <a class="el" href="viterbi_8cpp_source.html#l00470">470</a> of file <a class="el" href="viterbi_8cpp_source.html">viterbi.cpp</a>.</p>
+<div class="fragment"><div class="line">                                            {</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Initialize the traceback table</span></div>
+<div class="line">        <span class="keywordflow">if</span> (traceback_table != NULL){</div>
+<div class="line">            <span class="keyword">delete</span> traceback_table;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        traceback_table = <span class="keyword">new</span> int_2D(seq_size,std::vector&lt;int16_t&gt; (state_size,1));</div>
+<div class="line">                scoring_previous = <span class="keyword">new</span> (std::nothrow) std::vector&lt;double&gt; (state_size,-INFINITY);</div>
+<div class="line">        scoring_current  = <span class="keyword">new</span> (std::nothrow) std::vector&lt;double&gt; (state_size,-INFINITY);</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (scoring_previous == NULL || scoring_current == NULL || traceback_table == NULL){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Can&#39;t allocate Viterbi score and traceback table. OUT OF MEMORY&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                        exit(2);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">        std::bitset&lt;STATE_MAX&gt; next_states;</div>
+<div class="line">        std::bitset&lt;STATE_MAX&gt; current_states;</div>
+<div class="line">                </div>
+<div class="line">        <span class="keywordtype">double</span>  viterbi_temp(-INFINITY);</div>
+<div class="line">        <span class="keywordtype">double</span>  emission(-INFINITY);</div>
+<div class="line">        <span class="keywordtype">bool</span>    exDef_position(<span class="keyword">false</span>);</div>
+<div class="line">                <span class="keywordtype">double</span>  transition_prob(-INFINITY);</div>
+<div class="line">                ending_viterbi_score = -INFINITY;</div>
+<div class="line">                ending_viterbi_tb = -1;</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//If model is not a basic model, then we need to initialize the explicit duration vector</span></div>
+<div class="line">                <span class="comment">//bool extend_duration keeps track of whether the transition to same state was selected.</span></div>
+<div class="line">                <span class="keywordflow">if</span> (!hmm-&gt;isBasic()){</div>
+<div class="line">                        explicit_duration_current = <span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(state_size,0);</div>
+<div class="line">                        explicit_duration_previous= <span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(state_size,0);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">bool</span> extend_duration(<span class="keyword">false</span>);</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">// Get list of States with explicit duration</span></div>
+<div class="line">                std::vector&lt;bool&gt;* duration = hmm-&gt;get_explicit();</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Initialize Duration storage table</span></div>
+<div class="line">                complex_transitions = <span class="keyword">new</span> std::vector&lt;std::vector&lt; std::map&lt;uint16_t,double&gt;* &gt;* &gt; (state_size,NULL);</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i &lt; state_size; i++){</div>
+<div class="line">                        <span class="keywordflow">if</span>((*duration)[i]){</div>
+<div class="line">                                (*complex_transitions)[i] = <span class="keyword">new</span> std::vector&lt;std::map&lt;uint16_t,double&gt;* &gt; (seq_size, NULL);</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">        </div>
+<div class="line">        state* init = hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#ace28286e62583b25bd6bdf4faaf577b8" title="Get pointer to the initial state.">getInitial</a>();</div>
+<div class="line">                </div>
+<div class="line">                std::bitset&lt;STATE_MAX&gt;* initial_to = hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#af2c21a10ef39c09f00825b9405380f50" title="Get vector of states that the initial state transitions to.">getInitialTo</a>();</div>
+<div class="line">                std::bitset&lt;STATE_MAX&gt;* from_trans(NULL);</div>
+<div class="line">                </div>
+<div class="line">        <span class="comment">//Calculate Viterbi from transitions from INIT (initial) state</span></div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; state_size; ++i){</div>
+<div class="line">            <span class="keywordflow">if</span> ((*initial_to)[i]){  <span class="comment">//if the bitset is set (meaning there is a transition to this state), calculate the viterbi</span></div>
+<div class="line">                                </div>
+<div class="line">                                <span class="comment">//Transitions here are guarenteed to be standard from the initial state</span></div>
+<div class="line">                                viterbi_temp = (*hmm)[i]-&gt;get_emission_prob(*seqs,0) + getTransition(init, i, 0);</div>
+<div class="line">                </div>
+<div class="line">                                <span class="keywordflow">if</span> (viterbi_temp &gt; -INFINITY){</div>
+<div class="line">                    <span class="keywordflow">if</span> ((*scoring_current)[i] &lt; viterbi_temp){</div>
+<div class="line">                        (*scoring_current)[i] = viterbi_temp;</div>
+<div class="line">                    }</div>
+<div class="line">                                        next_states |= (*(*hmm)[i]-&gt;getTo());</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">                </div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> position = 1; position &lt; seq_size ; ++position ){</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//Swap current and previous viterbi scores</span></div>
+<div class="line">            scoring_previous-&gt;assign(state_size,-INFINITY);</div>
+<div class="line">            swap_ptr = scoring_previous;</div>
+<div class="line">                        scoring_previous = scoring_current;</div>
+<div class="line">                        scoring_current = swap_ptr;</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//Swap current_states and next states sets</span></div>
+<div class="line">                        </div>
+<div class="line">                        current_states.reset();</div>
+<div class="line">            current_states |= next_states;</div>
+<div class="line">            next_states.reset();</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (exDef_defined){</div>
+<div class="line">                exDef_position = seqs-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a186a9b5085dbd0887e57a0423cea1301">exDefDefined</a>(position);</div>
+<div class="line">            }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="comment">//TODO: Check use of external definitions below.</span></div>
+<div class="line">                        </div>
+<div class="line">                        <span class="comment">//std::cout &lt;&lt; &quot;\nPosition:\t&quot; &lt;&lt; position &lt;&lt; &quot;\n&quot;;</span></div>
+<div class="line">                        <span class="comment">//                      std::cout &lt;&lt; &quot;Letter:\t&quot; &lt;&lt; seqs-&gt;seqValue(0, position) &lt;&lt; std::endl;</span></div>
+<div class="line">                        </div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> st_current = 0; st_current &lt; state_size; ++st_current){ <span class="comment">//i is current state that emits value</span></div>
+<div class="line">                <span class="keywordflow">if</span> (!current_states[st_current]){</div>
+<div class="line">                    <span class="keywordflow">continue</span>;</div>
+<div class="line">                }</div>
+<div class="line">                                </div>
+<div class="line">                emission = (*hmm)[st_current]-&gt;get_emission_prob(*seqs, position);</div>
+<div class="line">                                </div>
+<div class="line">                                </div>
+<div class="line">                                <span class="comment">//Check External definitions</span></div>
+<div class="line">                                <span class="keywordflow">if</span> (exDef_defined &amp;&amp; exDef_position){</div>
+<div class="line">                    emission += seqs-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0eecfd11066a4802ef3129e3641eb0d0">getWeight</a>(position, st_current);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                                <span class="comment">//Get list of state that transition to current state</span></div>
+<div class="line">                                from_trans = (*hmm)[st_current]-&gt;getFrom();</div>
+<div class="line">                                </div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> st_previous = 0; st_previous &lt; state_size ; ++st_previous) {  <span class="comment">//j is previous state</span></div>
+<div class="line">                    <span class="keywordflow">if</span> (!(*from_trans)[st_previous]){ <span class="comment">//if transition not possible next</span></div>
+<div class="line">                        <span class="keywordflow">continue</span>;</div>
+<div class="line">                    }</div>
+<div class="line">                                        </div>
+<div class="line">                    <span class="keywordflow">if</span> ((*scoring_previous)[st_previous] != -INFINITY){</div>
+<div class="line">                                                </div>
+<div class="line">                                                transition_prob = getTransition((*hmm)[st_previous], st_current , position);</div>
+<div class="line">                                                </div>
+<div class="line">                                                <span class="keywordflow">if</span> ((*duration)[st_previous]){</div>
+<div class="line">                                                        <span class="keywordflow">if</span> ((*(*complex_transitions)[st_current])[position] == NULL){</div>
+<div class="line">                                                                (*(*complex_transitions)[st_current])[position] = <span class="keyword">new</span> std::map&lt;uint16_t,double&gt;;</div>
+<div class="line">                                                        }</div>
+<div class="line">                                                        </div>
+<div class="line">                                                        (*(*(*complex_transitions)[st_current])[position])[st_previous] = transition_prob;</div>
+<div class="line">                                                }</div>
+<div class="line">                                                </div>
+<div class="line">                        viterbi_temp = transition_prob + emission + (*scoring_previous)[st_previous];</div>
+<div class="line">                        </div>
+<div class="line">                                                </div>
+<div class="line">                                                <span class="keywordflow">if</span> (viterbi_temp &gt; (*scoring_current)[st_current]){</div>
+<div class="line">                                                        <span class="comment">//If transition is from same to same then if it is</span></div>
+<div class="line">                                                        <span class="comment">//explicit duration we&#39;ll need to change</span></div>
+<div class="line">                                                        extend_duration = (st_current==st_previous) ? <span class="keyword">true</span> : <span class="keyword">false</span>;</div>
+<div class="line">                                                        </div>
+<div class="line">                            (*scoring_current)[st_current] = viterbi_temp;</div>
+<div class="line">                            (*traceback_table)[position][st_current] = st_previous;</div>
+<div class="line">                        }</div>
+<div class="line">                                                </div>
+<div class="line">                                                next_states |= (*(*hmm)[st_current]-&gt;getTo());</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">                                </div>
+<div class="line">                                <span class="comment">//If explicit durations vector defined, and transition from-to same</span></div>
+<div class="line">                                <span class="comment">//then we&#39;ll increment the value. Otherwise, set to zero;</span></div>
+<div class="line">                                <span class="keywordflow">if</span> (explicit_duration_current){</div>
+<div class="line">                                        <span class="keywordflow">if</span> (extend_duration &amp;&amp; (*duration)[st_current]){</div>
+<div class="line">                                                (*explicit_duration_current)[st_current]=(*explicit_duration_previous)[st_current]+1;</div>
+<div class="line">                                                extend_duration=<span class="keyword">false</span>;</div>
+<div class="line">                                        }</div>
+<div class="line">                                        <span class="keywordflow">else</span>{</div>
+<div class="line">                                                (*explicit_duration_current)[st_current]=0;</div>
+<div class="line">                                        }</div>
+<div class="line">                                }</div>
+<div class="line">            }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span>(explicit_duration_current){</div>
+<div class="line">                                swap_ptr_duration = explicit_duration_previous;</div>
+<div class="line">                                explicit_duration_previous = explicit_duration_current;</div>
+<div class="line">                                explicit_duration_current= swap_ptr_duration;</div>
+<div class="line">                                explicit_duration_current-&gt;assign(state_size,0);</div>
+<div class="line">                        }</div>
+<div class="line">            </div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//TODO:  Calculate ending and set the final viterbi and traceback pointer</span></div>
+<div class="line">        <span class="comment">//Swap current and previous viterbi scores</span></div>
+<div class="line">        scoring_previous-&gt;assign(state_size,-INFINITY);</div>
+<div class="line">        swap_ptr = scoring_previous;</div>
+<div class="line">        scoring_previous = scoring_current;</div>
+<div class="line">        scoring_current = swap_ptr;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> st_previous = 0; st_previous &lt; state_size ;++st_previous){</div>
+<div class="line">            <span class="keywordflow">if</span> ((*scoring_previous)[st_previous] &gt; -INFINITY){</div>
+<div class="line">                viterbi_temp = (*scoring_previous)[st_previous] + (*hmm)[st_previous]-&gt;getEndTrans();</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (viterbi_temp &gt; ending_viterbi_score){</div>
+<div class="line">                    ending_viterbi_score = viterbi_temp;</div>
+<div class="line">                    ending_viterbi_tb = st_previous;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keyword">delete</span> scoring_previous;</div>
+<div class="line">        <span class="keyword">delete</span> scoring_current;</div>
+<div class="line">                scoring_previous = NULL;</div>
+<div class="line">                scoring_current = NULL;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a64a9fb1efb144e4a0101ca399cbde10a"></a>
@@ -349,6 +796,36 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getBackwardProbabil
 <p>Perform traceback through trellis</p>
 <dl class="section return"><dt>Returns:</dt><dd>path trackback_path </dd></dl>
 
+<p>Definition at line <a class="el" href="trellis_8cpp_source.html#l00400">400</a> of file <a class="el" href="trellis_8cpp_source.html">trellis.cpp</a>.</p>
+<div class="fragment"><div class="line">                                               {</div>
+<div class="line">                                </div>
+<div class="line">                <span class="keywordflow">if</span> (seq_size==0 || traceback_table == NULL){</div>
+<div class="line">                        <span class="keywordflow">return</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (ending_viterbi_score == -INFINITY){</div>
+<div class="line">                        <span class="keywordflow">return</span>;</div>
+<div class="line">                }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            path.setScore(ending_viterbi_score);</div>
+<div class="line">            path.push_back(ending_viterbi_tb);</div>
+<div class="line">            </div>
+<div class="line">                        int16_t pointer = ending_viterbi_tb;</div>
+<div class="line">                        </div>
+<div class="line">            <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> position = seq_size -1 ; position&gt;0 ; position--){</div>
+<div class="line">                                pointer = (*traceback_table)[position][pointer];</div>
+<div class="line">                                </div>
+<div class="line">                                <span class="keywordflow">if</span> (pointer == -1){</div>
+<div class="line">                                        std::cerr &lt;&lt; <span class="stringliteral">&quot;No valid path at Position: &quot;</span> &lt;&lt; position &lt;&lt; std::endl;</div>
+<div class="line">                                        <span class="keywordflow">return</span>;</div>
+<div class="line">                                }</div>
+<div class="line">                                </div>
+<div class="line">                                path.push_back(pointer);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aa9da4fb503e1be4a88f600a21a0b3715"></a>
@@ -390,24 +867,50 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getBackwardProbabil
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="trellis_8cpp_source.html#l00434">434</a> of file <a class="el" href="trellis_8cpp_source.html">trellis.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                                  {</div>
+<div class="line">                <span class="keywordflow">if</span> (seq_size == 0 || traceback_table == NULL){</div>
+<div class="line">                        <span class="keywordflow">return</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                int16_t pointer = (*traceback_table)[position][state];</div>
+<div class="line">                <span class="keywordflow">if</span> (pointer == -1){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;No valid path at State: &quot;</span> &lt;&lt; state &lt;&lt;  <span class="stringliteral">&quot; from Position: &quot;</span> &lt;&lt; position &lt;&lt; std::endl;</div>
+<div class="line">                        <span class="keywordflow">return</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> pos = position - 1 ; pos&gt;0 ; pos--){</div>
+<div class="line">                        pointer = (*traceback_table)[pos][pointer];</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (pointer == -1){</div>
+<div class="line">                                std::cerr &lt;&lt; <span class="stringliteral">&quot;No valid path at State: &quot;</span> &lt;&lt; state &lt;&lt;  <span class="stringliteral">&quot; from Position: &quot;</span> &lt;&lt; position &lt;&lt; std::endl;</div>
+<div class="line">                                <span class="keywordflow">return</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        path.push_back(pointer);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="trellis_8h_source.html">trellis.h</a></li>
-<li>backward.cpp</li>
-<li>baum_welch.cpp</li>
-<li>forward.cpp</li>
-<li>nth_best.cpp</li>
-<li>posterior.cpp</li>
-<li>stoch_forward.cpp</li>
-<li>stoch_viterbi.cpp</li>
-<li>trellis.cpp</li>
-<li>viterbi.cpp</li>
+<li><a class="el" href="backward_8cpp_source.html">backward.cpp</a></li>
+<li><a class="el" href="baum__welch_8cpp_source.html">baum_welch.cpp</a></li>
+<li><a class="el" href="forward_8cpp_source.html">forward.cpp</a></li>
+<li><a class="el" href="nth__best_8cpp_source.html">nth_best.cpp</a></li>
+<li><a class="el" href="posterior_8cpp_source.html">posterior.cpp</a></li>
+<li><a class="el" href="stoch__forward_8cpp_source.html">stoch_forward.cpp</a></li>
+<li><a class="el" href="stoch__viterbi_8cpp_source.html">stoch_viterbi.cpp</a></li>
+<li><a class="el" href="trellis_8cpp_source.html">trellis.cpp</a></li>
+<li><a class="el" href="viterbi_8cpp_source.html">viterbi.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

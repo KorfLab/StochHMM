@@ -111,6 +111,8 @@ Public Member Functions</h2></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Define the ambiguous characters symbol and index number for digitizing ambiguous characters in the sequence For example in DNA N = [ACGT] = [0,1,2,3]. </p>
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00060">60</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a13f60639db9effc31011ddf58e0e2a38"></a>
 <div class="memitem">
@@ -151,6 +153,16 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00036">36</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                                           {</div>
+<div class="line">        symbol=ambChar;</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;defs.size();i++){</div>
+<div class="line">            setDefinition.push_back(tr-&gt;symbolIndex(defs[i]));</div>
+<div class="line">        }</div>
+<div class="line">        sort(setDefinition.begin(),setDefinition.end());</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
@@ -177,6 +189,9 @@ Public Member Functions</h2></td></tr>
 <p>Get the characters that the characters defines. For example in DNA N = [ACGT] = [0,1,2,3] </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::vector&lt;int&gt; Digitized value of characters that are represented by the given symbol </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8h_source.html#l00074">74</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> setDefinition;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ab0b3344abf2699112f1819498c2e448b"></a>
@@ -202,16 +217,19 @@ Public Member Functions</h2></td></tr>
 <p>Get Ambiguous String/Alphabet character symbol </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::string Symbol of character/word </dd></dl>
 
+<p>Definition at line <a class="el" href="track_8h_source.html#l00067">67</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> symbol;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="track_8h_source.html">track.h</a></li>
-<li>track.cpp</li>
+<li><a class="el" href="track_8cpp_source.html">track.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

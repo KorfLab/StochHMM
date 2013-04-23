@@ -125,7 +125,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a4b3980c94cd1e0e41ff2733a459451f4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#a4b3980c94cd1e0e41ff2733a459451f4">stringify</a> ()</td></tr>
 <tr class="memdesc:a4b3980c94cd1e0e41ff2733a459451f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">prints the string representation of the externFuncs to stdout  <a href="#a4b3980c94cd1e0e41ff2733a459451f4"></a><br/></td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="external_funcs_8h_source.html#l00135">135</a> of file <a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a>.</p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a10a1c1edd35e58b4e8d937a5e91cf3b0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -149,6 +152,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="external_funcs_8cpp_source.html#l00250">250</a> of file <a class="el" href="external_funcs_8cpp_source.html">externalFuncs.cpp</a>.</p>
+<div class="fragment"><div class="line">                                        {</div>
+<div class="line">        emissionFunction=NULL;</div>
+<div class="line">        <span class="comment">//parse(lst,trcks, wts,funcs);</span></div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
@@ -175,6 +184,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Get track name to pass to the function (as defined in the model) </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::string Track Name as defined in the model to be passed to the function </dd></dl>
 
+<p>Definition at line <a class="el" href="external_funcs_8h_source.html#l00153">153</a> of file <a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> trackName;};</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a4b3980c94cd1e0e41ff2733a459451f4"></a>
@@ -194,16 +206,36 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Get string representation of the externalFuncs </p>
 <dl class="section return"><dt>Returns:</dt><dd>std::string Representation of externalFuncs </dd></dl>
 
+<p>Definition at line <a class="el" href="external_funcs_8cpp_source.html#l00333">333</a> of file <a class="el" href="external_funcs_8cpp_source.html">externalFuncs.cpp</a>.</p>
+<div class="fragment"><div class="line">                                          {</div>
+<div class="line">        std::string exFuncString;</div>
+<div class="line">        exFuncString+=<span class="stringliteral">&quot;[ FUNCTION:\t&quot;</span> + emissionFuncName + <span class="stringliteral">&quot;\t&quot;</span>;</div>
+<div class="line">        exFuncString+=<span class="stringliteral">&quot;TRACK:\t&quot;</span> + trackName + <span class="stringliteral">&quot;\t&quot;</span>;</div>
+<div class="line"></div>
+<div class="line">        <span class="keywordflow">if</span> (emissionFuncScaling!=NULL){</div>
+<div class="line">            <span class="keywordflow">if</span> (emissionFuncScaling-&gt;<a class="code" href="class_stoch_h_m_m_1_1weight.html#af43a303a0bbaffe23dd1246f904dd187">isAbsolute</a>()){</div>
+<div class="line">                exFuncString+=<span class="stringliteral">&quot;SCALE:\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(emissionFuncScaling-&gt;getAbsolute());</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                exFuncString+=<span class="stringliteral">&quot;SCALE:\t&quot;</span> + emissionFuncScaling-&gt;getName();</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        exFuncString += <span class="stringliteral">&quot; ]&quot;</span>;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> exFuncString;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a></li>
-<li>externalFuncs.cpp</li>
+<li><a class="el" href="external_funcs_8cpp_source.html">externalFuncs.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

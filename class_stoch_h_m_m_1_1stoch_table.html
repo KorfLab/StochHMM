@@ -121,6 +121,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Stochastic table stores stochastic values in a vector. Data structure is implemented to reduce the memory that would be needed if we allocated a 2D table with all the transitions. This lookup table is 1D and only stores those values which we add. Each the value are stores (Current state, Previous State, Score as P(X)). In addition, the indices of each state and position are recorded so that they can be referenced quickly. So the memory size necessary to store the values for a sparsely connected model are greatly reduce. However, the time to recreate the table is increased because it doesn't allocate the memory up front, but rather pushes values as they are recorded. </p>
+
+<p>Definition at line <a class="el" href="stoch_table_8h_source.html#l00032">32</a> of file <a class="el" href="stoch_table_8h_source.html">stochTable.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a080d7792392b395b6ae37cec3701a6d8"></a>
 <div class="memitem">
@@ -143,6 +145,25 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="stoch_table_8cpp_source.html#l00015">15</a> of file <a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a>.</p>
+<div class="fragment"><div class="line">                                             :state_val(NULL){</div>
+<div class="line">                </div>
+<div class="line">                state_val = <span class="keyword">new</span>(std::nothrow) std::vector&lt;stoch_value&gt;;</div>
+<div class="line">                state_val-&gt;reserve(seq_size);</div>
+<div class="line">                </div>
+<div class="line">                position = <span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(seq_size,0);</div>
+<div class="line">                <span class="keywordflow">if</span> (state_val == NULL){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Cannot allocate stochTable- OUT OF MEMORY&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                        <span class="keyword">delete</span> state_val;</div>
+<div class="line">                        <span class="keyword">delete</span> position;</div>
+<div class="line">                        state_val = NULL;</div>
+<div class="line">                        position = NULL;</div>
+<div class="line">                        exit(2);</div>
+<div class="line">                }</div>
+<div class="line">                last_position = 0;</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
@@ -160,6 +181,69 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 <p>Finalized <a class="el" href="class_stoch_h_m_m_1_1stoch_table.html">stochTable</a> Normalizes the traceback pointer values and calculates the previous cell iterator within the previous position segment. This speeds up the the referencing necessary for tracebacks across the traceback table. </p>
 
+<p>Definition at line <a class="el" href="stoch_table_8cpp_source.html#l00059">59</a> of file <a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a>.</p>
+<div class="fragment"><div class="line">                                 {</div>
+<div class="line">                (*position)[last_position] = state_val-&gt;size()-1;</div>
+<div class="line">                </div>
+<div class="line">                last_position = 0;</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">double</span> sum(-INFINITY);</div>
+<div class="line">                int16_t current_state(-1);</div>
+<div class="line">                <span class="keywordtype">size_t</span> state_start(-1);</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//For each position in the sequence we want to normalize the viterbi values</span></div>
+<div class="line">                <span class="comment">//for the state from previous states</span></div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;position-&gt;size();++i){</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="comment">//Need to sum the values.  If we see another state then we&#39;ll need to</span></div>
+<div class="line">                        <span class="comment">//normalize the previous states that contributed to the sum.</span></div>
+<div class="line">                        <span class="comment">//Then set the sum for the current state.</span></div>
+<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = (i==0) ? 0 : (*position)[i-1]+1; j &lt;= (*position)[i] ; ++j ){</div>
+<div class="line">                                </div>
+<div class="line">                                <span class="comment">//If this is a different state then we&#39;ll need to apply the sum</span></div>
+<div class="line">                                <span class="comment">//if this is the first state then we&#39;ll just set the current state</span></div>
+<div class="line">                                <span class="comment">//and set the sum value.  Also need to keep track of which state</span></div>
+<div class="line">                                <span class="comment">// is the first state so when we normalize we only normalize the</span></div>
+<div class="line">                                <span class="comment">// the previous state</span></div>
+<div class="line">                                <span class="keywordflow">if</span> ((*state_val)[j].state_id != current_state){</div>
+<div class="line">                                        </div>
+<div class="line">                                        <span class="comment">//Normalize</span></div>
+<div class="line">                                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k = state_start; k &lt; j ;++k){</div>
+<div class="line">                                                (*state_val)[k].prob = exp((*state_val)[k].prob - sum);</div>
+<div class="line">                                        }</div>
+<div class="line">                                        </div>
+<div class="line">                                        <span class="comment">//Set state and sum value and starting state</span></div>
+<div class="line">                                        current_state = (*state_val)[j].state_id;</div>
+<div class="line">                                        sum = (*state_val)[j].prob;</div>
+<div class="line">                                        state_start = j;</div>
+<div class="line">                                }</div>
+<div class="line">                                <span class="keywordflow">else</span>{</div>
+<div class="line">                                        sum = <a class="code" href="namespace_stoch_h_m_m.html#a067454235ed85f89e1c09dc1f26c71e6">addLog</a>(sum,(<span class="keywordtype">double</span>) (*state_val)[j].prob);</div>
+<div class="line">                                }</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="comment">//Normalize the last states seen (b/c) we&#39;ll exit out of for loop before</span></div>
+<div class="line">                        <span class="comment">//we have done these</span></div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k = state_start; k &lt;= (*position)[i]; ++k){</div>
+<div class="line">                                (*state_val)[k].prob = exp((*state_val)[k].prob - sum);</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="comment">//Set values for next loop</span></div>
+<div class="line">                        state_start = (*position)[i] + 1;</div>
+<div class="line">                        current_state = -1;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Assign previous cell relative to (position) value.  Used when traceback</span></div>
+<div class="line">                <span class="comment">//That way function won&#39;t have to search for correct value;</span></div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i =1; i &lt; position-&gt;size(); ++i){</div>
+<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = (*position)[i-1]+1; j &lt;= (*position)[i] ; ++j){</div>
+<div class="line">                                (*state_val)[j].prev_cell = <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#acb25865587205a78cff5791c14d461eb">get_state_position</a>(i-1, (*state_val)[j].state_prev);</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="acb25865587205a78cff5791c14d461eb"></a>
@@ -195,6 +279,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Position within the table where state can be found </dd></dl>
 
+<p>Definition at line <a class="el" href="stoch_table_8cpp_source.html#l00125">125</a> of file <a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                       {</div>
+<div class="line">                <span class="keywordtype">size_t</span> start_val = (pos == 0) ? 0 : (*position)[pos-1]+1;</div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = start_val ; i &lt;= (*position)[pos] ;  ++i){</div>
+<div class="line">                        <span class="keywordflow">if</span> ((*state_val)[i].state_id == state){</div>
+<div class="line">                                <span class="keywordflow">return</span> i-start_val;</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">return</span> UINT16_MAX;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a00d3a5df377d0b618d2e9d705eeaa3ec"></a>
@@ -244,6 +340,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="class_stoch_h_m_m_1_1stoch_table.html#acda57c084c4fd7fe15b498ab8eb516ce">stochTable::finalize</a> </dd></dl>
 
+<p>Definition at line <a class="el" href="stoch_table_8cpp_source.html#l00046">46</a> of file <a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                             {</div>
+<div class="line">                <span class="keywordflow">if</span> (pos != last_position){</div>
+<div class="line">                        (*position)[last_position] = state_val-&gt;size()-1;</div>
+<div class="line">                        last_position = pos;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                state_val-&gt;push_back( stoch_value(st,st_to,value));</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a54b03475f783c305b38b8edbc11069e7"></a>
@@ -267,16 +373,63 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="stoch_table_8cpp_source.html#l00161">161</a> of file <a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                      {</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">double</span> random((<span class="keywordtype">double</span>)rand()/((<span class="keywordtype">double</span>)(RAND_MAX)+(<span class="keywordtype">double</span>)(1)));</div>
+<div class="line">                <span class="keywordtype">double</span> cumulative_prob(0.0);</div>
+<div class="line">                <span class="comment">//std::cout &lt;&lt; random &lt;&lt; std::endl;</span></div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">size_t</span> offset(0);</div>
+<div class="line">                uint16_t state_prev(UINT16_MAX);</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Get traceback from END state</span></div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = (*position)[position-&gt;size()-2]+1 ; i &lt;= position-&gt;back() ; ++i){</div>
+<div class="line">                        cumulative_prob += (*state_val)[i].prob;</div>
+<div class="line">                        <span class="keywordflow">if</span> (random &lt; cumulative_prob){</div>
+<div class="line">                                state_prev = (*state_val)[i].state_prev;</div>
+<div class="line">                                path.push_back(state_prev);</div>
+<div class="line">                                offset = (*state_val)[i].prev_cell;</div>
+<div class="line">                                <span class="comment">//std::cout &lt;&lt; &quot;Chose:\t&quot; &lt;&lt; state_prev &lt;&lt; std::endl;</span></div>
+<div class="line">                                <span class="keywordflow">break</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//For the rest of the table traceback to the beginning of the sequence</span></div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = position-&gt;size()-2; i != SIZE_MAX ; --i){</div>
+<div class="line">                        random = (double)rand()/((double)(RAND_MAX)+(double)(1));</div>
+<div class="line">                        <span class="comment">//std::cout &lt;&lt; random &lt;&lt; std::endl;</span></div>
+<div class="line">                        cumulative_prob = 0;</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> cells = (i == 0) ? 0 + offset : (*position)[i-1]+offset+1; cells &lt; (*position)[i] ; ++cells){</div>
+<div class="line">                                <span class="keywordflow">if</span> ((*state_val)[cells].state_id != state_prev ){</div>
+<div class="line">                                        <span class="comment">//std::cout &lt;&lt; &quot;Houston, We have an error!&quot; &lt;&lt; std::endl;</span></div>
+<div class="line">                                }</div>
+<div class="line">                </div>
+<div class="line">                                cumulative_prob+=(*state_val)[cells].prob;</div>
+<div class="line">                                </div>
+<div class="line">                <span class="keywordflow">if</span> (random &lt;= cumulative_prob){</div>
+<div class="line">                    state_prev = (*state_val)[cells].state_prev;</div>
+<div class="line">                                        path.push_back(state_prev);</div>
+<div class="line">                                        offset = (*state_val)[cells].prev_cell;</div>
+<div class="line">                                        <span class="comment">//std::cout &lt;&lt; &quot;Chose:\t&quot; &lt;&lt; state_prev &lt;&lt; std::endl;</span></div>
+<div class="line">                                        <span class="keywordflow">break</span>;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="stoch_table_8h_source.html">stochTable.h</a></li>
-<li>stochTable.cpp</li>
+<li><a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:45:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>
