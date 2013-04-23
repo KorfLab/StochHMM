@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>StochHMM: src/trellisCells.h File Reference</title>
+<title>StochHMM: deprecated/trellisCells.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Screen Shot 2013-04-23 at 10.38.21 AM.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">StochHMM
-   &#160;<span id="projectnumber">0.22</span>
+   &#160;<span id="projectnumber">v0.30</span>
    </div>
    <div id="projectbrief">Flexible Hidden Markov Model C++ Library and Application</div>
   </td>
@@ -63,7 +64,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -71,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_a78ceb8b5743c87a53f081e93e134051.html">deprecated</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -95,7 +95,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Definitions of trellis cell structure Trellis cells save different information depending on what kind of analysis is being done. For example, if a simple viterbi is being performed. You only need the viterbi score and no the viterbi scores coming from other states.  
+<p>Definitions of trellis cell structure <a class="el" href="class_trellis.html" title="Implements the HMM scoring trellis and algorithms.">Trellis</a> cells save different information depending on what kind of analysis is being done. For example, if a simple viterbi is being performed. You only need the viterbi score and no the viterbi scores coming from other states.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;vector&gt;</code><br/>
 <code>#include &lt;limits&gt;</code><br/>
@@ -103,8 +103,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;iostream&gt;</code><br/>
 <code>#include &lt;algorithm&gt;</code><br/>
 <code>#include &lt;map&gt;</code><br/>
-<code>#include &quot;<a class="el" href="stoch_types_8h_source.html">stochTypes.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="state_8h_source.html">state.h</a>&quot;</code><br/>
+<code>#include &quot;stochTypes.h&quot;</code><br/>
+<code>#include &quot;state.h&quot;</code><br/>
 </div>
 <p><a href="trellis_cells_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -117,22 +117,22 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespace_stoch_h_m_m"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></td></tr>
-<tr class="memdesc:namespace_stoch_h_m_m"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="traceback__path_8h.html">traceback_path.h</a> <br/></td></tr>
+<tr class="memdesc:namespace_stoch_h_m_m"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="traceback__path_8h_source.html">traceback_path.h</a> <br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:afefb8a02a8bde7a95cc4fba9bb056d02"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#afefb8a02a8bde7a95cc4fba9bb056d02">StochHMM::_vec_sort</a> (const scores &amp;i, const scores &amp;j)</td></tr>
-<tr class="memitem:a2b467f55c7c407685d5b36835f7329cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a2b467f55c7c407685d5b36835f7329cb">StochHMM::sort_scores</a> (std::vector&lt; scores &gt; &amp;nth_scores)</td></tr>
-<tr class="memdesc:a2b467f55c7c407685d5b36835f7329cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort the viterbi scores in the nth trellis cells.  <a href="#a2b467f55c7c407685d5b36835f7329cb"></a><br/></td></tr>
+<tr class="memitem:afefb8a02a8bde7a95cc4fba9bb056d02"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afefb8a02a8bde7a95cc4fba9bb056d02"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>StochHMM::_vec_sort</b> (const scores &amp;i, const scores &amp;j)</td></tr>
+<tr class="memitem:a2b467f55c7c407685d5b36835f7329cb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b467f55c7c407685d5b36835f7329cb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a2b467f55c7c407685d5b36835f7329cb">StochHMM::sort_scores</a> (std::vector&lt; scores &gt; &amp;nth_scores)</td></tr>
+<tr class="memdesc:a2b467f55c7c407685d5b36835f7329cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort the viterbi scores in the nth trellis cells. <br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Definitions of trellis cell structure Trellis cells save different information depending on what kind of analysis is being done. For example, if a simple viterbi is being performed. You only need the viterbi score and no the viterbi scores coming from other states. </p>
-
-<p>Definition in file <a class="el" href="trellis_cells_8h_source.html">trellisCells.h</a>.</p>
+<div class="textblock"><p>Definitions of trellis cell structure <a class="el" href="class_trellis.html" title="Implements the HMM scoring trellis and algorithms.">Trellis</a> cells save different information depending on what kind of analysis is being done. For example, if a simple viterbi is being performed. You only need the viterbi score and no the viterbi scores coming from other states. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 29 2013 16:17:44 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:40:29 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

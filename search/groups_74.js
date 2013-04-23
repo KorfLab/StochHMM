@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['text_20handling',['Text Handling',['../group___text.html',1,'']]]
+  ['text_20parhandling',['Text parHandling',['../group___text.html',1,'']]]
 ];

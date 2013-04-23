@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>StochHMM: src/emm.h Source File</title>
+<title>StochHMM: emm.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Screen Shot 2013-04-23 at 10.38.21 AM.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">StochHMM
-   &#160;<span id="projectnumber">0.22</span>
+   &#160;<span id="projectnumber">v0.30</span>
    </div>
    <div id="projectbrief">Flexible Hidden Markov Model C++ Library and Application</div>
   </td>
@@ -63,15 +64,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,17 +81,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">emm.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="emm_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//emm.h</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//emm.h</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; <span class="comment">//Copyright (c) 2007-2012 Paul C Lott </span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; <span class="comment">//University of California, Davis</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; <span class="comment">//Genome and Biomedical Sciences Facility</span></div>
@@ -125,105 +121,130 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="track_8h.html">track.h</a>&quot;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="index_8h.html">index.h</a>&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;track.h&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;index.h&quot;</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="external_funcs_8h.html" title="Define additional function information for call to user function when calculating the emission or tra...">externalFuncs.h</a>&quot;</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="weight_8h.html">weight.h</a>&quot;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sequences_8h.html">sequences.h</a>&quot;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="lexical_table_8h.html">lexicalTable.h</a>&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;weight.h&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;sequences.h&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;lexicalTable.h&quot;</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">namespace </span>StochHMM{</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">        /*! Emissions for model</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">         Contains the emission definition. Each emissions contains the probability, the log(p(x), and counts</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">         Counts are used for calculating lower order emissions from higher order.  This is only applicable</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">         at the beginning of the sequence.  </span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">         Each emission depends on some track or function, an emission can have multiple tracks.</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">         Or in other words output a single character from each track it is associated with.</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">         Tracks can be either alphabetic, real numbers values.</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">         Emissions can also call an external function that is user defined.</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">         If ambiguity is defined in the alphabet, the emission score can be defined as such</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">         If ambiguity is not defined the returned value will be -INFINITY</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">         */</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
 <div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1emm.html">   58</a></span>&#160;        <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1emm.html">emm</a>{</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1emm.html#a4e5950e2b141aad4eced181fce61d61b" title="Create an emission.">emm</a>(); </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1emm.html#a4e5950e2b141aad4eced181fce61d61b" title="Create an emission.">emm</a>(std::string&amp;); </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1emm.html#a4e5950e2b141aad4eced181fce61d61b" title="Create an emission.">emm</a>(); <span class="comment">//!Constructs an empty emission</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"></span>                <a class="code" href="class_stoch_h_m_m_1_1emm.html#a4e5950e2b141aad4eced181fce61d61b" title="Create an emission.">emm</a>(std::string&amp;); <span class="comment">//!Constructs emission from a string;</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"></span>                </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa54b9142ce68426ec436c8b15c11f38a" title="Constructs emission from a string;.">~emm</a>();</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                </div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1emm.html#a9ded23f3edbd367dcaa3a3c3d49428eb">   65</a></span>&#160;                <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1state.html">state</a>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1emm.html#a6e37bb755d74e24f1b3e7e2def3b13e0">   66</a></span>&#160;                <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1state.html">state</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                </div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="comment">//MUTATORS</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#a52af53ba74c5cd581643ae4da9eeb080">parse</a>(std::string&amp;, <a class="code" href="class_stoch_h_m_m_1_1tracks.html">tracks</a>&amp;, <a class="code" href="class_stoch_h_m_m_1_1weights.html">weights</a>*, <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html">StateFuncs</a>* );</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                </div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1emm.html#af47fc262c080fa58c97d5508c7fcfbba">   72</a></span>&#160;                <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#af47fc262c080fa58c97d5508c7fcfbba" title="Set the emission to a Real Number.">setRealNumber</a>(){real_number=<span class="keyword">true</span>;};</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                </div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1emm.html#ab95aa772208b03e5b767c09d1a9c0f68">   75</a></span>&#160;                <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#ab95aa772208b03e5b767c09d1a9c0f68" title="Set the emission to be the complement 1-P of given value.">setComplement</a>(){complement=<span class="keyword">true</span>;};</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#a4c24f3c19de4c4e3fa61ebfdd7066042">setLexicalFunction</a>(<a class="code" href="namespace_stoch_h_m_m.html#a7fad7f980bfaea3d96c891e6db7c8cf0">emissionFunc</a>*);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="comment">//ACCESSORS</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#a45b77f5140432fa2bb9edc9015fb910b">isReal</a>();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                </div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1emm.html#a6e6f1be7b72ac0c96c0ee875322b813f">   84</a></span>&#160;                <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#a6e6f1be7b72ac0c96c0ee875322b813f" title="Check to see if emission will return the complement (1-P) value of emission.">isComplement</a>(){<span class="keywordflow">return</span> complement;};</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#a1457a3361531d3ada37535af51e3444f">get_emission</a>(<a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>&amp; , <span class="keywordtype">size_t</span> );</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                </div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1emm.html#a7565d01d1c90561cf48ffe175fc98d4e">   90</a></span>&#160;                <span class="keyword">inline</span> <a class="code" href="class_stoch_h_m_m_1_1emission_func_param.html">emissionFuncParam</a>* <a class="code" href="class_stoch_h_m_m_1_1emm.html#a7565d01d1c90561cf48ffe175fc98d4e">getExtFunction</a>(){<span class="keywordflow">return</span> tagFunc;};</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                </div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1emm.html#ae283fd70c7987041b8cd3f2255594319">   93</a></span>&#160;                <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#ae283fd70c7987041b8cd3f2255594319" title="Print the string representation of the emission to stdout.">print</a>(){std::cout &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1emm.html#a6498faaf6fe651e065d37042acf2f709">stringify</a>()&lt;&lt;std::endl;};</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                std::string <a class="code" href="class_stoch_h_m_m_1_1emm.html#a6498faaf6fe651e065d37042acf2f709">stringify</a>();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#a52af53ba74c5cd581643ae4da9eeb080">parse</a>(std::string&amp;, <a class="code" href="class_stoch_h_m_m_1_1tracks.html">tracks</a>&amp;, <a class="code" href="class_stoch_h_m_m_1_1weights.html">weights</a>*, <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html" title="(**Adding in log space)">StateFuncs</a>* );</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#a52af53ba74c5cd581643ae4da9eeb080">parse</a>(std::string&amp; txt,<a class="code" href="class_stoch_h_m_m_1_1track.html">track</a>* trk);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="comment"></span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">                //!Set the emission to a Real Number</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1emm.html#af47fc262c080fa58c97d5508c7fcfbba">   73</a></span>&#160;<span class="comment"></span>                <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#af47fc262c080fa58c97d5508c7fcfbba" title="Set the emission to a Real Number.">setRealNumber</a>(){real_number=<span class="keyword">true</span>;};</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="comment"></span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">                //!Set the emission to be the complement 1-P of given value</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1emm.html#ab95aa772208b03e5b767c09d1a9c0f68">   76</a></span>&#160;<span class="comment"></span>                <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#ab95aa772208b03e5b767c09d1a9c0f68" title="Set the emission to be the complement 1-P of given value.">setComplement</a>(){complement=<span class="keyword">true</span>;};</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keywordtype">void</span> setLexicalFunction(<a class="code" href="namespace_stoch_h_m_m.html#a7fad7f980bfaea3d96c891e6db7c8cf0" title="Pointer to emmission function Passed a string and position as size_t.">emissionFunc</a>*);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="comment">//ACCESSORS</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#a45b77f5140432fa2bb9edc9015fb910b">isReal</a>();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                <span class="comment"></span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">                //!Check to see if emission will return the complement (1-P) value of emission</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1emm.html#a6e6f1be7b72ac0c96c0ee875322b813f">   85</a></span>&#160;<span class="comment"></span>                <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#a6e6f1be7b72ac0c96c0ee875322b813f" title="Check to see if emission will return the complement (1-P) value of emission.">isComplement</a>(){<span class="keywordflow">return</span> complement;};</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#a1457a3361531d3ada37535af51e3444f">get_emission</a>(<a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>&amp; , <span class="keywordtype">size_t</span> );</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#a1457a3361531d3ada37535af51e3444f">get_emission</a>(<a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>&amp;, <span class="keywordtype">size_t</span>);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="comment"></span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">                //! Get the external Functions defined for the emission</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">                //! \return externalFuncs*</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1emm.html#a7565d01d1c90561cf48ffe175fc98d4e">   92</a></span>&#160;<span class="comment"></span>                <span class="keyword">inline</span> <a class="code" href="class_stoch_h_m_m_1_1emission_func_param.html">emissionFuncParam</a>* <a class="code" href="class_stoch_h_m_m_1_1emm.html#a7565d01d1c90561cf48ffe175fc98d4e">getExtFunction</a>(){<span class="keywordflow">return</span> tagFunc;};</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <span class="comment"></span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">                //! Print the string representation of the emission to stdout</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1emm.html#ae283fd70c7987041b8cd3f2255594319">   95</a></span>&#160;<span class="comment"></span>                <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#ae283fd70c7987041b8cd3f2255594319" title="Print the string representation of the emission to stdout.">print</a>(){std::cout &lt;&lt; stringify()&lt;&lt;std::endl;};</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                </div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1emm.html#a6ba84f7a73e3b1ff184536dae34a7970">   97</a></span>&#160;                <span class="keyword">inline</span> <a class="code" href="class_stoch_h_m_m_1_1lexical_table.html" title="Lexical table stores the log2 probabilities for both emissions and lexical transitions.">lexicalTable</a>* <a class="code" href="class_stoch_h_m_m_1_1emm.html#a6ba84f7a73e3b1ff184536dae34a7970">getTables</a>(){<span class="keywordflow">return</span> &amp;<a class="code" href="class_stoch_h_m_m_1_1scores.html">scores</a>;};</div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1emm.html#a520d383fcbd364a25e985eedc14dda41">   98</a></span>&#160;                <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#a520d383fcbd364a25e985eedc14dda41">isSimple</a>(){</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                        <span class="keywordflow">if</span> (!<span class="keyword">function</span> &amp;&amp; tagFunc==NULL){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                }</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                </div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1emm.html#ab2e8eb56a197fa10121cf58850d0fee7">  103</a></span>&#160;                <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#ab2e8eb56a197fa10121cf58850d0fee7">isComplex</a>(){</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                        <span class="keywordflow">if</span> (<span class="keyword">function</span> || tagFunc){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                std::string stringify();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="keyword">inline</span> <a class="code" href="class_stoch_h_m_m_1_1lexical_table.html" title="Lexical table stores the log2 probabilities for both emissions and lexical transitions.">lexicalTable</a>* getTables(){<span class="keywordflow">return</span> &amp;<a class="code" href="class_stoch_h_m_m_1_1scores.html">scores</a>;};</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                <span class="keyword">inline</span> <span class="keywordtype">bool</span> isSimple(){</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                        <span class="keywordflow">if</span> (!<span class="keyword">function</span> &amp;&amp; tagFunc==NULL){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                <span class="keyword">inline</span> <span class="keywordtype">bool</span> isComplex(){</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                        <span class="keywordflow">if</span> (<span class="keyword">function</span> || tagFunc){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                }</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="comment">//size_t track_size;</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                <span class="keywordtype">bool</span> real_number;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                <span class="keywordtype">bool</span> continuous;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <span class="keywordtype">bool</span> complement;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1track.html">track</a>* realTrack;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="comment">//Lexical Scoring Tables</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1lexical_table.html" title="Lexical table stores the log2 probabilities for both emissions and lexical transitions.">lexicalTable</a> <a class="code" href="class_stoch_h_m_m_1_1scores.html">scores</a>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                <span class="comment">//size_t track_size;</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <span class="keywordtype">bool</span> real_number;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                <span class="keywordtype">bool</span> continuous;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                <span class="keywordtype">bool</span> multi_continuous;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                <span class="keywordtype">bool</span> complement;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                track* realTrack;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                <span class="comment">//Lexical Function Only</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                <span class="keywordtype">bool</span> <span class="keyword">function</span>;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1emission_func_param.html">emissionFuncParam</a>* lexFunc;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                <span class="comment">//Continuous Univariate Distribution</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                <a class="code" href="namespace_stoch_h_m_m.html#a61fa28ea7b9761905f5a369610ad0b40">pdfFunc</a>* pdf;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                std::string pdfName;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                std::vector&lt;double&gt;* dist_parameters;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                <span class="comment">//TODO: Implement Continuous Multivariate Distributions</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                <span class="comment">//Continuous Multivariate Distribution</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                <span class="comment">//multiPdfFunc* multiPdf;</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                <span class="comment">//std::string multiPdfName;</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                <span class="comment">//std::vector&lt;double&gt;* dist_parameters;</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                <span class="comment">//std::vector&lt;tracks&gt;* tracks</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                <span class="comment">//TODO:  Implement the external Function capabilities</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1emission_func_param.html">emissionFuncParam</a>* tagFunc;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                </div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                <span class="comment">//Private Methods</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                <span class="keywordtype">bool</span> _processTags(std::string&amp;, <a class="code" href="class_stoch_h_m_m_1_1tracks.html">tracks</a>&amp;, <a class="code" href="class_stoch_h_m_m_1_1weights.html">weights</a>*, <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html">StateFuncs</a>*);</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                        </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        };</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;}</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*EMM_H*/</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                <span class="comment">//Lexical Scoring Tables</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                lexicalTable scores;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                <span class="comment">//Lexical Function Only</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                <span class="keywordtype">bool</span> <span class="keyword">function</span>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                emissionFuncParam* lexFunc;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                <span class="comment">//Continuous Univariate Distribution</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                <a class="code" href="namespace_stoch_h_m_m.html#a273f025f8870b79f2a971f293ea038e1" title="Pointer to Univariate Continuous Probability Density Function.">pdfFunc</a>* pdf;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                std::string pdfName;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                <span class="comment">//Parameters for Univariate and Multivariate Distributions</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                std::vector&lt;double&gt;* dist_parameters;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                <span class="comment">//TODO: Implement Continuous Multivariate Distributions</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                <span class="comment">//Continuous Multivariate Distribution</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                <a class="code" href="namespace_stoch_h_m_m.html#ab99ca2cb1963df8ca0751cdaabfd664a">multiPdfFunc</a>* multiPdf;                 <span class="comment">//Pointer to multivariate function</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                std::string multiPdfName;               <span class="comment">//Name of function according to StateFuncs</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                <span class="keywordtype">size_t</span> number_of_tracks;                <span class="comment">//Number of tracks in multi-emission</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                std::vector&lt;track*&gt;* trcks;             <span class="comment">//Tracks used</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                std::vector&lt;size_t&gt;* track_indices; <span class="comment">//Indices of tracks used</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                std::vector&lt;double&gt;* pass_values;  <span class="comment">//Array to pass values to multivariate function</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                <span class="comment">//TODO:  Implement the external Function capabilities</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                emissionFuncParam* tagFunc;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                <span class="comment">//Private Methods</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                <span class="keywordtype">bool</span> _processTags(std::string&amp;, tracks&amp;, weights*, StateFuncs*);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                        </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        };</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;}</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*EMM_H*/</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 29 2013 16:17:41 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:40:29 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

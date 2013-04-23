@@ -12,5 +12,6 @@ var searchData=
   ['trainingseqs',['trainingSeqs',['../classtraining_seqs.html',1,'']]],
   ['transition',['transition',['../class_stoch_h_m_m_1_1transition.html',1,'StochHMM']]],
   ['transitionfuncparam',['transitionFuncParam',['../class_stoch_h_m_m_1_1transition_func_param.html',1,'StochHMM']]],
-  ['trellis',['trellis',['../class_stoch_h_m_m_1_1trellis.html',1,'StochHMM']]]
+  ['trellis',['trellis',['../class_stoch_h_m_m_1_1trellis.html',1,'StochHMM']]],
+  ['trellis',['Trellis',['../class_trellis.html',1,'']]]
 ];

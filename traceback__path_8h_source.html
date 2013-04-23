@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>StochHMM: src/traceback_path.h Source File</title>
+<title>StochHMM: traceback_path.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Screen Shot 2013-04-23 at 10.38.21 AM.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">StochHMM
-   &#160;<span id="projectnumber">0.22</span>
+   &#160;<span id="projectnumber">v0.30</span>
    </div>
    <div id="projectbrief">Flexible Hidden Markov Model C++ Library and Application</div>
   </td>
@@ -63,15 +64,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,18 +81,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">traceback_path.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="traceback__path_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">///traceback_path.h</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; <span class="comment">//Copyright (c) 2007-2012 Paul C Lott </span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; <span class="comment">//University of California, Davis</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; <span class="comment">//Genome and Biomedical Sciences Facility</span></div>
@@ -129,26 +125,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="text_8h.html">text.h</a>&quot;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="options_8h.html">options.h</a>&quot;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hmm_8h.html">hmm.h</a>&quot;</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stoch_math_8h.html">stochMath.h</a>&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;text.h&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;options.h&quot;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;hmm.h&quot;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;stochMath.h&quot;</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">namespace </span>StochHMM{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html">   48</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html">gff_feature</a>{</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html#a05b64bc162b655d88df9ea6fe52b03b9">   49</a></span>&#160;        std::string <a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html#a05b64bc162b655d88df9ea6fe52b03b9">seqname</a>;    <span class="comment">//Column 1</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html#a0628956b2a2c445d36d6a250a8449860">   50</a></span>&#160;        std::string <a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html#a0628956b2a2c445d36d6a250a8449860">source</a>;     <span class="comment">//Column 2</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html#ac590df9689bc0188a71b5387a172e44b">   51</a></span>&#160;        std::string <a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html#ac590df9689bc0188a71b5387a172e44b">feature</a>;    <span class="comment">//Column 3</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html#ac54b5b1ec034f6807954b58c7c7edb93">   52</a></span>&#160;        <span class="keywordtype">size_t</span> <a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html#ac54b5b1ec034f6807954b58c7c7edb93">start</a>;              <span class="comment">//Column 4</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html#a923c57d08b41ad308eb095623abb9f0b">   53</a></span>&#160;        <span class="keywordtype">size_t</span> <a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html#a923c57d08b41ad308eb095623abb9f0b">end</a>;                <span class="comment">//Column 5</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html#acc73284827f1e1128ccb348942fd6c06">   54</a></span>&#160;        <span class="keywordtype">char</span> <a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html#acc73284827f1e1128ccb348942fd6c06">score</a>;             <span class="comment">//Column 6</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html#ab120b8cdd150904563a229c5dbf63a72">   55</a></span>&#160;        <span class="keywordtype">char</span> <a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html#ab120b8cdd150904563a229c5dbf63a72">strand</a>;            <span class="comment">//Column 7</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html#ab35487a00c8253293681418d51877cd6">   56</a></span>&#160;        <span class="keywordtype">char</span> <a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html#ab35487a00c8253293681418d51877cd6">frame</a>;             <span class="comment">//Column 8</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html#aff4a8a663b027ec9eed5b5752f23cd7f">   57</a></span>&#160;        std::string <a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html#aff4a8a663b027ec9eed5b5752f23cd7f">attribute</a>;  <span class="comment">//Column 9</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">    //! \struct gff_feature</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">    //!Each gff_feature represents a single GFF line</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html">   48</a></span>&#160;<span class="comment"></span>    <span class="keyword">struct </span><a class="code" href="struct_stoch_h_m_m_1_1gff__feature.html">gff_feature</a>{</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        std::string seqname;    <span class="comment">//Column 1</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        std::string source;     <span class="comment">//Column 2</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        std::string feature;    <span class="comment">//Column 3</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">size_t</span> start;              <span class="comment">//Column 4</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">size_t</span> end;                <span class="comment">//Column 5</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">char</span> score;             <span class="comment">//Column 6</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">char</span> strand;            <span class="comment">//Column 7</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">char</span> frame;             <span class="comment">//Column 8</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        std::string attribute;  <span class="comment">//Column 9</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    };</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1traceback__path.html">   63</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a>{</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">    //! \class traceback_path</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">    //! Stores one traceback path information for a sequence</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1traceback__path.html">   63</a></span>&#160;<span class="comment"></span>    <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a>{</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7c6dc56b913af51b4115c6766d443750">traceback_path</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>*);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        </div>
@@ -156,7 +156,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a70d1c7fb77c8ded7605aba536cdd5c41" title="Clears all traceback path information.">clear</a>();</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7af71ae5e73b710c3fa9acb42547e9c9" title="Returns the size (ie. length) of the traceback_path.">size</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a74fae68f8e2027a0066613838a6c6932" title="Returns the state index at a given position (it) within the sequence.">val</a>(<span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#aa80110da30a3e6e09fce958635e0f5dc">   71</a></span>&#160;        <span class="keyword">inline</span> <a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>* <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#aa80110da30a3e6e09fce958635e0f5dc">getModel</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> hmm;};</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">inline</span> <a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>* getModel()<span class="keyword"> const </span>{<span class="keywordflow">return</span> hmm;};</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        </div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a8ef8000d61af5108defbbab5e17ba514" title="Print the path to file stream.">fprint_path</a>(std::ofstream&amp;);</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        </div>
@@ -172,17 +172,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#aa69604d4fdf231c4f459e702e16460af" title="Outputs the gff formatted output for the traceback to stdout.">print_gff</a>(std::string,<span class="keywordtype">double</span>,<span class="keywordtype">int</span>,<span class="keywordtype">int</span>,<span class="keywordtype">double</span>) <span class="keyword">const</span> ;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#aa69604d4fdf231c4f459e702e16460af" title="Outputs the gff formatted output for the traceback to stdout.">print_gff</a>(std::string) <span class="keyword">const</span> ;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        </div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#adc81f310680c4acf94f4074c61ff209a">   87</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#adc81f310680c4acf94f4074c61ff209a">getScore</a>(){</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> getScore(){</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">return</span> score;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        </div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a394e1bb43518f80efd96817f357e6c84">   91</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a394e1bb43518f80efd96817f357e6c84">setScore</a>(<span class="keywordtype">double</span> scr){</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> setScore(<span class="keywordtype">double</span> scr){</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            score = scr;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        };</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        </div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="comment">//double path_prob (const HMM&amp;, sequence&amp;);  //Need to rewrite function</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a2032df8f1a9ab6004be644aae4c6700e">   97</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a2032df8f1a9ab6004be644aae4c6700e">operator[]</a>(<span class="keywordtype">size_t</span> val)<span class="keyword"> const </span>{<span class="keywordflow">return</span> trace_path[<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a74fae68f8e2027a0066613838a6c6932" title="Returns the state index at a given position (it) within the sequence.">val</a>];};</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">int</span> operator[](<span class="keywordtype">size_t</span> val)<span class="keyword"> const </span>{<span class="keywordflow">return</span> trace_path[<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a74fae68f8e2027a0066613838a6c6932" title="Returns the state index at a given position (it) within the sequence.">val</a>];};</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#ae95831d4d169b94d0e61cbcd808a7996" title="Check to see if paths are the same.">operator== </a>(<span class="keyword">const</span> <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a>&amp;) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a2c0cd3eb7d9730702e73d7857cc30f2a" title="Comparison operators for path.">operator&lt;  </a>(<span class="keyword">const</span> <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a>&amp;) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a89342fafd4afa01f0c95052364d48aee" title="Comparison operators for path.">operator&gt;  </a>(<span class="keyword">const</span> <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a>&amp;) <span class="keyword">const</span>;</div>
@@ -195,10 +195,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    };</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="comment">//Rows are the Sequence Position</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="comment">//Columns are the States</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a4c3ef2e0903e5c845c431b891ec93ef1">  113</a></span>&#160;<span class="comment"></span>    <span class="keyword">typedef</span> std::vector&lt;std::vector&lt;int&gt; &gt; <a class="code" href="namespace_stoch_h_m_m.html#a4c3ef2e0903e5c845c431b891ec93ef1">heatTable</a>;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html">  117</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html">multiTraceback</a>{</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="comment">//Columns are the States</span><span class="comment"></span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">    //! \def std::vector&lt;std::vector&lt;int&gt; &gt; heatTable;</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">    //! Table for heat map data generated from multiple tracebacks</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment"></span>    <span class="keyword">typedef</span> std::vector&lt;std::vector&lt;int&gt; &gt; heatTable;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">    //! \class multiTraceback</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">    //! Contains multiple tracebacks.  Will store them in sorted unique list (sorted in order of number of occurances);</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html">  117</a></span>&#160;<span class="comment"></span>    <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html">multiTraceback</a>{</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html#a4f2962c3fc94d3fd70595afbfcda4b04" title="Create multiTraceback()">multiTraceback</a>();</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html#af5f722610bd71c0850fc6e74c78cebd2" title="Destroy multiTraceback.">~multiTraceback</a>();</div>
@@ -211,10 +215,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html#a246147c67c490a9abd03631e98f9b6b6">operator=</a>(<span class="keywordtype">size_t</span>);</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        </div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html#ab414252741aad759cf91510f6c33c850">print_path</a>();</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html#a6a057a28d4882abde063654a4271bda8">print_label</a>();</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html#a6364cc97f656289ee8089e08f0c43b0a">print_gff</a>(std::string&amp;);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html#ad0d065148a2de44c943378aaf9abbc7c">print_hits</a>();</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordtype">void</span> print_path();</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordtype">void</span> print_label();</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordtype">void</span> print_gff(std::string&amp;);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordtype">void</span> print_hits();</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        </div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        </div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="comment">//Access the data at a point</span></div>
@@ -229,20 +233,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="comment">//Finalize multiTraceback (Sort and setup Iterators);</span></div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html#a907a48d1a8fcd8d771e3f29d35940b9b" title="Sorts the multiTraceback by the number of time a particular tracback path occurred.">finalize</a>();</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            </div>
-<div class="line"><a name="l00148"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html#aa88b9b0c955984ef484073fb46f5eb70">  148</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html#aa88b9b0c955984ef484073fb46f5eb70">clear</a>(){paths.clear();<span class="keywordflow">return</span>;};</div>
-<div class="line"><a name="l00149"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html#ac389dec99a0664ea7467c25894518fea">  149</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html#ac389dec99a0664ea7467c25894518fea">size</a>(){<span class="keywordflow">return</span> paths.size();};</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> clear(){paths.clear();<span class="keywordflow">return</span>;};</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">size_t</span> size(){<span class="keywordflow">return</span> paths.size();};</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        </div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <a class="code" href="namespace_stoch_h_m_m.html#a4c3ef2e0903e5c845c431b891ec93ef1">heatTable</a>* <a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html#a8908e6b8acddf402e9ad7d9f8b4b7e38">get_hit_table</a>();</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        heatTable* <a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html#a8908e6b8acddf402e9ad7d9f8b4b7e38">get_hit_table</a>();</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordtype">size_t</span> vectorIterator;</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordtype">size_t</span> maxSize;</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        std::vector&lt;std::map&lt;traceback_path,int&gt;::iterator&gt; pathAccess;</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        std::map&lt;traceback_path,int&gt; paths;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <a class="code" href="namespace_stoch_h_m_m.html#a4c3ef2e0903e5c845c431b891ec93ef1">heatTable</a>* <a class="code" href="class_stoch_h_m_m_1_1table.html">table</a>;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        heatTable* <a class="code" href="class_stoch_h_m_m_1_1table.html">table</a>;</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    };</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;     </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespace_stoch_h_m_m.html#a0b75d99bf1f6191d8e3bd116da022af9">sortTBVec</a>(std::map&lt;traceback_path,int&gt;::iterator, std::map&lt;traceback_path,int&gt;::iterator);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordtype">bool</span> sortTBVec(std::map&lt;traceback_path,int&gt;::iterator, std::map&lt;traceback_path,int&gt;::iterator);</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;}</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*TRACEBACK_PATH_H*/</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="preprocessor"></span></div>
@@ -251,7 +255,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 29 2013 16:17:43 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:40:29 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

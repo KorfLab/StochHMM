@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>StochHMM: src/options.h Source File</title>
+<title>StochHMM: options.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Screen Shot 2013-04-23 at 10.38.21 AM.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">StochHMM
-   &#160;<span id="projectnumber">0.22</span>
+   &#160;<span id="projectnumber">v0.30</span>
    </div>
    <div id="projectbrief">Flexible Hidden Markov Model C++ Library and Application</div>
   </td>
@@ -63,15 +64,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,17 +81,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">options.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="options_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  options.h</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *  HMM</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *</span></div>
@@ -114,47 +110,88 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">//Options Types</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a419f35fb0f66fa603a5b63abfa2ff627a07956eeaf513b30e1e902fa376416a50">   25</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="namespace_stoch_h_m_m.html#a419f35fb0f66fa603a5b63abfa2ff627">optionType</a> {<a class="code" href="namespace_stoch_h_m_m.html#a419f35fb0f66fa603a5b63abfa2ff627a07956eeaf513b30e1e902fa376416a50">UNDEF_OPT</a> , <a class="code" href="namespace_stoch_h_m_m.html#a419f35fb0f66fa603a5b63abfa2ff627a315b701a5edd4bc735e798686ee493f0">OPT_NONE</a> , <a class="code" href="namespace_stoch_h_m_m.html#a419f35fb0f66fa603a5b63abfa2ff627adb5efc5c4e8c54e68a28614c2f1c2797">OPT_INT</a> , <a class="code" href="namespace_stoch_h_m_m.html#a419f35fb0f66fa603a5b63abfa2ff627aaf9f9d273f99af552646a9476fa4e78f">OPT_DOUBLE</a>, <a class="code" href="namespace_stoch_h_m_m.html#a419f35fb0f66fa603a5b63abfa2ff627af28e9e61db94a6f0418c2bcbe1deacef">OPT_STRING</a> , <a class="code" href="namespace_stoch_h_m_m.html#a419f35fb0f66fa603a5b63abfa2ff627af3a3cf268295a81dbf929e0bf56c4510">OPT_FLAG</a> };</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">enum</span> optionType {UNDEF_OPT , OPT_NONE , OPT_INT , OPT_DOUBLE, OPT_STRING , OPT_FLAG };</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="options_8h.html#ac1fd41430123e04037d0f3d626b8e936">   27</a></span>&#160;<span class="preprocessor">#define MAX_ALLOWABLE 10</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#define MAX_ALLOWABLE 10</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment"></span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">    /*!User defined option parameters</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">     opt_parameters set up in beginning of your program and defines what options</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">     are accepted by the program.   </span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">     Used for designing allowed commandline options</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">     option Types:  </span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">     UNDEF_OPT   - initialized value not defined </span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">     OPT_NONE    - Functions as a bool (was it set or not)</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">     OPT_INT     - Integer value supplied as option</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">     OPT_DOUBLE  - Double value supplied as option</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">     OPT_STRING  - String value supplied as option</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">     OPT_FLAG    - Predefined allowed values (each functions as a bool)</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">     </span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">     Colums of table:  </span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">     Option tag- all possible alternatives separated by colon</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">     Option type- what type will it be passed</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">     Option required - If option is required to run the it should be true, else false</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">     Option default - Default value for option</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">     Secondary Tag - List of possible secondary tags.  </span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">     </span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">     Usage:</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">     opt_parameters commandline[] - {</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">     {&quot;-help:-h&quot; ,OPT_NONE, false, &quot;&quot;, {}},</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">     {&quot;-model:-m&quot;,OPT_STRING, true, &quot;&quot;,{}},</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">     {&quot;-play:-p&quot;, OPT_FLAG, false, &quot;&quot;, {&quot;Ball&quot;, &quot;Train&quot;}</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">     }</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">     int opts_size=sizeof(commandline)/sizeof(commandline[0]); //required to automatically figure # of options defined</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">     </span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">     options opt;</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">     int main (int argc,const char *argv[]){</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">     opt.set_paramenters(commandline,opt_size,usage); //sets up the options you&#39;ve defined in commandline variable</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">     opt.parse_commandline(argc,argv); //Parses the commandline and assigns the variables;</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">     //To get the string value from model</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">     string filename=sopt(&quot;-model&quot;);  </span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">     //To see if scale was set</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">     if (optset(&quot;-scale&quot;)) </span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">     double scale=sopt(&quot;-scale&quot;); //Return value of scale option</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">     return 1;</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">     };</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">     */</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1opt__parameters.html">   71</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_stoch_h_m_m_1_1opt__parameters.html">opt_parameters</a>{</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1opt__parameters.html#afc60a5e445354900a6454d25f51c1a4e">   72</a></span>&#160;        std::string <a class="code" href="struct_stoch_h_m_m_1_1opt__parameters.html#afc60a5e445354900a6454d25f51c1a4e">commandline_tag</a>;  <span class="comment">//Tag used on the commandline</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1opt__parameters.html#adb1b507df3cbdd7c5aedab6919449e02">   73</a></span>&#160;        <a class="code" href="namespace_stoch_h_m_m.html#a419f35fb0f66fa603a5b63abfa2ff627">optionType</a> <a class="code" href="struct_stoch_h_m_m_1_1opt__parameters.html#adb1b507df3cbdd7c5aedab6919449e02">type</a>;  <span class="comment">//Option Tag type</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1opt__parameters.html#a0c8aeac85afc3b5c3becf86b4ad26ca8">   74</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="struct_stoch_h_m_m_1_1opt__parameters.html#a0c8aeac85afc3b5c3becf86b4ad26ca8">required</a>;  <span class="comment">//Is the option required to be set in order to run</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1opt__parameters.html#a34e415f2eb29452624c72e89a098edba">   75</a></span>&#160;        std::string <a class="code" href="struct_stoch_h_m_m_1_1opt__parameters.html#a34e415f2eb29452624c72e89a098edba">preset</a>;  <span class="comment">//Preset for the option</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1opt__parameters.html#aef31c4c2eaacdd01412d8a1d7f8f2a47">   76</a></span>&#160;        std::string <a class="code" href="struct_stoch_h_m_m_1_1opt__parameters.html#aef31c4c2eaacdd01412d8a1d7f8f2a47">allowable</a>[<a class="code" href="options_8h.html#ac1fd41430123e04037d0f3d626b8e936">MAX_ALLOWABLE</a>]; <span class="comment">//allowable options secondary tags</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        std::string commandline_tag;  <span class="comment">//Tag used on the commandline</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        optionType type;  <span class="comment">//Option Tag type</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">bool</span> required;  <span class="comment">//Is the option required to be set in order to run</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        std::string preset;  <span class="comment">//Preset for the option</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        std::string allowable[MAX_ALLOWABLE]; <span class="comment">//allowable options secondary tags</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    };</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        </div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">// TODO:  Need to make opt_data private and allow options to access</span></div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">//Actual commandline options data stored in this struct</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    </div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1opt__data.html">   85</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1opt__data.html" title="Store the actual command line options data for each option defined by user.">opt_data</a>{</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment"></span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">    //!Store the actual command line options data for each option defined by user</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1opt__data.html">   85</a></span>&#160;<span class="comment"></span>    <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1opt__data.html" title="Store the actual command line options data for each option defined by user.">opt_data</a>{</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1opt__data.html#affd717ca70c40eab0863726b4c0bbb3f">opt_data</a>();</div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1opt__data.html#a55e2742bef5ae4cc210052d15c10f5b6">   88</a></span>&#160;        <a class="code" href="namespace_stoch_h_m_m.html#a419f35fb0f66fa603a5b63abfa2ff627">optionType</a> <a class="code" href="class_stoch_h_m_m_1_1opt__data.html#a55e2742bef5ae4cc210052d15c10f5b6">type</a>;           <span class="comment">//what datatype does the option store</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1opt__data.html#a9a08f646c68c798f859e771090e881e4">   89</a></span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">set</span>;           <span class="comment">//Has the parameter been set (OPT_NONE AND EVERYTHING ELSE)</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1opt__data.html#a12a87dbc322389693f73a2a983a75de3">   90</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1opt__data.html#a12a87dbc322389693f73a2a983a75de3">default_value</a>; <span class="comment">//Is default value set</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1opt__data.html#a35a93f13da00d612f460db12b44833a3">   91</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1opt__data.html#a35a93f13da00d612f460db12b44833a3">required</a>;      <span class="comment">//Is the parameter required, else exit</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1opt__data.html#ac62dfb3d201081ca141d35f02159016f">   92</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1opt__data.html#ac62dfb3d201081ca141d35f02159016f">restricted</a>;    <span class="comment">//Are the entries restricted to allowable</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1opt__data.html" title="Store the actual command line options data for each option defined by user.">opt_data</a>();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        optionType type;           <span class="comment">//what datatype does the option store</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">set</span>;           <span class="comment">//Has the parameter been set (OPT_NONE AND EVERYTHING ELSE)</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordtype">bool</span> default_value; <span class="comment">//Is default value set</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordtype">bool</span> required;      <span class="comment">//Is the parameter required, else exit</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordtype">bool</span> restricted;    <span class="comment">//Are the entries restricted to allowable</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keyword">union </span>{   <span class="comment">//If its a double or int for OPT_INT or OPT_DOUBLE;</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1opt__data.html#a80f4ec84b62c94320c49fbc2b4f6edc6">   94</a></span>&#160;            <span class="keywordtype">int</span> <a class="code" href="class_stoch_h_m_m_1_1opt__data.html#a80f4ec84b62c94320c49fbc2b4f6edc6">i</a>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1opt__data.html#a66f789a1c01b04a9664b075e496da89e">   95</a></span>&#160;            <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1opt__data.html#a66f789a1c01b04a9664b075e496da89e">d</a>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }<a class="code" href="class_stoch_h_m_m_1_1opt__data.html#afe1c71ededc6ee3a3207bb0baeb3d24e">data</a>;</div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1opt__data.html#a69c4bb0fbcf703ca6eab516a0c9ab011">   97</a></span>&#160;        std::string <a class="code" href="class_stoch_h_m_m_1_1opt__data.html#a69c4bb0fbcf703ca6eab516a0c9ab011">str</a>;     <span class="comment">//String value for OPT_STRING</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1opt__data.html#a1f66adc85fe36a1de0a9b4fd7453888d">   98</a></span>&#160;        std::map&lt;std::string,bool&gt; <a class="code" href="class_stoch_h_m_m_1_1opt__data.html#a1f66adc85fe36a1de0a9b4fd7453888d">flags</a>;  <span class="comment">//Allowable flags or entries  for OPT_FLAG</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordtype">int</span> i;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordtype">double</span> d;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }data;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        std::string str;     <span class="comment">//String value for OPT_STRING</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        std::map&lt;std::string,bool&gt; flags;  <span class="comment">//Allowable flags or entries  for OPT_FLAG</span></div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    };</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1options.html">  104</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1options.html" title="Parse, Store, and access commandline options data.">options</a>{</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">    //!Parse, Store, and access commandline options data</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1options.html">  104</a></span>&#160;<span class="comment"></span>    <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1options.html" title="Parse, Store, and access commandline options data.">options</a>{</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1options.html#a60ad5bef6119b180eaa1130bea026e67">options</a>();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1options.html" title="Parse, Store, and access commandline options data.">options</a>();</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        </div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1options.html#acf4588749c0c109dc3be7f49b162fa0a">set_parameters</a>(<a class="code" href="struct_stoch_h_m_m_1_1opt__parameters.html">opt_parameters</a>*,<span class="keywordtype">int</span>,<span class="keyword">const</span> <span class="keywordtype">char</span>*);  <span class="comment">//Setup the parameter you&#39;ve defined in the options variable </span></div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1options.html#a2488d7c3774582836140ebf67ec9a13c">parse_commandline</a>(<span class="keywordtype">int</span>, <span class="keyword">const</span> <span class="keywordtype">char</span>**);   <span class="comment">//Parses the commandline</span></div>
@@ -184,7 +221,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 29 2013 16:17:41 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:40:29 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

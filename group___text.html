@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>StochHMM: Text Handling</title>
+<title>StochHMM: Text parHandling</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Screen Shot 2013-04-23 at 10.38.21 AM.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">StochHMM
-   &#160;<span id="projectnumber">0.22</span>
+   &#160;<span id="projectnumber">v0.30</span>
    </div>
    <div id="projectbrief">Flexible Hidden Markov Model C++ Library and Application</div>
   </td>
@@ -66,7 +67,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,7 +81,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Text Handling</div>  </div>
+<div class="title">Text parHandling</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
@@ -91,15 +92,18 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga011a05da53674a925fe8dc3402ac3f24"><td class="memItemLeft" align="right" valign="top">stringList &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga011a05da53674a925fe8dc3402ac3f24">StochHMM::splitString</a> (const std::string &amp;txt, const std::string &amp;delimiters)</td></tr>
-<tr class="memdesc:ga011a05da53674a925fe8dc3402ac3f24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits string using delimiters and return <a class="el" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a>.  <a href="#ga011a05da53674a925fe8dc3402ac3f24"></a><br/></td></tr>
+<tr class="memitem:ga011a05da53674a925fe8dc3402ac3f24"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga011a05da53674a925fe8dc3402ac3f24"></a>
+stringList &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga011a05da53674a925fe8dc3402ac3f24">StochHMM::splitString</a> (const std::string &amp;txt, const std::string &amp;delimiters)</td></tr>
+<tr class="memdesc:ga011a05da53674a925fe8dc3402ac3f24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits string using delimiters and return <a class="el" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a>. <br/></td></tr>
 <tr class="memitem:ga2904cf1af30b23b7f44a416b594c7bf6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">StochHMM::clear_whitespace</a> (std::string &amp;input, std::string white)</td></tr>
 <tr class="memitem:ga98f2f125252b54b1f227988ae44d424b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga98f2f125252b54b1f227988ae44d424b">StochHMM::replaceChar</a> (std::string &amp;txt, char ch, char replaceCh)</td></tr>
 <tr class="memitem:ga0b39adb00f98cdbf548db31ccb7abb68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga0b39adb00f98cdbf548db31ccb7abb68">StochHMM::removeLeadingWS</a> (std::string &amp;txt, const std::string &amp;ws)</td></tr>
-<tr class="memitem:gae1e21893ae48aaa6969040d19e5085d7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#gae1e21893ae48aaa6969040d19e5085d7">StochHMM::parseComment</a> (std::string &amp;txt, char commentChar)</td></tr>
-<tr class="memdesc:gae1e21893ae48aaa6969040d19e5085d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find first comment character and then return everything following the character.  <a href="#gae1e21893ae48aaa6969040d19e5085d7"></a><br/></td></tr>
+<tr class="memitem:gae1e21893ae48aaa6969040d19e5085d7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gae1e21893ae48aaa6969040d19e5085d7"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#gae1e21893ae48aaa6969040d19e5085d7">StochHMM::parseComment</a> (std::string &amp;txt, char commentChar)</td></tr>
+<tr class="memdesc:gae1e21893ae48aaa6969040d19e5085d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find first comment character and then return everything following the character. <br/></td></tr>
 <tr class="memitem:ga423cf7d1707638ac6c526bb10e7cc599"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga423cf7d1707638ac6c526bb10e7cc599">StochHMM::getKeyValue</a> (std::string &amp;txt, std::string &amp;key, std::string &amp;value)</td></tr>
 <tr class="memitem:ga3538626ea8a3ae77e33bda5d63206c23"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">StochHMM::join</a> (std::vector&lt; int &gt; &amp;input, char c)</td></tr>
+<tr class="memitem:ga5e62d476cb2624cc2ccc8fda22638f55"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga5e62d476cb2624cc2ccc8fda22638f55">StochHMM::join</a> (std::vector&lt; size_t &gt; &amp;input, char c)</td></tr>
 <tr class="memitem:ga653785a899ab843126ce160cfece2ea0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga653785a899ab843126ce160cfece2ea0">StochHMM::join</a> (std::vector&lt; short &gt; &amp;input, char c)</td></tr>
 <tr class="memitem:gaddca5829807c3a7d46e17d70a2539326"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#gaddca5829807c3a7d46e17d70a2539326">StochHMM::join</a> (std::vector&lt; double &gt; &amp;input, char c)</td></tr>
 <tr class="memitem:gaa0e001e5f6c961318831de04ac65eb0c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#gaa0e001e5f6c961318831de04ac65eb0c">StochHMM::join</a> (std::vector&lt; std::string &gt; &amp;input, char c)</td></tr>
@@ -108,6 +112,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ga8c2dffdf4f3aba28fc06e10e465fdcf7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">StochHMM::double_to_string</a> (double input)</td></tr>
 <tr class="memitem:ga593ec6959903daf28efe176538f2e20f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga593ec6959903daf28efe176538f2e20f">StochHMM::double_to_string</a> (float input)</td></tr>
 <tr class="memitem:ga4797b0d53af278c2adb72a47f20cfe7d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga4797b0d53af278c2adb72a47f20cfe7d">StochHMM::stringToInt</a> (std::string &amp;txt, int &amp;val)</td></tr>
+<tr class="memitem:ga4bdd998a0f8a1a1997277b05babc677e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga4bdd998a0f8a1a1997277b05babc677e">StochHMM::stringToInt</a> (std::string &amp;txt, size_t &amp;val)</td></tr>
 <tr class="memitem:ga68bd6b3175dd081e05a72e7cff42a7d8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">StochHMM::stringToDouble</a> (std::string &amp;txt, double &amp;val)</td></tr>
 <tr class="memitem:ga7297a0284778c0591fa5505d24ff491d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga7297a0284778c0591fa5505d24ff491d">StochHMM::isNumeric</a> (const std::string &amp;str)</td></tr>
 <tr class="memitem:ga4cec2ea0c1f6cbeb092d15b9867443b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga4cec2ea0c1f6cbeb092d15b9867443b0">StochHMM::split_line</a> (std::vector&lt; std::string &gt; &amp;line, std::string &amp;input)</td></tr>
@@ -157,8 +162,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00713">713</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ga99d531d5a6e0bbb1aee2cffbdcef7d4b"></a>
@@ -192,8 +195,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00755">755</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
 
 </div>
 </div>
@@ -229,8 +230,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00427">427</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ga8c2dffdf4f3aba28fc06e10e465fdcf7"></a>
@@ -253,8 +252,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00554">554</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
 
 </div>
 </div>
@@ -279,8 +276,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00563">563</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="gabad7e59fdc834721ee71b12524c40002"></a>
@@ -303,8 +298,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00698">698</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
 
 </div>
 </div>
@@ -347,8 +340,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00459">459</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ga85eb97cbbeb8e493349a04ffaabb1bbf"></a>
@@ -371,8 +362,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00533">533</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
 
 </div>
 </div>
@@ -397,8 +386,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00543">543</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ga7297a0284778c0591fa5505d24ff491d"></a>
@@ -421,8 +408,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00763">763</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
 
 </div>
 </div>
@@ -458,7 +443,39 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00511">511</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+</div>
+</div>
+<a class="anchor" id="ga5e62d476cb2624cc2ccc8fda22638f55"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::join </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; size_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Converts a vector of size_t into a string delimited by a character c </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Vector of integers to be converted </td></tr>
+    <tr><td class="paramname">c</td><td>Character to use as a delimiter </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -494,8 +511,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00605">605</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="gaddca5829807c3a7d46e17d70a2539326"></a>
@@ -529,8 +544,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00628">628</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
 
 </div>
 </div>
@@ -566,38 +579,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00651">651</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="gae1e21893ae48aaa6969040d19e5085d7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string StochHMM::parseComment </td>
-          <td>(</td>
-          <td class="paramtype">std::string &amp;&#160;</td>
-          <td class="paramname"><em>txt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>commentChar</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Find first comment character and then return everything following the character. </p>
-
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00414">414</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ga0b39adb00f98cdbf548db31ccb7abb68"></a>
@@ -631,8 +612,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00442">442</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
 
 </div>
 </div>
@@ -675,8 +654,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00499">499</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="gafad8e125317894c8056a5706c4590b9b"></a>
@@ -700,8 +677,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>string that contains complete file </dd></dl>
-
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00778">778</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
 
 </div>
 </div>
@@ -736,38 +711,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00671">671</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ga011a05da53674a925fe8dc3402ac3f24"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stringList &amp; StochHMM::splitString </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>txt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>delimiters</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Splits string using delimiters and return <a class="el" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a>. </p>
-
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00487">487</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
 
 </div>
 </div>
@@ -806,8 +749,6 @@ Functions</h2></td></tr>
 <dd>
 false if conversion can't be performed </dd></dl>
 
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00591">591</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="ga4797b0d53af278c2adb72a47f20cfe7d"></a>
@@ -845,14 +786,49 @@ false if conversion can't be performed </dd></dl>
 <dd>
 false if conversion can't be performed </dd></dl>
 
-<p>Definition at line <a class="el" href="text_8cpp_source.html#l00576">576</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+</div>
+</div>
+<a class="anchor" id="ga4bdd998a0f8a1a1997277b05babc677e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::stringToInt </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>txt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t &amp;&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Convert string to integer </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">txt</td><td>Text representation of integer </td></tr>
+    <tr><td class="paramname">val</td><td>Integer to be assigned </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns:</dt><dd>true if conversion is valid </dd>
+<dd>
+false if conversion can't be performed </dd></dl>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 29 2013 16:17:45 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:40:29 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

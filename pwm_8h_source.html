@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>StochHMM: src/pwm.h Source File</title>
+<title>StochHMM: pwm.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Screen Shot 2013-04-23 at 10.38.21 AM.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">StochHMM
-   &#160;<span id="projectnumber">0.22</span>
+   &#160;<span id="projectnumber">v0.30</span>
    </div>
    <div id="projectbrief">Flexible Hidden Markov Model C++ Library and Application</div>
   </td>
@@ -63,15 +64,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,17 +81,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">pwm.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="pwm_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  pwm.h</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//Copyright (c) 2007-2012 Paul C Lott </span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//University of California, Davis</span></div>
@@ -123,46 +119,129 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="track_8h.html">track.h</a>&quot;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sequences_8h.html">sequences.h</a>&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stoch_types_8h.html">stochTypes.h</a>&quot;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span>StochHMM{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">//TODO:  Move to auxillary functions Section</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">//Position Weight Matrix Class</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">//Before using we need to calculate the pValues for the matrix</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1position_weight_matrix.html">   44</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1position_weight_matrix.html">positionWeightMatrix</a>{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="class_stoch_h_m_m_1_1position_weight_matrix.html#af34ab8835dcc4b5d74532d4dd2723aad">positionWeightMatrix</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1position_weight_matrix.html#af148ee5dccf3640fcd26e9c857b49217">setBackground</a>(vector&lt;double&gt;&amp; );</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1position_weight_matrix.html#acf4635001a837ccdef7daa32be446e5c">setTrack</a>(<a class="code" href="class_stoch_h_m_m_1_1track.html">track</a>*);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1position_weight_matrix.html#a91473ec84c0b704bc2f5e310bd3d6e23">setPWM</a>(vector&lt;vector&lt;double&gt; &gt;&amp; );</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1position_weight_matrix.html#af8c39305888b6585f24ff246b09ddb8f">initializePValue</a>();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1position_weight_matrix.html#a58e6cbec3fdb574a7535c2bc3ac967ca">getPValue</a>(<span class="keywordtype">double</span>); <span class="comment">//Return p-value give a score</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1position_weight_matrix.html#af6019e52e3b215b580efd3eae6a78372">scanMotif</a>(<a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>* seq, <span class="keywordtype">int</span> startIter);  <span class="comment">//scan motif across sequence and return 1-p-value</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1position_weight_matrix.html#a5ae4acd975f679fad967157028eefba4">print</a>();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="class_stoch_h_m_m_1_1track.html">track</a>* alpha;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">int</span> size;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835">valueType</a> valType;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    vector&lt;pair&lt;double,double&gt; &gt; pValues;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    vector&lt;vector&lt;double&gt; &gt; weightMatrix;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    vector&lt;double&gt; background;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;bitset&gt;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;track.h&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;sequences.h&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;stochTypes.h&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;emm.h&quot;</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">namespace </span>StochHMM{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">class </span>matrixPosition;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">//Position Weight Matrix Class</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">//Before using we need to calculate the pValues for the matrix</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html">   50</a></span>&#160;        <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html">PWM</a>{</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ab6c55e858633c22d8647d6fd1cb1239b" title="Constructor for PWM class.">PWM</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keywordtype">void</span> <span class="keyword">import</span>(std::string&amp; file);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keywordtype">void</span> <span class="keyword">import</span>(<span class="keyword">const</span> <span class="keywordtype">char</span>* file);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a29df1c1c3f4ad1fe51a9f057a6577c63">parse</a>(<span class="keyword">const</span> std::string&amp; matrix);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keywordtype">void</span> score(<a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>* seqs);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keywordtype">void</span> scoreSimple(<a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>* seqs);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordtype">void</span> scoreUndefSpacer(<a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>* seqs);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordtype">void</span> scoreVariableSpacer(<a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>* seqs);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keywordtype">void</span> score(<a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>* seq);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordtype">void</span> scoreSimple(<a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>* seq);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordtype">void</span> scoreUndefSpacer(<a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>* seq);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keywordtype">void</span> scoreVariableSpacer(<a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>* seq);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keyword">inline</span> <span class="keywordtype">void</span> setBackground(<a class="code" href="class_stoch_h_m_m_1_1emm.html">emm</a>* bg){bgWeight = bg;}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keyword">inline</span> <span class="keywordtype">void</span> setTrack(<a class="code" href="class_stoch_h_m_m_1_1track.html">track</a>* tr){trk = tr;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="keyword">inline</span> <span class="keywordtype">void</span> setSimpleThreshold(<span class="keywordtype">float</span> thresh){simpleThreshold = thresh;};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keyword">inline</span> <span class="keywordtype">void</span> setCurrentThreshold(<span class="keywordtype">float</span>* thresh){currentThreshold = thresh;}</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keyword">inline</span> <a class="code" href="class_stoch_h_m_m_1_1track.html">track</a>* getTrack(){<span class="keywordflow">return</span> trk;}</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                std::string stringify();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keywordtype">void</span> print();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keywordtype">bool</span> _parseTrack(std::string&amp; txt);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="keywordtype">bool</span> _parseAmbiguous(std::string&amp; txt);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keywordtype">bool</span> _parsePositions(std::string&amp; txt);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordtype">bool</span> _parseThreshold(std::string&amp; txt);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordtype">bool</span> _parseBackground(std::string&amp; txt);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                <span class="keywordtype">bool</span> _parseSpacer(std::string&amp; txt);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keywordtype">bool</span> _splitPositions(std::string&amp; txt ,<a class="code" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a>&amp; sts);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <span class="keywordtype">bool</span> _getOrderedPositionNames(<a class="code" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a>&amp; states, <a class="code" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a>&amp; names);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="keywordtype">void</span> _finalizeTransitions();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keywordtype">float</span> calculateBack(<a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *seqs, <span class="keywordtype">size_t</span> position, <span class="keywordtype">float</span> sum);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordtype">float</span> calculateBack(<a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> *seq, <span class="keywordtype">size_t</span> position, <span class="keywordtype">float</span> sum);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1track.html">track</a>* trk;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835">valueType</a> valType;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <span class="keywordtype">bool</span> simple;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <span class="keywordtype">bool</span> variableSpacer;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordtype">bool</span> undefinedSpacer;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordtype">float</span> simpleThreshold;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="keywordtype">float</span>* currentThreshold;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                std::vector&lt;matrixPosition*&gt; weightMatrix;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                std::map&lt;std::string,size_t&gt; positionNames;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                std::vector&lt;matrixPosition*&gt; frontWeightMatrix;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                std::vector&lt;matrixPosition*&gt; backWeightMatrix;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                std::list&lt;float&gt;* backScores;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                std::bitset&lt;1024&gt;* backScored;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                std::vector&lt;size_t&gt; undefSpacerSizes;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                std::vector&lt;matrixPosition*&gt; variableSpacerMatrix;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                std::bitset&lt;1024&gt;* variableTransition;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                std::string frontWeightName;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                std::string backWeightName;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                <span class="keywordtype">size_t</span> min_spacer;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <span class="keywordtype">size_t</span> max_spacer;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1emm.html">emm</a>* bgWeight; <span class="comment">//Background weight</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        };</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="comment"></span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">        /*! \class matrixPosition</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">         Stores weight information for a position in the position weight matrix</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">         */</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1matrix_position.html">  122</a></span>&#160;        <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1matrix_position.html">matrixPosition</a>{</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html">matrixPosition</a>();</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                ~<a class="code" href="class_stoch_h_m_m_1_1matrix_position.html">matrixPosition</a>();</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#a325d7ccb4e744e1796c43df8d897f725">parse</a>(std::string&amp; txt, <a class="code" href="class_stoch_h_m_m_1_1track.html">track</a>* trk, <a class="code" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a>&amp; names);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                <span class="keywordtype">float</span> getEmissionValue(<a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>*, <span class="keywordtype">size_t</span>);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                <span class="keywordtype">float</span> getEmissionValue(<a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>*, <span class="keywordtype">size_t</span>);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                <span class="keyword">inline</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html">emm</a>* getEmission(){<span class="keywordflow">return</span> positionMatrix;};</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                <span class="keyword">inline</span> <span class="keywordtype">void</span> addTransition(<a class="code" href="class_stoch_h_m_m_1_1emm.html">emm</a>* trans){transitions.push_back(trans);}</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                <span class="keyword">inline</span> std::vector&lt;std::string&gt;&amp; getTransitionNames(){<span class="keywordflow">return</span> transition_names;}</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                <span class="keyword">inline</span> <span class="keywordtype">void</span> setThreshold(<span class="keywordtype">float</span> thresh){threshold = thresh;}</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                <span class="keyword">inline</span> <span class="keywordtype">float</span>* getThresholdPtr(){<span class="keywordflow">return</span> &amp;threshold;}</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                <span class="keyword">inline</span> <span class="keywordtype">float</span> getThreshold(){<span class="keywordflow">return</span> threshold;}</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                <span class="keyword">inline</span> <span class="keywordtype">size_t</span> transitionsSize(){<span class="keywordflow">return</span> transitions.size();}</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                <span class="keyword">inline</span> <span class="keywordtype">bool</span> isThresholdSet(){<span class="keywordflow">return</span> thresholdSet;}</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                std::string stringify();</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1emm.html">emm</a>* positionMatrix;    <span class="comment">//Weight information for position</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                <span class="keywordtype">bool</span> thresholdSet;              <span class="comment">//True if a threshold is set for this position(global threshold)</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                <span class="keywordtype">float</span> threshold;                <span class="comment">//Global threshold for position</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                std::vector&lt;emm*&gt; transitions;  <span class="comment">//The next weights after this position (Transitions)</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                std::vector&lt;std::string&gt; transition_names; <span class="comment">//Next weights after this position</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                std::string name;               <span class="comment">//Name assigned to this position</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        };</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;}</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 29 2013 16:17:41 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:40:29 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

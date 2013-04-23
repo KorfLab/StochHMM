@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>StochHMM: src/stochTypes.h Source File</title>
+<title>StochHMM: stochTypes.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="Screen Shot 2013-04-23 at 10.38.21 AM.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">StochHMM
-   &#160;<span id="projectnumber">0.22</span>
+   &#160;<span id="projectnumber">v0.30</span>
    </div>
    <div id="projectbrief">Flexible Hidden Markov Model C++ Library and Application</div>
   </td>
@@ -63,15 +64,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,17 +81,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">stochTypes.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="stoch_types_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  stochTypes.h</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//Copyright (c) 2007-2012 Paul C Lott </span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//University of California, Davis</span></div>
@@ -119,33 +115,85 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#ifndef StochHMM_stochTypes_h</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define StochHMM_stochTypes_h</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span><span class="keyword">namespace </span>StochHMM{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">//Enumerated Transition identifiers</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0">   40</a></span>&#160;<span class="comment"></span>    <span class="keyword">enum</span> <a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0">transType</a> {<a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0a73806aba512ce6a2f6ba00c5acb1bd5c">STANDARD</a> , <a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0a318aeefa858c2510dba13533a5ac9a34">DURATION</a> , <a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0a039965fb2f21a114426ab5c90f15901b">LEXICAL</a>};</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span><span class="keyword">namespace </span>StochHMM{<span class="comment"></span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">    //! \file Stores enumerated types used in StochHMM</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">//Enumerated Transition identifiers</span><span class="comment"></span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">    //!\enum enum transType {STANDARD , USER , INTERNAL , LEXICAL};</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">    //!Types of Transitions</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">    //! STANDARD = Transition has log probability value</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">    //! USER = Transition is duration dependent and calculated by user defined distribution</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">    //! INTERNAL = Transition is duration dependent and calculated by internal defined distibution</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">    //! LEXICAL =  Transition is dependent upon the preceeding sequence</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span>    <span class="keyword">enum</span> transType {STANDARD , DURATION , LEXICAL};</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    </div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0">   51</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0">tracebackIdentifier</a> { <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a4854244905e0725bfd743559f2825d97">DIFF_STATE</a> , <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a18e765406f9d8a5caa2b0d0a6c9f998a">STATE_NAME</a> , <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0ac2040123c6c745b59fc47ad26b2e6da4">STATE_LABEL</a> , <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a58a38a1a765f474348b77316f16a6705">STATE_GFF</a> , <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0affb06959a95d912e7fbdb602fe454108">START_INIT</a> };</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment"></span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">    //!\enum tracebackIdentifier { DIFF_STATE , STATE_NAME , STATE_LABEL , STATE_GFF , START_INIT };</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">    //! Traceback identifier describe how stochHMM will traceback when using duration dependent distributions</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">    //! Types of Tracebacks</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">    //! DIFF_STATE = Traceback current state until a different state is encountered</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">    //! STATE_NAME = Traceback until STATE_NAME changes from current state, essentially the same as DIFF_STATE</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">    //! STATE_LABEL = Traceback until a State with a different label is encountered</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">    //! STATE_GFF = Traceback until a State witha a different GFF tag is encountered</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">    //! START_INIT = Traceback until the start of the sequence</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0">   51</a></span>&#160;<span class="comment"></span>    <span class="keyword">enum</span> <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0">tracebackIdentifier</a> { DIFF_STATE , STATE_NAME , STATE_LABEL , STATE_GFF , START_INIT };</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    </div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa198b8fa516af18756740aa9bcdd35ea9">   61</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3af">combineIdentifier</a> { <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa1d7fc605341a3b076cf0752b9aef65c5">FULL</a> , <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa198b8fa516af18756740aa9bcdd35ea9">STATENAME</a> , <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa93fcf6d9e9ea65f68afa730e67a5d4b1">STATELABEL</a> , <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa49875a64cf5df70e633b53bb59795369">STATEGFF</a>};</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment"></span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">    //!enum combineIdentifier { FULL , STATENAME , STATELABEL , STATEGFF};</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">    //!Describes how a traceback will be processed</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">    //! Types of Combine Identifiers</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">    //! FULL = No traceback editing will occur</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">    //! STATENAME = Edit out all the states that aren&#39;t of given State Name</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">    //! STATELABEL= Edit out all the states that aren&#39;t of given State Label</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">    //! STATEGFF  = Edit out all the states that aren&#39;t of given GFF Tag</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3af">   61</a></span>&#160;<span class="comment"></span>    <span class="keyword">enum</span> <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3af">combineIdentifier</a> { FULL , STATENAME , STATELABEL , STATEGFF};</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">//Enumerated Trellis Types</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#abd39452195cb84156f854de4262b27a8">   70</a></span>&#160;<span class="comment"></span>    <span class="keyword">enum</span> <a class="code" href="namespace_stoch_h_m_m.html#abd39452195cb84156f854de4262b27a8">trellisType</a> {<a class="code" href="namespace_stoch_h_m_m.html#abd39452195cb84156f854de4262b27a8a22a4f0aaa9dc535d858f2930c4adea70">SIMPLE</a>, <a class="code" href="namespace_stoch_h_m_m.html#abd39452195cb84156f854de4262b27a8a53edc7ced760370a275b06ff2cd000ad">STOCH</a>, <a class="code" href="namespace_stoch_h_m_m.html#abd39452195cb84156f854de4262b27a8a53749577505ea7d533ae2a4d6914ebde">NTH</a>};</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    </div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a634bb996fa40baf63767d67cef578238a5399fd02451b8c53f4a42ccceed7d9ef">   77</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="namespace_stoch_h_m_m.html#a634bb996fa40baf63767d67cef578238">decodingType</a> {<a class="code" href="namespace_stoch_h_m_m.html#a634bb996fa40baf63767d67cef578238a5399fd02451b8c53f4a42ccceed7d9ef">VITERBI</a>, <a class="code" href="namespace_stoch_h_m_m.html#a634bb996fa40baf63767d67cef578238aee1e85f754d79a509888f433158e33e8">FORWARD</a>, <a class="code" href="namespace_stoch_h_m_m.html#a634bb996fa40baf63767d67cef578238a311cb57bdac19eda58b9ac56ff20e572">POSTERIOR</a>};</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">//Enumerated Trellis Types</span><span class="comment"></span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">    //!\enum trellisType {SIMPLE, STOCH, NTH};</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">    //!Defines what type of trellis cells to use</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">    //!Types of trellis</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">    //! SIMPLE = Trellis will only contain single viterbi, forward, and backward values</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">    //! STOCH  = Trellis will contain multiple viterbi,forward,backward values and traceback probabilities for stochastic tracebacks</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">    //! NTH = Trellis will contain N viterbi values for top N tracebacks </span></div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#abd39452195cb84156f854de4262b27a8">   70</a></span>&#160;<span class="comment"></span>    <span class="keyword">enum</span> <a class="code" href="namespace_stoch_h_m_m.html#abd39452195cb84156f854de4262b27a8">trellisType</a> {SIMPLE, STOCH, NTH};</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment"></span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">    //!\enum decodingType {VITERBI, POSTERIOR};</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">    //!Type of decoding to perform.</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">    //! VITERBI = Traceback performed using viterbi value</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">    //! FORWARD = Traceback performed using stochastic forward value</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">    //! POSTERIOR = Traceback performed using posterior value</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a634bb996fa40baf63767d67cef578238">   77</a></span>&#160;<span class="comment"></span>    <span class="keyword">enum</span> <a class="code" href="namespace_stoch_h_m_m.html#a634bb996fa40baf63767d67cef578238">decodingType</a> {VITERBI, FORWARD, POSTERIOR};</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">//Enumerated Emission Track types</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53a66ac80bb8e51bb958e866afa1f8b6dfb">   85</a></span>&#160;<span class="comment"></span>    <span class="keyword">enum</span> <a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53">trackType</a> {<a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53a66ac80bb8e51bb958e866afa1f8b6dfb">UNDEFINED</a>, <a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53adfe7ec039db35bf483fe6d9f5b17ff75">ALPHA_NUM</a> , <a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53ae7cffd9ec42f739ee9862d2076d8d83f">REAL</a> , <a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53af930f3bd48d6eacd9dff2ef8d8edefb4">EXTERNAL</a>};</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">//Enumerated Emission Track types</span><span class="comment"></span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">    //!Track types</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">    //! UNDEFINED = NOT DEFINED BY USER</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">    //! ALPHA_NUM = Alphabet is letter or word based (discrete)</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">    //! REAL = Real number values (continuous)</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">    //! EXTERNAL = ???</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53">   85</a></span>&#160;<span class="comment"></span>    <span class="keyword">enum</span> <a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53">trackType</a> {UNDEFINED, ALPHA_NUM , REAL , EXTERNAL};</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">//Enumerated Unknown Emission Character Probability Types</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    </div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521">   98</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521">unknownCharScoringType</a> { <a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521a6b21a727a6bb9967aeb5de84f8293080">DEFINED_SCORE</a>, <a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521aed328d88513ecbefe1e3cffe947d50e6">AVERAGE_SCORE</a>, <a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521ab07c716086c27e41abbe81f59037b176">LOWEST_SCORE</a>, <a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521ac1432e7fb78a7ea096065f651778a133">HIGHEST_SCORE</a>, <a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521a0b760c6a78616b0a992e00447b5aeca3">NO_SCORE</a>};</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment"></span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">    //!enum unknownCharScoringType { DEFINED_SCORE, AVERAGE_SCORE, LOWEST_SCORE, HIGHEST_SCORE, NO_SCORE};</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">    //! How to score unknown or ambiguous characters when encountered in emission or transition</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">    //! Scoring types:</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">    //! DEFINED_SCORE = user-defined score</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">    //! AVERAGE_SCORE = average of all possible scores</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">    //! LOWEST_SCORE = lowest of the possible scores</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">    //! HIGHEST_SCORE = highest of the possible scores</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">    //! NO_SCORE = No score will be defined (Produces error if unknown alphabet encountered)</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521">   98</a></span>&#160;<span class="comment"></span>    <span class="keyword">enum</span> <a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521">unknownCharScoringType</a> { DEFINED_SCORE, AVERAGE_SCORE, LOWEST_SCORE, HIGHEST_SCORE, NO_SCORE};</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">//enum valueType {PROBABILITY, LOG_ODDS, COUNTS, LOG_PROB, PERCENTAGE};</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835">  108</a></span>&#160;<span class="comment"></span>    <span class="keyword">enum</span> <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835">valueType</a> {<a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a92649806455862fab71c5b2aa48bfc55">PROBABILITY</a>, <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a472d37607c885f969b71363074bb98ea">LOG_ODDS</a>, <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a68071cfc928cf75eda3d522a63517b31">COUNTS</a>, <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a26e61ea2119ea2b9482e5a16b4a51604">LOG_PROB</a>, <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835afdd8d649cd54ee1c831d68853b7a315e">PERCENTAGE</a>}; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">//enum valueType {PROBABILITY, LOG_ODDS, COUNTS, LOG_PROB, PERCENTAGE};</span><span class="comment"></span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">    //!Value types that are provided by user</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">    //!PROBABILITY = basic probability between [0,1]</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">    //!LOG_ODDS = log odds score</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">    //!COUNTS = word counts</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment">    //!LOG_PROG = log2 value of probability</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">    //!PERCENTAGE = [0,100] or 100*Probability</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835">  108</a></span>&#160;<span class="comment"></span>    <span class="keyword">enum</span> <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835">valueType</a> {PROBABILITY, LOG_ODDS, COUNTS, LOG_PROB, PERCENTAGE}; </div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
@@ -153,7 +201,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 29 2013 16:17:43 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 23 2013 10:40:29 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>
