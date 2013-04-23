@@ -296,7 +296,7 @@ namespace StochHMM{
 		
 		inline float_2D* getForwardTable(){return forward_score;}
 		inline float_2D* getBackwardTable(){return backward_score;}
-		inline float_2D* getPosteriorTable(){return posterior_score;}
+		inline double_2D* getPosteriorTable(){return posterior_score;}
 		
 		inline double getForwardProbability(){return ending_forward_prob;}
 		inline double getBackwardProbability(){return ending_backward_prob;}

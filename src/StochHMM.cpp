@@ -362,7 +362,7 @@ traceback_path* perform_traceback(trellis& trell){
 //Each row is on different row
 void print_posterior(trellis& trell){
 	model* hmm = trell.getModel();
-	float_2D* table = trell.getPosteriorTable();
+	double_2D* table = trell.getPosteriorTable();
 	size_t state_size = hmm->state_size();
 	char cstr[200];
 	
