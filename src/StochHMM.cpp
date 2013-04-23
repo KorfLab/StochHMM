@@ -379,10 +379,13 @@ void print_posterior(trellis& trell){
 		output+= "\t" + hmm->getStateName(i);
 	}
 	output+="\n";
+	
+	std::cout <<  output;
+	
 
 	for(size_t position = 0; position < table->size(); ++position){
 		sprintf(cstr, "%ld", position+1);
-		output+= cstr;
+		output= cstr;
 		for (size_t st = 0 ; st < state_size ; st++){
 			float val  = exp((*table)[position][st]);
 			if (val<= 0.001){
@@ -398,9 +401,10 @@ void print_posterior(trellis& trell){
 
 		}
 		output+="\n";
+		std::cout << output;
 	}
 
-	std::cout << output << std::endl;
+	std::cout << std::endl;
 	
 	return;
 	
