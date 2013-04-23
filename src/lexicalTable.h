@@ -98,6 +98,8 @@ namespace StochHMM{
         inline void incrementCountsDouble(size_t word_index, size_t char_index, double val) { if (counts != NULL) (*counts)[word_index][char_index]+= val; }
         
         std::string stringify();
+		
+		std::string stringifyAmbig();
         
         void print();
         

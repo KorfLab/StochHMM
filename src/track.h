@@ -234,16 +234,17 @@ namespace StochHMM{
         
         //!Check if the TrackFunction is defined for this track
         //!\return true if the track has a trackFunc defined
-        inline bool isTrackFuncDefined(){return trackFunctionDefined;};
+        inline bool isTrackFuncDefined(){return trackFunctionDefined;}
         
         //! Get name of TrackFunc defined for track
         //! \return std::string Name of trackFunc defined
-        inline std::string getTrackFunction(){return trackFunction;};
+        inline std::string getTrackFunction(){return trackFunction;}
         
         //! Get name of Track to use for trackFunc
-        inline std::string getTrackToUse(){return trackToUse;};
+        inline std::string getTrackToUse(){return trackToUse;}
 		
-        inline uint8_t getMaxUnambiguous(){return max_unambiguous;};
+        inline uint8_t getMaxUnambiguous(){return max_unambiguous;}
+		inline uint8_t getMaxAmbiguous(){return max_ambiguous;}
         
     private:
         std::string name;	/* Track Name */

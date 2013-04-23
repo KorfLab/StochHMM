@@ -331,7 +331,7 @@ namespace StochHMM{
 		float_2D*	viterbi_score;      //Storing Viterbi scores
 		float_2D*	forward_score;      //Storing Forward scores
 		float_2D*	backward_score;     //Storing Backward scores
-		float_2D*	posterior_score;	//Storing Posterior scores
+		double_2D*	posterior_score;	//Storing Posterior scores
 		
 		double_2D*  dbl_forward_score;
 		double_2D*	dbl_viterbi_score;

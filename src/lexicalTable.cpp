@@ -19,6 +19,8 @@ namespace StochHMM{
         counts = NULL;
         prob = NULL;
 		log_emission = NULL;
+		x_subarray=NULL;
+		y_subarray=NULL;
         
         
         unknownScoreType=NO_SCORE;
@@ -32,11 +34,15 @@ namespace StochHMM{
         delete prob;
         delete counts;
 		delete log_emission;
+		delete x_subarray;
+		delete y_subarray;
         
         logProb=NULL;
         prob=NULL;
         counts=NULL;
 		log_emission = NULL;
+		x_subarray=NULL;
+		y_subarray=NULL;
     }
     
     void lexicalTable::createTable(int rows, int columns, int pseudocount, valueType typ){
@@ -175,6 +181,118 @@ namespace StochHMM{
         }
     }
 	
+	
+	std::string lexicalTable::stringifyAmbig(){
+		std::string tbl("");
+		
+		size_t tracks_size = trcks.size();
+        
+        if(tracks_size==0){
+            std::cerr << "Can't print out table without track and order being set for lexicalTable\n";
+            exit(1);
+        }
+        
+        //Calculate the Number of Column Headers and get alphabet for each track
+		//This is the complete unambiguous and ambiguous
+		
+		std::vector<std::vector<std::string> > complete_alphabet(tracks_size, std::vector<std::string>());
+		
+        size_t columns(1);
+        std::vector<size_t> alphaSizes;
+        
+		//Calculate the columns size 
+        for(size_t i = 0;i<trcks.size();i++){
+            size_t alphaSz = (trcks[i]->isAmbiguousSet()) ? trcks[i]->getMaxAmbiguous()+1 : trcks[i]->getAlphaSize();
+            columns*=alphaSz;
+            alphaSizes.push_back(alphaSz);
+			
+			//Get complete alphabet for each track
+			for(size_t j=0; j < alphaSz; ++j){
+				complete_alphabet[i].push_back(trcks[i]->getAlpha(j));
+			}
+        }
+        
+        reverse(alphaSizes.begin(),alphaSizes.end());
+        
+        std::string colHeader("@");
+        
+		//Compose column heading
+        for(size_t i = 0; i < columns; ++i){
+            size_t indexValue = i;
+            for(size_t tr=0;tr<trcks.size();tr++){
+                
+                if (tr>0){
+                    colHeader+= "|";
+                }
+                
+                size_t val(0);
+                if (tr<trcks.size()-1){
+                    val= floor(indexValue/alphaSizes[tr]);
+                    indexValue-=val*alphaSizes[tr];
+                }
+                else{
+                    val = indexValue;
+                }
+                
+                colHeader+=complete_alphabet[tr][val];
+            }
+            colHeader+="\t";
+        }
+        
+        tbl+=colHeader + "\n";
+		
+		
+//		for (size_t i=0; i< log_emission->size();i++){
+//			std::cout << (*log_emission)[i] << std::endl;
+//		}
+		
+		
+		//       bool rowHeader = (temp->size()>1) ? true : false;
+//       
+//		for(size_t i=0;i<temp->size();i++){
+//            std::string header("");
+//            
+//            if (rowHeader){
+//                size_t indexValue = i;
+//                
+//                for(size_t tr=0;tr<trcks.size();tr++){
+//                    
+//                    if (tr>0 && order[tr]>0){
+//                        header+= "|";
+//                    }
+//                    
+//                    
+//                    size_t val(0);
+//                    if (tr<trcks.size()-1){
+//                        double pwr = POWER[order[tr+1]][trcks[tr+1]->getAlphaSize()-1];
+//                        val= floor(indexValue/pwr);
+//                        indexValue-=val*pwr;
+//                    }
+//                    else{
+//                        val = indexValue;
+//                    }
+//                    
+//                    header+=trcks[tr]->convertIndexToWord(val, order[tr]);
+//                }
+//                tbl+="@" + header + "\t";
+//                
+//            }
+//            
+//            for(size_t j=0;j<(*temp)[i].size();j++){
+//                if (j>0){
+//                    tbl+="\t";
+//                }
+//                tbl+=double_to_string((*temp)[i][j]);
+//            }
+//            tbl+="\n";
+//        }
+
+		
+		return tbl;
+	}
+	
+	
+	
     
     std::string lexicalTable::stringify(){
         std::string tbl("");
@@ -282,6 +400,9 @@ namespace StochHMM{
         }
         return tbl;
     }
+	
+	
+	
 	
 	
 	void lexicalTable::init_table_dimension_values(){

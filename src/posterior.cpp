@@ -60,7 +60,9 @@ namespace StochHMM {
 			return;
 		}
 		
-		posterior_score = new (std::nothrow) float_2D(seq_size, std::vector<float>(state_size,-INFINITY));
+		//posterior_score = new (std::nothrow) float_2D(seq_size, std::vector<float>(state_size,-INFINITY));
+		posterior_score = new (std::nothrow) double_2D(seq_size, std::vector<double>(state_size,-INFINITY));
+
 		scoring_current = new (std::nothrow) std::vector<double> (state_size,-INFINITY);
 		scoring_previous= new (std::nothrow) std::vector<double> (state_size,-INFINITY);
 		
@@ -182,7 +184,9 @@ namespace StochHMM {
 		double  backward_temp(-INFINITY);		
 		scoring_previous->assign(state_size, -INFINITY);
 		scoring_current->assign(state_size, -INFINITY);
-		std::vector<float> posterior_sum(seq_size,-INFINITY);
+//		std::vector<float> posterior_sum(seq_size,-INFINITY);
+
+		std::vector<double> posterior_sum(seq_size,-INFINITY);
 
 		
 		std::bitset<STATE_MAX>* ending_from = hmm->getEndingFrom();

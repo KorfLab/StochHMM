@@ -1049,6 +1049,7 @@ namespace StochHMM{
             emissionString+="\n";
 
             emissionString+=scores.stringify();
+			//scores.stringifyAmbig();
         }
         emissionString+="\n";
         
