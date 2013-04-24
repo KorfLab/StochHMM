@@ -1,19 +1,17 @@
 #StochHMM - A Flexible hidden Markov model application and C++ library.
 
-StochHMM is an easy to use and flexible hidden Markov model (HMM)
-application and C++ library. It implements HMMs from a simple
-user-defined text file. Thereby, allowing researchers to focus on the
-design and optimization of the model rather than spending precious time
-implementing HMM algorithms.
+StochHMM is an free, easy to use and hidden Markov model (HMM)
+application and C++ library that allows for flexible implementation of HMM.
+It implements HMMs from a simpleuser-defined text file. Thereby,
+allowing researchers to focus on the design and optimization of the model
+rather than spending precious time implementing HMM algorithms.
 
-StochHMM implements standard HMM, HMM with duration and in the future
-will implement hidden semi-Markov model architectures and algorithms. It
-grants researchers the power to integrate additional datasets in their
-HMM to improve predictions. Finally, it adapts HMM algorithms to provide
-stochastic decoding giving researchers the ability to explore and rank
-sub-optimal predictions.
+StochHMM implements standard HMM algorithms.  It grants researchers the 
+power to integrate additional datasets in their HMM to improve predictions.
+Finally, it adapts HMM algorithms to provide stochastic decoding giving
+researchers the ability to explore and rank sub-optimal predictions.
 
-We are providing StochHMM source which can be compiled and used a a 
+StochHMM is free, open source C++ code,  which can be compiled and used a a 
 standalone application and/or static C++ library to give researchers the
 ability to rapidly develop HMMs.
 
@@ -21,6 +19,8 @@ StochHMM and compiles on Windows, Mac OSX, and Linux. We are providing
 StochHMM under the MIT open source license to increase accessibility and
 to give researchers the ability to use it in derivative works without
 restrictions.  See LICENSE
+
+Documentation for the Code can be found at [StochHMM Documentation](http://korflab.github.io/StochHMM/)
 
 StochHMM is developed by Paul Lott, Korf Lab, University of California, Davis
 
