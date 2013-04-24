@@ -7,12 +7,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -74,19 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('hmm_8cpp.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -307,18 +288,18 @@ $(document).ready(function(){initNavTree('hmm_8cpp.html','');});
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="comment">    //! \param modelFile Model filename</span></div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="comment">    //! \param funcs  Pointer to State functions defined by programmer</span></div>
 <div class="line"><a name="l00201"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1model.html#ae8599043253e0f838d33cc7099d8e38b">  201</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#ae8599043253e0f838d33cc7099d8e38b">model::import</a>(std::string&amp; modelFile, <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html" title="(**Adding in log space)">StateFuncs</a>* funcs){</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        std::string modelString=<a class="code" href="group___text.html#gafad8e125317894c8056a5706c4590b9b">slurpFile</a>(modelFile);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        std::string modelString=<a class="code" href="namespace_stoch_h_m_m.html#afad8e125317894c8056a5706c4590b9b">slurpFile</a>(modelFile);</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#a702107f35afcb0c26e916fb776c3a3ba">parse</a>(modelString,funcs,NULL,NULL);</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    }</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    </div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    </div>
 <div class="line"><a name="l00207"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1model.html#ac7be73bd3cc8874331cf6d8298bf28a1">  207</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#ae8599043253e0f838d33cc7099d8e38b">model::import</a>(std::string&amp; modelFile, <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html" title="(**Adding in log space)">StateFuncs</a>* funcs, <a class="code" href="class_stoch_h_m_m_1_1templates.html" title="class templates: contains a map of all templates">templates</a>* tmpls, <a class="code" href="class_stoch_h_m_m_1_1weights.html">weights</a>* scl){</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        std::string modelString=<a class="code" href="group___text.html#gafad8e125317894c8056a5706c4590b9b">slurpFile</a>(modelFile);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        std::string modelString=<a class="code" href="namespace_stoch_h_m_m.html#afad8e125317894c8056a5706c4590b9b">slurpFile</a>(modelFile);</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#a702107f35afcb0c26e916fb776c3a3ba">parse</a>(modelString, funcs, tmpls, scl);</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    }</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    </div>
 <div class="line"><a name="l00212"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1model.html#a819bcc457a18f7b072a165ad7ee6ae9c">  212</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#ae8599043253e0f838d33cc7099d8e38b">model::import</a>(std::string&amp; modelFile){</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        std::string modelString=<a class="code" href="group___text.html#gafad8e125317894c8056a5706c4590b9b">slurpFile</a>(modelFile);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        std::string modelString=<a class="code" href="namespace_stoch_h_m_m.html#afad8e125317894c8056a5706c4590b9b">slurpFile</a>(modelFile);</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#a702107f35afcb0c26e916fb776c3a3ba">parse</a>(modelString,NULL,NULL,NULL);</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    }</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        </div>
@@ -584,7 +565,7 @@ $(document).ready(function(){initNavTree('hmm_8cpp.html','');});
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;                </div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;                </div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;                <span class="keywordtype">double</span> tempValue;</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[index], tempValue)){</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[index], tempValue)){</div>
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Numerical attribute couldn&#39;t be converted to numerical value: &quot;</span> &lt;&lt; lst[index] &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;                }</div>
@@ -603,7 +584,7 @@ $(document).ready(function(){initNavTree('hmm_8cpp.html','');});
 <div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;                index++;</div>
 <div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;                </div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;                <span class="keywordtype">double</span> tempValue;</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[index], tempValue)){</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[index], tempValue)){</div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Numerical attribute couldn&#39;t be converted to numerical value: &quot;</span> &lt;&lt; lst[index] &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;                }</div>
@@ -623,7 +604,7 @@ $(document).ready(function(){initNavTree('hmm_8cpp.html','');});
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;                </div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;                </div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;                <span class="keywordtype">double</span> tempValue;</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[index], tempValue)){</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[index], tempValue)){</div>
 <div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Numerical attribute couldn&#39;t be converted to numerical value: &quot;</span> &lt;&lt; lst[index] &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;                }</div>
@@ -650,7 +631,7 @@ $(document).ready(function(){initNavTree('hmm_8cpp.html','');});
 <div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;                index++;</div>
 <div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;                </div>
 <div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;                <span class="keywordtype">double</span> tempValue;</div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[index], tempValue)){</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[index], tempValue)){</div>
 <div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Numerical attribute couldn&#39;t be converted to numerical value: &quot;</span> &lt;&lt; lst[index] &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;                }</div>
@@ -670,7 +651,7 @@ $(document).ready(function(){initNavTree('hmm_8cpp.html','');});
 <div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;                index++;</div>
 <div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;                </div>
 <div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;                <span class="keywordtype">double</span> tempValue;</div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[index], tempValue)){</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[index], tempValue)){</div>
 <div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Numerical attribute couldn&#39;t be converted to numerical value: &quot;</span> &lt;&lt; lst[index] &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;                }</div>
@@ -858,7 +839,7 @@ $(document).ready(function(){initNavTree('hmm_8cpp.html','');});
 <div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;            </div>
 <div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;            std::string st = txt.substr(start,end-start);</div>
 <div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;            </div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;            <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(st, <span class="stringliteral">&quot;#&quot;</span>);</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;            <a class="code" href="namespace_stoch_h_m_m.html#a2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(st, <span class="stringliteral">&quot;#&quot;</span>);</div>
 <div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;            </div>
 <div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;            <span class="keywordflow">if</span> (st.find(<span class="stringliteral">&quot;TEMPLATE:&quot;</span>)!=std::string::npos){</div>
 <div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;                </div>
@@ -897,7 +878,7 @@ $(document).ready(function(){initNavTree('hmm_8cpp.html','');});
 <div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;        lst.<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">splitString</a>(txt,<span class="stringliteral">&quot;\n&quot;</span>);</div>
 <div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;        </div>
 <div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;        <span class="comment">//Process Template Name and Identifier</span></div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;        <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(lst[0], <span class="stringliteral">&quot; \n&quot;</span>);</div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;        <a class="code" href="namespace_stoch_h_m_m.html#a2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(lst[0], <span class="stringliteral">&quot; \n&quot;</span>);</div>
 <div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a> nmid;</div>
 <div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;        nmid.<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">splitString</a>(lst[0],<span class="stringliteral">&quot;:\t&quot;</span>);</div>
 <div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;        nmid.<a class="code" href="class_stoch_h_m_m_1_1string_list.html#acb37ddbd8e7cc1442e373d4a4dadde91" title="Print each line to stdout.">print</a>();</div>
@@ -929,7 +910,7 @@ $(document).ready(function(){initNavTree('hmm_8cpp.html','');});
 <div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;lst.<a class="code" href="class_stoch_h_m_m_1_1string_list.html#aa66b0d5fa9a0bec45d6638be23408b71" title="Return the amount of strings in the stringList.">size</a>();i++){</div>
 <div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;            std::string key;</div>
 <div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;            std::string value;</div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;            <a class="code" href="group___text.html#ga423cf7d1707638ac6c526bb10e7cc599">getKeyValue</a>(lst[i],key,value);</div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;            <a class="code" href="namespace_stoch_h_m_m.html#a423cf7d1707638ac6c526bb10e7cc599">getKeyValue</a>(lst[i],key,value);</div>
 <div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;            <span class="keywordflow">if</span> (key.empty()){</div>
 <div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;                parameters[lastTag]+=<span class="stringliteral">&quot;\n&quot;</span> + value;</div>
 <div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;            }</div>
@@ -960,7 +941,7 @@ $(document).ready(function(){initNavTree('hmm_8cpp.html','');});
 <div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;            <span class="keywordtype">size_t</span> nameHeader=states[i].find(<span class="stringliteral">&quot;NAME:&quot;</span>);</div>
 <div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;            <span class="keywordtype">size_t</span> nameLineEnding=states[i].find_first_of(<span class="stringliteral">&quot;\n&quot;</span>,nameHeader);</div>
 <div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;            std::string <a class="code" href="class_stoch_h_m_m_1_1model.html#ad58cd8d2406d1825f020a66c3464cff8">name</a> = states[i].substr(nameHeader+5,nameLineEnding-(nameHeader+5));</div>
-<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;            <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(name, <span class="stringliteral">&quot; \t\n&quot;</span>);</div>
+<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;            <a class="code" href="namespace_stoch_h_m_m.html#a2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(name, <span class="stringliteral">&quot; \t\n&quot;</span>);</div>
 <div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;                        <span class="keywordflow">if</span> (names.<a class="code" href="class_stoch_h_m_m_1_1string_list.html#ac976e146eb4b564ffa889f5fc3fc56d3">containsExact</a>(name)){</div>
 <div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;State with name of: &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; is defined twice in the model\n&quot;</span>;</div>
 <div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -1187,8 +1168,8 @@ $(document).ready(function(){initNavTree('hmm_8cpp.html','');});
 <div class="line"><a name="l01079"></a><span class="lineno"> 1079</span>&#160;        </div>
 <div class="line"><a name="l01080"></a><span class="lineno"> 1080</span>&#160;        </div>
 <div class="line"><a name="l01081"></a><span class="lineno"> 1081</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1model.html#a0053c5675a3d7aff499dee58b85719af" title="Model Attrib Values.">attribTwo</a>){</div>
-<div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160;            headerString+= headers[7] + <span class="stringliteral">&quot;:\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html#ae87208a72eb3db85e94bec35cb21c817" title="Model Author.">range</a>[1]) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;            headerString+= headers[8] + <span class="stringliteral">&quot;:\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html#ae87208a72eb3db85e94bec35cb21c817" title="Model Author.">range</a>[0]) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l01082"></a><span class="lineno"> 1082</span>&#160;            headerString+= headers[7] + <span class="stringliteral">&quot;:\t&quot;</span> + <a class="code" href="namespace_stoch_h_m_m.html#a8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html#ae87208a72eb3db85e94bec35cb21c817" title="Model Author.">range</a>[1]) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l01083"></a><span class="lineno"> 1083</span>&#160;            headerString+= headers[8] + <span class="stringliteral">&quot;:\t&quot;</span> + <a class="code" href="namespace_stoch_h_m_m.html#a8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html#ae87208a72eb3db85e94bec35cb21c817" title="Model Author.">range</a>[0]) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a name="l01084"></a><span class="lineno"> 1084</span>&#160;        }</div>
 <div class="line"><a name="l01085"></a><span class="lineno"> 1085</span>&#160;        headerString+=<span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a name="l01086"></a><span class="lineno"> 1086</span>&#160;        </div>
@@ -1415,15 +1396,11 @@ $(document).ready(function(){initNavTree('hmm_8cpp.html','');});
 <div class="line"><a name="l01307"></a><span class="lineno"> 1307</span>&#160;    </div>
 <div class="line"><a name="l01308"></a><span class="lineno"> 1308</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="hmm_8cpp.html">hmm.cpp</a></li>
-    <li class="footer">Generated on Wed Apr 24 2013 09:39:33 for StochHMM by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Wed Apr 24 2013 12:27:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.1
+</small></address>
 </body>
 </html>

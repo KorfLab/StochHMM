@@ -7,12 +7,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -75,20 +69,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1state.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -103,6 +83,11 @@ $(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1state.html','');}
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1state.html">state</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -479,8 +464,8 @@ Friends</h2></td></tr>
 <p>Referenced by <a class="el" href="state_8cpp_source.html#l00073">parse()</a>.</p>
 <div class="fragment"><div class="line">                                          {</div>
 <div class="line">        </div>
-<div class="line">        <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(txt,<span class="stringliteral">&quot;\t &quot;</span>);</div>
-<div class="line">        stringList lst = <a class="code" href="group___text.html#ga011a05da53674a925fe8dc3402ac3f24" title="Splits string using delimiters and return stringList.">splitString</a>(txt,<span class="stringliteral">&quot;\n:&quot;</span>);</div>
+<div class="line">        <a class="code" href="namespace_stoch_h_m_m.html#a2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(txt,<span class="stringliteral">&quot;\t &quot;</span>);</div>
+<div class="line">        stringList lst = <a class="code" href="namespace_stoch_h_m_m.html#a011a05da53674a925fe8dc3402ac3f24" title="Splits string using delimiters and return stringList.">splitString</a>(txt,<span class="stringliteral">&quot;\n:&quot;</span>);</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordtype">size_t</span> idx;</div>
 <div class="line">        </div>
@@ -605,7 +590,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="state_8cpp_source.html#l00197">197</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
 
-<p>References <a class="el" href="state_8h_source.html#l00123">addTransition()</a>, <a class="el" href="text_8cpp_source.html#l00435">StochHMM::clear_whitespace()</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::COUNTS</a>, <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::DURATION</a>, <a class="el" href="state_8h_source.html#l00170">endi</a>, <a class="el" href="transitions_8h_source.html#l00129">StochHMM::transition::getName()</a>, <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::LEXICAL</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::LOG_PROB</a>, <a class="el" href="transitions_8cpp_source.html#l00067">StochHMM::transition::parse()</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::PROBABILITY</a>, <a class="el" href="text_8cpp_source.html#l00414">StochHMM::stringList::removeComments()</a>, <a class="el" href="text_8cpp_source.html#l00185">StochHMM::stringList::removeLWS()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00163">StochHMM::stringList::splitND()</a>, <a class="el" href="text_8cpp_source.html#l00495">StochHMM::splitString()</a>, and <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::STANDARD</a>.</p>
+<p>References <a class="el" href="state_8h_source.html#l00123">addTransition()</a>, <a class="el" href="text_8cpp_source.html#l00435">StochHMM::clear_whitespace()</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="stoch_types_8h_source.html#l00109">StochHMM::COUNTS</a>, <a class="el" href="stoch_types_8h_source.html#l00041">StochHMM::DURATION</a>, <a class="el" href="state_8h_source.html#l00170">endi</a>, <a class="el" href="transitions_8h_source.html#l00129">StochHMM::transition::getName()</a>, <a class="el" href="stoch_types_8h_source.html#l00041">StochHMM::LEXICAL</a>, <a class="el" href="stoch_types_8h_source.html#l00109">StochHMM::LOG_PROB</a>, <a class="el" href="transitions_8cpp_source.html#l00067">StochHMM::transition::parse()</a>, <a class="el" href="stoch_types_8h_source.html#l00109">StochHMM::PROBABILITY</a>, <a class="el" href="text_8cpp_source.html#l00414">StochHMM::stringList::removeComments()</a>, <a class="el" href="text_8cpp_source.html#l00185">StochHMM::stringList::removeLWS()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00163">StochHMM::stringList::splitND()</a>, <a class="el" href="text_8cpp_source.html#l00495">StochHMM::splitString()</a>, and <a class="el" href="stoch_types_8h_source.html#l00041">StochHMM::STANDARD</a>.</p>
 
 <p>Referenced by <a class="el" href="state_8cpp_source.html#l00073">parse()</a>.</p>
 <div class="fragment"><div class="line">                                                                                                                {</div>
@@ -616,13 +601,13 @@ Friends</h2></td></tr>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> iter=0;iter&lt;lst.size();iter++){</div>
 <div class="line">            </div>
-<div class="line">            stringList line=<a class="code" href="group___text.html#ga011a05da53674a925fe8dc3402ac3f24" title="Splits string using delimiters and return stringList.">splitString</a>(lst[iter],<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line">            stringList line=<a class="code" href="namespace_stoch_h_m_m.html#a011a05da53674a925fe8dc3402ac3f24" title="Splits string using delimiters and return stringList.">splitString</a>(lst[iter],<span class="stringliteral">&quot;\n&quot;</span>);</div>
 <div class="line">            line.removeLWS(<span class="stringliteral">&quot;\t &quot;</span>);</div>
 <div class="line">            line.removeComments();</div>
 <div class="line">            <span class="comment">//Line 1 defines transition type</span></div>
 <div class="line">            </div>
-<div class="line">            <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(line[0],<span class="stringliteral">&quot;\t&quot;</span>);</div>
-<div class="line">            stringList head=<a class="code" href="group___text.html#ga011a05da53674a925fe8dc3402ac3f24" title="Splits string using delimiters and return stringList.">splitString</a>(line[0],<span class="stringliteral">&quot;:&quot;</span>);</div>
+<div class="line">            <a class="code" href="namespace_stoch_h_m_m.html#a2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(line[0],<span class="stringliteral">&quot;\t&quot;</span>);</div>
+<div class="line">            stringList head=<a class="code" href="namespace_stoch_h_m_m.html#a011a05da53674a925fe8dc3402ac3f24" title="Splits string using delimiters and return stringList.">splitString</a>(line[0],<span class="stringliteral">&quot;:&quot;</span>);</div>
 <div class="line">            </div>
 <div class="line">            <span class="comment">//DETERMINE TYPE</span></div>
 <div class="line">            <a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0">transType</a> tp;</div>
@@ -875,7 +860,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="state_8cpp_source.html#l00451">451</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::DIFF_STATE</a>, <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::FULL</a>, <a class="el" href="external_funcs_8h_source.html#l00093">StochHMM::transitionFuncParam::getCombineName()</a>, <a class="el" href="external_funcs_8h_source.html#l00099">StochHMM::transitionFuncParam::getCombineType()</a>, <a class="el" href="external_funcs_8h_source.html#l00089">StochHMM::transitionFuncParam::getTracebackName()</a>, <a class="el" href="external_funcs_8h_source.html#l00085">StochHMM::transitionFuncParam::getTracebackType()</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::START_INIT</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_GFF</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_LABEL</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_NAME</a>, <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::STATEGFF</a>, <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::STATELABEL</a>, and <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::STATENAME</a>.</p>
+<p>References <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::DIFF_STATE</a>, <a class="el" href="stoch_types_8h_source.html#l00062">StochHMM::FULL</a>, <a class="el" href="external_funcs_8h_source.html#l00093">StochHMM::transitionFuncParam::getCombineName()</a>, <a class="el" href="external_funcs_8h_source.html#l00099">StochHMM::transitionFuncParam::getCombineType()</a>, <a class="el" href="external_funcs_8h_source.html#l00089">StochHMM::transitionFuncParam::getTracebackName()</a>, <a class="el" href="external_funcs_8h_source.html#l00085">StochHMM::transitionFuncParam::getTracebackType()</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::START_INIT</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::STATE_GFF</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::STATE_LABEL</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::STATE_NAME</a>, <a class="el" href="stoch_types_8h_source.html#l00062">StochHMM::STATEGFF</a>, <a class="el" href="stoch_types_8h_source.html#l00062">StochHMM::STATELABEL</a>, and <a class="el" href="stoch_types_8h_source.html#l00062">StochHMM::STATENAME</a>.</p>
 <div class="fragment"><div class="line">                                                                                                     {</div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0;i&lt;(*transi).size();i++){</div>
 <div class="line">            transitionFuncParam* func = (*transi)[i]-&gt;getExtFunction();</div>
@@ -1022,7 +1007,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="state_8cpp_source.html#l00424">424</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::STANDARD</a>, <a class="el" href="state_8h_source.html#l00178">to</a>, and <a class="el" href="state_8h_source.html#l00169">transi</a>.</p>
+<p>References <a class="el" href="stoch_types_8h_source.html#l00041">StochHMM::STANDARD</a>, <a class="el" href="state_8h_source.html#l00178">to</a>, and <a class="el" href="state_8h_source.html#l00169">transi</a>.</p>
 <div class="fragment"><div class="line">                                                                            {</div>
 <div class="line">        <span class="keywordtype">double</span> value;</div>
 <div class="line">        </div>
@@ -1821,7 +1806,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="state_8cpp_source.html#l00326">326</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::DURATION</a>, <a class="el" href="state_8h_source.html#l00173">emission</a>, <a class="el" href="state_8h_source.html#l00170">endi</a>, <a class="el" href="state_8h_source.html#l00166">gff</a>, <a class="el" href="state_8h_source.html#l00167">label</a>, <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::LEXICAL</a>, <a class="el" href="state_8h_source.html#l00165">name</a>, <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::STANDARD</a>, <a class="el" href="transitions_8cpp_source.html#l00521">StochHMM::transition::stringify()</a>, and <a class="el" href="state_8h_source.html#l00169">transi</a>.</p>
+<p>References <a class="el" href="stoch_types_8h_source.html#l00041">StochHMM::DURATION</a>, <a class="el" href="state_8h_source.html#l00173">emission</a>, <a class="el" href="state_8h_source.html#l00170">endi</a>, <a class="el" href="state_8h_source.html#l00166">gff</a>, <a class="el" href="state_8h_source.html#l00167">label</a>, <a class="el" href="stoch_types_8h_source.html#l00041">StochHMM::LEXICAL</a>, <a class="el" href="state_8h_source.html#l00165">name</a>, <a class="el" href="stoch_types_8h_source.html#l00041">StochHMM::STANDARD</a>, <a class="el" href="transitions_8cpp_source.html#l00521">StochHMM::transition::stringify()</a>, and <a class="el" href="state_8h_source.html#l00169">transi</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l01107">StochHMM::model::_stringifyStates()</a>, and <a class="el" href="state_8cpp_source.html#l00319">print()</a>.</p>
 <div class="fragment"><div class="line">                              {</div>
@@ -2000,7 +1985,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="state_8h_source.html#l00179">179</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
 
-<p>Referenced by <a class="el" href="state_8h_source.html#l00147">addFromState()</a>, <a class="el" href="hmm_8h_source.html#l00177">StochHMM::model::getEndingFrom()</a>, and <a class="el" href="state_8h_source.html#l00092">getFrom()</a>.</p>
+<p>Referenced by <a class="el" href="state_8h_source.html#l00147">addFromState()</a>, <a class="el" href="hmm_8h_source.html#l00179">StochHMM::model::getEndingFrom()</a>, and <a class="el" href="state_8h_source.html#l00092">getFrom()</a>.</p>
 
 </div>
 </div>
@@ -2120,7 +2105,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="state_8h_source.html#l00178">178</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
 
-<p>Referenced by <a class="el" href="state_8h_source.html#l00144">addToState()</a>, <a class="el" href="state_8cpp_source.html#l00424">get_transition_prob()</a>, <a class="el" href="hmm_8h_source.html#l00166">StochHMM::model::getInitialTo()</a>, and <a class="el" href="state_8h_source.html#l00086">getTo()</a>.</p>
+<p>Referenced by <a class="el" href="state_8h_source.html#l00144">addToState()</a>, <a class="el" href="state_8cpp_source.html#l00424">get_transition_prob()</a>, <a class="el" href="hmm_8h_source.html#l00168">StochHMM::model::getInitialTo()</a>, and <a class="el" href="state_8h_source.html#l00086">getTo()</a>.</p>
 
 </div>
 </div>
@@ -2153,15 +2138,11 @@ Friends</h2></td></tr>
 <li><a class="el" href="state_8cpp_source.html">state.cpp</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1state.html">state</a></li>
-    <li class="footer">Generated on Wed Apr 24 2013 09:39:38 for StochHMM by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Wed Apr 24 2013 12:28:07 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.1
+</small></address>
 </body>
 </html>

@@ -7,12 +7,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -73,20 +67,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('_stoch_h_m_m_8cpp.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -101,6 +81,7 @@ $(document).ready(function(){initNavTree('_stoch_h_m_m_8cpp.html','');});
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
@@ -220,7 +201,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00230">230</a> of file <a class="el" href="_stoch_h_m_m_8cpp_source.html">StochHMM.cpp</a>.</p>
 
-<p>References <a class="el" href="seq_tracks_8h_source.html#l00059">StochHMM::FASTA</a>, <a class="el" href="seq_tracks_8h_source.html#l00059">StochHMM::FASTQ</a>, <a class="el" href="options_8cpp_source.html#l00402">StochHMM::options::isSet()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00087">jobs</a>, <a class="el" href="seq_tracks_8cpp_source.html#l00261">StochHMM::seqTracks::loadSeqs()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00084">opt</a>, <a class="el" href="options_8cpp_source.html#l00416">StochHMM::options::sopt()</a>, and <a class="el" href="_motif_scorer_8h_source.html#l00013">usage</a>.</p>
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00060">StochHMM::FASTA</a>, <a class="el" href="seq_tracks_8h_source.html#l00060">StochHMM::FASTQ</a>, <a class="el" href="options_8cpp_source.html#l00402">StochHMM::options::isSet()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00087">jobs</a>, <a class="el" href="seq_tracks_8cpp_source.html#l00261">StochHMM::seqTracks::loadSeqs()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00084">opt</a>, <a class="el" href="options_8cpp_source.html#l00416">StochHMM::options::sopt()</a>, and <a class="el" href="_motif_scorer_8h_source.html#l00013">usage</a>.</p>
 
 <p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00095">main()</a>.</p>
 <div class="fragment"><div class="line">                                {</div>
@@ -267,7 +248,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00095">95</a> of file <a class="el" href="_stoch_h_m_m_8cpp_source.html">StochHMM.cpp</a>.</p>
 
-<p>References <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00056">commandline</a>, <a class="el" href="seq_tracks_8cpp_source.html#l00577">StochHMM::seqTracks::getJob()</a>, <a class="el" href="seq_tracks_8h_source.html#l00254">StochHMM::seqJob::getModel()</a>, <a class="el" href="options_8cpp_source.html#l00303">StochHMM::options::getopt()</a>, <a class="el" href="seq_tracks_8h_source.html#l00255">StochHMM::seqJob::getSeqs()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00210">import_model()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00230">import_sequence()</a>, <a class="el" href="options_8cpp_source.html#l00372">StochHMM::options::isFlagSet()</a>, <a class="el" href="options_8cpp_source.html#l00402">StochHMM::options::isSet()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00087">jobs</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00084">opt</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00081">opt_size</a>, <a class="el" href="options_8cpp_source.html#l00161">StochHMM::options::parse_commandline()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00266">perform_nbest_decoding()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00329">perform_posterior()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00286">perform_stochastic_decoding()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00247">perform_viterbi_decoding()</a>, <a class="el" href="sequences_8h_source.html#l00159">StochHMM::sequences::print()</a>, <a class="el" href="options_8cpp_source.html#l00034">StochHMM::options::set_parameters()</a>, and <a class="el" href="_motif_scorer_8h_source.html#l00013">usage</a>.</p>
+<p>References <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00056">commandline</a>, <a class="el" href="seq_tracks_8cpp_source.html#l00577">StochHMM::seqTracks::getJob()</a>, <a class="el" href="seq_tracks_8h_source.html#l00260">StochHMM::seqJob::getModel()</a>, <a class="el" href="options_8cpp_source.html#l00303">StochHMM::options::getopt()</a>, <a class="el" href="seq_tracks_8h_source.html#l00261">StochHMM::seqJob::getSeqs()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00210">import_model()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00230">import_sequence()</a>, <a class="el" href="options_8cpp_source.html#l00372">StochHMM::options::isFlagSet()</a>, <a class="el" href="options_8cpp_source.html#l00402">StochHMM::options::isSet()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00087">jobs</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00084">opt</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00081">opt_size</a>, <a class="el" href="options_8cpp_source.html#l00161">StochHMM::options::parse_commandline()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00266">perform_nbest_decoding()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00329">perform_posterior()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00286">perform_stochastic_decoding()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00247">perform_viterbi_decoding()</a>, <a class="el" href="sequences_8h_source.html#l00160">StochHMM::sequences::print()</a>, <a class="el" href="options_8cpp_source.html#l00034">StochHMM::options::set_parameters()</a>, and <a class="el" href="_motif_scorer_8h_source.html#l00013">usage</a>.</p>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    </div>
 <div class="line">    <span class="comment">//Parse commandline arguments defined</span></div>
@@ -409,7 +390,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00266">266</a> of file <a class="el" href="_stoch_h_m_m_8cpp_source.html">StochHMM.cpp</a>.</p>
 
-<p>References <a class="el" href="sequences_8h_source.html#l00089">StochHMM::sequences::getHeader()</a>, <a class="el" href="options_8cpp_source.html#l00437">StochHMM::options::iopt()</a>, <a class="el" href="nth__best_8cpp_source.html#l00194">StochHMM::trellis::naive_nth_viterbi()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00084">opt</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00350">print_output()</a>, and <a class="el" href="trellis_8cpp_source.html#l00479">StochHMM::trellis::traceback_nth()</a>.</p>
+<p>References <a class="el" href="sequences_8h_source.html#l00090">StochHMM::sequences::getHeader()</a>, <a class="el" href="options_8cpp_source.html#l00437">StochHMM::options::iopt()</a>, <a class="el" href="nth__best_8cpp_source.html#l00194">StochHMM::trellis::naive_nth_viterbi()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00084">opt</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00350">print_output()</a>, and <a class="el" href="trellis_8cpp_source.html#l00479">StochHMM::trellis::traceback_nth()</a>.</p>
 
 <p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00095">main()</a>.</p>
 <div class="fragment"><div class="line">                                                        {</div>
@@ -458,7 +439,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00329">329</a> of file <a class="el" href="_stoch_h_m_m_8cpp_source.html">StochHMM.cpp</a>.</p>
 
-<p>References <a class="el" href="sequences_8h_source.html#l00089">StochHMM::sequences::getHeader()</a>, <a class="el" href="options_8cpp_source.html#l00402">StochHMM::options::isSet()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00084">opt</a>, <a class="el" href="posterior_8cpp_source.html#l00013">StochHMM::trellis::posterior()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00350">print_output()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00408">print_posterior()</a>, and <a class="el" href="posterior_8cpp_source.html#l00331">StochHMM::trellis::traceback_posterior()</a>.</p>
+<p>References <a class="el" href="sequences_8h_source.html#l00090">StochHMM::sequences::getHeader()</a>, <a class="el" href="options_8cpp_source.html#l00402">StochHMM::options::isSet()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00084">opt</a>, <a class="el" href="posterior_8cpp_source.html#l00013">StochHMM::trellis::posterior()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00350">print_output()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00408">print_posterior()</a>, and <a class="el" href="posterior_8cpp_source.html#l00331">StochHMM::trellis::traceback_posterior()</a>.</p>
 
 <p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00095">main()</a>.</p>
 <div class="fragment"><div class="line">                                                   {</div>
@@ -508,7 +489,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00286">286</a> of file <a class="el" href="_stoch_h_m_m_8cpp_source.html">StochHMM.cpp</a>.</p>
 
-<p>References <a class="el" href="sequences_8h_source.html#l00089">StochHMM::sequences::getHeader()</a>, <a class="el" href="options_8cpp_source.html#l00437">StochHMM::options::iopt()</a>, <a class="el" href="options_8cpp_source.html#l00372">StochHMM::options::isFlagSet()</a>, <a class="el" href="options_8cpp_source.html#l00402">StochHMM::options::isSet()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00084">opt</a>, <a class="el" href="posterior_8cpp_source.html#l00013">StochHMM::trellis::posterior()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00350">print_output()</a>, <a class="el" href="stoch__forward_8cpp_source.html#l00024">StochHMM::trellis::stochastic_forward()</a>, <a class="el" href="trellis_8cpp_source.html#l00460">StochHMM::trellis::stochastic_traceback()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00025">StochHMM::trellis::stochastic_viterbi()</a>, <a class="el" href="posterior_8cpp_source.html#l00355">StochHMM::trellis::traceback_stoch_posterior()</a>, and <a class="el" href="_motif_scorer_8h_source.html#l00013">usage</a>.</p>
+<p>References <a class="el" href="sequences_8h_source.html#l00090">StochHMM::sequences::getHeader()</a>, <a class="el" href="options_8cpp_source.html#l00437">StochHMM::options::iopt()</a>, <a class="el" href="options_8cpp_source.html#l00372">StochHMM::options::isFlagSet()</a>, <a class="el" href="options_8cpp_source.html#l00402">StochHMM::options::isSet()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00084">opt</a>, <a class="el" href="posterior_8cpp_source.html#l00013">StochHMM::trellis::posterior()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00350">print_output()</a>, <a class="el" href="stoch__forward_8cpp_source.html#l00024">StochHMM::trellis::stochastic_forward()</a>, <a class="el" href="trellis_8cpp_source.html#l00460">StochHMM::trellis::stochastic_traceback()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00025">StochHMM::trellis::stochastic_viterbi()</a>, <a class="el" href="posterior_8cpp_source.html#l00355">StochHMM::trellis::traceback_stoch_posterior()</a>, and <a class="el" href="_motif_scorer_8h_source.html#l00013">usage</a>.</p>
 
 <p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00095">main()</a>.</p>
 <div class="fragment"><div class="line">                                                             {</div>
@@ -580,7 +561,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00247">247</a> of file <a class="el" href="_stoch_h_m_m_8cpp_source.html">StochHMM.cpp</a>.</p>
 
-<p>References <a class="el" href="sequences_8h_source.html#l00089">StochHMM::sequences::getHeader()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00350">print_output()</a>, <a class="el" href="trellis_8cpp_source.html#l00400">StochHMM::trellis::traceback()</a>, and <a class="el" href="viterbi_8cpp_source.html#l00025">StochHMM::trellis::viterbi()</a>.</p>
+<p>References <a class="el" href="sequences_8h_source.html#l00090">StochHMM::sequences::getHeader()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00350">print_output()</a>, <a class="el" href="trellis_8cpp_source.html#l00400">StochHMM::trellis::traceback()</a>, and <a class="el" href="viterbi_8cpp_source.html#l00025">StochHMM::trellis::viterbi()</a>.</p>
 
 <p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00095">main()</a>.</p>
 <div class="fragment"><div class="line">                                                          {</div>
@@ -758,7 +739,7 @@ Variables</h2></td></tr>
 
 <p>Definition at line <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00408">408</a> of file <a class="el" href="_stoch_h_m_m_8cpp_source.html">StochHMM.cpp</a>.</p>
 
-<p>References <a class="el" href="trellis_8h_source.html#l00302">StochHMM::trellis::getBackwardProbability()</a>, <a class="el" href="trellis_8h_source.html#l00301">StochHMM::trellis::getForwardProbability()</a>, <a class="el" href="sequences_8h_source.html#l00089">StochHMM::sequences::getHeader()</a>, <a class="el" href="trellis_8h_source.html#l00105">StochHMM::trellis::getModel()</a>, <a class="el" href="hmm_8h_source.html#l00080">StochHMM::model::getName()</a>, <a class="el" href="trellis_8h_source.html#l00299">StochHMM::trellis::getPosteriorTable()</a>, <a class="el" href="trellis_8h_source.html#l00106">StochHMM::trellis::getSeq()</a>, <a class="el" href="hmm_8h_source.html#l00105">StochHMM::model::getStateName()</a>, and <a class="el" href="hmm_8h_source.html#l00101">StochHMM::model::state_size()</a>.</p>
+<p>References <a class="el" href="trellis_8h_source.html#l00302">StochHMM::trellis::getBackwardProbability()</a>, <a class="el" href="trellis_8h_source.html#l00301">StochHMM::trellis::getForwardProbability()</a>, <a class="el" href="sequences_8h_source.html#l00090">StochHMM::sequences::getHeader()</a>, <a class="el" href="trellis_8h_source.html#l00105">StochHMM::trellis::getModel()</a>, <a class="el" href="hmm_8h_source.html#l00082">StochHMM::model::getName()</a>, <a class="el" href="trellis_8h_source.html#l00299">StochHMM::trellis::getPosteriorTable()</a>, <a class="el" href="trellis_8h_source.html#l00106">StochHMM::trellis::getSeq()</a>, <a class="el" href="hmm_8h_source.html#l00107">StochHMM::model::getStateName()</a>, and <a class="el" href="hmm_8h_source.html#l00103">StochHMM::model::state_size()</a>.</p>
 
 <p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00329">perform_posterior()</a>.</p>
 <div class="fragment"><div class="line">                                    {</div>
@@ -918,15 +899,11 @@ Variables</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="_stoch_h_m_m_8cpp.html">StochHMM.cpp</a></li>
-    <li class="footer">Generated on Wed Apr 24 2013 09:39:35 for StochHMM by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Wed Apr 24 2013 12:28:03 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.1
+</small></address>
 </body>
 </html>

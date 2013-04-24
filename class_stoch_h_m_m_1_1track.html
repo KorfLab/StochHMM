@@ -7,12 +7,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -75,20 +69,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1track.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -103,6 +83,11 @@ $(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1track.html','');}
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -233,7 +218,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00047">47</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8h_source.html#l00254">alpha_type</a>, <a class="el" href="track_8h_source.html#l00272">ambiguous</a>, <a class="el" href="track_8h_source.html#l00281">charIndices</a>, <a class="el" href="track_8h_source.html#l00258">complementSet</a>, <a class="el" href="track_8h_source.html#l00273">defaultAmbiguous</a>, <a class="el" href="statistics_8cpp_source.html#l00040">StochHMM::max()</a>, <a class="el" href="track_8h_source.html#l00269">max_ambiguous</a>, <a class="el" href="track_8h_source.html#l00268">max_unambiguous</a>, <a class="el" href="track_8h_source.html#l00266">maxSize</a>, <a class="el" href="track_8h_source.html#l00257">trackFunctionDefined</a>, <a class="el" href="track_8h_source.html#l00252">trackIndex</a>, and <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::UNDEFINED</a>.</p>
+<p>References <a class="el" href="track_8h_source.html#l00254">alpha_type</a>, <a class="el" href="track_8h_source.html#l00272">ambiguous</a>, <a class="el" href="track_8h_source.html#l00281">charIndices</a>, <a class="el" href="track_8h_source.html#l00258">complementSet</a>, <a class="el" href="track_8h_source.html#l00273">defaultAmbiguous</a>, <a class="el" href="statistics_8cpp_source.html#l00040">StochHMM::max()</a>, <a class="el" href="track_8h_source.html#l00269">max_ambiguous</a>, <a class="el" href="track_8h_source.html#l00268">max_unambiguous</a>, <a class="el" href="track_8h_source.html#l00266">maxSize</a>, <a class="el" href="track_8h_source.html#l00257">trackFunctionDefined</a>, <a class="el" href="track_8h_source.html#l00252">trackIndex</a>, and <a class="el" href="stoch_types_8h_source.html#l00086">StochHMM::UNDEFINED</a>.</p>
 <div class="fragment"><div class="line">                {</div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#add44d406ff29bb0d147a977bbc1d3c70">alpha_type</a>=<a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53a66ac80bb8e51bb958e866afa1f8b6dfb">UNDEFINED</a>;</div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#abd141c962ef00d26cd1aa0dc5e816a92">trackIndex</a>=<a class="code" href="namespace_stoch_h_m_m.html#a8f9197e4dd6f06db75b1eb2039e28ce0">std::numeric_limits&lt;size_t&gt;::max</a>();</div>
@@ -281,7 +266,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00060">60</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00272">ambiguous</a>, <a class="el" href="track_8h_source.html#l00281">charIndices</a>, <a class="el" href="track_8h_source.html#l00258">complementSet</a>, <a class="el" href="track_8h_source.html#l00273">defaultAmbiguous</a>, <a class="el" href="statistics_8cpp_source.html#l00040">StochHMM::max()</a>, <a class="el" href="track_8h_source.html#l00269">max_ambiguous</a>, <a class="el" href="track_8h_source.html#l00268">max_unambiguous</a>, <a class="el" href="track_8h_source.html#l00266">maxSize</a>, <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>, <a class="el" href="track_8h_source.html#l00257">trackFunctionDefined</a>, and <a class="el" href="track_8h_source.html#l00252">trackIndex</a>.</p>
+<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="stoch_types_8h_source.html#l00086">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00272">ambiguous</a>, <a class="el" href="track_8h_source.html#l00281">charIndices</a>, <a class="el" href="track_8h_source.html#l00258">complementSet</a>, <a class="el" href="track_8h_source.html#l00273">defaultAmbiguous</a>, <a class="el" href="statistics_8cpp_source.html#l00040">StochHMM::max()</a>, <a class="el" href="track_8h_source.html#l00269">max_ambiguous</a>, <a class="el" href="track_8h_source.html#l00268">max_unambiguous</a>, <a class="el" href="track_8h_source.html#l00266">maxSize</a>, <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>, <a class="el" href="track_8h_source.html#l00257">trackFunctionDefined</a>, and <a class="el" href="track_8h_source.html#l00252">trackIndex</a>.</p>
 <div class="fragment"><div class="line">                                                    {</div>
 <div class="line">                </div>
 <div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#abd141c962ef00d26cd1aa0dc5e816a92">trackIndex</a>=<a class="code" href="namespace_stoch_h_m_m.html#a8f9197e4dd6f06db75b1eb2039e28ce0">std::numeric_limits&lt;size_t&gt;::max</a>();</div>
@@ -348,12 +333,12 @@ Friends</h2></td></tr>
 <div class="line">        <span class="keywordflow">while</span>(opening!=std::string::npos){</div>
 <div class="line">            std::pair&lt;std::string,std::vector&lt;std::string&gt; &gt; amb;</div>
 <div class="line">            amb.first=text.substr(start,opening-start);</div>
-<div class="line">                        <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(amb.first, <span class="stringliteral">&quot;\t &quot;</span>);</div>
+<div class="line">                        <a class="code" href="namespace_stoch_h_m_m.html#a2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(amb.first, <span class="stringliteral">&quot;\t &quot;</span>);</div>
 <div class="line">            </div>
 <div class="line">            closing=text.find_first_of(<span class="charliteral">&#39;]&#39;</span>,opening);</div>
 <div class="line">            <span class="keywordflow">if</span> (closing!=std::string::npos){</div>
 <div class="line">                std::string tempString=text.substr(opening+1,closing-opening-1);</div>
-<div class="line">                <a class="code" href="group___text.html#ga4cec2ea0c1f6cbeb092d15b9867443b0">split_line</a>(amb.second, tempString);</div>
+<div class="line">                <a class="code" href="namespace_stoch_h_m_m.html#a4cec2ea0c1f6cbeb092d15b9867443b0">split_line</a>(amb.second, tempString);</div>
 <div class="line">            }</div>
 <div class="line">            start=text.find_first_not_of(<span class="charliteral">&#39;,&#39;</span>,closing+1);</div>
 <div class="line">            results.push_back(amb);</div>
@@ -388,7 +373,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00109">109</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00263">alphabet</a>, <a class="el" href="track_8h_source.html#l00268">max_unambiguous</a>, <a class="el" href="track_8h_source.html#l00266">maxSize</a>, <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>, <a class="el" href="track_8h_source.html#l00279">symbolIndices</a>, and <a class="el" href="track_8h_source.html#l00270">unambiguous</a>.</p>
+<p>References <a class="el" href="stoch_types_8h_source.html#l00086">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00263">alphabet</a>, <a class="el" href="track_8h_source.html#l00268">max_unambiguous</a>, <a class="el" href="track_8h_source.html#l00266">maxSize</a>, <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>, <a class="el" href="track_8h_source.html#l00279">symbolIndices</a>, and <a class="el" href="track_8h_source.html#l00270">unambiguous</a>.</p>
 
 <p>Referenced by <a class="el" href="track_8cpp_source.html#l00132">addAlphabetChar()</a>, <a class="el" href="track_8cpp_source.html#l00310">parse()</a>, and <a class="el" href="track_8cpp_source.html#l00060">track()</a>.</p>
 <div class="fragment"><div class="line">                                                   {</div>
@@ -432,7 +417,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00132">132</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00266">maxSize</a>, and <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>.</p>
+<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="stoch_types_8h_source.html#l00086">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00266">maxSize</a>, and <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>.</p>
 <div class="fragment"><div class="line">                                                    {</div>
 <div class="line">        std::string string_character(character);</div>
 <div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a714d6094e545fe160bebb2b29bbbf333">setAlphaType</a>(<a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53adfe7ec039db35bf483fe6d9f5b17ff75">ALPHA_NUM</a>);</div>
@@ -460,7 +445,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00141">141</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::ALPHA_NUM</a>, and <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>.</p>
+<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="stoch_types_8h_source.html#l00086">StochHMM::ALPHA_NUM</a>, and <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>.</p>
 <div class="fragment"><div class="line">                                                                   {</div>
 <div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;characters.size();i++){</div>
 <div class="line">            <a class="code" href="class_stoch_h_m_m_1_1track.html#a14cb394c945f825584d63569a4de060a">addAlphabetChar</a>(characters[i]);</div>
@@ -535,7 +520,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00160">160</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="track_8cpp_source.html#l00203">addComplement()</a>, <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00258">complementSet</a>, and <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>.</p>
+<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="track_8cpp_source.html#l00203">addComplement()</a>, <a class="el" href="stoch_types_8h_source.html#l00086">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00258">complementSet</a>, and <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>.</p>
 <div class="fragment"><div class="line">                                                                              {</div>
 <div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a14cb394c945f825584d63569a4de060a">addAlphabetChar</a>(character);</div>
 <div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#afd8f10d605931c45a9f3c863674c46fd">addComplement</a>(character, complement);</div>
@@ -578,7 +563,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00168">168</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="track_8cpp_source.html#l00203">addComplement()</a>, <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00258">complementSet</a>, and <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>.</p>
+<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="track_8cpp_source.html#l00203">addComplement()</a>, <a class="el" href="stoch_types_8h_source.html#l00086">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00258">complementSet</a>, and <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>.</p>
 <div class="fragment"><div class="line">                                                                                                     {</div>
 <div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;chSize;i++){</div>
 <div class="line">            <a class="code" href="class_stoch_h_m_m_1_1track.html#a14cb394c945f825584d63569a4de060a">addAlphabetChar</a>(characters[i]);</div>
@@ -619,7 +604,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00183">183</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="track_8cpp_source.html#l00203">addComplement()</a>, <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00258">complementSet</a>, and <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>.</p>
+<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="track_8cpp_source.html#l00203">addComplement()</a>, <a class="el" href="stoch_types_8h_source.html#l00086">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00258">complementSet</a>, and <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>.</p>
 <div class="fragment"><div class="line">                                                                                                  {</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">if</span> (characters.size() != complements.size()){</div>
@@ -957,7 +942,7 @@ Friends</h2></td></tr>
 
 <p>References <a class="el" href="track_8h_source.html#l00263">alphabet</a>, <a class="el" href="track_8cpp_source.html#l00500">getAmbiguousCharacter()</a>, <a class="el" href="track_8h_source.html#l00269">max_ambiguous</a>, and <a class="el" href="track_8h_source.html#l00268">max_unambiguous</a>.</p>
 
-<p>Referenced by <a class="el" href="track_8cpp_source.html#l00635">getComplementSymbol()</a>, <a class="el" href="sequence_8cpp_source.html#l00772">StochHMM::sequence::getSymbol()</a>, <a class="el" href="sequence_8cpp_source.html#l00959">StochHMM::random_sequence()</a>, and <a class="el" href="sequence_8cpp_source.html#l00344">StochHMM::sequence::undigitize()</a>.</p>
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00635">getComplementSymbol()</a>, <a class="el" href="sequence_8cpp_source.html#l00823">StochHMM::sequence::getSymbol()</a>, <a class="el" href="sequence_8cpp_source.html#l01010">StochHMM::random_sequence()</a>, and <a class="el" href="sequence_8cpp_source.html#l00374">StochHMM::sequence::undigitize()</a>.</p>
 <div class="fragment"><div class="line">                                     {</div>
 <div class="line">                <span class="keywordflow">if</span> (iter&lt;=<a class="code" href="class_stoch_h_m_m_1_1track.html#a4b4f90d6b60362a9268a2be2c6ae3dbe">max_unambiguous</a>){</div>
 <div class="line">                        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a56fb05711fd43566c34086a85c4a732c">alphabet</a>[iter];</div>
@@ -1038,7 +1023,7 @@ Friends</h2></td></tr>
 
 <p>References <a class="el" href="track_8h_source.html#l00266">maxSize</a>.</p>
 
-<p>Referenced by <a class="el" href="sequence_8cpp_source.html#l00505">StochHMM::sequence::_digitize()</a>, <a class="el" href="sequence_8cpp_source.html#l00868">StochHMM::sequence::complement()</a>, <a class="el" href="sequence_8cpp_source.html#l00829">StochHMM::sequence::reverse()</a>, <a class="el" href="trellis_8cpp_source.html#l00315">StochHMM::trellis::transitionFuncTraceback()</a>, and <a class="el" href="sequence_8cpp_source.html#l00344">StochHMM::sequence::undigitize()</a>.</p>
+<p>Referenced by <a class="el" href="sequence_8cpp_source.html#l00546">StochHMM::sequence::_digitize()</a>, <a class="el" href="sequence_8cpp_source.html#l00919">StochHMM::sequence::complement()</a>, <a class="el" href="sequence_8cpp_source.html#l00880">StochHMM::sequence::reverse()</a>, <a class="el" href="trellis_8cpp_source.html#l00315">StochHMM::trellis::transitionFuncTraceback()</a>, and <a class="el" href="sequence_8cpp_source.html#l00374">StochHMM::sequence::undigitize()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a148c0253c8652982c6610eda9bca701e">maxSize</a>;};</div>
 </div><!-- fragment -->
 </div>
@@ -1070,7 +1055,7 @@ Friends</h2></td></tr>
 
 <p>References <a class="el" href="track_8h_source.html#l00263">alphabet</a>.</p>
 
-<p>Referenced by <a class="el" href="lexical_table_8cpp_source.html#l00158">StochHMM::lexicalTable::addTrack()</a>, <a class="el" href="_counter_8cpp_source.html#l00634">StochHMM::Counter::initializeTable()</a>, and <a class="el" href="sequence_8cpp_source.html#l00959">StochHMM::random_sequence()</a>.</p>
+<p>Referenced by <a class="el" href="lexical_table_8cpp_source.html#l00158">StochHMM::lexicalTable::addTrack()</a>, <a class="el" href="_counter_8cpp_source.html#l00634">StochHMM::Counter::initializeTable()</a>, and <a class="el" href="sequence_8cpp_source.html#l01010">StochHMM::random_sequence()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a56fb05711fd43566c34086a85c4a732c">alphabet</a>.size();};</div>
 </div><!-- fragment -->
 </div>
@@ -1235,7 +1220,7 @@ Friends</h2></td></tr>
 
 <p>References <a class="el" href="track_8h_source.html#l00264">complementAlphabet</a>, and <a class="el" href="track_8h_source.html#l00258">complementSet</a>.</p>
 
-<p>Referenced by <a class="el" href="sequence_8cpp_source.html#l00868">StochHMM::sequence::complement()</a>.</p>
+<p>Referenced by <a class="el" href="sequence_8cpp_source.html#l00919">StochHMM::sequence::complement()</a>.</p>
 <div class="fragment"><div class="line">                                                {</div>
 <div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#a48bd5803ccf8033dced6e33c62e3ec1c">complementSet</a>){</div>
 <div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#aa27682469cda508f94247f9034ca3a8a">complementAlphabet</a>.count(val)){</div>
@@ -1324,7 +1309,7 @@ Friends</h2></td></tr>
 
 <p>References <a class="el" href="track_8h_source.html#l00264">complementAlphabet</a>, <a class="el" href="track_8h_source.html#l00258">complementSet</a>, <a class="el" href="track_8cpp_source.html#l00079">getAlpha()</a>, <a class="el" href="track_8cpp_source.html#l00259">symbolIndex()</a>, and <a class="el" href="track_8h_source.html#l00279">symbolIndices</a>.</p>
 
-<p>Referenced by <a class="el" href="sequence_8cpp_source.html#l00868">StochHMM::sequence::complement()</a>.</p>
+<p>Referenced by <a class="el" href="sequence_8cpp_source.html#l00919">StochHMM::sequence::complement()</a>.</p>
 <div class="fragment"><div class="line">                                                            {</div>
 <div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#a48bd5803ccf8033dced6e33c62e3ec1c">complementSet</a>){</div>
 <div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#a3276396b543423baa2524a52bf71a342">symbolIndices</a>.count(character)){</div>
@@ -1695,7 +1680,7 @@ false if it is a REAL type </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00209">209</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
 
-<p>References <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::ALPHA_NUM</a>, and <a class="el" href="track_8h_source.html#l00254">alpha_type</a>.</p>
+<p>References <a class="el" href="stoch_types_8h_source.html#l00086">StochHMM::ALPHA_NUM</a>, and <a class="el" href="track_8h_source.html#l00254">alpha_type</a>.</p>
 
 <p>Referenced by <a class="el" href="trellis_8cpp_source.html#l00315">StochHMM::trellis::transitionFuncTraceback()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#add44d406ff29bb0d147a977bbc1d3c70">alpha_type</a> == <a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53adfe7ec039db35bf483fe6d9f5b17ff75">ALPHA_NUM</a>){<span class="keywordflow">return</span> <span class="keyword">true</span>;} <span class="keywordflow">else</span> {<span class="keywordflow">return</span> <span class="keyword">false</span>;}};</div>
@@ -1818,12 +1803,12 @@ false if not set </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00310">310</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::ALPHA_NUM</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="text_8cpp_source.html#l00743">StochHMM::extractTag()</a>, <a class="el" href="text_8cpp_source.html#l00241">StochHMM::stringList::fromNext()</a>, <a class="el" href="text_8h_source.html#l00121">StochHMM::stringList::getComment()</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::REAL</a>, <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>, <a class="el" href="track_8h_source.html#l00108">setDescription()</a>, <a class="el" href="track_8h_source.html#l00104">setName()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00402">StochHMM::stringList::stringify()</a>, <a class="el" href="track_8h_source.html#l00261">trackFunction</a>, <a class="el" href="track_8h_source.html#l00257">trackFunctionDefined</a>, and <a class="el" href="track_8h_source.html#l00260">trackToUse</a>.</p>
+<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="stoch_types_8h_source.html#l00086">StochHMM::ALPHA_NUM</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="text_8cpp_source.html#l00743">StochHMM::extractTag()</a>, <a class="el" href="text_8cpp_source.html#l00241">StochHMM::stringList::fromNext()</a>, <a class="el" href="text_8h_source.html#l00121">StochHMM::stringList::getComment()</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="stoch_types_8h_source.html#l00086">StochHMM::REAL</a>, <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>, <a class="el" href="track_8h_source.html#l00108">setDescription()</a>, <a class="el" href="track_8h_source.html#l00104">setName()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00402">StochHMM::stringList::stringify()</a>, <a class="el" href="track_8h_source.html#l00261">trackFunction</a>, <a class="el" href="track_8h_source.html#l00257">trackFunctionDefined</a>, and <a class="el" href="track_8h_source.html#l00260">trackToUse</a>.</p>
 
 <p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00760">StochHMM::PWM::_parseTrack()</a>, and <a class="el" href="hmm_8cpp_source.html#l00581">StochHMM::model::_parseTracks()</a>.</p>
 <div class="fragment"><div class="line">                                   {</div>
 <div class="line">        stringList lst;</div>
-<div class="line">        stringList tag = <a class="code" href="group___text.html#gabad7e59fdc834721ee71b12524c40002">extractTag</a>(txt);</div>
+<div class="line">        stringList tag = <a class="code" href="namespace_stoch_h_m_m.html#abad7e59fdc834721ee71b12524c40002">extractTag</a>(txt);</div>
 <div class="line">        <span class="keywordtype">size_t</span> index;</div>
 <div class="line">        </div>
 <div class="line">        lst.fromNext(txt);</div>
@@ -2151,7 +2136,7 @@ false if not set </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00360">360</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00254">alpha_type</a>, <a class="el" href="track_8h_source.html#l00263">alphabet</a>, <a class="el" href="text_8cpp_source.html#l00519">StochHMM::join()</a>, <a class="el" href="track_8h_source.html#l00250">name</a>, <a class="el" href="track_8h_source.html#l00261">trackFunction</a>, <a class="el" href="track_8h_source.html#l00257">trackFunctionDefined</a>, and <a class="el" href="track_8h_source.html#l00260">trackToUse</a>.</p>
+<p>References <a class="el" href="stoch_types_8h_source.html#l00086">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00254">alpha_type</a>, <a class="el" href="track_8h_source.html#l00263">alphabet</a>, <a class="el" href="text_8cpp_source.html#l00519">StochHMM::join()</a>, <a class="el" href="track_8h_source.html#l00250">name</a>, <a class="el" href="track_8h_source.html#l00261">trackFunction</a>, <a class="el" href="track_8h_source.html#l00257">trackFunctionDefined</a>, and <a class="el" href="track_8h_source.html#l00260">trackToUse</a>.</p>
 
 <p>Referenced by <a class="el" href="track_8h_source.html#l00229">print()</a>, and <a class="el" href="pwm_8cpp_source.html#l00308">StochHMM::PWM::stringify()</a>.</p>
 <div class="fragment"><div class="line">                              {</div>
@@ -2159,7 +2144,7 @@ false if not set </dd></dl>
 <div class="line">        output+=<a class="code" href="class_stoch_h_m_m_1_1track.html#a4039778fdb2b9a02487caaeb11d63e65">name</a> + <span class="stringliteral">&quot;:\t&quot;</span>;</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#add44d406ff29bb0d147a977bbc1d3c70">alpha_type</a> == <a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53adfe7ec039db35bf483fe6d9f5b17ff75">ALPHA_NUM</a>){</div>
-<div class="line">            output+=<a class="code" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">join</a>(<a class="code" href="class_stoch_h_m_m_1_1track.html#a56fb05711fd43566c34086a85c4a732c">alphabet</a>,<span class="charliteral">&#39;,&#39;</span>);</div>
+<div class="line">            output+=<a class="code" href="namespace_stoch_h_m_m.html#a3538626ea8a3ae77e33bda5d63206c23">join</a>(<a class="code" href="class_stoch_h_m_m_1_1track.html#a56fb05711fd43566c34086a85c4a732c">alphabet</a>,<span class="charliteral">&#39;,&#39;</span>);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
 <div class="line">            output+=<span class="stringliteral">&quot;REAL_NUMBER&quot;</span>;</div>
@@ -2239,7 +2224,7 @@ false if not set </dd></dl>
 
 <p>References <a class="el" href="track_8h_source.html#l00272">ambiguous</a>, <a class="el" href="track_8h_source.html#l00273">defaultAmbiguous</a>, and <a class="el" href="track_8h_source.html#l00279">symbolIndices</a>.</p>
 
-<p>Referenced by <a class="el" href="sequence_8cpp_source.html#l00505">StochHMM::sequence::_digitize()</a>, <a class="el" href="track_8cpp_source.html#l00203">addComplement()</a>, <a class="el" href="track_8cpp_source.html#l00036">StochHMM::ambigCharacter::ambigCharacter()</a>, <a class="el" href="track_8cpp_source.html#l00614">getComplementIndex()</a>, and <a class="el" href="track_8cpp_source.html#l00657">getComplementSymbol()</a>.</p>
+<p>Referenced by <a class="el" href="sequence_8cpp_source.html#l00546">StochHMM::sequence::_digitize()</a>, <a class="el" href="track_8cpp_source.html#l00203">addComplement()</a>, <a class="el" href="track_8cpp_source.html#l00036">StochHMM::ambigCharacter::ambigCharacter()</a>, <a class="el" href="track_8cpp_source.html#l00614">getComplementIndex()</a>, and <a class="el" href="track_8cpp_source.html#l00657">getComplementSymbol()</a>.</p>
 <div class="fragment"><div class="line">                                                     {</div>
 <div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#a3276396b543423baa2524a52bf71a342">symbolIndices</a>.count(symbol)==0){  <span class="comment">//If isn&#39;t found in the hash</span></div>
 <div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#ace296599903cdff94453c391eb10ba5c">ambiguous</a>){ <span class="comment">//Return default character if ambiguous is set</span></div>
@@ -2843,15 +2828,11 @@ false if not set </dd></dl>
 <li><a class="el" href="track_8cpp_source.html">track.cpp</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a></li>
-    <li class="footer">Generated on Wed Apr 24 2013 09:39:38 for StochHMM by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Wed Apr 24 2013 12:28:07 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.1
+</small></address>
 </body>
 </html>

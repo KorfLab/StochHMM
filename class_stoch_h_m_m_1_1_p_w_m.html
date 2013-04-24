@@ -7,12 +7,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -75,20 +69,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1_p_w_m.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -103,6 +83,11 @@ $(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1_p_w_m.html','');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">PWM</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -199,7 +184,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00032">32</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
 
-<p>References <a class="el" href="pwm_8h_source.html#l00115">bgWeight</a>, <a class="el" href="pwm_8h_source.html#l00097">currentThreshold</a>, <a class="el" href="pwm_8h_source.html#l00113">max_spacer</a>, <a class="el" href="pwm_8h_source.html#l00112">min_spacer</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::PROBABILITY</a>, <a class="el" href="pwm_8h_source.html#l00093">simple</a>, <a class="el" href="pwm_8h_source.html#l00096">simpleThreshold</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="pwm_8h_source.html#l00091">valType</a>.</p>
+<p>References <a class="el" href="pwm_8h_source.html#l00115">bgWeight</a>, <a class="el" href="pwm_8h_source.html#l00097">currentThreshold</a>, <a class="el" href="pwm_8h_source.html#l00113">max_spacer</a>, <a class="el" href="pwm_8h_source.html#l00112">min_spacer</a>, <a class="el" href="stoch_types_8h_source.html#l00109">StochHMM::PROBABILITY</a>, <a class="el" href="pwm_8h_source.html#l00093">simple</a>, <a class="el" href="pwm_8h_source.html#l00096">simpleThreshold</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="pwm_8h_source.html#l00091">valType</a>.</p>
 <div class="fragment"><div class="line">                {</div>
 <div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ab75c1736cdb748f5e5fef048702cc2b1">valType</a>=<a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a92649806455862fab71c5b2aa48bfc55">PROBABILITY</a>;</div>
 <div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a2a43b9c11dc54a5503599d457ea0b280">simple</a> = <span class="keyword">true</span>;</div>
@@ -350,7 +335,7 @@ Private Attributes</h2></td></tr>
 <div class="line">                        }</div>
 <div class="line">            <span class="keywordtype">size_t</span> nameLineEnding=pos[i].find_first_of(<span class="stringliteral">&quot;\n&quot;</span>,nameHeader);</div>
 <div class="line">            std::string name = pos[i].substr(nameHeader+5,nameLineEnding-(nameHeader+5));</div>
-<div class="line">            <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(name, <span class="stringliteral">&quot; \t\n&quot;</span>);</div>
+<div class="line">            <a class="code" href="namespace_stoch_h_m_m.html#a2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(name, <span class="stringliteral">&quot; \t\n&quot;</span>);</div>
 <div class="line">            <span class="keywordflow">if</span> (names.contains(name)){</div>
 <div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Position with name of: &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; is defined twice in the model\n&quot;</span>;</div>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -588,7 +573,7 @@ Private Attributes</h2></td></tr>
 <div class="line">                stringList spc;</div>
 <div class="line">                spc.splitString(lst[1],<span class="stringliteral">&quot;,&quot;</span>);</div>
 <div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;spc.size();i++){</div>
-<div class="line">                        <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(spc[i], <span class="stringliteral">&quot; \t\n&quot;</span>);</div>
+<div class="line">                        <a class="code" href="namespace_stoch_h_m_m.html#a2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(spc[i], <span class="stringliteral">&quot; \t\n&quot;</span>);</div>
 <div class="line">                        <span class="keywordtype">size_t</span> val = atoi(spc[i].c_str());</div>
 <div class="line">                        <span class="keywordflow">if</span> (val &gt; <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a4f266d4e9b2bdb425deb2936b0912791">max_spacer</a>){</div>
 <div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a4f266d4e9b2bdb425deb2936b0912791">max_spacer</a> = val;</div>
@@ -739,7 +724,7 @@ Private Attributes</h2></td></tr>
 <div class="line">            </div>
 <div class="line">            std::string st = txt.substr(start,end-start);</div>
 <div class="line">            </div>
-<div class="line">            <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(st, <span class="stringliteral">&quot;#&gt;&lt;&quot;</span>);</div>
+<div class="line">            <a class="code" href="namespace_stoch_h_m_m.html#a2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(st, <span class="stringliteral">&quot;#&gt;&lt;&quot;</span>);</div>
 <div class="line">            </div>
 <div class="line">                        sts.push_back(st);</div>
 <div class="line">                        </div>
@@ -918,7 +903,7 @@ Private Attributes</h2></td></tr>
 
 <p>Referenced by <a class="el" href="_motif_scorer_8cpp_source.html#l00021">main()</a>.</p>
 <div class="fragment"><div class="line">                                       {</div>
-<div class="line">                std::string modelString=<a class="code" href="group___text.html#gafad8e125317894c8056a5706c4590b9b">slurpFile</a>(file);</div>
+<div class="line">                std::string modelString=<a class="code" href="namespace_stoch_h_m_m.html#afad8e125317894c8056a5706c4590b9b">slurpFile</a>(file);</div>
 <div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a29df1c1c3f4ad1fe51a9f057a6577c63">parse</a>(modelString);</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
@@ -1230,7 +1215,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00407">407</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
 
-<p>References <a class="el" href="sequence_8h_source.html#l00168">StochHMM::sequence::getHeader()</a>, <a class="el" href="sequences_8cpp_source.html#l00174">StochHMM::sequences::getSeq()</a>, and <a class="el" href="sequences_8h_source.html#l00129">StochHMM::sequences::size()</a>.</p>
+<p>References <a class="el" href="sequence_8h_source.html#l00168">StochHMM::sequence::getHeader()</a>, <a class="el" href="sequences_8cpp_source.html#l00174">StochHMM::sequences::getSeq()</a>, and <a class="el" href="sequences_8h_source.html#l00130">StochHMM::sequences::size()</a>.</p>
 
 <p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00370">score()</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
@@ -1315,7 +1300,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00452">452</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
 
-<p>References <a class="el" href="sequence_8h_source.html#l00168">StochHMM::sequence::getHeader()</a>, <a class="el" href="sequences_8cpp_source.html#l00174">StochHMM::sequences::getSeq()</a>, and <a class="el" href="sequences_8h_source.html#l00129">StochHMM::sequences::size()</a>.</p>
+<p>References <a class="el" href="sequence_8h_source.html#l00168">StochHMM::sequence::getHeader()</a>, <a class="el" href="sequences_8cpp_source.html#l00174">StochHMM::sequences::getSeq()</a>, and <a class="el" href="sequences_8h_source.html#l00130">StochHMM::sequences::size()</a>.</p>
 
 <p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00370">score()</a>.</p>
 <div class="fragment"><div class="line">                                                 {</div>
@@ -1426,7 +1411,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00525">525</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
 
-<p>References <a class="el" href="sequence_8h_source.html#l00168">StochHMM::sequence::getHeader()</a>, <a class="el" href="sequences_8cpp_source.html#l00174">StochHMM::sequences::getSeq()</a>, and <a class="el" href="sequences_8h_source.html#l00129">StochHMM::sequences::size()</a>.</p>
+<p>References <a class="el" href="sequence_8h_source.html#l00168">StochHMM::sequence::getHeader()</a>, <a class="el" href="sequences_8cpp_source.html#l00174">StochHMM::sequences::getSeq()</a>, and <a class="el" href="sequences_8h_source.html#l00130">StochHMM::sequences::size()</a>.</p>
 
 <p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00370">score()</a>.</p>
 <div class="fragment"><div class="line">                                                    {</div>
@@ -1650,7 +1635,7 @@ Private Attributes</h2></td></tr>
 <div class="line">                <span class="keywordflow">if</span> ( <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ac8c49bb9fd863723e887cad868c05e96">simpleThreshold</a>!= -INFINITY){</div>
 <div class="line">                        pwm +=<span class="stringliteral">&quot;&lt;THRESHOLD DEFINITION&gt;\n&quot;</span>;</div>
 <div class="line">                        pwm += split;</div>
-<div class="line">                        pwm += <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ac8c49bb9fd863723e887cad868c05e96">simpleThreshold</a>);</div>
+<div class="line">                        pwm += <a class="code" href="namespace_stoch_h_m_m.html#a8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ac8c49bb9fd863723e887cad868c05e96">simpleThreshold</a>);</div>
 <div class="line">                        pwm += <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
 <div class="line">                }</div>
 <div class="line">                </div>
@@ -1670,7 +1655,7 @@ Private Attributes</h2></td></tr>
 <div class="line">                        pwm += <span class="stringliteral">&quot;&lt;SPACER DEFINITIONS&gt;\n&quot;</span>;</div>
 <div class="line">                        pwm += split;</div>
 <div class="line">                        pwm += <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a23673cb4df5c069e2e14d76e8d277dea">frontWeightName</a> + <span class="stringliteral">&quot;-SPACER-&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a9f3a6fc5da57e56a7019cfbd661c215b">backWeightName</a> + <span class="stringliteral">&quot;:&quot;</span>;</div>
-<div class="line">                        pwm += <a class="code" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">join</a>(<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a28c7c5d061e4a25975e0fd41753d64ee">undefSpacerSizes</a>, <span class="charliteral">&#39;,&#39;</span>);</div>
+<div class="line">                        pwm += <a class="code" href="namespace_stoch_h_m_m.html#a3538626ea8a3ae77e33bda5d63206c23">join</a>(<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a28c7c5d061e4a25975e0fd41753d64ee">undefSpacerSizes</a>, <span class="charliteral">&#39;,&#39;</span>);</div>
 <div class="line">                        pwm += <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
 <div class="line">                }</div>
 <div class="line">                </div>
@@ -2195,15 +2180,11 @@ Private Attributes</h2></td></tr>
 <li><a class="el" href="pwm_8cpp_source.html">pwm.cpp</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">PWM</a></li>
-    <li class="footer">Generated on Wed Apr 24 2013 09:39:37 for StochHMM by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Wed Apr 24 2013 12:28:05 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.1
+</small></address>
 </body>
 </html>

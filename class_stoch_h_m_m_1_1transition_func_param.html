@@ -7,12 +7,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -75,20 +69,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1transition_func_param.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -103,6 +83,11 @@ $(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1transition_func_p
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html">transitionFuncParam</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -505,7 +490,7 @@ false if a traceback is not required </dd></dl>
 
 <p>Definition at line <a class="el" href="external_funcs_8cpp_source.html#l00050">50</a> of file <a class="el" href="external_funcs_8cpp_source.html">externalFuncs.cpp</a>.</p>
 
-<p>References <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="weight_8h_source.html#l00168">StochHMM::weights::count()</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::DIFF_STATE</a>, <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::FULL</a>, <a class="el" href="track_8cpp_source.html#l00542">StochHMM::tracks::getTrack()</a>, <a class="el" href="user_functions_8cpp_source.html#l00141">StochHMM::StateFuncs::getTransitionFunction()</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="text_8cpp_source.html#l00808">StochHMM::isNumeric()</a>, <a class="el" href="weight_8h_source.html#l00103">StochHMM::weight::setAbsolute()</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::START_INIT</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_GFF</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_LABEL</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_NAME</a>, <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::STATEGFF</a>, <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::STATELABEL</a>, <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::STATENAME</a>, <a class="el" href="text_8cpp_source.html#l00636">StochHMM::stringToDouble()</a>, <a class="el" href="external_funcs_8h_source.html#l00114">trackName</a>, <a class="el" href="external_funcs_8h_source.html#l00113">transFunc</a>, <a class="el" href="external_funcs_8h_source.html#l00127">transFuncCombineIdentifier</a>, <a class="el" href="external_funcs_8h_source.html#l00128">transFuncCombineString</a>, <a class="el" href="external_funcs_8h_source.html#l00117">transFuncName</a>, <a class="el" href="external_funcs_8h_source.html#l00119">transFuncScaling</a>, <a class="el" href="external_funcs_8h_source.html#l00122">transFuncTraceback</a>, <a class="el" href="external_funcs_8h_source.html#l00124">transFuncTracebackIdentifier</a>, <a class="el" href="external_funcs_8h_source.html#l00125">transFuncTracebackString</a>, and <a class="el" href="external_funcs_8h_source.html#l00115">transFuncTrack</a>.</p>
+<p>References <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="weight_8h_source.html#l00168">StochHMM::weights::count()</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::DIFF_STATE</a>, <a class="el" href="stoch_types_8h_source.html#l00062">StochHMM::FULL</a>, <a class="el" href="track_8cpp_source.html#l00542">StochHMM::tracks::getTrack()</a>, <a class="el" href="user_functions_8cpp_source.html#l00141">StochHMM::StateFuncs::getTransitionFunction()</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="text_8cpp_source.html#l00808">StochHMM::isNumeric()</a>, <a class="el" href="weight_8h_source.html#l00103">StochHMM::weight::setAbsolute()</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::START_INIT</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::STATE_GFF</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::STATE_LABEL</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::STATE_NAME</a>, <a class="el" href="stoch_types_8h_source.html#l00062">StochHMM::STATEGFF</a>, <a class="el" href="stoch_types_8h_source.html#l00062">StochHMM::STATELABEL</a>, <a class="el" href="stoch_types_8h_source.html#l00062">StochHMM::STATENAME</a>, <a class="el" href="text_8cpp_source.html#l00636">StochHMM::stringToDouble()</a>, <a class="el" href="external_funcs_8h_source.html#l00114">trackName</a>, <a class="el" href="external_funcs_8h_source.html#l00113">transFunc</a>, <a class="el" href="external_funcs_8h_source.html#l00127">transFuncCombineIdentifier</a>, <a class="el" href="external_funcs_8h_source.html#l00128">transFuncCombineString</a>, <a class="el" href="external_funcs_8h_source.html#l00117">transFuncName</a>, <a class="el" href="external_funcs_8h_source.html#l00119">transFuncScaling</a>, <a class="el" href="external_funcs_8h_source.html#l00122">transFuncTraceback</a>, <a class="el" href="external_funcs_8h_source.html#l00124">transFuncTracebackIdentifier</a>, <a class="el" href="external_funcs_8h_source.html#l00125">transFuncTracebackString</a>, and <a class="el" href="external_funcs_8h_source.html#l00115">transFuncTrack</a>.</p>
 
 <p>Referenced by <a class="el" href="transitions_8cpp_source.html#l00121">StochHMM::transition::_processTags()</a>.</p>
 <div class="fragment"><div class="line">                                                                                                  {</div>
@@ -547,7 +532,7 @@ false if a traceback is not required </dd></dl>
 <div class="line">        <span class="keywordflow">if</span> (lst.contains(<span class="stringliteral">&quot;SCALE&quot;</span>)){</div>
 <div class="line">            idx=lst.indexOf(<span class="stringliteral">&quot;SCALE&quot;</span>);</div>
 <div class="line">            idx++;</div>
-<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="group___text.html#ga7297a0284778c0591fa5505d24ff491d">isNumeric</a>(lst[idx])){</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="namespace_stoch_h_m_m.html#a7297a0284778c0591fa5505d24ff491d">isNumeric</a>(lst[idx])){</div>
 <div class="line">                <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2d5bb60ee3299105d4ba8739ad4a3179" title="&lt; Name of the external function as used in the model">transFuncScaling</a> = <span class="keyword">new</span>(std::nothrow) weight;</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2d5bb60ee3299105d4ba8739ad4a3179" title="&lt; Name of the external function as used in the model">transFuncScaling</a>==NULL){</div>
@@ -556,7 +541,7 @@ false if a traceback is not required </dd></dl>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordtype">double</span> tempValue;</div>
-<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[idx], tempValue)){</div>
+<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[idx], tempValue)){</div>
 <div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Ambiguous Value couldn&#39;t be parsed: &quot;</span>&lt;&lt; lst[idx] &lt;&lt; std::endl;</div>
 <div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                }</div>
@@ -776,7 +761,7 @@ false if a traceback is not required </dd></dl>
 
 <p>Definition at line <a class="el" href="external_funcs_8cpp_source.html#l00170">170</a> of file <a class="el" href="external_funcs_8cpp_source.html">externalFuncs.cpp</a>.</p>
 
-<p>References <a class="el" href="text_8cpp_source.html#l00585">StochHMM::double_to_string()</a>, <a class="el" href="weight_8h_source.html#l00069">StochHMM::weight::getAbsolute()</a>, <a class="el" href="weight_8h_source.html#l00071">StochHMM::weight::getName()</a>, <a class="el" href="weight_8h_source.html#l00067">StochHMM::weight::isAbsolute()</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::START_INIT</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_GFF</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_LABEL</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_NAME</a>, <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::STATEGFF</a>, <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::STATELABEL</a>, <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::STATENAME</a>, <a class="el" href="external_funcs_8h_source.html#l00114">trackName</a>, <a class="el" href="external_funcs_8h_source.html#l00127">transFuncCombineIdentifier</a>, <a class="el" href="external_funcs_8h_source.html#l00128">transFuncCombineString</a>, <a class="el" href="external_funcs_8h_source.html#l00117">transFuncName</a>, <a class="el" href="external_funcs_8h_source.html#l00119">transFuncScaling</a>, <a class="el" href="external_funcs_8h_source.html#l00122">transFuncTraceback</a>, <a class="el" href="external_funcs_8h_source.html#l00124">transFuncTracebackIdentifier</a>, and <a class="el" href="external_funcs_8h_source.html#l00125">transFuncTracebackString</a>.</p>
+<p>References <a class="el" href="text_8cpp_source.html#l00585">StochHMM::double_to_string()</a>, <a class="el" href="weight_8h_source.html#l00069">StochHMM::weight::getAbsolute()</a>, <a class="el" href="weight_8h_source.html#l00071">StochHMM::weight::getName()</a>, <a class="el" href="weight_8h_source.html#l00067">StochHMM::weight::isAbsolute()</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::START_INIT</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::STATE_GFF</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::STATE_LABEL</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::STATE_NAME</a>, <a class="el" href="stoch_types_8h_source.html#l00062">StochHMM::STATEGFF</a>, <a class="el" href="stoch_types_8h_source.html#l00062">StochHMM::STATELABEL</a>, <a class="el" href="stoch_types_8h_source.html#l00062">StochHMM::STATENAME</a>, <a class="el" href="external_funcs_8h_source.html#l00114">trackName</a>, <a class="el" href="external_funcs_8h_source.html#l00127">transFuncCombineIdentifier</a>, <a class="el" href="external_funcs_8h_source.html#l00128">transFuncCombineString</a>, <a class="el" href="external_funcs_8h_source.html#l00117">transFuncName</a>, <a class="el" href="external_funcs_8h_source.html#l00119">transFuncScaling</a>, <a class="el" href="external_funcs_8h_source.html#l00122">transFuncTraceback</a>, <a class="el" href="external_funcs_8h_source.html#l00124">transFuncTracebackIdentifier</a>, and <a class="el" href="external_funcs_8h_source.html#l00125">transFuncTracebackString</a>.</p>
 
 <p>Referenced by <a class="el" href="external_funcs_8cpp_source.html#l00164">print()</a>, and <a class="el" href="transitions_8cpp_source.html#l00521">StochHMM::transition::stringify()</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
@@ -796,7 +781,7 @@ false if a traceback is not required </dd></dl>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2d5bb60ee3299105d4ba8739ad4a3179" title="&lt; Name of the external function as used in the model">transFuncScaling</a>!=NULL){</div>
 <div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2d5bb60ee3299105d4ba8739ad4a3179" title="&lt; Name of the external function as used in the model">transFuncScaling</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1weight.html#af43a303a0bbaffe23dd1246f904dd187">isAbsolute</a>()){</div>
-<div class="line">                exFuncString+=<span class="stringliteral">&quot;SCALE:\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2d5bb60ee3299105d4ba8739ad4a3179" title="&lt; Name of the external function as used in the model">transFuncScaling</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1weight.html#ae9b8dbb74bc2c83953c38a092effa84b">getAbsolute</a>());</div>
+<div class="line">                exFuncString+=<span class="stringliteral">&quot;SCALE:\t&quot;</span> + <a class="code" href="namespace_stoch_h_m_m.html#a8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2d5bb60ee3299105d4ba8739ad4a3179" title="&lt; Name of the external function as used in the model">transFuncScaling</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1weight.html#ae9b8dbb74bc2c83953c38a092effa84b">getAbsolute</a>());</div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span>{</div>
 <div class="line">                exFuncString+=<span class="stringliteral">&quot;SCALE:\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2d5bb60ee3299105d4ba8739ad4a3179" title="&lt; Name of the external function as used in the model">transFuncScaling</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1weight.html#aab7c55e675989d05a98c98505f8e50e9">getName</a>();</div>
@@ -1073,15 +1058,11 @@ false if a traceback is not required </dd></dl>
 <li><a class="el" href="external_funcs_8cpp_source.html">externalFuncs.cpp</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html">transitionFuncParam</a></li>
-    <li class="footer">Generated on Wed Apr 24 2013 09:39:37 for StochHMM by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Wed Apr 24 2013 12:28:04 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.1
+</small></address>
 </body>
 </html>

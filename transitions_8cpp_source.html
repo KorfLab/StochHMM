@@ -7,12 +7,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -74,19 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('transitions_8cpp.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -227,7 +208,7 @@ $(document).ready(function(){initNavTree('transitions_8cpp.html','');});
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="comment">//Tags may describe functions or weights to apply to the transition</span></div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="comment">//Can also describe how a traceback is to be done and processed</span></div>
 <div class="line"><a name="l00121"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1transition.html#a4d2c8c73105ff3f127fc8feeb6cff031">  121</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1transition.html#a4d2c8c73105ff3f127fc8feeb6cff031">transition::_processTags</a>(std::string&amp; txt, <a class="code" href="class_stoch_h_m_m_1_1tracks.html">tracks</a>&amp; trks, <a class="code" href="class_stoch_h_m_m_1_1weights.html">weights</a>* wts, <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html" title="(**Adding in log space)">StateFuncs</a>* funcs){</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a> lst = <a class="code" href="group___text.html#gabad7e59fdc834721ee71b12524c40002">extractTag</a>(txt);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a> lst = <a class="code" href="namespace_stoch_h_m_m.html#abad7e59fdc834721ee71b12524c40002">extractTag</a>(txt);</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        </div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">if</span> (lst.<a class="code" href="class_stoch_h_m_m_1_1string_list.html#aa66b0d5fa9a0bec45d6638be23408b71" title="Return the amount of strings in the stringList.">size</a>() == 0){</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -276,7 +257,7 @@ $(document).ready(function(){initNavTree('transitions_8cpp.html','');});
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">if</span>(valtyp==<a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a92649806455862fab71c5b2aa48bfc55">PROBABILITY</a>){</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            <span class="keywordtype">double</span> tempValue;</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            </div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[1], tempValue)){</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[1], tempValue)){</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;Probability value not numeric: &quot;</span> &lt;&lt; line[1] &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            }</div>
@@ -287,7 +268,7 @@ $(document).ready(function(){initNavTree('transitions_8cpp.html','');});
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            </div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            <span class="keywordtype">double</span> tempValue;</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[1], tempValue)){</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[1], tempValue)){</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;Log Probability value not numeric: &quot;</span> &lt;&lt; line[1] &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            }</div>
@@ -358,13 +339,13 @@ $(document).ready(function(){initNavTree('transitions_8cpp.html','');});
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            }</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            </div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;            <span class="keywordtype">size_t</span> index(0);</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(ln[0], index)){</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(ln[0], index)){</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;Distribution position value not numeric:\t&quot;</span> &lt;&lt; ln[0] &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            }</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;            </div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            <span class="keywordtype">double</span> value;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(ln[1], value)){</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(ln[1], value)){</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;Distribution position value not numeric:\t&quot;</span> &lt;&lt; ln[0] &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            }</div>
@@ -479,7 +460,7 @@ $(document).ready(function(){initNavTree('transitions_8cpp.html','');});
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;ambIdx;i++){</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                    </div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;                    <span class="keywordtype">int</span> tempInt;</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;                    <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(line[i], tempInt)){</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;                    <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(line[i], tempInt)){</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Lexical Transition Order is not numeric&quot;</span> &lt;&lt; line[i] &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                    }</div>
@@ -491,7 +472,7 @@ $(document).ready(function(){initNavTree('transitions_8cpp.html','');});
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;line.<a class="code" href="class_stoch_h_m_m_1_1string_list.html#aa66b0d5fa9a0bec45d6638be23408b71" title="Return the amount of strings in the stringList.">size</a>();i++){</div>
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;                    </div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;                    <span class="keywordtype">int</span> tempInt;</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;                    <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(line[i], tempInt)){</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;                    <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(line[i], tempInt)){</div>
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Lexical Transition Order is not numeric&quot;</span> &lt;&lt; line[i] &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;                    }</div>
@@ -528,7 +509,7 @@ $(document).ready(function(){initNavTree('transitions_8cpp.html','');});
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;                    ambIdx++;</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;                    </div>
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;                    <span class="keywordtype">double</span> tempValue;</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;                    <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[ambIdx], tempValue)){</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;                    <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[ambIdx], tempValue)){</div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Ambiguous Value couldn&#39;t be parsed: &quot;</span>&lt;&lt; line[ambIdx] &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;                    }</div>
@@ -540,7 +521,7 @@ $(document).ready(function(){initNavTree('transitions_8cpp.html','');});
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;                    ambIdx++;</div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;                    </div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;                    <span class="keywordtype">double</span> tempValue;</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;                    <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[ambIdx], tempValue)){</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;                    <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[ambIdx], tempValue)){</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Ambiguous Value couldn&#39;t be parsed: &quot;</span>&lt;&lt; line[ambIdx] &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;                    }</div>
@@ -629,7 +610,7 @@ $(document).ready(function(){initNavTree('transitions_8cpp.html','');});
 <div class="line"><a name="l00521"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1transition.html#a318b00aa1f690a81687a6d81a04edba5">  521</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="class_stoch_h_m_m_1_1transition.html#a318b00aa1f690a81687a6d81a04edba5">transition::stringify</a>(){</div>
 <div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        std::string transString;</div>
 <div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1transition.html#a3d22a0d5fdcfba3c4e2d4a19604a7e32">transition_type</a> == <a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0a73806aba512ce6a2f6ba00c5acb1bd5c">STANDARD</a>){</div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;            transString+=<span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1transition.html#af30cab5615a4af8c0e8d2d53841df78f">stateName</a> + <span class="stringliteral">&quot;:\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1transition.html#a02dae54a9b3a7068994c3c42e7183d13">log_trans</a>);</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;            transString+=<span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1transition.html#af30cab5615a4af8c0e8d2d53841df78f">stateName</a> + <span class="stringliteral">&quot;:\t&quot;</span> + <a class="code" href="namespace_stoch_h_m_m.html#a8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1transition.html#a02dae54a9b3a7068994c3c42e7183d13">log_trans</a>);</div>
 <div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1transition.html#a81ceac576dbb50088263a9cfeac74f80">func</a>!=NULL){</div>
 <div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;                transString+=<span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1transition.html#a81ceac576dbb50088263a9cfeac74f80">func</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#ae6123ce62a2a1a9742599b26c4e26d03" title="prints the string representation of the externFuncs to stdout">stringify</a>();</div>
 <div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;            }</div>
@@ -645,7 +626,7 @@ $(document).ready(function(){initNavTree('transitions_8cpp.html','');});
 <div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;            </div>
 <div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;            transString+=<span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1transition.html#ad26d6d48172b34532ef1cdea1bfbbd4e">distribution</a>-&gt;size();i++){</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;                transString+= <span class="stringliteral">&quot;\t\t&quot;</span> + <a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>((<span class="keywordtype">int</span>) i+1) + <span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>((*<a class="code" href="class_stoch_h_m_m_1_1transition.html#ad26d6d48172b34532ef1cdea1bfbbd4e">distribution</a>)[i]) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;                transString+= <span class="stringliteral">&quot;\t\t&quot;</span> + <a class="code" href="namespace_stoch_h_m_m.html#a85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>((<span class="keywordtype">int</span>) i+1) + <span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="namespace_stoch_h_m_m.html#a8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>((*<a class="code" href="class_stoch_h_m_m_1_1transition.html#ad26d6d48172b34532ef1cdea1bfbbd4e">distribution</a>)[i]) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;            }</div>
 <div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;        }</div>
 <div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1transition.html#a3d22a0d5fdcfba3c4e2d4a19604a7e32">transition_type</a> == <a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0a039965fb2f21a114426ab5c90f15901b">LEXICAL</a>){</div>
@@ -677,7 +658,7 @@ $(document).ready(function(){initNavTree('transitions_8cpp.html','');});
 <div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;                    <span class="keywordflow">if</span> (i&gt;0){</div>
 <div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;                        transString+=<span class="stringliteral">&quot;,&quot;</span>;</div>
 <div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;                    }</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;                    transString+=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1transition.html#a71ea8d8ea0d76cf5dc9697a318d3bf9c">scoreTable</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a1516c1242e82b229a2449c6710735606">getOrder</a>(i));</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;                    transString+=<a class="code" href="namespace_stoch_h_m_m.html#a85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1transition.html#a71ea8d8ea0d76cf5dc9697a318d3bf9c">scoreTable</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a1516c1242e82b229a2449c6710735606">getOrder</a>(i));</div>
 <div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;                }</div>
 <div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;                </div>
 <div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;                <a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521">unknownCharScoringType</a> ambtemp = <a class="code" href="class_stoch_h_m_m_1_1transition.html#a71ea8d8ea0d76cf5dc9697a318d3bf9c">scoreTable</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#afe9965aabd17b40722cf1f8e37596e7f">getAmbScoringType</a>();</div>
@@ -686,7 +667,7 @@ $(document).ready(function(){initNavTree('transitions_8cpp.html','');});
 <div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;                    transString+=<span class="stringliteral">&quot;\tAMBIGUOUS:\t&quot;</span>;</div>
 <div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;                    transString+=(ambtemp==<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521ac1432e7fb78a7ea096065f651778a133">HIGHEST_SCORE</a>)? <span class="stringliteral">&quot;MAX&quot;</span>:</div>
 <div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;                    (ambtemp==<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521ab07c716086c27e41abbe81f59037b176">LOWEST_SCORE</a>)? <span class="stringliteral">&quot;MIN&quot;</span>:</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;                    (ambtemp==<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521aed328d88513ecbefe1e3cffe947d50e6">AVERAGE_SCORE</a>)? <span class="stringliteral">&quot;AVG&quot;</span>: <span class="stringliteral">&quot;LOG:&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1transition.html#a71ea8d8ea0d76cf5dc9697a318d3bf9c">scoreTable</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a01f25a847e141233fe54564365579c1c">getAmbDefinedScore</a>());</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;                    (ambtemp==<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521aed328d88513ecbefe1e3cffe947d50e6">AVERAGE_SCORE</a>)? <span class="stringliteral">&quot;AVG&quot;</span>: <span class="stringliteral">&quot;LOG:&quot;</span> + <a class="code" href="namespace_stoch_h_m_m.html#a8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1transition.html#a71ea8d8ea0d76cf5dc9697a318d3bf9c">scoreTable</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a01f25a847e141233fe54564365579c1c">getAmbDefinedScore</a>());</div>
 <div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;                }</div>
 <div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;                </div>
 <div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;                transString+=<span class="stringliteral">&quot;\n&quot;</span>;</div>
@@ -738,15 +719,11 @@ $(document).ready(function(){initNavTree('transitions_8cpp.html','');});
 <div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;    </div>
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="transitions_8cpp.html">transitions.cpp</a></li>
-    <li class="footer">Generated on Wed Apr 24 2013 09:39:35 for StochHMM by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Wed Apr 24 2013 12:28:01 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.1
+</small></address>
 </body>
 </html>

@@ -7,12 +7,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -74,19 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('sequences_8cpp.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -295,7 +276,7 @@ $(document).ready(function(){initNavTree('sequences_8cpp.html','');});
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            </div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            </div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[i]==NULL){</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                tmp+= <span class="stringliteral">&quot;&gt;TRACK: &quot;</span> + <a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(i) + <span class="stringliteral">&quot;:\t&quot;</span> ;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                tmp+= <span class="stringliteral">&quot;&gt;TRACK: &quot;</span> + <a class="code" href="namespace_stoch_h_m_m.html#a85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(i) + <span class="stringliteral">&quot;:\t&quot;</span> ;</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                tmp+= <span class="stringliteral">&quot;&lt;&lt;EMPTY&gt;&gt;\n&quot;</span> ;</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            }</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            <span class="keywordflow">else</span>{</div>
@@ -313,7 +294,7 @@ $(document).ready(function(){initNavTree('sequences_8cpp.html','');});
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        std::string output;</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a133eefa4ac161b421f820fef7c81ff07">size</a>();i++){</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[i]==NULL){</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                output+= <span class="stringliteral">&quot;&gt;TRACK: &quot;</span> + <a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(i) + <span class="stringliteral">&quot;:\t&quot;</span> ;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                output+= <span class="stringliteral">&quot;&gt;TRACK: &quot;</span> + <a class="code" href="namespace_stoch_h_m_m.html#a85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(i) + <span class="stringliteral">&quot;:\t&quot;</span> ;</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                output+= <span class="stringliteral">&quot;&lt;&lt;EMPTY&gt;&gt;\n&quot;</span> ;</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            }</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            <span class="keywordflow">else</span>{</div>
@@ -478,15 +459,11 @@ $(document).ready(function(){initNavTree('sequences_8cpp.html','');});
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        </div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="sequences_8cpp.html">sequences.cpp</a></li>
-    <li class="footer">Generated on Wed Apr 24 2013 09:39:34 for StochHMM by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Wed Apr 24 2013 12:28:00 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.1
+</small></address>
 </body>
 </html>

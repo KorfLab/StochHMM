@@ -7,12 +7,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -75,20 +69,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1model.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -103,6 +83,11 @@ $(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1model.html','');}
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1model.html">model</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -281,11 +266,11 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a5d9d5d5903a535ccfb4f9227fb2d8625"><td class="mdescLeft">&#160;</td><td class="mdescRight">States that have functions associated with transitions.  <a href="#a5d9d5d5903a535ccfb4f9227fb2d8625"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Hidden Markov Model Class the States, and model information together in a single unit. This includes the states(emissions, transitions), initial and ending states, track information(alphabet and ambiguous character definitions).</p>
+<div class="textblock"><p>Hidden Markov Model Class model class combines the States, and model information together in a single unit. This includes the states(emissions, transitions), initial and ending states, track information(alphabet and ambiguous character definitions).</p>
 <p>Provides functions to import the model from a text file</p>
 <p>Model is used by trellis class to evaluates sequences. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00067">67</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00069">69</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ae8e912b13115d65c1e54a77654795adc"></a>
 <div class="memitem">
@@ -304,7 +289,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l00156">156</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00382">attribTwo</a>, <a class="el" href="hmm_8h_source.html#l00374">basicModel</a>, <a class="el" href="hmm_8h_source.html#l00403">complex_emission_states</a>, <a class="el" href="hmm_8h_source.html#l00402">complex_transition_states</a>, <a class="el" href="hmm_8h_source.html#l00393">ending</a>, <a class="el" href="hmm_8h_source.html#l00400">explicit_duration_states</a>, <a class="el" href="hmm_8h_source.html#l00369">finalized</a>, <a class="el" href="hmm_8h_source.html#l00392">initial</a>, <a class="el" href="hmm_8h_source.html#l00381">range</a>, <a class="el" href="hmm_8h_source.html#l00395">scaling</a>, and <a class="el" href="hmm_8h_source.html#l00398">templatedStates</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00384">attribTwo</a>, <a class="el" href="hmm_8h_source.html#l00376">basicModel</a>, <a class="el" href="hmm_8h_source.html#l00405">complex_emission_states</a>, <a class="el" href="hmm_8h_source.html#l00404">complex_transition_states</a>, <a class="el" href="hmm_8h_source.html#l00395">ending</a>, <a class="el" href="hmm_8h_source.html#l00402">explicit_duration_states</a>, <a class="el" href="hmm_8h_source.html#l00371">finalized</a>, <a class="el" href="hmm_8h_source.html#l00394">initial</a>, <a class="el" href="hmm_8h_source.html#l00383">range</a>, <a class="el" href="hmm_8h_source.html#l00397">scaling</a>, and <a class="el" href="hmm_8h_source.html#l00400">templatedStates</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l01055">stringify()</a>.</p>
 <div class="fragment"><div class="line">                {</div>
@@ -361,7 +346,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l01021">1021</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="state_8h_source.html#l00147">StochHMM::state::addFromState()</a>, <a class="el" href="state_8h_source.html#l00144">StochHMM::state::addToState()</a>, <a class="el" href="state_8h_source.html#l00170">StochHMM::state::endi</a>, <a class="el" href="hmm_8h_source.html#l00393">ending</a>, <a class="el" href="hmm_8h_source.html#l00080">getName()</a>, <a class="el" href="hmm_8h_source.html#l00136">getState()</a>, <a class="el" href="state_8h_source.html#l00082">StochHMM::state::getTransitions()</a>, and <a class="el" href="hmm_8h_source.html#l00392">initial</a>.</p>
+<p>References <a class="el" href="state_8h_source.html#l00147">StochHMM::state::addFromState()</a>, <a class="el" href="state_8h_source.html#l00144">StochHMM::state::addToState()</a>, <a class="el" href="state_8h_source.html#l00170">StochHMM::state::endi</a>, <a class="el" href="hmm_8h_source.html#l00395">ending</a>, <a class="el" href="hmm_8h_source.html#l00082">getName()</a>, <a class="el" href="hmm_8h_source.html#l00138">getState()</a>, <a class="el" href="state_8h_source.html#l00082">StochHMM::state::getTransitions()</a>, and <a class="el" href="hmm_8h_source.html#l00394">initial</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00884">finalize()</a>.</p>
 <div class="fragment"><div class="line">                                                  {</div>
@@ -476,7 +461,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l00850">850</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="text_8cpp_source.html#l00435">StochHMM::clear_whitespace()</a>, <a class="el" href="text_8cpp_source.html#l00060">StochHMM::stringList::containsExact()</a>, <a class="el" href="hmm_8h_source.html#l00376">name</a>, <a class="el" href="text_8h_source.html#l00107">StochHMM::stringList::push_back()</a>, and <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>.</p>
+<p>References <a class="el" href="text_8cpp_source.html#l00435">StochHMM::clear_whitespace()</a>, <a class="el" href="text_8cpp_source.html#l00060">StochHMM::stringList::containsExact()</a>, <a class="el" href="hmm_8h_source.html#l00378">name</a>, <a class="el" href="text_8h_source.html#l00107">StochHMM::stringList::push_back()</a>, and <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00688">_parseStates()</a>.</p>
 <div class="fragment"><div class="line">                                                                          {</div>
@@ -484,7 +469,7 @@ Private Attributes</h2></td></tr>
 <div class="line">            <span class="keywordtype">size_t</span> nameHeader=<a class="code" href="class_stoch_h_m_m_1_1model.html#aa2943145501ab216acbafdc2c0213b3f" title="Tracks defined by model (Contains alphabet and ambiguous character definitions.">states</a>[i].find(<span class="stringliteral">&quot;NAME:&quot;</span>);</div>
 <div class="line">            <span class="keywordtype">size_t</span> nameLineEnding=<a class="code" href="class_stoch_h_m_m_1_1model.html#aa2943145501ab216acbafdc2c0213b3f" title="Tracks defined by model (Contains alphabet and ambiguous character definitions.">states</a>[i].find_first_of(<span class="stringliteral">&quot;\n&quot;</span>,nameHeader);</div>
 <div class="line">            std::string <a class="code" href="class_stoch_h_m_m_1_1model.html#ad58cd8d2406d1825f020a66c3464cff8">name</a> = <a class="code" href="class_stoch_h_m_m_1_1model.html#aa2943145501ab216acbafdc2c0213b3f" title="Tracks defined by model (Contains alphabet and ambiguous character definitions.">states</a>[i].substr(nameHeader+5,nameLineEnding-(nameHeader+5));</div>
-<div class="line">            <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(name, <span class="stringliteral">&quot; \t\n&quot;</span>);</div>
+<div class="line">            <a class="code" href="namespace_stoch_h_m_m.html#a2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(name, <span class="stringliteral">&quot; \t\n&quot;</span>);</div>
 <div class="line">                        <span class="keywordflow">if</span> (names.containsExact(name)){</div>
 <div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;State with name of: &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; is defined twice in the model\n&quot;</span>;</div>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -524,7 +509,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l00611">611</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00215">getTrack()</a>, <a class="el" href="hmm_8h_source.html#l00389">info</a>, <a class="el" href="track_8cpp_source.html#l00456">StochHMM::track::parseAmbiguous()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, and <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00217">getTrack()</a>, <a class="el" href="hmm_8h_source.html#l00391">info</a>, <a class="el" href="track_8cpp_source.html#l00456">StochHMM::track::parseAmbiguous()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, and <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00235">parse()</a>.</p>
 <div class="fragment"><div class="line">                                             {</div>
@@ -579,7 +564,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l00441">441</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00382">attribTwo</a>, <a class="el" href="hmm_8h_source.html#l00380">author</a>, <a class="el" href="hmm_8h_source.html#l00379">command</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="hmm_8h_source.html#l00378">date</a>, <a class="el" href="hmm_8h_source.html#l00377">desc</a>, <a class="el" href="text_8cpp_source.html#l00195">StochHMM::stringList::fromTxt()</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="hmm_8h_source.html#l00376">name</a>, <a class="el" href="hmm_8h_source.html#l00381">range</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, and <a class="el" href="text_8cpp_source.html#l00636">StochHMM::stringToDouble()</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00384">attribTwo</a>, <a class="el" href="hmm_8h_source.html#l00382">author</a>, <a class="el" href="hmm_8h_source.html#l00381">command</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="hmm_8h_source.html#l00380">date</a>, <a class="el" href="hmm_8h_source.html#l00379">desc</a>, <a class="el" href="text_8cpp_source.html#l00195">StochHMM::stringList::fromTxt()</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="hmm_8h_source.html#l00378">name</a>, <a class="el" href="hmm_8h_source.html#l00383">range</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, and <a class="el" href="text_8cpp_source.html#l00636">StochHMM::stringToDouble()</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00235">parse()</a>.</p>
 <div class="fragment"><div class="line">                                          {</div>
@@ -620,7 +605,7 @@ Private Attributes</h2></td></tr>
 <div class="line">                </div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordtype">double</span> tempValue;</div>
-<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[index], tempValue)){</div>
+<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[index], tempValue)){</div>
 <div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Numerical attribute couldn&#39;t be converted to numerical value: &quot;</span> &lt;&lt; lst[index] &lt;&lt; std::endl;</div>
 <div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                }</div>
@@ -639,7 +624,7 @@ Private Attributes</h2></td></tr>
 <div class="line">                index++;</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordtype">double</span> tempValue;</div>
-<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[index], tempValue)){</div>
+<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[index], tempValue)){</div>
 <div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Numerical attribute couldn&#39;t be converted to numerical value: &quot;</span> &lt;&lt; lst[index] &lt;&lt; std::endl;</div>
 <div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                }</div>
@@ -659,7 +644,7 @@ Private Attributes</h2></td></tr>
 <div class="line">                </div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordtype">double</span> tempValue;</div>
-<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[index], tempValue)){</div>
+<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[index], tempValue)){</div>
 <div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Numerical attribute couldn&#39;t be converted to numerical value: &quot;</span> &lt;&lt; lst[index] &lt;&lt; std::endl;</div>
 <div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                }</div>
@@ -686,7 +671,7 @@ Private Attributes</h2></td></tr>
 <div class="line">                index++;</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordtype">double</span> tempValue;</div>
-<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[index], tempValue)){</div>
+<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[index], tempValue)){</div>
 <div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Numerical attribute couldn&#39;t be converted to numerical value: &quot;</span> &lt;&lt; lst[index] &lt;&lt; std::endl;</div>
 <div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                }</div>
@@ -706,7 +691,7 @@ Private Attributes</h2></td></tr>
 <div class="line">                index++;</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordtype">double</span> tempValue;</div>
-<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[index], tempValue)){</div>
+<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[index], tempValue)){</div>
 <div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Numerical attribute couldn&#39;t be converted to numerical value: &quot;</span> &lt;&lt; lst[index] &lt;&lt; std::endl;</div>
 <div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                }</div>
@@ -749,7 +734,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l00636">636</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="weight_8cpp_source.html#l00418">StochHMM::weights::addWeight()</a>, <a class="el" href="weight_8cpp_source.html#l00201">StochHMM::weight::parse()</a>, <a class="el" href="hmm_8h_source.html#l00395">scaling</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, and <a class="el" href="text_8cpp_source.html#l00163">StochHMM::stringList::splitND()</a>.</p>
+<p>References <a class="el" href="weight_8cpp_source.html#l00418">StochHMM::weights::addWeight()</a>, <a class="el" href="weight_8cpp_source.html#l00201">StochHMM::weight::parse()</a>, <a class="el" href="hmm_8h_source.html#l00397">scaling</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, and <a class="el" href="text_8cpp_source.html#l00163">StochHMM::stringList::splitND()</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00235">parse()</a>.</p>
 <div class="fragment"><div class="line">                                           {</div>
@@ -823,7 +808,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l00688">688</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="hmm_8cpp_source.html#l00850">_getOrderedStateNames()</a>, <a class="el" href="hmm_8cpp_source.html#l00743">_splitStates()</a>, <a class="el" href="hmm_8cpp_source.html#l00884">finalize()</a>, <a class="el" href="state_8h_source.html#l00070">StochHMM::state::getName()</a>, <a class="el" href="hmm_8h_source.html#l00392">initial</a>, <a class="el" href="state_8cpp_source.html#l00073">StochHMM::state::parse()</a>, <a class="el" href="hmm_8h_source.html#l00395">scaling</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="hmm_8h_source.html#l00388">stateByName</a>, <a class="el" href="hmm_8h_source.html#l00386">states</a>, and <a class="el" href="hmm_8h_source.html#l00384">trcks</a>.</p>
+<p>References <a class="el" href="hmm_8cpp_source.html#l00850">_getOrderedStateNames()</a>, <a class="el" href="hmm_8cpp_source.html#l00743">_splitStates()</a>, <a class="el" href="hmm_8cpp_source.html#l00884">finalize()</a>, <a class="el" href="state_8h_source.html#l00070">StochHMM::state::getName()</a>, <a class="el" href="hmm_8h_source.html#l00394">initial</a>, <a class="el" href="state_8cpp_source.html#l00073">StochHMM::state::parse()</a>, <a class="el" href="hmm_8h_source.html#l00397">scaling</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="hmm_8h_source.html#l00390">stateByName</a>, <a class="el" href="hmm_8h_source.html#l00388">states</a>, and <a class="el" href="hmm_8h_source.html#l00386">trcks</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00235">parse()</a>.</p>
 <div class="fragment"><div class="line">                                                             {</div>
@@ -898,7 +883,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l00670">670</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="model_template_8cpp_source.html#l00110">StochHMM::templates::parse()</a>, and <a class="el" href="hmm_8h_source.html#l00398">templatedStates</a>.</p>
+<p>References <a class="el" href="model_template_8cpp_source.html#l00110">StochHMM::templates::parse()</a>, and <a class="el" href="hmm_8h_source.html#l00400">templatedStates</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00235">parse()</a>.</p>
 <div class="fragment"><div class="line">                                             {</div>
@@ -947,7 +932,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l00581">581</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00389">info</a>, <a class="el" href="track_8cpp_source.html#l00310">StochHMM::track::parse()</a>, <a class="el" href="track_8cpp_source.html#l00511">StochHMM::tracks::push_back()</a>, <a class="el" href="track_8h_source.html#l00112">StochHMM::track::setIndex()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="track_8h_source.html#l00295">StochHMM::tracks::size()</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, and <a class="el" href="hmm_8h_source.html#l00384">trcks</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00391">info</a>, <a class="el" href="track_8cpp_source.html#l00310">StochHMM::track::parse()</a>, <a class="el" href="track_8cpp_source.html#l00511">StochHMM::tracks::push_back()</a>, <a class="el" href="track_8h_source.html#l00112">StochHMM::track::setIndex()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="track_8h_source.html#l00295">StochHMM::tracks::size()</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, and <a class="el" href="hmm_8h_source.html#l00386">trcks</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00235">parse()</a>.</p>
 <div class="fragment"><div class="line">                                          {</div>
@@ -1018,7 +1003,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l00778">778</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="hmm_8cpp_source.html#l00743">_splitStates()</a>, <a class="el" href="text_8cpp_source.html#l00435">StochHMM::clear_whitespace()</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="text_8cpp_source.html#l00467">StochHMM::getKeyValue()</a>, <a class="el" href="model_template_8cpp_source.html#l00155">StochHMM::templates::getTemplate()</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="text_8cpp_source.html#l00392">StochHMM::stringList::print()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, <a class="el" href="text_8cpp_source.html#l00402">StochHMM::stringList::stringify()</a>, and <a class="el" href="hmm_8h_source.html#l00398">templatedStates</a>.</p>
+<p>References <a class="el" href="hmm_8cpp_source.html#l00743">_splitStates()</a>, <a class="el" href="text_8cpp_source.html#l00435">StochHMM::clear_whitespace()</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="text_8cpp_source.html#l00467">StochHMM::getKeyValue()</a>, <a class="el" href="model_template_8cpp_source.html#l00155">StochHMM::templates::getTemplate()</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="text_8cpp_source.html#l00392">StochHMM::stringList::print()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, <a class="el" href="text_8cpp_source.html#l00402">StochHMM::stringList::stringify()</a>, and <a class="el" href="hmm_8h_source.html#l00400">templatedStates</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00743">_splitStates()</a>.</p>
 <div class="fragment"><div class="line">                                                                    {</div>
@@ -1035,7 +1020,7 @@ Private Attributes</h2></td></tr>
 <div class="line">        lst.splitString(txt,<span class="stringliteral">&quot;\n&quot;</span>);</div>
 <div class="line">        </div>
 <div class="line">        <span class="comment">//Process Template Name and Identifier</span></div>
-<div class="line">        <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(lst[0], <span class="stringliteral">&quot; \n&quot;</span>);</div>
+<div class="line">        <a class="code" href="namespace_stoch_h_m_m.html#a2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(lst[0], <span class="stringliteral">&quot; \n&quot;</span>);</div>
 <div class="line">        stringList nmid;</div>
 <div class="line">        nmid.splitString(lst[0],<span class="stringliteral">&quot;:\t&quot;</span>);</div>
 <div class="line">        nmid.print();</div>
@@ -1067,7 +1052,7 @@ Private Attributes</h2></td></tr>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;lst.size();i++){</div>
 <div class="line">            std::string key;</div>
 <div class="line">            std::string value;</div>
-<div class="line">            <a class="code" href="group___text.html#ga423cf7d1707638ac6c526bb10e7cc599">getKeyValue</a>(lst[i],key,value);</div>
+<div class="line">            <a class="code" href="namespace_stoch_h_m_m.html#a423cf7d1707638ac6c526bb10e7cc599">getKeyValue</a>(lst[i],key,value);</div>
 <div class="line">            <span class="keywordflow">if</span> (key.empty()){</div>
 <div class="line">                parameters[lastTag]+=<span class="stringliteral">&quot;\n&quot;</span> + value;</div>
 <div class="line">            }</div>
@@ -1144,7 +1129,7 @@ Private Attributes</h2></td></tr>
 <div class="line">            </div>
 <div class="line">            std::string st = txt.substr(start,end-start);</div>
 <div class="line">            </div>
-<div class="line">            <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(st, <span class="stringliteral">&quot;#&quot;</span>);</div>
+<div class="line">            <a class="code" href="namespace_stoch_h_m_m.html#a2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(st, <span class="stringliteral">&quot;#&quot;</span>);</div>
 <div class="line">            </div>
 <div class="line">            <span class="keywordflow">if</span> (st.find(<span class="stringliteral">&quot;TEMPLATE:&quot;</span>)!=std::string::npos){</div>
 <div class="line">                </div>
@@ -1221,7 +1206,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l01067">1067</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00382">attribTwo</a>, <a class="el" href="hmm_8h_source.html#l00380">author</a>, <a class="el" href="hmm_8h_source.html#l00379">command</a>, <a class="el" href="hmm_8h_source.html#l00378">date</a>, <a class="el" href="hmm_8h_source.html#l00377">desc</a>, <a class="el" href="text_8cpp_source.html#l00585">StochHMM::double_to_string()</a>, <a class="el" href="hmm_8h_source.html#l00376">name</a>, and <a class="el" href="hmm_8h_source.html#l00381">range</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00384">attribTwo</a>, <a class="el" href="hmm_8h_source.html#l00382">author</a>, <a class="el" href="hmm_8h_source.html#l00381">command</a>, <a class="el" href="hmm_8h_source.html#l00380">date</a>, <a class="el" href="hmm_8h_source.html#l00379">desc</a>, <a class="el" href="text_8cpp_source.html#l00585">StochHMM::double_to_string()</a>, <a class="el" href="hmm_8h_source.html#l00378">name</a>, and <a class="el" href="hmm_8h_source.html#l00383">range</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l01055">stringify()</a>.</p>
 <div class="fragment"><div class="line">                                     {</div>
@@ -1239,8 +1224,8 @@ Private Attributes</h2></td></tr>
 <div class="line">        </div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1model.html#a0053c5675a3d7aff499dee58b85719af" title="Model Attrib Values.">attribTwo</a>){</div>
-<div class="line">            headerString+= headers[7] + <span class="stringliteral">&quot;:\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html#ae87208a72eb3db85e94bec35cb21c817" title="Model Author.">range</a>[1]) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line">            headerString+= headers[8] + <span class="stringliteral">&quot;:\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html#ae87208a72eb3db85e94bec35cb21c817" title="Model Author.">range</a>[0]) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">            headerString+= headers[7] + <span class="stringliteral">&quot;:\t&quot;</span> + <a class="code" href="namespace_stoch_h_m_m.html#a8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html#ae87208a72eb3db85e94bec35cb21c817" title="Model Author.">range</a>[1]) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">            headerString+= headers[8] + <span class="stringliteral">&quot;:\t&quot;</span> + <a class="code" href="namespace_stoch_h_m_m.html#a8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html#ae87208a72eb3db85e94bec35cb21c817" title="Model Author.">range</a>[0]) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line">        }</div>
 <div class="line">        headerString+=<span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line">        </div>
@@ -1274,7 +1259,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l01097">1097</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00395">scaling</a>, and <a class="el" href="weight_8cpp_source.html#l00444">StochHMM::weights::stringify()</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00397">scaling</a>, and <a class="el" href="weight_8cpp_source.html#l00444">StochHMM::weights::stringify()</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l01055">stringify()</a>.</p>
 <div class="fragment"><div class="line">                                      {</div>
@@ -1314,7 +1299,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l01107">1107</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00392">initial</a>, <a class="el" href="hmm_8h_source.html#l00386">states</a>, and <a class="el" href="state_8cpp_source.html#l00326">StochHMM::state::stringify()</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00394">initial</a>, <a class="el" href="hmm_8h_source.html#l00388">states</a>, and <a class="el" href="state_8cpp_source.html#l00326">StochHMM::state::stringify()</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l01055">stringify()</a>.</p>
 <div class="fragment"><div class="line">                                     {</div>
@@ -1365,7 +1350,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l01090">1090</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8cpp_source.html#l00566">StochHMM::tracks::stringify()</a>, and <a class="el" href="hmm_8h_source.html#l00384">trcks</a>.</p>
+<p>References <a class="el" href="track_8cpp_source.html#l00566">StochHMM::tracks::stringify()</a>, and <a class="el" href="hmm_8h_source.html#l00386">trcks</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l01055">stringify()</a>.</p>
 <div class="fragment"><div class="line">                                     {</div>
@@ -1400,7 +1385,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l00735">735</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="state_8h_source.html#l00070">StochHMM::state::getName()</a>, <a class="el" href="hmm_8h_source.html#l00388">stateByName</a>, and <a class="el" href="hmm_8h_source.html#l00386">states</a>.</p>
+<p>References <a class="el" href="state_8h_source.html#l00070">StochHMM::state::getName()</a>, <a class="el" href="hmm_8h_source.html#l00390">stateByName</a>, and <a class="el" href="hmm_8h_source.html#l00388">states</a>.</p>
 <div class="fragment"><div class="line">                                 {</div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1model.html#aa2943145501ab216acbafdc2c0213b3f" title="Tracks defined by model (Contains alphabet and ambiguous character definitions.">states</a>.push_back(st);</div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1model.html#ab3f1ef406ce2d342619c9c1b5af86732" title="All the states contained in the model.">stateByName</a>[st-&gt;getName()]=st;</div>
@@ -1433,9 +1418,9 @@ Private Attributes</h2></td></tr>
 
 <p>Add track to the model. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00329">329</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00331">331</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="track_8cpp_source.html#l00511">StochHMM::tracks::push_back()</a>, and <a class="el" href="hmm_8h_source.html#l00384">trcks</a>.</p>
+<p>References <a class="el" href="track_8cpp_source.html#l00511">StochHMM::tracks::push_back()</a>, and <a class="el" href="hmm_8h_source.html#l00386">trcks</a>.</p>
 <div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1model.html#a4ef8714133a36031b58df91a4b59e129" title="Two attrib Values.">trcks</a>.<a class="code" href="class_stoch_h_m_m_1_1tracks.html#ae4f7114ed259e43c54fdef4b0f5570a7">push_back</a>(trk);};</div>
 </div><!-- fragment -->
 </div>
@@ -1466,7 +1451,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l00975">975</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00374">basicModel</a>, <a class="el" href="hmm_8h_source.html#l00403">complex_emission_states</a>, <a class="el" href="hmm_8h_source.html#l00402">complex_transition_states</a>, <a class="el" href="hmm_8h_source.html#l00101">state_size()</a>, and <a class="el" href="hmm_8h_source.html#l00386">states</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00376">basicModel</a>, <a class="el" href="hmm_8h_source.html#l00405">complex_emission_states</a>, <a class="el" href="hmm_8h_source.html#l00404">complex_transition_states</a>, <a class="el" href="hmm_8h_source.html#l00103">state_size()</a>, and <a class="el" href="hmm_8h_source.html#l00388">states</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00884">finalize()</a>.</p>
 <div class="fragment"><div class="line">                                   {</div>
@@ -1518,7 +1503,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l00998">998</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::DURATION</a>, <a class="el" href="hmm_8h_source.html#l00400">explicit_duration_states</a>, <a class="el" href="hmm_8h_source.html#l00101">state_size()</a>, and <a class="el" href="hmm_8h_source.html#l00386">states</a>.</p>
+<p>References <a class="el" href="stoch_types_8h_source.html#l00041">StochHMM::DURATION</a>, <a class="el" href="hmm_8h_source.html#l00402">explicit_duration_states</a>, <a class="el" href="hmm_8h_source.html#l00103">state_size()</a>, and <a class="el" href="hmm_8h_source.html#l00388">states</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00884">finalize()</a>.</p>
 <div class="fragment"><div class="line">                                               {</div>
@@ -1567,7 +1552,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l01218">1218</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="hmm_8cpp_source.html#l01283">_checkTopology()</a>, <a class="el" href="hmm_8h_source.html#l00187">getEnding()</a>, <a class="el" href="hmm_8h_source.html#l00392">initial</a>, and <a class="el" href="hmm_8h_source.html#l00386">states</a>.</p>
+<p>References <a class="el" href="hmm_8cpp_source.html#l01283">_checkTopology()</a>, <a class="el" href="hmm_8h_source.html#l00189">getEnding()</a>, <a class="el" href="hmm_8h_source.html#l00394">initial</a>, and <a class="el" href="hmm_8h_source.html#l00388">states</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00884">finalize()</a>.</p>
 <div class="fragment"><div class="line">                                 {</div>
@@ -1654,7 +1639,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l00884">884</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="hmm_8cpp_source.html#l01021">_addStateToFromTransition()</a>, <a class="el" href="state_8cpp_source.html#l00514">StochHMM::state::_finalizeTransitions()</a>, <a class="el" href="hmm_8cpp_source.html#l00975">checkBasicModel()</a>, <a class="el" href="hmm_8cpp_source.html#l00998">checkExplicitDurationStates()</a>, <a class="el" href="hmm_8cpp_source.html#l01218">checkTopology()</a>, <a class="el" href="hmm_8h_source.html#l00400">explicit_duration_states</a>, <a class="el" href="hmm_8h_source.html#l00369">finalized</a>, <a class="el" href="hmm_8h_source.html#l00080">getName()</a>, <a class="el" href="hmm_8h_source.html#l00389">info</a>, <a class="el" href="hmm_8h_source.html#l00392">initial</a>, <a class="el" href="hmm_8h_source.html#l00376">name</a>, <a class="el" href="hmm_8h_source.html#l00388">stateByName</a>, <a class="el" href="state_info_8h_source.html#l00023">StochHMM::stateInfo::stateIterByGff</a>, <a class="el" href="state_info_8h_source.html#l00024">StochHMM::stateInfo::stateIterByLabel</a>, <a class="el" href="state_info_8h_source.html#l00022">StochHMM::stateInfo::stateIterByName</a>, and <a class="el" href="hmm_8h_source.html#l00386">states</a>.</p>
+<p>References <a class="el" href="hmm_8cpp_source.html#l01021">_addStateToFromTransition()</a>, <a class="el" href="state_8cpp_source.html#l00514">StochHMM::state::_finalizeTransitions()</a>, <a class="el" href="hmm_8cpp_source.html#l00975">checkBasicModel()</a>, <a class="el" href="hmm_8cpp_source.html#l00998">checkExplicitDurationStates()</a>, <a class="el" href="hmm_8cpp_source.html#l01218">checkTopology()</a>, <a class="el" href="hmm_8h_source.html#l00402">explicit_duration_states</a>, <a class="el" href="hmm_8h_source.html#l00371">finalized</a>, <a class="el" href="hmm_8h_source.html#l00082">getName()</a>, <a class="el" href="hmm_8h_source.html#l00391">info</a>, <a class="el" href="hmm_8h_source.html#l00394">initial</a>, <a class="el" href="hmm_8h_source.html#l00378">name</a>, <a class="el" href="hmm_8h_source.html#l00390">stateByName</a>, <a class="el" href="state_info_8h_source.html#l00023">StochHMM::stateInfo::stateIterByGff</a>, <a class="el" href="state_info_8h_source.html#l00024">StochHMM::stateInfo::stateIterByLabel</a>, <a class="el" href="state_info_8h_source.html#l00022">StochHMM::stateInfo::stateIterByName</a>, and <a class="el" href="hmm_8h_source.html#l00388">states</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00688">_parseStates()</a>.</p>
 <div class="fragment"><div class="line">                        {</div>
@@ -1771,9 +1756,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00357">357</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00359">359</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00400">explicit_duration_states</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00402">explicit_duration_states</a>.</p>
 
 <p>Referenced by <a class="el" href="viterbi_8cpp_source.html#l00660">StochHMM::trellis::fast_complex_viterbi()</a>, and <a class="el" href="viterbi_8cpp_source.html#l00470">StochHMM::trellis::sparse_complex_viterbi()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#a55ba06caba8eebea528863b9a74bb69f" title="Templated states.">explicit_duration_states</a>;}</div>
@@ -1803,9 +1788,9 @@ Private Attributes</h2></td></tr>
 
 <p>Get Author of model. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00092">92</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00094">94</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00380">author</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00382">author</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#a81c8d9b97d71f8dd0d2226cab1444205" title="Model Creation Command.">author</a>;}</div>
 </div><!-- fragment -->
 </div>
@@ -1833,9 +1818,9 @@ Private Attributes</h2></td></tr>
 
 <p>Get Creation Command of model. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00089">89</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00091">91</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00379">command</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00381">command</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#a5aa61e6973dbf9764ba272de233b65fc" title="Model Creation Date.">command</a>;}</div>
 </div><!-- fragment -->
 </div>
@@ -1863,9 +1848,9 @@ Private Attributes</h2></td></tr>
 
 <p>Get Date of model. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00086">86</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00088">88</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00378">date</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00380">date</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#accdd64528160581e2a7e0e5cdf4a3ae7" title="Model Description.">date</a>;}</div>
 </div><!-- fragment -->
 </div>
@@ -1893,9 +1878,9 @@ Private Attributes</h2></td></tr>
 
 <p>Get Description of model. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00083">83</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00085">85</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00377">desc</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00379">desc</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#acc6c425dcc45f4c2d12130c98157fa95" title="Model Name.">desc</a>;}</div>
 </div><!-- fragment -->
 </div>
@@ -1919,7 +1904,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l01207">1207</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00382">attribTwo</a>, and <a class="el" href="hmm_8h_source.html#l00381">range</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00384">attribTwo</a>, and <a class="el" href="hmm_8h_source.html#l00383">range</a>.</p>
 
 <p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00696">StochHMM::seqTracks::getNext()</a>.</p>
 <div class="fragment"><div class="line">                                               {</div>
@@ -1956,9 +1941,9 @@ Private Attributes</h2></td></tr>
 
 <p>Get pointer to the ending state. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00187">187</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00189">189</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00393">ending</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00395">ending</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l01218">checkTopology()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#aea10ab221b29b947f10fb22f44947cc8" title="Initial state q0.">ending</a>;}</div>
@@ -1988,9 +1973,9 @@ Private Attributes</h2></td></tr>
 
 <p>Get list of states that transition to the ending state. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00177">177</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00179">179</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00393">ending</a>, and <a class="el" href="state_8h_source.html#l00179">StochHMM::state::from</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00395">ending</a>, and <a class="el" href="state_8h_source.html#l00179">StochHMM::state::from</a>.</p>
 
 <p>Referenced by <a class="el" href="backward_8cpp_source.html#l00131">StochHMM::trellis::simple_backward()</a>, and <a class="el" href="posterior_8cpp_source.html#l00056">StochHMM::trellis::simple_posterior()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> &amp;(<a class="code" href="class_stoch_h_m_m_1_1model.html#aea10ab221b29b947f10fb22f44947cc8" title="Initial state q0.">ending</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#aebd5e6a43a92b3571d3bd1f79bd365be">from</a>);}</div>
@@ -2020,9 +2005,9 @@ Private Attributes</h2></td></tr>
 
 <p>Get pointer to the initial state. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00184">184</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00186">186</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00392">initial</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00394">initial</a>.</p>
 
 <p>Referenced by <a class="el" href="viterbi_8cpp_source.html#l00660">StochHMM::trellis::fast_complex_viterbi()</a>, <a class="el" href="backward_8cpp_source.html#l00035">StochHMM::trellis::naive_backward()</a>, <a class="el" href="forward_8cpp_source.html#l00177">StochHMM::trellis::naive_forward()</a>, <a class="el" href="nth__best_8cpp_source.html#l00194">StochHMM::trellis::naive_nth_viterbi()</a>, <a class="el" href="stoch__forward_8cpp_source.html#l00174">StochHMM::trellis::naive_stochastic_forward()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00181">StochHMM::trellis::naive_stochastic_viterbi()</a>, <a class="el" href="viterbi_8cpp_source.html#l00201">StochHMM::trellis::naive_viterbi()</a>, <a class="el" href="backward_8cpp_source.html#l00131">StochHMM::trellis::simple_backward()</a>, <a class="el" href="forward_8cpp_source.html#l00044">StochHMM::trellis::simple_forward()</a>, <a class="el" href="nth__best_8cpp_source.html#l00031">StochHMM::trellis::simple_nth_viterbi()</a>, <a class="el" href="posterior_8cpp_source.html#l00056">StochHMM::trellis::simple_posterior()</a>, <a class="el" href="stoch__forward_8cpp_source.html#l00030">StochHMM::trellis::simple_stochastic_forward()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00042">StochHMM::trellis::simple_stochastic_viterbi()</a>, <a class="el" href="viterbi_8cpp_source.html#l00045">StochHMM::trellis::simple_viterbi()</a>, and <a class="el" href="viterbi_8cpp_source.html#l00470">StochHMM::trellis::sparse_complex_viterbi()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#a8a59a7a51563a28257623b190ad44204">initial</a>;}</div>
@@ -2052,9 +2037,9 @@ Private Attributes</h2></td></tr>
 
 <p>Get vector of states that the initial state transitions to. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00166">166</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00168">168</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00392">initial</a>, and <a class="el" href="state_8h_source.html#l00178">StochHMM::state::to</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00394">initial</a>, and <a class="el" href="state_8h_source.html#l00178">StochHMM::state::to</a>.</p>
 
 <p>Referenced by <a class="el" href="viterbi_8cpp_source.html#l00660">StochHMM::trellis::fast_complex_viterbi()</a>, <a class="el" href="forward_8cpp_source.html#l00044">StochHMM::trellis::simple_forward()</a>, <a class="el" href="nth__best_8cpp_source.html#l00031">StochHMM::trellis::simple_nth_viterbi()</a>, <a class="el" href="posterior_8cpp_source.html#l00056">StochHMM::trellis::simple_posterior()</a>, <a class="el" href="stoch__forward_8cpp_source.html#l00030">StochHMM::trellis::simple_stochastic_forward()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00042">StochHMM::trellis::simple_stochastic_viterbi()</a>, <a class="el" href="viterbi_8cpp_source.html#l00045">StochHMM::trellis::simple_viterbi()</a>, and <a class="el" href="viterbi_8cpp_source.html#l00470">StochHMM::trellis::sparse_complex_viterbi()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> &amp;(<a class="code" href="class_stoch_h_m_m_1_1model.html#a8a59a7a51563a28257623b190ad44204">initial</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#ae926d05079c5695b25a439bc0c1a2bdf">to</a>);}</div>
@@ -2084,9 +2069,9 @@ Private Attributes</h2></td></tr>
 
 <p>Get the Name of the Model. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00080">80</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00082">82</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00376">name</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00378">name</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l01021">_addStateToFromTransition()</a>, <a class="el" href="hmm_8cpp_source.html#l00884">finalize()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00103">StochHMM::traceback_path::gff()</a>, and <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00408">print_posterior()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#ad58cd8d2406d1825f020a66c3464cff8">name</a>;} <span class="comment">// Get name of model</span></div>
@@ -2127,7 +2112,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l01196">1196</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00376">name</a>, and <a class="el" href="hmm_8h_source.html#l00395">scaling</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00378">name</a>, and <a class="el" href="hmm_8h_source.html#l00397">scaling</a>.</p>
 <div class="fragment"><div class="line">                                                  {</div>
 <div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1model.html#ab5939fe4299177bfdfb91b069aae5363" title="Ending state.">scaling</a>==NULL){</div>
 <div class="line">            <span class="keywordflow">return</span> NULL;</div>
@@ -2169,9 +2154,9 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>ptr_state Pointer to state </dd></dl>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00136">136</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00138">138</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00386">states</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00388">states</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l01021">_addStateToFromTransition()</a>, <a class="el" href="trellis_8cpp_source.html#l00271">StochHMM::trellis::get_explicit_duration_length()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00103">StochHMM::traceback_path::gff()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00065">StochHMM::traceback_path::label()</a>, <a class="el" href="backward_8cpp_source.html#l00035">StochHMM::trellis::naive_backward()</a>, <a class="el" href="baum__welch_8cpp_source.html#l00021">StochHMM::trellis::naive_baum_welch()</a>, <a class="el" href="forward_8cpp_source.html#l00177">StochHMM::trellis::naive_forward()</a>, <a class="el" href="nth__best_8cpp_source.html#l00194">StochHMM::trellis::naive_nth_viterbi()</a>, <a class="el" href="stoch__forward_8cpp_source.html#l00174">StochHMM::trellis::naive_stochastic_forward()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00181">StochHMM::trellis::naive_stochastic_viterbi()</a>, <a class="el" href="viterbi_8cpp_source.html#l00201">StochHMM::trellis::naive_viterbi()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00092">StochHMM::traceback_path::name()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00268">StochHMM::traceback_path::print_gff()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00252">StochHMM::traceback_path::print_label()</a>, and <a class="el" href="trellis_8cpp_source.html#l00315">StochHMM::trellis::transitionFuncTraceback()</a>.</p>
 <div class="fragment"><div class="line">                                                    {</div>
@@ -2217,7 +2202,7 @@ NULL if state doesn't exist in model </dd></dl>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l00872">872</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00388">stateByName</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00390">stateByName</a>.</p>
 <div class="fragment"><div class="line">                                              {</div>
 <div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1model.html#ab3f1ef406ce2d342619c9c1b5af86732" title="All the states contained in the model.">stateByName</a>.count(txt)){</div>
 <div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#ab3f1ef406ce2d342619c9c1b5af86732" title="All the states contained in the model.">stateByName</a>[txt];</div>
@@ -2258,9 +2243,9 @@ NULL if state doesn't exist in model </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00125">125</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00127">127</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00386">states</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00388">states</a>.</p>
 <div class="fragment"><div class="line">                                                           {</div>
 <div class="line">                        <span class="keywordflow">if</span> (iter&gt;= <a class="code" href="class_stoch_h_m_m_1_1model.html#aa2943145501ab216acbafdc2c0213b3f" title="Tracks defined by model (Contains alphabet and ambiguous character definitions.">states</a>.size()){</div>
 <div class="line">                                std::cerr &lt;&lt; <span class="stringliteral">&quot;Attempting to access State GFF which is out of range\n&quot;</span>;</div>
@@ -2292,9 +2277,9 @@ NULL if state doesn't exist in model </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00179">179</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00181">181</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00389">info</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00391">info</a>.</p>
 
 <p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00277">StochHMM::seqTracks::loadSeqs()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> &amp;<a class="code" href="class_stoch_h_m_m_1_1model.html#a77adbbded9031bc0d0795c851c55181c">info</a>;}</div>
@@ -2330,9 +2315,9 @@ NULL if state doesn't exist in model </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00115">115</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00117">117</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00386">states</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00388">states</a>.</p>
 <div class="fragment"><div class="line">                                                            {</div>
 <div class="line">                        <span class="keywordflow">if</span> (iter&gt;= <a class="code" href="class_stoch_h_m_m_1_1model.html#aa2943145501ab216acbafdc2c0213b3f" title="Tracks defined by model (Contains alphabet and ambiguous character definitions.">states</a>.size()){</div>
 <div class="line">                                std::cerr &lt;&lt; <span class="stringliteral">&quot;Attempting to access State Label which is out of range\n&quot;</span>;</div>
@@ -2372,9 +2357,9 @@ NULL if state doesn't exist in model </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00105">105</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00107">107</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00386">states</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00388">states</a>.</p>
 
 <p>Referenced by <a class="el" href="traceback__path_8cpp_source.html#l00521">StochHMM::multiTraceback::print_hits()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00408">print_posterior()</a>, and <a class="el" href="baum__welch_8cpp_source.html#l00059">StochHMM::trellis::update_transitions()</a>.</p>
 <div class="fragment"><div class="line">                                                           {</div>
@@ -2411,9 +2396,9 @@ NULL if state doesn't exist in model </dd></dl>
 
 <p>Get vector of states that transfer to the state at index. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00169">169</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00171">171</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00386">states</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00388">states</a>.</p>
 <div class="fragment"><div class="line">                                                                       {</div>
 <div class="line">                        <span class="keywordflow">if</span> (iter&gt;= <a class="code" href="class_stoch_h_m_m_1_1model.html#aa2943145501ab216acbafdc2c0213b3f" title="Tracks defined by model (Contains alphabet and ambiguous character definitions.">states</a>.size()){</div>
 <div class="line">                                <span class="keywordflow">return</span> NULL;</div>
@@ -2447,9 +2432,9 @@ NULL if state doesn't exist in model </dd></dl>
 
 <p>Get vector of states that state at index transitions to. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00158">158</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00160">160</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00386">states</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00388">states</a>.</p>
 <div class="fragment"><div class="line">                                                                     {</div>
 <div class="line">                        <span class="keywordflow">if</span> (iter&gt;= <a class="code" href="class_stoch_h_m_m_1_1model.html#aa2943145501ab216acbafdc2c0213b3f" title="Tracks defined by model (Contains alphabet and ambiguous character definitions.">states</a>.size()){</div>
 <div class="line">                                <span class="keywordflow">return</span> NULL;</div>
@@ -2491,9 +2476,9 @@ NULL if state doesn't exist in model </dd></dl>
 <dd>
 else return NULL </dd></dl>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00215">215</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00217">217</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="track_8h_source.html#l00295">StochHMM::tracks::size()</a>, and <a class="el" href="hmm_8h_source.html#l00384">trcks</a>.</p>
+<p>References <a class="el" href="track_8h_source.html#l00295">StochHMM::tracks::size()</a>, and <a class="el" href="hmm_8h_source.html#l00386">trcks</a>.</p>
 
 <p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00622">StochHMM::seqTracks::_initImportTrackInfo()</a>, and <a class="el" href="hmm_8cpp_source.html#l00611">_parseAmbiguous()</a>.</p>
 <div class="fragment"><div class="line">                                                   {</div>
@@ -2541,7 +2526,7 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l01048">1048</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8cpp_source.html#l00542">StochHMM::tracks::getTrack()</a>, and <a class="el" href="hmm_8h_source.html#l00384">trcks</a>.</p>
+<p>References <a class="el" href="track_8cpp_source.html#l00542">StochHMM::tracks::getTrack()</a>, and <a class="el" href="hmm_8h_source.html#l00386">trcks</a>.</p>
 <div class="fragment"><div class="line">                                               {</div>
 <div class="line">        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#a4ef8714133a36031b58df91a4b59e129" title="Two attrib Values.">trcks</a>.<a class="code" href="class_stoch_h_m_m_1_1tracks.html#a1b990adc3b42567dfc2b1b9284e9ba0d">getTrack</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html#ad58cd8d2406d1825f020a66c3464cff8">name</a>);</div>
 <div class="line">    }</div>
@@ -2578,9 +2563,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>size_t index of track with name </dd></dl>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00231">231</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00233">233</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="track_8cpp_source.html#l00529">StochHMM::tracks::indexOf()</a>, and <a class="el" href="hmm_8h_source.html#l00384">trcks</a>.</p>
+<p>References <a class="el" href="track_8cpp_source.html#l00529">StochHMM::tracks::indexOf()</a>, and <a class="el" href="hmm_8h_source.html#l00386">trcks</a>.</p>
 
 <p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00622">StochHMM::seqTracks::_initImportTrackInfo()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#a4ef8714133a36031b58df91a4b59e129" title="Two attrib Values.">trcks</a>.<a class="code" href="class_stoch_h_m_m_1_1tracks.html#a80a3be7bf921f632eaa258a554cf8d9a">indexOf</a>(txt);}</div>
@@ -2610,9 +2595,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 <p>Get pointer to the tracks of the model </p>
 <dl class="section return"><dt>Returns:</dt><dd>pointer to tracks defined in model </dd></dl>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00235">235</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00237">237</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00384">trcks</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00386">trcks</a>.</p>
 
 <p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00622">StochHMM::seqTracks::_initImportTrackInfo()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> &amp;<a class="code" href="class_stoch_h_m_m_1_1model.html#a4ef8714133a36031b58df91a4b59e129" title="Two attrib Values.">trcks</a>;}</div>
@@ -2640,9 +2625,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00359">359</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00361">361</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00403">complex_emission_states</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00405">complex_emission_states</a>.</p>
 <div class="fragment"><div class="line">                                         {</div>
 <div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1model.html#a5d9d5d5903a535ccfb4f9227fb2d8625" title="States that have functions associated with transitions.">complex_emission_states</a>){</div>
 <div class="line">                                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -2699,7 +2684,7 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00210">import_model()</a>.</p>
 <div class="fragment"><div class="line">                                                             {</div>
-<div class="line">        std::string modelString=<a class="code" href="group___text.html#gafad8e125317894c8056a5706c4590b9b">slurpFile</a>(modelFile);</div>
+<div class="line">        std::string modelString=<a class="code" href="namespace_stoch_h_m_m.html#afad8e125317894c8056a5706c4590b9b">slurpFile</a>(modelFile);</div>
 <div class="line">        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#a702107f35afcb0c26e916fb776c3a3ba">parse</a>(modelString,funcs,NULL,NULL);</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
@@ -2731,7 +2716,7 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>References <a class="el" href="hmm_8cpp_source.html#l00235">parse()</a>, and <a class="el" href="text_8cpp_source.html#l00823">StochHMM::slurpFile()</a>.</p>
 <div class="fragment"><div class="line">                                          {</div>
-<div class="line">        std::string modelString=<a class="code" href="group___text.html#gafad8e125317894c8056a5706c4590b9b">slurpFile</a>(modelFile);</div>
+<div class="line">        std::string modelString=<a class="code" href="namespace_stoch_h_m_m.html#afad8e125317894c8056a5706c4590b9b">slurpFile</a>(modelFile);</div>
 <div class="line">        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#a702107f35afcb0c26e916fb776c3a3ba">parse</a>(modelString,NULL,NULL,NULL);</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
@@ -2788,7 +2773,7 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>References <a class="el" href="hmm_8cpp_source.html#l00235">parse()</a>, and <a class="el" href="text_8cpp_source.html#l00823">StochHMM::slurpFile()</a>.</p>
 <div class="fragment"><div class="line">                                                                                             {</div>
-<div class="line">        std::string modelString=<a class="code" href="group___text.html#gafad8e125317894c8056a5706c4590b9b">slurpFile</a>(modelFile);</div>
+<div class="line">        std::string modelString=<a class="code" href="namespace_stoch_h_m_m.html#afad8e125317894c8056a5706c4590b9b">slurpFile</a>(modelFile);</div>
 <div class="line">        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#a702107f35afcb0c26e916fb776c3a3ba">parse</a>(modelString, funcs, tmpls, scl);</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
@@ -2924,9 +2909,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 <p>Check to see if model is a basic HMM </p>
 <dl class="section return"><dt>Returns:</dt><dd>false if model contains explicit duration transition, or user-defined functions for emission/transitions </dd></dl>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00239">239</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00241">241</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00374">basicModel</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00376">basicModel</a>.</p>
 
 <p>Referenced by <a class="el" href="viterbi_8cpp_source.html#l00660">StochHMM::trellis::fast_complex_viterbi()</a>, <a class="el" href="nth__best_8cpp_source.html#l00031">StochHMM::trellis::simple_nth_viterbi()</a>, <a class="el" href="posterior_8cpp_source.html#l00036">StochHMM::trellis::simple_posterior()</a>, <a class="el" href="viterbi_8cpp_source.html#l00045">StochHMM::trellis::simple_viterbi()</a>, <a class="el" href="viterbi_8cpp_source.html#l00470">StochHMM::trellis::sparse_complex_viterbi()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00025">StochHMM::trellis::stochastic_viterbi()</a>, and <a class="el" href="viterbi_8cpp_source.html#l00025">StochHMM::trellis::viterbi()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#a864b8c5ea383a726a4d9fd2b9f040f1c">basicModel</a>;}</div>
@@ -2957,9 +2942,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Get state by using iterator value. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00150">150</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00152">152</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00386">states</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00388">states</a>.</p>
 <div class="fragment"><div class="line">                                                     {</div>
 <div class="line">                        <span class="keywordflow">if</span> (iter&gt;= <a class="code" href="class_stoch_h_m_m_1_1model.html#aa2943145501ab216acbafdc2c0213b3f" title="Tracks defined by model (Contains alphabet and ambiguous character definitions.">states</a>.size()){</div>
 <div class="line">                                <span class="keywordflow">return</span> NULL;</div>
@@ -3009,7 +2994,7 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l00235">235</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="hmm_8cpp_source.html#l00611">_parseAmbiguous()</a>, <a class="el" href="hmm_8cpp_source.html#l00441">_parseHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l00636">_parseScaling()</a>, <a class="el" href="hmm_8cpp_source.html#l00688">_parseStates()</a>, <a class="el" href="hmm_8cpp_source.html#l00670">_parseTemplates()</a>, <a class="el" href="hmm_8cpp_source.html#l00581">_parseTracks()</a>, <a class="el" href="hmm_8h_source.html#l00395">scaling</a>, and <a class="el" href="hmm_8h_source.html#l00398">templatedStates</a>.</p>
+<p>References <a class="el" href="hmm_8cpp_source.html#l00611">_parseAmbiguous()</a>, <a class="el" href="hmm_8cpp_source.html#l00441">_parseHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l00636">_parseScaling()</a>, <a class="el" href="hmm_8cpp_source.html#l00688">_parseStates()</a>, <a class="el" href="hmm_8cpp_source.html#l00670">_parseTemplates()</a>, <a class="el" href="hmm_8cpp_source.html#l00581">_parseTracks()</a>, <a class="el" href="hmm_8h_source.html#l00397">scaling</a>, and <a class="el" href="hmm_8h_source.html#l00400">templatedStates</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00201">import()</a>, and <a class="el" href="hmm_8cpp_source.html#l00218">importFromString()</a>.</p>
 <div class="fragment"><div class="line">                                                                                               {</div>
@@ -3266,7 +3251,7 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>References <a class="el" href="hmm_8cpp_source.html#l01055">stringify()</a>.</p>
 
-<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00210">import_model()</a>, and <a class="el" href="seq_tracks_8h_source.html#l00262">StochHMM::seqJob::printModel()</a>.</p>
+<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00210">import_model()</a>, and <a class="el" href="seq_tracks_8h_source.html#l00268">StochHMM::seqJob::printModel()</a>.</p>
 <div class="fragment"><div class="line">                     {</div>
 <div class="line">        std::cout &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1model.html#a552e16e1f9b160bdb864268c2db352b3">stringify</a>() &lt;&lt; std::endl;</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
@@ -3298,9 +3283,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Set the model author. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00316">316</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00318">318</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00380">author</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00382">author</a>.</p>
 <div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1model.html#a81c8d9b97d71f8dd0d2226cab1444205" title="Model Creation Command.">author</a>=txt;};</div>
 </div><!-- fragment -->
 </div>
@@ -3329,9 +3314,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Set the model creation command. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00313">313</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00315">315</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00379">command</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00381">command</a>.</p>
 <div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1model.html#a5aa61e6973dbf9764ba272de233b65fc" title="Model Creation Date.">command</a>=txt;};</div>
 </div><!-- fragment -->
 </div>
@@ -3360,9 +3345,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Set the model creation date. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00310">310</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00312">312</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00378">date</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00380">date</a>.</p>
 <div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1model.html#accdd64528160581e2a7e0e5cdf4a3ae7" title="Model Description.">date</a>=txt;};</div>
 </div><!-- fragment -->
 </div>
@@ -3391,9 +3376,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Set the model desc. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00307">307</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00309">309</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00377">desc</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00379">desc</a>.</p>
 <div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1model.html#acc6c425dcc45f4c2d12130c98157fa95" title="Model Name.">desc</a>=txt;};</div>
 </div><!-- fragment -->
 </div>
@@ -3422,9 +3407,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Set teh ending state pointer. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00338">338</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00340">340</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00393">ending</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00395">ending</a>.</p>
 <div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1model.html#aea10ab221b29b947f10fb22f44947cc8" title="Initial state q0.">ending</a>=st;};</div>
 </div><!-- fragment -->
 </div>
@@ -3458,9 +3443,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00335">335</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00337">337</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00392">initial</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00394">initial</a>.</p>
 <div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1model.html#a8a59a7a51563a28257623b190ad44204">initial</a>=st;};</div>
 </div><!-- fragment -->
 </div>
@@ -3489,9 +3474,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Set the lower range of the attribute. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00326">326</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00328">328</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00382">attribTwo</a>, and <a class="el" href="hmm_8h_source.html#l00381">range</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00384">attribTwo</a>, and <a class="el" href="hmm_8h_source.html#l00383">range</a>.</p>
 <div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1model.html#ae87208a72eb3db85e94bec35cb21c817" title="Model Author.">range</a>[0]=value;<a class="code" href="class_stoch_h_m_m_1_1model.html#a0053c5675a3d7aff499dee58b85719af" title="Model Attrib Values.">attribTwo</a>=<span class="keyword">true</span>;};</div>
 </div><!-- fragment -->
 </div>
@@ -3520,9 +3505,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Set the name of the model. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00304">304</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00306">306</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00376">name</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00378">name</a>.</p>
 <div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1model.html#ad58cd8d2406d1825f020a66c3464cff8">name</a>=txt;};</div>
 </div><!-- fragment -->
 </div>
@@ -3550,9 +3535,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 </div><div class="memdoc">
 <p>Set the attribute of the model If model is going to be chosen from different values, then you can assign value </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00320">320</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00322">322</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00382">attribTwo</a>, and <a class="el" href="hmm_8h_source.html#l00381">range</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00384">attribTwo</a>, and <a class="el" href="hmm_8h_source.html#l00383">range</a>.</p>
 <div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1model.html#ae87208a72eb3db85e94bec35cb21c817" title="Model Author.">range</a>[0]=value;<a class="code" href="class_stoch_h_m_m_1_1model.html#a0053c5675a3d7aff499dee58b85719af" title="Model Attrib Values.">attribTwo</a>=<span class="keyword">false</span>;};</div>
 </div><!-- fragment -->
 </div>
@@ -3581,9 +3566,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Set the upper range of the attribute. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00323">323</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00325">325</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00382">attribTwo</a>, and <a class="el" href="hmm_8h_source.html#l00381">range</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00384">attribTwo</a>, and <a class="el" href="hmm_8h_source.html#l00383">range</a>.</p>
 <div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1model.html#ae87208a72eb3db85e94bec35cb21c817" title="Model Author.">range</a>[1]=value;<a class="code" href="class_stoch_h_m_m_1_1model.html#a0053c5675a3d7aff499dee58b85719af" title="Model Attrib Values.">attribTwo</a>=<span class="keyword">true</span>;};</div>
 </div><!-- fragment -->
 </div>
@@ -3611,9 +3596,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Get the number of states that are defined in the model. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00101">101</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00103">103</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00386">states</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00388">states</a>.</p>
 
 <p>Referenced by <a class="el" href="backward_8cpp_source.html#l00013">StochHMM::trellis::backward()</a>, <a class="el" href="hmm_8cpp_source.html#l00975">checkBasicModel()</a>, <a class="el" href="hmm_8cpp_source.html#l00998">checkExplicitDurationStates()</a>, <a class="el" href="forward_8cpp_source.html#l00014">StochHMM::trellis::forward()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00494">StochHMM::multiTraceback::get_hit_table()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00171">StochHMM::trellis::naive_stochastic_viterbi()</a>, <a class="el" href="viterbi_8cpp_source.html#l00187">StochHMM::trellis::naive_viterbi()</a>, <a class="el" href="posterior_8cpp_source.html#l00019">StochHMM::trellis::posterior()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00521">StochHMM::multiTraceback::print_hits()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00408">print_posterior()</a>, <a class="el" href="backward_8cpp_source.html#l00119">StochHMM::trellis::simple_backward()</a>, <a class="el" href="forward_8cpp_source.html#l00034">StochHMM::trellis::simple_forward()</a>, <a class="el" href="posterior_8cpp_source.html#l00036">StochHMM::trellis::simple_posterior()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00032">StochHMM::trellis::simple_stochastic_viterbi()</a>, <a class="el" href="viterbi_8cpp_source.html#l00034">StochHMM::trellis::simple_viterbi()</a>, <a class="el" href="stoch__forward_8cpp_source.html#l00013">StochHMM::trellis::stochastic_forward()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00013">StochHMM::trellis::stochastic_viterbi()</a>, <a class="el" href="trellis_8cpp_source.html#l00055">StochHMM::trellis::trellis()</a>, and <a class="el" href="viterbi_8cpp_source.html#l00013">StochHMM::trellis::viterbi()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#aa2943145501ab216acbafdc2c0213b3f" title="Tracks defined by model (Contains alphabet and ambiguous character definitions.">states</a>.size();}</div>
@@ -3679,9 +3664,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Get the number of tracks defined in the model. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00209">209</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00211">211</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>References <a class="el" href="track_8h_source.html#l00295">StochHMM::tracks::size()</a>, and <a class="el" href="hmm_8h_source.html#l00384">trcks</a>.</p>
+<p>References <a class="el" href="track_8h_source.html#l00295">StochHMM::tracks::size()</a>, and <a class="el" href="hmm_8h_source.html#l00386">trcks</a>.</p>
 
 <p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00622">StochHMM::seqTracks::_initImportTrackInfo()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1model.html#a4ef8714133a36031b58df91a4b59e129" title="Two attrib Values.">trcks</a>.<a class="code" href="class_stoch_h_m_m_1_1tracks.html#af4e00331fc4f968e92f3c41fb067749d">size</a>();}</div>
@@ -3709,9 +3694,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Model Attrib Values. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00382">382</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00384">384</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00441">_parseHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l01067">_stringifyHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l01207">getDistanceToAttrib()</a>, <a class="el" href="hmm_8cpp_source.html#l00156">model()</a>, <a class="el" href="hmm_8h_source.html#l00326">setLowerRange()</a>, <a class="el" href="hmm_8h_source.html#l00320">setNumericalAttrib()</a>, and <a class="el" href="hmm_8h_source.html#l00323">setUpperRange()</a>.</p>
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00441">_parseHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l01067">_stringifyHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l01207">getDistanceToAttrib()</a>, <a class="el" href="hmm_8cpp_source.html#l00156">model()</a>, <a class="el" href="hmm_8h_source.html#l00328">setLowerRange()</a>, <a class="el" href="hmm_8h_source.html#l00322">setNumericalAttrib()</a>, and <a class="el" href="hmm_8h_source.html#l00325">setUpperRange()</a>.</p>
 
 </div>
 </div>
@@ -3735,9 +3720,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Model Creation Command. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00380">380</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00382">382</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00441">_parseHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l01067">_stringifyHeader()</a>, <a class="el" href="hmm_8h_source.html#l00092">getAuthor()</a>, and <a class="el" href="hmm_8h_source.html#l00316">setAuthor()</a>.</p>
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00441">_parseHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l01067">_stringifyHeader()</a>, <a class="el" href="hmm_8h_source.html#l00094">getAuthor()</a>, and <a class="el" href="hmm_8h_source.html#l00318">setAuthor()</a>.</p>
 
 </div>
 </div>
@@ -3760,9 +3745,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 </div><div class="memdoc">
 <p>Flag for whether model contains anything other than simple transitions and emissions *If False then the model either contains additional function or emissions </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00374">374</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00376">376</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00975">checkBasicModel()</a>, <a class="el" href="hmm_8h_source.html#l00239">isBasic()</a>, and <a class="el" href="hmm_8cpp_source.html#l00156">model()</a>.</p>
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00975">checkBasicModel()</a>, <a class="el" href="hmm_8h_source.html#l00241">isBasic()</a>, and <a class="el" href="hmm_8cpp_source.html#l00156">model()</a>.</p>
 
 </div>
 </div>
@@ -3786,9 +3771,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Model Creation Date. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00379">379</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00381">381</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00441">_parseHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l01067">_stringifyHeader()</a>, <a class="el" href="hmm_8h_source.html#l00089">getCommand()</a>, and <a class="el" href="hmm_8h_source.html#l00313">setCommand()</a>.</p>
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00441">_parseHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l01067">_stringifyHeader()</a>, <a class="el" href="hmm_8h_source.html#l00091">getCommand()</a>, and <a class="el" href="hmm_8h_source.html#l00315">setCommand()</a>.</p>
 
 </div>
 </div>
@@ -3812,9 +3797,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>States that have functions associated with transitions. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00403">403</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00405">405</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00975">checkBasicModel()</a>, <a class="el" href="hmm_8h_source.html#l00359">hasComplexEmission()</a>, and <a class="el" href="hmm_8cpp_source.html#l00156">model()</a>.</p>
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00975">checkBasicModel()</a>, <a class="el" href="hmm_8h_source.html#l00361">hasComplexEmission()</a>, and <a class="el" href="hmm_8cpp_source.html#l00156">model()</a>.</p>
 
 </div>
 </div>
@@ -3838,7 +3823,7 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>States that are explicit duration states. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00402">402</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00404">404</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00975">checkBasicModel()</a>, and <a class="el" href="hmm_8cpp_source.html#l00156">model()</a>.</p>
 
@@ -3864,9 +3849,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Model Description. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00378">378</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00380">380</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00441">_parseHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l01067">_stringifyHeader()</a>, <a class="el" href="hmm_8h_source.html#l00086">getDate()</a>, and <a class="el" href="hmm_8h_source.html#l00310">setDate()</a>.</p>
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00441">_parseHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l01067">_stringifyHeader()</a>, <a class="el" href="hmm_8h_source.html#l00088">getDate()</a>, and <a class="el" href="hmm_8h_source.html#l00312">setDate()</a>.</p>
 
 </div>
 </div>
@@ -3890,9 +3875,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Model Name. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00377">377</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00379">379</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00441">_parseHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l01067">_stringifyHeader()</a>, <a class="el" href="hmm_8h_source.html#l00083">getDescription()</a>, and <a class="el" href="hmm_8h_source.html#l00307">setDesc()</a>.</p>
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00441">_parseHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l01067">_stringifyHeader()</a>, <a class="el" href="hmm_8h_source.html#l00085">getDescription()</a>, and <a class="el" href="hmm_8h_source.html#l00309">setDesc()</a>.</p>
 
 </div>
 </div>
@@ -3916,9 +3901,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Initial state q0. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00393">393</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00395">395</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l01021">_addStateToFromTransition()</a>, <a class="el" href="hmm_8h_source.html#l00187">getEnding()</a>, <a class="el" href="hmm_8h_source.html#l00177">getEndingFrom()</a>, <a class="el" href="hmm_8cpp_source.html#l00156">model()</a>, and <a class="el" href="hmm_8h_source.html#l00338">setEnd()</a>.</p>
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l01021">_addStateToFromTransition()</a>, <a class="el" href="hmm_8h_source.html#l00189">getEnding()</a>, <a class="el" href="hmm_8h_source.html#l00179">getEndingFrom()</a>, <a class="el" href="hmm_8cpp_source.html#l00156">model()</a>, and <a class="el" href="hmm_8h_source.html#l00340">setEnd()</a>.</p>
 
 </div>
 </div>
@@ -3942,9 +3927,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Templated states. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00400">400</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00402">402</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00998">checkExplicitDurationStates()</a>, <a class="el" href="hmm_8cpp_source.html#l00884">finalize()</a>, <a class="el" href="hmm_8h_source.html#l00357">get_explicit()</a>, and <a class="el" href="hmm_8cpp_source.html#l00156">model()</a>.</p>
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00998">checkExplicitDurationStates()</a>, <a class="el" href="hmm_8cpp_source.html#l00884">finalize()</a>, <a class="el" href="hmm_8h_source.html#l00359">get_explicit()</a>, and <a class="el" href="hmm_8cpp_source.html#l00156">model()</a>.</p>
 
 </div>
 </div>
@@ -3967,7 +3952,7 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 </div><div class="memdoc">
 <p>Flag set to tell whether the transitions bitsets have been set foreach *state. Model is also checked for correct order of states </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00369">369</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00371">371</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00884">finalize()</a>, and <a class="el" href="hmm_8cpp_source.html#l00156">model()</a>.</p>
 
@@ -3991,9 +3976,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00389">389</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00391">391</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00611">_parseAmbiguous()</a>, <a class="el" href="hmm_8cpp_source.html#l00581">_parseTracks()</a>, <a class="el" href="hmm_8cpp_source.html#l00884">finalize()</a>, and <a class="el" href="hmm_8h_source.html#l00179">getStateInfo()</a>.</p>
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00611">_parseAmbiguous()</a>, <a class="el" href="hmm_8cpp_source.html#l00581">_parseTracks()</a>, <a class="el" href="hmm_8cpp_source.html#l00884">finalize()</a>, and <a class="el" href="hmm_8h_source.html#l00181">getStateInfo()</a>.</p>
 
 </div>
 </div>
@@ -4015,9 +4000,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00392">392</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00394">394</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l01021">_addStateToFromTransition()</a>, <a class="el" href="hmm_8cpp_source.html#l00688">_parseStates()</a>, <a class="el" href="hmm_8cpp_source.html#l01107">_stringifyStates()</a>, <a class="el" href="hmm_8cpp_source.html#l01218">checkTopology()</a>, <a class="el" href="hmm_8cpp_source.html#l00884">finalize()</a>, <a class="el" href="hmm_8h_source.html#l00184">getInitial()</a>, <a class="el" href="hmm_8h_source.html#l00166">getInitialTo()</a>, <a class="el" href="hmm_8cpp_source.html#l00156">model()</a>, and <a class="el" href="hmm_8h_source.html#l00335">setInit()</a>.</p>
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l01021">_addStateToFromTransition()</a>, <a class="el" href="hmm_8cpp_source.html#l00688">_parseStates()</a>, <a class="el" href="hmm_8cpp_source.html#l01107">_stringifyStates()</a>, <a class="el" href="hmm_8cpp_source.html#l01218">checkTopology()</a>, <a class="el" href="hmm_8cpp_source.html#l00884">finalize()</a>, <a class="el" href="hmm_8h_source.html#l00186">getInitial()</a>, <a class="el" href="hmm_8h_source.html#l00168">getInitialTo()</a>, <a class="el" href="hmm_8cpp_source.html#l00156">model()</a>, and <a class="el" href="hmm_8h_source.html#l00337">setInit()</a>.</p>
 
 </div>
 </div>
@@ -4039,9 +4024,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00376">376</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00378">378</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00850">_getOrderedStateNames()</a>, <a class="el" href="hmm_8cpp_source.html#l00441">_parseHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l01067">_stringifyHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l00884">finalize()</a>, <a class="el" href="hmm_8h_source.html#l00080">getName()</a>, <a class="el" href="hmm_8cpp_source.html#l01196">getScalingFactor()</a>, and <a class="el" href="hmm_8h_source.html#l00304">setName()</a>.</p>
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00850">_getOrderedStateNames()</a>, <a class="el" href="hmm_8cpp_source.html#l00441">_parseHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l01067">_stringifyHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l00884">finalize()</a>, <a class="el" href="hmm_8h_source.html#l00082">getName()</a>, <a class="el" href="hmm_8cpp_source.html#l01196">getScalingFactor()</a>, and <a class="el" href="hmm_8h_source.html#l00306">setName()</a>.</p>
 
 </div>
 </div>
@@ -4065,9 +4050,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Model Author. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00381">381</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00383">383</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00441">_parseHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l01067">_stringifyHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l01207">getDistanceToAttrib()</a>, <a class="el" href="hmm_8cpp_source.html#l00156">model()</a>, <a class="el" href="hmm_8h_source.html#l00326">setLowerRange()</a>, <a class="el" href="hmm_8h_source.html#l00320">setNumericalAttrib()</a>, and <a class="el" href="hmm_8h_source.html#l00323">setUpperRange()</a>.</p>
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00441">_parseHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l01067">_stringifyHeader()</a>, <a class="el" href="hmm_8cpp_source.html#l01207">getDistanceToAttrib()</a>, <a class="el" href="hmm_8cpp_source.html#l00156">model()</a>, <a class="el" href="hmm_8h_source.html#l00328">setLowerRange()</a>, <a class="el" href="hmm_8h_source.html#l00322">setNumericalAttrib()</a>, and <a class="el" href="hmm_8h_source.html#l00325">setUpperRange()</a>.</p>
 
 </div>
 </div>
@@ -4091,7 +4076,7 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Ending state. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00395">395</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00397">397</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00636">_parseScaling()</a>, <a class="el" href="hmm_8cpp_source.html#l00688">_parseStates()</a>, <a class="el" href="hmm_8cpp_source.html#l01097">_stringifyScaling()</a>, <a class="el" href="hmm_8cpp_source.html#l01196">getScalingFactor()</a>, <a class="el" href="hmm_8cpp_source.html#l00156">model()</a>, and <a class="el" href="hmm_8cpp_source.html#l00235">parse()</a>.</p>
 
@@ -4117,7 +4102,7 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>All the states contained in the model. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00388">388</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00390">390</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00688">_parseStates()</a>, <a class="el" href="hmm_8cpp_source.html#l00735">addState()</a>, <a class="el" href="hmm_8cpp_source.html#l00884">finalize()</a>, and <a class="el" href="hmm_8cpp_source.html#l00872">getState()</a>.</p>
 
@@ -4143,9 +4128,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Tracks defined by model (Contains alphabet and ambiguous character definitions. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00386">386</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00388">388</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00688">_parseStates()</a>, <a class="el" href="hmm_8cpp_source.html#l01107">_stringifyStates()</a>, <a class="el" href="hmm_8cpp_source.html#l00735">addState()</a>, <a class="el" href="hmm_8cpp_source.html#l00975">checkBasicModel()</a>, <a class="el" href="hmm_8cpp_source.html#l00998">checkExplicitDurationStates()</a>, <a class="el" href="hmm_8cpp_source.html#l01218">checkTopology()</a>, <a class="el" href="hmm_8cpp_source.html#l00884">finalize()</a>, <a class="el" href="hmm_8h_source.html#l00136">getState()</a>, <a class="el" href="hmm_8h_source.html#l00125">getStateGFF()</a>, <a class="el" href="hmm_8h_source.html#l00115">getStateLabel()</a>, <a class="el" href="hmm_8h_source.html#l00105">getStateName()</a>, <a class="el" href="hmm_8h_source.html#l00169">getStateXFrom()</a>, <a class="el" href="hmm_8h_source.html#l00158">getStateXTo()</a>, <a class="el" href="hmm_8h_source.html#l00150">operator[]()</a>, and <a class="el" href="hmm_8h_source.html#l00101">state_size()</a>.</p>
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00688">_parseStates()</a>, <a class="el" href="hmm_8cpp_source.html#l01107">_stringifyStates()</a>, <a class="el" href="hmm_8cpp_source.html#l00735">addState()</a>, <a class="el" href="hmm_8cpp_source.html#l00975">checkBasicModel()</a>, <a class="el" href="hmm_8cpp_source.html#l00998">checkExplicitDurationStates()</a>, <a class="el" href="hmm_8cpp_source.html#l01218">checkTopology()</a>, <a class="el" href="hmm_8cpp_source.html#l00884">finalize()</a>, <a class="el" href="hmm_8h_source.html#l00138">getState()</a>, <a class="el" href="hmm_8h_source.html#l00127">getStateGFF()</a>, <a class="el" href="hmm_8h_source.html#l00117">getStateLabel()</a>, <a class="el" href="hmm_8h_source.html#l00107">getStateName()</a>, <a class="el" href="hmm_8h_source.html#l00171">getStateXFrom()</a>, <a class="el" href="hmm_8h_source.html#l00160">getStateXTo()</a>, <a class="el" href="hmm_8h_source.html#l00152">operator[]()</a>, and <a class="el" href="hmm_8h_source.html#l00103">state_size()</a>.</p>
 
 </div>
 </div>
@@ -4169,7 +4154,7 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Weights or scaling fractors associated with the model. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00398">398</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00400">400</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00670">_parseTemplates()</a>, <a class="el" href="hmm_8cpp_source.html#l00778">_processTemplateState()</a>, <a class="el" href="hmm_8cpp_source.html#l00156">model()</a>, and <a class="el" href="hmm_8cpp_source.html#l00235">parse()</a>.</p>
 
@@ -4195,9 +4180,9 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 
 <p>Two attrib Values. </p>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00384">384</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00386">386</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
-<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00688">_parseStates()</a>, <a class="el" href="hmm_8cpp_source.html#l00581">_parseTracks()</a>, <a class="el" href="hmm_8cpp_source.html#l01090">_stringifyTracks()</a>, <a class="el" href="hmm_8h_source.html#l00329">addTrack()</a>, <a class="el" href="hmm_8cpp_source.html#l01048">getTrack()</a>, <a class="el" href="hmm_8h_source.html#l00231">getTrackIter()</a>, <a class="el" href="hmm_8h_source.html#l00235">getTracks()</a>, and <a class="el" href="hmm_8h_source.html#l00209">track_size()</a>.</p>
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00688">_parseStates()</a>, <a class="el" href="hmm_8cpp_source.html#l00581">_parseTracks()</a>, <a class="el" href="hmm_8cpp_source.html#l01090">_stringifyTracks()</a>, <a class="el" href="hmm_8h_source.html#l00331">addTrack()</a>, <a class="el" href="hmm_8cpp_source.html#l01048">getTrack()</a>, <a class="el" href="hmm_8h_source.html#l00233">getTrackIter()</a>, <a class="el" href="hmm_8h_source.html#l00237">getTracks()</a>, and <a class="el" href="hmm_8h_source.html#l00211">track_size()</a>.</p>
 
 </div>
 </div>
@@ -4206,15 +4191,11 @@ NULL if track with given name doesn't exist in the model </dd></dl>
 <li><a class="el" href="hmm_8cpp_source.html">hmm.cpp</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1model.html">model</a></li>
-    <li class="footer">Generated on Wed Apr 24 2013 09:39:37 for StochHMM by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Wed Apr 24 2013 12:28:04 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.1
+</small></address>
 </body>
 </html>

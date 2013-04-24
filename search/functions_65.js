@@ -25,6 +25,6 @@ var searchData=
   ['export_5ftrellis',['export_trellis',['../class_stoch_h_m_m_1_1trellis.html#ab389582c1da99f44d9c4e5f179a9d50c',1,'StochHMM::trellis::export_trellis(std::ifstream &amp;)'],['../class_stoch_h_m_m_1_1trellis.html#a9790042de2de94100bbc724465bf26f5',1,'StochHMM::trellis::export_trellis(std::string &amp;file)']]],
   ['expvector',['expVector',['../namespace_stoch_h_m_m.html#acb64e7768347fc9a7f9e22adb3b4df35',1,'StochHMM']]],
   ['extended_5fnegative_5fbinomial_5fcdf',['extended_negative_binomial_cdf',['../namespace_stoch_h_m_m.html#aab5010e6e086dee61b8d7ec202aca029',1,'StochHMM']]],
-  ['extracttag',['extractTag',['../group___text.html#gabad7e59fdc834721ee71b12524c40002',1,'StochHMM']]],
+  ['extracttag',['extractTag',['../namespace_stoch_h_m_m.html#abad7e59fdc834721ee71b12524c40002',1,'StochHMM']]],
   ['extrapolate',['extrapolate',['../namespace_stoch_h_m_m.html#a936d6e0be2b0efa67f5415a320c81fb7',1,'StochHMM']]]
 ];

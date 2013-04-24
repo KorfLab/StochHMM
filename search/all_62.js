@@ -8,7 +8,7 @@ var searchData=
   ['backward_5fscore',['backward_score',['../class_stoch_h_m_m_1_1trellis.html#a3699644968fe2919713710f25d6a08da',1,'StochHMM::trellis']]],
   ['backweightmatrix',['backWeightMatrix',['../class_stoch_h_m_m_1_1_p_w_m.html#ab89223c66725b3a0445ec3f6b6282566',1,'StochHMM::PWM']]],
   ['backweightname',['backWeightName',['../class_stoch_h_m_m_1_1_p_w_m.html#a9f3a6fc5da57e56a7019cfbd661c215b',1,'StochHMM::PWM']]],
-  ['balanced_5fbrackets',['balanced_brackets',['../group___text.html#ga1bdb409efab2d170ecb74f8537afbc44',1,'StochHMM::balanced_brackets(const std::string &amp;text, const std::string &amp;brackets, size_t offset)'],['../group___text.html#ga99d531d5a6e0bbb1aee2cffbdcef7d4b',1,'StochHMM::balanced_brackets(const std::string &amp;text, const std::string &amp;brackets)']]],
+  ['balanced_5fbrackets',['balanced_brackets',['../namespace_stoch_h_m_m.html#a1bdb409efab2d170ecb74f8537afbc44',1,'StochHMM::balanced_brackets(const std::string &amp;text, const std::string &amp;brackets, size_t offset)'],['../namespace_stoch_h_m_m.html#a99d531d5a6e0bbb1aee2cffbdcef7d4b',1,'StochHMM::balanced_brackets(const std::string &amp;text, const std::string &amp;brackets)']]],
   ['basicmodel',['basicModel',['../class_stoch_h_m_m_1_1model.html#a864b8c5ea383a726a4d9fd2b9f040f1c',1,'StochHMM::model']]],
   ['baum_5fwelch',['baum_welch',['../class_stoch_h_m_m_1_1trellis.html#a9423e124464d74fcba3303d296fe4da8',1,'StochHMM::trellis']]],
   ['baum_5fwelch_2ecpp',['baum_welch.cpp',['../baum__welch_8cpp.html',1,'']]],

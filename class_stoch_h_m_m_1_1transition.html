@@ -7,12 +7,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -75,20 +69,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1transition.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -103,6 +83,11 @@ $(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1transition.html',
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1transition.html">transition</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -224,7 +209,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="transitions_8cpp_source.html#l00032">32</a> of file <a class="el" href="transitions_8cpp_source.html">transitions.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::DIFF_STATE</a>, <a class="el" href="transitions_8h_source.html#l00189">extendedValue</a>, <a class="el" href="transitions_8h_source.html#l00210">func</a>, <a class="el" href="transitions_8h_source.html#l00199">lexFunc</a>, <a class="el" href="transitions_8h_source.html#l00185">log_trans</a>, <a class="el" href="transitions_8h_source.html#l00182">toState</a>, <a class="el" href="transitions_8h_source.html#l00191">traceback_identifier</a>, and <a class="el" href="transitions_8h_source.html#l00178">transition_type</a>.</p>
+<p>References <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::DIFF_STATE</a>, <a class="el" href="transitions_8h_source.html#l00189">extendedValue</a>, <a class="el" href="transitions_8h_source.html#l00210">func</a>, <a class="el" href="transitions_8h_source.html#l00199">lexFunc</a>, <a class="el" href="transitions_8h_source.html#l00185">log_trans</a>, <a class="el" href="transitions_8h_source.html#l00182">toState</a>, <a class="el" href="transitions_8h_source.html#l00191">traceback_identifier</a>, and <a class="el" href="transitions_8h_source.html#l00178">transition_type</a>.</p>
 <div class="fragment"><div class="line">                                        {</div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1transition.html#a3d22a0d5fdcfba3c4e2d4a19604a7e32">transition_type</a>=type;</div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1transition.html#a403471c97023f3c8db9f16d08fd2f168">traceback_identifier</a>=<a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a4854244905e0725bfd743559f2825d97">DIFF_STATE</a>;</div>
@@ -280,7 +265,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="transitions_8cpp_source.html#l00048">48</a> of file <a class="el" href="transitions_8cpp_source.html">transitions.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::DIFF_STATE</a>, <a class="el" href="transitions_8h_source.html#l00210">func</a>, <a class="el" href="transitions_8h_source.html#l00199">lexFunc</a>, <a class="el" href="transitions_8h_source.html#l00185">log_trans</a>, <a class="el" href="transitions_8h_source.html#l00182">toState</a>, <a class="el" href="transitions_8h_source.html#l00191">traceback_identifier</a>, and <a class="el" href="transitions_8h_source.html#l00178">transition_type</a>.</p>
+<p>References <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::DIFF_STATE</a>, <a class="el" href="transitions_8h_source.html#l00210">func</a>, <a class="el" href="transitions_8h_source.html#l00199">lexFunc</a>, <a class="el" href="transitions_8h_source.html#l00185">log_trans</a>, <a class="el" href="transitions_8h_source.html#l00182">toState</a>, <a class="el" href="transitions_8h_source.html#l00191">traceback_identifier</a>, and <a class="el" href="transitions_8h_source.html#l00178">transition_type</a>.</p>
 <div class="fragment"><div class="line">                                                                         {</div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1transition.html#a3d22a0d5fdcfba3c4e2d4a19604a7e32">transition_type</a>=type;</div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1transition.html#a403471c97023f3c8db9f16d08fd2f168">traceback_identifier</a> = <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a4854244905e0725bfd743559f2825d97">DIFF_STATE</a>;</div>
@@ -335,7 +320,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="transitions_8cpp_source.html#l00198">198</a> of file <a class="el" href="transitions_8cpp_source.html">transitions.cpp</a>.</p>
 
-<p>References <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::DIFF_STATE</a>, <a class="el" href="transitions_8h_source.html#l00188">distribution</a>, <a class="el" href="transitions_8h_source.html#l00189">extendedValue</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::PROBABILITY</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::START_INIT</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_GFF</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_LABEL</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_NAME</a>, <a class="el" href="transitions_8h_source.html#l00181">stateName</a>, <a class="el" href="text_8cpp_source.html#l00402">StochHMM::stringList::stringify()</a>, <a class="el" href="text_8cpp_source.html#l00636">StochHMM::stringToDouble()</a>, <a class="el" href="text_8cpp_source.html#l00607">StochHMM::stringToInt()</a>, <a class="el" href="transitions_8h_source.html#l00191">traceback_identifier</a>, and <a class="el" href="transitions_8h_source.html#l00194">traceback_string</a>.</p>
+<p>References <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::DIFF_STATE</a>, <a class="el" href="transitions_8h_source.html#l00188">distribution</a>, <a class="el" href="transitions_8h_source.html#l00189">extendedValue</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="stoch_types_8h_source.html#l00109">StochHMM::PROBABILITY</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::START_INIT</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::STATE_GFF</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::STATE_LABEL</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::STATE_NAME</a>, <a class="el" href="transitions_8h_source.html#l00181">stateName</a>, <a class="el" href="text_8cpp_source.html#l00402">StochHMM::stringList::stringify()</a>, <a class="el" href="text_8cpp_source.html#l00636">StochHMM::stringToDouble()</a>, <a class="el" href="text_8cpp_source.html#l00607">StochHMM::stringToInt()</a>, <a class="el" href="transitions_8h_source.html#l00191">traceback_identifier</a>, and <a class="el" href="transitions_8h_source.html#l00194">traceback_string</a>.</p>
 
 <p>Referenced by <a class="el" href="transitions_8cpp_source.html#l00090">parse()</a>.</p>
 <div class="fragment"><div class="line">                                                                                       {</div>
@@ -393,13 +378,13 @@ Friends</h2></td></tr>
 <div class="line">            }</div>
 <div class="line">            </div>
 <div class="line">            <span class="keywordtype">size_t</span> index(0);</div>
-<div class="line">            <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(ln[0], index)){</div>
+<div class="line">            <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(ln[0], index)){</div>
 <div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Distribution position value not numeric:\t&quot;</span> &lt;&lt; ln[0] &lt;&lt; std::endl;</div>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">            }</div>
 <div class="line">            </div>
 <div class="line">            <span class="keywordtype">double</span> value;</div>
-<div class="line">            <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(ln[1], value)){</div>
+<div class="line">            <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(ln[1], value)){</div>
 <div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Distribution position value not numeric:\t&quot;</span> &lt;&lt; ln[0] &lt;&lt; std::endl;</div>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">            }</div>
@@ -479,7 +464,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="transitions_8cpp_source.html#l00286">286</a> of file <a class="el" href="transitions_8cpp_source.html">transitions.cpp</a>.</p>
 
-<p>References <a class="el" href="lexical_table_8cpp_source.html#l00158">StochHMM::lexicalTable::addTrack()</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::AVERAGE_SCORE</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::COUNTS</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::DEFINED_SCORE</a>, <a class="el" href="stoch_math_8h_source.html#l00397">StochHMM::expVector()</a>, <a class="el" href="lexical_table_8h_source.html#l00087">StochHMM::lexicalTable::getAlphaSize()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00069">StochHMM::lexicalTable::getCountsTable()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00099">StochHMM::lexicalTable::getLogProbabilityTable()</a>, <a class="el" href="lexical_table_8h_source.html#l00089">StochHMM::lexicalTable::getNumberOfAlphabets()</a>, <a class="el" href="lexical_table_8h_source.html#l00078">StochHMM::lexicalTable::getOrder()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00084">StochHMM::lexicalTable::getProbabilityTable()</a>, <a class="el" href="track_8cpp_source.html#l00542">StochHMM::tracks::getTrack()</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::HIGHEST_SCORE</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="transitions_8h_source.html#l00199">lexFunc</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::LOG_PROB</a>, <a class="el" href="stoch_math_8h_source.html#l00385">StochHMM::logVector()</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::LOWEST_SCORE</a>, <a class="el" href="text_8cpp_source.html#l00346">StochHMM::stringList::pop_ith()</a>, <a class="el" href="stoch_math_8h_source.html#l00091">StochHMM::POWER</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::PROBABILITY</a>, <a class="el" href="stoch_math_8h_source.html#l00420">StochHMM::probVector()</a>, <a class="el" href="text_8h_source.html#l00107">StochHMM::stringList::push_back()</a>, <a class="el" href="transitions_8h_source.html#l00201">scoreTable</a>, <a class="el" href="lexical_table_8h_source.html#l00065">StochHMM::lexicalTable::setUnkScore()</a>, <a class="el" href="lexical_table_8h_source.html#l00062">StochHMM::lexicalTable::setUnkScoreType()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, <a class="el" href="transitions_8h_source.html#l00181">stateName</a>, <a class="el" href="text_8cpp_source.html#l00402">StochHMM::stringList::stringify()</a>, <a class="el" href="text_8cpp_source.html#l00636">StochHMM::stringToDouble()</a>, <a class="el" href="text_8cpp_source.html#l00607">StochHMM::stringToInt()</a>, and <a class="el" href="text_8cpp_source.html#l00358">StochHMM::stringList::toVecDouble()</a>.</p>
+<p>References <a class="el" href="lexical_table_8cpp_source.html#l00158">StochHMM::lexicalTable::addTrack()</a>, <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::AVERAGE_SCORE</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="stoch_types_8h_source.html#l00109">StochHMM::COUNTS</a>, <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::DEFINED_SCORE</a>, <a class="el" href="stoch_math_8h_source.html#l00397">StochHMM::expVector()</a>, <a class="el" href="lexical_table_8h_source.html#l00087">StochHMM::lexicalTable::getAlphaSize()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00069">StochHMM::lexicalTable::getCountsTable()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00099">StochHMM::lexicalTable::getLogProbabilityTable()</a>, <a class="el" href="lexical_table_8h_source.html#l00089">StochHMM::lexicalTable::getNumberOfAlphabets()</a>, <a class="el" href="lexical_table_8h_source.html#l00078">StochHMM::lexicalTable::getOrder()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00084">StochHMM::lexicalTable::getProbabilityTable()</a>, <a class="el" href="track_8cpp_source.html#l00542">StochHMM::tracks::getTrack()</a>, <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::HIGHEST_SCORE</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="transitions_8h_source.html#l00199">lexFunc</a>, <a class="el" href="stoch_types_8h_source.html#l00109">StochHMM::LOG_PROB</a>, <a class="el" href="stoch_math_8h_source.html#l00385">StochHMM::logVector()</a>, <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::LOWEST_SCORE</a>, <a class="el" href="text_8cpp_source.html#l00346">StochHMM::stringList::pop_ith()</a>, <a class="el" href="stoch_math_8h_source.html#l00091">StochHMM::POWER</a>, <a class="el" href="stoch_types_8h_source.html#l00109">StochHMM::PROBABILITY</a>, <a class="el" href="stoch_math_8h_source.html#l00420">StochHMM::probVector()</a>, <a class="el" href="text_8h_source.html#l00107">StochHMM::stringList::push_back()</a>, <a class="el" href="transitions_8h_source.html#l00201">scoreTable</a>, <a class="el" href="lexical_table_8h_source.html#l00065">StochHMM::lexicalTable::setUnkScore()</a>, <a class="el" href="lexical_table_8h_source.html#l00062">StochHMM::lexicalTable::setUnkScoreType()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, <a class="el" href="transitions_8h_source.html#l00181">stateName</a>, <a class="el" href="text_8cpp_source.html#l00402">StochHMM::stringList::stringify()</a>, <a class="el" href="text_8cpp_source.html#l00636">StochHMM::stringToDouble()</a>, <a class="el" href="text_8cpp_source.html#l00607">StochHMM::stringToInt()</a>, and <a class="el" href="text_8cpp_source.html#l00358">StochHMM::stringList::toVecDouble()</a>.</p>
 
 <p>Referenced by <a class="el" href="transitions_8cpp_source.html#l00090">parse()</a>.</p>
 <div class="fragment"><div class="line">                                                                                                                       {</div>
@@ -570,7 +555,7 @@ Friends</h2></td></tr>
 <div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;ambIdx;i++){</div>
 <div class="line">                    </div>
 <div class="line">                    <span class="keywordtype">int</span> tempInt;</div>
-<div class="line">                    <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(line[i], tempInt)){</div>
+<div class="line">                    <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(line[i], tempInt)){</div>
 <div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Lexical Transition Order is not numeric&quot;</span> &lt;&lt; line[i] &lt;&lt; std::endl;</div>
 <div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                    }</div>
@@ -582,7 +567,7 @@ Friends</h2></td></tr>
 <div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;line.size();i++){</div>
 <div class="line">                    </div>
 <div class="line">                    <span class="keywordtype">int</span> tempInt;</div>
-<div class="line">                    <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(line[i], tempInt)){</div>
+<div class="line">                    <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(line[i], tempInt)){</div>
 <div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Lexical Transition Order is not numeric&quot;</span> &lt;&lt; line[i] &lt;&lt; std::endl;</div>
 <div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                    }</div>
@@ -619,7 +604,7 @@ Friends</h2></td></tr>
 <div class="line">                    ambIdx++;</div>
 <div class="line">                    </div>
 <div class="line">                    <span class="keywordtype">double</span> tempValue;</div>
-<div class="line">                    <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[ambIdx], tempValue)){</div>
+<div class="line">                    <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[ambIdx], tempValue)){</div>
 <div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Ambiguous Value couldn&#39;t be parsed: &quot;</span>&lt;&lt; line[ambIdx] &lt;&lt; std::endl;</div>
 <div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                    }</div>
@@ -631,7 +616,7 @@ Friends</h2></td></tr>
 <div class="line">                    ambIdx++;</div>
 <div class="line">                    </div>
 <div class="line">                    <span class="keywordtype">double</span> tempValue;</div>
-<div class="line">                    <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[ambIdx], tempValue)){</div>
+<div class="line">                    <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[ambIdx], tempValue)){</div>
 <div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Ambiguous Value couldn&#39;t be parsed: &quot;</span>&lt;&lt; line[ambIdx] &lt;&lt; std::endl;</div>
 <div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                    }</div>
@@ -751,7 +736,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="transitions_8cpp_source.html#l00149">149</a> of file <a class="el" href="transitions_8cpp_source.html">transitions.cpp</a>.</p>
 
-<p>References <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::LOG_PROB</a>, <a class="el" href="transitions_8h_source.html#l00185">log_trans</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::PROBABILITY</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, <a class="el" href="transitions_8h_source.html#l00181">stateName</a>, and <a class="el" href="text_8cpp_source.html#l00636">StochHMM::stringToDouble()</a>.</p>
+<p>References <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="stoch_types_8h_source.html#l00109">StochHMM::LOG_PROB</a>, <a class="el" href="transitions_8h_source.html#l00185">log_trans</a>, <a class="el" href="stoch_types_8h_source.html#l00109">StochHMM::PROBABILITY</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, <a class="el" href="transitions_8h_source.html#l00181">stateName</a>, and <a class="el" href="text_8cpp_source.html#l00636">StochHMM::stringToDouble()</a>.</p>
 
 <p>Referenced by <a class="el" href="transitions_8cpp_source.html#l00067">parse()</a>.</p>
 <div class="fragment"><div class="line">                                                                                      {</div>
@@ -776,7 +761,7 @@ Friends</h2></td></tr>
 <div class="line">        <span class="keywordflow">if</span>(valtyp==<a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a92649806455862fab71c5b2aa48bfc55">PROBABILITY</a>){</div>
 <div class="line">            <span class="keywordtype">double</span> tempValue;</div>
 <div class="line">            </div>
-<div class="line">            <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[1], tempValue)){</div>
+<div class="line">            <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[1], tempValue)){</div>
 <div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Probability value not numeric: &quot;</span> &lt;&lt; line[1] &lt;&lt; std::endl;</div>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">            }</div>
@@ -787,7 +772,7 @@ Friends</h2></td></tr>
 <div class="line">            </div>
 <div class="line">            <span class="keywordtype">double</span> tempValue;</div>
 <div class="line">            </div>
-<div class="line">            <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[1], tempValue)){</div>
+<div class="line">            <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[1], tempValue)){</div>
 <div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Log Probability value not numeric: &quot;</span> &lt;&lt; line[1] &lt;&lt; std::endl;</div>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">            }</div>
@@ -852,7 +837,7 @@ Friends</h2></td></tr>
 
 <p>Referenced by <a class="el" href="transitions_8cpp_source.html#l00067">parse()</a>.</p>
 <div class="fragment"><div class="line">                                                                                              {</div>
-<div class="line">        stringList lst = <a class="code" href="group___text.html#gabad7e59fdc834721ee71b12524c40002">extractTag</a>(txt);</div>
+<div class="line">        stringList lst = <a class="code" href="namespace_stoch_h_m_m.html#abad7e59fdc834721ee71b12524c40002">extractTag</a>(txt);</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">if</span> (lst.size() == 0){</div>
 <div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -1158,7 +1143,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="transitions_8cpp_source.html#l00601">601</a> of file <a class="el" href="transitions_8cpp_source.html">transitions.cpp</a>.</p>
 
-<p>References <a class="el" href="transitions_8h_source.html#l00188">distribution</a>, <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::DURATION</a>, <a class="el" href="external_funcs_8cpp_source.html#l00353">StochHMM::emissionFuncParam::evaluate()</a>, <a class="el" href="transitions_8h_source.html#l00189">extendedValue</a>, <a class="el" href="lexical_table_8cpp_source.html#l00113">StochHMM::lexicalTable::getValue()</a>, <a class="el" href="transitions_8h_source.html#l00199">lexFunc</a>, <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::LEXICAL</a>, <a class="el" href="transitions_8h_source.html#l00185">log_trans</a>, <a class="el" href="transitions_8h_source.html#l00201">scoreTable</a>, <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::STANDARD</a>, and <a class="el" href="transitions_8h_source.html#l00178">transition_type</a>.</p>
+<p>References <a class="el" href="transitions_8h_source.html#l00188">distribution</a>, <a class="el" href="stoch_types_8h_source.html#l00041">StochHMM::DURATION</a>, <a class="el" href="external_funcs_8cpp_source.html#l00353">StochHMM::emissionFuncParam::evaluate()</a>, <a class="el" href="transitions_8h_source.html#l00189">extendedValue</a>, <a class="el" href="lexical_table_8cpp_source.html#l00113">StochHMM::lexicalTable::getValue()</a>, <a class="el" href="transitions_8h_source.html#l00199">lexFunc</a>, <a class="el" href="stoch_types_8h_source.html#l00041">StochHMM::LEXICAL</a>, <a class="el" href="transitions_8h_source.html#l00185">log_trans</a>, <a class="el" href="transitions_8h_source.html#l00201">scoreTable</a>, <a class="el" href="stoch_types_8h_source.html#l00041">StochHMM::STANDARD</a>, and <a class="el" href="transitions_8h_source.html#l00178">transition_type</a>.</p>
 
 <p>Referenced by <a class="el" href="trellis_8cpp_source.html#l00220">StochHMM::trellis::getTransition()</a>.</p>
 <div class="fragment"><div class="line">                                                              {</div>
@@ -1294,7 +1279,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="transitions_8h_source.html#l00163">163</a> of file <a class="el" href="transitions_8h_source.html">transitions.h</a>.</p>
 
-<p>References <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::DURATION</a>, <a class="el" href="transitions_8h_source.html#l00210">func</a>, and <a class="el" href="transitions_8h_source.html#l00178">transition_type</a>.</p>
+<p>References <a class="el" href="stoch_types_8h_source.html#l00041">StochHMM::DURATION</a>, <a class="el" href="transitions_8h_source.html#l00210">func</a>, and <a class="el" href="transitions_8h_source.html#l00178">transition_type</a>.</p>
 
 <p>Referenced by <a class="el" href="transitions_8h_source.html#l00170">isComplex()</a>.</p>
 <div class="fragment"><div class="line">                              {</div>
@@ -1394,7 +1379,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="transitions_8cpp_source.html#l00067">67</a> of file <a class="el" href="transitions_8cpp_source.html">transitions.cpp</a>.</p>
 
-<p>References <a class="el" href="transitions_8cpp_source.html#l00149">_parseStandard()</a>, <a class="el" href="transitions_8cpp_source.html#l00121">_processTags()</a>, <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::STANDARD</a>, and <a class="el" href="transitions_8h_source.html#l00178">transition_type</a>.</p>
+<p>References <a class="el" href="transitions_8cpp_source.html#l00149">_parseStandard()</a>, <a class="el" href="transitions_8cpp_source.html#l00121">_processTags()</a>, <a class="el" href="stoch_types_8h_source.html#l00041">StochHMM::STANDARD</a>, and <a class="el" href="transitions_8h_source.html#l00178">transition_type</a>.</p>
 
 <p>Referenced by <a class="el" href="state_8cpp_source.html#l00197">StochHMM::state::_parseTransition()</a>.</p>
 <div class="fragment"><div class="line">                                                                                                                            {</div>
@@ -1477,7 +1462,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="transitions_8cpp_source.html#l00090">90</a> of file <a class="el" href="transitions_8cpp_source.html">transitions.cpp</a>.</p>
 
-<p>References <a class="el" href="transitions_8cpp_source.html#l00198">_parseDuration()</a>, <a class="el" href="transitions_8cpp_source.html#l00286">_parseLexical()</a>, <a class="el" href="transitions_8cpp_source.html#l00121">_processTags()</a>, <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::DURATION</a>, <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::LEXICAL</a>, and <a class="el" href="transitions_8h_source.html#l00178">transition_type</a>.</p>
+<p>References <a class="el" href="transitions_8cpp_source.html#l00198">_parseDuration()</a>, <a class="el" href="transitions_8cpp_source.html#l00286">_parseLexical()</a>, <a class="el" href="transitions_8cpp_source.html#l00121">_processTags()</a>, <a class="el" href="stoch_types_8h_source.html#l00041">StochHMM::DURATION</a>, <a class="el" href="stoch_types_8h_source.html#l00041">StochHMM::LEXICAL</a>, and <a class="el" href="transitions_8h_source.html#l00178">transition_type</a>.</p>
 <div class="fragment"><div class="line">                                                                                                                             {</div>
 <div class="line">        </div>
 <div class="line">        <span class="comment">//txt.print();</span></div>
@@ -1800,13 +1785,13 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="transitions_8cpp_source.html#l00521">521</a> of file <a class="el" href="transitions_8cpp_source.html">transitions.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::AVERAGE_SCORE</a>, <a class="el" href="transitions_8h_source.html#l00188">distribution</a>, <a class="el" href="text_8cpp_source.html#l00585">StochHMM::double_to_string()</a>, <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::DURATION</a>, <a class="el" href="transitions_8h_source.html#l00210">func</a>, <a class="el" href="lexical_table_8h_source.html#l00092">StochHMM::lexicalTable::getAmbDefinedScore()</a>, <a class="el" href="lexical_table_8h_source.html#l00091">StochHMM::lexicalTable::getAmbScoringType()</a>, <a class="el" href="track_8h_source.html#l00150">StochHMM::track::getName()</a>, <a class="el" href="lexical_table_8h_source.html#l00078">StochHMM::lexicalTable::getOrder()</a>, <a class="el" href="lexical_table_8h_source.html#l00070">StochHMM::lexicalTable::getTrack()</a>, <a class="el" href="external_funcs_8h_source.html#l00153">StochHMM::emissionFuncParam::getTrackName()</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::HIGHEST_SCORE</a>, <a class="el" href="text_8cpp_source.html#l00564">StochHMM::int_to_string()</a>, <a class="el" href="transitions_8h_source.html#l00199">lexFunc</a>, <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::LEXICAL</a>, <a class="el" href="transitions_8h_source.html#l00185">log_trans</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::LOWEST_SCORE</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::NO_SCORE</a>, <a class="el" href="transitions_8h_source.html#l00201">scoreTable</a>, <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::STANDARD</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_GFF</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_LABEL</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_NAME</a>, <a class="el" href="transitions_8h_source.html#l00181">stateName</a>, <a class="el" href="lexical_table_8cpp_source.html#l00297">StochHMM::lexicalTable::stringify()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00170">StochHMM::transitionFuncParam::stringify()</a>, <a class="el" href="transitions_8h_source.html#l00191">traceback_identifier</a>, <a class="el" href="transitions_8h_source.html#l00194">traceback_string</a>, <a class="el" href="lexical_table_8h_source.html#l00074">StochHMM::lexicalTable::trackSize()</a>, and <a class="el" href="transitions_8h_source.html#l00178">transition_type</a>.</p>
+<p>References <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::AVERAGE_SCORE</a>, <a class="el" href="transitions_8h_source.html#l00188">distribution</a>, <a class="el" href="text_8cpp_source.html#l00585">StochHMM::double_to_string()</a>, <a class="el" href="stoch_types_8h_source.html#l00041">StochHMM::DURATION</a>, <a class="el" href="transitions_8h_source.html#l00210">func</a>, <a class="el" href="lexical_table_8h_source.html#l00092">StochHMM::lexicalTable::getAmbDefinedScore()</a>, <a class="el" href="lexical_table_8h_source.html#l00091">StochHMM::lexicalTable::getAmbScoringType()</a>, <a class="el" href="track_8h_source.html#l00150">StochHMM::track::getName()</a>, <a class="el" href="lexical_table_8h_source.html#l00078">StochHMM::lexicalTable::getOrder()</a>, <a class="el" href="lexical_table_8h_source.html#l00070">StochHMM::lexicalTable::getTrack()</a>, <a class="el" href="external_funcs_8h_source.html#l00153">StochHMM::emissionFuncParam::getTrackName()</a>, <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::HIGHEST_SCORE</a>, <a class="el" href="text_8cpp_source.html#l00564">StochHMM::int_to_string()</a>, <a class="el" href="transitions_8h_source.html#l00199">lexFunc</a>, <a class="el" href="stoch_types_8h_source.html#l00041">StochHMM::LEXICAL</a>, <a class="el" href="transitions_8h_source.html#l00185">log_trans</a>, <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::LOWEST_SCORE</a>, <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::NO_SCORE</a>, <a class="el" href="transitions_8h_source.html#l00201">scoreTable</a>, <a class="el" href="stoch_types_8h_source.html#l00041">StochHMM::STANDARD</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::STATE_GFF</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::STATE_LABEL</a>, <a class="el" href="stoch_types_8h_source.html#l00052">StochHMM::STATE_NAME</a>, <a class="el" href="transitions_8h_source.html#l00181">stateName</a>, <a class="el" href="lexical_table_8cpp_source.html#l00297">StochHMM::lexicalTable::stringify()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00170">StochHMM::transitionFuncParam::stringify()</a>, <a class="el" href="transitions_8h_source.html#l00191">traceback_identifier</a>, <a class="el" href="transitions_8h_source.html#l00194">traceback_string</a>, <a class="el" href="lexical_table_8h_source.html#l00074">StochHMM::lexicalTable::trackSize()</a>, and <a class="el" href="transitions_8h_source.html#l00178">transition_type</a>.</p>
 
 <p>Referenced by <a class="el" href="transitions_8cpp_source.html#l00515">print()</a>, and <a class="el" href="state_8cpp_source.html#l00326">StochHMM::state::stringify()</a>.</p>
 <div class="fragment"><div class="line">                                   {</div>
 <div class="line">        std::string transString;</div>
 <div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1transition.html#a3d22a0d5fdcfba3c4e2d4a19604a7e32">transition_type</a> == <a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0a73806aba512ce6a2f6ba00c5acb1bd5c">STANDARD</a>){</div>
-<div class="line">            transString+=<span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1transition.html#af30cab5615a4af8c0e8d2d53841df78f">stateName</a> + <span class="stringliteral">&quot;:\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1transition.html#a02dae54a9b3a7068994c3c42e7183d13">log_trans</a>);</div>
+<div class="line">            transString+=<span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1transition.html#af30cab5615a4af8c0e8d2d53841df78f">stateName</a> + <span class="stringliteral">&quot;:\t&quot;</span> + <a class="code" href="namespace_stoch_h_m_m.html#a8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1transition.html#a02dae54a9b3a7068994c3c42e7183d13">log_trans</a>);</div>
 <div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1transition.html#a81ceac576dbb50088263a9cfeac74f80">func</a>!=NULL){</div>
 <div class="line">                transString+=<span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1transition.html#a81ceac576dbb50088263a9cfeac74f80">func</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#ae6123ce62a2a1a9742599b26c4e26d03" title="prints the string representation of the externFuncs to stdout">stringify</a>();</div>
 <div class="line">            }</div>
@@ -1822,7 +1807,7 @@ Friends</h2></td></tr>
 <div class="line">            </div>
 <div class="line">            transString+=<span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1transition.html#ad26d6d48172b34532ef1cdea1bfbbd4e">distribution</a>-&gt;size();i++){</div>
-<div class="line">                transString+= <span class="stringliteral">&quot;\t\t&quot;</span> + <a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>((<span class="keywordtype">int</span>) i+1) + <span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>((*<a class="code" href="class_stoch_h_m_m_1_1transition.html#ad26d6d48172b34532ef1cdea1bfbbd4e">distribution</a>)[i]) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">                transString+= <span class="stringliteral">&quot;\t\t&quot;</span> + <a class="code" href="namespace_stoch_h_m_m.html#a85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>((<span class="keywordtype">int</span>) i+1) + <span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="namespace_stoch_h_m_m.html#a8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>((*<a class="code" href="class_stoch_h_m_m_1_1transition.html#ad26d6d48172b34532ef1cdea1bfbbd4e">distribution</a>)[i]) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1transition.html#a3d22a0d5fdcfba3c4e2d4a19604a7e32">transition_type</a> == <a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0a039965fb2f21a114426ab5c90f15901b">LEXICAL</a>){</div>
@@ -1854,7 +1839,7 @@ Friends</h2></td></tr>
 <div class="line">                    <span class="keywordflow">if</span> (i&gt;0){</div>
 <div class="line">                        transString+=<span class="stringliteral">&quot;,&quot;</span>;</div>
 <div class="line">                    }</div>
-<div class="line">                    transString+=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1transition.html#a71ea8d8ea0d76cf5dc9697a318d3bf9c">scoreTable</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a1516c1242e82b229a2449c6710735606">getOrder</a>(i));</div>
+<div class="line">                    transString+=<a class="code" href="namespace_stoch_h_m_m.html#a85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1transition.html#a71ea8d8ea0d76cf5dc9697a318d3bf9c">scoreTable</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a1516c1242e82b229a2449c6710735606">getOrder</a>(i));</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                <a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521">unknownCharScoringType</a> ambtemp = <a class="code" href="class_stoch_h_m_m_1_1transition.html#a71ea8d8ea0d76cf5dc9697a318d3bf9c">scoreTable</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#afe9965aabd17b40722cf1f8e37596e7f">getAmbScoringType</a>();</div>
@@ -1863,7 +1848,7 @@ Friends</h2></td></tr>
 <div class="line">                    transString+=<span class="stringliteral">&quot;\tAMBIGUOUS:\t&quot;</span>;</div>
 <div class="line">                    transString+=(ambtemp==<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521ac1432e7fb78a7ea096065f651778a133">HIGHEST_SCORE</a>)? <span class="stringliteral">&quot;MAX&quot;</span>:</div>
 <div class="line">                    (ambtemp==<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521ab07c716086c27e41abbe81f59037b176">LOWEST_SCORE</a>)? <span class="stringliteral">&quot;MIN&quot;</span>:</div>
-<div class="line">                    (ambtemp==<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521aed328d88513ecbefe1e3cffe947d50e6">AVERAGE_SCORE</a>)? <span class="stringliteral">&quot;AVG&quot;</span>: <span class="stringliteral">&quot;LOG:&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1transition.html#a71ea8d8ea0d76cf5dc9697a318d3bf9c">scoreTable</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a01f25a847e141233fe54564365579c1c">getAmbDefinedScore</a>());</div>
+<div class="line">                    (ambtemp==<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521aed328d88513ecbefe1e3cffe947d50e6">AVERAGE_SCORE</a>)? <span class="stringliteral">&quot;AVG&quot;</span>: <span class="stringliteral">&quot;LOG:&quot;</span> + <a class="code" href="namespace_stoch_h_m_m.html#a8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1transition.html#a71ea8d8ea0d76cf5dc9697a318d3bf9c">scoreTable</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a01f25a847e141233fe54564365579c1c">getAmbDefinedScore</a>());</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                transString+=<span class="stringliteral">&quot;\n&quot;</span>;</div>
@@ -2220,15 +2205,11 @@ Friends</h2></td></tr>
 <li><a class="el" href="transitions_8cpp_source.html">transitions.cpp</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1transition.html">transition</a></li>
-    <li class="footer">Generated on Wed Apr 24 2013 09:39:38 for StochHMM by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Wed Apr 24 2013 12:28:07 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.1
+</small></address>
 </body>
 </html>

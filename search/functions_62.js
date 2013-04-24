@@ -2,7 +2,7 @@ var searchData=
 [
   ['back',['back',['../class_stoch_h_m_m_1_1sparse_array.html#af5a76a5226458869c9eb12d9e4daedef',1,'StochHMM::sparseArray::back()'],['../class_stoch_h_m_m_1_1sparse_array.html#a3d5b3055544ee4f444e06ac0625863dd',1,'StochHMM::sparseArray::back() const ']]],
   ['backward',['backward',['../class_stoch_h_m_m_1_1trellis.html#a84f65e967f6904cf1e75f343f0f472ea',1,'StochHMM::trellis::backward()'],['../class_stoch_h_m_m_1_1trellis.html#a78b48d1a9f376a7bee203d0bf79a4277',1,'StochHMM::trellis::backward(model *h, sequences *sqs)']]],
-  ['balanced_5fbrackets',['balanced_brackets',['../group___text.html#ga1bdb409efab2d170ecb74f8537afbc44',1,'StochHMM::balanced_brackets(const std::string &amp;text, const std::string &amp;brackets, size_t offset)'],['../group___text.html#ga99d531d5a6e0bbb1aee2cffbdcef7d4b',1,'StochHMM::balanced_brackets(const std::string &amp;text, const std::string &amp;brackets)']]],
+  ['balanced_5fbrackets',['balanced_brackets',['../namespace_stoch_h_m_m.html#a1bdb409efab2d170ecb74f8537afbc44',1,'StochHMM::balanced_brackets(const std::string &amp;text, const std::string &amp;brackets, size_t offset)'],['../namespace_stoch_h_m_m.html#a99d531d5a6e0bbb1aee2cffbdcef7d4b',1,'StochHMM::balanced_brackets(const std::string &amp;text, const std::string &amp;brackets)']]],
   ['baum_5fwelch',['baum_welch',['../class_stoch_h_m_m_1_1trellis.html#a9423e124464d74fcba3303d296fe4da8',1,'StochHMM::trellis']]],
   ['begin',['begin',['../class_stoch_h_m_m_1_1multi_traceback.html#aa0c295c5f60f8a8dedfbb65557afe9fe',1,'StochHMM::multiTraceback']]],
   ['beta',['beta',['../namespace_stoch_h_m_m.html#a207e1a7c14fbf8f0486c0d98f74738e6',1,'StochHMM']]],

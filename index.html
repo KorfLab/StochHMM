@@ -3,16 +3,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>StochHMM: StochHMM: A Flexible C++ Hidden Markov Library and Application</title>
+<title>StochHMM: StochHMM: A Flexible C++ Hidden Markov Model Library and Application</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -68,19 +62,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('index.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -97,48 +78,84 @@ $(document).ready(function(){initNavTree('index.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title"><a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a>: A Flexible C++ Hidden Markov Library and Application </div>  </div>
+<div class="title"><a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a>: A Flexible C++ Hidden Markov Model Library and Application </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><pre class="fragment">   StochHMM implements HMM from simple text files.   It implements traditional
-</pre><p> HMM algorithms in addition to providing additional flexibility. The additional flexibility is provided by allowing researchers to integrate additional data into the HMM framework. For Documentation on model syntax and designing a model, see Github wiki. <a href="http://www.github.com/KorfLab/StochHMM">http://www.github.com/KorfLab/StochHMM</a></p>
+<div class="textblock"><p><a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> is a free, open source C++ Library and application that implements HMM from simple text files. It implements traditional HMM algorithms in addition to providing additional flexibility. The additional flexibility is provided by allowing researchers to integrate additional data into the HMM framework. For Documentation on model syntax and designing a model, see Github wiki.</p>
+<h3><a href="http://www.github.com/KorfLab/StochHMM/wiki">http://www.github.com/KorfLab/StochHMM/wiki</a></h3>
+<h2>Integrating Data</h2>
 <p>Here are a few of the ways that <a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> allows the use to integrate additional data sources:</p>
 <ol type="1">
 <li>Multiple Emission States</li>
 <li>Weighting or Explicitly Defining State paths on a sequence</li>
 <li>Linking States Emissions/Transitions to external user-defined functions</li>
 </ol>
-<p>Multiple Emission States <a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> allows the user to provide multiple sequences. These sequences are then handled by the emissions. These sequences can be REAL numbers or discrete characters/words. <a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> allows each state to have many emissions (Discrete or Continuous). Discrete emissions can be independent of each other or joint distributions. The continuous emissions can be considered in multiple ways. 1) They can be considered as raw probabilities which will be integrated without transformation. 2) They can be considered as values to be plugged into a Univariate Probability Distribution Function or Multivariate PDF (In the case of multiple REAL sequences.</p>
+<h2>Multiple Emission States</h2>
+<p><a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> allows the user to provide multiple sequences. These sequences are then handled by the emissions. These sequences can be REAL numbers or discrete characters/words. <a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> allows each state to have many emissions (Discrete or Continuous). Discrete emissions can be independent of each other or joint distributions. The continuous emissions can be considered in multiple ways. 1) They can be considered as raw probabilities which will be integrated without transformation. 2) They can be considered as values to be plugged into a Univariate Probability Distribution Function or Multivariate PDF (In the case of multiple REAL sequences.</p>
 <p>Each states emissions are user-defined, so one state may have emissions from two different sequences, while another may only have a single emission from a single sequence.</p>
-<ol type="1">
-<li>Weighting or Explicitly Defining State paths to follow on a sequence. Often, we have some prior knowledge about the sequence. If this is the case, we may want to integrate that into the model, without redesigning or retraining the model (a timely endeavor). <a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> allows the user to explicitly define a State path (By name of state, or category of state). In addition, <a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> also allows the user to weight a states path (By name of State or category of state defined by user) This allows the user to restrict the predicted path or weight their prior knowledge.</li>
-<li>Linking States Emissions or Transitions to external user-defined functions When that transition/emission is evaluated the function is called and can provide an emission.</li>
-</ol>
-<p>While this may provide one way of addressing a weakness of HMMs, which is that they do not handle long range dependencies. We see it rather as a way to link together existing utilities or functions that provide additional information. In this way, we can link divergent datasets or function within the HMM trellis in order to arrive at a better prediction.</p>
-<p>Traditional Decoding Algorithms:</p>
+<h2>Weighting or Explicitly Defining State paths to follow on a sequence.</h2>
+<p>Often, we have some prior knowledge about the sequence. If this is the case, we may want to integrate that into the model, without redesigning or retraining the model (a timely endeavor). <a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> allows the user to explicitly define a State path (By name of state, or category of state). In addition, <a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> also allows the user to weight a states path (By name of State or category of state defined by user) This allows the user to restrict the predicted path or weight their prior knowledge.</p>
+<h2>Linking States Emissions or Transitions to external user-defined functions</h2>
+<p>When that transition/emission is evaluated the function is called and can provide an emission. While this may provide one way of addressing a weakness of HMMs, which is that they do not handle long range dependencies. We see it rather as a way to link together existing utilities or functions that provide additional information to the decoding algorithms. In this way, we can link divergent datasets or functions within the HMM trellis in order to arrive at a better prediction.</p>
+<h2>Features implemented in <a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a></h2>
 <ul>
-<li>Forward</li>
-<li>Backward</li>
+<li>Hidden Markov Models<ol type="1">
+<li>User-defined HMM model via simple human readable text file</li>
+<li>User-defined Alphabet</li>
+<li>User-defined Ambiguous Characters</li>
+</ol>
+</li>
+<li>States<ol type="1">
+<li>Emissions<ul>
+<li>Multiple emission states (Discrete / Continuous)<ul>
+<li>Independent (Single or Multiple Discrete)</li>
+<li>Joint Distribution (Multiple Discrete)</li>
+<li>Univariate PDF (Single Sequence - Continuous)</li>
+<li>Multivariate PDF (Multiple Sequence - Continuous)</li>
+</ul>
+</li>
+<li>Linkable to user-defined function</li>
+</ul>
+</li>
+<li>Transitions<ul>
+<li>Standard Transitions</li>
+<li>Lexical Transitions (Single or multiple emission)</li>
+<li>Explicit Duration Transitions</li>
+<li>Linkable to user-defined functions</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Decoding<ol type="1">
+<li>Traditional Decoding Algorithms<ul>
+<li>Forward/Backward/Posterior</li>
 <li>Viterbi</li>
-<li>Posterior</li>
 <li>N-best Viterbi</li>
 </ul>
-<p>Additional Stochastic Sampling Decoding Algorithms:</p>
-<ul>
+</li>
+<li>Stochastic Sampling Decoding Algorithms<ul>
 <li>Stochastic Forward</li>
 <li>Stochastic Viterbi</li>
 <li>Stochastic Posterior</li>
 </ul>
+</li>
+</ol>
+</li>
+<li>Path output formats<ul>
+<li>State Path Index</li>
+<li>State Path Label</li>
+<li>GFF</li>
+<li>Hit Table (Stochastic Algorithms)</li>
+</ul>
+</li>
+</ul>
 <p>Korf Lab Genome Center University of California, Davis </p>
 </div></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated on Wed Apr 24 2013 09:39:39 for StochHMM by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Wed Apr 24 2013 12:28:08 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.1
+</small></address>
 </body>
 </html>

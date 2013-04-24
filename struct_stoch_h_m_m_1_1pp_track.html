@@ -7,12 +7,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -75,20 +69,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('struct_stoch_h_m_m_1_1pp_track.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -103,6 +83,11 @@ $(document).ready(function(){initNavTree('struct_stoch_h_m_m_1_1pp_track.html','
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="struct_stoch_h_m_m_1_1pp_track.html">ppTrack</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a>  </div>
@@ -124,7 +109,7 @@ Public Attributes</h2></td></tr>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>*Stores what track is determined by a Track Function *trackNumber is the index reference the derived track *trackToUse is the track to use to generate the derived track *Example: Function would be SIDD, the track we would use to get the sidd track *would be a DNA sequence track. </p>
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00076">76</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00080">80</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 </div><hr/><h2>Member Data Documentation</h2>
 <a class="anchor" id="afe78eb6aa00479b73b197c4af3b30577"></a>
 <div class="memitem">
@@ -136,7 +121,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00079">79</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00083">83</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
 <p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00622">StochHMM::seqTracks::_initImportTrackInfo()</a>.</p>
 
@@ -152,7 +137,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00077">77</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00081">81</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
 <p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00622">StochHMM::seqTracks::_initImportTrackInfo()</a>.</p>
 
@@ -168,7 +153,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00078">78</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00082">82</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
 <p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00622">StochHMM::seqTracks::_initImportTrackInfo()</a>.</p>
 
@@ -178,15 +163,11 @@ Public Attributes</h2></td></tr>
 <li><a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="struct_stoch_h_m_m_1_1pp_track.html">ppTrack</a></li>
-    <li class="footer">Generated on Wed Apr 24 2013 09:39:37 for StochHMM by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Wed Apr 24 2013 12:28:06 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.1
+</small></address>
 </body>
 </html>

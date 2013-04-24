@@ -7,12 +7,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -74,19 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('text_8cpp.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -204,11 +185,11 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#af06c41965bc91027bf41fc9c7e955e74">comment</a>.clear();</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        </div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="comment">//Extract Comments</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1string_list.html#af06c41965bc91027bf41fc9c7e955e74">comment</a>=<a class="code" href="group___text.html#gae1e21893ae48aaa6969040d19e5085d7" title="Find first comment character and then return everything following the character.">parseComment</a>(txt, <span class="charliteral">&#39;#&#39;</span>);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1string_list.html#af06c41965bc91027bf41fc9c7e955e74">comment</a>=<a class="code" href="namespace_stoch_h_m_m.html#ae1e21893ae48aaa6969040d19e5085d7" title="Find first comment character and then return everything following the character.">parseComment</a>(txt, <span class="charliteral">&#39;#&#39;</span>);</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        </div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="comment">//Remove Whitespace</span></div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a6be290a3361c4ef901c3e71e7013705d">removeWS</a>){</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(txt, <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3da96b954f74cfc12963eda2f48a19db">whitespace</a>);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <a class="code" href="namespace_stoch_h_m_m.html#a2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(txt, <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3da96b954f74cfc12963eda2f48a19db">whitespace</a>);</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        }</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                </div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">splitString</a>(txt);</div>
@@ -292,7 +273,7 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment">    //! \param ws String of whitespace characters to remove</span></div>
 <div class="line"><a name="l00185"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#a1465a905712ca408761af4b80413ed76">  185</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a1465a905712ca408761af4b80413ed76">stringList::removeLWS</a>(<span class="keyword">const</span> std::string&amp; ws){</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;this-&gt;<a class="code" href="class_stoch_h_m_m_1_1string_list.html#aa66b0d5fa9a0bec45d6638be23408b71" title="Return the amount of strings in the stringList.">size</a>();i++){</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <a class="code" href="group___text.html#ga0b39adb00f98cdbf548db31ccb7abb68">removeLeadingWS</a>((*<span class="keyword">this</span>)[i],ws);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <a class="code" href="namespace_stoch_h_m_m.html#a0b39adb00f98cdbf548db31ccb7abb68">removeLeadingWS</a>((*<span class="keyword">this</span>)[i],ws);</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        }</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    }</div>
@@ -469,7 +450,7 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;            </div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;            <span class="keywordtype">double</span> val;</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;            </div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;            <a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>[iter], val);</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;            <a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>[iter], val);</div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;            temp.push_back(val);</div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        }</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        <span class="keywordflow">return</span> temp;</div>
@@ -482,7 +463,7 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;            </div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;            <span class="keywordtype">int</span> val(0);</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;            </div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>[iter], val)){</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="namespace_stoch_h_m_m.html#a4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>[iter], val)){</div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t convert &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>[iter] &lt;&lt; <span class="stringliteral">&quot; to an integer\n&quot;</span>;</div>
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;            }</div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;            <span class="keywordflow">else</span>{</div>
@@ -508,7 +489,7 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="comment">    //! Joins the stringList into string using &quot;\t&quot; and return string</span></div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="comment">    //! \return string of stringList joined by &quot;\\t&quot;</span></div>
 <div class="line"><a name="l00402"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#aa0001412c430bac613941da657c07bd0">  402</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="class_stoch_h_m_m_1_1string_list.html#aa0001412c430bac613941da657c07bd0">stringList::stringify</a>(){</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        std::string output=<a class="code" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">join</a>(<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>,<span class="charliteral">&#39;\t&#39;</span>);</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        std::string output=<a class="code" href="namespace_stoch_h_m_m.html#a3538626ea8a3ae77e33bda5d63206c23">join</a>(<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>,<span class="charliteral">&#39;\t&#39;</span>);</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1string_list.html#af06c41965bc91027bf41fc9c7e955e74">comment</a>.size()&gt;0){</div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;            output+=<span class="stringliteral">&quot;#&quot;</span>+ <a class="code" href="class_stoch_h_m_m_1_1string_list.html#af06c41965bc91027bf41fc9c7e955e74">comment</a>;</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        }</div>
@@ -521,13 +502,13 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="comment">    //!Comment can be accessed by command getComment();</span></div>
 <div class="line"><a name="l00414"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#a8aac8660baaa5ec2e5dd6d9451fc241d">  414</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a8aac8660baaa5ec2e5dd6d9451fc241d">stringList::removeComments</a>(){</div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> iter=0;iter&lt;<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>.size();iter++){</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1string_list.html#af06c41965bc91027bf41fc9c7e955e74">comment</a>+=<a class="code" href="group___text.html#gae1e21893ae48aaa6969040d19e5085d7" title="Find first comment character and then return everything following the character.">parseComment</a>(<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>[iter], <span class="charliteral">&#39;#&#39;</span>);</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1string_list.html#af06c41965bc91027bf41fc9c7e955e74">comment</a>+=<a class="code" href="namespace_stoch_h_m_m.html#ae1e21893ae48aaa6969040d19e5085d7" title="Find first comment character and then return everything following the character.">parseComment</a>(<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>[iter], <span class="charliteral">&#39;#&#39;</span>);</div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        }</div>
 <div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    }</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    </div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="comment">    //! Find first comment character and then return everything following the character</span></div>
-<div class="line"><a name="l00422"></a><span class="lineno"><a class="code" href="group___text.html#gae1e21893ae48aaa6969040d19e5085d7">  422</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="group___text.html#gae1e21893ae48aaa6969040d19e5085d7" title="Find first comment character and then return everything following the character.">parseComment</a>(std::string&amp; txt, <span class="keywordtype">char</span> commentChar){</div>
+<div class="line"><a name="l00422"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#ae1e21893ae48aaa6969040d19e5085d7">  422</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="namespace_stoch_h_m_m.html#ae1e21893ae48aaa6969040d19e5085d7" title="Find first comment character and then return everything following the character.">parseComment</a>(std::string&amp; txt, <span class="keywordtype">char</span> commentChar){</div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        std::string comment;</div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;        <span class="keywordtype">size_t</span> commentPos=txt.find_first_of(commentChar);</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        <span class="keywordflow">if</span> (commentPos!=std::string::npos){</div>
@@ -540,7 +521,7 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="comment">    //! Given a string, and a white space character, it will remove all the whitespace characters from the string</span></div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="comment">    //! \param input String to remove whitespace from</span></div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="comment">    //! \param white String of whitespace characters to remove</span></div>
-<div class="line"><a name="l00435"></a><span class="lineno"><a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">  435</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(std::string &amp;input,std::string white){</div>
+<div class="line"><a name="l00435"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a2904cf1af30b23b7f44a416b594c7bf6">  435</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(std::string &amp;input,std::string white){</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        <span class="keywordtype">size_t</span> found;</div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        found=input.find_first_of(white);</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;        <span class="comment">//found=input.find_first_of(&quot;\t\n &quot;);</span></div>
@@ -555,7 +536,7 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;<span class="comment">    //! Removes leading whitespace characters from a string</span></div>
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;<span class="comment">    //! \param txt String user wants to remove whitespace from</span></div>
 <div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="comment">    //! \param ws  String containing whitespace characters to remove </span></div>
-<div class="line"><a name="l00450"></a><span class="lineno"><a class="code" href="group___text.html#ga0b39adb00f98cdbf548db31ccb7abb68">  450</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="group___text.html#ga0b39adb00f98cdbf548db31ccb7abb68">removeLeadingWS</a>(std::string&amp; txt,<span class="keyword">const</span> std::string&amp; ws){</div>
+<div class="line"><a name="l00450"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a0b39adb00f98cdbf548db31ccb7abb68">  450</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a0b39adb00f98cdbf548db31ccb7abb68">removeLeadingWS</a>(std::string&amp; txt,<span class="keyword">const</span> std::string&amp; ws){</div>
 <div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;        <span class="keywordtype">size_t</span> start = txt.find_first_not_of(ws);</div>
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        <span class="keywordflow">if</span> (start==std::string::npos){</div>
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;            txt=<span class="stringliteral">&quot;&quot;</span>;</div>
@@ -572,11 +553,11 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;<span class="comment">    //! \param txt String to extract key value from</span></div>
 <div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;<span class="comment">    //! \param key String to assign key to</span></div>
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="comment">    //! \param value String to assign value to</span></div>
-<div class="line"><a name="l00467"></a><span class="lineno"><a class="code" href="group___text.html#ga423cf7d1707638ac6c526bb10e7cc599">  467</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="group___text.html#ga423cf7d1707638ac6c526bb10e7cc599">getKeyValue</a>(std::string&amp; txt,std::string&amp; key,std::string&amp; value){</div>
+<div class="line"><a name="l00467"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a423cf7d1707638ac6c526bb10e7cc599">  467</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a423cf7d1707638ac6c526bb10e7cc599">getKeyValue</a>(std::string&amp; txt,std::string&amp; key,std::string&amp; value){</div>
 <div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;        <span class="keywordtype">size_t</span> found=txt.find(<span class="stringliteral">&quot;&lt;&lt;&quot;</span>);</div>
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;        </div>
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;        <span class="keywordflow">if</span> (found==std::string::npos){</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;            <a class="code" href="group___text.html#ga0b39adb00f98cdbf548db31ccb7abb68">removeLeadingWS</a>(txt,<span class="stringliteral">&quot;\t \n&quot;</span>);</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;            <a class="code" href="namespace_stoch_h_m_m.html#a0b39adb00f98cdbf548db31ccb7abb68">removeLeadingWS</a>(txt,<span class="stringliteral">&quot;\t \n&quot;</span>);</div>
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;            value=txt;</div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;            <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;        }</div>
@@ -586,7 +567,7 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;                key=txt.substr(found+2,ending-(found+2));</div>
 <div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a> lst;</div>
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;                lst.<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">splitString</a>(txt,<span class="stringliteral">&quot;=&quot;</span>);</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;                <a class="code" href="group___text.html#ga0b39adb00f98cdbf548db31ccb7abb68">removeLeadingWS</a>(lst[1],<span class="stringliteral">&quot;\t \n&quot;</span>);</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;                <a class="code" href="namespace_stoch_h_m_m.html#a0b39adb00f98cdbf548db31ccb7abb68">removeLeadingWS</a>(lst[1],<span class="stringliteral">&quot;\t \n&quot;</span>);</div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;                value= lst[1];</div>
 <div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;                <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;            }</div>
@@ -600,7 +581,7 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    </div>
 <div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;<span class="comment">    //! Splits string using delimiters and return stringList</span></div>
-<div class="line"><a name="l00495"></a><span class="lineno"><a class="code" href="group___text.html#ga011a05da53674a925fe8dc3402ac3f24">  495</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a>&amp; <a class="code" href="group___text.html#ga011a05da53674a925fe8dc3402ac3f24" title="Splits string using delimiters and return stringList.">splitString</a>(<span class="keyword">const</span> std::string&amp; txt, <span class="keyword">const</span> std::string&amp; delimiters){</div>
+<div class="line"><a name="l00495"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a011a05da53674a925fe8dc3402ac3f24">  495</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a>&amp; <a class="code" href="namespace_stoch_h_m_m.html#a011a05da53674a925fe8dc3402ac3f24" title="Splits string using delimiters and return stringList.">splitString</a>(<span class="keyword">const</span> std::string&amp; txt, <span class="keyword">const</span> std::string&amp; delimiters){</div>
 <div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;        <span class="keyword">static</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a> lst;</div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;        lst.<a class="code" href="class_stoch_h_m_m_1_1string_list.html#ae45d1f256e95196b56c1d0dd3bb00384" title="Clears all values from the stringList, including comments, whitespace, and delimiters.">clear</a>();</div>
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;        lst.<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">splitString</a>(txt,delimiters);</div>
@@ -612,7 +593,7 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="comment">    //! \param txt String to use have characters replaced</span></div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="comment">    //! \param ch Character to search string for</span></div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="comment">    //! \param replaceCh Character to replace found ch with</span></div>
-<div class="line"><a name="l00507"></a><span class="lineno"><a class="code" href="group___text.html#ga98f2f125252b54b1f227988ae44d424b">  507</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="group___text.html#ga98f2f125252b54b1f227988ae44d424b">replaceChar</a>(std::string&amp; txt, <span class="keywordtype">char</span> ch, <span class="keywordtype">char</span> replaceCh){</div>
+<div class="line"><a name="l00507"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a98f2f125252b54b1f227988ae44d424b">  507</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a98f2f125252b54b1f227988ae44d424b">replaceChar</a>(std::string&amp; txt, <span class="keywordtype">char</span> ch, <span class="keywordtype">char</span> replaceCh){</div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;        <span class="keywordtype">size_t</span> found = txt.find(ch);</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;        <span class="keywordflow">while</span>(found!=std::string::npos){</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;            txt[found]=replaceCh;</div>
@@ -624,21 +605,21 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;<span class="comment">    //! Converts a vector of ints into a string delimited by a character c</span></div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;<span class="comment">    //! \param input Vector of integers to be converted</span></div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;<span class="comment">    //! \param c Character to use as a delimiter</span></div>
-<div class="line"><a name="l00519"></a><span class="lineno"><a class="code" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">  519</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">join</a>(std::vector&lt;int&gt; &amp;input, <span class="keywordtype">char</span> c){</div>
+<div class="line"><a name="l00519"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a3538626ea8a3ae77e33bda5d63206c23">  519</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="namespace_stoch_h_m_m.html#a3538626ea8a3ae77e33bda5d63206c23">join</a>(std::vector&lt;int&gt; &amp;input, <span class="keywordtype">char</span> c){</div>
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;        std::string out;</div>
 <div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;        <span class="keywordflow">if</span> (input.size()==0){</div>
 <div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;            out=<span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;            <span class="keywordflow">return</span> out;</div>
 <div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;        }</div>
 <div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (input.size()==1){</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;            out=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[0]);</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;            out=<a class="code" href="namespace_stoch_h_m_m.html#a85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[0]);</div>
 <div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;            <span class="keywordflow">return</span> out;</div>
 <div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;        }</div>
 <div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;        <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;            out=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[0]);</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;            out=<a class="code" href="namespace_stoch_h_m_m.html#a85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[0]);</div>
 <div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;input.size();i++){</div>
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;                out+=c;</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;                out+=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[i]);</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;                out+=<a class="code" href="namespace_stoch_h_m_m.html#a85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[i]);</div>
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;            }</div>
 <div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;            <span class="keywordflow">return</span> out;</div>
 <div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;        }</div>
@@ -647,21 +628,21 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;<span class="comment">        //! Converts a vector of size_t into a string delimited by a character c</span></div>
 <div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;<span class="comment">    //! \param input Vector of integers to be converted</span></div>
 <div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;<span class="comment">    //! \param c Character to use as a delimiter</span></div>
-<div class="line"><a name="l00542"></a><span class="lineno"><a class="code" href="group___text.html#ga5e62d476cb2624cc2ccc8fda22638f55">  542</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">join</a>(std::vector&lt;size_t&gt; &amp;input, <span class="keywordtype">char</span> c){</div>
+<div class="line"><a name="l00542"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a5e62d476cb2624cc2ccc8fda22638f55">  542</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="namespace_stoch_h_m_m.html#a3538626ea8a3ae77e33bda5d63206c23">join</a>(std::vector&lt;size_t&gt; &amp;input, <span class="keywordtype">char</span> c){</div>
 <div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;        std::string out;</div>
 <div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;        <span class="keywordflow">if</span> (input.size()==0){</div>
 <div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;            out=<span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;            <span class="keywordflow">return</span> out;</div>
 <div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;        }</div>
 <div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (input.size()==1){</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;            out=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[0]);</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;            out=<a class="code" href="namespace_stoch_h_m_m.html#a85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[0]);</div>
 <div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;            <span class="keywordflow">return</span> out;</div>
 <div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;        }</div>
 <div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;        <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;            out=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[0]);</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;            out=<a class="code" href="namespace_stoch_h_m_m.html#a85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[0]);</div>
 <div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;input.size();i++){</div>
 <div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;                out+=c;</div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;                out+=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[i]);</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;                out+=<a class="code" href="namespace_stoch_h_m_m.html#a85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[i]);</div>
 <div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;            }</div>
 <div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;            <span class="keywordflow">return</span> out;</div>
 <div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;        }</div>
@@ -669,7 +650,7 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;<span class="comment">    //! Convert an integer to a string</span></div>
 <div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;<span class="comment">    //! \param input Integer you want to convert to string;</span></div>
-<div class="line"><a name="l00564"></a><span class="lineno"><a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">  564</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(<span class="keywordtype">int</span> input){</div>
+<div class="line"><a name="l00564"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a85eb97cbbeb8e493349a04ffaabb1bbf">  564</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="namespace_stoch_h_m_m.html#a85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(<span class="keywordtype">int</span> input){</div>
 <div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;        std::stringstream ss;</div>
 <div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;        ss &lt;&lt; input;</div>
 <div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;        std::string s=ss.str();</div>
@@ -679,7 +660,7 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;<span class="comment">    //! Convert an size_t to a string</span></div>
 <div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;<span class="comment">    //! \param input Integer you want to convert to string;</span></div>
-<div class="line"><a name="l00574"></a><span class="lineno"><a class="code" href="group___text.html#ga3d9012b75742539fbf315c0725778aa9">  574</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(<span class="keywordtype">size_t</span> input){</div>
+<div class="line"><a name="l00574"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a3d9012b75742539fbf315c0725778aa9">  574</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="namespace_stoch_h_m_m.html#a85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(<span class="keywordtype">size_t</span> input){</div>
 <div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;        std::stringstream ss;</div>
 <div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;        ss &lt;&lt; input;</div>
 <div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;        std::string s=ss.str();</div>
@@ -690,7 +671,7 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;        <span class="comment"></span></div>
 <div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;<span class="comment">    //! Convert a double to a string</span></div>
 <div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;<span class="comment">    //! \param input Double you want to convert to a string</span></div>
-<div class="line"><a name="l00585"></a><span class="lineno"><a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">  585</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<span class="keywordtype">double</span> input){</div>
+<div class="line"><a name="l00585"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a8c2dffdf4f3aba28fc06e10e465fdcf7">  585</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="namespace_stoch_h_m_m.html#a8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<span class="keywordtype">double</span> input){</div>
 <div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;        std::stringstream ss;</div>
 <div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;        ss &lt;&lt; input;</div>
 <div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;        std::string s=ss.str();</div>
@@ -699,7 +680,7 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;<span class="comment">    //! Convert a double to a string</span></div>
 <div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;<span class="comment">    //! \param input Double you want to convert to a string</span></div>
-<div class="line"><a name="l00594"></a><span class="lineno"><a class="code" href="group___text.html#ga593ec6959903daf28efe176538f2e20f">  594</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<span class="keywordtype">float</span> input){</div>
+<div class="line"><a name="l00594"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a593ec6959903daf28efe176538f2e20f">  594</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="namespace_stoch_h_m_m.html#a8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<span class="keywordtype">float</span> input){</div>
 <div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;        std::stringstream ss;</div>
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;        ss &lt;&lt; input;</div>
 <div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;        std::string s=ss.str();</div>
@@ -712,7 +693,7 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;<span class="comment">    //!\param val Integer to be assigned</span></div>
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;<span class="comment">    //!\return true if conversion is valid</span></div>
 <div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;<span class="comment">    //!\return false if conversion can&#39;t be performed</span></div>
-<div class="line"><a name="l00607"></a><span class="lineno"><a class="code" href="group___text.html#ga4797b0d53af278c2adb72a47f20cfe7d">  607</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="group___text.html#ga4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(std::string&amp; txt, <span class="keywordtype">int</span>&amp; val){</div>
+<div class="line"><a name="l00607"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a4797b0d53af278c2adb72a47f20cfe7d">  607</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="namespace_stoch_h_m_m.html#a4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(std::string&amp; txt, <span class="keywordtype">int</span>&amp; val){</div>
 <div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;        std::istringstream input(txt);</div>
 <div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;        <span class="keywordflow">if</span> (!(input &gt;&gt; val)){</div>
 <div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -726,7 +707,7 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;<span class="comment">    //!\param val Integer to be assigned</span></div>
 <div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;<span class="comment">    //!\return true if conversion is valid</span></div>
 <div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;<span class="comment">    //!\return false if conversion can&#39;t be performed</span></div>
-<div class="line"><a name="l00621"></a><span class="lineno"><a class="code" href="group___text.html#ga4bdd998a0f8a1a1997277b05babc677e">  621</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="group___text.html#ga4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(std::string&amp; txt, <span class="keywordtype">size_t</span>&amp; val){</div>
+<div class="line"><a name="l00621"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a4bdd998a0f8a1a1997277b05babc677e">  621</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="namespace_stoch_h_m_m.html#a4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(std::string&amp; txt, <span class="keywordtype">size_t</span>&amp; val){</div>
 <div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;        std::istringstream input(txt);</div>
 <div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;        <span class="keywordflow">if</span> (!(input &gt;&gt; val)){</div>
 <div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -741,7 +722,7 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;<span class="comment">    //!\param val Integer to be assigned</span></div>
 <div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;<span class="comment">    //!\return true if conversion is valid</span></div>
 <div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;<span class="comment">    //!\return false if conversion can&#39;t be performed</span></div>
-<div class="line"><a name="l00636"></a><span class="lineno"><a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">  636</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(std::string&amp; txt, <span class="keywordtype">double</span>&amp; val){</div>
+<div class="line"><a name="l00636"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">  636</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(std::string&amp; txt, <span class="keywordtype">double</span>&amp; val){</div>
 <div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;        std::istringstream input(txt);</div>
 <div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;        <span class="keywordflow">if</span>(!(input &gt;&gt; val)){</div>
 <div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -755,21 +736,21 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;<span class="comment">    //! Converts a vector of shorts into a string delimited by a character c</span></div>
 <div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;<span class="comment">    //! \param input Vector of shorts to be converted</span></div>
 <div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;<span class="comment">    //! \param c Character to use as a delimiter</span></div>
-<div class="line"><a name="l00650"></a><span class="lineno"><a class="code" href="group___text.html#ga653785a899ab843126ce160cfece2ea0">  650</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">join</a>(std::vector&lt;short&gt; &amp;input, <span class="keywordtype">char</span> c){</div>
+<div class="line"><a name="l00650"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a653785a899ab843126ce160cfece2ea0">  650</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="namespace_stoch_h_m_m.html#a3538626ea8a3ae77e33bda5d63206c23">join</a>(std::vector&lt;short&gt; &amp;input, <span class="keywordtype">char</span> c){</div>
 <div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;        std::string out;</div>
 <div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;        <span class="keywordflow">if</span> (input.size()==0){</div>
 <div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;            out=<span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;            <span class="keywordflow">return</span> out;</div>
 <div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;        }</div>
 <div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (input.size()==1){</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;            out=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[0]);</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;            out=<a class="code" href="namespace_stoch_h_m_m.html#a85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[0]);</div>
 <div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;            <span class="keywordflow">return</span> out;</div>
 <div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;        }</div>
 <div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;        <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;            out=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[0]);</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;            out=<a class="code" href="namespace_stoch_h_m_m.html#a85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[0]);</div>
 <div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;input.size();i++){</div>
 <div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;                out+=c;</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;                out+=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[i]);</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;                out+=<a class="code" href="namespace_stoch_h_m_m.html#a85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(input[i]);</div>
 <div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;            }</div>
 <div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;            <span class="keywordflow">return</span> out;</div>
 <div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;        }</div>
@@ -778,21 +759,21 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;<span class="comment">    //! Converts a vector of doubles into a string delimited by a character c</span></div>
 <div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;<span class="comment">    //! \param input Vector of doubles to be converted</span></div>
 <div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;<span class="comment">    //! \param c Character to use as a delimiter</span></div>
-<div class="line"><a name="l00673"></a><span class="lineno"><a class="code" href="group___text.html#gaddca5829807c3a7d46e17d70a2539326">  673</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">join</a>(std::vector&lt;double&gt; &amp;input, <span class="keywordtype">char</span> c){</div>
+<div class="line"><a name="l00673"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#addca5829807c3a7d46e17d70a2539326">  673</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="namespace_stoch_h_m_m.html#a3538626ea8a3ae77e33bda5d63206c23">join</a>(std::vector&lt;double&gt; &amp;input, <span class="keywordtype">char</span> c){</div>
 <div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;        std::string out;</div>
 <div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;        <span class="keywordflow">if</span> (input.size()==0){</div>
 <div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;            out=<span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;            <span class="keywordflow">return</span> out;</div>
 <div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;        }</div>
 <div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (input.size()==1){</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;            out=<a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(input[0]);</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;            out=<a class="code" href="namespace_stoch_h_m_m.html#a8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(input[0]);</div>
 <div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;            <span class="keywordflow">return</span> out;</div>
 <div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;        }</div>
 <div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;        <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;            out=<a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(input[0]);</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;            out=<a class="code" href="namespace_stoch_h_m_m.html#a8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(input[0]);</div>
 <div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;input.size();i++){</div>
 <div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;                out+=c;</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;                out+=<a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(input[i]);</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;                out+=<a class="code" href="namespace_stoch_h_m_m.html#a8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(input[i]);</div>
 <div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;            }</div>
 <div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;            <span class="keywordflow">return</span> out;</div>
 <div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;        }</div>
@@ -801,7 +782,7 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;<span class="comment">    //! Converts a vector of strings into a string delimited by a character c</span></div>
 <div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;<span class="comment">    //! \param input Vector of strings to be converted</span></div>
 <div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;<span class="comment">    //! \param c Character to use as a delimiter</span></div>
-<div class="line"><a name="l00696"></a><span class="lineno"><a class="code" href="group___text.html#gaa0e001e5f6c961318831de04ac65eb0c">  696</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">join</a>(std::vector&lt;std::string&gt; &amp;input, <span class="keywordtype">char</span> c){</div>
+<div class="line"><a name="l00696"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#aa0e001e5f6c961318831de04ac65eb0c">  696</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="namespace_stoch_h_m_m.html#a3538626ea8a3ae77e33bda5d63206c23">join</a>(std::vector&lt;std::string&gt; &amp;input, <span class="keywordtype">char</span> c){</div>
 <div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;        std::string out;</div>
 <div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;        <span class="keywordtype">size_t</span> sz=input.size();</div>
 <div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;        <span class="keywordflow">if</span> (sz==1){</div>
@@ -821,7 +802,7 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;<span class="comment">    //! Splits a line into a vector of string using delimiters &#39; \&quot;,[space]\\n\\t&#39;</span></div>
 <div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;<span class="comment">    //! \param line vector of strings to split input into</span></div>
 <div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;<span class="comment">    //! \param input String to be split using delimiters &#39; \&quot;,[space]\\n\\t&#39;</span></div>
-<div class="line"><a name="l00716"></a><span class="lineno"><a class="code" href="group___text.html#ga4cec2ea0c1f6cbeb092d15b9867443b0">  716</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="group___text.html#ga4cec2ea0c1f6cbeb092d15b9867443b0">split_line</a>(std::vector&lt;std::string&gt; &amp;line,std::string &amp;input){</div>
+<div class="line"><a name="l00716"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a4cec2ea0c1f6cbeb092d15b9867443b0">  716</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a4cec2ea0c1f6cbeb092d15b9867443b0">split_line</a>(std::vector&lt;std::string&gt; &amp;line,std::string &amp;input){</div>
 <div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;        </div>
 <div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;        <span class="comment">//split line accoring to delimiters;</span></div>
 <div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;        <span class="keywordtype">size_t</span> found=input.find_first_of(<span class="stringliteral">&quot;\&quot;, \n\t&quot;</span>);</div>
@@ -848,9 +829,9 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;<span class="comment">    //! Parse a line and extract a bracketed tag from the model file</span></div>
 <div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;<span class="comment">    //! Returns a stringList which contains the tag split using &quot;:\\t[space]&quot;</span></div>
 <div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;<span class="comment">    //! \param txt String to be have tag extracted from</span></div>
-<div class="line"><a name="l00743"></a><span class="lineno"><a class="code" href="group___text.html#gabad7e59fdc834721ee71b12524c40002">  743</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a> <a class="code" href="group___text.html#gabad7e59fdc834721ee71b12524c40002">extractTag</a>(std::string&amp; txt){</div>
+<div class="line"><a name="l00743"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#abad7e59fdc834721ee71b12524c40002">  743</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a> <a class="code" href="namespace_stoch_h_m_m.html#abad7e59fdc834721ee71b12524c40002">extractTag</a>(std::string&amp; txt){</div>
 <div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a> lst;</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;        std::pair&lt;size_t,size_t&gt; tagCoord = <a class="code" href="group___text.html#ga1bdb409efab2d170ecb74f8537afbc44">balanced_brackets</a>(txt,<span class="stringliteral">&quot;[]&quot;</span>);</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;        std::pair&lt;size_t,size_t&gt; tagCoord = <a class="code" href="namespace_stoch_h_m_m.html#a1bdb409efab2d170ecb74f8537afbc44">balanced_brackets</a>(txt,<span class="stringliteral">&quot;[]&quot;</span>);</div>
 <div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;        <span class="keywordflow">if</span> (tagCoord.first!=tagCoord.second){</div>
 <div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;            std::string tag = txt.substr(tagCoord.first+1,tagCoord.second-tagCoord.first-1);</div>
 <div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;            txt.erase(tagCoord.first,tagCoord.second-tagCoord.first+1);</div>
@@ -863,7 +844,7 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;<span class="comment">    //! \param text  String to use to search for brackets</span></div>
 <div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;<span class="comment">    //! \param brackets String of length two containing opening and closing bracket</span></div>
 <div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;<span class="comment">    //! \param offset Offset of where to start searching for balanced brackets</span></div>
-<div class="line"><a name="l00758"></a><span class="lineno"><a class="code" href="group___text.html#ga1bdb409efab2d170ecb74f8537afbc44">  758</a></span>&#160;<span class="comment"></span>    std::pair&lt;size_t,size_t&gt; <a class="code" href="group___text.html#ga1bdb409efab2d170ecb74f8537afbc44">balanced_brackets</a>(<span class="keyword">const</span> std::string&amp; text, <span class="keyword">const</span> std::string&amp; brackets, <span class="keywordtype">size_t</span> offset){</div>
+<div class="line"><a name="l00758"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a1bdb409efab2d170ecb74f8537afbc44">  758</a></span>&#160;<span class="comment"></span>    std::pair&lt;size_t,size_t&gt; <a class="code" href="namespace_stoch_h_m_m.html#a1bdb409efab2d170ecb74f8537afbc44">balanced_brackets</a>(<span class="keyword">const</span> std::string&amp; text, <span class="keyword">const</span> std::string&amp; brackets, <span class="keywordtype">size_t</span> offset){</div>
 <div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;        <span class="keywordtype">char</span> opening = brackets[0];</div>
 <div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;        <span class="keywordtype">char</span> closing = brackets[1];</div>
 <div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;        </div>
@@ -905,15 +886,15 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;<span class="comment">    //! Returns a pair of size_t values that describe the coordinates of between brackets from start of the string</span></div>
 <div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;<span class="comment">    //! \param text  String to use to search for brackets</span></div>
 <div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;<span class="comment">    //! \param brackets String of length two containing opening and closing bracket</span></div>
-<div class="line"><a name="l00800"></a><span class="lineno"><a class="code" href="group___text.html#ga99d531d5a6e0bbb1aee2cffbdcef7d4b">  800</a></span>&#160;<span class="comment"></span>    std::pair&lt;size_t,size_t&gt; <a class="code" href="group___text.html#ga1bdb409efab2d170ecb74f8537afbc44">balanced_brackets</a>(<span class="keyword">const</span> std::string&amp; text, <span class="keyword">const</span> std::string&amp; brackets){</div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="group___text.html#ga1bdb409efab2d170ecb74f8537afbc44">balanced_brackets</a>(text,brackets,0);</div>
+<div class="line"><a name="l00800"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a99d531d5a6e0bbb1aee2cffbdcef7d4b">  800</a></span>&#160;<span class="comment"></span>    std::pair&lt;size_t,size_t&gt; <a class="code" href="namespace_stoch_h_m_m.html#a1bdb409efab2d170ecb74f8537afbc44">balanced_brackets</a>(<span class="keyword">const</span> std::string&amp; text, <span class="keyword">const</span> std::string&amp; brackets){</div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespace_stoch_h_m_m.html#a1bdb409efab2d170ecb74f8537afbc44">balanced_brackets</a>(text,brackets,0);</div>
 <div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;    }</div>
 <div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;</div>
 <div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;</div>
 <div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;<span class="comment">    //! Is the value of string numeric</span></div>
 <div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;<span class="comment">    //! \param str  String to determine if it is numeric</span></div>
-<div class="line"><a name="l00808"></a><span class="lineno"><a class="code" href="group___text.html#ga7297a0284778c0591fa5505d24ff491d">  808</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="group___text.html#ga7297a0284778c0591fa5505d24ff491d">isNumeric</a>(<span class="keyword">const</span> std::string&amp; str){</div>
+<div class="line"><a name="l00808"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a7297a0284778c0591fa5505d24ff491d">  808</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="namespace_stoch_h_m_m.html#a7297a0284778c0591fa5505d24ff491d">isNumeric</a>(<span class="keyword">const</span> std::string&amp; str){</div>
 <div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;        <span class="keywordtype">size_t</span> found;</div>
 <div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;        found = str.find_first_not_of(<span class="stringliteral">&quot;0123456789.-eE&quot;</span>);</div>
 <div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;        </div>
@@ -928,7 +909,7 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;<span class="comment">    //!Slurp a file into a string </span></div>
 <div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;<span class="comment">    //! \param file Filename</span></div>
 <div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;<span class="comment">    //! \return string that contains complete file</span></div>
-<div class="line"><a name="l00823"></a><span class="lineno"><a class="code" href="group___text.html#gafad8e125317894c8056a5706c4590b9b">  823</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="group___text.html#gafad8e125317894c8056a5706c4590b9b">slurpFile</a>(std::string&amp; file){</div>
+<div class="line"><a name="l00823"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#afad8e125317894c8056a5706c4590b9b">  823</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="namespace_stoch_h_m_m.html#afad8e125317894c8056a5706c4590b9b">slurpFile</a>(std::string&amp; file){</div>
 <div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;        std::ifstream in(file.c_str(),std::ifstream::in);</div>
 <div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;        <span class="keywordflow">if</span> (!in.good()){</div>
 <div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;File doesn&#39;t exist:&quot;</span> &lt;&lt; file;</div>
@@ -943,15 +924,11 @@ $(document).ready(function(){initNavTree('text_8cpp.html','');});
 <div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;    </div>
 <div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="text_8cpp.html">text.cpp</a></li>
-    <li class="footer">Generated on Wed Apr 24 2013 09:39:35 for StochHMM by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Wed Apr 24 2013 12:28:01 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.1
+</small></address>
 </body>
 </html>

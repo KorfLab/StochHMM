@@ -7,12 +7,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -75,20 +69,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1lexical_table.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -103,6 +83,11 @@ $(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1lexical_table.htm
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1lexical_table.html">lexicalTable</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -230,7 +215,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="lexical_table_8cpp_source.html#l00015">15</a> of file <a class="el" href="lexical_table_8cpp_source.html">lexicalTable.cpp</a>.</p>
 
-<p>References <a class="el" href="lexical_table_8h_source.html#l00121">counts</a>, <a class="el" href="lexical_table_8h_source.html#l00134">log_emission</a>, <a class="el" href="lexical_table_8h_source.html#l00122">logProb</a>, <a class="el" href="lexical_table_8h_source.html#l00115">max_order</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::NO_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00120">prob</a>, <a class="el" href="lexical_table_8h_source.html#l00108">unknownDefinedScore</a>, <a class="el" href="lexical_table_8h_source.html#l00107">unknownScoreType</a>, <a class="el" href="lexical_table_8h_source.html#l00118">x_subarray</a>, and <a class="el" href="lexical_table_8h_source.html#l00119">y_subarray</a>.</p>
+<p>References <a class="el" href="lexical_table_8h_source.html#l00121">counts</a>, <a class="el" href="lexical_table_8h_source.html#l00134">log_emission</a>, <a class="el" href="lexical_table_8h_source.html#l00122">logProb</a>, <a class="el" href="lexical_table_8h_source.html#l00115">max_order</a>, <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::NO_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00120">prob</a>, <a class="el" href="lexical_table_8h_source.html#l00108">unknownDefinedScore</a>, <a class="el" href="lexical_table_8h_source.html#l00107">unknownScoreType</a>, <a class="el" href="lexical_table_8h_source.html#l00118">x_subarray</a>, and <a class="el" href="lexical_table_8h_source.html#l00119">y_subarray</a>.</p>
 <div class="fragment"><div class="line">                              {</div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a6daab2fe4af08f773b7448d1a0d5e8f5">max_order</a>=0;</div>
 <div class="line">        </div>
@@ -368,7 +353,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="lexical_table_8cpp_source.html#l00171">171</a> of file <a class="el" href="lexical_table_8cpp_source.html">lexicalTable.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::COUNTS</a>, <a class="el" href="lexical_table_8h_source.html#l00121">counts</a>, <a class="el" href="lexical_table_8cpp_source.html#l00856">initialize_emission_table()</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::LOG_PROB</a>, <a class="el" href="lexical_table_8h_source.html#l00122">logProb</a>, <a class="el" href="lexical_table_8h_source.html#l00120">prob</a>, and <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::PROBABILITY</a>.</p>
+<p>References <a class="el" href="stoch_types_8h_source.html#l00109">StochHMM::COUNTS</a>, <a class="el" href="lexical_table_8h_source.html#l00121">counts</a>, <a class="el" href="lexical_table_8cpp_source.html#l00856">initialize_emission_table()</a>, <a class="el" href="stoch_types_8h_source.html#l00109">StochHMM::LOG_PROB</a>, <a class="el" href="lexical_table_8h_source.html#l00122">logProb</a>, <a class="el" href="lexical_table_8h_source.html#l00120">prob</a>, and <a class="el" href="stoch_types_8h_source.html#l00109">StochHMM::PROBABILITY</a>.</p>
 <div class="fragment"><div class="line">                                                                                         {</div>
 <div class="line">        <span class="keywordflow">if</span> (emmType==<a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a68071cfc928cf75eda3d522a63517b31">COUNTS</a>){</div>
 <div class="line">            <a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a657e944678fcffdef65f460aa1b82d65">counts</a>=temp;</div>
@@ -528,7 +513,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="lexical_table_8cpp_source.html#l00048">48</a> of file <a class="el" href="lexical_table_8cpp_source.html">lexicalTable.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::COUNTS</a>, and <a class="el" href="lexical_table_8h_source.html#l00121">counts</a>.</p>
+<p>References <a class="el" href="stoch_types_8h_source.html#l00109">StochHMM::COUNTS</a>, and <a class="el" href="lexical_table_8h_source.html#l00121">counts</a>.</p>
 
 <p>Referenced by <a class="el" href="_counter_8cpp_source.html#l00634">StochHMM::Counter::initializeTable()</a>.</p>
 <div class="fragment"><div class="line">                                                                                       {</div>
@@ -844,7 +829,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="lexical_table_8cpp_source.html#l00718">718</a> of file <a class="el" href="lexical_table_8cpp_source.html">lexicalTable.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::AVERAGE_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00132">decompose_sequence</a>, <a class="el" href="lexical_table_8h_source.html#l00131">decompose_values</a>, <a class="el" href="lexical_table_8h_source.html#l00126">dimensions</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::HIGHEST_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00134">log_emission</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::LOWEST_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00113">max_unambiguous</a>, <a class="el" href="index_8cpp_source.html#l00239">StochHMM::Index::setAmbiguous()</a>, <a class="el" href="index_8cpp_source.html#l00208">StochHMM::Index::size()</a>, <a class="el" href="lexical_table_8h_source.html#l00111">trcks</a>, and <a class="el" href="lexical_table_8h_source.html#l00107">unknownScoreType</a>.</p>
+<p>References <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::AVERAGE_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00132">decompose_sequence</a>, <a class="el" href="lexical_table_8h_source.html#l00131">decompose_values</a>, <a class="el" href="lexical_table_8h_source.html#l00126">dimensions</a>, <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::HIGHEST_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00134">log_emission</a>, <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::LOWEST_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00113">max_unambiguous</a>, <a class="el" href="index_8cpp_source.html#l00239">StochHMM::Index::setAmbiguous()</a>, <a class="el" href="index_8cpp_source.html#l00208">StochHMM::Index::size()</a>, <a class="el" href="lexical_table_8h_source.html#l00111">trcks</a>, and <a class="el" href="lexical_table_8h_source.html#l00107">unknownScoreType</a>.</p>
 
 <p>Referenced by <a class="el" href="lexical_table_8cpp_source.html#l00543">transferValues()</a>.</p>
 <div class="fragment"><div class="line">                                                                         {</div>
@@ -1176,7 +1161,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="lexical_table_8cpp_source.html#l00607">607</a> of file <a class="el" href="lexical_table_8cpp_source.html">lexicalTable.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::AVERAGE_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00126">dimensions</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::HIGHEST_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00134">log_emission</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::LOWEST_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00113">max_unambiguous</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::NO_SCORE</a>, <a class="el" href="index_8cpp_source.html#l00239">StochHMM::Index::setAmbiguous()</a>, <a class="el" href="index_8cpp_source.html#l00208">StochHMM::Index::size()</a>, <a class="el" href="lexical_table_8h_source.html#l00129">subarray_position</a>, <a class="el" href="lexical_table_8h_source.html#l00128">subarray_sequence</a>, <a class="el" href="lexical_table_8h_source.html#l00127">subarray_value</a>, <a class="el" href="lexical_table_8h_source.html#l00111">trcks</a>, and <a class="el" href="lexical_table_8h_source.html#l00107">unknownScoreType</a>.</p>
+<p>References <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::AVERAGE_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00126">dimensions</a>, <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::HIGHEST_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00134">log_emission</a>, <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::LOWEST_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00113">max_unambiguous</a>, <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::NO_SCORE</a>, <a class="el" href="index_8cpp_source.html#l00239">StochHMM::Index::setAmbiguous()</a>, <a class="el" href="index_8cpp_source.html#l00208">StochHMM::Index::size()</a>, <a class="el" href="lexical_table_8h_source.html#l00129">subarray_position</a>, <a class="el" href="lexical_table_8h_source.html#l00128">subarray_sequence</a>, <a class="el" href="lexical_table_8h_source.html#l00127">subarray_value</a>, <a class="el" href="lexical_table_8h_source.html#l00111">trcks</a>, and <a class="el" href="lexical_table_8h_source.html#l00107">unknownScoreType</a>.</p>
 
 <p>Referenced by <a class="el" href="lexical_table_8cpp_source.html#l00113">getValue()</a>.</p>
 <div class="fragment"><div class="line">                                                                            {</div>
@@ -1260,7 +1245,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="lexical_table_8cpp_source.html#l00664">664</a> of file <a class="el" href="lexical_table_8cpp_source.html">lexicalTable.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::AVERAGE_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00126">dimensions</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::HIGHEST_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00134">log_emission</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::LOWEST_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00113">max_unambiguous</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::NO_SCORE</a>, <a class="el" href="index_8cpp_source.html#l00239">StochHMM::Index::setAmbiguous()</a>, <a class="el" href="index_8cpp_source.html#l00208">StochHMM::Index::size()</a>, <a class="el" href="lexical_table_8h_source.html#l00129">subarray_position</a>, <a class="el" href="lexical_table_8h_source.html#l00128">subarray_sequence</a>, <a class="el" href="lexical_table_8h_source.html#l00127">subarray_value</a>, <a class="el" href="lexical_table_8h_source.html#l00111">trcks</a>, and <a class="el" href="lexical_table_8h_source.html#l00107">unknownScoreType</a>.</p>
+<p>References <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::AVERAGE_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00126">dimensions</a>, <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::HIGHEST_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00134">log_emission</a>, <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::LOWEST_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00113">max_unambiguous</a>, <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::NO_SCORE</a>, <a class="el" href="index_8cpp_source.html#l00239">StochHMM::Index::setAmbiguous()</a>, <a class="el" href="index_8cpp_source.html#l00208">StochHMM::Index::size()</a>, <a class="el" href="lexical_table_8h_source.html#l00129">subarray_position</a>, <a class="el" href="lexical_table_8h_source.html#l00128">subarray_sequence</a>, <a class="el" href="lexical_table_8h_source.html#l00127">subarray_value</a>, <a class="el" href="lexical_table_8h_source.html#l00111">trcks</a>, and <a class="el" href="lexical_table_8h_source.html#l00107">unknownScoreType</a>.</p>
 <div class="fragment"><div class="line">                                                                          {</div>
 <div class="line">                Index indices;</div>
 <div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#ae11a0da7e882c006a7bebfa5becaf45e">dimensions</a>;i++){</div>
@@ -1742,7 +1727,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="lexical_table_8cpp_source.html#l00856">856</a> of file <a class="el" href="lexical_table_8cpp_source.html">lexicalTable.cpp</a>.</p>
 
-<p>References <a class="el" href="lexical_table_8h_source.html#l00125">array_size</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::DEFINED_SCORE</a>, <a class="el" href="lexical_table_8cpp_source.html#l00452">init_array_dimension_values()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00408">init_table_dimension_values()</a>, <a class="el" href="lexical_table_8h_source.html#l00134">log_emission</a>, <a class="el" href="lexical_table_8h_source.html#l00122">logProb</a>, <a class="el" href="lexical_table_8h_source.html#l00113">max_unambiguous</a>, <a class="el" href="lexical_table_8h_source.html#l00110">number_of_tracks</a>, <a class="el" href="lexical_table_8cpp_source.html#l00543">transferValues()</a>, <a class="el" href="lexical_table_8h_source.html#l00111">trcks</a>, and <a class="el" href="lexical_table_8h_source.html#l00108">unknownDefinedScore</a>.</p>
+<p>References <a class="el" href="lexical_table_8h_source.html#l00125">array_size</a>, <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::DEFINED_SCORE</a>, <a class="el" href="lexical_table_8cpp_source.html#l00452">init_array_dimension_values()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00408">init_table_dimension_values()</a>, <a class="el" href="lexical_table_8h_source.html#l00134">log_emission</a>, <a class="el" href="lexical_table_8h_source.html#l00122">logProb</a>, <a class="el" href="lexical_table_8h_source.html#l00113">max_unambiguous</a>, <a class="el" href="lexical_table_8h_source.html#l00110">number_of_tracks</a>, <a class="el" href="lexical_table_8cpp_source.html#l00543">transferValues()</a>, <a class="el" href="lexical_table_8h_source.html#l00111">trcks</a>, and <a class="el" href="lexical_table_8h_source.html#l00108">unknownDefinedScore</a>.</p>
 
 <p>Referenced by <a class="el" href="lexical_table_8cpp_source.html#l00171">assignTable()</a>, and <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>.</p>
 <div class="fragment"><div class="line">                                                    {</div>
@@ -1982,7 +1967,7 @@ Private Attributes</h2></td></tr>
 <div class="line">                <span class="keywordflow">if</span> (j&gt;0){</div>
 <div class="line">                    tbl+=<span class="stringliteral">&quot;\t&quot;</span>;</div>
 <div class="line">                }</div>
-<div class="line">                tbl+=<a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>((*temp)[i][j]);</div>
+<div class="line">                tbl+=<a class="code" href="namespace_stoch_h_m_m.html#a8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>((*temp)[i][j]);</div>
 <div class="line">            }</div>
 <div class="line">            tbl+=<span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line">        }</div>
@@ -2174,7 +2159,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="lexical_table_8cpp_source.html#l00543">543</a> of file <a class="el" href="lexical_table_8cpp_source.html">lexicalTable.cpp</a>.</p>
 
-<p>References <a class="el" href="lexical_table_8cpp_source.html#l00814">calculateArrayIndex()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00822">decompose()</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::DEFINED_SCORE</a>, <a class="el" href="lexical_table_8cpp_source.html#l00718">getAmbiguousScore()</a>, <a class="el" href="lexical_table_8h_source.html#l00122">logProb</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::NO_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00108">unknownDefinedScore</a>, and <a class="el" href="lexical_table_8h_source.html#l00107">unknownScoreType</a>.</p>
+<p>References <a class="el" href="lexical_table_8cpp_source.html#l00814">calculateArrayIndex()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00822">decompose()</a>, <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::DEFINED_SCORE</a>, <a class="el" href="lexical_table_8cpp_source.html#l00718">getAmbiguousScore()</a>, <a class="el" href="lexical_table_8h_source.html#l00122">logProb</a>, <a class="el" href="stoch_types_8h_source.html#l00099">StochHMM::NO_SCORE</a>, <a class="el" href="lexical_table_8h_source.html#l00108">unknownDefinedScore</a>, and <a class="el" href="lexical_table_8h_source.html#l00107">unknownScoreType</a>.</p>
 
 <p>Referenced by <a class="el" href="lexical_table_8cpp_source.html#l00856">initialize_emission_table()</a>.</p>
 <div class="fragment"><div class="line">                                                                     {</div>
@@ -2822,15 +2807,11 @@ Private Attributes</h2></td></tr>
 <li><a class="el" href="lexical_table_8cpp_source.html">lexicalTable.cpp</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1lexical_table.html">lexicalTable</a></li>
-    <li class="footer">Generated on Wed Apr 24 2013 09:39:37 for StochHMM by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Wed Apr 24 2013 12:28:05 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.1
+</small></address>
 </body>
 </html>

@@ -7,12 +7,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -75,20 +69,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1traceback__path.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -103,6 +83,11 @@ $(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1traceback__path.h
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -363,7 +348,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00103">103</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
 
-<p>References <a class="el" href="traceback__path_8h_source.html#l00057">StochHMM::gff_feature::attribute</a>, <a class="el" href="traceback__path_8h_source.html#l00053">StochHMM::gff_feature::end</a>, <a class="el" href="traceback__path_8h_source.html#l00051">StochHMM::gff_feature::feature</a>, <a class="el" href="traceback__path_8h_source.html#l00056">StochHMM::gff_feature::frame</a>, <a class="el" href="state_8h_source.html#l00074">StochHMM::state::getGFF()</a>, <a class="el" href="hmm_8h_source.html#l00080">StochHMM::model::getName()</a>, <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="traceback__path_8h_source.html#l00054">StochHMM::gff_feature::score</a>, <a class="el" href="traceback__path_8h_source.html#l00049">StochHMM::gff_feature::seqname</a>, <a class="el" href="traceback__path_8cpp_source.html#l00046">size()</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, <a class="el" href="traceback__path_8h_source.html#l00050">StochHMM::gff_feature::source</a>, <a class="el" href="traceback__path_8h_source.html#l00052">StochHMM::gff_feature::start</a>, <a class="el" href="traceback__path_8h_source.html#l00055">StochHMM::gff_feature::strand</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
+<p>References <a class="el" href="traceback__path_8h_source.html#l00057">StochHMM::gff_feature::attribute</a>, <a class="el" href="traceback__path_8h_source.html#l00053">StochHMM::gff_feature::end</a>, <a class="el" href="traceback__path_8h_source.html#l00051">StochHMM::gff_feature::feature</a>, <a class="el" href="traceback__path_8h_source.html#l00056">StochHMM::gff_feature::frame</a>, <a class="el" href="state_8h_source.html#l00074">StochHMM::state::getGFF()</a>, <a class="el" href="hmm_8h_source.html#l00082">StochHMM::model::getName()</a>, <a class="el" href="hmm_8h_source.html#l00138">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="traceback__path_8h_source.html#l00054">StochHMM::gff_feature::score</a>, <a class="el" href="traceback__path_8h_source.html#l00049">StochHMM::gff_feature::seqname</a>, <a class="el" href="traceback__path_8cpp_source.html#l00046">size()</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, <a class="el" href="traceback__path_8h_source.html#l00050">StochHMM::gff_feature::source</a>, <a class="el" href="traceback__path_8h_source.html#l00052">StochHMM::gff_feature::start</a>, <a class="el" href="traceback__path_8h_source.html#l00055">StochHMM::gff_feature::strand</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
 <div class="fragment"><div class="line">                                                                               {</div>
 <div class="line">        std::string current_label=<span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line">        <span class="keywordtype">long</span> <span class="keywordtype">long</span> start=0;</div>
@@ -467,7 +452,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00065">65</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
 
-<p>References <a class="el" href="state_8h_source.html#l00078">StochHMM::state::getLabel()</a>, <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
+<p>References <a class="el" href="state_8h_source.html#l00078">StochHMM::state::getLabel()</a>, <a class="el" href="hmm_8h_source.html#l00138">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
 <div class="fragment"><div class="line">                                                       {</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k=<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>.size()-1; k!=<a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>; k--){</div>
@@ -504,7 +489,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00076">76</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
 
-<p>References <a class="el" href="state_8h_source.html#l00078">StochHMM::state::getLabel()</a>, <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
+<p>References <a class="el" href="state_8h_source.html#l00078">StochHMM::state::getLabel()</a>, <a class="el" href="hmm_8h_source.html#l00138">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">if</span> (pth.size()&gt;0){</div>
@@ -544,7 +529,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00092">92</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
 
-<p>References <a class="el" href="state_8h_source.html#l00070">StochHMM::state::getName()</a>, <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
+<p>References <a class="el" href="state_8h_source.html#l00070">StochHMM::state::getName()</a>, <a class="el" href="hmm_8h_source.html#l00138">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
 <div class="fragment"><div class="line">                                                      {</div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k = <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>.size()-1; k != <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>; k--){</div>
 <div class="line">            state* st = <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a865c91c58efad1102e4e14eb7a3351c4">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>[k]);</div>
@@ -822,7 +807,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00268">268</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
 
-<p>References <a class="el" href="state_8h_source.html#l00074">StochHMM::state::getGFF()</a>, <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="traceback__path_8cpp_source.html#l00046">size()</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
+<p>References <a class="el" href="state_8h_source.html#l00074">StochHMM::state::getGFF()</a>, <a class="el" href="hmm_8h_source.html#l00138">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="traceback__path_8cpp_source.html#l00046">size()</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
 
 <p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00378">print_output()</a>.</p>
 <div class="fragment"><div class="line">                                                                                                                        {</div>
@@ -885,7 +870,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00309">309</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
 
-<p>References <a class="el" href="state_8h_source.html#l00074">StochHMM::state::getGFF()</a>, <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="traceback__path_8cpp_source.html#l00046">size()</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
+<p>References <a class="el" href="state_8h_source.html#l00074">StochHMM::state::getGFF()</a>, <a class="el" href="hmm_8h_source.html#l00138">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="traceback__path_8cpp_source.html#l00046">size()</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
 <div class="fragment"><div class="line">                                                                {</div>
 <div class="line">        std::string current_label=<span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line">        <span class="keywordtype">long</span> <span class="keywordtype">long</span> start=0;</div>
@@ -948,7 +933,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00252">252</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
 
-<p>References <a class="el" href="state_8h_source.html#l00078">StochHMM::state::getLabel()</a>, <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
+<p>References <a class="el" href="state_8h_source.html#l00078">StochHMM::state::getLabel()</a>, <a class="el" href="hmm_8h_source.html#l00138">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
 
 <p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00378">print_output()</a>.</p>
 <div class="fragment"><div class="line">                                           {</div>
@@ -1217,15 +1202,11 @@ Private Attributes</h2></td></tr>
 <li><a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a></li>
-    <li class="footer">Generated on Wed Apr 24 2013 09:39:38 for StochHMM by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Wed Apr 24 2013 12:28:07 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.1
+</small></address>
 </body>
 </html>

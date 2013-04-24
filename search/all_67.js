@@ -86,7 +86,7 @@ var searchData=
   ['getinitialto',['getInitialTo',['../class_stoch_h_m_m_1_1model.html#af2c21a10ef39c09f00825b9405380f50',1,'StochHMM::model']]],
   ['getiterator',['getIterator',['../class_stoch_h_m_m_1_1state.html#a2c11ceb39aba9631ba41e3a5259e8da5',1,'StochHMM::state']]],
   ['getjob',['getJob',['../class_stoch_h_m_m_1_1seq_tracks.html#a98b77cf3ee4f7e6f6d2f1b7c17f903d0',1,'StochHMM::seqTracks']]],
-  ['getkeyvalue',['getKeyValue',['../group___text.html#ga423cf7d1707638ac6c526bb10e7cc599',1,'StochHMM']]],
+  ['getkeyvalue',['getKeyValue',['../namespace_stoch_h_m_m.html#a423cf7d1707638ac6c526bb10e7cc599',1,'StochHMM']]],
   ['getlabel',['getLabel',['../class_stoch_h_m_m_1_1state.html#ac58f8dfc39b64abbba92a94029565cc9',1,'StochHMM::state']]],
   ['getlength',['getLength',['../class_stoch_h_m_m_1_1sequence.html#aa673c53333162fa42fc2587cc9cb98c3',1,'StochHMM::sequence::getLength()'],['../class_stoch_h_m_m_1_1sequences.html#a4330384386d607990d4f46e4ec710b27',1,'StochHMM::sequences::getLength(size_t iter)'],['../class_stoch_h_m_m_1_1sequences.html#a30b024b7aa60cd8cadaf2f6733408095',1,'StochHMM::sequences::getLength()']]],
   ['getlexicalfunctionname',['getLexicalFunctionName',['../class_stoch_h_m_m_1_1transition.html#a727d502ebec584d5b6d01b291842b1da',1,'StochHMM::transition']]],

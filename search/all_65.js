@@ -58,6 +58,6 @@ var searchData=
   ['externalfuncs_2eh',['externalFuncs.h',['../external_funcs_8h.html',1,'']]],
   ['externdefinitions_2ecpp',['externDefinitions.cpp',['../extern_definitions_8cpp.html',1,'']]],
   ['externdefinitions_2eh',['externDefinitions.h',['../extern_definitions_8h.html',1,'']]],
-  ['extracttag',['extractTag',['../group___text.html#gabad7e59fdc834721ee71b12524c40002',1,'StochHMM']]],
+  ['extracttag',['extractTag',['../namespace_stoch_h_m_m.html#abad7e59fdc834721ee71b12524c40002',1,'StochHMM']]],
   ['extrapolate',['extrapolate',['../namespace_stoch_h_m_m.html#a936d6e0be2b0efa67f5415a320c81fb7',1,'StochHMM']]]
 ];

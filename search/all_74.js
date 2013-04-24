@@ -10,7 +10,7 @@ var searchData=
   ['templates',['templates',['../class_stoch_h_m_m_1_1templates.html#a621361c8e519c2e250399a03df7b43d8',1,'StochHMM::templates::templates()'],['../class_stoch_h_m_m_1_1templates.html#a682f860d0cea1c4108f9c6f0c48d3655',1,'StochHMM::templates::templates(std::string &amp;)']]],
   ['temps',['temps',['../class_stoch_h_m_m_1_1templates.html#a92ef0eca9282aeec3228f4074eff8986',1,'StochHMM::templates']]],
   ['test',['test',['../class_stoch_h_m_m_1_1dynamic__bitset.html#aa59aec3ffe571f9a2c47db8b212ff713',1,'StochHMM::dynamic_bitset']]],
-  ['text_20parhandling',['Text parHandling',['../group___text.html',1,'']]],
+  ['text_20handling',['Text Handling',['../group___text.html',1,'']]],
   ['text_2ecpp',['text.cpp',['../text_8cpp.html',1,'']]],
   ['text_2eh',['text.h',['../text_8h.html',1,'']]],
   ['threshold',['threshold',['../class_stoch_h_m_m_1_1matrix_position.html#a00c4c139b61045ef5bc4f1b1e1b3874b',1,'StochHMM::matrixPosition']]],

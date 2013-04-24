@@ -7,12 +7,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -73,20 +67,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('text_8h.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -101,6 +81,7 @@ $(document).ready(function(){initNavTree('text_8h.html','');});
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
@@ -136,32 +117,32 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga011a05da53674a925fe8dc3402ac3f24"><td class="memItemLeft" align="right" valign="top">stringList &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga011a05da53674a925fe8dc3402ac3f24">StochHMM::splitString</a> (const std::string &amp;txt, const std::string &amp;delimiters)</td></tr>
-<tr class="memdesc:ga011a05da53674a925fe8dc3402ac3f24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits string using delimiters and return <a class="el" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a>.  <a href="group___text.html#ga011a05da53674a925fe8dc3402ac3f24"></a><br/></td></tr>
-<tr class="memitem:ga2904cf1af30b23b7f44a416b594c7bf6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">StochHMM::clear_whitespace</a> (std::string &amp;input, std::string white)</td></tr>
-<tr class="memitem:ga98f2f125252b54b1f227988ae44d424b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga98f2f125252b54b1f227988ae44d424b">StochHMM::replaceChar</a> (std::string &amp;txt, char ch, char replaceCh)</td></tr>
-<tr class="memitem:ga0b39adb00f98cdbf548db31ccb7abb68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga0b39adb00f98cdbf548db31ccb7abb68">StochHMM::removeLeadingWS</a> (std::string &amp;txt, const std::string &amp;ws)</td></tr>
-<tr class="memitem:gae1e21893ae48aaa6969040d19e5085d7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#gae1e21893ae48aaa6969040d19e5085d7">StochHMM::parseComment</a> (std::string &amp;txt, char commentChar)</td></tr>
-<tr class="memdesc:gae1e21893ae48aaa6969040d19e5085d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find first comment character and then return everything following the character.  <a href="group___text.html#gae1e21893ae48aaa6969040d19e5085d7"></a><br/></td></tr>
-<tr class="memitem:ga423cf7d1707638ac6c526bb10e7cc599"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga423cf7d1707638ac6c526bb10e7cc599">StochHMM::getKeyValue</a> (std::string &amp;txt, std::string &amp;key, std::string &amp;value)</td></tr>
-<tr class="memitem:ga3538626ea8a3ae77e33bda5d63206c23"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">StochHMM::join</a> (std::vector&lt; int &gt; &amp;input, char c)</td></tr>
-<tr class="memitem:ga5e62d476cb2624cc2ccc8fda22638f55"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga5e62d476cb2624cc2ccc8fda22638f55">StochHMM::join</a> (std::vector&lt; size_t &gt; &amp;input, char c)</td></tr>
-<tr class="memitem:ga653785a899ab843126ce160cfece2ea0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga653785a899ab843126ce160cfece2ea0">StochHMM::join</a> (std::vector&lt; short &gt; &amp;input, char c)</td></tr>
-<tr class="memitem:gaddca5829807c3a7d46e17d70a2539326"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#gaddca5829807c3a7d46e17d70a2539326">StochHMM::join</a> (std::vector&lt; double &gt; &amp;input, char c)</td></tr>
-<tr class="memitem:gaa0e001e5f6c961318831de04ac65eb0c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#gaa0e001e5f6c961318831de04ac65eb0c">StochHMM::join</a> (std::vector&lt; std::string &gt; &amp;input, char c)</td></tr>
-<tr class="memitem:ga85eb97cbbeb8e493349a04ffaabb1bbf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">StochHMM::int_to_string</a> (int input)</td></tr>
-<tr class="memitem:ga3d9012b75742539fbf315c0725778aa9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga3d9012b75742539fbf315c0725778aa9">StochHMM::int_to_string</a> (size_t input)</td></tr>
-<tr class="memitem:ga8c2dffdf4f3aba28fc06e10e465fdcf7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">StochHMM::double_to_string</a> (double input)</td></tr>
-<tr class="memitem:ga593ec6959903daf28efe176538f2e20f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga593ec6959903daf28efe176538f2e20f">StochHMM::double_to_string</a> (float input)</td></tr>
-<tr class="memitem:ga4797b0d53af278c2adb72a47f20cfe7d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga4797b0d53af278c2adb72a47f20cfe7d">StochHMM::stringToInt</a> (std::string &amp;txt, int &amp;val)</td></tr>
-<tr class="memitem:ga4bdd998a0f8a1a1997277b05babc677e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga4bdd998a0f8a1a1997277b05babc677e">StochHMM::stringToInt</a> (std::string &amp;txt, size_t &amp;val)</td></tr>
-<tr class="memitem:ga68bd6b3175dd081e05a72e7cff42a7d8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">StochHMM::stringToDouble</a> (std::string &amp;txt, double &amp;val)</td></tr>
-<tr class="memitem:ga7297a0284778c0591fa5505d24ff491d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga7297a0284778c0591fa5505d24ff491d">StochHMM::isNumeric</a> (const std::string &amp;str)</td></tr>
-<tr class="memitem:ga4cec2ea0c1f6cbeb092d15b9867443b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga4cec2ea0c1f6cbeb092d15b9867443b0">StochHMM::split_line</a> (std::vector&lt; std::string &gt; &amp;line, std::string &amp;input)</td></tr>
-<tr class="memitem:gabad7e59fdc834721ee71b12524c40002"><td class="memItemLeft" align="right" valign="top">stringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#gabad7e59fdc834721ee71b12524c40002">StochHMM::extractTag</a> (std::string &amp;txt)</td></tr>
-<tr class="memitem:ga99d531d5a6e0bbb1aee2cffbdcef7d4b"><td class="memItemLeft" align="right" valign="top">std::pair&lt; size_t, size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga99d531d5a6e0bbb1aee2cffbdcef7d4b">StochHMM::balanced_brackets</a> (const std::string &amp;text, const std::string &amp;brackets)</td></tr>
-<tr class="memitem:ga1bdb409efab2d170ecb74f8537afbc44"><td class="memItemLeft" align="right" valign="top">std::pair&lt; size_t, size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga1bdb409efab2d170ecb74f8537afbc44">StochHMM::balanced_brackets</a> (const std::string &amp;text, const std::string &amp;brackets, size_t offset)</td></tr>
-<tr class="memitem:gafad8e125317894c8056a5706c4590b9b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#gafad8e125317894c8056a5706c4590b9b">StochHMM::slurpFile</a> (std::string &amp;file)</td></tr>
+<tr class="memitem:a011a05da53674a925fe8dc3402ac3f24"><td class="memItemLeft" align="right" valign="top">stringList &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a011a05da53674a925fe8dc3402ac3f24">StochHMM::splitString</a> (const std::string &amp;txt, const std::string &amp;delimiters)</td></tr>
+<tr class="memdesc:a011a05da53674a925fe8dc3402ac3f24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits string using delimiters and return <a class="el" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a>.  <a href="#a011a05da53674a925fe8dc3402ac3f24"></a><br/></td></tr>
+<tr class="memitem:a2904cf1af30b23b7f44a416b594c7bf6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a2904cf1af30b23b7f44a416b594c7bf6">StochHMM::clear_whitespace</a> (std::string &amp;input, std::string white)</td></tr>
+<tr class="memitem:a98f2f125252b54b1f227988ae44d424b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a98f2f125252b54b1f227988ae44d424b">StochHMM::replaceChar</a> (std::string &amp;txt, char ch, char replaceCh)</td></tr>
+<tr class="memitem:a0b39adb00f98cdbf548db31ccb7abb68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a0b39adb00f98cdbf548db31ccb7abb68">StochHMM::removeLeadingWS</a> (std::string &amp;txt, const std::string &amp;ws)</td></tr>
+<tr class="memitem:ae1e21893ae48aaa6969040d19e5085d7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#ae1e21893ae48aaa6969040d19e5085d7">StochHMM::parseComment</a> (std::string &amp;txt, char commentChar)</td></tr>
+<tr class="memdesc:ae1e21893ae48aaa6969040d19e5085d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find first comment character and then return everything following the character.  <a href="#ae1e21893ae48aaa6969040d19e5085d7"></a><br/></td></tr>
+<tr class="memitem:a423cf7d1707638ac6c526bb10e7cc599"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a423cf7d1707638ac6c526bb10e7cc599">StochHMM::getKeyValue</a> (std::string &amp;txt, std::string &amp;key, std::string &amp;value)</td></tr>
+<tr class="memitem:a3538626ea8a3ae77e33bda5d63206c23"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a3538626ea8a3ae77e33bda5d63206c23">StochHMM::join</a> (std::vector&lt; int &gt; &amp;input, char c)</td></tr>
+<tr class="memitem:a5e62d476cb2624cc2ccc8fda22638f55"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a5e62d476cb2624cc2ccc8fda22638f55">StochHMM::join</a> (std::vector&lt; size_t &gt; &amp;input, char c)</td></tr>
+<tr class="memitem:a653785a899ab843126ce160cfece2ea0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a653785a899ab843126ce160cfece2ea0">StochHMM::join</a> (std::vector&lt; short &gt; &amp;input, char c)</td></tr>
+<tr class="memitem:addca5829807c3a7d46e17d70a2539326"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#addca5829807c3a7d46e17d70a2539326">StochHMM::join</a> (std::vector&lt; double &gt; &amp;input, char c)</td></tr>
+<tr class="memitem:aa0e001e5f6c961318831de04ac65eb0c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#aa0e001e5f6c961318831de04ac65eb0c">StochHMM::join</a> (std::vector&lt; std::string &gt; &amp;input, char c)</td></tr>
+<tr class="memitem:a85eb97cbbeb8e493349a04ffaabb1bbf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a85eb97cbbeb8e493349a04ffaabb1bbf">StochHMM::int_to_string</a> (int input)</td></tr>
+<tr class="memitem:a3d9012b75742539fbf315c0725778aa9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a3d9012b75742539fbf315c0725778aa9">StochHMM::int_to_string</a> (size_t input)</td></tr>
+<tr class="memitem:a8c2dffdf4f3aba28fc06e10e465fdcf7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a8c2dffdf4f3aba28fc06e10e465fdcf7">StochHMM::double_to_string</a> (double input)</td></tr>
+<tr class="memitem:a593ec6959903daf28efe176538f2e20f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a593ec6959903daf28efe176538f2e20f">StochHMM::double_to_string</a> (float input)</td></tr>
+<tr class="memitem:a4797b0d53af278c2adb72a47f20cfe7d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a4797b0d53af278c2adb72a47f20cfe7d">StochHMM::stringToInt</a> (std::string &amp;txt, int &amp;val)</td></tr>
+<tr class="memitem:a4bdd998a0f8a1a1997277b05babc677e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a4bdd998a0f8a1a1997277b05babc677e">StochHMM::stringToInt</a> (std::string &amp;txt, size_t &amp;val)</td></tr>
+<tr class="memitem:a68bd6b3175dd081e05a72e7cff42a7d8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a68bd6b3175dd081e05a72e7cff42a7d8">StochHMM::stringToDouble</a> (std::string &amp;txt, double &amp;val)</td></tr>
+<tr class="memitem:a7297a0284778c0591fa5505d24ff491d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a7297a0284778c0591fa5505d24ff491d">StochHMM::isNumeric</a> (const std::string &amp;str)</td></tr>
+<tr class="memitem:a4cec2ea0c1f6cbeb092d15b9867443b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a4cec2ea0c1f6cbeb092d15b9867443b0">StochHMM::split_line</a> (std::vector&lt; std::string &gt; &amp;line, std::string &amp;input)</td></tr>
+<tr class="memitem:abad7e59fdc834721ee71b12524c40002"><td class="memItemLeft" align="right" valign="top">stringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#abad7e59fdc834721ee71b12524c40002">StochHMM::extractTag</a> (std::string &amp;txt)</td></tr>
+<tr class="memitem:a99d531d5a6e0bbb1aee2cffbdcef7d4b"><td class="memItemLeft" align="right" valign="top">std::pair&lt; size_t, size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a99d531d5a6e0bbb1aee2cffbdcef7d4b">StochHMM::balanced_brackets</a> (const std::string &amp;text, const std::string &amp;brackets)</td></tr>
+<tr class="memitem:a1bdb409efab2d170ecb74f8537afbc44"><td class="memItemLeft" align="right" valign="top">std::pair&lt; size_t, size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a1bdb409efab2d170ecb74f8537afbc44">StochHMM::balanced_brackets</a> (const std::string &amp;text, const std::string &amp;brackets, size_t offset)</td></tr>
+<tr class="memitem:afad8e125317894c8056a5706c4590b9b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#afad8e125317894c8056a5706c4590b9b">StochHMM::slurpFile</a> (std::string &amp;file)</td></tr>
 </table>
 <hr/><h2>Macro Definition Documentation</h2>
 <a class="anchor" id="a3c75bb398badb69c7577b21486f9963f"></a>
@@ -179,15 +160,11 @@ Functions</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="text_8h.html">text.h</a></li>
-    <li class="footer">Generated on Wed Apr 24 2013 09:39:35 for StochHMM by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Wed Apr 24 2013 12:28:03 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.1
+</small></address>
 </body>
 </html>

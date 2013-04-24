@@ -7,12 +7,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -75,20 +69,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1seq_job.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -103,6 +83,11 @@ $(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1seq_job.html','')
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">seqJob</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -155,7 +140,7 @@ Friends</h2></td></tr>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>*Stores the model and sequence information for each job </p>
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00236">236</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00242">242</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a11a11ba0a7cd17559095cbe0f837276f"></a>
 <div class="memitem">
@@ -175,7 +160,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="seq_jobs_8cpp_source.html#l00033">33</a> of file <a class="el" href="seq_jobs_8cpp_source.html">seqJobs.cpp</a>.</p>
 
-<p>References <a class="el" href="seq_tracks_8h_source.html#l00280">attrib</a>, <a class="el" href="seq_tracks_8h_source.html#l00285">decodingPerformed</a>, <a class="el" href="seq_tracks_8h_source.html#l00272">hmm</a>, and <a class="el" href="seq_tracks_8h_source.html#l00286">path</a>.</p>
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00286">attrib</a>, <a class="el" href="seq_tracks_8h_source.html#l00291">decodingPerformed</a>, <a class="el" href="seq_tracks_8h_source.html#l00278">hmm</a>, and <a class="el" href="seq_tracks_8h_source.html#l00292">path</a>.</p>
 <div class="fragment"><div class="line">                           {</div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#a9c2aeb5b874186d0245fcc3b46928220">decodingPerformed</a>=<span class="keyword">false</span>;</div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#a31b7479f7a4cfa4f9f9fea2c5ff173fa">attrib</a>=-INFINITY;</div>
@@ -203,7 +188,7 @@ Friends</h2></td></tr>
 
 <p>Definition at line <a class="el" href="seq_jobs_8cpp_source.html#l00042">42</a> of file <a class="el" href="seq_jobs_8cpp_source.html">seqJobs.cpp</a>.</p>
 
-<p>References <a class="el" href="seq_tracks_8h_source.html#l00272">hmm</a>, and <a class="el" href="seq_tracks_8h_source.html#l00286">path</a>.</p>
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00278">hmm</a>, and <a class="el" href="seq_tracks_8h_source.html#l00292">path</a>.</p>
 <div class="fragment"><div class="line">                   {</div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#aafc405d1cdac77b1f1ebd2a6b9754df9">hmm</a>=NULL;</div>
 <div class="line">        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#aaddf53b2bb8c0f88f419a4409abc3463">path</a>;</div>
@@ -236,9 +221,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00259">259</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00265">265</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
-<p>References <a class="el" href="seq_tracks_8h_source.html#l00281">funcEvaluated</a>.</p>
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00287">funcEvaluated</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#a9ed04b886c7fab884c932c200653d743">funcEvaluated</a>;};</div>
 </div><!-- fragment -->
 </div>
@@ -279,7 +264,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00257">257</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00263">263</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <span class="keyword">set</span>-&gt;getHeader();};</div>
 </div><!-- fragment -->
 </div>
@@ -305,9 +290,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00254">254</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00260">260</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
-<p>References <a class="el" href="seq_tracks_8h_source.html#l00272">hmm</a>.</p>
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00278">hmm</a>.</p>
 
 <p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00095">main()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#aafc405d1cdac77b1f1ebd2a6b9754df9">hmm</a>;};</div>
@@ -335,9 +320,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00266">266</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00272">272</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
-<p>References <a class="el" href="seq_tracks_8h_source.html#l00285">decodingPerformed</a>, and <a class="el" href="seq_tracks_8h_source.html#l00286">path</a>.</p>
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00291">decodingPerformed</a>, and <a class="el" href="seq_tracks_8h_source.html#l00292">path</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#a9c2aeb5b874186d0245fcc3b46928220">decodingPerformed</a>) <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#aaddf53b2bb8c0f88f419a4409abc3463">path</a>;<span class="keywordflow">else</span> <span class="keywordflow">return</span> NULL;};</div>
 </div><!-- fragment -->
 </div>
@@ -363,9 +348,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00268">268</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00274">274</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
-<p>References <a class="el" href="seq_tracks_8h_source.html#l00280">attrib</a>.</p>
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00286">attrib</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#a31b7479f7a4cfa4f9f9fea2c5ff173fa">attrib</a>;};</div>
 </div><!-- fragment -->
 </div>
@@ -392,9 +377,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00270">270</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00276">276</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
-<p>References <a class="el" href="seq_tracks_8h_source.html#l00278">seqFilename</a>.</p>
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00284">seqFilename</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#a4e7004a62401483f65dbebbbcaaf5a44">seqFilename</a>[iter];};</div>
 </div><!-- fragment -->
 </div>
@@ -420,7 +405,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00255">255</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00261">261</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
 <p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00095">main()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <span class="keyword">set</span>;};</div>
@@ -448,9 +433,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00272">272</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00278">278</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
-<p>References <a class="el" href="seq_tracks_8h_source.html#l00278">seqFilename</a>.</p>
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00284">seqFilename</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#a4e7004a62401483f65dbebbbcaaf5a44">seqFilename</a>.size();i++){ std::cout &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#a4e7004a62401483f65dbebbbcaaf5a44">seqFilename</a>[i] &lt;&lt; std::endl;}};</div>
 </div><!-- fragment -->
 </div>
@@ -476,9 +461,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00262">262</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00268">268</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
-<p>References <a class="el" href="seq_tracks_8h_source.html#l00272">hmm</a>, and <a class="el" href="hmm_8cpp_source.html#l01130">StochHMM::model::print()</a>.</p>
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00278">hmm</a>, and <a class="el" href="hmm_8cpp_source.html#l01130">StochHMM::model::print()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">if</span>(<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#aafc405d1cdac77b1f1ebd2a6b9754df9">hmm</a>) <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#aafc405d1cdac77b1f1ebd2a6b9754df9">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#af9d2656c4f9a4c794fc308db6bd1f4d8" title="Print model by std::cout.">print</a>();};</div>
 </div><!-- fragment -->
 </div>
@@ -504,7 +489,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00264">264</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00270">270</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 <div class="fragment"><div class="line">{<span class="keyword">set</span>-&gt;print();};</div>
 </div><!-- fragment -->
 </div>
@@ -531,9 +516,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00271">271</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00277">277</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
-<p>References <a class="el" href="seq_tracks_8h_source.html#l00278">seqFilename</a>.</p>
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00284">seqFilename</a>.</p>
 
 <p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00696">StochHMM::seqTracks::getNext()</a>.</p>
 <div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#a4e7004a62401483f65dbebbbcaaf5a44">seqFilename</a>.push_back(filename); <span class="keywordflow">return</span>;};</div>
@@ -562,7 +547,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00252">252</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00258">258</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> <span class="keyword">set</span>-&gt;getLength();};</div>
 </div><!-- fragment -->
 </div>
@@ -586,7 +571,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00244">244</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00250">250</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
 </div>
 </div>
@@ -609,9 +594,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00280">280</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00286">286</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
-<p>Referenced by <a class="el" href="seq_tracks_8h_source.html#l00268">getSeqAttrib()</a>, and <a class="el" href="seq_jobs_8cpp_source.html#l00033">seqJob()</a>.</p>
+<p>Referenced by <a class="el" href="seq_tracks_8h_source.html#l00274">getSeqAttrib()</a>, and <a class="el" href="seq_jobs_8cpp_source.html#l00033">seqJob()</a>.</p>
 
 </div>
 </div>
@@ -633,9 +618,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00285">285</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00291">291</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
-<p>Referenced by <a class="el" href="seq_tracks_8h_source.html#l00266">getPath()</a>, and <a class="el" href="seq_jobs_8cpp_source.html#l00033">seqJob()</a>.</p>
+<p>Referenced by <a class="el" href="seq_tracks_8h_source.html#l00272">getPath()</a>, and <a class="el" href="seq_jobs_8cpp_source.html#l00033">seqJob()</a>.</p>
 
 </div>
 </div>
@@ -657,9 +642,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00281">281</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00287">287</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
-<p>Referenced by <a class="el" href="seq_tracks_8h_source.html#l00259">evaluated()</a>.</p>
+<p>Referenced by <a class="el" href="seq_tracks_8h_source.html#l00265">evaluated()</a>.</p>
 
 </div>
 </div>
@@ -681,7 +666,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00283">283</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00289">289</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
 </div>
 </div>
@@ -703,9 +688,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00272">272</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00278">278</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
-<p>Referenced by <a class="el" href="seq_tracks_8h_source.html#l00254">getModel()</a>, <a class="el" href="seq_tracks_8cpp_source.html#l00696">StochHMM::seqTracks::getNext()</a>, <a class="el" href="seq_tracks_8h_source.html#l00262">printModel()</a>, <a class="el" href="seq_jobs_8cpp_source.html#l00033">seqJob()</a>, and <a class="el" href="seq_jobs_8cpp_source.html#l00042">~seqJob()</a>.</p>
+<p>Referenced by <a class="el" href="seq_tracks_8h_source.html#l00260">getModel()</a>, <a class="el" href="seq_tracks_8cpp_source.html#l00696">StochHMM::seqTracks::getNext()</a>, <a class="el" href="seq_tracks_8h_source.html#l00268">printModel()</a>, <a class="el" href="seq_jobs_8cpp_source.html#l00033">seqJob()</a>, and <a class="el" href="seq_jobs_8cpp_source.html#l00042">~seqJob()</a>.</p>
 
 </div>
 </div>
@@ -727,9 +712,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00286">286</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00292">292</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
-<p>Referenced by <a class="el" href="seq_tracks_8h_source.html#l00266">getPath()</a>, <a class="el" href="seq_jobs_8cpp_source.html#l00033">seqJob()</a>, and <a class="el" href="seq_jobs_8cpp_source.html#l00042">~seqJob()</a>.</p>
+<p>Referenced by <a class="el" href="seq_tracks_8h_source.html#l00272">getPath()</a>, <a class="el" href="seq_jobs_8cpp_source.html#l00033">seqJob()</a>, and <a class="el" href="seq_jobs_8cpp_source.html#l00042">~seqJob()</a>.</p>
 
 </div>
 </div>
@@ -751,9 +736,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00278">278</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00284">284</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
-<p>Referenced by <a class="el" href="seq_tracks_8h_source.html#l00270">getSeqFilename()</a>, <a class="el" href="seq_tracks_8h_source.html#l00272">printFilenames()</a>, and <a class="el" href="seq_tracks_8h_source.html#l00271">setSeqFilename()</a>.</p>
+<p>Referenced by <a class="el" href="seq_tracks_8h_source.html#l00276">getSeqFilename()</a>, <a class="el" href="seq_tracks_8h_source.html#l00278">printFilenames()</a>, and <a class="el" href="seq_tracks_8h_source.html#l00277">setSeqFilename()</a>.</p>
 
 </div>
 </div>
@@ -775,7 +760,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00276">276</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00282">282</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
 
 <p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00696">StochHMM::seqTracks::getNext()</a>.</p>
 
@@ -786,15 +771,11 @@ Friends</h2></td></tr>
 <li><a class="el" href="seq_jobs_8cpp_source.html">seqJobs.cpp</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">seqJob</a></li>
-    <li class="footer">Generated on Wed Apr 24 2013 09:39:38 for StochHMM by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated on Wed Apr 24 2013 12:28:06 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.1
+</small></address>
 </body>
 </html>
