@@ -1,12 +1,13 @@
 var searchData=
 [
+  ['stochhmm_3a_20a_20flexible_20c_2b_2b_20hidden_20markov_20library_20and_20application',['StochHMM: A Flexible C++ Hidden Markov Library and Application',['../index.html',1,'']]],
   ['sbetabinomial',['sBetaBinomial',['../namespace_stoch_h_m_m.html#abb36848ca04cd343ece5630561a24576',1,'StochHMM']]],
   ['sbinomial',['sBinomial',['../namespace_stoch_h_m_m.html#ae85cdb77003d7eb11c3130e1ef438268',1,'StochHMM']]],
   ['scaled_5finverse_5fchi_5fsquared_5fpdf',['scaled_inverse_chi_squared_pdf',['../group___p_d_f.html#ga27dc9756270983840132c456b63c38b6',1,'StochHMM']]],
   ['schisquared',['sChiSquared',['../namespace_stoch_h_m_m.html#a775983c15ffef75bfa907b14a14a14a3',1,'StochHMM']]],
   ['sdegenerate',['sDegenerate',['../namespace_stoch_h_m_m.html#a02b866962161b4991eec95776de880b2',1,'StochHMM']]],
-  ['seqjob',['seqJob',['../class_stoch_h_m_m_1_1seq_job.html',1,'StochHMM']]],
   ['seqjob',['seqJob',['../class_stoch_h_m_m_1_1seq_job.html#a11a11ba0a7cd17559095cbe0f837276f',1,'StochHMM::seqJob']]],
+  ['seqjob',['seqJob',['../class_stoch_h_m_m_1_1seq_job.html',1,'StochHMM']]],
   ['seqtracks',['seqTracks',['../class_stoch_h_m_m_1_1seq_tracks.html',1,'StochHMM']]],
   ['seqtracks',['SeqTracks',['../class_seq_tracks.html',1,'SeqTracks'],['../class_stoch_h_m_m_1_1seq_tracks.html#acf2f630fd46c018b0546f0f712e2b272',1,'StochHMM::seqTracks::seqTracks()'],['../class_stoch_h_m_m_1_1seq_tracks.html#a9021558b778670aba23f2be18469b534',1,'StochHMM::seqTracks::seqTracks(model &amp;, std::string &amp;)'],['../class_stoch_h_m_m_1_1seq_tracks.html#a2e33ac02282ee8b55d7218fb5da6bf55',1,'StochHMM::seqTracks::seqTracks(model &amp;, std::string &amp;, SeqFileFormat)'],['../class_stoch_h_m_m_1_1seq_tracks.html#a9488aa3b77d4e1f6ed363c867e5d7202',1,'StochHMM::seqTracks::seqTracks(model &amp;, std::string &amp;, SeqFileFormat, TrackFuncs *)'],['../class_stoch_h_m_m_1_1seq_tracks.html#a1dffe371199cdedd4f497807c5c95e31',1,'StochHMM::seqTracks::seqTracks(model &amp;, std::vector&lt; std::string &gt; &amp;, SeqFileFormat, SeqFilesType)'],['../class_stoch_h_m_m_1_1seq_tracks.html#a671a39ddfe29c7395d990a8b584e5d52',1,'StochHMM::seqTracks::seqTracks(model &amp;, std::vector&lt; std::string &gt; &amp;, SeqFileFormat, SeqFilesType, TrackFuncs *)'],['../class_stoch_h_m_m_1_1seq_tracks.html#a670443b3cf57c05c92fa89a411efe52e',1,'StochHMM::seqTracks::seqTracks(models &amp;, std::string &amp;, SeqFileFormat, pt2Attrib *)'],['../class_stoch_h_m_m_1_1seq_tracks.html#aca911afc6212df1d7466233669d24813',1,'StochHMM::seqTracks::seqTracks(models &amp;, std::string &amp;, SeqFileFormat, pt2Attrib *, TrackFuncs *)'],['../class_stoch_h_m_m_1_1seq_tracks.html#a7eca36407ba889d474cb5a01e23d856f',1,'StochHMM::seqTracks::seqTracks(models &amp;, std::vector&lt; std::string &gt; &amp;, SeqFileFormat, SeqFilesType, pt2Attrib *)'],['../class_stoch_h_m_m_1_1seq_tracks.html#aade09a5e67b8bb4dac831200a55f1607',1,'StochHMM::seqTracks::seqTracks(models &amp;, std::vector&lt; std::string &gt; &amp;, SeqFileFormat, SeqFilesType, pt2Attrib *, TrackFuncs *)']]],
   ['seqtracks_2eh',['seqTracks.h',['../seq_tracks_8h.html',1,'']]],
@@ -49,6 +50,7 @@ var searchData=
   ['setrealnumber',['setRealNumber',['../class_stoch_h_m_m_1_1emm.html#af47fc262c080fa58c97d5508c7fcfbba',1,'StochHMM::emm']]],
   ['setrealseq',['setRealSeq',['../class_stoch_h_m_m_1_1sequence.html#ac8718c30b916b3ffa52f0425b6788deb',1,'StochHMM::sequence']]],
   ['setremovews',['setRemoveWS',['../class_stoch_h_m_m_1_1string_list.html#aaf5149ec18088d9a55b3474656d1eba0',1,'StochHMM::stringList']]],
+  ['setscore',['setScore',['../class_stoch_h_m_m_1_1traceback__path.html#a394e1bb43518f80efd96817f357e6c84',1,'StochHMM::traceback_path']]],
   ['setseq',['setSeq',['../class_stoch_h_m_m_1_1sequence.html#a600aafee705d57c6e76c8eb67170e529',1,'StochHMM::sequence']]],
   ['setstate',['setState',['../class_stoch_h_m_m_1_1transition.html#af053d45aa8a24feddb4c1e930b89aaee',1,'StochHMM::transition']]],
   ['settb_5fidentifier',['setTB_Identifier',['../class_stoch_h_m_m_1_1transition.html#a8115ddd8cfb50d1956a69d1366035d34',1,'StochHMM::transition']]],

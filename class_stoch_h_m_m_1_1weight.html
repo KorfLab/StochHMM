@@ -74,7 +74,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -155,6 +155,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <dl class="section return"><dt>Returns:</dt><dd>double F(x) which interpolated or extrapolated as necessary </dd></dl>
 
 <p>Definition at line <a class="el" href="weight_8cpp_source.html#l00127">127</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
+
+<p>References <a class="el" href="stoch_math_8cpp_source.html#l00051">StochHMM::extrapolate()</a>, and <a class="el" href="stoch_math_8cpp_source.html#l00043">StochHMM::interpolate()</a>.</p>
 <div class="fragment"><div class="line">                                               {</div>
 <div class="line">        <span class="comment">//Find score that flanks or is equal to the score we supply</span></div>
 <div class="line">        <span class="comment">//If there is one equal to then we return it, otherwise</span></div>
@@ -220,6 +222,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <dl class="section return"><dt>Returns:</dt><dd>bool TRUE if weight is defined as a constant, else FALSE </dd></dl>
 
 <p>Definition at line <a class="el" href="weight_8h_source.html#l00067">67</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
+
+<p>Referenced by <a class="el" href="external_funcs_8cpp_source.html#l00170">StochHMM::transitionFuncParam::stringify()</a>, and <a class="el" href="external_funcs_8cpp_source.html#l00333">StochHMM::emissionFuncParam::stringify()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> absolute;};</div>
 </div><!-- fragment -->
 </div>
@@ -247,6 +251,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Prints out the weight type to text. Includes the x and F(x) vectors and MIN and MAX </p>
 
 <p>Definition at line <a class="el" href="weight_8h_source.html#l00089">89</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
+
+<p>References <a class="el" href="weight_8cpp_source.html#l00166">stringify()</a>.</p>
 <div class="fragment"><div class="line">{std::cout &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1weight.html#adf9900f59e5fe8890212143f6ead07ee">stringify</a>() &lt;&lt; std::endl;};</div>
 </div><!-- fragment -->
 </div>
@@ -281,6 +287,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 
 <p>Definition at line <a class="el" href="weight_8h_source.html#l00103">103</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
+
+<p>Referenced by <a class="el" href="external_funcs_8cpp_source.html#l00050">StochHMM::transitionFuncParam::parse()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00257">StochHMM::emissionFuncParam::parse()</a>, and <a class="el" href="weight_8cpp_source.html#l00201">parse()</a>.</p>
 <div class="fragment"><div class="line">{absoluteValue=val; absolute=<span class="keyword">true</span>; <span class="keywordflow">return</span>;};</div>
 </div><!-- fragment -->
 </div>
@@ -318,6 +326,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 
 <p>Definition at line <a class="el" href="weight_8cpp_source.html#l00050">50</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="weight_8cpp_source.html#l00201">parse()</a>.</p>
 <div class="fragment"><div class="line">                                                 {</div>
 <div class="line">        <span class="keywordflow">if</span> (maxValue!=NULL){</div>
 <div class="line">            <span class="keyword">delete</span> maxValue;</div>
@@ -368,6 +378,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 
 <p>Definition at line <a class="el" href="weight_8cpp_source.html#l00065">65</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="weight_8cpp_source.html#l00201">parse()</a>.</p>
 <div class="fragment"><div class="line">                                                 {</div>
 <div class="line">        <span class="keywordflow">if</span> (minValue!=NULL){</div>
 <div class="line">            <span class="keyword">delete</span> minValue;</div>
@@ -432,6 +444,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 
 <p>Definition at line <a class="el" href="weight_8cpp_source.html#l00096">96</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="weight_8cpp_source.html#l00201">parse()</a>, and <a class="el" href="weight_8cpp_source.html#l00080">setWeights()</a>.</p>
 <div class="fragment"><div class="line">                                                                                                                                           {</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">if</span> (vals!=NULL){</div>
@@ -491,6 +505,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 
 <p>Definition at line <a class="el" href="weight_8cpp_source.html#l00080">80</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
+
+<p>References <a class="el" href="weight_8cpp_source.html#l00096">setWeights()</a>.</p>
 <div class="fragment"><div class="line">                                                                             {</div>
 <div class="line">        <span class="keywordflow">if</span> (maxValue==NULL &amp;&amp; minValue==NULL){</div>
 <div class="line">            <a class="code" href="class_stoch_h_m_m_1_1weight.html#a70d47c6cfbe6fff590c2c6d309415f17">setWeights</a>(xVals, yVals, NULL, NULL);</div>
@@ -554,6 +570,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Converts weights to string </p>
 
 <p>Definition at line <a class="el" href="weight_8cpp_source.html#l00166">166</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00585">StochHMM::double_to_string()</a>.</p>
+
+<p>Referenced by <a class="el" href="weight_8h_source.html#l00089">print()</a>.</p>
 <div class="fragment"><div class="line">                               {</div>
 <div class="line">        std::string scaleString;</div>
 <div class="line">        </div>
@@ -598,7 +618,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:54:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

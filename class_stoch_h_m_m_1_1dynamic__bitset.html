@@ -74,7 +74,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -296,6 +296,8 @@ false no bits are set </dd></dl>
 <dl class="section return"><dt>Returns:</dt><dd>size_t number of bits set in bitset </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00997">997</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="sparse_array_8h_source.html#l00041">StochHMM::sparseArray&lt; double &gt;::elements()</a>.</p>
 <div class="fragment"><div class="line">                                          {</div>
 <div class="line">                <span class="keywordtype">size_t</span> population(0);</div>
 <div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i &lt; num_ints; i++){</div>
@@ -383,6 +385,8 @@ false no bits are set </dd></dl>
 <p>Erase the bit at the position from the set. *Causes the bits to shift right by one </p>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00478">478</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="bitwise__ops_8cpp_source.html#l00086">StochHMM::maskLeft()</a>, <a class="el" href="bitwise__ops_8cpp_source.html#l00096">StochHMM::maskRight()</a>, and <a class="el" href="bitwise__ops_8h_source.html#l00071">StochHMM::rso()</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//if the remove position is beyond the end the don&#39;t do anything.</span></div>
@@ -768,6 +772,8 @@ false no bits are set </dd></dl>
 <p>Insert n bits (set to zero) at the position. Bitsets at this position and *greater will be shifted to the left. This will increase the size of the bitset </p>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00384">384</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="bitwise__ops_8h_source.html#l00055">StochHMM::lso()</a>, <a class="el" href="bitwise__ops_8cpp_source.html#l00086">StochHMM::maskLeft()</a>, and <a class="el" href="bitwise__ops_8cpp_source.html#l00096">StochHMM::maskRight()</a>.</p>
 <div class="fragment"><div class="line">                                                       {</div>
 <div class="line">                <span class="keywordflow">if</span> (pos &gt; current_size){</div>
 <div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;dynamic_bitset::&quot;</span>&lt;&lt;__FUNCTION__ &lt;&lt; <span class="stringliteral">&quot; Error: Position for insert is beyond the range current size\n&quot;</span>;</div>
@@ -972,6 +978,8 @@ false if the bitsets are equal </dd></dl>
 </dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00306">306</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="bitwise__ops_8h_source.html#l00055">StochHMM::lso()</a>, and <a class="el" href="bitwise__ops_8h_source.html#l00091">StochHMM::lsoso()</a>.</p>
 <div class="fragment"><div class="line">                                                            {</div>
 <div class="line">                <span class="comment">//If shifting more than 32 then need to insert integer before</span></div>
 <div class="line">                <span class="keywordtype">size_t</span> start(0);</div>
@@ -1092,6 +1100,8 @@ true if the bitsets are equal </dd></dl>
 </dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00344">344</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="bitwise__ops_8h_source.html#l00071">StochHMM::rso()</a>, and <a class="el" href="bitwise__ops_8h_source.html#l00103">StochHMM::rsoso()</a>.</p>
 <div class="fragment"><div class="line">                                                            {</div>
 <div class="line">                <span class="comment">//If shifting more than 32 then need to insert integer before</span></div>
 <div class="line">                <span class="keywordtype">size_t</span> start(num_ints-1);</div>
@@ -1493,6 +1503,8 @@ false if number of 1' is even </dd></dl>
 <dl class="section return"><dt>Returns:</dt><dd>std::string representation of bitset </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l01054">1054</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="dynamic__bitset_8cpp_source.html#l00270">StochHMM::operator&lt;&lt;()</a>.</p>
 <div class="fragment"><div class="line">                                                 {</div>
 <div class="line">                std::string output(<span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=current_size-1;i != SIZE_MAX; --i){</div>
@@ -1633,7 +1645,7 @@ false if bit is unset </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

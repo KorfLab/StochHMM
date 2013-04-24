@@ -74,7 +74,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -184,6 +184,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>sequences</b></td></
 </dl>
 
 <p>Definition at line <a class="el" href="extern_definitions_8cpp_source.html#l00060">60</a> of file <a class="el" href="extern_definitions_8cpp_source.html">externDefinitions.cpp</a>.</p>
+
+<p>References <a class="el" href="sparse_array_8h_source.html#l00064">StochHMM::sparseArray&lt; T &gt;::defined()</a>.</p>
+
+<p>Referenced by <a class="el" href="sequences_8cpp_source.html#l00235">StochHMM::sequences::exDefDefined()</a>.</p>
 <div class="fragment"><div class="line">                                              {</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">if</span> (defs.<a class="code" href="class_stoch_h_m_m_1_1sparse_array.html#a6f5d7c9d8ee9063385b59dfd8f5d521e">defined</a>(position)){</div>
@@ -219,6 +223,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>sequences</b></td></
 <dl class="section return"><dt>Returns:</dt><dd>integer indice to state </dd></dl>
 
 <p>Definition at line <a class="el" href="extern_definitions_8cpp_source.html#l00085">85</a> of file <a class="el" href="extern_definitions_8cpp_source.html">externDefinitions.cpp</a>.</p>
+
+<p>References <a class="el" href="sparse_array_8h_source.html#l00064">StochHMM::sparseArray&lt; T &gt;::defined()</a>.</p>
 <div class="fragment"><div class="line">                                                    {</div>
 <div class="line">                </div>
 <div class="line">        <span class="keywordflow">if</span>(defs.<a class="code" href="class_stoch_h_m_m_1_1sparse_array.html#a6f5d7c9d8ee9063385b59dfd8f5d521e">defined</a>(position) &amp;&amp; defs[position]-&gt;isAbsolute()){</div>
@@ -266,6 +272,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>sequences</b></td></
 <dl class="section return"><dt>Returns:</dt><dd>double value of weight to apply to state at the position </dd></dl>
 
 <p>Definition at line <a class="el" href="extern_definitions_8cpp_source.html#l00111">111</a> of file <a class="el" href="extern_definitions_8cpp_source.html">externDefinitions.cpp</a>.</p>
+
+<p>References <a class="el" href="sparse_array_8h_source.html#l00064">StochHMM::sparseArray&lt; T &gt;::defined()</a>.</p>
+
+<p>Referenced by <a class="el" href="sequences_8cpp_source.html#l00254">StochHMM::sequences::getWeight()</a>.</p>
 <div class="fragment"><div class="line">                                                                    {</div>
 <div class="line">                <span class="keywordflow">if</span> (defs.<a class="code" href="class_stoch_h_m_m_1_1sparse_array.html#a6f5d7c9d8ee9063385b59dfd8f5d521e">defined</a>(position)){</div>
 <div class="line">            <span class="keywordflow">return</span> defs[position]-&gt;getWeight(stateIter);</div>
@@ -300,6 +310,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>sequences</b></td></
 <dl class="section return"><dt>Returns:</dt><dd>true if the external definition is absolute </dd></dl>
 
 <p>Definition at line <a class="el" href="extern_definitions_8cpp_source.html#l00074">74</a> of file <a class="el" href="extern_definitions_8cpp_source.html">externDefinitions.cpp</a>.</p>
+
+<p>References <a class="el" href="sparse_array_8h_source.html#l00064">StochHMM::sparseArray&lt; T &gt;::defined()</a>.</p>
 <div class="fragment"><div class="line">                                                 {</div>
 <div class="line">                <span class="keywordflow">if</span> (defs.<a class="code" href="class_stoch_h_m_m_1_1sparse_array.html#a6f5d7c9d8ee9063385b59dfd8f5d521e">defined</a>(position) &amp;&amp; defs[position]-&gt;isAbsolute()){</div>
 <div class="line">                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -333,6 +345,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>sequences</b></td></
 <dl class="section return"><dt>Returns:</dt><dd>true if the external definition is weighted </dd></dl>
 
 <p>Definition at line <a class="el" href="extern_definitions_8cpp_source.html#l00100">100</a> of file <a class="el" href="extern_definitions_8cpp_source.html">externDefinitions.cpp</a>.</p>
+
+<p>References <a class="el" href="sparse_array_8h_source.html#l00064">StochHMM::sparseArray&lt; T &gt;::defined()</a>.</p>
 <div class="fragment"><div class="line">                                                 {</div>
 <div class="line">                <span class="keywordflow">if</span> (defs.<a class="code" href="class_stoch_h_m_m_1_1sparse_array.html#a6f5d7c9d8ee9063385b59dfd8f5d521e">defined</a>(position)){</div>
 <div class="line">                        <span class="keywordflow">return</span> !defs[position]-&gt;isAbsolute();</div>
@@ -375,6 +389,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>sequences</b></td></
 <dl class="section return"><dt>Returns:</dt><dd>true if parsing was successful </dd></dl>
 
 <p>Definition at line <a class="el" href="extern_definitions_8cpp_source.html#l00182">182</a> of file <a class="el" href="extern_definitions_8cpp_source.html">externDefinitions.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00319">StochHMM::stringList::fromDef()</a>.</p>
+
+<p>Referenced by <a class="el" href="sequence_8cpp_source.html#l00382">StochHMM::sequence::getFasta()</a>, and <a class="el" href="sequence_8cpp_source.html#l00659">StochHMM::sequence::getReal()</a>.</p>
 <div class="fragment"><div class="line">                                                              {</div>
 <div class="line">        <span class="comment">//use getDefs to parse the lines</span></div>
 <div class="line">        <span class="comment">//and create external definition</span></div>
@@ -431,6 +449,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>sequences</b></td></
 <p>Print the External definitions to stdout </p>
 
 <p>Definition at line <a class="el" href="extern_definitions_8cpp_source.html#l00049">49</a> of file <a class="el" href="extern_definitions_8cpp_source.html">externDefinitions.cpp</a>.</p>
+
+<p>References <a class="el" href="sparse_array_8h_source.html#l00064">StochHMM::sparseArray&lt; T &gt;::defined()</a>, and <a class="el" href="sparse_array_8h_source.html#l00044">StochHMM::sparseArray&lt; T &gt;::size()</a>.</p>
 <div class="fragment"><div class="line">                             {</div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0;i&lt;defs.<a class="code" href="class_stoch_h_m_m_1_1sparse_array.html#aa538a68004725e6ee1e86638d30b2655" title="Returns the size of the sparseArray.">size</a>();i++){</div>
 <div class="line">                        <span class="keywordflow">if</span> (defs.<a class="code" href="class_stoch_h_m_m_1_1sparse_array.html#a6f5d7c9d8ee9063385b59dfd8f5d521e">defined</a>(i)){</div>
@@ -449,7 +469,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>sequences</b></td></
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

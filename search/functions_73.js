@@ -42,6 +42,7 @@ var searchData=
   ['setrealnumber',['setRealNumber',['../class_stoch_h_m_m_1_1emm.html#af47fc262c080fa58c97d5508c7fcfbba',1,'StochHMM::emm']]],
   ['setrealseq',['setRealSeq',['../class_stoch_h_m_m_1_1sequence.html#ac8718c30b916b3ffa52f0425b6788deb',1,'StochHMM::sequence']]],
   ['setremovews',['setRemoveWS',['../class_stoch_h_m_m_1_1string_list.html#aaf5149ec18088d9a55b3474656d1eba0',1,'StochHMM::stringList']]],
+  ['setscore',['setScore',['../class_stoch_h_m_m_1_1traceback__path.html#a394e1bb43518f80efd96817f357e6c84',1,'StochHMM::traceback_path']]],
   ['setseq',['setSeq',['../class_stoch_h_m_m_1_1sequence.html#a600aafee705d57c6e76c8eb67170e529',1,'StochHMM::sequence']]],
   ['setstate',['setState',['../class_stoch_h_m_m_1_1transition.html#af053d45aa8a24feddb4c1e930b89aaee',1,'StochHMM::transition']]],
   ['settb_5fidentifier',['setTB_Identifier',['../class_stoch_h_m_m_1_1transition.html#a8115ddd8cfb50d1956a69d1366035d34',1,'StochHMM::transition']]],

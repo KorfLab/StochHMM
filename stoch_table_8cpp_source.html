@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -260,7 +260,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                        cumulative_prob += (*state_val)[i].prob;</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                        <span class="keywordflow">if</span> (random &lt; cumulative_prob){</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                                state_prev = (*state_val)[i].state_prev;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                                path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7b51383ba6b26732099d0aa75a162880">push_back</a>(state_prev);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                                path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7b51383ba6b26732099d0aa75a162880" title="Add state to traceback.">push_back</a>(state_prev);</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                                offset = (*state_val)[i].prev_cell;</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                                <span class="comment">//std::cout &lt;&lt; &quot;Chose:\t&quot; &lt;&lt; state_prev &lt;&lt; std::endl;</span></div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                                <span class="keywordflow">break</span>;</div>
@@ -282,7 +282,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                                </div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                <span class="keywordflow">if</span> (random &lt;= cumulative_prob){</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                    state_prev = (*state_val)[cells].state_prev;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                                        path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7b51383ba6b26732099d0aa75a162880">push_back</a>(state_prev);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                                        path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7b51383ba6b26732099d0aa75a162880" title="Add state to traceback.">push_back</a>(state_prev);</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                                        offset = (*state_val)[cells].prev_cell;</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                                        <span class="comment">//std::cout &lt;&lt; &quot;Chose:\t&quot; &lt;&lt; state_prev &lt;&lt; std::endl;</span></div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                                        <span class="keywordflow">break</span>;</div>
@@ -298,7 +298,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:54:57 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

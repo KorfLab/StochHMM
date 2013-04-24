@@ -74,7 +74,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -96,6 +96,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p><code>#include &lt;<a class="el" href="hmm_8h_source.html">hmm.h</a>&gt;</code></p>
+
 <p><a href="class_stoch_h_m_m_1_1models-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
@@ -108,8 +110,9 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>addModel</b> (<a class="el" href="class_stoch_h_m_m_1_1model.html">model</a> *)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00327">327</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<div class="textblock"><p>models is a class to store multiple models. This allows StochMM the ability, to load multiple models, then select the model that appropriate for the sequence based on a used-defined attribute. Stores multiple HMM models and contains the get functions for specific models </p>
+
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00443">443</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a287c21ac381e5e61d25a47ea6b95142a"></a>
 <div class="memitem">
@@ -134,6 +137,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addModel</b> (<a clas
 <dl class="section return"><dt>Returns:</dt><dd>pointer to model </dd></dl>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l00144">144</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
+
+<p>References <a class="el" href="hmm_8h_source.html#l00463">size()</a>.</p>
+
+<p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00405">StochHMM::seqTracks::loadSeqs()</a>.</p>
 <div class="fragment"><div class="line">                                       {</div>
 <div class="line">        <span class="keywordflow">if</span> (iter&lt;this-&gt;<a class="code" href="class_stoch_h_m_m_1_1models.html#acccd6101165f462525b6198e1dc368e2">size</a>()) {</div>
 <div class="line">            <span class="keywordflow">return</span> hmms[iter];</div>
@@ -280,7 +287,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addModel</b> (<a clas
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>pointer to model </dd></dl>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00337">337</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00453">453</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 <div class="fragment"><div class="line">                                                     {</div>
 <div class="line">                        <span class="keywordflow">if</span> (iter&gt;hmms.size()-1){</div>
 <div class="line">                                <span class="keywordflow">return</span> NULL;</div>
@@ -314,7 +321,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addModel</b> (<a clas
 <p>Get the number of model </p>
 <dl class="section return"><dt>Returns:</dt><dd>size_t </dd></dl>
 
-<p>Definition at line <a class="el" href="hmm_8h_source.html#l00347">347</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00463">463</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00144">getModel()</a>, and <a class="el" href="seq_tracks_8cpp_source.html#l00696">StochHMM::seqTracks::getNext()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> hmms.size();};</div>
 </div><!-- fragment -->
 </div>
@@ -326,7 +335,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addModel</b> (<a clas
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

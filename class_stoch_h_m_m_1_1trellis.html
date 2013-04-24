@@ -74,7 +74,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -303,6 +303,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getBackwardProbabil
 <p>Store transition in a table (more memory, but faster than sparse complex) *Need testing and more develepment; </p>
 
 <p>Definition at line <a class="el" href="viterbi_8cpp_source.html#l00660">660</a> of file <a class="el" href="viterbi_8cpp_source.html">viterbi.cpp</a>.</p>
+
+<p>References <a class="el" href="sequences_8cpp_source.html#l00223">StochHMM::sequences::exDefDefined()</a>, <a class="el" href="hmm_8h_source.html#l00184">StochHMM::model::getInitial()</a>, <a class="el" href="hmm_8h_source.html#l00166">StochHMM::model::getInitialTo()</a>, <a class="el" href="sequences_8cpp_source.html#l00254">StochHMM::sequences::getWeight()</a>, and <a class="el" href="hmm_8h_source.html#l00239">StochHMM::model::isBasic()</a>.</p>
 <div class="fragment"><div class="line">                                          {</div>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//Initialize the traceback table</span></div>
@@ -332,7 +334,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getBackwardProbabil
 <div class="line">                </div>
 <div class="line">                <span class="comment">//If model is not a basic model, then we need to initialize the explicit duration vector</span></div>
 <div class="line">                <span class="comment">//bool extend_duration keeps track of whether the transition to same state was selected.</span></div>
-<div class="line">                <span class="keywordflow">if</span> (!hmm-&gt;isBasic()){</div>
+<div class="line">                <span class="keywordflow">if</span> (!hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#ab8d232e9987f87e153b020b80920a60e">isBasic</a>()){</div>
 <div class="line">                        explicit_duration_current = <span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(state_size,0);</div>
 <div class="line">                        explicit_duration_previous= <span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(state_size,0);</div>
 <div class="line">                }</div>
@@ -490,6 +492,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getBackwardProbabil
 <p>Naive Backward Implements the backward algorithm (simple coded, little or no optimizations) Stores the scores as doubles in table. Scoring table accessible from trellis -&gt; getNaiveBackward(); </p>
 
 <p>Definition at line <a class="el" href="backward_8cpp_source.html#l00035">35</a> of file <a class="el" href="backward_8cpp_source.html">backward.cpp</a>.</p>
+
+<p>References <a class="el" href="stoch_math_8h_source.html#l00179">StochHMM::addLog()</a>, <a class="el" href="hmm_8h_source.html#l00184">StochHMM::model::getInitial()</a>, and <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>.</p>
 <div class="fragment"><div class="line">                                    {</div>
 <div class="line">                dbl_backward_score = <span class="keyword">new</span> double_2D(seq_size, std::vector&lt;double&gt;(state_size,-INFINITY));</div>
 <div class="line">                </div>
@@ -524,7 +528,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getBackwardProbabil
 <div class="line">                                                <span class="keywordflow">continue</span>;</div>
 <div class="line">                                        }</div>
 <div class="line">                                        </div>
-<div class="line">                                        trans = getTransition(hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3" title="Get pointer to the state at index.">getState</a>(st_current), st_previous, position);</div>
+<div class="line">                                        trans = getTransition(hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(st_current), st_previous, position);</div>
 <div class="line">                                        emission = (*hmm)[st_previous]-&gt;get_emission_prob(*seqs, position+1);</div>
 <div class="line">                                        </div>
 <div class="line">                                        </div>
@@ -590,6 +594,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getBackwardProbabil
 <p>Sparse Complex Viterbi Stores the transition duration probabilities in a hashmap (memory efficient, slower) The duratio probabilities can then be used in forward and backward algorithms. </p>
 
 <p>Definition at line <a class="el" href="viterbi_8cpp_source.html#l00470">470</a> of file <a class="el" href="viterbi_8cpp_source.html">viterbi.cpp</a>.</p>
+
+<p>References <a class="el" href="sequences_8cpp_source.html#l00223">StochHMM::sequences::exDefDefined()</a>, <a class="el" href="hmm_8h_source.html#l00184">StochHMM::model::getInitial()</a>, <a class="el" href="hmm_8h_source.html#l00166">StochHMM::model::getInitialTo()</a>, <a class="el" href="sequences_8cpp_source.html#l00254">StochHMM::sequences::getWeight()</a>, and <a class="el" href="hmm_8h_source.html#l00239">StochHMM::model::isBasic()</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//Initialize the traceback table</span></div>
@@ -620,7 +626,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getBackwardProbabil
 <div class="line">                </div>
 <div class="line">                <span class="comment">//If model is not a basic model, then we need to initialize the explicit duration vector</span></div>
 <div class="line">                <span class="comment">//bool extend_duration keeps track of whether the transition to same state was selected.</span></div>
-<div class="line">                <span class="keywordflow">if</span> (!hmm-&gt;isBasic()){</div>
+<div class="line">                <span class="keywordflow">if</span> (!hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#ab8d232e9987f87e153b020b80920a60e">isBasic</a>()){</div>
 <div class="line">                        explicit_duration_current = <span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(state_size,0);</div>
 <div class="line">                        explicit_duration_previous= <span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(state_size,0);</div>
 <div class="line">                }</div>
@@ -797,6 +803,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getBackwardProbabil
 <dl class="section return"><dt>Returns:</dt><dd>path trackback_path </dd></dl>
 
 <p>Definition at line <a class="el" href="trellis_8cpp_source.html#l00400">400</a> of file <a class="el" href="trellis_8cpp_source.html">trellis.cpp</a>.</p>
+
+<p>References <a class="el" href="traceback__path_8cpp_source.html#l00041">StochHMM::traceback_path::push_back()</a>, and <a class="el" href="traceback__path_8h_source.html#l00142">StochHMM::traceback_path::setScore()</a>.</p>
 <div class="fragment"><div class="line">                                               {</div>
 <div class="line">                                </div>
 <div class="line">                <span class="keywordflow">if</span> (seq_size==0 || traceback_table == NULL){</div>
@@ -868,6 +876,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getBackwardProbabil
 </dl>
 
 <p>Definition at line <a class="el" href="trellis_8cpp_source.html#l00434">434</a> of file <a class="el" href="trellis_8cpp_source.html">trellis.cpp</a>.</p>
+
+<p>References <a class="el" href="traceback__path_8cpp_source.html#l00041">StochHMM::traceback_path::push_back()</a>.</p>
 <div class="fragment"><div class="line">                                                                                  {</div>
 <div class="line">                <span class="keywordflow">if</span> (seq_size == 0 || traceback_table == NULL){</div>
 <div class="line">                        <span class="keywordflow">return</span>;</div>
@@ -910,7 +920,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getBackwardProbabil
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:54:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

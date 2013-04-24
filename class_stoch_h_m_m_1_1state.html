@@ -74,7 +74,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -225,6 +225,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="state_8cpp_source.html#l00042">42</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+
+<p>References <a class="el" href="state_8cpp_source.html#l00073">parse()</a>.</p>
 <div class="fragment"><div class="line">                                                                                                :endi(NULL), stateIterator(SIZE_MAX){</div>
 <div class="line">        </div>
 <div class="line">        <span class="comment">//endi=new transition(STANDARD);</span></div>
@@ -518,6 +520,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <p>Get the GFF tag to use for the state  std::string GFF tag </p>
 
 <p>Definition at line <a class="el" href="state_8h_source.html#l00074">74</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+
+<p>Referenced by <a class="el" href="traceback__path_8cpp_source.html#l00103">StochHMM::traceback_path::gff()</a>, and <a class="el" href="traceback__path_8cpp_source.html#l00268">StochHMM::traceback_path::print_gff()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> gff;};</div>
 </div><!-- fragment -->
 </div>
@@ -546,6 +550,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>integer </dd></dl>
 
 <p>Definition at line <a class="el" href="state_8h_source.html#l00066">66</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8h_source.html#l00147">addFromState()</a>, and <a class="el" href="state_8h_source.html#l00144">addToState()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> stateIterator;};</div>
 </div><!-- fragment -->
 </div>
@@ -574,6 +580,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>std::string </dd></dl>
 
 <p>Definition at line <a class="el" href="state_8h_source.html#l00078">78</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+
+<p>Referenced by <a class="el" href="traceback__path_8cpp_source.html#l00065">StochHMM::traceback_path::label()</a>, and <a class="el" href="traceback__path_8cpp_source.html#l00252">StochHMM::traceback_path::print_label()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> label;};</div>
 </div><!-- fragment -->
 </div>
@@ -602,6 +610,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>std::string Name of state </dd></dl>
 
 <p>Definition at line <a class="el" href="state_8h_source.html#l00070">70</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00735">StochHMM::model::addState()</a>, and <a class="el" href="traceback__path_8cpp_source.html#l00092">StochHMM::traceback_path::name()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> name;};</div>
 </div><!-- fragment -->
 </div>
@@ -748,6 +758,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="state_8cpp_source.html#l00073">73</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8cpp_source.html#l00042">state()</a>.</p>
 <div class="fragment"><div class="line">                                                                                                    {</div>
 <div class="line">        <span class="keywordtype">size_t</span> stateHeaderInfo = txt.find(<span class="stringliteral">&quot;STATE:&quot;</span>);</div>
 <div class="line">        <span class="keywordtype">size_t</span> transitionsInfo = txt.find(<span class="stringliteral">&quot;TRANSITION:&quot;</span>);</div>
@@ -883,6 +895,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>std::string </dd></dl>
 
 <p>Definition at line <a class="el" href="state_8cpp_source.html#l00326">326</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+
+<p>References <a class="el" href="transitions_8cpp_source.html#l00521">StochHMM::transition::stringify()</a>.</p>
 <div class="fragment"><div class="line">                              {</div>
 <div class="line">        std::string stateString;</div>
 <div class="line">        stateString+=<span class="stringliteral">&quot;STATE:\n&quot;</span>;</div>
@@ -974,7 +988,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

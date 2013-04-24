@@ -74,7 +74,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -182,6 +182,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Finalized <a class="el" href="class_stoch_h_m_m_1_1stoch_table.html">stochTable</a> Normalizes the traceback pointer values and calculates the previous cell iterator within the previous position segment. This speeds up the the referencing necessary for tracebacks across the traceback table. </p>
 
 <p>Definition at line <a class="el" href="stoch_table_8cpp_source.html#l00059">59</a> of file <a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a>.</p>
+
+<p>References <a class="el" href="stoch_math_8h_source.html#l00179">StochHMM::addLog()</a>, and <a class="el" href="stoch_table_8cpp_source.html#l00125">get_state_position()</a>.</p>
 <div class="fragment"><div class="line">                                 {</div>
 <div class="line">                (*position)[last_position] = state_val-&gt;size()-1;</div>
 <div class="line">                </div>
@@ -280,6 +282,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <dl class="section return"><dt>Returns:</dt><dd>Position within the table where state can be found </dd></dl>
 
 <p>Definition at line <a class="el" href="stoch_table_8cpp_source.html#l00125">125</a> of file <a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="stoch_table_8cpp_source.html#l00059">finalize()</a>.</p>
 <div class="fragment"><div class="line">                                                                       {</div>
 <div class="line">                <span class="keywordtype">size_t</span> start_val = (pos == 0) ? 0 : (*position)[pos-1]+1;</div>
 <div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = start_val ; i &lt;= (*position)[pos] ;  ++i){</div>
@@ -374,6 +378,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 
 <p>Definition at line <a class="el" href="stoch_table_8cpp_source.html#l00161">161</a> of file <a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a>.</p>
+
+<p>References <a class="el" href="traceback__path_8cpp_source.html#l00041">StochHMM::traceback_path::push_back()</a>.</p>
 <div class="fragment"><div class="line">                                                      {</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordtype">double</span> random((<span class="keywordtype">double</span>)rand()/((<span class="keywordtype">double</span>)(RAND_MAX)+(<span class="keywordtype">double</span>)(1)));</div>
@@ -429,7 +435,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

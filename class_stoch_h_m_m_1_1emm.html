@@ -74,7 +74,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -215,6 +215,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>double log(prob) value of emission </dd></dl>
 
 <p>Definition at line <a class="el" href="emm_8cpp_source.html#l00681">681</a> of file <a class="el" href="emm_8cpp_source.html">emm.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8h_source.html#l00158">StochHMM::track::getIndex()</a>, and <a class="el" href="sequences_8cpp_source.html#l00141">StochHMM::sequences::realValue()</a>.</p>
 <div class="fragment"><div class="line">                                                      {</div>
 <div class="line">        <span class="keywordtype">double</span> final_emission(-INFINITY);</div>
 <div class="line">        </div>
@@ -296,6 +298,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>double log(prob) value of emission </dd></dl>
 
 <p>Definition at line <a class="el" href="emm_8cpp_source.html#l00733">733</a> of file <a class="el" href="emm_8cpp_source.html">emm.cpp</a>.</p>
+
+<p>References <a class="el" href="sequence_8cpp_source.html#l00289">StochHMM::sequence::realValue()</a>.</p>
 <div class="fragment"><div class="line">                                                    {</div>
 <div class="line">        <span class="keywordtype">double</span> final_emission;</div>
 <div class="line">        </div>
@@ -389,6 +393,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 false if track is alphanumerical track </dd></dl>
 
 <p>Definition at line <a class="el" href="emm_8cpp_source.html#l00783">783</a> of file <a class="el" href="emm_8cpp_source.html">emm.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8h_source.html#l00169">StochHMM::track::getAlphaType()</a>.</p>
 <div class="fragment"><div class="line">                    {</div>
 <div class="line">        <span class="keywordflow">if</span> (real_number &amp;&amp; realTrack-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a4ce8b421ac3f61a6093d81867b4a981f">getAlphaType</a>()==REAL){</div>
 <div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -447,6 +453,10 @@ false if track is alphanumerical track </dd></dl>
 </dl>
 
 <p>Definition at line <a class="el" href="emm_8cpp_source.html#l00069">69</a> of file <a class="el" href="emm_8cpp_source.html">emm.cpp</a>.</p>
+
+<p>References <a class="el" href="lexical_table_8cpp_source.html#l00158">StochHMM::lexicalTable::addTrack()</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="lexical_table_8h_source.html#l00087">StochHMM::lexicalTable::getAlphaSize()</a>, <a class="el" href="user_functions_8cpp_source.html#l00186">StochHMM::StateFuncs::getMultivariatePdfFunction()</a>, <a class="el" href="lexical_table_8h_source.html#l00078">StochHMM::lexicalTable::getOrder()</a>, <a class="el" href="user_functions_8cpp_source.html#l00171">StochHMM::StateFuncs::getPDFFunction()</a>, <a class="el" href="track_8cpp_source.html#l00542">StochHMM::tracks::getTrack()</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00856">StochHMM::lexicalTable::initialize_emission_table()</a>, <a class="el" href="text_8cpp_source.html#l00564">StochHMM::int_to_string()</a>, <a class="el" href="text_8h_source.html#l00107">StochHMM::stringList::push_back()</a>, <a class="el" href="lexical_table_8h_source.html#l00065">StochHMM::lexicalTable::setUnkScore()</a>, <a class="el" href="lexical_table_8h_source.html#l00062">StochHMM::lexicalTable::setUnkScoreType()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, <a class="el" href="text_8cpp_source.html#l00636">StochHMM::stringToDouble()</a>, <a class="el" href="text_8cpp_source.html#l00607">StochHMM::stringToInt()</a>, and <a class="el" href="text_8cpp_source.html#l00358">StochHMM::stringList::toVecDouble()</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00235">StochHMM::matrixPosition::parse()</a>.</p>
 <div class="fragment"><div class="line">                                                                               {</div>
 <div class="line">        <span class="keywordflow">if</span> (!_processTags(txt,trks, wts, funcs)){</div>
 <div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -837,6 +847,8 @@ false if track is alphanumerical track </dd></dl>
 </dl>
 
 <p>Definition at line <a class="el" href="emm_8cpp_source.html#l00427">427</a> of file <a class="el" href="emm_8cpp_source.html">emm.cpp</a>.</p>
+
+<p>References <a class="el" href="lexical_table_8cpp_source.html#l00158">StochHMM::lexicalTable::addTrack()</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="lexical_table_8h_source.html#l00087">StochHMM::lexicalTable::getAlphaSize()</a>, <a class="el" href="lexical_table_8h_source.html#l00078">StochHMM::lexicalTable::getOrder()</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00856">StochHMM::lexicalTable::initialize_emission_table()</a>, <a class="el" href="text_8cpp_source.html#l00564">StochHMM::int_to_string()</a>, <a class="el" href="text_8h_source.html#l00107">StochHMM::stringList::push_back()</a>, <a class="el" href="lexical_table_8h_source.html#l00065">StochHMM::lexicalTable::setUnkScore()</a>, <a class="el" href="lexical_table_8h_source.html#l00062">StochHMM::lexicalTable::setUnkScoreType()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, <a class="el" href="text_8cpp_source.html#l00636">StochHMM::stringToDouble()</a>, <a class="el" href="text_8cpp_source.html#l00607">StochHMM::stringToInt()</a>, and <a class="el" href="text_8cpp_source.html#l00358">StochHMM::stringList::toVecDouble()</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
 <div class="line">        </div>
 <div class="line">        stringList ln;</div>
@@ -1057,7 +1069,7 @@ false if track is alphanumerical track </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

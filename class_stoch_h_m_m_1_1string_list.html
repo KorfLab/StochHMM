@@ -74,7 +74,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -243,6 +243,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00043">43</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00116">splitString()</a>.</p>
 <div class="fragment"><div class="line">                                                                                   :removeWS(<span class="keyword">remove</span>), whitespace(ws),delimiters(del)</div>
 <div class="line">    {</div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">splitString</a>(txt);</div>
@@ -274,6 +276,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00051">51</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="external_funcs_8cpp_source.html#l00050">StochHMM::transitionFuncParam::parse()</a>, <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>, <a class="el" href="track_8cpp_source.html#l00310">StochHMM::track::parse()</a>, and <a class="el" href="external_funcs_8cpp_source.html#l00257">StochHMM::emissionFuncParam::parse()</a>.</p>
 <div class="fragment"><div class="line">                                                 {</div>
 <div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i&lt;line.size();i++){</div>
 <div class="line">            <span class="keywordflow">if</span> (line[i].find(txt) != std::string::npos){</div>
@@ -318,6 +322,10 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00264">264</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8h_source.html#l00137">size()</a>, and <a class="el" href="text_8cpp_source.html#l00116">splitString()</a>.</p>
+
+<p>Referenced by <a class="el" href="text_8cpp_source.html#l00308">fromAlpha()</a>.</p>
 <div class="fragment"><div class="line">                                                               {</div>
 <div class="line">        line.clear();</div>
 <div class="line">                comment.clear();</div>
@@ -372,6 +380,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00308">308</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00264">fromAlpha()</a>.</p>
 <div class="fragment"><div class="line">                                                          {</div>
 <div class="line">        std::string temp;</div>
 <div class="line">        getline(in, temp, <span class="charliteral">&#39;\n&#39;</span>);</div>
@@ -420,6 +430,10 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00319">319</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00094">processString()</a>, and <a class="el" href="text_8h_source.html#l00137">size()</a>.</p>
+
+<p>Referenced by <a class="el" href="text_8cpp_source.html#l00337">fromDef()</a>, and <a class="el" href="extern_definitions_8cpp_source.html#l00182">StochHMM::ExDefSequence::parse()</a>.</p>
 <div class="fragment"><div class="line">                                                                         {</div>
 <div class="line">        whitespace=ws;</div>
 <div class="line">        delimiters = del;</div>
@@ -475,6 +489,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00337">337</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00319">fromDef()</a>.</p>
 <div class="fragment"><div class="line">                                                                         {</div>
 <div class="line">        whitespace=ws;</div>
 <div class="line">        delimiters = del;</div>
@@ -508,6 +524,10 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00241">241</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00094">processString()</a>, <a class="el" href="text_8h_source.html#l00074">setDelimiters()</a>, <a class="el" href="text_8h_source.html#l00070">setWhitespace()</a>, and <a class="el" href="text_8h_source.html#l00137">size()</a>.</p>
+
+<p>Referenced by <a class="el" href="text_8cpp_source.html#l00255">fromNext()</a>, and <a class="el" href="track_8cpp_source.html#l00310">StochHMM::track::parse()</a>.</p>
 <div class="fragment"><div class="line">                                           {</div>
 <div class="line">                <a class="code" href="class_stoch_h_m_m_1_1string_list.html#af001d4f5c6330af830c5f69e7703eb3b">setWhitespace</a>(<span class="stringliteral">&quot;\t\n &quot;</span>);</div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a2655c2c8298f1be7e0e00d863609d54d">setDelimiters</a>(<span class="stringliteral">&quot;:,&quot;</span>);</div>
@@ -545,6 +565,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00255">255</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00241">fromNext()</a>.</p>
 <div class="fragment"><div class="line">                                           {</div>
 <div class="line">        std::string temp;</div>
 <div class="line">        getline(in, temp, <span class="charliteral">&#39;\n&#39;</span>);</div>
@@ -576,6 +598,10 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00220">220</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00094">processString()</a>, <a class="el" href="text_8h_source.html#l00074">setDelimiters()</a>, <a class="el" href="text_8h_source.html#l00070">setWhitespace()</a>, and <a class="el" href="text_8h_source.html#l00137">size()</a>.</p>
+
+<p>Referenced by <a class="el" href="text_8cpp_source.html#l00233">fromTrack()</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
 <div class="line">                <a class="code" href="class_stoch_h_m_m_1_1string_list.html#af001d4f5c6330af830c5f69e7703eb3b">setWhitespace</a>(<span class="stringliteral">&quot;\t&quot;</span>);</div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a2655c2c8298f1be7e0e00d863609d54d">setDelimiters</a>(<span class="stringliteral">&quot;:, \n&quot;</span>);</div>
@@ -613,6 +639,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00233">233</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00220">fromTrack()</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
 <div class="line">        std::string temp;</div>
 <div class="line">        getline(in, temp, <span class="charliteral">&#39;\n&#39;</span>);</div>
@@ -643,6 +671,10 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00195">195</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00094">processString()</a>, <a class="el" href="text_8h_source.html#l00074">setDelimiters()</a>, <a class="el" href="text_8h_source.html#l00070">setWhitespace()</a>, and <a class="el" href="text_8h_source.html#l00137">size()</a>.</p>
+
+<p>Referenced by <a class="el" href="text_8cpp_source.html#l00211">fromTxt()</a>.</p>
 <div class="fragment"><div class="line">                                          {             </div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#af001d4f5c6330af830c5f69e7703eb3b">setWhitespace</a>(<span class="stringliteral">&quot;\t&quot;</span>);</div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a2655c2c8298f1be7e0e00d863609d54d">setDelimiters</a>(<span class="stringliteral">&quot;:\n&quot;</span>);</div>
@@ -680,6 +712,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00211">211</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00195">fromTxt()</a>.</p>
 <div class="fragment"><div class="line">                                          {</div>
 <div class="line">        std::string temp;</div>
 <div class="line">        getline(in, temp, <span class="charliteral">&#39;\n&#39;</span>);</div>
@@ -710,6 +744,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00071">71</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="external_funcs_8cpp_source.html#l00050">StochHMM::transitionFuncParam::parse()</a>, <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>, <a class="el" href="track_8cpp_source.html#l00310">StochHMM::track::parse()</a>, and <a class="el" href="external_funcs_8cpp_source.html#l00257">StochHMM::emissionFuncParam::parse()</a>.</p>
 <div class="fragment"><div class="line">                                                  {</div>
 <div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i&lt;line.size();i++){</div>
 <div class="line">            <span class="keywordflow">if</span> (line[i].find(txt) != std::string::npos){</div>
@@ -883,6 +919,10 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <p>Removes Comments, Removes Whitespace, and splits the string Whitespace and Split delimiters are required to be previously set in <a class="el" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a> </p>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00094">94</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00435">StochHMM::clear_whitespace()</a>, <a class="el" href="text_8cpp_source.html#l00422">StochHMM::parseComment()</a>, and <a class="el" href="text_8cpp_source.html#l00116">splitString()</a>.</p>
+
+<p>Referenced by <a class="el" href="text_8cpp_source.html#l00319">fromDef()</a>, <a class="el" href="text_8cpp_source.html#l00241">fromNext()</a>, <a class="el" href="text_8cpp_source.html#l00220">fromTrack()</a>, and <a class="el" href="text_8cpp_source.html#l00195">fromTxt()</a>.</p>
 <div class="fragment"><div class="line">                                                {</div>
 <div class="line">        line.clear();</div>
 <div class="line">        comment.clear();</div>
@@ -932,6 +972,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Definition at line <a class="el" href="text_8h_source.html#l00107">107</a> of file <a class="el" href="text_8h_source.html">text.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>, and <a class="el" href="weight_8cpp_source.html#l00201">StochHMM::weight::parse()</a>.</p>
 <div class="fragment"><div class="line">{line.push_back(txt);};</div>
 </div><!-- fragment -->
 </div>
@@ -951,6 +993,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <p>Parses out the comments and stores the comment delimited by "#" *Comment can be accessed by command <a class="el" href="class_stoch_h_m_m_1_1string_list.html#ae352f81984d36369e2c5588f2999b1e2" title="Return any comments parsed from the line.">getComment()</a>; </p>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00414">414</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00422">StochHMM::parseComment()</a>.</p>
 <div class="fragment"><div class="line">                                   {</div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> iter=0;iter&lt;line.size();iter++){</div>
 <div class="line">            comment+=<a class="code" href="group___text.html#gae1e21893ae48aaa6969040d19e5085d7" title="Find first comment character and then return everything following the character.">parseComment</a>(line[iter], <span class="charliteral">&#39;#&#39;</span>);</div>
@@ -981,6 +1025,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00185">185</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00450">StochHMM::removeLeadingWS()</a>, and <a class="el" href="text_8h_source.html#l00137">size()</a>.</p>
 <div class="fragment"><div class="line">                                                 {</div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;this-&gt;<a class="code" href="class_stoch_h_m_m_1_1string_list.html#aa66b0d5fa9a0bec45d6638be23408b71" title="Return the amount of strings in the stringList.">size</a>();i++){</div>
 <div class="line">            <a class="code" href="group___text.html#ga0b39adb00f98cdbf548db31ccb7abb68">removeLeadingWS</a>((*<span class="keyword">this</span>)[i],ws);</div>
@@ -1020,6 +1066,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Definition at line <a class="el" href="text_8h_source.html#l00074">74</a> of file <a class="el" href="text_8h_source.html">text.h</a>.</p>
+
+<p>Referenced by <a class="el" href="text_8cpp_source.html#l00241">fromNext()</a>, <a class="el" href="text_8cpp_source.html#l00220">fromTrack()</a>, and <a class="el" href="text_8cpp_source.html#l00195">fromTxt()</a>.</p>
 <div class="fragment"><div class="line">{delimiters=txt;};</div>
 </div><!-- fragment -->
 </div>
@@ -1054,6 +1102,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Definition at line <a class="el" href="text_8h_source.html#l00070">70</a> of file <a class="el" href="text_8h_source.html">text.h</a>.</p>
+
+<p>Referenced by <a class="el" href="text_8cpp_source.html#l00241">fromNext()</a>, <a class="el" href="text_8cpp_source.html#l00220">fromTrack()</a>, and <a class="el" href="text_8cpp_source.html#l00195">fromTxt()</a>.</p>
 <div class="fragment"><div class="line">{whitespace=txt;};</div>
 </div><!-- fragment -->
 </div>
@@ -1091,6 +1141,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00163">163</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00235">StochHMM::matrixPosition::parse()</a>.</p>
 <div class="fragment"><div class="line">                                                                     {</div>
 <div class="line">                line.clear();</div>
 <div class="line">        comment.clear();</div>
@@ -1133,6 +1185,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00116">116</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="text_8cpp_source.html#l00743">StochHMM::extractTag()</a>, <a class="el" href="text_8cpp_source.html#l00264">fromAlpha()</a>, <a class="el" href="text_8cpp_source.html#l00467">StochHMM::getKeyValue()</a>, <a class="el" href="sequence_8cpp_source.html#l00659">StochHMM::sequence::getReal()</a>, <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>, <a class="el" href="pwm_8cpp_source.html#l00235">StochHMM::matrixPosition::parse()</a>, <a class="el" href="weight_8cpp_source.html#l00201">StochHMM::weight::parse()</a>, <a class="el" href="text_8cpp_source.html#l00094">processString()</a>, <a class="el" href="text_8cpp_source.html#l00145">splitString()</a>, <a class="el" href="text_8cpp_source.html#l00495">StochHMM::splitString()</a>, and <a class="el" href="text_8cpp_source.html#l00043">stringList()</a>.</p>
 <div class="fragment"><div class="line">                                                    {</div>
 <div class="line">        </div>
 <div class="line">        line.clear();</div>
@@ -1191,6 +1245,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00145">145</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00116">splitString()</a>.</p>
 <div class="fragment"><div class="line">                                                                          {</div>
 <div class="line">        delimiters=del;</div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">splitString</a>(txt);</div>
@@ -1215,6 +1271,10 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <dl class="section return"><dt>Returns:</dt><dd>string of <a class="el" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a> joined by "\\t" </dd></dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00402">402</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00519">StochHMM::join()</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00310">StochHMM::track::parse()</a>.</p>
 <div class="fragment"><div class="line">                                   {</div>
 <div class="line">        std::string output=<a class="code" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">join</a>(line,<span class="charliteral">&#39;\t&#39;</span>);</div>
 <div class="line">        <span class="keywordflow">if</span> (comment.size()&gt;0){</div>
@@ -1243,6 +1303,10 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <p>Returns the values in the <a class="el" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a> as std::vector of doubles. </p>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00358">358</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00636">StochHMM::stringToDouble()</a>.</p>
+
+<p>Referenced by <a class="el" href="sequence_8cpp_source.html#l00659">StochHMM::sequence::getReal()</a>, and <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>.</p>
 <div class="fragment"><div class="line">                                             {</div>
 <div class="line">        std::vector&lt;double&gt; temp;</div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> iter=0;iter&lt;line.size();iter++){</div>
@@ -1264,7 +1328,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

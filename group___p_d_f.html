@@ -67,7 +67,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -364,6 +364,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>StochHMM::ewens_mul
 </dl>
 
 <p>Definition at line <a class="el" href="_p_d_f_8cpp_source.html#l00032">32</a> of file <a class="el" href="_p_d_f_8cpp_source.html">PDF.cpp</a>.</p>
+
+<p>References <a class="el" href="statistics_8cpp_source.html#l00181">StochHMM::bin_coef()</a>.</p>
 <div class="fragment"><div class="line">                                                              {</div>
 <div class="line">        <span class="keywordtype">double</span> newAlpha = (double) k + a;</div>
 <div class="line">        <span class="keywordtype">double</span> newBeta  = (double)(n-k) + b;</div>
@@ -419,6 +421,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>StochHMM::ewens_mul
 </dl>
 
 <p>Definition at line <a class="el" href="_p_d_f_8cpp_source.html#l00128">128</a> of file <a class="el" href="_p_d_f_8cpp_source.html">PDF.cpp</a>.</p>
+
+<p>References <a class="el" href="statistics_8cpp_source.html#l00181">StochHMM::bin_coef()</a>.</p>
 <div class="fragment"><div class="line">                                                                       {</div>
 <div class="line">        <span class="keywordtype">double</span> pmf = <a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(n+k-1, k);</div>
 <div class="line">        pmf*=tgamma(a+n)*tgamma(b+k)*tgamma(a+b)/(tgamma(a+b+n+k)*tgamma(a)*tgamma(b));</div>
@@ -467,6 +471,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>StochHMM::ewens_mul
 </dl>
 
 <p>Definition at line <a class="el" href="_p_d_f_8cpp_source.html#l00255">255</a> of file <a class="el" href="_p_d_f_8cpp_source.html">PDF.cpp</a>.</p>
+
+<p>References <a class="el" href="stoch_math_8cpp_source.html#l00207">StochHMM::betaPDF()</a>.</p>
 <div class="fragment"><div class="line">                                                 {</div>
 <div class="line">        <span class="keywordflow">if</span> (x &gt; 1.0 || x &lt; 0.0 || a &lt;= 0.0 || b &lt;= 0.0){</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Beta PDF: Incorrect parameters\n&quot;</span>;</div>
@@ -568,6 +574,10 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>StochHMM::ewens_mul
 <dl class="section return"><dt>Returns:</dt><dd>P(X = k) = Probability of k successes in n trials </dd></dl>
 
 <p>Definition at line <a class="el" href="_p_d_f_8cpp_source.html#l00021">21</a> of file <a class="el" href="_p_d_f_8cpp_source.html">PDF.cpp</a>.</p>
+
+<p>References <a class="el" href="statistics_8cpp_source.html#l00181">StochHMM::bin_coef()</a>.</p>
+
+<p>Referenced by <a class="el" href="statistics_8cpp_source.html#l00210">StochHMM::binomial_cdf()</a>, and <a class="el" href="statistics_8cpp_source.html#l00199">StochHMM::binomial_pdf()</a>.</p>
 <div class="fragment"><div class="line">                                              {</div>
 <div class="line">        <span class="keywordflow">return</span> <a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(n,k)*pow(p,k)*pow(1-p,n-k);</div>
 <div class="line">    }</div>
@@ -910,6 +920,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>StochHMM::ewens_mul
 </dl>
 
 <p>Definition at line <a class="el" href="_p_d_f_8cpp_source.html#l00921">921</a> of file <a class="el" href="_p_d_f_8cpp_source.html">PDF.cpp</a>.</p>
+
+<p>References <a class="el" href="stoch_math_8h_source.html#l00317">StochHMM::sumVector()</a>.</p>
 <div class="fragment"><div class="line">                                                                                         {</div>
 <div class="line">                <span class="keywordtype">double</span> gsum_alpha = tgamma(<a class="code" href="namespace_stoch_h_m_m.html#aba4fdfdbfbbb611505c9e74a55b363c5" title="Sum the vector and return the sum.">sumVector</a>(alpha));</div>
 <div class="line">                </div>
@@ -1800,6 +1812,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>StochHMM::ewens_mul
 </dl>
 
 <p>Definition at line <a class="el" href="_p_d_f_8cpp_source.html#l00076">76</a> of file <a class="el" href="_p_d_f_8cpp_source.html">PDF.cpp</a>.</p>
+
+<p>References <a class="el" href="statistics_8cpp_source.html#l00181">StochHMM::bin_coef()</a>.</p>
 <div class="fragment"><div class="line">                                                        {</div>
 <div class="line">        <span class="keywordflow">return</span> (<a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(m, k)*<a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(N-m,n-k))/<a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(N, n);</div>
 <div class="line">    }</div>
@@ -2425,6 +2439,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>StochHMM::ewens_mul
 </dl>
 
 <p>Definition at line <a class="el" href="_p_d_f_8cpp_source.html#l00268">268</a> of file <a class="el" href="_p_d_f_8cpp_source.html">PDF.cpp</a>.</p>
+
+<p>References <a class="el" href="stoch_math_8h_source.html#l00581">StochHMM::logit()</a>.</p>
 <div class="fragment"><div class="line">                                                              {</div>
 <div class="line">        <span class="keywordflow">if</span> (x &gt;= 1.0 || x &lt;= 0.0 || sigma &lt;= 0.0){</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Logit Normal PDF: Incorrect parameters\n&quot;</span>;</div>
@@ -2614,6 +2630,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>StochHMM::ewens_mul
 </dl>
 
 <p>Definition at line <a class="el" href="_p_d_f_8cpp_source.html#l00167">167</a> of file <a class="el" href="_p_d_f_8cpp_source.html">PDF.cpp</a>.</p>
+
+<p>References <a class="el" href="statistics_8cpp_source.html#l00181">StochHMM::bin_coef()</a>.</p>
 <div class="fragment"><div class="line">                                                        {</div>
 <div class="line">        <span class="keywordflow">if</span> (r&lt;=0 || p&lt;0.0 || p &gt; 1.0){</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Negative Binomial PMF: Incorrect parameters\n&quot;</span>;</div>
@@ -2664,6 +2682,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>StochHMM::ewens_mul
 </dl>
 
 <p>Definition at line <a class="el" href="_p_d_f_8cpp_source.html#l00832">832</a> of file <a class="el" href="_p_d_f_8cpp_source.html">PDF.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="_p_d_f_8cpp_source.html#l00824">StochHMM::standard_normal_pdf()</a>.</p>
 <div class="fragment"><div class="line">                                                            {</div>
 <div class="line">                <span class="keywordflow">if</span> (sigma &lt;= 0){</div>
 <div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Normal PDF: Incorrect parameters\n&quot;</span>;</div>
@@ -2943,6 +2963,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>StochHMM::ewens_mul
 </dl>
 
 <p>Definition at line <a class="el" href="_p_d_f_8cpp_source.html#l00824">824</a> of file <a class="el" href="_p_d_f_8cpp_source.html">PDF.cpp</a>.</p>
+
+<p>References <a class="el" href="_p_d_f_8cpp_source.html#l00832">StochHMM::normal_pdf()</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
 <div class="line">                <span class="keywordflow">return</span> <a class="code" href="group___p_d_f.html#ga29bcbf21133893242dacaae0eb3c5749">normal_pdf</a>(x, 0, 1);</div>
 <div class="line">        }</div>
@@ -3449,7 +3471,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>StochHMM::ewens_mul
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:54:57 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

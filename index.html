@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>StochHMM: Main Page</title>
+<title>StochHMM: StochHMM: A Flexible C++ Hidden Markov Library and Application</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -67,7 +67,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -78,13 +78,43 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">StochHMM Documentation</div>  </div>
+<div class="title"><a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a>: A Flexible C++ Hidden Markov Library and Application </div>  </div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+<div class="textblock"><pre class="fragment">   StochHMM implements HMM from simple text files.   It implements traditional
+</pre><p> HMM algorithms in addition to providing additional flexibility. The additional flexibility is provided by allowing researchers to integrate additional data into the HMM framework. For Documentation on model syntax and designing a model, see Github wiki. <a href="http://www.github.com/KorfLab/StochHMM">http://www.github.com/KorfLab/StochHMM</a></p>
+<p>Here are a few of the ways that <a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> allows the use to integrate additional data sources:</p>
+<ol type="1">
+<li>Multiple Emission States</li>
+<li>Weighting or Explicitly Defining State paths on a sequence</li>
+<li>Linking States Emissions/Transitions to external user-defined functions</li>
+</ol>
+<p>Multiple Emission States <a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> allows the user to provide multiple sequences. These sequences are then handled by the emissions. These sequences can be REAL numbers or discrete characters/words. <a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> allows each state to have many emissions (Discrete or Continuous). Discrete emissions can be independent of each other or joint distributions. The continuous emissions can be considered in multiple ways. 1) They can be considered as raw probabilities which will be integrated without transformation. 2) They can be considered as values to be plugged into a Univariate Probability Distribution Function or Multivariate PDF (In the case of multiple REAL sequences.</p>
+<p>Each states emissions are user-defined, so one state may have emissions from two different sequences, while another may only have a single emission from a single sequence.</p>
+<ol type="1">
+<li>Weighting or Explicitly Defining State paths to follow on a sequence. Often, we have some prior knowledge about the sequence. If this is the case, we may want to integrate that into the model, without redesigning or retraining the model (a timely endeavor). <a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> allows the user to explicitly define a State path (By name of state, or category of state). In addition, <a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> also allows the user to weight a states path (By name of State or category of state defined by user) This allows the user to restrict the predicted path or weight their prior knowledge.</li>
+<li>Linking States Emissions or Transitions to external user-defined functions When that transition/emission is evaluated the function is called and can provide an emission.</li>
+</ol>
+<p>While this may provide one way of addressing a weakness of HMMs, which is that they do not handle long range dependencies. We see it rather as a way to link together existing utilities or functions that provide additional information. In this way, we can link divergent datasets or function within the HMM trellis in order to arrive at a better prediction.</p>
+<p>Traditional Decoding Algorithms:</p>
+<ul>
+<li>Forward</li>
+<li>Backward</li>
+<li>Viterbi</li>
+<li>Posterior</li>
+<li>N-best Viterbi</li>
+</ul>
+<p>Additional Stochastic Sampling Decoding Algorithms:</p>
+<ul>
+<li>Stochastic Forward</li>
+<li>Stochastic Viterbi</li>
+<li>Stochastic Posterior</li>
+</ul>
+<p>Korf Lab Genome Center University of California, Davis </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:54:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

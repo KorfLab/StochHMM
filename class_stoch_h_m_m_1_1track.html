@@ -74,7 +74,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -218,6 +218,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00109">109</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00310">parse()</a>.</p>
 <div class="fragment"><div class="line">                                                   {</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">if</span> (alphabet.size() &gt;= 255){</div>
@@ -275,6 +279,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00237">237</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00456">parseAmbiguous()</a>.</p>
 <div class="fragment"><div class="line">                                                                          {</div>
 <div class="line">                <span class="keywordflow">if</span> (defaultAmbiguous==-1){</div>
 <div class="line">                        defaultAmbiguous = max_unambiguous+1;</div>
@@ -319,6 +325,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>std::string The string value in the undigitized sequence that is associated with the integer digitized value; </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00079">79</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00500">getAmbiguousCharacter()</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00635">getComplementSymbol()</a>, <a class="el" href="sequence_8cpp_source.html#l00772">StochHMM::sequence::getSymbol()</a>, <a class="el" href="sequence_8cpp_source.html#l00959">StochHMM::random_sequence()</a>, and <a class="el" href="sequence_8cpp_source.html#l00344">StochHMM::sequence::undigitize()</a>.</p>
 <div class="fragment"><div class="line">                                     {</div>
 <div class="line">                <span class="keywordflow">if</span> (iter&lt;=max_unambiguous){</div>
 <div class="line">                        <span class="keywordflow">return</span> alphabet[iter];</div>
@@ -356,6 +366,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>std::string The string value in the undigitized sequence that is associated with the integer digitized value; </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00094">94</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00500">getAmbiguousCharacter()</a>.</p>
 <div class="fragment"><div class="line">                                        {</div>
 <div class="line">                <span class="keywordflow">if</span> (iter&lt;=max_unambiguous){</div>
 <div class="line">                        <span class="keywordflow">return</span> alphabet[iter];</div>
@@ -394,6 +406,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>size_t </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00180">180</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="sequence_8cpp_source.html#l00868">StochHMM::sequence::complement()</a>, <a class="el" href="sequence_8cpp_source.html#l00829">StochHMM::sequence::reverse()</a>, and <a class="el" href="sequence_8cpp_source.html#l00344">StochHMM::sequence::undigitize()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> maxSize;};</div>
 </div><!-- fragment -->
 </div>
@@ -422,6 +436,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>size_t Number of characters/words defined in the track </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00173">173</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="lexical_table_8cpp_source.html#l00158">StochHMM::lexicalTable::addTrack()</a>, and <a class="el" href="sequence_8cpp_source.html#l00959">StochHMM::random_sequence()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> alphabet.size();};</div>
 </div><!-- fragment -->
 </div>
@@ -451,6 +467,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <dl class="section see"><dt>See also:</dt><dd>enum <a class="el" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53">trackType</a> </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00169">169</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00783">StochHMM::emm::isReal()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> alpha_type;}</div>
 </div><!-- fragment -->
 </div>
@@ -477,6 +495,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00500">500</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8h_source.html#l00213">getAmbiguousSize()</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00079">getAlpha()</a>, and <a class="el" href="track_8cpp_source.html#l00381">stringifyAmbig()</a>.</p>
 <div class="fragment"><div class="line">                                                    {</div>
 <div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#add793f3af354f7f90741770d7a985589">getAmbiguousSize</a>()==0){</div>
 <div class="line">            <span class="keywordflow">return</span> <span class="stringliteral">&quot;*&quot;</span>;</div>
@@ -512,6 +534,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>std::vector&lt;int&gt; </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00220">220</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00381">stringifyAmbig()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> ambiguousSymbols[(val-max_unambiguous)-1].getDef();}</div>
 </div><!-- fragment -->
 </div>
@@ -540,6 +564,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>size_t Number of ambiguous characters/words defined </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00213">213</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00500">getAmbiguousCharacter()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> ambiguousSymbols.size();};</div>
 </div><!-- fragment -->
 </div>
@@ -567,6 +593,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>int value of complement </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00593">593</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="sequence_8cpp_source.html#l00868">StochHMM::sequence::complement()</a>.</p>
 <div class="fragment"><div class="line">                                                {</div>
 <div class="line">        <span class="keywordflow">if</span> (complementSet){</div>
 <div class="line">            <span class="keywordflow">if</span> (complementAlphabet.count(val)){</div>
@@ -608,6 +636,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>int Defined complement string symbol of symbol </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00614">614</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00259">symbolIndex()</a>.</p>
 <div class="fragment"><div class="line">                                                         {</div>
 <div class="line">        <span class="keywordflow">if</span> (complementSet){</div>
 <div class="line">            <span class="keywordflow">if</span> (symbolIndices.count(character)){</div>
@@ -650,6 +680,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>std::string Defined complement string symbol </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00657">657</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00079">getAlpha()</a>, and <a class="el" href="track_8cpp_source.html#l00259">symbolIndex()</a>.</p>
+
+<p>Referenced by <a class="el" href="sequence_8cpp_source.html#l00868">StochHMM::sequence::complement()</a>.</p>
 <div class="fragment"><div class="line">                                                            {</div>
 <div class="line">        <span class="keywordflow">if</span> (complementSet){</div>
 <div class="line">            <span class="keywordflow">if</span> (symbolIndices.count(character)){</div>
@@ -693,6 +727,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>std::string Defined complement string symbol of symbol with digitized value </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00635">635</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00079">getAlpha()</a>.</p>
 <div class="fragment"><div class="line">                                                     {</div>
 <div class="line">        <span class="keywordflow">if</span> (complementSet){</div>
 <div class="line">            <span class="keywordflow">if</span> (complementAlphabet.count(value)){</div>
@@ -765,6 +801,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>int <a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a> of the track </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00158">158</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="sequences_8cpp_source.html#l00262">StochHMM::sequences::addSeq()</a>, <a class="el" href="emm_8cpp_source.html#l00681">StochHMM::emm::get_emission()</a>, and <a class="el" href="external_funcs_8cpp_source.html#l00257">StochHMM::emissionFuncParam::parse()</a>.</p>
 <div class="fragment"><div class="line">                                {</div>
 <div class="line">            <span class="keywordflow">if</span> (trackIndex&lt;std::numeric_limits&lt;size_t&gt;::max()){</div>
 <div class="line">                <span class="keywordflow">return</span> trackIndex;</div>
@@ -799,6 +837,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>std::string Name of the track </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00150">150</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00511">StochHMM::tracks::push_back()</a>, <a class="el" href="sequences_8cpp_source.html#l00184">StochHMM::sequences::stringify()</a>, <a class="el" href="transitions_8cpp_source.html#l00521">StochHMM::transition::stringify()</a>, and <a class="el" href="sequences_8cpp_source.html#l00204">StochHMM::sequences::undigitize()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> name;};</div>
 </div><!-- fragment -->
 </div>
@@ -942,6 +982,8 @@ false if not set </dd></dl>
 <dl class="section return"><dt>Returns:</dt><dd>true if the track was parsed properly </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00310">310</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="text_8cpp_source.html#l00743">StochHMM::extractTag()</a>, <a class="el" href="text_8cpp_source.html#l00241">StochHMM::stringList::fromNext()</a>, <a class="el" href="text_8h_source.html#l00121">StochHMM::stringList::getComment()</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>, <a class="el" href="track_8h_source.html#l00108">setDescription()</a>, <a class="el" href="track_8h_source.html#l00104">setName()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, and <a class="el" href="text_8cpp_source.html#l00402">StochHMM::stringList::stringify()</a>.</p>
 <div class="fragment"><div class="line">                                   {</div>
 <div class="line">        stringList lst;</div>
 <div class="line">        stringList tag = <a class="code" href="group___text.html#gabad7e59fdc834721ee71b12524c40002">extractTag</a>(txt);</div>
@@ -1014,6 +1056,8 @@ false if not set </dd></dl>
 <dl class="section return"><dt>Returns:</dt><dd>true if the ambiguous characters were properly parsed </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00456">456</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00237">addAmbiguous()</a>, and <a class="el" href="track_8h_source.html#l00142">setAmbiguous()</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
 <div class="line">        std::vector&lt;std::pair&lt;std::string,std::vector&lt;std::string&gt; &gt; &gt; temp;</div>
 <div class="line">        </div>
@@ -1061,6 +1105,8 @@ false if not set </dd></dl>
 </dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00124">124</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, and <a class="el" href="track_8cpp_source.html#l00310">parse()</a>.</p>
 <div class="fragment"><div class="line">{alpha_type=typ;};</div>
 </div><!-- fragment -->
 </div>
@@ -1088,6 +1134,8 @@ false if not set </dd></dl>
 <p>Set ambiguous character flag to true This will allow ambiguous characters to be processed in sequence Without this flag, only strict track characters or values are allowed </p>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00142">142</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00456">parseAmbiguous()</a>.</p>
 <div class="fragment"><div class="line">{ambiguous=<span class="keyword">true</span>; <span class="keywordflow">return</span>;};</div>
 </div><!-- fragment -->
 </div>
@@ -1122,6 +1170,8 @@ false if not set </dd></dl>
 </dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00108">108</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00310">parse()</a>.</p>
 <div class="fragment"><div class="line">{description=desc;};</div>
 </div><!-- fragment -->
 </div>
@@ -1197,6 +1247,8 @@ false if not set </dd></dl>
 </dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00104">104</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00310">parse()</a>.</p>
 <div class="fragment"><div class="line">{name=nm;};</div>
 </div><!-- fragment -->
 </div>
@@ -1217,6 +1269,10 @@ false if not set </dd></dl>
 <dl class="section return"><dt>Returns:</dt><dd>std::string Definition of the track as in model </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00360">360</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00519">StochHMM::join()</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8h_source.html#l00229">print()</a>.</p>
 <div class="fragment"><div class="line">                              {</div>
 <div class="line">        std::string output;</div>
 <div class="line">        output+=name + <span class="stringliteral">&quot;:\t&quot;</span>;</div>
@@ -1254,6 +1310,8 @@ false if not set </dd></dl>
 <dl class="section return"><dt>Returns:</dt><dd>std::string </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00381">381</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00500">getAmbiguousCharacter()</a>, and <a class="el" href="track_8h_source.html#l00220">getAmbiguousSet()</a>.</p>
 <div class="fragment"><div class="line">                                   {</div>
 <div class="line">        std::string output;</div>
 <div class="line">        output+=name + <span class="stringliteral">&quot;:\t&quot;</span>;</div>
@@ -1297,6 +1355,8 @@ false if not set </dd></dl>
 </dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00259">259</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00036">StochHMM::ambigCharacter::ambigCharacter()</a>, <a class="el" href="track_8cpp_source.html#l00614">getComplementIndex()</a>, and <a class="el" href="track_8cpp_source.html#l00657">getComplementSymbol()</a>.</p>
 <div class="fragment"><div class="line">                                                     {</div>
 <div class="line">        <span class="keywordflow">if</span> (symbolIndices.count(symbol)==0){  <span class="comment">//If isn&#39;t found in the hash</span></div>
 <div class="line">            <span class="keywordflow">if</span> (ambiguous){ <span class="comment">//Return default character if ambiguous is set</span></div>
@@ -1374,7 +1434,7 @@ false if not set </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:54:59 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

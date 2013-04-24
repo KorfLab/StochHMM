@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,7 +111,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        }</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">void</span> trellis::viterbi(){</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                <span class="keywordflow">if</span> (hmm-&gt;isBasic()){</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                <span class="keywordflow">if</span> (hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#ab8d232e9987f87e153b020b80920a60e">isBasic</a>()){</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                        simple_viterbi();</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                }</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                <span class="keywordflow">else</span>{</div>
@@ -132,7 +132,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">void</span> trellis::simple_viterbi(){</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">if</span> (!hmm-&gt;isBasic()){</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">if</span> (!hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#ab8d232e9987f87e153b020b80920a60e">isBasic</a>()){</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Model isn&#39;t a simple/basic HMM.  Use complex algorithms\n&quot;</span>;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                }</div>
@@ -332,7 +332,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;                                                <span class="keywordflow">continue</span>;</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                                        }</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                                        </div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                                        trans = getTransition(hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3" title="Get pointer to the state at index.">getState</a>(st_previous), st_current, position);</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                                        trans = getTransition(hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(st_previous), st_current, position);</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                                        </div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                                        <span class="keywordflow">if</span> (trans !=-INFINITY){</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                                                viterbi_temp = emission + trans + previous;</div>
@@ -585,7 +585,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;                </div>
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;                <span class="comment">//If model is not a basic model, then we need to initialize the explicit duration vector</span></div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;                <span class="comment">//bool extend_duration keeps track of whether the transition to same state was selected.</span></div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;                <span class="keywordflow">if</span> (!hmm-&gt;isBasic()){</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;                <span class="keywordflow">if</span> (!hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#ab8d232e9987f87e153b020b80920a60e">isBasic</a>()){</div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;                        explicit_duration_current = <span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(state_size,0);</div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;                        explicit_duration_previous= <span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(state_size,0);</div>
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;                }</div>
@@ -774,7 +774,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;                </div>
 <div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;                <span class="comment">//If model is not a basic model, then we need to initialize the explicit duration vector</span></div>
 <div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;                <span class="comment">//bool extend_duration keeps track of whether the transition to same state was selected.</span></div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;                <span class="keywordflow">if</span> (!hmm-&gt;isBasic()){</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;                <span class="keywordflow">if</span> (!hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#ab8d232e9987f87e153b020b80920a60e">isBasic</a>()){</div>
 <div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;                        explicit_duration_current = <span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(state_size,0);</div>
 <div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;                        explicit_duration_previous= <span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(state_size,0);</div>
 <div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;                }</div>
@@ -921,7 +921,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:54:57 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

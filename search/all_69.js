@@ -1,7 +1,8 @@
 var searchData=
 [
   ['igamma_5flower',['igamma_lower',['../namespace_stoch_h_m_m.html#a8d3a54392b1f33dcba7f165434eccc80',1,'StochHMM']]],
-  ['import',['import',['../class_stoch_h_m_m_1_1model.html#ae8599043253e0f838d33cc7099d8e38b',1,'StochHMM::model::import(std::string &amp;, StateFuncs *)'],['../class_stoch_h_m_m_1_1model.html#a819bcc457a18f7b072a165ad7ee6ae9c',1,'StochHMM::model::import(std::string &amp;)'],['../class_stoch_h_m_m_1_1_p_w_m.html#a3a05877ba27e439e1fce6d79b2d34d89',1,'StochHMM::PWM::import(std::string &amp;file)'],['../class_stoch_h_m_m_1_1_p_w_m.html#a17b17d47b6878aaa10b2d9ed948aad41',1,'StochHMM::PWM::import(const char *file)']]],
+  ['import',['import',['../class_stoch_h_m_m_1_1model.html#ae8599043253e0f838d33cc7099d8e38b',1,'StochHMM::model::import(std::string &amp;, StateFuncs *)'],['../class_stoch_h_m_m_1_1model.html#a819bcc457a18f7b072a165ad7ee6ae9c',1,'StochHMM::model::import(std::string &amp;)'],['../class_stoch_h_m_m_1_1model.html#ac7be73bd3cc8874331cf6d8298bf28a1',1,'StochHMM::model::import(std::string &amp;, StateFuncs *, templates *, weights *)'],['../class_stoch_h_m_m_1_1_p_w_m.html#a3a05877ba27e439e1fce6d79b2d34d89',1,'StochHMM::PWM::import(std::string &amp;file)'],['../class_stoch_h_m_m_1_1_p_w_m.html#a17b17d47b6878aaa10b2d9ed948aad41',1,'StochHMM::PWM::import(const char *file)']]],
+  ['importfromstring',['importFromString',['../class_stoch_h_m_m_1_1model.html#a98ef489eb046c51c4a86869271c67cd4',1,'StochHMM::model::importFromString(std::string &amp;)'],['../class_stoch_h_m_m_1_1model.html#ae6ed5fbdf3c45fbf583df2ba8ba65402',1,'StochHMM::model::importFromString(std::string &amp;, StateFuncs *)'],['../class_stoch_h_m_m_1_1model.html#a8bf3094d21273cbf9828a118d22098d7',1,'StochHMM::model::importFromString(std::string &amp;, StateFuncs *, templates *, weights *)']]],
   ['importjobs',['importJobs',['../class_stoch_h_m_m_1_1seq_tracks.html#ac84df53cafe738403af9c898b26b2da5',1,'StochHMM::seqTracks']]],
   ['importmodels',['importModels',['../class_stoch_h_m_m_1_1models.html#ad6b69f097812bff3fa5c3beff886cf5a',1,'StochHMM::models']]],
   ['incrementcounts',['incrementCounts',['../class_stoch_h_m_m_1_1lexical_table.html#a7c95daa89e985f9c697bb410fcbc85a6',1,'StochHMM::lexicalTable']]],
@@ -22,6 +23,7 @@ var searchData=
   ['isalpha',['isAlpha',['../class_stoch_h_m_m_1_1track.html#a7ccbf6be8098e5911b3914d32072e164',1,'StochHMM::track']]],
   ['isambiguous',['isAmbiguous',['../class_stoch_h_m_m_1_1_index.html#a7556e63e90b5d58cace77279b91386c5',1,'StochHMM::Index']]],
   ['isambiguousset',['isAmbiguousSet',['../class_stoch_h_m_m_1_1track.html#ad7154d14625389cc8f694e59498c484e',1,'StochHMM::track']]],
+  ['isbasic',['isBasic',['../class_stoch_h_m_m_1_1model.html#ab8d232e9987f87e153b020b80920a60e',1,'StochHMM::model']]],
   ['iscomplement',['isComplement',['../class_stoch_h_m_m_1_1emm.html#a6e6f1be7b72ac0c96c0ee875322b813f',1,'StochHMM::emm']]],
   ['isflagset',['isFlagSet',['../class_stoch_h_m_m_1_1options.html#abfe10326b47d065a1289e989346038c8',1,'StochHMM::options']]],
   ['isnumeric',['isNumeric',['../group___text.html#ga7297a0284778c0591fa5505d24ff491d',1,'StochHMM']]],

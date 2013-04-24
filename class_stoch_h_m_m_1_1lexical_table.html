@@ -74,7 +74,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -200,6 +200,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 </dl>
 
 <p>Definition at line <a class="el" href="lexical_table_8cpp_source.html#l00158">158</a> of file <a class="el" href="lexical_table_8cpp_source.html">lexicalTable.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8h_source.html#l00173">StochHMM::track::getAlphaSize()</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>.</p>
 <div class="fragment"><div class="line">                                                        {</div>
 <div class="line">        trcks.push_back(trk);</div>
 <div class="line">        alphabets.push_back(trk-&gt;getAlphaSize());</div>
@@ -245,6 +249,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 </dl>
 
 <p>Definition at line <a class="el" href="lexical_table_8cpp_source.html#l00171">171</a> of file <a class="el" href="lexical_table_8cpp_source.html">lexicalTable.cpp</a>.</p>
+
+<p>References <a class="el" href="lexical_table_8cpp_source.html#l00856">initialize_emission_table()</a>.</p>
 <div class="fragment"><div class="line">                                                                                         {</div>
 <div class="line">        <span class="keywordflow">if</span> (emmType==COUNTS){</div>
 <div class="line">            counts=temp;</div>
@@ -284,6 +290,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 <dl class="section return"><dt>Returns:</dt><dd>std::vector&lt;int&gt; </dd></dl>
 
 <p>Definition at line <a class="el" href="lexical_table_8h_source.html#l00087">87</a> of file <a class="el" href="lexical_table_8h_source.html">lexicalTable.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> alphabets;}</div>
 </div><!-- fragment -->
 </div>
@@ -340,6 +348,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 <dl class="section return"><dt>Returns:</dt><dd>std::vector&lt;int&gt; </dd></dl>
 
 <p>Definition at line <a class="el" href="lexical_table_8h_source.html#l00078">78</a> of file <a class="el" href="lexical_table_8h_source.html">lexicalTable.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>, and <a class="el" href="transitions_8cpp_source.html#l00521">StochHMM::transition::stringify()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> order;};</div>
 </div><!-- fragment -->
 </div>
@@ -375,6 +385,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 <dl class="section return"><dt>Returns:</dt><dd>track* Track in emission </dd></dl>
 
 <p>Definition at line <a class="el" href="lexical_table_8h_source.html#l00070">70</a> of file <a class="el" href="lexical_table_8h_source.html">lexicalTable.h</a>.</p>
+
+<p>Referenced by <a class="el" href="transitions_8cpp_source.html#l00521">StochHMM::transition::stringify()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> trcks[iter];};</div>
 </div><!-- fragment -->
 </div>
@@ -409,6 +421,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 </dl>
 
 <p>Definition at line <a class="el" href="lexical_table_8h_source.html#l00062">62</a> of file <a class="el" href="lexical_table_8h_source.html">lexicalTable.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>.</p>
 <div class="fragment"><div class="line">{unknownScoreType=type;};</div>
 </div><!-- fragment -->
 </div>
@@ -437,6 +451,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 <dl class="section return"><dt>Returns:</dt><dd>size_t </dd></dl>
 
 <p>Definition at line <a class="el" href="lexical_table_8h_source.html#l00074">74</a> of file <a class="el" href="lexical_table_8h_source.html">lexicalTable.h</a>.</p>
+
+<p>Referenced by <a class="el" href="transitions_8cpp_source.html#l00521">StochHMM::transition::stringify()</a>.</p>
 <div class="fragment"><div class="line">{<span class="keywordflow">return</span> trcks.size();};</div>
 </div><!-- fragment -->
 </div>
@@ -448,7 +464,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

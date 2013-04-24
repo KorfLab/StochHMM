@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -388,8 +388,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sNonCentralF</b> (std
 <tr class="memitem:a1e7367037b69ca287a794f6318072184"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e7367037b69ca287a794f6318072184"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>sNonCentralT</b> (std::vector&lt; double &gt; &amp;, double, double)</td></tr>
 <tr class="memitem:a3f305fa042635af136454996192fd14e"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#a3f305fa042635af136454996192fd14e">operator&lt;&lt;</a> (std::ostream &amp;output, const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;bs)</td></tr>
-<tr class="memitem:ab3e1e8cdd643d33af8b6c2b86a4ff1ec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab3e1e8cdd643d33af8b6c2b86a4ff1ec"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print_vec</b> (std::vector&lt; std::vector&lt; double &gt; &gt; &amp;x)</td></tr>
+<tr class="memitem:ae6a47153f3cb9025abb627704ec5ed39"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6a47153f3cb9025abb627704ec5ed39"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#ae6a47153f3cb9025abb627704ec5ed39">print_vec</a> (std::vector&lt; std::vector&lt; double &gt; &gt; &amp;)</td></tr>
+<tr class="memdesc:ae6a47153f3cb9025abb627704ec5ed39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print 2D vector to std::cout. <br/></td></tr>
 <tr class="memitem:aeb01c4f221b8823839d56d8a5a05f26b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb01c4f221b8823839d56d8a5a05f26b"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_stoch_h_m_m.html#aeb01c4f221b8823839d56d8a5a05f26b">sort_scores</a> (std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1nth_score.html">nthScore</a> &gt; &amp;nth_scores)</td></tr>
 <tr class="memdesc:aeb01c4f221b8823839d56d8a5a05f26b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort the viterbi scores in the nth trellis cells. <br/></td></tr>
@@ -1071,6 +1072,8 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns:</dt><dd>Log'd sum of two values </dd></dl>
 
 <p>Definition at line <a class="el" href="stoch_math_8h_source.html#l00179">179</a> of file <a class="el" href="stoch_math_8h_source.html">stochMath.h</a>.</p>
+
+<p>Referenced by <a class="el" href="stoch_table_8cpp_source.html#l00059">StochHMM::stochTable::finalize()</a>, and <a class="el" href="backward_8cpp_source.html#l00035">StochHMM::trellis::naive_backward()</a>.</p>
 <div class="fragment"><div class="line">                               {</div>
 <div class="line">        <span class="keywordflow">if</span> (first==-INFINITY){</div>
 <div class="line">            <span class="keywordflow">return</span> second;</div>
@@ -1120,6 +1123,8 @@ template&lt;typename T &gt; </div>
 <p>Beta probability distribution function *param x Value 0&lt;x&lt;1 *param a Shape parameter a&gt;0 *param b Shape parameter b&gt;0 </p>
 
 <p>Definition at line <a class="el" href="stoch_math_8cpp_source.html#l00207">207</a> of file <a class="el" href="stoch_math_8cpp_source.html">stochMath.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="_p_d_f_8cpp_source.html#l00255">beta_pdf()</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
 <div class="line">        <span class="keywordtype">float</span> constant = 1/beta(a,b);</div>
 <div class="line">        constant*=pow(x,a-1) * pow(1-x,b-1);</div>
@@ -1154,6 +1159,8 @@ template&lt;typename T &gt; </div>
 <p>Binomial coefficient *number of combinations possible given k unordered outcomes from n possibilities *param n number of items *param k number in set </p>
 
 <p>Definition at line <a class="el" href="statistics_8cpp_source.html#l00181">181</a> of file <a class="el" href="statistics_8cpp_source.html">statistics.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="_p_d_f_8cpp_source.html#l00032">beta_binomial_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00128">beta_negative_binomial_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00021">binomial_pdf()</a>, <a class="el" href="distributions_8cpp_source.html#l00101">cBetaBinomial()</a>, <a class="el" href="distributions_8cpp_source.html#l00048">cBinomial()</a>, <a class="el" href="distributions_8cpp_source.html#l00212">cHypergeometric()</a>, <a class="el" href="statistics_8cpp_source.html#l00224">hypergeometric_cdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00076">hypergeometric_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00167">negative_binomial_pdf()</a>, <a class="el" href="distributions_8cpp_source.html#l00074">sBetaBinomial()</a>, <a class="el" href="distributions_8cpp_source.html#l00026">sBinomial()</a>, and <a class="el" href="distributions_8cpp_source.html#l00188">sHypergeometric()</a>.</p>
 <div class="fragment"><div class="line">                                 {</div>
 <div class="line">        <span class="keywordtype">float</span> c=0;</div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=k+1;i&lt;=n;i++) {c+=log(i);}</div>
@@ -1195,6 +1202,8 @@ template&lt;typename T &gt; </div>
 <p>Binomial Cumulative Distribution Function *param k Number of successes *param n Number of trials *param p Probability of success *If we can get an incomplete beta function. We can update this function and </p>
 
 <p>Definition at line <a class="el" href="statistics_8cpp_source.html#l00210">210</a> of file <a class="el" href="statistics_8cpp_source.html">statistics.cpp</a>.</p>
+
+<p>References <a class="el" href="_p_d_f_8cpp_source.html#l00021">binomial_pdf()</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
 <div class="line">        std::vector&lt;float&gt; param (2,0.0);</div>
 <div class="line">        param[0]=n;</div>
@@ -1236,6 +1245,8 @@ template&lt;typename T &gt; </div>
 <p>Binomial probability mass function *param k Number of successes *param n Number of trials *param p Probability of success </p>
 
 <p>Definition at line <a class="el" href="statistics_8cpp_source.html#l00192">192</a> of file <a class="el" href="statistics_8cpp_source.html">statistics.cpp</a>.</p>
+
+<p>References <a class="el" href="statistics_8cpp_source.html#l00181">bin_coef()</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
 <div class="line">        <span class="keywordflow">return</span> <a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(n,k)*pow(p,k)*pow(1-p,n-k);</div>
 <div class="line">    }</div>
@@ -1268,6 +1279,8 @@ template&lt;typename T &gt; </div>
 <p>Binomial probaility mass function *param k Number of successes *param param std::vector&lt;float&gt; (n=number of trials, p=probability of success) </p>
 
 <p>Definition at line <a class="el" href="statistics_8cpp_source.html#l00199">199</a> of file <a class="el" href="statistics_8cpp_source.html">statistics.cpp</a>.</p>
+
+<p>References <a class="el" href="_p_d_f_8cpp_source.html#l00021">binomial_pdf()</a>.</p>
 <div class="fragment"><div class="line">                                                     {</div>
 <div class="line">        <span class="keywordflow">return</span> <a class="code" href="group___p_d_f.html#ga09673744215acf9a5b4cab9d66e2dff7">binomial_pdf</a>(k, param[0],param[1]);</div>
 <div class="line">    }</div>
@@ -1321,6 +1334,8 @@ template&lt;typename T &gt; </div>
 </dl>
 
 <p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00101">101</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+
+<p>References <a class="el" href="statistics_8cpp_source.html#l00181">bin_coef()</a>.</p>
 <div class="fragment"><div class="line">                                                                                {</div>
 <div class="line">        <span class="keywordtype">double</span> cdf = 0;</div>
 <div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;maximum;i++){</div>
@@ -1383,6 +1398,8 @@ template&lt;typename T &gt; </div>
 </dl>
 
 <p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00048">48</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+
+<p>References <a class="el" href="statistics_8cpp_source.html#l00181">bin_coef()</a>.</p>
 <div class="fragment"><div class="line">                                                                    {</div>
 <div class="line">        <span class="comment">//http://en.wikipedia.org/wiki/Binomial_distribution</span></div>
 <div class="line">        <span class="keywordtype">double</span> cdf=0;</div>
@@ -1437,6 +1454,8 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns:</dt><dd>double Value of CDF at x </dd></dl>
 
 <p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00252">252</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+
+<p>References <a class="el" href="stoch_math_8cpp_source.html#l00166">igamma_lower()</a>.</p>
 <div class="fragment"><div class="line">                                          {</div>
 <div class="line">        <span class="keywordtype">double</span> val = 1.0/tgamma(df/2.0);</div>
 <div class="line">        <span class="keywordtype">double</span> div = <a class="code" href="namespace_stoch_h_m_m.html#a8d3a54392b1f33dcba7f165434eccc80" title="http://wwwC/.rskey.org/CMS/index.php/the-library/11">igamma_lower</a>(df/2.0,x/2.0);</div>
@@ -1583,6 +1602,8 @@ template&lt;typename T &gt; </div>
 </dl>
 
 <p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00212">212</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+
+<p>References <a class="el" href="statistics_8cpp_source.html#l00181">bin_coef()</a>.</p>
 <div class="fragment"><div class="line">                                                                      {</div>
 <div class="line">        <span class="comment">//http://en.wikipedia.org/wiki/Hypergeometric_distribution</span></div>
 <div class="line">        <span class="keywordtype">double</span> cdf=0;</div>
@@ -1737,6 +1758,8 @@ template&lt;typename T &gt; </div>
 </dl>
 
 <p>Definition at line <a class="el" href="stoch_math_8cpp_source.html#l00051">51</a> of file <a class="el" href="stoch_math_8cpp_source.html">stochMath.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="weight_8cpp_source.html#l00127">StochHMM::weight::getWeightedScore()</a>.</p>
 <div class="fragment"><div class="line">                                                                                        {</div>
 <div class="line">        <span class="keywordflow">return</span> a.second+((cx-a.first)/(b.first-a.first))*(b.second-a.second);</div>
 <div class="line">    }</div>
@@ -1781,6 +1804,8 @@ template&lt;typename T &gt; </div>
 <p>Hypergeometric Cumulative Distribution Function *param n Number of draws from Population *param N Size of population *param m Number of successes in Population *param k Number of successes </p>
 
 <p>Definition at line <a class="el" href="statistics_8cpp_source.html#l00224">224</a> of file <a class="el" href="statistics_8cpp_source.html">statistics.cpp</a>.</p>
+
+<p>References <a class="el" href="statistics_8cpp_source.html#l00181">bin_coef()</a>.</p>
 <div class="fragment"><div class="line">                                                         {</div>
 <div class="line">        <span class="keywordflow">if</span> (n==N){</div>
 <div class="line">            <span class="keywordflow">return</span> 1.0;</div>
@@ -1913,6 +1938,8 @@ template&lt;typename T &gt; </div>
 </dl>
 
 <p>Definition at line <a class="el" href="stoch_math_8cpp_source.html#l00043">43</a> of file <a class="el" href="stoch_math_8cpp_source.html">stochMath.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="weight_8cpp_source.html#l00127">StochHMM::weight::getWeightedScore()</a>.</p>
 <div class="fragment"><div class="line">                                                                                        {</div>
 <div class="line">        <span class="comment">//std::cout &lt;&lt; a.first &lt;&lt; &quot;\t&quot; &lt;&lt; a.second &lt;&lt;std::endl;</span></div>
 <div class="line">        <span class="comment">//std::cout &lt;&lt; b.first &lt;&lt; &quot;\t&quot; &lt;&lt; b.second &lt;&lt;std::endl;</span></div>
@@ -1946,6 +1973,8 @@ template&lt;typename T &gt; </div>
 <p>Logit function Inverse of the sigmoidal logistic function *Also known as log-odds score or ratio </p>
 
 <p>Definition at line <a class="el" href="stoch_math_8h_source.html#l00581">581</a> of file <a class="el" href="stoch_math_8h_source.html">stochMath.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_p_d_f_8cpp_source.html#l00268">logit_normal_pdf()</a>.</p>
 <div class="fragment"><div class="line">                                 {</div>
 <div class="line">        <span class="keywordflow">return</span> log(x/(1-x));</div>
 <div class="line">    }</div>
@@ -1980,6 +2009,8 @@ template&lt;typename T &gt; </div>
 <p>Left Shift with shift off *Shifts the value to the left by n bits. The bits that would get shifted off value are returned in lsb </p>
 
 <p>Definition at line <a class="el" href="bitwise__ops_8h_source.html#l00055">55</a> of file <a class="el" href="bitwise__ops_8h_source.html">bitwise_ops.h</a>.</p>
+
+<p>Referenced by <a class="el" href="dynamic__bitset_8cpp_source.html#l00384">StochHMM::dynamic_bitset::insert()</a>, and <a class="el" href="dynamic__bitset_8cpp_source.html#l00306">StochHMM::dynamic_bitset::operator&lt;&lt;=()</a>.</p>
 <div class="fragment"><div class="line">                                 {</div>
 <div class="line">                T temp(val);</div>
 <div class="line">                <span class="keywordflow">if</span> (n&gt;=(<span class="keyword">sizeof</span>(T)*CHAR_BIT)){</div>
@@ -2036,6 +2067,8 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns:</dt><dd>value with bits that are shifted off val in lsb </dd></dl>
 
 <p>Definition at line <a class="el" href="bitwise__ops_8h_source.html#l00091">91</a> of file <a class="el" href="bitwise__ops_8h_source.html">bitwise_ops.h</a>.</p>
+
+<p>Referenced by <a class="el" href="dynamic__bitset_8cpp_source.html#l00306">StochHMM::dynamic_bitset::operator&lt;&lt;=()</a>.</p>
 <div class="fragment"><div class="line">                                               {</div>
 <div class="line">                T temp(val);</div>
 <div class="line">                val = (val &lt;&lt; n) | old_val;</div>
@@ -2070,6 +2103,8 @@ template&lt;typename T &gt; </div>
 <p>Returns integer's higher bits from position up to msb *Lower bits are set to zero </p>
 
 <p>Definition at line <a class="el" href="bitwise__ops_8cpp_source.html#l00086">86</a> of file <a class="el" href="bitwise__ops_8cpp_source.html">bitwise_ops.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="dynamic__bitset_8cpp_source.html#l00478">StochHMM::dynamic_bitset::erase()</a>, and <a class="el" href="dynamic__bitset_8cpp_source.html#l00384">StochHMM::dynamic_bitset::insert()</a>.</p>
 <div class="fragment"><div class="line">                                                   {</div>
 <div class="line">                <span class="keywordflow">if</span> (pos&gt;=32){</div>
 <div class="line">                        <span class="keywordflow">return</span> 0;</div>
@@ -2106,6 +2141,8 @@ template&lt;typename T &gt; </div>
 <p>Returns integer's lower bits from position down to lsb *Higher bits are set to zero </p>
 
 <p>Definition at line <a class="el" href="bitwise__ops_8cpp_source.html#l00096">96</a> of file <a class="el" href="bitwise__ops_8cpp_source.html">bitwise_ops.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="dynamic__bitset_8cpp_source.html#l00478">StochHMM::dynamic_bitset::erase()</a>, and <a class="el" href="dynamic__bitset_8cpp_source.html#l00384">StochHMM::dynamic_bitset::insert()</a>.</p>
 <div class="fragment"><div class="line">                                                     {</div>
 <div class="line">                <span class="keywordflow">if</span> (pos &gt;31){</div>
 <div class="line">                        <span class="keywordflow">return</span> 0;</div>
@@ -2193,6 +2230,8 @@ template&lt;typename T &gt; </div>
 <p>Overloaded ostream for using dynamic_bitsets in ostream *Usage: std::cout &lt;&lt; bs &lt;&lt; ....; </p>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00270">270</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8cpp_source.html#l01054">StochHMM::dynamic_bitset::stringify()</a>.</p>
 <div class="fragment"><div class="line">                                                                              {</div>
 <div class="line">                output &lt;&lt; bs.stringify();</div>
 <div class="line">                </div>
@@ -2370,6 +2409,8 @@ template&lt;class T &gt; </div>
 </dl>
 
 <p>Definition at line <a class="el" href="sequence_8cpp_source.html#l00959">959</a> of file <a class="el" href="sequence_8cpp_source.html">sequence.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00079">StochHMM::track::getAlpha()</a>, <a class="el" href="track_8h_source.html#l00173">StochHMM::track::getAlphaSize()</a>, and <a class="el" href="sequence_8cpp_source.html#l00738">StochHMM::sequence::setSeq()</a>.</p>
 <div class="fragment"><div class="line">                                                                                   {</div>
 <div class="line">        sequence random_seq;</div>
 <div class="line">        </div>
@@ -2481,6 +2522,8 @@ template&lt;typename T &gt; </div>
 <p>Right Shift with shift off *Shifts the value to the right by n bits. The bits that would get shifted off value are returned in msb </p>
 
 <p>Definition at line <a class="el" href="bitwise__ops_8h_source.html#l00071">71</a> of file <a class="el" href="bitwise__ops_8h_source.html">bitwise_ops.h</a>.</p>
+
+<p>Referenced by <a class="el" href="dynamic__bitset_8cpp_source.html#l00478">StochHMM::dynamic_bitset::erase()</a>, and <a class="el" href="dynamic__bitset_8cpp_source.html#l00344">StochHMM::dynamic_bitset::operator&gt;&gt;=()</a>.</p>
 <div class="fragment"><div class="line">                                 {</div>
 <div class="line">                T temp(val);</div>
 <div class="line">                <span class="keywordflow">if</span> (n&gt;=(<span class="keyword">sizeof</span>(T)*CHAR_BIT)){</div>
@@ -2536,6 +2579,8 @@ template&lt;typename T &gt; </div>
 </dl>
 
 <p>Definition at line <a class="el" href="bitwise__ops_8h_source.html#l00103">103</a> of file <a class="el" href="bitwise__ops_8h_source.html">bitwise_ops.h</a>.</p>
+
+<p>Referenced by <a class="el" href="dynamic__bitset_8cpp_source.html#l00344">StochHMM::dynamic_bitset::operator&gt;&gt;=()</a>.</p>
 <div class="fragment"><div class="line">                                               {</div>
 <div class="line">                T temp(val);</div>
 <div class="line">                val = (val&gt;&gt;n) | old_val;</div>
@@ -2591,6 +2636,8 @@ template&lt;typename T &gt; </div>
 </dl>
 
 <p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00074">74</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+
+<p>References <a class="el" href="statistics_8cpp_source.html#l00181">bin_coef()</a>.</p>
 <div class="fragment"><div class="line">                                                                                {</div>
 <div class="line">        <span class="keywordtype">double</span> cdf = 0;</div>
 <div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;maximum;i++){</div>
@@ -2654,6 +2701,8 @@ template&lt;typename T &gt; </div>
 </dl>
 
 <p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00026">26</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+
+<p>References <a class="el" href="statistics_8cpp_source.html#l00181">bin_coef()</a>.</p>
 <div class="fragment"><div class="line">                                                                    {</div>
 <div class="line">        <span class="comment">//http://en.wikipedia.org/wiki/Binomial_distribution</span></div>
 <div class="line">        <span class="keywordtype">double</span> cdf=0;</div>
@@ -2706,6 +2755,8 @@ template&lt;typename T &gt; </div>
 </dl>
 
 <p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00263">263</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+
+<p>References <a class="el" href="stoch_math_8cpp_source.html#l00166">igamma_lower()</a>.</p>
 <div class="fragment"><div class="line">                                                        {</div>
 <div class="line">        <span class="comment">//http://en.wikipedia.org/wiki/Chi-square_distribution</span></div>
 <div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">double</span> i=1; i&lt;maximum;i++){</div>
@@ -2866,6 +2917,8 @@ template&lt;typename T &gt; </div>
 </dl>
 
 <p>Definition at line <a class="el" href="distributions_8cpp_source.html#l00188">188</a> of file <a class="el" href="distributions_8cpp_source.html">distributions.cpp</a>.</p>
+
+<p>References <a class="el" href="statistics_8cpp_source.html#l00181">bin_coef()</a>.</p>
 <div class="fragment"><div class="line">                                                                      {</div>
 <div class="line">        <span class="comment">//http://en.wikipedia.org/wiki/Hypergeometric_distribution</span></div>
 <div class="line">        <span class="keywordtype">double</span> cdf=0;</div>
@@ -2910,6 +2963,8 @@ template&lt;class T &gt; </div>
 </dl>
 
 <p>Definition at line <a class="el" href="stoch_math_8h_source.html#l00317">317</a> of file <a class="el" href="stoch_math_8h_source.html">stochMath.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_p_d_f_8cpp_source.html#l00921">dirichlet_pdf()</a>.</p>
 <div class="fragment"><div class="line">                                   {</div>
 <div class="line">        <span class="keywordtype">double</span> sum=0;</div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;data.size();i++){</div>
@@ -2970,7 +3025,7 @@ template&lt;class T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 23 2013 10:54:58 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>
