@@ -14,8 +14,8 @@ For documentation on model syntax and designing a model, see Github wiki.
 Here are a few of the ways that StochHMM allows the users to integrate additional
 data sources:
  1. Multiple Emission States
-	2. Weighting or Explicitly Defining State paths on a sequence
-	3. Linking States Emissions/Transitions to external user-defined functions
+ 2. Weighting or Explicitly Defining State paths on a sequence
+ 3. Linking States Emissions/Transitions to external user-defined functions
  
  
 ##Multiple Emission States
@@ -55,7 +55,7 @@ datasets or functions within the HMM trellis in order to arrive at a better pred
 	   1. User-defined HMM model via simple human readable text file
 		  2. User-defined Alphabet
 		  3. User-defined Ambiguous Characters
-	 - States
+  - States
 		  1. Emissions
 			   - Multiple emission states (Discrete / Continuous)
 				  - Independent (Single or Multiple Discrete)
@@ -68,7 +68,7 @@ datasets or functions within the HMM trellis in order to arrive at a better pred
 			   - Lexical Transitions (Single or multiple emission)
 			   - Explicit Duration Transitions
 			   - Linkable to user-defined functions
-	- Decoding
+  - Decoding
 		  1. Traditional Decoding Algorithms
 			   - Forward/Backward/Posterior
 			   - Viterbi
@@ -77,7 +77,7 @@ datasets or functions within the HMM trellis in order to arrive at a better pred
 			   - Stochastic Forward
 			   - Stochastic Viterbi
 			   - Stochastic Posterior
-	- Decoding Traceback Path output formats
+  - Decoding Traceback Path output formats
 		 - State Path Index
 		 - State Path Label
 		 - GFF
