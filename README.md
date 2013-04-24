@@ -1,6 +1,9 @@
 #StochHMM - A Flexible hidden Markov model application and C++ library.
 
+***
 #Introduction
+***
+
 StochHMM is a free, open source C++ Library and application that implements HMM
 from simple text files.   It implements traditional HMM algorithms in addition it
 providing additional flexibility.  The additional flexibility is achieved by
@@ -50,7 +53,10 @@ range dependencies.  We see it rather as a way to link together existing utiliti
 provide additional information to the decoding algorithms.   In this way, we can link divergent 
 datasets or functions within the HMM trellis in order to arrive at a better prediction. 
 
+***
 #Features 
+***
+
 ##Brief list of features implemented in StochHMM:
 
 - General settings within Hidden Markov Models
@@ -84,8 +90,11 @@ datasets or functions within the HMM trellis in order to arrive at a better pred
 	- State Path Label
 	- GFF
 	- Hit Table (Stochastic Algorithms)
- 
+
+*** 
 #Developers  
+***
+
 ##Developed by:
  
 ##[Korf Lab](http://korflab.ucdavis.edu/)
@@ -102,13 +111,17 @@ Korf Lab, Genome Center, University of California, Davis
  - Google Groups
  - [StochHMM-dev](https://groups.google.com/forum/?fromgroups#!forum/stochhmm-dev)
  - [StochHMM-Forum](https://groups.google.com/forum/?fromgroups#!forum/stochhmm-forum)
- 
 
+
+***
 #Code Documentation
-Documentation for the C++ code can be found at [StochHMM Documentation](http://korflab.github.io/StochHMM/)
+Documentation for the C++ code can be found at [StochHMM Doxygen Documentation](http://korflab.github.io/StochHMM/)
+Documentation for the Model files can be found at [StochHMM Github Wiki](https://github.com/KorfLab/StochHMM/wiki)
+***
 
-
+***
 #References:
+***
 
 1. Schroeder, D.I., Blair J.D., Lott P., Yu H.O., Hong D., Crary F., Ashwood P., Walker C.
 , Korf I., Robinson W.P., LaSalle J.M.. The human placenta methylome. PNAS 15:6037-6042 (2013)
@@ -122,8 +135,9 @@ F. R-loop formation is a distinctive characteristic of unmethylated
 human CpG island promoters. Mol. Cell 45, 814–825 (2012).
 
 
-
+***
 #Installation
+***
 
 To compile StochHMM in Unix command-line (Linux, Mac OS X)
 
@@ -144,8 +158,10 @@ To compile StochHMM in XCode (Mac OS X only)
 
 Compiled target will be accessible from Xcode
 
-
+***
 #Examples
+*** 
+
 To run the examples,
 ```
 $ cd bin/
