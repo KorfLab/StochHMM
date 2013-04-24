@@ -106,8 +106,8 @@ Korf Lab, Genome Center, University of California, Davis
  - korflab AT ucdavis DOT edu
  - [KorfLab Github](https://github.com/KorfLab/StochHMM)
  - Google Groups
- - [StochHMM-dev](https://groups.google.com/forum/?fromgroups#!forum/stochhmm-dev)
- - [StochHMM-Forum](https://groups.google.com/forum/?fromgroups#!forum/stochhmm-forum)
+ 	- [StochHMM-dev](https://groups.google.com/forum/?fromgroups#!forum/stochhmm-dev)
+ 	- [StochHMM-Forum](https://groups.google.com/forum/?fromgroups#!forum/stochhmm-forum)
 
 
 ***
