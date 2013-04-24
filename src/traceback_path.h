@@ -58,36 +58,87 @@ namespace StochHMM{
     };
 
 
-    //! \class traceback_path
-    //! Stores one traceback path information for a sequence
+    //! Perform traceback of traceback table
+    //! Stores one traceback path for a sequence
     class traceback_path{
     public:
         traceback_path(model*);
         
+		//!Add state to traceback
         void push_back(int);
+		
+		//!Erase the traceback
         void clear();
+		
+		//!Get the size of traceback
+		//!\return size_t
         size_t size() const;
-        int val(int);
-        inline model* getModel() const {return hmm;};
+		
+		//!Returns the state index at a given position (it) within the traceback sequence
+        inline int val(size_t it){
+			if (it>=trace_path.size()){
+				std::cerr << "Out of Range index\n ";
+				exit(2);
+			}
+			return trace_path[it];
+		}
+		
+		//!Get the model used for the decoding
+        //! \return model
+		inline model* getModel() const {return hmm;};
         
+		
+		//!Print the path to file stream
         void fprint_path(std::ofstream&);
         
+		//! Get traceback as vector of state labels
+		//! \param [out] std::vector<std::string> Vector of Labels
         void label(std::vector<std::string>&);
+		
+		//! Get traceback as string of state labels
         void label(std::string&);
         
+		
+		//! Get traceback as vector of gff_features
+		//! \param[out] pth reference to vector of gff_feature
+		//! \param[in] sequenceName Name of Sequence to be used in GFF
         void gff(std::vector<gff_feature>&,std::string&);
+		
+		//!Get names of traceback path
+		//!\param [out] pth vector<string>
         void name(std::vector<std::string>&);
+		
+		//! Get the path to std::vector<int>
+		//! \param [out] pth std::vector<int> that represents path
         void path(std::vector<int>&);
         
-        void print_path() const ;
+		//! Print the traceback path as path to stdout using cout
+        //! Path numbers correspond to state index in model
+		void print_path() const ;
+		
+		//! Print the traceback path as state labels
+		//! State labels
         void print_label() const ;
+		
+		//!Outputs the gff formatted output for the traceback to stdout
+		//!Allows user to provide additional information, that may be
+		//!pertinent to stochastic tracebacks
+		//!\param[in] sequence_name  Name of sequence used
+		//!\param[in] score score to use in the GFF output
+		//!\param[in] ranking  Rank of traceback
+		//!\param[in] times Number of times that traceback occurred
+		//!\param[in] posterior Posterior probability score
         void print_gff(std::string,double,int,int,double) const ;
-        void print_gff(std::string) const ;
         
+		//!Outputs the gff formatted output for the traceback
+		void print_gff(std::string) const ;
+        
+		//!Get the score that is associated with the traceback
         inline double getScore(){
             return score;
         }
         
+		//!Set the score for the traceback;
         inline void setScore(double scr){
             score = scr;
             return;

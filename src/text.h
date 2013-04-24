@@ -39,9 +39,9 @@
 
 namespace StochHMM{
 	
-	/*! \defgroup Text  Text parHandling
+	/*! \defgroup Text  Text Handling
+	 *  
 	 *
-	 *	@{
 	 */
 	
 	

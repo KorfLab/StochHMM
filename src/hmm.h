@@ -53,8 +53,10 @@ namespace StochHMM{
 	
 	
 	
-	/*! Hidden Markov Model Class
-	 \class model class combines the States, and model information together in a single unit.
+	
+	/*! \class model
+	 Hidden Markov Model Class
+	 model class combines the States, and model information together in a single unit.
 	 This includes the states(emissions, transitions), initial and ending states, track 
 	 information(alphabet and ambiguous character definitions).
 	 

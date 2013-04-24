@@ -38,7 +38,7 @@
 /*!
    @mainpage  StochHMM: A Flexible C++ Hidden Markov Library and Application
 	
-	StochHMM implements HMM from simple text files.   It implements traditional
+ StochHMM implements HMM from simple text files.   It implements traditional
  HMM algorithms in addition to providing additional flexibility.  The additional
  flexibility is provided by allowing researchers to integrate additional data into
  the HMM framework.  For Documentation on model syntax and designing a model, see
@@ -52,6 +52,7 @@
  
  
  1. Multiple Emission States
+ 
  StochHMM allows the user to provide multiple sequences.   These sequences are then
  handled by the emissions.  These sequences can be REAL numbers or discrete characters/words.
  StochHMM allows each state to have many emissions (Discrete or Continuous).  Discrete emissions
@@ -65,6 +66,7 @@
  different sequences, while another may only have a single emission from a single sequence.
  
  2. Weighting or Explicitly Defining State paths to follow on a sequence.
+ 
  Often, we have some prior knowledge about the sequence.   If this is the case,
  we may want to integrate that into the model, without redesigning or retraining the model (a timely endeavor).
  StochHMM allows the user to explicitly define a State path (By name of state, or category of state).
@@ -73,27 +75,46 @@
  
  
  3. Linking States Emissions or Transitions to external user-defined functions
- When that transition/emission is evaluated the function is called and can provide an emission.
  
- While this may provide one way of addressing a weakness of HMMs, which is that they do not handle long
+ When that transition/emission is evaluated the function is called and can provide an emission. While 
+ this may provide one way of addressing a weakness of HMMs, which is that they do not handle long
  range dependencies.  We see it rather as a way to link together existing utilities or functions that 
- provide additional information.   In this way, we can link divergent datasets or function within
- the HMM trellis in order to arrive at a better prediction. 
+ provide additional information to the decoding algorithms.   In this way, we can link divergent 
+ datasets or functions within the HMM trellis in order to arrive at a better prediction. 
 
  
-  
- Traditional Decoding Algorithms:
-	- Forward
-	- Backward
-	- Viterbi
-	- Posterior
-	- N-best Viterbi
- 
- 
- Additional Stochastic Sampling Decoding Algorithms:
-	- Stochastic Forward
-	- Stochastic Viterbi
-	- Stochastic Posterior
+ Features implemented in StochHMM
+	- Hidden Markov Models
+		1. User-defined HMM model via simple human readable text file
+		2. User-defined Alphabet
+		3. User-defined Ambiguous Characters
+	- States
+		1. Emissions
+			- Multiple emission states (Discrete / Continuous)
+				- Independent (Single or Multiple Discrete)
+				- Joint Distribution (Multiple Discrete)
+				- Univariate PDF (Single Sequence -  Continuous)
+				- Multivariate PDF (Multiple Sequence - Continuous)
+			- Linkable to user-defined function
+		2. Transitions
+			- Standard Transitions
+			- Lexical Transitions (Single or multiple emission)
+			- Explicit Duration Transitions
+			- Linkable to user-defined functions
+	- Decoding
+		1. Traditional Decoding Algorithms
+			- Forward/Backward/Posterior
+			- Viterbi
+			- N-best Viterbi
+		2. Stochastic Sampling Decoding Algorithms
+			- Stochastic Forward
+			- Stochastic Viterbi
+			- Stochastic Posterior
+	- Path output formats
+		- State Path Index
+		- State Path Label
+		- GFF
+		- Hit Table (Stochastic Algorithms)
  
  
  Korf Lab 

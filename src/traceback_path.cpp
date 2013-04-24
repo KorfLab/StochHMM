@@ -51,14 +51,8 @@ namespace StochHMM{
     void traceback_path::clear(){
         trace_path.clear();
     }
-
-    //!Returns the state index at a given position (it) within the sequence
-    int traceback_path::val(int it){
-        return trace_path[it];
-    }
     
     
-    //TODO: change assignment to the lhs
     //! Get the path to std::vector<int>
     //! \param [out] pth std::vector<int> that represents path
     void traceback_path::path(std::vector<int>& pth){

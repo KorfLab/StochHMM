@@ -54,15 +54,19 @@ namespace StochHMM{
     //! Contains functions to import FASTA/FASTQ sequences from files and select the applicable model to deal with that sequence.
     //! It was set up to generate a seqJob for each sequence, then select a model, and then allow the programmer to thread the decoding algorithm.
     
-    //!\enum enum SeqFileFormat {FASTA,  FASTQ};
+    //!\enum SeqFileFormat
     //!File format of the sequences
+	//!Currently only FASTA and FASTQ formats are supported
     enum SeqFileFormat {FASTA, FASTQ};
     
-    //!\enum enum SeqFilesType {SINGLE, MULTI};
+    //!\enum SeqFilesType 
     //!Sequence files have single track or multiple track sequences per file
+	//!SINGLE means that only a single sequence is required (using single track)
+	//!MULTI means that multiple sequences are required from multiple tracks
     enum SeqFilesType {SINGLE_TRACK, MULTI_TRACK};
     
     
+	
     class seqJob;
     
 
@@ -126,9 +130,7 @@ namespace StochHMM{
 
         
         ////////////////  Multiple Models , Single Sequence File  //////////////////////
-        
         bool loadSeqs(models&, std::string&, SeqFileFormat, pt2Attrib*, TrackFuncs*); // <-Main Function
-        
         bool loadSeqs(models&, std::string&, SeqFileFormat); //only allow if pt2Attrib is set else error
         
         
@@ -137,13 +139,17 @@ namespace StochHMM{
                
         //// Main Function ////
         bool loadSeqs(models&, std::vector<std::string>&, SeqFileFormat, SeqFilesType, pt2Attrib*, TrackFuncs*); // <-Main Function
-        //// Facade Functions ////
+        
+		
+		//// Facade Functions ////
         bool loadSeqs(models&, std::vector<std::string>&, SeqFileFormat, SeqFilesType); //only allow if pt2Attrib is set else error
         bool loadSeqs(models&, std::vector<std::string>&, SeqFileFormat, SeqFilesType, pt2Attrib*);
         
 
-        
+        //!Sets the function to evaluate the which model to use with a particular sequence
         inline void setAttribFunc(pt2Attrib* func){attribModelFunc=func;}
+		
+		//!Sets a trackfunction that will be evaluated to generate a necessary track for the model
         inline void setTrackFunc(TrackFuncs* func){trackFunctions=func;}
         inline void setNumImportJobs(size_t value){numImportJobs=value;}
         

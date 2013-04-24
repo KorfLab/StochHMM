@@ -43,7 +43,8 @@ namespace StochHMM {
     //Adding sequences error prone if index isn't set;
     
 
-    //! \class sequences container hold the track sequence(s)
+    //! \class sequences
+	//! Container hold the track sequence(s)
     //! Each sequence have to be the same length
     //! Created to pass multiple sequence tracks of different datasets to the HMM
     //! If you need multiple unrelated sequences, use std::vector<sequence> instead. 

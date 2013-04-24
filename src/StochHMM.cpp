@@ -46,10 +46,6 @@ void perform_nbest_decoding(model* hmm, sequences* seqs);
 void perform_posterior(model* hmm, sequences* seqs);
 void perform_stochastic_decoding(model* hmm, sequences* seqs);
 
-
-traceback_path* perform_traceback(trellis&);
-multiTraceback* perform_stochastic_traceback(trellis&);
-
 void print_output(multiTraceback*, std::string&);
 void print_output(std::vector<traceback_path>&, std::string&);
 void print_output(traceback_path*, std::string&);
@@ -81,23 +77,35 @@ opt_parameters commandline[]={
     {"-trellis"     ,OPT_STRING     ,false  ,"",    {}},
 };
 
+//Stores the number of options in opt
 int opt_size=sizeof(commandline)/sizeof(commandline[0]);
 
+//Global options for parsed command-line options
 options opt;
 
+//seqTracks stores multiple jobs(model and multiple sequences)
 seqTracks jobs;
+
+//Create and initialize StateFuncs
+//This will automatically initialize all the Univariate and Multivariate
+//PDFs
+StateFuncs default_functions;
 
 
 int main(int argc, const char * argv[])
 {
     
-    //Parse commandline arguments
+    //Parse commandline arguments defined
     opt.set_parameters(commandline,opt_size,usage);
+	
+	//Get and parse command line options supplied by user
     opt.parse_commandline(argc,argv);
     
     
+	//Create a model
     model hmm;
-    //Check that model argument is defined and import the model
+	
+    //import the model
     import_model(hmm);
     
 	
@@ -107,11 +115,15 @@ int main(int argc, const char * argv[])
 	
     
     //Check and import sequence(s)
+	//These will be imported into seqTracks jobs
     import_sequence(hmm);
     
+	//Get the job (model and associated sequences)
     seqJob *job=jobs.getJob();
 	
 	
+	//If filename is set for any of the following
+	//options we need to re-direct the stdout to the file
 	std::string filename;
 	if (opt.isSet("-posterior")){
 		opt.getopt("-posterior",filename);
@@ -127,11 +139,15 @@ int main(int argc, const char * argv[])
 	}
 	
 	
+	//Create file handle
 	std::ofstream file;
+	
+	//Create ptr to store STDOUT if we redirect 
 	std::streambuf* oldCoutStream(NULL);
 	bool file_open(false);
 
 	
+	//If we defined a filename then redirect stdout
 	if (!filename.empty()){
 		oldCoutStream = std::cout.rdbuf();
 		
@@ -147,28 +163,40 @@ int main(int argc, const char * argv[])
 	}
 	
 	
+	// Fore each job(sequence) perform the analysis
 	while (job != NULL){
+		
 		//Print sequences if -debug seq option defined
 		if (opt.isFlagSet("-debug","seq")){
 			job->getSeqs()->print();
 		}
 		
+		//Perform posterior analysis
 		if (opt.isSet("-posterior")){
 			perform_posterior(&hmm, job->getSeqs());
 		}
+		
+		//Perform viterbi analysis
 		else if(opt.isSet("-viterbi")){
 			perform_viterbi_decoding(job->getModel(), job->getSeqs());
 		}
+		
+		//Perform nbest Viterbi decoding
 		else if (opt.isSet("-nbest")){
 			perform_nbest_decoding(job->getModel(), job->getSeqs());
 		}
+		
+		//Perform stochastic decoding
 		else if (opt.isSet("-stochastic")){
 			perform_stochastic_decoding(job->getModel(), job->getSeqs());
 		}
 		
+		//Get next job
 		job = jobs.getJob();
 	}
 	
+	
+	//Close file and redirect stdout to original place
 	if (file_open){
 		std::cout.rdbuf(oldCoutStream);
 		file.close();
@@ -184,8 +212,12 @@ void import_model(model& hmm){
         std::cerr <<"No model file provided.\n" << usage << std::endl;
     }
     else{
-		StateFuncs default_functions;
-        hmm.import(opt.sopt("-model"),&default_functions);
+
+        
+		//Import the model using string supplied from commandline
+		//Pass StateFuncs.   This will allow the user to define
+		//the functions within the model.
+		hmm.import(opt.sopt("-model"),&default_functions);
     }
     
     //If -debug model is defined then print model to stdout;
@@ -201,34 +233,50 @@ void import_sequence(model& hmm){
         std::cerr << "No sequence file provided.\n" << usage << std::endl;
     }
 	else if (opt.isSet("-fastq")){
+		//Fastq import is still preliminary, it will only
+		//import the sequence, not the qualities
 		jobs.loadSeqs(hmm,opt.sopt("-seq"),FASTQ);
 	}
     else{
+		//Import the sequence form fasta file
         jobs.loadSeqs(hmm, opt.sopt("-seq"), FASTA);
     }
 }
 
 //Perform Viterbi decoding and print the output
 void perform_viterbi_decoding(model* hmm, sequences* seqs){
+	//Setup the trellis with the model and sequence
     trellis trell(hmm,seqs);
+	
+	//Perform viterbi decoding
 	trell.viterbi();
 	
-	traceback_path* tb(NULL);
-	tb = perform_traceback(trell);
-	print_output(tb, seqs->getHeader());
+	//Create a traceback path ptr to store traceback from perform_traceback
+	//function
+	traceback_path path(hmm);
+	trell.traceback(path);
+		
+	//Call print_output (below) to print the traceback in the required format
+	print_output(&path, seqs->getHeader());
+	
     return;
 }
 
 //Perform nth-best decoding and print the output
 void perform_nbest_decoding(model* hmm, sequences* seqs){
+	//Setup the trellis with the model and sequence
 	trellis trell(hmm,seqs);
+	
+	//Get the number of paths to get
 	size_t nth = opt.iopt("-nbest");
 	
+	//Perform nth viterbi
 	trell.naive_nth_viterbi(nth);
 	
+	//Get the N tracebacks and output them
 	for(size_t i=0;i<nth;i++){
 		traceback_path path(hmm);
-		trell.traceback_nth(path, i);
+		trell.traceback_nth(path, i); //ith path
 		print_output(&path, seqs->getHeader());
 	}
 }
@@ -237,18 +285,21 @@ void perform_nbest_decoding(model* hmm, sequences* seqs){
 //Perform stochastic decoding
 void perform_stochastic_decoding(model* hmm, sequences* seqs){
     
-    
+    //Determine which type of stochastic algorithm to perform
     bool viterbi	= (opt.isFlagSet("-stochastic", "viterbi") || opt.isSet("-viterbi")) ? true : false;
     bool forward	= (opt.isFlagSet("-stochastic", "forward")) ? true : false;
     bool posterior	= (opt.isFlagSet("-stochastic", "posterior")) ? true : false;
 	
+	//Setup the trellis with the model and sequence
     trellis trell(hmm,seqs);
 	
+	//Number of times to traceback over path
 	int repetitions = opt.iopt("-rep");
-    
     
     if (viterbi){
 		trell.stochastic_viterbi();
+		
+		//create multiple paths object to stor
 		multiTraceback paths;
 		trell.stochastic_traceback(paths, repetitions);
 		print_output(&paths, seqs->getHeader());
@@ -350,12 +401,6 @@ void print_output(traceback_path* tb, std::string& header){
     return;
 }
 
-
-traceback_path* perform_traceback(trellis& trell){
-	traceback_path* path = new(std::nothrow) traceback_path(trell.get_model());
-	trell.traceback(*path);
-    return path;
-}
 
 //Print the posterior probabilities for each state at each position
 //Each state is in separate column

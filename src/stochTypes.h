@@ -28,7 +28,8 @@
 #ifndef StochHMM_stochTypes_h
 #define StochHMM_stochTypes_h
 namespace StochHMM{
-    //! \file Stores enumerated types used in StochHMM
+    //! \file stochTypes.h
+	//! Stores enumerated types used in StochHMM library
 
     //Enumerated Transition identifiers
     //!\enum enum transType {STANDARD , USER , INTERNAL , LEXICAL};
