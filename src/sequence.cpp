@@ -193,6 +193,36 @@ namespace StochHMM{
             mask = NULL;
         }
     }
+	
+	
+	//Clear the sequence and header
+	void sequence::clear(){
+		header = "";
+		undigitized="";
+		max_mask = -1;
+		
+		if (mask!=NULL){
+			delete mask;
+			mask = NULL;
+		}
+		
+		if (real!=NULL){
+			real->clear();
+		}
+		
+		if (seq!=NULL){
+			seq->clear();
+		}
+		
+		if (external!=NULL){
+			delete external;
+		}
+		
+		seqtrk = NULL;
+		length = 0;
+		attrib = -INFINITY;
+		
+	}
     
     sequence& sequence::operator= (const sequence& rhs){
 		
@@ -381,7 +411,13 @@ namespace StochHMM{
     //! \return true if function was able to get a sequence from the file
     bool sequence::getFasta(std::ifstream& file, track* trk,stateInfo* info){
         
-        seqtrk=trk;
+		if (seq!=NULL){
+			this->clear();
+		}
+		
+		seqtrk=trk;
+
+		
         
         if (!file.good()){
             return false;
@@ -437,6 +473,11 @@ namespace StochHMM{
     }
     
     bool sequence::getMaskedFasta(std::ifstream& file, track* trk){
+		
+		if (seq!=NULL){
+			this->clear();
+		}
+		
         seqtrk=trk;
         
         if (!file.good()){
@@ -572,6 +613,11 @@ namespace StochHMM{
     //! \param trk Track to used to digitize
     //! \return true if the sequence was successfully imported
     bool sequence::getFastq(std::ifstream& file, track* trk){
+		
+		if (seq!=NULL){
+			this->clear();
+		}
+		
         seqtrk=trk;
             
         if (!file.good()){
@@ -657,6 +703,11 @@ namespace StochHMM{
     //! \param trk Track to used to digitize
     //! \return true if the sequence was successfully imported
     bool sequence::getReal(std::ifstream& file, track* trk, stateInfo* info){
+		
+		if (real!=NULL){
+			this->clear();
+		}
+		
         seqtrk=trk;
                 
         //get header

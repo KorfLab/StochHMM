@@ -180,6 +180,12 @@ namespace StochHMM{
 		inline std::vector<uint8_t>* getDigitalSeq(){return seq;}
         
         inline uint8_t operator[](size_t index){return (*seq)[index];}
+		
+		
+		//!Empty Sequence
+		void clear();
+		
+		
         //void getNext (std::ifstream&, track*);
         
         
