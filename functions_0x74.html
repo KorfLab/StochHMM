@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -73,6 +79,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li class="current"><a href="functions.html"><span>All</span></a></li>
       <li><a href="functions_func.html"><span>Functions</span></a></li>
+      <li><a href="functions_vars.html"><span>Variables</span></a></li>
       <li><a href="functions_rela.html"><span>Related&#160;Functions</span></a></li>
     </ul>
   </div>
@@ -86,28 +93,46 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_0x65.html#index_e"><span>e</span></a></li>
       <li><a href="functions_0x66.html#index_f"><span>f</span></a></li>
       <li><a href="functions_0x67.html#index_g"><span>g</span></a></li>
+      <li><a href="functions_0x68.html#index_h"><span>h</span></a></li>
       <li><a href="functions_0x69.html#index_i"><span>i</span></a></li>
+      <li><a href="functions_0x6a.html#index_j"><span>j</span></a></li>
       <li><a href="functions_0x6c.html#index_l"><span>l</span></a></li>
       <li><a href="functions_0x6d.html#index_m"><span>m</span></a></li>
       <li><a href="functions_0x6e.html#index_n"><span>n</span></a></li>
       <li><a href="functions_0x6f.html#index_o"><span>o</span></a></li>
       <li><a href="functions_0x70.html#index_p"><span>p</span></a></li>
+      <li><a href="functions_0x71.html#index_q"><span>q</span></a></li>
       <li><a href="functions_0x72.html#index_r"><span>r</span></a></li>
       <li><a href="functions_0x73.html#index_s"><span>s</span></a></li>
       <li class="current"><a href="functions_0x74.html#index_t"><span>t</span></a></li>
       <li><a href="functions_0x75.html#index_u"><span>u</span></a></li>
       <li><a href="functions_0x76.html#index_v"><span>v</span></a></li>
       <li><a href="functions_0x77.html#index_w"><span>w</span></a></li>
+      <li><a href="functions_0x78.html#index_x"><span>x</span></a></li>
+      <li><a href="functions_0x79.html#index_y"><span>y</span></a></li>
       <li><a href="functions_0x7e.html#index_0x7e"><span>~</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('functions_0x74.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -117,11 +142,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 <div class="contents">
-<div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
+<div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>table
+: <a class="el" href="class_stoch_h_m_m_1_1multi_traceback.html#a87aa7941a10ecf1b548fbee7ee8c8678">StochHMM::multiTraceback</a>
+</li>
+<li>tables
+: <a class="el" href="class_stoch_h_m_m_1_1_counter.html#a5674c9825a17e79f2b19a984f774bd5d">StochHMM::Counter</a>
+</li>
+<li>tagFunc
+: <a class="el" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">StochHMM::emm</a>
+</li>
+<li>target
+: <a class="el" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">StochHMM::alignment</a>
+</li>
+<li>tb
+: <a class="el" href="class_stoch_h_m_m_1_1nth_trace.html#a4237d57e4a7470b294b5c0e36c81f15b">StochHMM::nthTrace</a>
+</li>
+<li>templatedStates
+: <a class="el" href="class_stoch_h_m_m_1_1model.html#aefc52da1bec3cd0d091e88bd6a503b0e">StochHMM::model</a>
+</li>
+<li>templates()
+: <a class="el" href="class_stoch_h_m_m_1_1templates.html#a682f860d0cea1c4108f9c6f0c48d3655">StochHMM::templates</a>
+</li>
+<li>temps
+: <a class="el" href="class_stoch_h_m_m_1_1templates.html#a92ef0eca9282aeec3228f4074eff8986">StochHMM::templates</a>
+</li>
 <li>test()
 : <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#aa59aec3ffe571f9a2c47db8b212ff713">StochHMM::dynamic_bitset</a>
+</li>
+<li>threshold
+: <a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#a00c4c139b61045ef5bc4f1b1e1b3874b">StochHMM::matrixPosition</a>
+</li>
+<li>thresholdSet
+: <a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#a50067880d444bf5f2ffa0a3e8f666766">StochHMM::matrixPosition</a>
+</li>
+<li>to
+: <a class="el" href="class_stoch_h_m_m_1_1state.html#ae926d05079c5695b25a439bc0c1a2bdf">StochHMM::state</a>
+</li>
+<li>toState
+: <a class="el" href="class_stoch_h_m_m_1_1transition.html#a4a0ddb0d99ad357604bd4ef060c03b4a">StochHMM::transition</a>
 </li>
 <li>toVecDouble()
 : <a class="el" href="class_stoch_h_m_m_1_1string_list.html#aae8eb698ad8e564d3ebdf6fce1a97039">StochHMM::stringList</a>
@@ -129,35 +190,175 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>toVecInt()
 : <a class="el" href="class_stoch_h_m_m_1_1string_list.html#a3b650ef109af4884e9e6e566190862d1">StochHMM::stringList</a>
 </li>
-<li>traceback()
-: <a class="el" href="class_stoch_h_m_m_1_1stoch_table.html#a54b03475f783c305b38b8edbc11069e7">StochHMM::stochTable</a>
+<li>tr
+: <a class="el" href="class_stoch_h_m_m_1_1alignment.html#a3310664991bb22f421a7f4cf93b5109a">StochHMM::alignment</a>
+</li>
+<li>trace_path
+: <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">StochHMM::traceback_path</a>
+</li>
+<li>traceback
+: <a class="el" href="class_stoch_h_m_m_1_1cell.html#a689cb99895d30c817a45606dbaaaeaab">StochHMM::cell</a>
+, <a class="el" href="class_stoch_h_m_m_1_1alignment.html#ab2414a7ad7751c0fd193819fae171df7">StochHMM::alignment</a>
+, <a class="el" href="class_stoch_h_m_m_1_1stoch_table.html#a54b03475f783c305b38b8edbc11069e7">StochHMM::stochTable</a>
 , <a class="el" href="class_stoch_h_m_m_1_1trellis.html#a64a9fb1efb144e4a0101ca399cbde10a">StochHMM::trellis</a>
+</li>
+<li>traceback_identifier
+: <a class="el" href="class_stoch_h_m_m_1_1transition.html#a403471c97023f3c8db9f16d08fd2f168">StochHMM::transition</a>
+</li>
+<li>traceback_nth()
+: <a class="el" href="class_stoch_h_m_m_1_1trellis.html#ad4621aaa36ed61477982c6b123a9e6f1">StochHMM::trellis</a>
+</li>
+<li>traceback_nth_viterbi()
+: <a class="el" href="class_stoch_h_m_m_1_1trellis.html#a915e85e877d6ab178731b934bab14da8">StochHMM::trellis</a>
 </li>
 <li>traceback_path()
 : <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a7c6dc56b913af51b4115c6766d443750">StochHMM::traceback_path</a>
 </li>
+<li>traceback_posterior()
+: <a class="el" href="class_stoch_h_m_m_1_1trellis.html#a11483617a88a172b89fbbc9d7339a072">StochHMM::trellis</a>
+</li>
+<li>traceback_stoch_posterior()
+: <a class="el" href="class_stoch_h_m_m_1_1trellis.html#a4575df9d4eb97606b83728ceef797541">StochHMM::trellis</a>
+</li>
+<li>traceback_string
+: <a class="el" href="class_stoch_h_m_m_1_1transition.html#a3ba61793c588d74b353ef03ef279aea8">StochHMM::transition</a>
+</li>
+<li>traceback_table
+: <a class="el" href="class_stoch_h_m_m_1_1trellis.html#af09042d3117bb7e41efc767d52b00170">StochHMM::trellis</a>
+</li>
 <li>track()
 : <a class="el" href="class_stoch_h_m_m_1_1track.html#a2e91d800bf3bff2cf2650de28a97be20">StochHMM::track</a>
+</li>
+<li>track_indices
+: <a class="el" href="class_stoch_h_m_m_1_1emm.html#a188830e6552ba217447a83230d4ecbd9">StochHMM::emm</a>
 </li>
 <li>track_size()
 : <a class="el" href="class_stoch_h_m_m_1_1model.html#a494309f4adda6226f56c8ba03c74a6dc">StochHMM::model</a>
 </li>
+<li>trackCount
+: <a class="el" href="class_stoch_h_m_m_1_1seq_tracks.html#af657ac2fb77de00efee8b32ac90ad61d">StochHMM::seqTracks</a>
+</li>
+<li>trackFunction
+: <a class="el" href="class_stoch_h_m_m_1_1track.html#aff307cbe33fd8e3478987bbb99af2f7b">StochHMM::track</a>
+</li>
+<li>trackFunctionDefined
+: <a class="el" href="class_stoch_h_m_m_1_1track.html#aa5f4c5aa7c4147a15c7d97a38ac25e2f">StochHMM::track</a>
+</li>
+<li>trackFunctions
+: <a class="el" href="class_stoch_h_m_m_1_1seq_tracks.html#aa81d8bbb02fde19a025d254a51894219">StochHMM::seqTracks</a>
+</li>
+<li>trackIndex
+: <a class="el" href="class_stoch_h_m_m_1_1track.html#abd141c962ef00d26cd1aa0dc5e816a92">StochHMM::track</a>
+</li>
+<li>trackName
+: <a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a28a0b0cf4da23acac8b72c4c4e4b26c6">StochHMM::transitionFuncParam</a>
+, <a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#a38af1eabb46f8a7b4481cabd12bc6697">StochHMM::emissionFuncParam</a>
+</li>
+<li>trackNumber
+: <a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#a5c23271a87e9359b35253db20bd9d931">StochHMM::emissionFuncParam</a>
+, <a class="el" href="struct_stoch_h_m_m_1_1pp_track.html#a4b99ef6a09a44f98599f78d4b045d9e5">StochHMM::ppTrack</a>
+</li>
+<li>tracks
+: <a class="el" href="class_stoch_h_m_m_1_1track.html#a35e25a2b355df026ed6d98372219574f">StochHMM::track</a>
+</li>
 <li>trackSize()
 : <a class="el" href="class_stoch_h_m_m_1_1lexical_table.html#ad9ad8a859d35b7d0a0b7a841e075c98e">StochHMM::lexicalTable</a>
+</li>
+<li>trackToUse
+: <a class="el" href="struct_stoch_h_m_m_1_1pp_track.html#a3df95d861ce6b6048a4611ae57ce5615">StochHMM::ppTrack</a>
+, <a class="el" href="class_stoch_h_m_m_1_1track.html#a443581a547c4c8500474d1f370364266">StochHMM::track</a>
+</li>
+<li>TrackToUseForAttrib
+: <a class="el" href="class_stoch_h_m_m_1_1seq_tracks.html#a4412dfb6fe46e16151c21088bbdf12df">StochHMM::seqTracks</a>
+</li>
+<li>transferValues()
+: <a class="el" href="class_stoch_h_m_m_1_1lexical_table.html#ac2097880fdfb4821e9edb45931af20b7">StochHMM::lexicalTable</a>
+</li>
+<li>transFunc
+: <a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#aca74129889813417b11dee56f36ce922">StochHMM::transitionFuncParam</a>
+</li>
+<li>transFuncCombineIdentifier
+: <a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a3b61ca5d146aac74216af2d2b5781bd4">StochHMM::transitionFuncParam</a>
+</li>
+<li>transFuncCombineString
+: <a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#ac44d4ae36ecb609a2ae51d92c017821d">StochHMM::transitionFuncParam</a>
+</li>
+<li>transFuncName
+: <a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#aac7800047784d5c066b27dff7a8846f8">StochHMM::transitionFuncParam</a>
+</li>
+<li>transFuncScaling
+: <a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a2d5bb60ee3299105d4ba8739ad4a3179">StochHMM::transitionFuncParam</a>
+</li>
+<li>transFuncTraceback
+: <a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a136b2da7d5b0a1e127fdafd9aa5af8e3">StochHMM::transitionFuncParam</a>
+</li>
+<li>transFuncTracebackIdentifier
+: <a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a5755cd32266bfb38ad037147c96c5c15">StochHMM::transitionFuncParam</a>
+</li>
+<li>transFuncTracebackString
+: <a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a2b8bbf56fbe42d9eac3d5e6ce5ab6e0e">StochHMM::transitionFuncParam</a>
+</li>
+<li>transFuncTrack
+: <a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a210fe7d827acf1bc35eefe95efd96131">StochHMM::transitionFuncParam</a>
+</li>
+<li>transi
+: <a class="el" href="class_stoch_h_m_m_1_1state.html#a62c74dae9736574f8ea13d1b43d5c75d">StochHMM::state</a>
 </li>
 <li>transition()
 : <a class="el" href="class_stoch_h_m_m_1_1transition.html#a944455b569a5c20f0c93a1f185ef52dd">StochHMM::transition</a>
 </li>
+<li>transition_names
+: <a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#a41d1e5b3e9b52747ba43648a75ea67e2">StochHMM::matrixPosition</a>
+</li>
+<li>transition_type
+: <a class="el" href="class_stoch_h_m_m_1_1transition.html#a3d22a0d5fdcfba3c4e2d4a19604a7e32">StochHMM::transition</a>
+</li>
 <li>transitionFuncParam()
 : <a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a830df8e53883996b8b30603556bd65e6">StochHMM::transitionFuncParam</a>
 </li>
+<li>transitionFunctions
+: <a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#a76d04426a8db2cb19ab404a381e49281">StochHMM::StateFuncs</a>
+</li>
+<li>transitionFuncTraceback()
+: <a class="el" href="class_stoch_h_m_m_1_1trellis.html#a5b704d0f6287fc39b5f7ca7d450f10d6">StochHMM::trellis</a>
+</li>
+<li>transitions
+: <a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#a3229baeddb9af306d231059551e42e03">StochHMM::matrixPosition</a>
+</li>
+<li>transitionsSize()
+: <a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#a88305efe66c38cd97dcde17c31c1be21">StochHMM::matrixPosition</a>
+</li>
+<li>trcks
+: <a class="el" href="class_stoch_h_m_m_1_1emm.html#adcc4d617c3706f42295c6afbdae299ce">StochHMM::emm</a>
+, <a class="el" href="class_stoch_h_m_m_1_1lexical_table.html#a05cb3a05f94b9e8d63e4524c49f17820">StochHMM::lexicalTable</a>
+, <a class="el" href="class_stoch_h_m_m_1_1model.html#a4ef8714133a36031b58df91a4b59e129">StochHMM::model</a>
+</li>
+<li>trellis()
+: <a class="el" href="class_stoch_h_m_m_1_1trellis.html#a7d1c1b9c56026798f5c560a141832908">StochHMM::trellis</a>
+, <a class="el" href="class_stoch_h_m_m_1_1alignment.html#af8ee18f1f9828f8ef0c2746bb0465993">StochHMM::alignment</a>
+</li>
+<li>trk
+: <a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a27094af48a6f5c69302015d02e17d1c9">StochHMM::PWM</a>
+</li>
+<li>trks
+: <a class="el" href="class_stoch_h_m_m_1_1tracks.html#af520c9684632fd95bc6fb58d042fc87b">StochHMM::tracks</a>
+</li>
+<li>type
+: <a class="el" href="class_stoch_h_m_m_1_1trellis.html#acb97946994eb94a5462451912c0c6ebb">StochHMM::trellis</a>
+, <a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html#adb1b507df3cbdd7c5aedab6919449e02">StochHMM::opt_parameters</a>
+, <a class="el" href="class_stoch_h_m_m_1_1opt__data.html#a55e2742bef5ae4cc210052d15c10f5b6">StochHMM::opt_data</a>
+, <a class="el" href="class_stoch_h_m_m_1_1_counter.html#abd889e53348a9ab52be9305769bee982">StochHMM::Counter</a>
+</li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:39 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

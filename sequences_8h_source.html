@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -64,15 +70,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('sequences_8h.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,7 +106,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">sequences.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<a href="sequences_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  sequences.h</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//Copyright (c) 2007-2012 Paul C Lott </span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//University of California, Davis</span></div>
@@ -121,9 +141,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;text.h&quot;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;track.h&quot;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;externDefinitions.h&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="text_8h.html">text.h</a>&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="track_8h.html">track.h</a>&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="extern_definitions_8h.html">externDefinitions.h</a>&quot;</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sequence_8h.html">sequence.h</a>&quot;</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">namespace </span>StochHMM {</div>
@@ -138,12 +158,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1sequences.html">   50</a></span>&#160;<span class="comment"></span>    <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>{</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">//Constructors</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>(<span class="keywordtype">size_t</span> sz);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>(<a class="code" href="class_stoch_h_m_m_1_1tracks.html">tracks</a>* tr);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a548fcbae336ca4a58d0127a37aca7c3a">sequences</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a548fcbae336ca4a58d0127a37aca7c3a">sequences</a>(<span class="keywordtype">size_t</span> sz);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a548fcbae336ca4a58d0127a37aca7c3a">sequences</a>(<a class="code" href="class_stoch_h_m_m_1_1tracks.html">tracks</a>* tr);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">//Copy Constructor</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>(<span class="keyword">const</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>&amp;);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a548fcbae336ca4a58d0127a37aca7c3a">sequences</a>(<span class="keyword">const</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>&amp;);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>&amp; <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a47c4286f358f71442531ae219cda2392" title="Assignment Operator.">operator= </a>(<span class="keyword">const</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>&amp;);</div>
@@ -164,8 +184,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">        //! \param iter Sequence to get the attribute from</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">        //! \return double value of the attribute set for the sequence</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1sequences.html#a5c38dd56e58e490eddcb32993b9ab950">   78</a></span>&#160;<span class="comment"></span>        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a5c38dd56e58e490eddcb32993b9ab950">getAttrib</a>(<span class="keywordtype">size_t</span> iter){</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">if</span> (iter&lt;num_of_sequences &amp;&amp; seq[iter]!=NULL){</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keywordflow">return</span> seq[iter]-&gt;getAttrib();  <span class="comment">//Returns attrib value for Track (i)</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">if</span> (iter&lt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">num_of_sequences</a> &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[iter]!=NULL){</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[iter]-&gt;getAttrib();  <span class="comment">//Returns attrib value for Track (i)</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            }</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;No sequence defined at iterator &quot;</span> &lt;&lt; iter &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            exit(1);</div>
@@ -175,8 +195,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">        //! \return std::string&amp; The header for the first sequence in sequences</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">        //!</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1sequences.html#a4edbb349b6d2f93cc29a25812368e058">   89</a></span>&#160;<span class="comment"></span>        <span class="keyword">inline</span> std::string&amp; <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a4edbb349b6d2f93cc29a25812368e058">getHeader</a>(){</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">if</span> (num_of_sequences&gt;0 &amp;&amp; seq[0]!=NULL){</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <span class="keywordflow">return</span> seq[0]-&gt;header;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">num_of_sequences</a>&gt;0 &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[0]!=NULL){</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[0]-&gt;header;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            }</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;No sequence defined.&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            exit(1);</div>
@@ -187,9 +207,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">        //! \param iter size_t iterator for ith sequence</span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">        //! \return std::string&amp; The header for the ith sequence</span></div>
 <div class="line"><a name="l00101"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1sequences.html#a15a54e9788933a14451a68063203ad53">  101</a></span>&#160;<span class="comment"></span>        <span class="keyword">inline</span> std::string&amp; <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a15a54e9788933a14451a68063203ad53">getHeader</a>(<span class="keywordtype">size_t</span> iter){</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keywordflow">if</span> (iter&lt;num_of_sequences){</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="keywordflow">if</span> (seq[iter]!=NULL){</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                    <span class="keywordflow">return</span> seq[iter]-&gt;header;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keywordflow">if</span> (iter&lt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">num_of_sequences</a>){</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[iter]!=NULL){</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                    <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[iter]-&gt;header;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                }</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            }</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;No sequence defined at iterator &quot;</span> &lt;&lt; iter &lt;&lt; std::endl;</div>
@@ -201,12 +221,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="comment">        //! \param iter  size_t iterator for ith sequence</span></div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">        //! \return std::string of undigitized sequence at ith position</span></div>
 <div class="line"><a name="l00115"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1sequences.html#a360ce70b661a950da79d0668a3afac9a">  115</a></span>&#160;<span class="comment"></span>        <span class="keyword">inline</span> std::string* <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a360ce70b661a950da79d0668a3afac9a">getUndigitized</a>(<span class="keywordtype">size_t</span> iter){</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordflow">if</span> (iter&gt;seq.size()){</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordflow">if</span> (iter&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>.size()){</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;getUndigitized(size_t iter) called where iter is out of range\n&quot;</span>;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            }</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                <span class="keywordflow">return</span> seq[iter]-&gt;getUndigitized();</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[iter]-&gt;getUndigitized();</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            }</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        };</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        </div>
@@ -214,14 +234,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="comment"></span></div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">        //!Get the number of sequence type in sequences</span></div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">        //! \return size_t value of size</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1sequences.html#a133eefa4ac161b421f820fef7c81ff07">  129</a></span>&#160;<span class="comment"></span>        <span class="keyword">inline</span> <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a133eefa4ac161b421f820fef7c81ff07">size</a>(){<span class="keywordflow">return</span> num_of_sequences;} <span class="comment">//Get number of sequences</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1sequences.html#a133eefa4ac161b421f820fef7c81ff07">  129</a></span>&#160;<span class="comment"></span>        <span class="keyword">inline</span> <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a133eefa4ac161b421f820fef7c81ff07">size</a>(){<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">num_of_sequences</a>;} <span class="comment">//Get number of sequences</span></div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="comment"></span></div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">        //!Get the length of the ith sequence</span></div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment">        //! \param iter size_t iterator</span></div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment">        //! \return size_t value of length of sequence at iter</span></div>
 <div class="line"><a name="l00134"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1sequences.html#a4330384386d607990d4f46e4ec710b27">  134</a></span>&#160;<span class="comment"></span>        <span class="keyword">inline</span> <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a4330384386d607990d4f46e4ec710b27">getLength</a>(<span class="keywordtype">size_t</span> iter){</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            <span class="keywordflow">if</span> (iter&lt;num_of_sequences &amp;&amp; seq[iter]!=NULL){</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                <span class="keywordflow">return</span> seq[iter]-&gt;getLength(); <span class="comment">//Get lenght of sequence in position (i)</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            <span class="keywordflow">if</span> (iter&lt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">num_of_sequences</a> &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[iter]!=NULL){</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[iter]-&gt;getLength(); <span class="comment">//Get lenght of sequence in position (i)</span></div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            }</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        } </div>
@@ -230,7 +250,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="comment">        //!All of the sequence(s) should be the same length </span></div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment">        //!\return size_t value of length of all sequences</span></div>
 <div class="line"><a name="l00144"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1sequences.html#a30b024b7aa60cd8cadaf2f6733408095">  144</a></span>&#160;<span class="comment"></span>        <span class="keyword">inline</span> <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a30b024b7aa60cd8cadaf2f6733408095">getLength</a>(){</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                        <span class="keywordflow">return</span> length;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a197639d8768ccd650b67b909d613209b">length</a>;</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment">//            if (related_sequences){</span></div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="comment">//                return length; // Get length of related sequence</span></div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment">//            }</span></div>
@@ -267,27 +287,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="comment"></span></div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment">        //! Set external definition</span></div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="comment">        //! \param ex  External definition to assign to the sequences</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1sequences.html#a3a2e2f4d2af3fe24f1ca10e351b456a8">  182</a></span>&#160;<span class="comment"></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a3a2e2f4d2af3fe24f1ca10e351b456a8">setExDef</a>(<a class="code" href="class_stoch_h_m_m_1_1_ex_def_sequence.html">ExDefSequence</a>* ex){external=ex;};</div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1sequences.html#a3a2e2f4d2af3fe24f1ca10e351b456a8">  182</a></span>&#160;<span class="comment"></span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a3a2e2f4d2af3fe24f1ca10e351b456a8">setExDef</a>(<a class="code" href="class_stoch_h_m_m_1_1_ex_def_sequence.html">ExDefSequence</a>* ex){<a class="code" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a>=ex;};</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        </div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> isSameSize(){</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            <span class="keywordflow">return</span> same_length;</div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1sequences.html#ac8e1f3a677009c6d27b4323255c450db">  184</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#ac8e1f3a677009c6d27b4323255c450db">isSameSize</a>(){</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a7d908d2a5b6574a1717094528e85fc0e">same_length</a>;</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        }</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                </div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                sequence&amp; operator[](<span class="keywordtype">size_t</span> index){<span class="keywordflow">return</span> *seq[index];}</div>
+<div class="line"><a name="l00188"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1sequences.html#a98c03baeb2e3107cff7b2d98487212ee">  188</a></span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>&amp; <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a98c03baeb2e3107cff7b2d98487212ee">operator[]</a>(<span class="keywordtype">size_t</span> index){<span class="keywordflow">return</span> *<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[index];}</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                </div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                <span class="keywordtype">void</span> getFastas(<span class="keyword">const</span> std::string&amp; , track*);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#aaf0c3ddabd4a43bc483128ea2d1e7f21">getFastas</a>(<span class="keyword">const</span> std::string&amp; , <a class="code" href="class_stoch_h_m_m_1_1track.html">track</a>*);</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        </div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <span class="comment">//EXTERNAL DEFINITIONS</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        ExDefSequence* external;</div>
+<div class="line"><a name="l00194"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">  194</a></span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1_ex_def_sequence.html">ExDefSequence</a>* <a class="code" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a>;</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        </div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        std::vector&lt;sequence*&gt; seq; </div>
+<div class="line"><a name="l00196"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">  196</a></span>&#160;        std::vector&lt;sequence*&gt; <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>; </div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        </div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordtype">size_t</span> length;  <span class="comment">//Length of the sequence(s)</span></div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordtype">size_t</span> num_of_sequences;</div>
+<div class="line"><a name="l00198"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1sequences.html#a197639d8768ccd650b67b909d613209b">  198</a></span>&#160;        <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a197639d8768ccd650b67b909d613209b">length</a>;  <span class="comment">//Length of the sequence(s)</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">  199</a></span>&#160;        <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">num_of_sequences</a>;</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        </div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keywordtype">bool</span> related_sequences;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keywordtype">bool</span> same_length;</div>
+<div class="line"><a name="l00201"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1sequences.html#ac9847a7c55f63b91f00c7ea84bb90edd">  201</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#ac9847a7c55f63b91f00c7ea84bb90edd">related_sequences</a>;</div>
+<div class="line"><a name="l00202"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1sequences.html#a7d908d2a5b6574a1717094528e85fc0e">  202</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a7d908d2a5b6574a1717094528e85fc0e">same_length</a>;</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    };</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                </div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
@@ -295,11 +315,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:49 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="sequences_8h.html">sequences.h</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:34 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1_p_w_m.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,64 +103,794 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">PWM</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::PWM Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p><code>#include &lt;<a class="el" href="pwm_8h_source.html">pwm.h</a>&gt;</code></p>
+
 <p><a href="class_stoch_h_m_m_1_1_p_w_m-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab6c55e858633c22d8647d6fd1cb1239b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6c55e858633c22d8647d6fd1cb1239b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ab6c55e858633c22d8647d6fd1cb1239b">PWM</a> ()</td></tr>
-<tr class="memdesc:ab6c55e858633c22d8647d6fd1cb1239b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">PWM</a> class. <br/></td></tr>
+<tr class="memitem:ab6c55e858633c22d8647d6fd1cb1239b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ab6c55e858633c22d8647d6fd1cb1239b">PWM</a> ()</td></tr>
+<tr class="memdesc:ab6c55e858633c22d8647d6fd1cb1239b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">PWM</a> class.  <a href="#ab6c55e858633c22d8647d6fd1cb1239b"></a><br/></td></tr>
 <tr class="memitem:a3a05877ba27e439e1fce6d79b2d34d89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a3a05877ba27e439e1fce6d79b2d34d89">import</a> (std::string &amp;file)</td></tr>
 <tr class="memitem:a17b17d47b6878aaa10b2d9ed948aad41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a17b17d47b6878aaa10b2d9ed948aad41">import</a> (const char *file)</td></tr>
 <tr class="memitem:a29df1c1c3f4ad1fe51a9f057a6577c63"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a29df1c1c3f4ad1fe51a9f057a6577c63">parse</a> (const std::string &amp;matrix)</td></tr>
-<tr class="memitem:abe644c3391196a64fe32e2d9ca753759"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abe644c3391196a64fe32e2d9ca753759"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>score</b> (<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *seqs)</td></tr>
-<tr class="memitem:a00d973a91a0a94230b55b9699eac9a5b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a00d973a91a0a94230b55b9699eac9a5b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>scoreSimple</b> (<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *seqs)</td></tr>
-<tr class="memitem:ab47bf38c9c3e6504868f1db0eb96825f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab47bf38c9c3e6504868f1db0eb96825f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>scoreUndefSpacer</b> (<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *seqs)</td></tr>
-<tr class="memitem:a398a7a8485ff08ef20f2d95b4c6dd96c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a398a7a8485ff08ef20f2d95b4c6dd96c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>scoreVariableSpacer</b> (<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *seqs)</td></tr>
-<tr class="memitem:a4254b77ef5082feb9fdf579c0651d9de"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4254b77ef5082feb9fdf579c0651d9de"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>score</b> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> *seq)</td></tr>
-<tr class="memitem:a409d470228cb1c37f18fe47321565d85"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a409d470228cb1c37f18fe47321565d85"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>scoreSimple</b> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> *seq)</td></tr>
-<tr class="memitem:a05971bcf5b761f0b6203fa6702480572"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a05971bcf5b761f0b6203fa6702480572"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>scoreUndefSpacer</b> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> *seq)</td></tr>
-<tr class="memitem:a93898d598b53cb086615bf728af90fc2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a93898d598b53cb086615bf728af90fc2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>scoreVariableSpacer</b> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> *seq)</td></tr>
-<tr class="memitem:ae3763eba21ede79da6082f7b637f467b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae3763eba21ede79da6082f7b637f467b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setBackground</b> (<a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a> *bg)</td></tr>
-<tr class="memitem:ad2617f5ce32500e54d44e1da8e23a03c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad2617f5ce32500e54d44e1da8e23a03c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setTrack</b> (<a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *tr)</td></tr>
-<tr class="memitem:ac2468961f3eaca304c58ca35203221a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac2468961f3eaca304c58ca35203221a7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSimpleThreshold</b> (float thresh)</td></tr>
-<tr class="memitem:afea506d793c2b86c6fd8503c0c9acd09"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afea506d793c2b86c6fd8503c0c9acd09"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCurrentThreshold</b> (float *thresh)</td></tr>
-<tr class="memitem:a5366f748c8be151c36288e65d0948259"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5366f748c8be151c36288e65d0948259"></a>
-<a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getTrack</b> ()</td></tr>
-<tr class="memitem:aeb89d141a04e160db594bfaa73c3a606"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb89d141a04e160db594bfaa73c3a606"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>stringify</b> ()</td></tr>
-<tr class="memitem:a29304ddbe937a46f439a76aa131f383e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a29304ddbe937a46f439a76aa131f383e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr>
+<tr class="memitem:abe644c3391196a64fe32e2d9ca753759"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#abe644c3391196a64fe32e2d9ca753759">score</a> (<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *seqs)</td></tr>
+<tr class="memitem:a00d973a91a0a94230b55b9699eac9a5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a00d973a91a0a94230b55b9699eac9a5b">scoreSimple</a> (<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *seqs)</td></tr>
+<tr class="memitem:ab47bf38c9c3e6504868f1db0eb96825f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ab47bf38c9c3e6504868f1db0eb96825f">scoreUndefSpacer</a> (<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *seqs)</td></tr>
+<tr class="memitem:a398a7a8485ff08ef20f2d95b4c6dd96c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a398a7a8485ff08ef20f2d95b4c6dd96c">scoreVariableSpacer</a> (<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *seqs)</td></tr>
+<tr class="memitem:a4254b77ef5082feb9fdf579c0651d9de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a4254b77ef5082feb9fdf579c0651d9de">score</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> *seq)</td></tr>
+<tr class="memitem:a409d470228cb1c37f18fe47321565d85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a409d470228cb1c37f18fe47321565d85">scoreSimple</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> *seq)</td></tr>
+<tr class="memitem:a05971bcf5b761f0b6203fa6702480572"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a05971bcf5b761f0b6203fa6702480572">scoreUndefSpacer</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> *seq)</td></tr>
+<tr class="memitem:a93898d598b53cb086615bf728af90fc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a93898d598b53cb086615bf728af90fc2">scoreVariableSpacer</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> *seq)</td></tr>
+<tr class="memitem:ae3763eba21ede79da6082f7b637f467b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ae3763eba21ede79da6082f7b637f467b">setBackground</a> (<a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a> *bg)</td></tr>
+<tr class="memitem:ad2617f5ce32500e54d44e1da8e23a03c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ad2617f5ce32500e54d44e1da8e23a03c">setTrack</a> (<a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *tr)</td></tr>
+<tr class="memitem:ac2468961f3eaca304c58ca35203221a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ac2468961f3eaca304c58ca35203221a7">setSimpleThreshold</a> (float thresh)</td></tr>
+<tr class="memitem:afea506d793c2b86c6fd8503c0c9acd09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#afea506d793c2b86c6fd8503c0c9acd09">setCurrentThreshold</a> (float *thresh)</td></tr>
+<tr class="memitem:a5366f748c8be151c36288e65d0948259"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a5366f748c8be151c36288e65d0948259">getTrack</a> ()</td></tr>
+<tr class="memitem:aeb89d141a04e160db594bfaa73c3a606"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#aeb89d141a04e160db594bfaa73c3a606">stringify</a> ()</td></tr>
+<tr class="memitem:a29304ddbe937a46f439a76aa131f383e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a29304ddbe937a46f439a76aa131f383e">print</a> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ac6957aa4ac86b723262c6c35dd4302ef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ac6957aa4ac86b723262c6c35dd4302ef">_parseTrack</a> (std::string &amp;txt)</td></tr>
+<tr class="memitem:a7e1e268cebff217017ad0aee2b5b5f3b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a7e1e268cebff217017ad0aee2b5b5f3b">_parseAmbiguous</a> (std::string &amp;txt)</td></tr>
+<tr class="memitem:a8cae401d526732dedf115461a8415d9e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a8cae401d526732dedf115461a8415d9e">_parsePositions</a> (std::string &amp;txt)</td></tr>
+<tr class="memitem:aa76c7af742c8397909cf7fc8bf3efcfa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#aa76c7af742c8397909cf7fc8bf3efcfa">_parseThreshold</a> (std::string &amp;txt)</td></tr>
+<tr class="memitem:ae6b83c51074029a3f8c3eb42470454dd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ae6b83c51074029a3f8c3eb42470454dd">_parseBackground</a> (std::string &amp;txt)</td></tr>
+<tr class="memitem:a5cbf831102d16223c018a00967f6dfed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a5cbf831102d16223c018a00967f6dfed">_parseSpacer</a> (std::string &amp;txt)</td></tr>
+<tr class="memitem:ad0fdfa1a6eb56432ed916dfa5fc9e2ef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ad0fdfa1a6eb56432ed916dfa5fc9e2ef">_splitPositions</a> (std::string &amp;txt, <a class="el" href="class_stoch_h_m_m_1_1string_list.html">stringList</a> &amp;sts)</td></tr>
+<tr class="memitem:af4ae4fda208fd7096d165781156676d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#af4ae4fda208fd7096d165781156676d2">_getOrderedPositionNames</a> (<a class="el" href="class_stoch_h_m_m_1_1string_list.html">stringList</a> &amp;states, <a class="el" href="class_stoch_h_m_m_1_1string_list.html">stringList</a> &amp;names)</td></tr>
+<tr class="memitem:aa34bd9cff548e96ac06150eead1678fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#aa34bd9cff548e96ac06150eead1678fa">_finalizeTransitions</a> ()</td></tr>
+<tr class="memitem:a5d77503203a654d323e66c15522fc212"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a5d77503203a654d323e66c15522fc212">calculateBack</a> (<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *seqs, size_t position, float sum)</td></tr>
+<tr class="memitem:abce60bc7f27f1f62b90d4404ab0b0d4c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#abce60bc7f27f1f62b90d4404ab0b0d4c">calculateBack</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> *seq, size_t position, float sum)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a27094af48a6f5c69302015d02e17d1c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a27094af48a6f5c69302015d02e17d1c9">trk</a></td></tr>
+<tr class="memitem:ab75c1736cdb748f5e5fef048702cc2b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835">valueType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ab75c1736cdb748f5e5fef048702cc2b1">valType</a></td></tr>
+<tr class="memitem:a2a43b9c11dc54a5503599d457ea0b280"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a2a43b9c11dc54a5503599d457ea0b280">simple</a></td></tr>
+<tr class="memitem:a839f6a99ff365d17d9ae3aec661f5138"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a839f6a99ff365d17d9ae3aec661f5138">variableSpacer</a></td></tr>
+<tr class="memitem:a5072cea0c4bcc267c115f86a7761b595"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a5072cea0c4bcc267c115f86a7761b595">undefinedSpacer</a></td></tr>
+<tr class="memitem:ac8c49bb9fd863723e887cad868c05e96"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ac8c49bb9fd863723e887cad868c05e96">simpleThreshold</a></td></tr>
+<tr class="memitem:abeaf8cf7769bcaa171e3073e80b23cc9"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#abeaf8cf7769bcaa171e3073e80b23cc9">currentThreshold</a></td></tr>
+<tr class="memitem:a3ea5c34457c73676fa20b46b41bb01c0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1matrix_position.html">matrixPosition</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a></td></tr>
+<tr class="memitem:ae7209e498e2f7d99ee35af4aef2b741c"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ae7209e498e2f7d99ee35af4aef2b741c">positionNames</a></td></tr>
+<tr class="memitem:a0ffcdd8eddb62f6187a97135a6f93755"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1matrix_position.html">matrixPosition</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a0ffcdd8eddb62f6187a97135a6f93755">frontWeightMatrix</a></td></tr>
+<tr class="memitem:ab89223c66725b3a0445ec3f6b6282566"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1matrix_position.html">matrixPosition</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ab89223c66725b3a0445ec3f6b6282566">backWeightMatrix</a></td></tr>
+<tr class="memitem:aad26ebd802b8f860330e9d7882b6168e"><td class="memItemLeft" align="right" valign="top">std::list&lt; float &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#aad26ebd802b8f860330e9d7882b6168e">backScores</a></td></tr>
+<tr class="memitem:ad085f43a9b167fb50e13caa90391eda1"><td class="memItemLeft" align="right" valign="top">std::bitset&lt; 1024 &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ad085f43a9b167fb50e13caa90391eda1">backScored</a></td></tr>
+<tr class="memitem:a28c7c5d061e4a25975e0fd41753d64ee"><td class="memItemLeft" align="right" valign="top">std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a28c7c5d061e4a25975e0fd41753d64ee">undefSpacerSizes</a></td></tr>
+<tr class="memitem:a495733b8c69fd24967b0999d1599535f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1matrix_position.html">matrixPosition</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a495733b8c69fd24967b0999d1599535f">variableSpacerMatrix</a></td></tr>
+<tr class="memitem:a8cb600cfa0012fff21a20329879ca16f"><td class="memItemLeft" align="right" valign="top">std::bitset&lt; 1024 &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a8cb600cfa0012fff21a20329879ca16f">variableTransition</a></td></tr>
+<tr class="memitem:a23673cb4df5c069e2e14d76e8d277dea"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a23673cb4df5c069e2e14d76e8d277dea">frontWeightName</a></td></tr>
+<tr class="memitem:a9f3a6fc5da57e56a7019cfbd661c215b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a9f3a6fc5da57e56a7019cfbd661c215b">backWeightName</a></td></tr>
+<tr class="memitem:a2b713c0d22ca1c7ba59b5a65bdc5ce17"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a2b713c0d22ca1c7ba59b5a65bdc5ce17">min_spacer</a></td></tr>
+<tr class="memitem:a4f266d4e9b2bdb425deb2936b0912791"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a4f266d4e9b2bdb425deb2936b0912791">max_spacer</a></td></tr>
+<tr class="memitem:a9e14233cb6039bd0f1034373b67e9ce2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a9e14233cb6039bd0f1034373b67e9ce2">bgWeight</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="pwm_8h_source.html#l00050">50</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
-</div><hr/><h2>Member Function Documentation</h2>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ab6c55e858633c22d8647d6fd1cb1239b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::PWM::PWM </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor for <a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">PWM</a> class. </p>
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00032">32</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00115">bgWeight</a>, <a class="el" href="pwm_8h_source.html#l00097">currentThreshold</a>, <a class="el" href="pwm_8h_source.html#l00113">max_spacer</a>, <a class="el" href="pwm_8h_source.html#l00112">min_spacer</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::PROBABILITY</a>, <a class="el" href="pwm_8h_source.html#l00093">simple</a>, <a class="el" href="pwm_8h_source.html#l00096">simpleThreshold</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="pwm_8h_source.html#l00091">valType</a>.</p>
+<div class="fragment"><div class="line">                {</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ab75c1736cdb748f5e5fef048702cc2b1">valType</a>=<a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a92649806455862fab71c5b2aa48bfc55">PROBABILITY</a>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a2a43b9c11dc54a5503599d457ea0b280">simple</a> = <span class="keyword">true</span>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ac8c49bb9fd863723e887cad868c05e96">simpleThreshold</a> = -INFINITY;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abeaf8cf7769bcaa171e3073e80b23cc9">currentThreshold</a> = &amp;<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ac8c49bb9fd863723e887cad868c05e96">simpleThreshold</a>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a9e14233cb6039bd0f1034373b67e9ce2">bgWeight</a> = NULL;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a2b713c0d22ca1c7ba59b5a65bdc5ce17">min_spacer</a> = <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a4f266d4e9b2bdb425deb2936b0912791">max_spacer</a> = 0;</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="aa34bd9cff548e96ac06150eead1678fa"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::PWM::_finalizeTransitions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00697">697</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00103">backWeightMatrix</a>, <a class="el" href="pwm_8h_source.html#l00102">frontWeightMatrix</a>, <a class="el" href="pwm_8h_source.html#l00100">positionNames</a>, <a class="el" href="pwm_8h_source.html#l00093">simple</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, <a class="el" href="pwm_8h_source.html#l00095">undefinedSpacer</a>, <a class="el" href="pwm_8h_source.html#l00094">variableSpacer</a>, <a class="el" href="pwm_8h_source.html#l00108">variableSpacerMatrix</a>, <a class="el" href="pwm_8h_source.html#l00109">variableTransition</a>, and <a class="el" href="pwm_8h_source.html#l00099">weightMatrix</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00065">parse()</a>.</p>
+<div class="fragment"><div class="line">                                      {</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Assign emission transitions</span></div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>.size(); i++){</div>
+<div class="line">                        std::vector&lt;std::string&gt;&amp; tmp= <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>[i]-&gt;getTransitionNames();</div>
+<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; tmp.size(); j++) {</div>
+<div class="line">                                <span class="keywordtype">size_t</span> itera = <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ae7209e498e2f7d99ee35af4aef2b741c">positionNames</a>[tmp[j]];</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>[i]-&gt;addTransition(<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>[itera]-&gt;getEmission());</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (tmp.size() &gt; 1){</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a2a43b9c11dc54a5503599d457ea0b280">simple</a> = <span class="keyword">false</span>;</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a839f6a99ff365d17d9ae3aec661f5138">variableSpacer</a> = <span class="keyword">true</span>;</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a5072cea0c4bcc267c115f86a7761b595">undefinedSpacer</a> = <span class="keyword">false</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//TODO: DETERMINE CORE REGIONS AND THEN ADAPT SCORING TO THOSE</span></div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a839f6a99ff365d17d9ae3aec661f5138">variableSpacer</a>){</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="comment">//Determine Front Core</span></div>
+<div class="line">                        <span class="comment">//Check the Transitions and determine core regions</span></div>
+<div class="line">                        <span class="keywordtype">size_t</span> firstMultiTrans(<a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>);</div>
+<div class="line">                        <span class="keywordtype">size_t</span> backWeightStart(<a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>);</div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0 ; i &lt; <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>.size(); i++){</div>
+<div class="line">                                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>[i]-&gt;transitionsSize() &gt; 1){</div>
+<div class="line">                                        firstMultiTrans = i;</div>
+<div class="line">                                        std::vector&lt;std::string&gt;&amp; tmp = <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>[i]-&gt;getTransitionNames();</div>
+<div class="line">                                        <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> j = 0; j &lt; tmp.size(); j++){</div>
+<div class="line">                                                <span class="keywordtype">size_t</span> indx = <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ae7209e498e2f7d99ee35af4aef2b741c">positionNames</a>[tmp[j]];</div>
+<div class="line">                                                </div>
+<div class="line">                                                <span class="keywordflow">if</span> (indx &gt; i+1){</div>
+<div class="line">                                                        backWeightStart = indx;</div>
+<div class="line">                                                        <span class="keywordflow">break</span>;</div>
+<div class="line">                                                }</div>
+<div class="line">                                        }</div>
+<div class="line">                                        <span class="keywordflow">break</span>;</div>
+<div class="line">                                }</div>
+<div class="line">                                <span class="keywordflow">else</span>{</div>
+<div class="line">                                        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a0ffcdd8eddb62f6187a97135a6f93755">frontWeightMatrix</a>.push_back(<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>[i]);</div>
+<div class="line">                                }</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="comment">//Determine Spacer and transitions</span></div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a8cb600cfa0012fff21a20329879ca16f">variableTransition</a> = <span class="keyword">new</span> (std::nothrow) std::bitset&lt;1024&gt;;</div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=firstMultiTrans; i&lt; backWeightStart; i++){</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a495733b8c69fd24967b0999d1599535f">variableSpacerMatrix</a>.push_back(<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>[i]);</div>
+<div class="line">                                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>[i]-&gt;transitionsSize() &gt; 1){</div>
+<div class="line">                                        (*variableTransition)[i]=1;</div>
+<div class="line">                                }</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        </div>
+<div class="line">                        <span class="comment">//Determine Back Core</span></div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = backWeightStart; i &lt; <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>.size() ; i++){</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ab89223c66725b3a0445ec3f6b6282566">backWeightMatrix</a>.push_back(<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>[i]);</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="af4ae4fda208fd7096d165781156676d2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::PWM::_getOrderedPositionNames </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">stringList</a> &amp;&#160;</td>
+          <td class="paramname"><em>states</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">stringList</a> &amp;&#160;</td>
+          <td class="paramname"><em>names</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00855">855</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00435">StochHMM::clear_whitespace()</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="text_8h_source.html#l00107">StochHMM::stringList::push_back()</a>, and <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00807">_parsePositions()</a>.</p>
+<div class="fragment"><div class="line">                                                                            {</div>
+<div class="line">        </div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;pos.size();i++){</div>
+<div class="line">            <span class="keywordtype">size_t</span> nameHeader=pos[i].find(<span class="stringliteral">&quot;NAME:&quot;</span>);</div>
+<div class="line">                        <span class="keywordflow">if</span> (nameHeader == std::string::npos){</div>
+<div class="line">                                <span class="keywordflow">continue</span>;</div>
+<div class="line">                        }</div>
+<div class="line">            <span class="keywordtype">size_t</span> nameLineEnding=pos[i].find_first_of(<span class="stringliteral">&quot;\n&quot;</span>,nameHeader);</div>
+<div class="line">            std::string name = pos[i].substr(nameHeader+5,nameLineEnding-(nameHeader+5));</div>
+<div class="line">            <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(name, <span class="stringliteral">&quot; \t\n&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">if</span> (names.contains(name)){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Position with name of: &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; is defined twice in the model\n&quot;</span>;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                names.push_back(name);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a7e1e268cebff217017ad0aee2b5b5f3b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::PWM::_parseAmbiguous </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>txt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00783">783</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00456">StochHMM::track::parseAmbiguous()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, and <a class="el" href="pwm_8h_source.html#l00090">trk</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00065">parse()</a>.</p>
+<div class="fragment"><div class="line">                                               {</div>
+<div class="line">        stringList lst;</div>
+<div class="line">        lst.splitString(txt, <span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;lst.size();i++){</div>
+<div class="line">            stringList ln;</div>
+<div class="line">            ln.splitString(lst[i],<span class="stringliteral">&quot;:\t &quot;</span>);</div>
+<div class="line">                        </div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a27094af48a6f5c69302015d02e17d1c9">trk</a>!=NULL){</div>
+<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a27094af48a6f5c69302015d02e17d1c9">trk</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a4bdf7361bae5389018b535d773232361">parseAmbiguous</a>(ln[1])){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t parse the Ambiguous section for &quot;</span> &lt;&lt; ln[0] &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::string info = <span class="stringliteral">&quot;Ambiguous Characters Section\nSupplied track name doesn&#39;t correspond to any previously parsed tracks.\nPlease check the formatting and names.\n Unfound Name: &quot;</span> + ln[0];</div>
+<div class="line">                </div>
+<div class="line">                std::cerr &lt;&lt; info &lt;&lt; std::endl;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ae6b83c51074029a3f8c3eb42470454dd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::PWM::_parseBackground </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>txt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00678">678</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00115">bgWeight</a>, <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>, and <a class="el" href="pwm_8h_source.html#l00090">trk</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00065">parse()</a>.</p>
+<div class="fragment"><div class="line">                                                {</div>
+<div class="line">                emm* temp_emm = <span class="keyword">new</span>(std::nothrow) emm;</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (temp_emm==NULL){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                        exit(1);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (!temp_emm-&gt;parse(txt,<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a27094af48a6f5c69302015d02e17d1c9">trk</a>)){</div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a9e14233cb6039bd0f1034373b67e9ce2">bgWeight</a> = temp_emm;</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a8cae401d526732dedf115461a8415d9e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::PWM::_parsePositions </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>txt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00807">807</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="pwm_8cpp_source.html#l00855">_getOrderedPositionNames()</a>, <a class="el" href="pwm_8cpp_source.html#l00833">_splitPositions()</a>, <a class="el" href="pwm_8cpp_source.html#l00235">StochHMM::matrixPosition::parse()</a>, <a class="el" href="pwm_8h_source.html#l00100">positionNames</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="pwm_8h_source.html#l00090">trk</a>, and <a class="el" href="pwm_8h_source.html#l00099">weightMatrix</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00065">parse()</a>.</p>
+<div class="fragment"><div class="line">                                               {</div>
+<div class="line">                <span class="comment">//3. create and parse states</span></div>
+<div class="line">        </div>
+<div class="line">        stringList positions;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ad0fdfa1a6eb56432ed916dfa5fc9e2ef">_splitPositions</a>(txt,positions);</div>
+<div class="line">                </div>
+<div class="line">                stringList names;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#af4ae4fda208fd7096d165781156676d2">_getOrderedPositionNames</a>(positions, names);</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;names.size();i++){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ae7209e498e2f7d99ee35af4aef2b741c">positionNames</a>[names[i]] = i ;</div>
+<div class="line">                }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> iter=1;iter&lt;positions.size();iter++){</div>
+<div class="line">                        </div>
+<div class="line">                        matrixPosition* temp = <span class="keyword">new</span> (std::nothrow) matrixPosition;</div>
+<div class="line">                        temp-&gt;parse(positions[iter], <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a27094af48a6f5c69302015d02e17d1c9">trk</a>, names);</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>.push_back(temp);</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="comment">//std::cout &lt;&lt; positions[iter] &lt;&lt; std::endl;</span></div>
+<div class="line">                        </div>
+<div class="line">                }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a5cbf831102d16223c018a00967f6dfed"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::PWM::_parseSpacer </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>txt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00612">612</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00103">backWeightMatrix</a>, <a class="el" href="pwm_8h_source.html#l00111">backWeightName</a>, <a class="el" href="text_8cpp_source.html#l00435">StochHMM::clear_whitespace()</a>, <a class="el" href="pwm_8h_source.html#l00102">frontWeightMatrix</a>, <a class="el" href="pwm_8h_source.html#l00110">frontWeightName</a>, <a class="el" href="pwm_8h_source.html#l00113">max_spacer</a>, <a class="el" href="pwm_8h_source.html#l00112">min_spacer</a>, <a class="el" href="pwm_8h_source.html#l00100">positionNames</a>, <a class="el" href="pwm_8h_source.html#l00093">simple</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, <a class="el" href="pwm_8h_source.html#l00095">undefinedSpacer</a>, <a class="el" href="pwm_8h_source.html#l00107">undefSpacerSizes</a>, <a class="el" href="pwm_8h_source.html#l00094">variableSpacer</a>, and <a class="el" href="pwm_8h_source.html#l00099">weightMatrix</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00065">parse()</a>.</p>
+<div class="fragment"><div class="line">                                            {</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a5072cea0c4bcc267c115f86a7761b595">undefinedSpacer</a> = <span class="keyword">true</span>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a2a43b9c11dc54a5503599d457ea0b280">simple</a> = <span class="keyword">false</span>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a839f6a99ff365d17d9ae3aec661f5138">variableSpacer</a> = <span class="keyword">false</span>;</div>
+<div class="line">        </div>
+<div class="line">                stringList lst;</div>
+<div class="line">                lst.splitString(txt,<span class="stringliteral">&quot;:&quot;</span>);</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Split header to see where to insert spacer</span></div>
+<div class="line">                stringList order;</div>
+<div class="line">                order.splitString(lst[0],<span class="stringliteral">&quot;-&quot;</span>);</div>
+<div class="line">                </div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a23673cb4df5c069e2e14d76e8d277dea">frontWeightName</a> = order[0];</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a9f3a6fc5da57e56a7019cfbd661c215b">backWeightName</a> = order[2];</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Push Frontside Weights into Matrix</span></div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ae7209e498e2f7d99ee35af4aef2b741c">positionNames</a>.count(<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a23673cb4df5c069e2e14d76e8d277dea">frontWeightName</a>) == 1){</div>
+<div class="line">                        <span class="keywordtype">size_t</span> frontIndex = <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ae7209e498e2f7d99ee35af4aef2b741c">positionNames</a>[<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a23673cb4df5c069e2e14d76e8d277dea">frontWeightName</a>];</div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i &lt;= frontIndex; i++){</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a0ffcdd8eddb62f6187a97135a6f93755">frontWeightMatrix</a>.push_back(<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>[i]);</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t find &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a23673cb4df5c069e2e14d76e8d277dea">frontWeightName</a> &lt;&lt; <span class="stringliteral">&quot; in the POSITION WEIGHT DEFINITIONS&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                        exit(2);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Push backside weights into Matrix</span></div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ae7209e498e2f7d99ee35af4aef2b741c">positionNames</a>.count(<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a9f3a6fc5da57e56a7019cfbd661c215b">backWeightName</a>) == 1){</div>
+<div class="line">                        <span class="keywordtype">size_t</span> backIndex = <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ae7209e498e2f7d99ee35af4aef2b741c">positionNames</a>[<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a9f3a6fc5da57e56a7019cfbd661c215b">backWeightName</a>];</div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=backIndex;i &lt; <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>.size() ; i++){</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ab89223c66725b3a0445ec3f6b6282566">backWeightMatrix</a>.push_back(<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>[i]);</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t find &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a9f3a6fc5da57e56a7019cfbd661c215b">backWeightName</a> &lt;&lt; <span class="stringliteral">&quot; in the POSITION WEIGHT DEFINITIONS&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                        exit(2);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Parse Spacer Sizes</span></div>
+<div class="line">                stringList spc;</div>
+<div class="line">                spc.splitString(lst[1],<span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;spc.size();i++){</div>
+<div class="line">                        <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(spc[i], <span class="stringliteral">&quot; \t\n&quot;</span>);</div>
+<div class="line">                        <span class="keywordtype">size_t</span> val = atoi(spc[i].c_str());</div>
+<div class="line">                        <span class="keywordflow">if</span> (val &gt; <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a4f266d4e9b2bdb425deb2936b0912791">max_spacer</a>){</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a4f266d4e9b2bdb425deb2936b0912791">max_spacer</a> = val;</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (val &lt; <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a2b713c0d22ca1c7ba59b5a65bdc5ce17">min_spacer</a>){</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a2b713c0d22ca1c7ba59b5a65bdc5ce17">min_spacer</a> = val;</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a28c7c5d061e4a25975e0fd41753d64ee">undefSpacerSizes</a>.push_back(val);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aa76c7af742c8397909cf7fc8bf3efcfa"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::PWM::_parseThreshold </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>txt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00673">673</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00096">simpleThreshold</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00065">parse()</a>.</p>
+<div class="fragment"><div class="line">                                               {</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ac8c49bb9fd863723e887cad868c05e96">simpleThreshold</a> = atof(txt.c_str());</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ac6957aa4ac86b723262c6c35dd4302ef"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::PWM::_parseTrack </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>txt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00760">760</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00310">StochHMM::track::parse()</a>, <a class="el" href="track_8h_source.html#l00112">StochHMM::track::setIndex()</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, and <a class="el" href="pwm_8h_source.html#l00090">trk</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00065">parse()</a>.</p>
+<div class="fragment"><div class="line">                                           {</div>
+<div class="line">                stringList lst;</div>
+<div class="line">                lst.splitString(txt, <span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line">                </div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a27094af48a6f5c69302015d02e17d1c9">trk</a>=<span class="keyword">new</span>(std::nothrow) track();</div>
+<div class="line">                        </div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a27094af48a6f5c69302015d02e17d1c9">trk</a>==NULL){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                        exit(1);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a27094af48a6f5c69302015d02e17d1c9">trk</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a4562832a987bb22a030f1c4c73b82aa1">parse</a>(lst[0])){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a27094af48a6f5c69302015d02e17d1c9">trk</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a2e10c17739bf3cbfe4d314db52cfca12">setIndex</a>(0);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> {</div>
+<div class="line">                        std::string info = <span class="stringliteral">&quot;Couldn&#39;t parse new track line.  Please check formatting of : &quot;</span> + lst[0];</div>
+<div class="line">                        std::cerr &lt;&lt; info &lt;&lt; std::endl;</div>
+<div class="line">                        exit(1);</div>
+<div class="line">                }</div>
+<div class="line">                        </div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ad0fdfa1a6eb56432ed916dfa5fc9e2ef"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::PWM::_splitPositions </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>txt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">stringList</a> &amp;&#160;</td>
+          <td class="paramname"><em>sts</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00833">833</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00435">StochHMM::clear_whitespace()</a>, and <a class="el" href="text_8h_source.html#l00107">StochHMM::stringList::push_back()</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00807">_parsePositions()</a>.</p>
+<div class="fragment"><div class="line">                                                            {</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">size_t</span> start=0;</div>
+<div class="line">        <span class="keywordtype">size_t</span> end=0;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">while</span>(start!=std::string::npos){</div>
+<div class="line">            end=txt.find(<span class="stringliteral">&quot;NAME:&quot;</span>,start+1);</div>
+<div class="line">            </div>
+<div class="line">            std::string st = txt.substr(start,end-start);</div>
+<div class="line">            </div>
+<div class="line">            <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(st, <span class="stringliteral">&quot;#&gt;&lt;&quot;</span>);</div>
+<div class="line">            </div>
+<div class="line">                        sts.push_back(st);</div>
+<div class="line">                        </div>
+<div class="line">            start=txt.find(<span class="stringliteral">&quot;NAME:&quot;</span>,end);</div>
+<div class="line">            </div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a5d77503203a654d323e66c15522fc212"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float StochHMM::PWM::calculateBack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *&#160;</td>
+          <td class="paramname"><em>seqs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>sum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00586">586</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00103">backWeightMatrix</a>, <a class="el" href="pwm_8h_source.html#l00097">currentThreshold</a>, and <a class="el" href="pwm_8cpp_source.html#l00370">score()</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00535">scoreVariableSpacer()</a>.</p>
+<div class="fragment"><div class="line">                                                                           {</div>
+<div class="line">                <span class="keywordtype">float</span> <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abe644c3391196a64fe32e2d9ca753759">score</a> = sum;</div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> pos = 0; pos &lt; <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ab89223c66725b3a0445ec3f6b6282566">backWeightMatrix</a>.size(); pos++){</div>
+<div class="line">                        sum += <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ab89223c66725b3a0445ec3f6b6282566">backWeightMatrix</a>[pos]-&gt;getEmissionValue(seqs, position+pos);</div>
+<div class="line">                        <span class="keywordflow">if</span> (sum &lt; *<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abeaf8cf7769bcaa171e3073e80b23cc9">currentThreshold</a>){</div>
+<div class="line">                                <span class="keywordflow">return</span> -INFINITY;</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abe644c3391196a64fe32e2d9ca753759">score</a>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="abce60bc7f27f1f62b90d4404ab0b0d4c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float StochHMM::PWM::calculateBack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> *&#160;</td>
+          <td class="paramname"><em>seq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>sum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00599">599</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00103">backWeightMatrix</a>, <a class="el" href="pwm_8h_source.html#l00097">currentThreshold</a>, and <a class="el" href="pwm_8cpp_source.html#l00370">score()</a>.</p>
+<div class="fragment"><div class="line">                                                                         {</div>
+<div class="line">                <span class="keywordtype">float</span> <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abe644c3391196a64fe32e2d9ca753759">score</a> = sum;</div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> pos = 0; pos &lt; <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ab89223c66725b3a0445ec3f6b6282566">backWeightMatrix</a>.size(); pos++){</div>
+<div class="line">                        sum += <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ab89223c66725b3a0445ec3f6b6282566">backWeightMatrix</a>[pos]-&gt;getEmissionValue(seq, position+pos);</div>
+<div class="line">                        <span class="keywordflow">if</span> (sum &lt; *<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abeaf8cf7769bcaa171e3073e80b23cc9">currentThreshold</a>){</div>
+<div class="line">                                <span class="keywordflow">return</span> -INFINITY;</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abe644c3391196a64fe32e2d9ca753759">score</a>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a5366f748c8be151c36288e65d0948259"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a>* StochHMM::PWM::getTrack </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00072">72</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00090">trk</a>.</p>
+
+<p>Referenced by <a class="el" href="_motif_scorer_8cpp_source.html#l00021">main()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a27094af48a6f5c69302015d02e17d1c9">trk</a>;}</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="a3a05877ba27e439e1fce6d79b2d34d89"></a>
 <div class="memitem">
 <div class="memproto">
@@ -165,6 +915,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 <p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00047">47</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
 
 <p>References <a class="el" href="pwm_8cpp_source.html#l00065">parse()</a>, and <a class="el" href="text_8cpp_source.html#l00823">StochHMM::slurpFile()</a>.</p>
+
+<p>Referenced by <a class="el" href="_motif_scorer_8cpp_source.html#l00021">main()</a>.</p>
 <div class="fragment"><div class="line">                                       {</div>
 <div class="line">                std::string modelString=<a class="code" href="group___text.html#gafad8e125317894c8056a5706c4590b9b">slurpFile</a>(file);</div>
 <div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a29df1c1c3f4ad1fe51a9f057a6577c63">parse</a>(modelString);</div>
@@ -224,6 +976,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 
 <p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00065">65</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
 
+<p>References <a class="el" href="pwm_8cpp_source.html#l00697">_finalizeTransitions()</a>, <a class="el" href="pwm_8cpp_source.html#l00783">_parseAmbiguous()</a>, <a class="el" href="pwm_8cpp_source.html#l00678">_parseBackground()</a>, <a class="el" href="pwm_8cpp_source.html#l00807">_parsePositions()</a>, <a class="el" href="pwm_8cpp_source.html#l00612">_parseSpacer()</a>, <a class="el" href="pwm_8cpp_source.html#l00673">_parseThreshold()</a>, and <a class="el" href="pwm_8cpp_source.html#l00760">_parseTrack()</a>.</p>
+
 <p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00047">import()</a>.</p>
 <div class="fragment"><div class="line">                                              {</div>
 <div class="line">                <span class="keywordtype">size_t</span> thresh = matrix.find(<span class="stringliteral">&quot;THRESHOLD DEFINITION&quot;</span>);</div>
@@ -255,7 +1009,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 <div class="line">                        </div>
 <div class="line">                        std::string thr (matrix.substr(nlChar,blank-nlChar));</div>
 <div class="line">                        </div>
-<div class="line">                        <span class="keywordflow">if</span> (!_parseThreshold(thr)){</div>
+<div class="line">                        <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#aa76c7af742c8397909cf7fc8bf3efcfa">_parseThreshold</a>(thr)){</div>
 <div class="line">                                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                        }</div>
 <div class="line">                        </div>
@@ -281,7 +1035,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 <div class="line"></div>
 <div class="line">            std::string trck (matrix.substr(nlChar,blank-nlChar));</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> (!_parseTrack(trck)){</div>
+<div class="line">            <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ac6957aa4ac86b723262c6c35dd4302ef">_parseTrack</a>(trck)){</div>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">            }</div>
 <div class="line">                        </div>
@@ -310,7 +1064,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 <div class="line"></div>
 <div class="line">            std::string amb(matrix.substr(nlChar,blank-nlChar));</div>
 <div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> (!_parseAmbiguous(amb)){</div>
+<div class="line">            <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a7e1e268cebff217017ad0aee2b5b5f3b">_parseAmbiguous</a>(amb)){</div>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">            }</div>
 <div class="line"></div>
@@ -335,7 +1089,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 <div class="line">                        </div>
 <div class="line">            std::string background(matrix.substr(nlChar,blank-nlChar));</div>
 <div class="line">                        </div>
-<div class="line">            <span class="keywordflow">if</span> (!_parseBackground(background)){</div>
+<div class="line">            <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ae6b83c51074029a3f8c3eb42470454dd">_parseBackground</a>(background)){</div>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">            }</div>
 <div class="line">                }</div>
@@ -343,7 +1097,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 <div class="line">                <span class="comment">//Parse the positions</span></div>
 <div class="line">                <span class="keywordflow">if</span> (pwm != std::string::npos){</div>
 <div class="line">                        std::string positions = matrix.substr(pwm);</div>
-<div class="line">                        _parsePositions(positions);</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a8cae401d526732dedf115461a8415d9e">_parsePositions</a>(positions);</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                </div>
@@ -367,16 +1121,1073 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 <div class="line">                        </div>
 <div class="line">            std::string spacer(matrix.substr(nlChar,blank-nlChar));</div>
 <div class="line">                        </div>
-<div class="line">            <span class="keywordflow">if</span> (!_parseSpacer(spacer)){</div>
+<div class="line">            <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a5cbf831102d16223c018a00967f6dfed">_parseSpacer</a>(spacer)){</div>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">            }</div>
 <div class="line">                }</div>
 <div class="line">                </div>
-<div class="line">                _finalizeTransitions();</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#aa34bd9cff548e96ac06150eead1678fa">_finalizeTransitions</a>();</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a29304ddbe937a46f439a76aa131f383e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::PWM::print </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="abe644c3391196a64fe32e2d9ca753759"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::PWM::score </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *&#160;</td>
+          <td class="paramname"><em>seqs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00370">370</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="pwm_8cpp_source.html#l00407">scoreSimple()</a>, <a class="el" href="pwm_8cpp_source.html#l00452">scoreUndefSpacer()</a>, <a class="el" href="pwm_8cpp_source.html#l00525">scoreVariableSpacer()</a>, <a class="el" href="pwm_8h_source.html#l00093">simple</a>, <a class="el" href="pwm_8h_source.html#l00095">undefinedSpacer</a>, and <a class="el" href="pwm_8h_source.html#l00094">variableSpacer</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00586">calculateBack()</a>, <a class="el" href="_motif_scorer_8cpp_source.html#l00021">main()</a>, <a class="el" href="pwm_8cpp_source.html#l00417">scoreSimple()</a>, and <a class="el" href="pwm_8cpp_source.html#l00535">scoreVariableSpacer()</a>.</p>
+<div class="fragment"><div class="line">                                      {</div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a2a43b9c11dc54a5503599d457ea0b280">simple</a>){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a00d973a91a0a94230b55b9699eac9a5b">scoreSimple</a>(seqs);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a5072cea0c4bcc267c115f86a7761b595">undefinedSpacer</a>){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ab47bf38c9c3e6504868f1db0eb96825f">scoreUndefSpacer</a>(seqs);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a839f6a99ff365d17d9ae3aec661f5138">variableSpacer</a>){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a398a7a8485ff08ef20f2d95b4c6dd96c">scoreVariableSpacer</a>(seqs);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a4254b77ef5082feb9fdf579c0651d9de"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::PWM::score </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> *&#160;</td>
+          <td class="paramname"><em>seq</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00383">383</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="pwm_8cpp_source.html#l00407">scoreSimple()</a>, <a class="el" href="pwm_8cpp_source.html#l00452">scoreUndefSpacer()</a>, <a class="el" href="pwm_8cpp_source.html#l00525">scoreVariableSpacer()</a>, <a class="el" href="pwm_8h_source.html#l00093">simple</a>, <a class="el" href="pwm_8h_source.html#l00095">undefinedSpacer</a>, and <a class="el" href="pwm_8h_source.html#l00094">variableSpacer</a>.</p>
+<div class="fragment"><div class="line">                                    {</div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a2a43b9c11dc54a5503599d457ea0b280">simple</a>){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a00d973a91a0a94230b55b9699eac9a5b">scoreSimple</a>(seq);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a5072cea0c4bcc267c115f86a7761b595">undefinedSpacer</a>){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ab47bf38c9c3e6504868f1db0eb96825f">scoreUndefSpacer</a>(seq);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a839f6a99ff365d17d9ae3aec661f5138">variableSpacer</a>){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a398a7a8485ff08ef20f2d95b4c6dd96c">scoreVariableSpacer</a>(seq);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a00d973a91a0a94230b55b9699eac9a5b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::PWM::scoreSimple </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *&#160;</td>
+          <td class="paramname"><em>seqs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00407">407</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="sequence_8h_source.html#l00168">StochHMM::sequence::getHeader()</a>, <a class="el" href="sequences_8cpp_source.html#l00174">StochHMM::sequences::getSeq()</a>, and <a class="el" href="sequences_8h_source.html#l00129">StochHMM::sequences::size()</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00370">score()</a>.</p>
+<div class="fragment"><div class="line">                                            {</div>
+<div class="line">                <span class="keywordtype">size_t</span> numberSeqs = seqs-&gt;size();</div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i &lt; numberSeqs ;i++){</div>
+<div class="line">                        sequence* sq = seqs-&gt;getSeq(i);</div>
+<div class="line">                        std::cout &lt;&lt; sq-&gt;getHeader() &lt;&lt; std::endl;</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a00d973a91a0a94230b55b9699eac9a5b">scoreSimple</a>(sq);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a409d470228cb1c37f18fe47321565d85"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::PWM::scoreSimple </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> *&#160;</td>
+          <td class="paramname"><em>seq</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00417">417</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00097">currentThreshold</a>, <a class="el" href="sequence_8h_source.html#l00089">StochHMM::sequence::getLength()</a>, <a class="el" href="pwm_8cpp_source.html#l00370">score()</a>, <a class="el" href="pwm_8h_source.html#l00096">simpleThreshold</a>, and <a class="el" href="pwm_8h_source.html#l00099">weightMatrix</a>.</p>
+<div class="fragment"><div class="line">                                          {</div>
+<div class="line">                <span class="keywordtype">size_t</span> seq_size = seq-&gt;getLength();</div>
+<div class="line">                <span class="keywordtype">size_t</span> motif_size = <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>.size();</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (seq_size &lt; motif_size){</div>
+<div class="line">                        <span class="keywordflow">return</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">float</span> <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abe644c3391196a64fe32e2d9ca753759">score</a>(0);</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> position = 0; position &lt;= seq_size - motif_size; position++){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abe644c3391196a64fe32e2d9ca753759">score</a> = 0;</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abeaf8cf7769bcaa171e3073e80b23cc9">currentThreshold</a> = &amp;<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ac8c49bb9fd863723e887cad868c05e96">simpleThreshold</a>;</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> motif_pos = 0; motif_pos &lt; motif_size; motif_pos ++){</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abe644c3391196a64fe32e2d9ca753759">score</a> += <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>[motif_pos]-&gt;getEmissionValue(seq,position+motif_pos);</div>
+<div class="line">                                </div>
+<div class="line">                                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>[motif_pos]-&gt;isThresholdSet()){</div>
+<div class="line">                                        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abeaf8cf7769bcaa171e3073e80b23cc9">currentThreshold</a> = <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>[motif_pos]-&gt;getThresholdPtr();</div>
+<div class="line">                                }</div>
+<div class="line">                                </div>
+<div class="line">                                </div>
+<div class="line">                                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abe644c3391196a64fe32e2d9ca753759">score</a> &lt;= *<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abeaf8cf7769bcaa171e3073e80b23cc9">currentThreshold</a>){</div>
+<div class="line">                                        <span class="keywordflow">break</span>;</div>
+<div class="line">                                }</div>
+<div class="line">                                </div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abe644c3391196a64fe32e2d9ca753759">score</a> &lt;= *<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abeaf8cf7769bcaa171e3073e80b23cc9">currentThreshold</a>){</div>
+<div class="line">                                <span class="keywordflow">continue</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        std::cout &lt;&lt; position &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abe644c3391196a64fe32e2d9ca753759">score</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">                }</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ab47bf38c9c3e6504868f1db0eb96825f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::PWM::scoreUndefSpacer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *&#160;</td>
+          <td class="paramname"><em>seqs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00452">452</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="sequence_8h_source.html#l00168">StochHMM::sequence::getHeader()</a>, <a class="el" href="sequences_8cpp_source.html#l00174">StochHMM::sequences::getSeq()</a>, and <a class="el" href="sequences_8h_source.html#l00129">StochHMM::sequences::size()</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00370">score()</a>.</p>
+<div class="fragment"><div class="line">                                                 {</div>
+<div class="line">                <span class="keywordtype">size_t</span> numberSeqs = seqs-&gt;size();</div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i &lt; numberSeqs ;i++){</div>
+<div class="line">                        sequence* sq = seqs-&gt;getSeq(i);</div>
+<div class="line">                        std::cout &lt;&lt; sq-&gt;getHeader() &lt;&lt; std::endl;</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ab47bf38c9c3e6504868f1db0eb96825f">scoreUndefSpacer</a>(sq);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a05971bcf5b761f0b6203fa6702480572"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::PWM::scoreUndefSpacer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> *&#160;</td>
+          <td class="paramname"><em>seq</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00463">463</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00103">backWeightMatrix</a>, <a class="el" href="pwm_8h_source.html#l00097">currentThreshold</a>, <a class="el" href="pwm_8h_source.html#l00102">frontWeightMatrix</a>, <a class="el" href="sequence_8h_source.html#l00089">StochHMM::sequence::getLength()</a>, <a class="el" href="pwm_8h_source.html#l00113">max_spacer</a>, <a class="el" href="pwm_8h_source.html#l00107">undefSpacerSizes</a>, and <a class="el" href="pwm_8h_source.html#l00099">weightMatrix</a>.</p>
+<div class="fragment"><div class="line">                                               {</div>
+<div class="line">                <span class="keywordtype">size_t</span> seq_size = seq-&gt;getLength();</div>
+<div class="line">                <span class="keywordtype">size_t</span> motif_size = <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>.size();</div>
+<div class="line">                <span class="keywordtype">size_t</span> front_size = <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a0ffcdd8eddb62f6187a97135a6f93755">frontWeightMatrix</a>.size();</div>
+<div class="line">                <span class="keywordtype">size_t</span> back_size = <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ab89223c66725b3a0445ec3f6b6282566">backWeightMatrix</a>.size();</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (seq_size &lt; motif_size + <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a4f266d4e9b2bdb425deb2936b0912791">max_spacer</a>){</div>
+<div class="line">                        <span class="keywordflow">return</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">float</span> front_score(0);</div>
+<div class="line">                <span class="keywordtype">float</span> back_score(0);</div>
+<div class="line">                <span class="keywordtype">float</span> sumScore(0);</div>
+<div class="line">                <span class="keywordtype">size_t</span> spacerSize(0);</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> position = 0; position &lt; seq_size - (motif_size + <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a4f266d4e9b2bdb425deb2936b0912791">max_spacer</a>); position++){</div>
+<div class="line">                        front_score = 0;</div>
+<div class="line">                        back_score = 0;</div>
+<div class="line">                        sumScore = 0;</div>
+<div class="line">                        <span class="comment">//Calculate the Front motif score</span></div>
+<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> front_pos = 0; front_pos &lt; front_size; front_pos++){</div>
+<div class="line">                                front_score += <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a0ffcdd8eddb62f6187a97135a6f93755">frontWeightMatrix</a>[front_pos]-&gt;getEmissionValue(seq,position+front_pos);</div>
+<div class="line">                                <span class="keywordflow">if</span> (front_score &lt;= *<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abeaf8cf7769bcaa171e3073e80b23cc9">currentThreshold</a>){</div>
+<div class="line">                                        <span class="keywordflow">break</span>;</div>
+<div class="line">                                }</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (front_score &lt;= *<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abeaf8cf7769bcaa171e3073e80b23cc9">currentThreshold</a>){</div>
+<div class="line">                                <span class="keywordflow">continue</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="comment">//Calculate the back scores</span></div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> sp = 0; sp &lt; <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a28c7c5d061e4a25975e0fd41753d64ee">undefSpacerSizes</a>.size(); sp++){</div>
+<div class="line">                                spacerSize = <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a28c7c5d061e4a25975e0fd41753d64ee">undefSpacerSizes</a>[sp];</div>
+<div class="line">                                </div>
+<div class="line">                                <span class="comment">//Check to see if back_motif was previously calculated.</span></div>
+<div class="line">                                <span class="comment">//If it was then get score and assign score.</span></div>
+<div class="line">                                </div>
+<div class="line">                                <span class="comment">//If not then calculate</span></div>
+<div class="line">                                <span class="keywordtype">size_t</span> back_pos(0);</div>
+<div class="line">                                <span class="keywordflow">for</span>(; back_pos &lt; back_size; back_pos++){</div>
+<div class="line">                                        back_score += <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ab89223c66725b3a0445ec3f6b6282566">backWeightMatrix</a>[back_pos]-&gt;getEmissionValue(seq, position+front_size+spacerSize+back_pos);</div>
+<div class="line">                                        sumScore = front_score+back_score;</div>
+<div class="line">                                        <span class="keywordflow">if</span> (front_score+back_score &lt;= *<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abeaf8cf7769bcaa171e3073e80b23cc9">currentThreshold</a>){</div>
+<div class="line">                                                <span class="keywordflow">break</span>;</div>
+<div class="line">                                        }</div>
+<div class="line">                                }</div>
+<div class="line">                                </div>
+<div class="line">                                <span class="comment">//TODO: Assign score to list</span></div>
+<div class="line">                                <span class="comment">//Assign score of backward</span></div>
+<div class="line">                                <span class="keywordflow">if</span> (back_pos == back_size){</div>
+<div class="line">                                        <span class="comment">//std::cout &lt;&lt; &quot;We&#39;ve made it through&quot; &lt;&lt; std::endl;</span></div>
+<div class="line">                                }</div>
+<div class="line">                                </div>
+<div class="line">                                <span class="keywordflow">if</span> (sumScore &gt;= *<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abeaf8cf7769bcaa171e3073e80b23cc9">currentThreshold</a>){</div>
+<div class="line">                                        std::cout &lt;&lt; position &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt;spacerSize &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; sumScore &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">                                }</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a398a7a8485ff08ef20f2d95b4c6dd96c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::PWM::scoreVariableSpacer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *&#160;</td>
+          <td class="paramname"><em>seqs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00525">525</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="sequence_8h_source.html#l00168">StochHMM::sequence::getHeader()</a>, <a class="el" href="sequences_8cpp_source.html#l00174">StochHMM::sequences::getSeq()</a>, and <a class="el" href="sequences_8h_source.html#l00129">StochHMM::sequences::size()</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00370">score()</a>.</p>
+<div class="fragment"><div class="line">                                                    {</div>
+<div class="line">                <span class="keywordtype">size_t</span> numberSeqs = seqs-&gt;size();</div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i &lt; numberSeqs ;i++){</div>
+<div class="line">                        sequence* sq = seqs-&gt;getSeq(i);</div>
+<div class="line">                        std::cout &lt;&lt; sq-&gt;getHeader() &lt;&lt; std::endl;</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a398a7a8485ff08ef20f2d95b4c6dd96c">scoreVariableSpacer</a>(sq);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a93898d598b53cb086615bf728af90fc2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::PWM::scoreVariableSpacer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> *&#160;</td>
+          <td class="paramname"><em>seq</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00535">535</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="pwm_8cpp_source.html#l00586">calculateBack()</a>, <a class="el" href="pwm_8h_source.html#l00097">currentThreshold</a>, <a class="el" href="pwm_8h_source.html#l00102">frontWeightMatrix</a>, <a class="el" href="sequence_8h_source.html#l00089">StochHMM::sequence::getLength()</a>, <a class="el" href="pwm_8h_source.html#l00113">max_spacer</a>, <a class="el" href="pwm_8cpp_source.html#l00370">score()</a>, <a class="el" href="pwm_8h_source.html#l00108">variableSpacerMatrix</a>, <a class="el" href="pwm_8h_source.html#l00109">variableTransition</a>, and <a class="el" href="pwm_8h_source.html#l00099">weightMatrix</a>.</p>
+<div class="fragment"><div class="line">                                                  {</div>
+<div class="line">                <span class="keywordtype">size_t</span> seq_size = seq-&gt;getLength();</div>
+<div class="line">                <span class="keywordtype">size_t</span> motif_size = <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>.size();</div>
+<div class="line">                <span class="keywordtype">size_t</span> front_size = <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a0ffcdd8eddb62f6187a97135a6f93755">frontWeightMatrix</a>.size();</div>
+<div class="line">                <span class="comment">//size_t back_size = backWeightMatrix.size();</span></div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (seq_size &lt; motif_size + <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a4f266d4e9b2bdb425deb2936b0912791">max_spacer</a>){</div>
+<div class="line">                        <span class="keywordflow">return</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">float</span> <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abe644c3391196a64fe32e2d9ca753759">score</a>(0);</div>
+<div class="line">                <span class="keywordtype">float</span> sumScore(0);</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> position = 0; position &lt; seq_size - (motif_size + <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a4f266d4e9b2bdb425deb2936b0912791">max_spacer</a>); position++){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abe644c3391196a64fe32e2d9ca753759">score</a> = 0;</div>
+<div class="line">                        sumScore = 0;</div>
+<div class="line">                        <span class="comment">//Calculate the Front motif score</span></div>
+<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> front_pos = 0; front_pos &lt; front_size; front_pos++){</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abe644c3391196a64fe32e2d9ca753759">score</a> += <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a0ffcdd8eddb62f6187a97135a6f93755">frontWeightMatrix</a>[front_pos]-&gt;getEmissionValue(seq,position+front_pos);</div>
+<div class="line">                                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abe644c3391196a64fe32e2d9ca753759">score</a> &lt;= *<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abeaf8cf7769bcaa171e3073e80b23cc9">currentThreshold</a>){</div>
+<div class="line">                                        <span class="keywordflow">break</span>;</div>
+<div class="line">                                }</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abe644c3391196a64fe32e2d9ca753759">score</a> &lt;= *<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abeaf8cf7769bcaa171e3073e80b23cc9">currentThreshold</a>){</div>
+<div class="line">                                <span class="keywordflow">continue</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="comment">//Calculate the back scores</span></div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> sp = 0; sp &lt; <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a495733b8c69fd24967b0999d1599535f">variableSpacerMatrix</a>.size(); sp++){</div>
+<div class="line">                                </div>
+<div class="line">                                <span class="comment">//Check to see if back_motif was previously calculated.</span></div>
+<div class="line">                                <span class="comment">//If it was then get score and assign score.</span></div>
+<div class="line">                                </div>
+<div class="line">                                <span class="comment">//If not then calculate</span></div>
+<div class="line">                                </div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abe644c3391196a64fe32e2d9ca753759">score</a>+=<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a495733b8c69fd24967b0999d1599535f">variableSpacerMatrix</a>[sp]-&gt;getEmissionValue(seq, position+front_size+sp);</div>
+<div class="line">                                </div>
+<div class="line">                                <span class="keywordflow">if</span> ((*<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a8cb600cfa0012fff21a20329879ca16f">variableTransition</a>)[sp]){</div>
+<div class="line">                                        sumScore = <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a5d77503203a654d323e66c15522fc212">calculateBack</a>(seq, position+front_size+sp+1, <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abe644c3391196a64fe32e2d9ca753759">score</a>);</div>
+<div class="line">                                        <span class="keywordflow">if</span> (sumScore &gt;= *<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abeaf8cf7769bcaa171e3073e80b23cc9">currentThreshold</a>){</div>
+<div class="line">                                                std::cout &lt;&lt; position &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; (sp+1) &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; sumScore &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">                                        }</div>
+<div class="line">                                }</div>
+<div class="line">                                </div>
+<div class="line">                                </div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ae3763eba21ede79da6082f7b637f467b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::PWM::setBackground </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a> *&#160;</td>
+          <td class="paramname"><em>bg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00067">67</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00115">bgWeight</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a9e14233cb6039bd0f1034373b67e9ce2">bgWeight</a> = bg;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="afea506d793c2b86c6fd8503c0c9acd09"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::PWM::setCurrentThreshold </td>
+          <td>(</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>thresh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00071">71</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00097">currentThreshold</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#abeaf8cf7769bcaa171e3073e80b23cc9">currentThreshold</a> = thresh;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ac2468961f3eaca304c58ca35203221a7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::PWM::setSimpleThreshold </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>thresh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00069">69</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00096">simpleThreshold</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ac8c49bb9fd863723e887cad868c05e96">simpleThreshold</a> = thresh;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ad2617f5ce32500e54d44e1da8e23a03c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::PWM::setTrack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td>
+          <td class="paramname"><em>tr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00068">68</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00090">trk</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a27094af48a6f5c69302015d02e17d1c9">trk</a> = tr;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aeb89d141a04e160db594bfaa73c3a606"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::PWM::stringify </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00308">308</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00111">backWeightName</a>, <a class="el" href="pwm_8h_source.html#l00115">bgWeight</a>, <a class="el" href="text_8cpp_source.html#l00585">StochHMM::double_to_string()</a>, <a class="el" href="pwm_8h_source.html#l00110">frontWeightName</a>, <a class="el" href="text_8cpp_source.html#l00519">StochHMM::join()</a>, <a class="el" href="pwm_8h_source.html#l00096">simpleThreshold</a>, <a class="el" href="emm_8cpp_source.html#l00795">StochHMM::emm::stringify()</a>, <a class="el" href="track_8cpp_source.html#l00360">StochHMM::track::stringify()</a>, <a class="el" href="pwm_8h_source.html#l00090">trk</a>, <a class="el" href="pwm_8h_source.html#l00095">undefinedSpacer</a>, <a class="el" href="pwm_8h_source.html#l00107">undefSpacerSizes</a>, and <a class="el" href="pwm_8h_source.html#l00099">weightMatrix</a>.</p>
+<div class="fragment"><div class="line">                                {</div>
+<div class="line">                std::string pwm;</div>
+<div class="line">                std::string split(<span class="stringliteral">&quot;#################################\n&quot;</span>);</div>
+<div class="line">                pwm += <span class="stringliteral">&quot;#POSITION WEIGHT MATRIX\n\n&quot;</span>;</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> ( <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ac8c49bb9fd863723e887cad868c05e96">simpleThreshold</a>!= -INFINITY){</div>
+<div class="line">                        pwm +=<span class="stringliteral">&quot;&lt;THRESHOLD DEFINITION&gt;\n&quot;</span>;</div>
+<div class="line">                        pwm += split;</div>
+<div class="line">                        pwm += <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#ac8c49bb9fd863723e887cad868c05e96">simpleThreshold</a>);</div>
+<div class="line">                        pwm += <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                pwm +=<span class="stringliteral">&quot;&lt;TRACK SYMBOL DEFINITIONS&gt;\n&quot;</span>;</div>
+<div class="line">                pwm += split;</div>
+<div class="line">                pwm += <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a27094af48a6f5c69302015d02e17d1c9">trk</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a4f3d856b99c7a2d12c31c620e16477bc">stringify</a>();</div>
+<div class="line">                pwm += <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a9e14233cb6039bd0f1034373b67e9ce2">bgWeight</a> != NULL){</div>
+<div class="line">                        pwm += <span class="stringliteral">&quot;&lt;BACKGROUND DEFINITION&gt;\n&quot;</span>;</div>
+<div class="line">                        pwm += split;</div>
+<div class="line">                        pwm += <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a9e14233cb6039bd0f1034373b67e9ce2">bgWeight</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1emm.html#a6498faaf6fe651e065d37042acf2f709">stringify</a>();</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a5072cea0c4bcc267c115f86a7761b595">undefinedSpacer</a>){</div>
+<div class="line">                        pwm += <span class="stringliteral">&quot;&lt;SPACER DEFINITIONS&gt;\n&quot;</span>;</div>
+<div class="line">                        pwm += split;</div>
+<div class="line">                        pwm += <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a23673cb4df5c069e2e14d76e8d277dea">frontWeightName</a> + <span class="stringliteral">&quot;-SPACER-&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a9f3a6fc5da57e56a7019cfbd661c215b">backWeightName</a> + <span class="stringliteral">&quot;:&quot;</span>;</div>
+<div class="line">                        pwm += <a class="code" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">join</a>(<a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a28c7c5d061e4a25975e0fd41753d64ee">undefSpacerSizes</a>, <span class="charliteral">&#39;,&#39;</span>);</div>
+<div class="line">                        pwm += <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                pwm +=<span class="stringliteral">&quot;&lt;POSITION WEIGHT DEFINITIONS&gt;\n&quot;</span>;</div>
+<div class="line">                pwm += split;</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i&lt; <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>.size(); i++){</div>
+<div class="line">                        pwm += <a class="code" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a>[i]-&gt;stringify();</div>
+<div class="line">                        pwm += split;</div>
+<div class="line">                }</div>
+<div class="line">                pwm += <span class="stringliteral">&quot;//END&quot;</span>;</div>
+<div class="line">                <span class="keywordflow">return</span> pwm;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="ad085f43a9b167fb50e13caa90391eda1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::bitset&lt;1024&gt;* StochHMM::PWM::backScored</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00105">105</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aad26ebd802b8f860330e9d7882b6168e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt;float&gt;* StochHMM::PWM::backScores</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00104">104</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab89223c66725b3a0445ec3f6b6282566"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_stoch_h_m_m_1_1matrix_position.html">matrixPosition</a>*&gt; StochHMM::PWM::backWeightMatrix</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00103">103</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00697">_finalizeTransitions()</a>, <a class="el" href="pwm_8cpp_source.html#l00612">_parseSpacer()</a>, <a class="el" href="pwm_8cpp_source.html#l00586">calculateBack()</a>, and <a class="el" href="pwm_8cpp_source.html#l00463">scoreUndefSpacer()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9f3a6fc5da57e56a7019cfbd661c215b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::PWM::backWeightName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00111">111</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00612">_parseSpacer()</a>, and <a class="el" href="pwm_8cpp_source.html#l00308">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9e14233cb6039bd0f1034373b67e9ce2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a>* StochHMM::PWM::bgWeight</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00115">115</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00678">_parseBackground()</a>, <a class="el" href="pwm_8cpp_source.html#l00032">PWM()</a>, <a class="el" href="pwm_8h_source.html#l00067">setBackground()</a>, and <a class="el" href="pwm_8cpp_source.html#l00308">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abeaf8cf7769bcaa171e3073e80b23cc9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* StochHMM::PWM::currentThreshold</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00097">97</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00586">calculateBack()</a>, <a class="el" href="pwm_8cpp_source.html#l00032">PWM()</a>, <a class="el" href="pwm_8cpp_source.html#l00417">scoreSimple()</a>, <a class="el" href="pwm_8cpp_source.html#l00463">scoreUndefSpacer()</a>, <a class="el" href="pwm_8cpp_source.html#l00535">scoreVariableSpacer()</a>, and <a class="el" href="pwm_8h_source.html#l00071">setCurrentThreshold()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0ffcdd8eddb62f6187a97135a6f93755"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_stoch_h_m_m_1_1matrix_position.html">matrixPosition</a>*&gt; StochHMM::PWM::frontWeightMatrix</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00102">102</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00697">_finalizeTransitions()</a>, <a class="el" href="pwm_8cpp_source.html#l00612">_parseSpacer()</a>, <a class="el" href="pwm_8cpp_source.html#l00463">scoreUndefSpacer()</a>, and <a class="el" href="pwm_8cpp_source.html#l00535">scoreVariableSpacer()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a23673cb4df5c069e2e14d76e8d277dea"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::PWM::frontWeightName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00110">110</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00612">_parseSpacer()</a>, and <a class="el" href="pwm_8cpp_source.html#l00308">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4f266d4e9b2bdb425deb2936b0912791"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::PWM::max_spacer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00113">113</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00612">_parseSpacer()</a>, <a class="el" href="pwm_8cpp_source.html#l00032">PWM()</a>, <a class="el" href="pwm_8cpp_source.html#l00463">scoreUndefSpacer()</a>, and <a class="el" href="pwm_8cpp_source.html#l00535">scoreVariableSpacer()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2b713c0d22ca1c7ba59b5a65bdc5ce17"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::PWM::min_spacer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00112">112</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00612">_parseSpacer()</a>, and <a class="el" href="pwm_8cpp_source.html#l00032">PWM()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae7209e498e2f7d99ee35af4aef2b741c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;std::string,size_t&gt; StochHMM::PWM::positionNames</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00100">100</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00697">_finalizeTransitions()</a>, <a class="el" href="pwm_8cpp_source.html#l00807">_parsePositions()</a>, and <a class="el" href="pwm_8cpp_source.html#l00612">_parseSpacer()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2a43b9c11dc54a5503599d457ea0b280"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::PWM::simple</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00093">93</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00697">_finalizeTransitions()</a>, <a class="el" href="pwm_8cpp_source.html#l00612">_parseSpacer()</a>, <a class="el" href="pwm_8cpp_source.html#l00032">PWM()</a>, and <a class="el" href="pwm_8cpp_source.html#l00370">score()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac8c49bb9fd863723e887cad868c05e96"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float StochHMM::PWM::simpleThreshold</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00096">96</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00673">_parseThreshold()</a>, <a class="el" href="pwm_8cpp_source.html#l00032">PWM()</a>, <a class="el" href="pwm_8cpp_source.html#l00417">scoreSimple()</a>, <a class="el" href="pwm_8h_source.html#l00069">setSimpleThreshold()</a>, and <a class="el" href="pwm_8cpp_source.html#l00308">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a27094af48a6f5c69302015d02e17d1c9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a>* StochHMM::PWM::trk</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00090">90</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00783">_parseAmbiguous()</a>, <a class="el" href="pwm_8cpp_source.html#l00678">_parseBackground()</a>, <a class="el" href="pwm_8cpp_source.html#l00807">_parsePositions()</a>, <a class="el" href="pwm_8cpp_source.html#l00760">_parseTrack()</a>, <a class="el" href="pwm_8h_source.html#l00072">getTrack()</a>, <a class="el" href="pwm_8h_source.html#l00068">setTrack()</a>, and <a class="el" href="pwm_8cpp_source.html#l00308">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5072cea0c4bcc267c115f86a7761b595"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::PWM::undefinedSpacer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00095">95</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00697">_finalizeTransitions()</a>, <a class="el" href="pwm_8cpp_source.html#l00612">_parseSpacer()</a>, <a class="el" href="pwm_8cpp_source.html#l00370">score()</a>, and <a class="el" href="pwm_8cpp_source.html#l00308">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a28c7c5d061e4a25975e0fd41753d64ee"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;size_t&gt; StochHMM::PWM::undefSpacerSizes</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00107">107</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00612">_parseSpacer()</a>, <a class="el" href="pwm_8cpp_source.html#l00463">scoreUndefSpacer()</a>, and <a class="el" href="pwm_8cpp_source.html#l00308">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab75c1736cdb748f5e5fef048702cc2b1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835">valueType</a> StochHMM::PWM::valType</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00091">91</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00032">PWM()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a839f6a99ff365d17d9ae3aec661f5138"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::PWM::variableSpacer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00094">94</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00697">_finalizeTransitions()</a>, <a class="el" href="pwm_8cpp_source.html#l00612">_parseSpacer()</a>, and <a class="el" href="pwm_8cpp_source.html#l00370">score()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a495733b8c69fd24967b0999d1599535f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_stoch_h_m_m_1_1matrix_position.html">matrixPosition</a>*&gt; StochHMM::PWM::variableSpacerMatrix</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00108">108</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00697">_finalizeTransitions()</a>, and <a class="el" href="pwm_8cpp_source.html#l00535">scoreVariableSpacer()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8cb600cfa0012fff21a20329879ca16f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::bitset&lt;1024&gt;* StochHMM::PWM::variableTransition</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00109">109</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00697">_finalizeTransitions()</a>, and <a class="el" href="pwm_8cpp_source.html#l00535">scoreVariableSpacer()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3ea5c34457c73676fa20b46b41bb01c0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_stoch_h_m_m_1_1matrix_position.html">matrixPosition</a>*&gt; StochHMM::PWM::weightMatrix</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00099">99</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00697">_finalizeTransitions()</a>, <a class="el" href="pwm_8cpp_source.html#l00807">_parsePositions()</a>, <a class="el" href="pwm_8cpp_source.html#l00612">_parseSpacer()</a>, <a class="el" href="pwm_8cpp_source.html#l00417">scoreSimple()</a>, <a class="el" href="pwm_8cpp_source.html#l00463">scoreUndefSpacer()</a>, <a class="el" href="pwm_8cpp_source.html#l00535">scoreVariableSpacer()</a>, and <a class="el" href="pwm_8cpp_source.html#l00308">stringify()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -384,11 +2195,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr
 <li><a class="el" href="pwm_8cpp_source.html">pwm.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">PWM</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:37 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

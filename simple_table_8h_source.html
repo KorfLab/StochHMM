@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -64,15 +70,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('simple_table_8h.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,7 +106,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">simpleTable.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<a href="simple_table_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  simpleNtable.h</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  StochHMM</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -99,7 +119,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;sequences.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sequences_8h.html">sequences.h</a>&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>StochHMM{</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        </div>
@@ -110,51 +130,51 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1simple_table.html">   22</a></span>&#160;        <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1simple_table.html">simpleTable</a></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        {</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                std::vector&lt;T&gt;* elements; <span class="comment">// Points to all the actual elements</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                <span class="keywordtype">size_t</span>  num_of_elements; <span class="comment">// Total number of array elements</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                <span class="keywordtype">size_t</span>  num_of_alphabets;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                <span class="keywordtype">size_t</span>  num_of_dimensions;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a063726b93ef23bdf9f38ac29e3060a10">   25</a></span>&#160;                std::vector&lt;T&gt;* <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a063726b93ef23bdf9f38ac29e3060a10">elements</a>; <span class="comment">// Points to all the actual elements</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1simple_table.html#aad4486cd183fb6d32709f71dcee0402e">   26</a></span>&#160;                <span class="keywordtype">size_t</span>  <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#aad4486cd183fb6d32709f71dcee0402e">num_of_elements</a>; <span class="comment">// Total number of array elements</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a09cc9513e3092a34316d201fa2c3226d">   27</a></span>&#160;                <span class="keywordtype">size_t</span>  <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a09cc9513e3092a34316d201fa2c3226d">num_of_alphabets</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a02808042d7f7d0c739329f3548fd141d">   28</a></span>&#160;                <span class="keywordtype">size_t</span>  <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a02808042d7f7d0c739329f3548fd141d">num_of_dimensions</a>;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                std::vector&lt;size_t&gt; order;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                std::vector&lt;size_t&gt; alpha;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a6c6b0453f169a92d59402418fb757945">   30</a></span>&#160;                std::vector&lt;size_t&gt; <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a6c6b0453f169a92d59402418fb757945">order</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a381f6b3df2d67f5008dd24a62dff6255">   31</a></span>&#160;                std::vector&lt;size_t&gt; <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a381f6b3df2d67f5008dd24a62dff6255">alpha</a>;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                std::vector&lt;std::pair&lt;size_t,size_t&gt;&gt; upstream;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a36a65c1259ee140b6452be83f44a2aa1">   33</a></span>&#160;                std::vector&lt;std::pair&lt;size_t,size_t&gt;&gt; <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a36a65c1259ee140b6452be83f44a2aa1">upstream</a>;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                std::vector&lt;size_t&gt;  dimensions; <span class="comment">// Sizes of the N dimensions</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                std::vector&lt;size_t&gt;  subarray_length; <span class="comment">// Dimensions of subarrays</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a9c951ec4d5940baf4bc3ad0853cc6caf">   35</a></span>&#160;                std::vector&lt;size_t&gt;  <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a9c951ec4d5940baf4bc3ad0853cc6caf">dimensions</a>; <span class="comment">// Sizes of the N dimensions</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1simple_table.html#ad123a009b5b353d56e11186fde0aab09">   36</a></span>&#160;                std::vector&lt;size_t&gt;  <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#ad123a009b5b353d56e11186fde0aab09">subarray_length</a>; <span class="comment">// Dimensions of subarrays</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1simple_table.html">simpleTable&lt;T&gt;</a>(std::vector&lt;size_t&gt;&amp; order, std::vector&lt;size_t&gt;&amp; alpha, std::vector&lt;size_t&gt; <a class="code" href="class_stoch_h_m_m_1_1tracks.html">tracks</a>, T init): elements(NULL), num_of_elements(1){</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                        num_of_alphabets = alpha.size();</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a10ae21fafc96fc67ccee8395947823c8">   39</a></span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1simple_table.html">simpleTable&lt;T&gt;</a>(std::vector&lt;size_t&gt;&amp; <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a6c6b0453f169a92d59402418fb757945">order</a>, std::vector&lt;size_t&gt;&amp; <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a381f6b3df2d67f5008dd24a62dff6255">alpha</a>, std::vector&lt;size_t&gt; <a class="code" href="class_stoch_h_m_m_1_1tracks.html">tracks</a>, T init): <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a063726b93ef23bdf9f38ac29e3060a10">elements</a>(NULL), <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#aad4486cd183fb6d32709f71dcee0402e">num_of_elements</a>(1){</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a09cc9513e3092a34316d201fa2c3226d">num_of_alphabets</a> = <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a381f6b3df2d67f5008dd24a62dff6255">alpha</a>.size();</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                        </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                        <span class="keywordflow">if</span> (num_of_alphabets != order.size()){</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a09cc9513e3092a34316d201fa2c3226d">num_of_alphabets</a> != <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a6c6b0453f169a92d59402418fb757945">order</a>.size()){</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                                std::cerr &lt;&lt; <span class="stringliteral">&quot;Differing number of orders and alphabets handed to SimpleArray&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                                exit(2);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                        }</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                        </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;num_of_alphabets;++i){</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                                num_of_elements*= pow(alpha[i],order[i]+1);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j=0;j&lt;=order[i];++j){</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                        dimensions.push_back(alpha[i]);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a09cc9513e3092a34316d201fa2c3226d">num_of_alphabets</a>;++i){</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#aad4486cd183fb6d32709f71dcee0402e">num_of_elements</a>*= pow(<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a381f6b3df2d67f5008dd24a62dff6255">alpha</a>[i],<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a6c6b0453f169a92d59402418fb757945">order</a>[i]+1);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j=0;j&lt;=<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a6c6b0453f169a92d59402418fb757945">order</a>[i];++j){</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                        <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a9c951ec4d5940baf4bc3ad0853cc6caf">dimensions</a>.push_back(<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a381f6b3df2d67f5008dd24a62dff6255">alpha</a>[i]);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                                        </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                                        std::pair&lt;size_t,size_t&gt; temp(<a class="code" href="class_stoch_h_m_m_1_1tracks.html">tracks</a>[i],order[i]-j);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                        upstream.push_back(temp);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                                        std::pair&lt;size_t,size_t&gt; temp(<a class="code" href="class_stoch_h_m_m_1_1tracks.html">tracks</a>[i],<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a6c6b0453f169a92d59402418fb757945">order</a>[i]-j);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                        <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a36a65c1259ee140b6452be83f44a2aa1">upstream</a>.push_back(temp);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                                }</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                        }</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                        </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                        num_of_dimensions = dimensions.size();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a02808042d7f7d0c739329f3548fd141d">num_of_dimensions</a> = <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a9c951ec4d5940baf4bc3ad0853cc6caf">dimensions</a>.size();</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                        </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i&lt;num_of_dimensions;++i){</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a02808042d7f7d0c739329f3548fd141d">num_of_dimensions</a>;++i){</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                                <span class="keywordtype">size_t</span> temp = 1;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j=i+1;j&lt;num_of_dimensions;++j){</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                                        temp*=dimensions[j];</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j=i+1;j&lt;<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a02808042d7f7d0c739329f3548fd141d">num_of_dimensions</a>;++j){</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                                        temp*=<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a9c951ec4d5940baf4bc3ad0853cc6caf">dimensions</a>[j];</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                                }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                                subarray_length.push_back(temp);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#ad123a009b5b353d56e11186fde0aab09">subarray_length</a>.push_back(temp);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                        }</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                        </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                        elements = <span class="keyword">new</span> (std::nothrow) std::vector&lt;T&gt;(num_of_elements, init);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a063726b93ef23bdf9f38ac29e3060a10">elements</a> = <span class="keyword">new</span> (std::nothrow) std::vector&lt;T&gt;(<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#aad4486cd183fb6d32709f71dcee0402e">num_of_elements</a>, init);</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                        </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                        <span class="keywordflow">if</span> (elements == NULL){</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a063726b93ef23bdf9f38ac29e3060a10">elements</a> == NULL){</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                std::cerr &lt;&lt; <span class="stringliteral">&quot;Unable to allocate SimpleArray&quot;</span> &lt;&lt;std::endl;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        }</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                        </div>
@@ -163,52 +183,52 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                };</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                </div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                ~<a class="code" href="class_stoch_h_m_m_1_1simple_table.html">simpleTable&lt;T&gt;</a>() { <span class="keyword">delete</span> elements; }</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a6ebf47025244d96b07fb1ba7fcdd3c44">   78</a></span>&#160;                ~<a class="code" href="class_stoch_h_m_m_1_1simple_table.html">simpleTable&lt;T&gt;</a>() { <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a063726b93ef23bdf9f38ac29e3060a10">elements</a>; }</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                T <span class="keyword">get</span>(<a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>&amp; seqs, <span class="keywordtype">size_t</span> position){</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a3c44eea9fca36a59a049f363632050a2">   81</a></span>&#160;                T <span class="keyword">get</span>(<a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>&amp; seqs, <span class="keywordtype">size_t</span> position){</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                        <span class="keywordtype">size_t</span> index(0);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i &lt; num_of_dimensions; i++){</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                index += seqs[upstream[i].first][position-upstream[i].second] * subarray_length[i];</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a02808042d7f7d0c739329f3548fd141d">num_of_dimensions</a>; i++){</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                index += seqs[<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a36a65c1259ee140b6452be83f44a2aa1">upstream</a>[i].first][position-<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a36a65c1259ee140b6452be83f44a2aa1">upstream</a>[i].second] * <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#ad123a009b5b353d56e11186fde0aab09">subarray_length</a>[i];</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                        }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                        <span class="keywordflow">return</span> (*elements)[index];</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                        <span class="keywordflow">return</span> (*<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a063726b93ef23bdf9f38ac29e3060a10">elements</a>)[index];</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                }</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <span class="keyword">const</span> T <span class="keyword">get</span>(<a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>&amp; seqs, <span class="keywordtype">size_t</span> position) <span class="keyword">const</span>{</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a08a1cbd46cc0bcc90e0032a970026766">   90</a></span>&#160;                <span class="keyword">const</span> T <span class="keyword">get</span>(<a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>&amp; seqs, <span class="keywordtype">size_t</span> position) <span class="keyword">const</span>{</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                        <span class="keywordtype">size_t</span> index(0);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i &lt; num_of_dimensions; i++){</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                                index += seqs[upstream[i].first][position-upstream[i].second] * dimensions[i];</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a02808042d7f7d0c739329f3548fd141d">num_of_dimensions</a>; i++){</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                                index += seqs[<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a36a65c1259ee140b6452be83f44a2aa1">upstream</a>[i].first][position-<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a36a65c1259ee140b6452be83f44a2aa1">upstream</a>[i].second] * <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a9c951ec4d5940baf4bc3ad0853cc6caf">dimensions</a>[i];</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                        }</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                        </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                        <span class="keywordflow">return</span> elements[index];</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a063726b93ef23bdf9f38ac29e3060a10">elements</a>[index];</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                }</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="keywordtype">void</span> assign(T&amp; value, <span class="keywordtype">size_t</span> index){</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                        <span class="keywordflow">if</span> (index &gt; num_of_elements){</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a4e59f2cd1b9447377e34332a5a14f660">   99</a></span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a4e59f2cd1b9447377e34332a5a14f660">assign</a>(T&amp; value, <span class="keywordtype">size_t</span> index){</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                        <span class="keywordflow">if</span> (index &gt; <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#aad4486cd183fb6d32709f71dcee0402e">num_of_elements</a>){</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                                std::cerr &lt;&lt; <span class="stringliteral">&quot;Adding element beyond range of array&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                        }</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                        (*elements)[index] = value;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                };</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <span class="keywordtype">void</span> assign(T&amp; value, std::vector&lt;uint8_t&gt;&amp; seq){</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a76ee21bf46dbf087d75525f0b0213ecf">  106</a></span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a76ee21bf46dbf087d75525f0b0213ecf">assign</a>(T&amp; value, std::vector&lt;uint8_t&gt;&amp; seq){</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                        <span class="keywordtype">size_t</span> index(0);</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                        </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i &lt; num_of_dimensions; i++){</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                                index += seq[i] * dimensions[i];</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a02808042d7f7d0c739329f3548fd141d">num_of_dimensions</a>; i++){</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                                index += seq[i] * <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a9c951ec4d5940baf4bc3ad0853cc6caf">dimensions</a>[i];</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                        }</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                        </div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                        (*elements)[index]=value;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                }</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                <span class="keywordtype">size_t</span> size()<span class="keyword">       const </span>{ <span class="keywordflow">return</span> num_of_elements; }</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keywordtype">bool</span> empty()<span class="keyword">           const </span>{ <span class="keywordflow">return</span> num_of_elements==0; }</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1simple_table.html#ac6d88b41a79b376cfce4be2a4c807d50">  116</a></span>&#160;                <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#ac6d88b41a79b376cfce4be2a4c807d50">size</a>()<span class="keyword">       const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#aad4486cd183fb6d32709f71dcee0402e">num_of_elements</a>; }</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1simple_table.html#ad3444f3e0aeee33462b316d442f5d74f">  117</a></span>&#160;                <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#ad3444f3e0aeee33462b316d442f5d74f">empty</a>()<span class="keyword">           const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#aad4486cd183fb6d32709f71dcee0402e">num_of_elements</a>==0; }</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                </div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                <span class="comment">// Return the size of each dimension</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                <span class="keywordtype">size_t</span> size(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Dim)<span class="keyword"> const</span>{ <span class="keywordflow">return</span> dimensions[Dim-1];}</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a413f27e76abaeb6da56b93d1353bab95">  120</a></span>&#160;                <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a413f27e76abaeb6da56b93d1353bab95">size</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Dim)<span class="keyword"> const</span>{ <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a9c951ec4d5940baf4bc3ad0853cc6caf">dimensions</a>[Dim-1];}</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                </div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                <span class="comment">// Delete all array elements</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                <span class="keywordtype">void</span> clear();</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a6434c85679eb2550b1aa2cbb058e3dcd">clear</a>();</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        };</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        </div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        </div>
@@ -221,11 +241,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:49 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="simple_table_8h.html">simpleTable.h</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:34 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -64,15 +70,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('baum__welch_8cpp.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,7 +106,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">baum_welch.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<a href="baum__welch_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  baum_welch.cpp</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  StochHMM</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -94,30 +114,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//  Copyright (c) 2013 Korf Lab, Genome Center, UC Davis, Davis, CA. All rights reserved.</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;trellis.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="trellis_8h.html">trellis.h</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>StochHMM {</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="comment">//TODO:  Need to implement functions to allow Baum-Welch to update the model.</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordtype">void</span> trellis::naive_baum_welch(model* h, sequences* sqs){</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1trellis.html#afdda83fef8fbb7d5945da99cc110e9cb">   16</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a60a3cc088e10dbe28d15a65ffad1e902">trellis::naive_baum_welch</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>* h, <a class="code" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>* sqs){</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        }</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">void</span> trellis::naive_baum_welch(){</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                <span class="keywordflow">if</span> (dbl_forward_score == NULL){</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                        naive_forward();</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1trellis.html#a60a3cc088e10dbe28d15a65ffad1e902">   21</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a60a3cc088e10dbe28d15a65ffad1e902">trellis::naive_baum_welch</a>(){</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac4f116d50fe5be19bb15da0b34ceeb2b">dbl_forward_score</a> == NULL){</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a50288248ab12080e848a54d82f0e0930">naive_forward</a>();</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                }</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                <span class="keywordflow">if</span> (dbl_backward_score == NULL){</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2bfed3e0778a9cfc43475c5654fd0919">dbl_backward_score</a> == NULL){</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a52afd244547529eb5294c5c5176f3b4a">naive_backward</a>();</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                }</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                dbl_baum_welch_score = <span class="keyword">new</span> (std::nothrow) double_3D(seq_size, std::vector&lt;std::vector&lt;double&gt; &gt;(state_size, std::vector&lt;double&gt;(state_size, -INFINITY)));</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ad46dc26bd886a0b665eeb658a0a7792d">dbl_baum_welch_score</a> = <span class="keyword">new</span> (std::nothrow) <a class="code" href="namespace_stoch_h_m_m.html#a9b07fea530554f6040446f1fc5d753f1">double_3D</a>(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a76f60f7d5629f7d86e1f1b32e269bf14">seq_size</a>, std::vector&lt;std::vector&lt;double&gt; &gt;(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>, std::vector&lt;double&gt;(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>, -INFINITY)));</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <span class="keywordflow">if</span> (dbl_baum_welch_score == NULL){</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ad46dc26bd886a0b665eeb658a0a7792d">dbl_baum_welch_score</a> == NULL){</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Can&#39;t allocate memory. OUT OF MEMORY\t&quot;</span> &lt;&lt; __FUNCTION__ &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                        exit(2);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                }</div>
@@ -125,16 +145,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                <span class="keywordtype">double</span> sum(-INFINITY);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> position = 0; position &lt; seq_size-1; position++){ <span class="comment">// Time(t)</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> position = 0; position &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a76f60f7d5629f7d86e1f1b32e269bf14">seq_size</a>-1; position++){ <span class="comment">// Time(t)</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                        sum = (-INFINITY);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> previous = 0; previous &lt; state_size ; previous++){ <span class="comment">// state(i)</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> current = 0; current &lt; state_size; current++){ <span class="comment">// state(j)</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                                        (*dbl_baum_welch_score)[position][previous][current] = (*dbl_forward_score)[position][previous] + getTransition(hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(previous), current, position) + (*hmm)[current]-&gt;get_emission_prob(*seqs, position+1) + (*dbl_backward_score)[position+1][current];</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                                        sum = <a class="code" href="namespace_stoch_h_m_m.html#a067454235ed85f89e1c09dc1f26c71e6">addLog</a>((*dbl_baum_welch_score)[position][previous][current], sum);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> previous = 0; previous &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a> ; previous++){ <span class="comment">// state(i)</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> current = 0; current &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>; current++){ <span class="comment">// state(j)</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                                        (*dbl_baum_welch_score)[position][previous][current] = (*dbl_forward_score)[position][previous] + <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ae050e943aad7b0d6e3649b03619a65">getTransition</a>(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(previous), current, position) + (*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>)[current]-&gt;get_emission_prob(*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a1d21bebb2a29871e7be2b8eea29d69a6">seqs</a>, position+1) + (*dbl_backward_score)[position+1][current];</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                                        sum = <a class="code" href="namespace_stoch_h_m_m.html#a067454235ed85f89e1c09dc1f26c71e6">addLog</a>((*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ad46dc26bd886a0b665eeb658a0a7792d">dbl_baum_welch_score</a>)[position][previous][current], sum);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                }</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                        }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> previous = 0; previous &lt; state_size ; previous++){ <span class="comment">// state(i)</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> current = 0; current &lt; state_size; current++){ <span class="comment">// state(j)</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> previous = 0; previous &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a> ; previous++){ <span class="comment">// state(i)</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> current = 0; current &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>; current++){ <span class="comment">// state(j)</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                        (*dbl_baum_welch_score)[position][previous][current] -= sum;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                                }</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                        }</div>
@@ -144,37 +164,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        </div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">void</span> trellis::update_transitions(){</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2d79891d87ff38791b49a870ddc11ecb">   59</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2d79891d87ff38791b49a870ddc11ecb">trellis::update_transitions</a>(){</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;Transitions to Start:\n&quot;</span>;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keywordtype">double</span> updated(-INFINITY);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> st = 0 ; st &lt; state_size ; st++){</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                        updated = ((*dbl_backward_score)[0][st] + (*dbl_forward_score)[0][st])-ending_forward_prob;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                        std::cout &lt;&lt; hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a49961513e4a420488f714e969e3d93">getStateName</a>(st) &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; exp(updated) &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> st = 0 ; st &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a> ; st++){</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                        updated = ((*dbl_backward_score)[0][st] + (*dbl_forward_score)[0][st])-<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a1f827eff14644143e403ccd5b8fd3cac">ending_forward_prob</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                        std::cout &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a49961513e4a420488f714e969e3d93">getStateName</a>(st) &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; exp(updated) &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                }</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                float_2D numerator(state_size, std::vector&lt;float&gt;(state_size,-INFINITY));</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                float_2D denominator(state_size, std::vector&lt;float&gt;(state_size,-INFINITY));</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <a class="code" href="namespace_stoch_h_m_m.html#a7c8e61c6e37516455e45551bdd961afa">float_2D</a> numerator(state_size, std::vector&lt;float&gt;(state_size,-INFINITY));</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <a class="code" href="namespace_stoch_h_m_m.html#a7c8e61c6e37516455e45551bdd961afa">float_2D</a> denominator(state_size, std::vector&lt;float&gt;(state_size,-INFINITY));</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> position = 0; position &lt; seq_size-1; position++){</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; state_size; i++){</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; state_size; j++){</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                                        numerator[i][j]= <a class="code" href="namespace_stoch_h_m_m.html#a067454235ed85f89e1c09dc1f26c71e6">addLog</a>((<span class="keywordtype">double</span>)numerator[i][j], (*dbl_baum_welch_score)[position][i][j]);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                                        denominator[i][j] = <a class="code" href="namespace_stoch_h_m_m.html#a067454235ed85f89e1c09dc1f26c71e6">addLog</a>((<span class="keywordtype">double</span>)denominator[i][j], ((*dbl_forward_score)[position][i] + (*dbl_backward_score)[position][i])-ending_forward_prob);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> position = 0; position &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a76f60f7d5629f7d86e1f1b32e269bf14">seq_size</a>-1; position++){</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>; i++){</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>; j++){</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                                        numerator[i][j]= <a class="code" href="namespace_stoch_h_m_m.html#a067454235ed85f89e1c09dc1f26c71e6">addLog</a>((<span class="keywordtype">double</span>)numerator[i][j], (*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ad46dc26bd886a0b665eeb658a0a7792d">dbl_baum_welch_score</a>)[position][i][j]);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                                        denominator[i][j] = <a class="code" href="namespace_stoch_h_m_m.html#a067454235ed85f89e1c09dc1f26c71e6">addLog</a>((<span class="keywordtype">double</span>)denominator[i][j], ((*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac4f116d50fe5be19bb15da0b34ceeb2b">dbl_forward_score</a>)[position][i] + (*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2bfed3e0778a9cfc43475c5654fd0919">dbl_backward_score</a>)[position][i])-<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a1f827eff14644143e403ccd5b8fd3cac">ending_forward_prob</a>);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                }</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                        }</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                }</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; state_size; i++){</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                        std::cout &lt;&lt; hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a49961513e4a420488f714e969e3d93">getStateName</a>(i) &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; state_size; j++){</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>; i++){</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                        std::cout &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a49961513e4a420488f714e969e3d93">getStateName</a>(i) &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>; j++){</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                                std::cout &lt;&lt; exp((numerator[i][j]-denominator[i][j])) &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span>;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                        }</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                        std::cout &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                }</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordtype">void</span> trellis::update_emissions(){</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2a2a0eeb01758549106f8b9dec187856">   89</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2a2a0eeb01758549106f8b9dec187856">trellis::update_emissions</a>(){</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                </div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
@@ -182,11 +202,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        </div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:49 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="baum__welch_8cpp.html">baum_welch.cpp</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:33 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

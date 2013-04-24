@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -64,15 +70,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('bitwise__ops_8h.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,7 +106,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">bitwise_ops.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<a href="bitwise__ops_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  bitwise_ops.h</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  DynamicBitset</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -104,36 +124,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>StochHMM {</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#ifndef CHAR_BIT</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CHAR_BIT 8</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="bitwise__ops_8h.html#a308d9dd2c0028ddb184b455bbd7865de">   19</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CHAR_BIT 8</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span>        </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#ifndef SIZE_MAX</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SIZE_MAX ((size_t)-1)</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">   24</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SIZE_MAX ((size_t)-1)</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span>        </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        std::string intToBinString(uint32_t val);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">size_t</span> msb(uint32_t val);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">size_t</span> lowestBitSet(uint32_t x);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        std::string <a class="code" href="namespace_stoch_h_m_m.html#aa71b41bc4488e40b58a55b4db78a6b15">intToBinString</a>(uint32_t val);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">size_t</span> <a class="code" href="namespace_stoch_h_m_m.html#a905eb84979bf6059ec8e8d27c1f9fe86">msb</a>(uint32_t val);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">size_t</span> <a class="code" href="namespace_stoch_h_m_m.html#aaabd27b956975ba40f3342a7b2dc45ed">lowestBitSet</a>(uint32_t x);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        int8_t <a class="code" href="namespace_stoch_h_m_m.html#affbd8ea98c86e27abf220b82e13d1eb3">popCount</a>(uint32_t val);</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        uint32_t <a class="code" href="namespace_stoch_h_m_m.html#ae876fe30c767c46c89689e6a37c69231">maskLeft</a>(uint32_t val,uint8_t pos);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        uint32_t <a class="code" href="namespace_stoch_h_m_m.html#ac734d15427c0cc11a67fcba5f2bedd78">maskRight</a>(uint32_t val, uint8_t pos);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        uint32_t rol(uint32_t&amp; val, uint8_t shift_register);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        uint32_t ror(uint32_t&amp; val, uint8_t shift_register);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        uint32_t <a class="code" href="namespace_stoch_h_m_m.html#a29602b722a1f64c726893d6d88ce1399">rol</a>(uint32_t&amp; val, uint8_t shift_register);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        uint32_t <a class="code" href="namespace_stoch_h_m_m.html#ae7e43a03a80cae2702cecfa5458aa7ff">ror</a>(uint32_t&amp; val, uint8_t shift_register);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">        //!Rotate Left with carry over</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"></span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a04d1ff7cc4d9ff303b97777ba242051f">   40</a></span>&#160;        T rol(T val, uint8_t shift_register) {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="keywordflow">return</span> (val &lt;&lt; shift_register) | (val &gt;&gt; ((<span class="keyword">sizeof</span>(T)*CHAR_BIT) - shift_register));</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a04d1ff7cc4d9ff303b97777ba242051f">   40</a></span>&#160;        T <a class="code" href="namespace_stoch_h_m_m.html#a29602b722a1f64c726893d6d88ce1399">rol</a>(T val, uint8_t shift_register) {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="keywordflow">return</span> (val &lt;&lt; shift_register) | (val &gt;&gt; ((<span class="keyword">sizeof</span>(T)*<a class="code" href="bitwise__ops_8h.html#a308d9dd2c0028ddb184b455bbd7865de">CHAR_BIT</a>) - shift_register));</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        };</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">        //!Rotate Right with carry over</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"></span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a772376e20bf4c02e53a4ab240fdb7a59">   47</a></span>&#160;        T ror(T val, uint8_t shift_register) {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">return</span> (val &gt;&gt; shift_register) | (val &lt;&lt; ((<span class="keyword">sizeof</span>(T)*CHAR_BIT) - shift_register));</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a772376e20bf4c02e53a4ab240fdb7a59">   47</a></span>&#160;        T <a class="code" href="namespace_stoch_h_m_m.html#ae7e43a03a80cae2702cecfa5458aa7ff">ror</a>(T val, uint8_t shift_register) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <span class="keywordflow">return</span> (val &gt;&gt; shift_register) | (val &lt;&lt; ((<span class="keyword">sizeof</span>(T)*<a class="code" href="bitwise__ops_8h.html#a308d9dd2c0028ddb184b455bbd7865de">CHAR_BIT</a>) - shift_register));</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">        //!Left Shift with shift off</span></div>
@@ -142,7 +162,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"></span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a3d706179e011758bfe2afc7310e2f0a6">   55</a></span>&#160;        T <a class="code" href="namespace_stoch_h_m_m.html#a3d706179e011758bfe2afc7310e2f0a6">lso</a>(T&amp; val, uint8_t n) {</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                T temp(val);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keywordflow">if</span> (n&gt;=(<span class="keyword">sizeof</span>(T)*CHAR_BIT)){</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keywordflow">if</span> (n&gt;=(<span class="keyword">sizeof</span>(T)*<a class="code" href="bitwise__ops_8h.html#a308d9dd2c0028ddb184b455bbd7865de">CHAR_BIT</a>)){</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                        val = 0;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">else</span>{</div>
@@ -158,7 +178,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"></span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a64a3859adfc5289c932a23213007949c">   71</a></span>&#160;        T <a class="code" href="namespace_stoch_h_m_m.html#a64a3859adfc5289c932a23213007949c">rso</a>(T&amp; val, uint8_t n) {</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                T temp(val);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">if</span> (n&gt;=(<span class="keyword">sizeof</span>(T)*CHAR_BIT)){</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">if</span> (n&gt;=(<span class="keyword">sizeof</span>(T)*<a class="code" href="bitwise__ops_8h.html#a308d9dd2c0028ddb184b455bbd7865de">CHAR_BIT</a>)){</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                        val = 0;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                }</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keywordflow">else</span>{</div>
@@ -179,7 +199,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00091"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a25491fc7bbfd5ddc6a4ee13c750e114d">   91</a></span>&#160;        T <a class="code" href="namespace_stoch_h_m_m.html#a25491fc7bbfd5ddc6a4ee13c750e114d">lsoso</a>(T&amp; val, T&amp; old_val, uint8_t n) {</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                T temp(val);</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                val = (val &lt;&lt; n) | old_val;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <span class="keywordflow">return</span> temp &gt;&gt; ((<span class="keyword">sizeof</span>(T)*CHAR_BIT) - n);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <span class="keywordflow">return</span> temp &gt;&gt; ((<span class="keyword">sizeof</span>(T)*<a class="code" href="bitwise__ops_8h.html#a308d9dd2c0028ddb184b455bbd7865de">CHAR_BIT</a>) - n);</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        };</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">        //!Right Shift with shift off</span></div>
@@ -191,18 +211,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00103"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a7ce6d88d473556bd0ccc5bdf9d617394">  103</a></span>&#160;        T <a class="code" href="namespace_stoch_h_m_m.html#a7ce6d88d473556bd0ccc5bdf9d617394">rsoso</a>(T&amp; val, T&amp; old_val, uint8_t n) {</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                T temp(val);</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                val = (val&gt;&gt;n) | old_val;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <span class="keywordflow">return</span> temp &lt;&lt; ((<span class="keyword">sizeof</span>(T)*CHAR_BIT) - n);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <span class="keywordflow">return</span> temp &lt;&lt; ((<span class="keyword">sizeof</span>(T)*<a class="code" href="bitwise__ops_8h.html#a308d9dd2c0028ddb184b455bbd7865de">CHAR_BIT</a>) - n);</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* defined(__DynamicBitset__bitwise_ops__) */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:49 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="bitwise__ops_8h.html">bitwise_ops.h</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:33 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

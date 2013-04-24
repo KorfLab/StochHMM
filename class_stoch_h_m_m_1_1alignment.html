@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1alignment.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,79 +103,1386 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1alignment.html">alignment</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::alignment Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p><code>#include &lt;<a class="el" href="alignment_8h_source.html">alignment.h</a>&gt;</code></p>
+
 <p><a href="class_stoch_h_m_m_1_1alignment-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5faafdee4051b16bbb84510099cf8e54"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5faafdee4051b16bbb84510099cf8e54"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>align</b> (alignment_type typ)</td></tr>
-<tr class="memitem:a6a2ec6ed3bb9093a4b495dc0b6e9a095"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a2ec6ed3bb9093a4b495dc0b6e9a095"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>align</b> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;target, <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;query, alignment_type typ)</td></tr>
-<tr class="memitem:a3752092b840c98a91dda74b7551faea5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3752092b840c98a91dda74b7551faea5"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>align</b> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;target, <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;query, alignment_type typ, double match, double mismatch, double gap, double gapext)</td></tr>
-<tr class="memitem:ac287412f4ece8e534629c4070aad80bc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac287412f4ece8e534629c4070aad80bc"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>align</b> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;target, <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;query, alignment_type typ, const mmMatrix &amp;, double gap, double gapext)</td></tr>
-<tr class="memitem:a37f0a67f2165ae98d1ddd195945592f5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37f0a67f2165ae98d1ddd195945592f5"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>calcLambda</b> (std::vector&lt; double &gt; &amp;)</td></tr>
-<tr class="memitem:a691422071456d6769320bb7a01a389ec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a691422071456d6769320bb7a01a389ec"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>estimateLambda</b> ()</td></tr>
-<tr class="memitem:ad4d542a6656f40a60171fc688cacac64"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad4d542a6656f40a60171fc688cacac64"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>calc_pvalue</b> ()</td></tr>
-<tr class="memitem:af2f0cc71c8edc4284a9a4ea4a0da236f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af2f0cc71c8edc4284a9a4ea4a0da236f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMatrix</b> (mmMatrix &amp;)</td></tr>
-<tr class="memitem:adfc365d2da6223cd626e6ab5811b0d67"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adfc365d2da6223cd626e6ab5811b0d67"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMatch</b> (double)</td></tr>
-<tr class="memitem:a55b1312a0d3a0ddee71e086649b991e3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a55b1312a0d3a0ddee71e086649b991e3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMismatch</b> (double)</td></tr>
-<tr class="memitem:abcc4db57639b6bb610ed57cb2f942970"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abcc4db57639b6bb610ed57cb2f942970"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setGap</b> (double value)</td></tr>
-<tr class="memitem:ab08215f57a8bbd46b0d848fcde950191"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab08215f57a8bbd46b0d848fcde950191"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setGapExt</b> (double value)</td></tr>
-<tr class="memitem:ad552f0117eb7637f8a3761ad923c45e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad552f0117eb7637f8a3761ad923c45e9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setTarget</b> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;)</td></tr>
-<tr class="memitem:a8c3800fa7795eefab6b73472c58f1079"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c3800fa7795eefab6b73472c58f1079"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setQuery</b> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;)</td></tr>
-<tr class="memitem:af85247cd410b2dd06595daeb76eff8af"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af85247cd410b2dd06595daeb76eff8af"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getHighScore</b> ()</td></tr>
-<tr class="memitem:a33a1800fea7ca4ef46492f176eb09775"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33a1800fea7ca4ef46492f176eb09775"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>getAlignmentSize</b> ()</td></tr>
-<tr class="memitem:a08a134ce0dae639f3f9d34aa1eb54116"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a08a134ce0dae639f3f9d34aa1eb54116"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getAlignment</b> ()</td></tr>
-<tr class="memitem:ad159b68bbc45104fc3556a2d7e703567"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad159b68bbc45104fc3556a2d7e703567"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>printAlignment</b> ()</td></tr>
-<tr class="memitem:afc095b9a457f5f55811e403dfff66e2a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afc095b9a457f5f55811e403dfff66e2a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>printTrellis</b> ()</td></tr>
-<tr class="memitem:ab2414a7ad7751c0fd193819fae171df7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab2414a7ad7751c0fd193819fae171df7"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>traceback</b> ()</td></tr>
-<tr class="memitem:ad0892e53f72e887dc0c305ae256f3c0a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0892e53f72e887dc0c305ae256f3c0a"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>stochasticTraceback</b> ()</td></tr>
+<tr class="memitem:a685fc376253736b16dd8cfc59d148254"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#a685fc376253736b16dd8cfc59d148254">alignment</a> ()</td></tr>
+<tr class="memitem:a5faafdee4051b16bbb84510099cf8e54"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#a5faafdee4051b16bbb84510099cf8e54">align</a> (<a class="el" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077">alignment_type</a> typ)</td></tr>
+<tr class="memitem:a6a2ec6ed3bb9093a4b495dc0b6e9a095"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#a6a2ec6ed3bb9093a4b495dc0b6e9a095">align</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;<a class="el" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>, <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;<a class="el" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>, <a class="el" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077">alignment_type</a> typ)</td></tr>
+<tr class="memitem:a3752092b840c98a91dda74b7551faea5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#a3752092b840c98a91dda74b7551faea5">align</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;<a class="el" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>, <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;<a class="el" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>, <a class="el" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077">alignment_type</a> typ, double match, double mismatch, double <a class="el" href="class_stoch_h_m_m_1_1alignment.html#aaf150d0ee4f5950452c0eed9c2b4aa60">gap</a>, double gapext)</td></tr>
+<tr class="memitem:ac287412f4ece8e534629c4070aad80bc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#ac287412f4ece8e534629c4070aad80bc">align</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;<a class="el" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>, <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;<a class="el" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>, <a class="el" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077">alignment_type</a> typ, const <a class="el" href="namespace_stoch_h_m_m.html#aa2b3dd2b727765cfd6d43997a64eba32">mmMatrix</a> &amp;, double <a class="el" href="class_stoch_h_m_m_1_1alignment.html#aaf150d0ee4f5950452c0eed9c2b4aa60">gap</a>, double gapext)</td></tr>
+<tr class="memitem:a37f0a67f2165ae98d1ddd195945592f5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#a37f0a67f2165ae98d1ddd195945592f5">calcLambda</a> (std::vector&lt; double &gt; &amp;)</td></tr>
+<tr class="memitem:a691422071456d6769320bb7a01a389ec"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#a691422071456d6769320bb7a01a389ec">estimateLambda</a> ()</td></tr>
+<tr class="memitem:ad4d542a6656f40a60171fc688cacac64"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#ad4d542a6656f40a60171fc688cacac64">calc_pvalue</a> ()</td></tr>
+<tr class="memitem:af2f0cc71c8edc4284a9a4ea4a0da236f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#af2f0cc71c8edc4284a9a4ea4a0da236f">setMatrix</a> (<a class="el" href="namespace_stoch_h_m_m.html#aa2b3dd2b727765cfd6d43997a64eba32">mmMatrix</a> &amp;)</td></tr>
+<tr class="memitem:adfc365d2da6223cd626e6ab5811b0d67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#adfc365d2da6223cd626e6ab5811b0d67">setMatch</a> (double)</td></tr>
+<tr class="memitem:a55b1312a0d3a0ddee71e086649b991e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#a55b1312a0d3a0ddee71e086649b991e3">setMismatch</a> (double)</td></tr>
+<tr class="memitem:abcc4db57639b6bb610ed57cb2f942970"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#abcc4db57639b6bb610ed57cb2f942970">setGap</a> (double value)</td></tr>
+<tr class="memitem:ab08215f57a8bbd46b0d848fcde950191"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#ab08215f57a8bbd46b0d848fcde950191">setGapExt</a> (double value)</td></tr>
+<tr class="memitem:ad552f0117eb7637f8a3761ad923c45e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#ad552f0117eb7637f8a3761ad923c45e9">setTarget</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;)</td></tr>
+<tr class="memitem:a8c3800fa7795eefab6b73472c58f1079"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#a8c3800fa7795eefab6b73472c58f1079">setQuery</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;)</td></tr>
+<tr class="memitem:af85247cd410b2dd06595daeb76eff8af"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#af85247cd410b2dd06595daeb76eff8af">getHighScore</a> ()</td></tr>
+<tr class="memitem:a33a1800fea7ca4ef46492f176eb09775"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#a33a1800fea7ca4ef46492f176eb09775">getAlignmentSize</a> ()</td></tr>
+<tr class="memitem:a08a134ce0dae639f3f9d34aa1eb54116"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#a08a134ce0dae639f3f9d34aa1eb54116">getAlignment</a> ()</td></tr>
+<tr class="memitem:ad159b68bbc45104fc3556a2d7e703567"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#ad159b68bbc45104fc3556a2d7e703567">printAlignment</a> ()</td></tr>
+<tr class="memitem:afc095b9a457f5f55811e403dfff66e2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#afc095b9a457f5f55811e403dfff66e2a">printTrellis</a> ()</td></tr>
+<tr class="memitem:ab2414a7ad7751c0fd193819fae171df7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#ab2414a7ad7751c0fd193819fae171df7">traceback</a> ()</td></tr>
+<tr class="memitem:ad0892e53f72e887dc0c305ae256f3c0a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#ad0892e53f72e887dc0c305ae256f3c0a">stochasticTraceback</a> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a2d5a76181b8f1e1d5233f3b8f5f00d6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#a2d5a76181b8f1e1d5233f3b8f5f00d6d">_reset</a> ()</td></tr>
+<tr class="memitem:aae068ed3899f35fe79bbe8202fed4524"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#aae068ed3899f35fe79bbe8202fed4524">_resetSeqs</a> ()</td></tr>
+<tr class="memitem:aed0c99f74b5e6438c774417aeb0ee6f1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#aed0c99f74b5e6438c774417aeb0ee6f1">_getGapScore</a> (size_t, size_t, <a class="el" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fb">tracebackDirection</a>)</td></tr>
+<tr class="memitem:aba5ce8d05e097282cb085253341dcd29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#aba5ce8d05e097282cb085253341dcd29">_initTrellis</a> (size_t, size_t)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ada9ae4105993852469853cb45d5d1b02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a></td></tr>
+<tr class="memitem:a4afa64f253b0e73a66b55e4482719b03"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a></td></tr>
+<tr class="memitem:a3310664991bb22f421a7f4cf93b5109a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#a3310664991bb22f421a7f4cf93b5109a">tr</a></td></tr>
+<tr class="memitem:af8ee18f1f9828f8ef0c2746bb0465993"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1cell.html">cell</a> &gt; &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#af8ee18f1f9828f8ef0c2746bb0465993">trellis</a></td></tr>
+<tr class="memitem:afaf8d72127a1b0f019d5cdcb0d318c0c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector<br class="typebreak"/>
+&lt; double &gt; &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a></td></tr>
+<tr class="memitem:aaf150d0ee4f5950452c0eed9c2b4aa60"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#aaf150d0ee4f5950452c0eed9c2b4aa60">gap</a></td></tr>
+<tr class="memitem:a9ddb17d7243969d6954c89ac8118bb19"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#a9ddb17d7243969d6954c89ac8118bb19">gap_ext</a></td></tr>
+<tr class="memitem:a580b08a8157fa6b66b91ded72ddaa01f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#a580b08a8157fa6b66b91ded72ddaa01f">high_score</a></td></tr>
+<tr class="memitem:a6134dcec9e8707947e8c8a7bd719c8df"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#a6134dcec9e8707947e8c8a7bd719c8df">start_position</a></td></tr>
+<tr class="memitem:ab9cbea03ebe4d0fd682d29e8e5187dd5"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1alignment.html#ab9cbea03ebe4d0fd682d29e8e5187dd5">end_position</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="alignment_8h_source.html#l00046">46</a> of file <a class="el" href="alignment_8h_source.html">alignment.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a685fc376253736b16dd8cfc59d148254"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::alignment::alignment </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8cpp_source.html#l00019">19</a> of file <a class="el" href="alignment_8cpp_source.html">alignment.cpp</a>.</p>
+<div class="fragment"><div class="line">                        :<a class="code" href="class_stoch_h_m_m_1_1alignment.html#aaf150d0ee4f5950452c0eed9c2b4aa60">gap</a>(0),<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a9ddb17d7243969d6954c89ac8118bb19">gap_ext</a>(0),<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a580b08a8157fa6b66b91ded72ddaa01f">high_score</a>(0),<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a6134dcec9e8707947e8c8a7bd719c8df">start_position</a>(0),<a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>(NULL),<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>(NULL),<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a3310664991bb22f421a7f4cf93b5109a">tr</a>(NULL){</div>
+<div class="line">        </div>
+<div class="line">    </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="aed0c99f74b5e6438c774417aeb0ee6f1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double StochHMM::alignment::_getGapScore </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>queryIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>targetIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fb">tracebackDirection</a>&#160;</td>
+          <td class="paramname"><em>dir</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8cpp_source.html#l00167">167</a> of file <a class="el" href="alignment_8cpp_source.html">alignment.cpp</a>.</p>
+
+<p>References <a class="el" href="alignment_8h_source.html#l00096">gap</a>, <a class="el" href="alignment_8h_source.html#l00097">gap_ext</a>, <a class="el" href="alignment_8h_source.html#l00024">StochHMM::LEFT</a>, and <a class="el" href="alignment_8h_source.html#l00024">StochHMM::UP</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00247">align()</a>.</p>
+<div class="fragment"><div class="line">                                                                                               {</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1alignment.html#aaf150d0ee4f5950452c0eed9c2b4aa60">gap</a> == <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a9ddb17d7243969d6954c89ac8118bb19">gap_ext</a>){</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#aaf150d0ee4f5950452c0eed9c2b4aa60">gap</a>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordflow">if</span> (dir == <a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fba9c5f20b3a258a0bd1defaecbd55a7cdd">LEFT</a>){</div>
+<div class="line">                <span class="keywordflow">if</span> ( (*<a class="code" href="class_stoch_h_m_m_1_1alignment.html#af8ee18f1f9828f8ef0c2746bb0465993">trellis</a>)[queryIndex][targetIndex].getTraceback() == <a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fba9c5f20b3a258a0bd1defaecbd55a7cdd">LEFT</a>){</div>
+<div class="line">                    <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a9ddb17d7243969d6954c89ac8118bb19">gap_ext</a>;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                    <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#aaf150d0ee4f5950452c0eed9c2b4aa60">gap</a>;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                <span class="keywordflow">if</span> ( (*<a class="code" href="class_stoch_h_m_m_1_1alignment.html#af8ee18f1f9828f8ef0c2746bb0465993">trellis</a>)[queryIndex][targetIndex].getTraceback() == <a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fbae803b23d926af911cb9d94b3697cd0f8">UP</a>){</div>
+<div class="line">                    <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a9ddb17d7243969d6954c89ac8118bb19">gap_ext</a>;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                    <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#aaf150d0ee4f5950452c0eed9c2b4aa60">gap</a>;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aba5ce8d05e097282cb085253341dcd29"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::alignment::_initTrellis </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>columns</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8cpp_source.html#l00192">192</a> of file <a class="el" href="alignment_8cpp_source.html">alignment.cpp</a>.</p>
+
+<p>References <a class="el" href="alignment_8h_source.html#l00096">gap</a>, <a class="el" href="alignment_8h_source.html#l00097">gap_ext</a>, <a class="el" href="alignment_8h_source.html#l00024">StochHMM::LEFT</a>, <a class="el" href="alignment_8h_source.html#l00024">StochHMM::NONE</a>, <a class="el" href="alignment_8h_source.html#l00033">StochHMM::cell::setDiag()</a>, <a class="el" href="alignment_8h_source.html#l00034">StochHMM::cell::setLeft()</a>, <a class="el" href="alignment_8h_source.html#l00032">StochHMM::cell::setScore()</a>, <a class="el" href="alignment_8h_source.html#l00031">StochHMM::cell::setTraceback()</a>, <a class="el" href="alignment_8h_source.html#l00035">StochHMM::cell::setUp()</a>, <a class="el" href="alignment_8h_source.html#l00093">trellis</a>, and <a class="el" href="alignment_8h_source.html#l00024">StochHMM::UP</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00247">align()</a>.</p>
+<div class="fragment"><div class="line">                                                           {</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1alignment.html#af8ee18f1f9828f8ef0c2746bb0465993">trellis</a>!=NULL){</div>
+<div class="line">            <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#af8ee18f1f9828f8ef0c2746bb0465993">trellis</a>;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#af8ee18f1f9828f8ef0c2746bb0465993">trellis</a>=NULL;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        cell x;</div>
+<div class="line">        x.setTraceback(<a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a42608ecf21c8ea8cffce5e956bf31bc3">NONE</a>);</div>
+<div class="line">        x.setScore(0.0);</div>
+<div class="line">        x.setDiag(0.0);</div>
+<div class="line">        x.setLeft(0.0);</div>
+<div class="line">        x.setUp(0.0);</div>
+<div class="line">        std::vector&lt;cell&gt; row (columns+1,x);</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#af8ee18f1f9828f8ef0c2746bb0465993">trellis</a>= <span class="keyword">new</span> std::vector&lt;std::vector&lt;cell&gt; &gt; (rows+1, row);</div>
+<div class="line">        </div>
+<div class="line">        (*trellis)[0][0].setTraceback(<a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a42608ecf21c8ea8cffce5e956bf31bc3">NONE</a>);</div>
+<div class="line">        (*trellis)[0][1].setScore(<a class="code" href="class_stoch_h_m_m_1_1alignment.html#aaf150d0ee4f5950452c0eed9c2b4aa60">gap</a>);</div>
+<div class="line">        (*trellis)[0][1].setTraceback(<a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fba9c5f20b3a258a0bd1defaecbd55a7cdd">LEFT</a>);</div>
+<div class="line">        (*trellis)[1][0].setScore(<a class="code" href="class_stoch_h_m_m_1_1alignment.html#aaf150d0ee4f5950452c0eed9c2b4aa60">gap</a>);</div>
+<div class="line">        (*trellis)[1][0].setTraceback(<a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fbae803b23d926af911cb9d94b3697cd0f8">UP</a>);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=2;i&lt;=columns;i++){</div>
+<div class="line">            (*trellis)[0][i].setScore((*<a class="code" href="class_stoch_h_m_m_1_1alignment.html#af8ee18f1f9828f8ef0c2746bb0465993">trellis</a>)[0][i-1].getScore()+<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a9ddb17d7243969d6954c89ac8118bb19">gap_ext</a>);</div>
+<div class="line">            (*trellis)[0][i].setTraceback(<a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fba9c5f20b3a258a0bd1defaecbd55a7cdd">LEFT</a>);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j=2;j&lt;=rows;j++){</div>
+<div class="line">            (*trellis)[j][0].setScore((*<a class="code" href="class_stoch_h_m_m_1_1alignment.html#af8ee18f1f9828f8ef0c2746bb0465993">trellis</a>)[j-1][0].getScore()+<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a9ddb17d7243969d6954c89ac8118bb19">gap_ext</a>);</div>
+<div class="line">            (*trellis)[j][0].setTraceback(<a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fbae803b23d926af911cb9d94b3697cd0f8">UP</a>);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a2d5a76181b8f1e1d5233f3b8f5f00d6d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::alignment::_reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8cpp_source.html#l00024">24</a> of file <a class="el" href="alignment_8cpp_source.html">alignment.cpp</a>.</p>
+
+<p>References <a class="el" href="alignment_8h_source.html#l00101">end_position</a>, <a class="el" href="alignment_8h_source.html#l00096">gap</a>, <a class="el" href="alignment_8h_source.html#l00097">gap_ext</a>, <a class="el" href="alignment_8h_source.html#l00099">high_score</a>, <a class="el" href="alignment_8h_source.html#l00094">mMatrix</a>, <a class="el" href="alignment_8h_source.html#l00089">query</a>, <a class="el" href="alignment_8h_source.html#l00100">start_position</a>, <a class="el" href="alignment_8h_source.html#l00088">target</a>, and <a class="el" href="alignment_8h_source.html#l00091">tr</a>.</p>
+<div class="fragment"><div class="line">                          {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>=NULL;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>=NULL;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a3310664991bb22f421a7f4cf93b5109a">tr</a>=NULL;</div>
+<div class="line">        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>=NULL;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#aaf150d0ee4f5950452c0eed9c2b4aa60">gap</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a9ddb17d7243969d6954c89ac8118bb19">gap_ext</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a580b08a8157fa6b66b91ded72ddaa01f">high_score</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a6134dcec9e8707947e8c8a7bd719c8df">start_position</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ab9cbea03ebe4d0fd682d29e8e5187dd5">end_position</a>=0;</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aae068ed3899f35fe79bbe8202fed4524"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::alignment::_resetSeqs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8cpp_source.html#l00038">38</a> of file <a class="el" href="alignment_8cpp_source.html">alignment.cpp</a>.</p>
+
+<p>References <a class="el" href="alignment_8h_source.html#l00101">end_position</a>, <a class="el" href="alignment_8h_source.html#l00099">high_score</a>, <a class="el" href="alignment_8h_source.html#l00094">mMatrix</a>, <a class="el" href="alignment_8h_source.html#l00089">query</a>, <a class="el" href="alignment_8h_source.html#l00100">start_position</a>, and <a class="el" href="alignment_8h_source.html#l00088">target</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00147">setQuery()</a>, and <a class="el" href="alignment_8cpp_source.html#l00127">setTarget()</a>.</p>
+<div class="fragment"><div class="line">                              {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>=NULL;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>=NULL;</div>
+<div class="line">        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>=NULL;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a580b08a8157fa6b66b91ded72ddaa01f">high_score</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a6134dcec9e8707947e8c8a7bd719c8df">start_position</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ab9cbea03ebe4d0fd682d29e8e5187dd5">end_position</a>=0;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a5faafdee4051b16bbb84510099cf8e54"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double StochHMM::alignment::align </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077">alignment_type</a>&#160;</td>
+          <td class="paramname"><em>typ</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8cpp_source.html#l00247">247</a> of file <a class="el" href="alignment_8cpp_source.html">alignment.cpp</a>.</p>
+
+<p>References <a class="el" href="alignment_8cpp_source.html#l00167">_getGapScore()</a>, <a class="el" href="alignment_8cpp_source.html#l00192">_initTrellis()</a>, <a class="el" href="alignment_8h_source.html#l00025">StochHMM::cGlobal</a>, <a class="el" href="alignment_8h_source.html#l00025">StochHMM::cLocal</a>, <a class="el" href="alignment_8h_source.html#l00024">StochHMM::DIAGONAL</a>, <a class="el" href="sequence_8cpp_source.html#l00772">StochHMM::sequence::getSymbol()</a>, <a class="el" href="alignment_8h_source.html#l00024">StochHMM::LEFT</a>, <a class="el" href="alignment_8cpp_source.html#l00226">printTrellis()</a>, <a class="el" href="alignment_8h_source.html#l00089">query</a>, <a class="el" href="sequence_8cpp_source.html#l00270">StochHMM::sequence::seqValue()</a>, <a class="el" href="sequence_8h_source.html#l00111">StochHMM::sequence::size()</a>, <a class="el" href="alignment_8h_source.html#l00088">target</a>, and <a class="el" href="alignment_8h_source.html#l00024">StochHMM::UP</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00235">align()</a>, and <a class="el" href="alignment_8cpp_source.html#l00400">calc_pvalue()</a>.</p>
+<div class="fragment"><div class="line">                                              {  <span class="comment">//(sequence &amp;top, sequence &amp;side, double gap, double mismatch, double match){</span></div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">int</span> top_size=<a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a1f5d5edaebf1d71995c7826ca0ab2a37">size</a>();</div>
+<div class="line">        <span class="keywordtype">int</span> side_size=<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a1f5d5edaebf1d71995c7826ca0ab2a37">size</a>();</div>
+<div class="line">        </div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#aba5ce8d05e097282cb085253341dcd29">_initTrellis</a>(side_size, top_size);</div>
+<div class="line">        <span class="keywordtype">double</span> max_score(-INFINITY);</div>
+<div class="line">        <span class="keywordtype">size_t</span> max_row_index(0);</div>
+<div class="line">        <span class="keywordtype">size_t</span> max_col_index(0);</div>
+<div class="line">                </div>
+<div class="line">        <span class="comment">//Fill</span></div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> top_index=1;top_index&lt;=top_size;top_index++){</div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> side_index=1;side_index&lt;=side_size;side_index++){</div>
+<div class="line">                <span class="comment">//table[side_index-1][top_index-1].setDiag();</span></div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">short</span> targetLetter = <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a3f767574938a8e42bdc5e7cbc8d0e468">seqValue</a>(side_index-1);</div>
+<div class="line">                <span class="keywordtype">short</span> queryLetter =  <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a3f767574938a8e42bdc5e7cbc8d0e468">seqValue</a>(top_index-1);</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">double</span> diagonal_score = (*trellis)[side_index-1][top_index-1].getScore() + (*mMatrix)[queryLetter][targetLetter];</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">double</span> left_score=(*trellis)[side_index][top_index-1].getScore()+<a class="code" href="class_stoch_h_m_m_1_1alignment.html#aed0c99f74b5e6438c774417aeb0ee6f1">_getGapScore</a>(side_index, top_index-1, <a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fba9c5f20b3a258a0bd1defaecbd55a7cdd">LEFT</a>);</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">double</span> up_score=(*trellis)[side_index-1][top_index].getScore()+<a class="code" href="class_stoch_h_m_m_1_1alignment.html#aed0c99f74b5e6438c774417aeb0ee6f1">_getGapScore</a>(side_index-1, top_index, <a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fbae803b23d926af911cb9d94b3697cd0f8">UP</a>);</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (typ == <a class="code" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077a7c6335eee1832a7dd6629ba48419dc1c">cLocal</a>){</div>
+<div class="line">                    <span class="keywordflow">if</span> (diagonal_score&lt;0.0){</div>
+<div class="line">                        diagonal_score=0.0;</div>
+<div class="line">                    }</div>
+<div class="line">                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (diagonal_score&gt;max_score){</div>
+<div class="line">                        max_score = diagonal_score;</div>
+<div class="line">                        max_row_index=side_index;</div>
+<div class="line">                        max_col_index=top_index;</div>
+<div class="line">                    }</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="keywordflow">if</span> (left_score&lt;0.0){</div>
+<div class="line">                        left_score=0.0;</div>
+<div class="line">                    }</div>
+<div class="line">                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (left_score&gt;max_score){</div>
+<div class="line">                        max_score = left_score;</div>
+<div class="line">                        max_row_index=side_index;</div>
+<div class="line">                        max_col_index=top_index;</div>
+<div class="line">                    }</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="keywordflow">if</span> (up_score&lt;0.0){</div>
+<div class="line">                        up_score=0.0;</div>
+<div class="line">                    }</div>
+<div class="line">                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (up_score&gt;max_score){</div>
+<div class="line">                        max_score = up_score;</div>
+<div class="line">                        max_row_index=side_index;</div>
+<div class="line">                        max_col_index=top_index;</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (diagonal_score&gt;=up_score &amp;&amp; diagonal_score &gt;= left_score){</div>
+<div class="line">                    (*trellis)[side_index][top_index].setScore(diagonal_score);</div>
+<div class="line">                    (*trellis)[side_index][top_index].setTraceback(<a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fbad9940f3b381b1cff3f27d2c9c6f0017f">DIAGONAL</a>);</div>
+<div class="line">                                    }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span>(up_score&gt;=left_score){</div>
+<div class="line">                    (*trellis)[side_index][top_index].setScore(up_score);</div>
+<div class="line">                    (*trellis)[side_index][top_index].setTraceback(<a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fbae803b23d926af911cb9d94b3697cd0f8">UP</a>);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                    (*trellis)[side_index][top_index].setScore(left_score);</div>
+<div class="line">                    (*trellis)[side_index][top_index].setTraceback(<a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fba9c5f20b3a258a0bd1defaecbd55a7cdd">LEFT</a>);</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        std::string align_top;</div>
+<div class="line">        std::string align_side;</div>
+<div class="line">        std::string align_status;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">size_t</span> top_iter;</div>
+<div class="line">        <span class="keywordtype">size_t</span> side_iter;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (typ == <a class="code" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077a5f8c21d47e87e6e09a40f5a301d4e075">cGlobal</a>){</div>
+<div class="line">            top_iter=top_size;</div>
+<div class="line">            side_iter=side_size;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (typ == <a class="code" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077a7c6335eee1832a7dd6629ba48419dc1c">cLocal</a>){</div>
+<div class="line">            top_iter=max_col_index;</div>
+<div class="line">            side_iter=max_row_index;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">while</span> (top_iter!=0 || side_iter!=0){</div>
+<div class="line">            </div>
+<div class="line">            std::cout &lt;&lt; side_iter &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; top_iter &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; (*trellis)[side_iter][top_iter].getScore() &lt;&lt; std::endl;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">switch</span> ((*<a class="code" href="class_stoch_h_m_m_1_1alignment.html#af8ee18f1f9828f8ef0c2746bb0465993">trellis</a>)[side_iter][top_iter].getTraceback()){</div>
+<div class="line">                <span class="keywordflow">case</span> <a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fbad9940f3b381b1cff3f27d2c9c6f0017f">DIAGONAL</a>:</div>
+<div class="line">                    align_side+=<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a4f1af4805a74eb48d71c5a46792c96a6">getSymbol</a>(--side_iter);</div>
+<div class="line">                    align_top+=<a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a4f1af4805a74eb48d71c5a46792c96a6">getSymbol</a>(--top_iter);</div>
+<div class="line">                    align_status+= (<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a3f767574938a8e42bdc5e7cbc8d0e468">seqValue</a>(side_iter) != <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a3f767574938a8e42bdc5e7cbc8d0e468">seqValue</a>(top_iter)) ? <span class="charliteral">&#39; &#39;</span> : <span class="charliteral">&#39;|&#39;</span>;</div>
+<div class="line">                    <span class="keywordflow">break</span>;</div>
+<div class="line">                <span class="keywordflow">case</span> <a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fbae803b23d926af911cb9d94b3697cd0f8">UP</a>:                    </div>
+<div class="line">                    align_side+=<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a4f1af4805a74eb48d71c5a46792c96a6">getSymbol</a>(--side_iter);</div>
+<div class="line">                    align_top+=<span class="stringliteral">&quot;-&quot;</span>;</div>
+<div class="line">                    align_status+=<span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line">                    <span class="keywordflow">break</span>;</div>
+<div class="line">                <span class="keywordflow">case</span> <a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fba9c5f20b3a258a0bd1defaecbd55a7cdd">LEFT</a>:</div>
+<div class="line">                    <span class="comment">//cout &lt;&lt; &quot;Case LEFT:&quot; &lt;&lt; side_size &lt;&lt; &quot;\t&quot; &lt;&lt; top_size &lt;&lt; endl;</span></div>
+<div class="line">                    </div>
+<div class="line">                    align_top+=<a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a4f1af4805a74eb48d71c5a46792c96a6">getSymbol</a>(--top_iter);</div>
+<div class="line">                    align_side+=<span class="stringliteral">&quot;-&quot;</span>;</div>
+<div class="line">                    align_status+=<span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line">                    <span class="keywordflow">break</span>;</div>
+<div class="line">                <span class="keywordflow">default</span>:</div>
+<div class="line">                    <span class="comment">//cout &lt;&lt; &quot;We have a problem Houston\n&quot; &lt;&lt; endl;</span></div>
+<div class="line">                    <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (typ == <a class="code" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077a7c6335eee1832a7dd6629ba48419dc1c">cLocal</a> &amp;&amp; fabs((*<a class="code" href="class_stoch_h_m_m_1_1alignment.html#af8ee18f1f9828f8ef0c2746bb0465993">trellis</a>)[side_iter][top_iter].getScore())&lt;0.001){</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        std::reverse(align_top.begin(), align_top.end());</div>
+<div class="line">        std::reverse(align_side.begin(), align_side.end());</div>
+<div class="line">        std::reverse(align_status.begin(), align_status.end());</div>
+<div class="line">        </div>
+<div class="line">        std::cout &lt;&lt; align_top &lt;&lt; std::endl &lt;&lt; align_status &lt;&lt; std::endl &lt;&lt; align_side &lt;&lt; std::endl;</div>
+<div class="line"></div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afc095b9a457f5f55811e403dfff66e2a">printTrellis</a>();</div>
+<div class="line">        <span class="keywordflow">return</span> (*<a class="code" href="class_stoch_h_m_m_1_1alignment.html#af8ee18f1f9828f8ef0c2746bb0465993">trellis</a>)[side_size][top_size].getScore();</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a6a2ec6ed3bb9093a4b495dc0b6e9a095"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double StochHMM::alignment::align </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;&#160;</td>
+          <td class="paramname"><em>query</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077">alignment_type</a>&#160;</td>
+          <td class="paramname"><em>typ</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3752092b840c98a91dda74b7551faea5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double StochHMM::alignment::align </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;&#160;</td>
+          <td class="paramname"><em>query</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077">alignment_type</a>&#160;</td>
+          <td class="paramname"><em>typ</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>match</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>mismatch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>gap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>gapext</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8cpp_source.html#l00235">235</a> of file <a class="el" href="alignment_8cpp_source.html">alignment.cpp</a>.</p>
+
+<p>References <a class="el" href="alignment_8cpp_source.html#l00247">align()</a>, <a class="el" href="alignment_8h_source.html#l00064">setGap()</a>, <a class="el" href="alignment_8h_source.html#l00065">setGapExt()</a>, <a class="el" href="alignment_8cpp_source.html#l00048">setMatch()</a>, <a class="el" href="alignment_8cpp_source.html#l00096">setMismatch()</a>, <a class="el" href="alignment_8cpp_source.html#l00147">setQuery()</a>, and <a class="el" href="alignment_8cpp_source.html#l00127">setTarget()</a>.</p>
+<div class="fragment"><div class="line">                                                                                                                                 {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ad552f0117eb7637f8a3761ad923c45e9">setTarget</a>(tgt);</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a8c3800fa7795eefab6b73472c58f1079">setQuery</a>(qu);</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#adfc365d2da6223cd626e6ab5811b0d67">setMatch</a>(mtch);</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a55b1312a0d3a0ddee71e086649b991e3">setMismatch</a>(mismtch);</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#abcc4db57639b6bb610ed57cb2f942970">setGap</a>(gp);</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ab08215f57a8bbd46b0d848fcde950191">setGapExt</a>(gp_ext);</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a5faafdee4051b16bbb84510099cf8e54">align</a>(typ);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ac287412f4ece8e534629c4070aad80bc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double StochHMM::alignment::align </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;&#160;</td>
+          <td class="paramname"><em>query</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077">alignment_type</a>&#160;</td>
+          <td class="paramname"><em>typ</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespace_stoch_h_m_m.html#aa2b3dd2b727765cfd6d43997a64eba32">mmMatrix</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>gap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>gapext</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad4d542a6656f40a60171fc688cacac64"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double StochHMM::alignment::calc_pvalue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8cpp_source.html#l00400">400</a> of file <a class="el" href="alignment_8cpp_source.html">alignment.cpp</a>.</p>
+
+<p>References <a class="el" href="alignment_8cpp_source.html#l00247">align()</a>, <a class="el" href="alignment_8h_source.html#l00025">StochHMM::cGlobal</a>, <a class="el" href="alignment_8h_source.html#l00089">query</a>, and <a class="el" href="alignment_8cpp_source.html#l00147">setQuery()</a>.</p>
+<div class="fragment"><div class="line">                                 {</div>
+<div class="line">        std::vector&lt;double&gt; scores;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;100;++i){</div>
+<div class="line">            sequence* oldQuery=<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>;</div>
+<div class="line">            sequence shuffled=shuffle(<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>);</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a8c3800fa7795eefab6b73472c58f1079">setQuery</a>(shuffled);</div>
+<div class="line">            <span class="keywordtype">double</span> score = <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a5faafdee4051b16bbb84510099cf8e54">align</a>(<a class="code" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077a5f8c21d47e87e6e09a40f5a301d4e075">cGlobal</a>);</div>
+<div class="line">            scores.push_back(score);</div>
+<div class="line">            std::cout&lt;&lt; score &lt;&lt; std::endl;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>=oldQuery;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> 0.0;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a37f0a67f2165ae98d1ddd195945592f5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double StochHMM::alignment::calcLambda </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>frequencies</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8cpp_source.html#l00382">382</a> of file <a class="el" href="alignment_8cpp_source.html">alignment.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                              {</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> 0;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a691422071456d6769320bb7a01a389ec"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double StochHMM::alignment::estimateLambda </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8cpp_source.html#l00387">387</a> of file <a class="el" href="alignment_8cpp_source.html">alignment.cpp</a>.</p>
+
+<p>References <a class="el" href="alignment_8h_source.html#l00094">mMatrix</a>.</p>
+<div class="fragment"><div class="line">                                    {</div>
+<div class="line">        <span class="keywordtype">size_t</span> alphaSize = <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>-&gt;size();</div>
+<div class="line">        <span class="keywordtype">double</span> estimatedFreq= 1/<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(alphaSize);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">double</span> expectedScore(0);</div>
+<div class="line">        <span class="keywordflow">for</span> ( <span class="keywordtype">size_t</span> row=0; row&lt;alphaSize; ++row){</div>
+<div class="line">            <span class="keywordflow">for</span> ( <span class="keywordtype">size_t</span> col=0; col&lt;alphaSize; ++col){</div>
+<div class="line">                </div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a08a134ce0dae639f3f9d34aa1eb54116"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::alignment::getAlignment </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a33a1800fea7ca4ef46492f176eb09775"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::alignment::getAlignmentSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8h_source.html#l00072">72</a> of file <a class="el" href="alignment_8h_source.html">alignment.h</a>.</p>
+
+<p>References <a class="el" href="alignment_8h_source.html#l00101">end_position</a>, and <a class="el" href="alignment_8h_source.html#l00100">start_position</a>.</p>
+<div class="fragment"><div class="line">                                        {</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1alignment.html#ab9cbea03ebe4d0fd682d29e8e5187dd5">end_position</a>!=0) <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ab9cbea03ebe4d0fd682d29e8e5187dd5">end_position</a>-<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a6134dcec9e8707947e8c8a7bd719c8df">start_position</a>+1; </div>
+<div class="line">            <span class="keywordflow">return</span> 0;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="af85247cd410b2dd06595daeb76eff8af"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int StochHMM::alignment::getHighScore </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8h_source.html#l00070">70</a> of file <a class="el" href="alignment_8h_source.html">alignment.h</a>.</p>
+
+<p>References <a class="el" href="alignment_8h_source.html#l00099">high_score</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a580b08a8157fa6b66b91ded72ddaa01f">high_score</a>;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ad159b68bbc45104fc3556a2d7e703567"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::alignment::printAlignment </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afc095b9a457f5f55811e403dfff66e2a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::alignment::printTrellis </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8cpp_source.html#l00226">226</a> of file <a class="el" href="alignment_8cpp_source.html">alignment.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00247">align()</a>.</p>
+<div class="fragment"><div class="line">                                {</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> row=0;row&lt;<a class="code" href="class_stoch_h_m_m_1_1alignment.html#af8ee18f1f9828f8ef0c2746bb0465993">trellis</a>-&gt;size();++row){</div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> col = 0; col&lt;(*trellis)[row].size();++col){</div>
+<div class="line">                std::cout &lt;&lt; (*trellis)[row][col].getScore() &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; (*trellis)[row][col].getTraceback() &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">            std::cout &lt;&lt; std::endl;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="abcc4db57639b6bb610ed57cb2f942970"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::alignment::setGap </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8h_source.html#l00064">64</a> of file <a class="el" href="alignment_8h_source.html">alignment.h</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00235">align()</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1alignment.html#aaf150d0ee4f5950452c0eed9c2b4aa60">gap</a> = value;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ab08215f57a8bbd46b0d848fcde950191"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::alignment::setGapExt </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8h_source.html#l00065">65</a> of file <a class="el" href="alignment_8h_source.html">alignment.h</a>.</p>
+
+<p>References <a class="el" href="alignment_8h_source.html#l00097">gap_ext</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00235">align()</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a9ddb17d7243969d6954c89ac8118bb19">gap_ext</a> = value;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="adfc365d2da6223cd626e6ab5811b0d67"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::alignment::setMatch </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8cpp_source.html#l00048">48</a> of file <a class="el" href="alignment_8cpp_source.html">alignment.cpp</a>.</p>
+
+<p>References <a class="el" href="alignment_8h_source.html#l00094">mMatrix</a>, <a class="el" href="alignment_8h_source.html#l00089">query</a>, <a class="el" href="sequence_8h_source.html#l00111">StochHMM::sequence::size()</a>, and <a class="el" href="alignment_8h_source.html#l00088">target</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00235">align()</a>.</p>
+<div class="fragment"><div class="line">                                        {</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>==NULL &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>==NULL){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Either target or query sequence must be set before defining match matrix&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordtype">size_t</span> alphaSize=(<a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>!=NULL) ? <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a1f5d5edaebf1d71995c7826ca0ab2a37">size</a>() : <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a1f5d5edaebf1d71995c7826ca0ab2a37">size</a>();</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>==NULL){</div>
+<div class="line">                std::vector&lt;double&gt; row (alphaSize, 0.0);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a> = <span class="keyword">new</span> <a class="code" href="namespace_stoch_h_m_m.html#aa2b3dd2b727765cfd6d43997a64eba32">mmMatrix</a>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>-&gt;insert(<a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>-&gt;begin(),alphaSize,row);</div>
+<div class="line">                <span class="comment">//std::cout &lt;&lt; mMatrix-&gt;size() &lt;&lt;std::endl;</span></div>
+<div class="line">                <span class="comment">//std::cout &lt;&lt; (*mMatrix)[0].size();</span></div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>-&gt;size()!=alphaSize){</div>
+<div class="line">                <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>=NULL;</div>
+<div class="line">                std::vector&lt;double&gt; row (alphaSize,0.0);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a> = <span class="keyword">new</span> <a class="code" href="namespace_stoch_h_m_m.html#aa2b3dd2b727765cfd6d43997a64eba32">mmMatrix</a>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>-&gt;insert(<a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>-&gt;begin(),alphaSize,row);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;alphaSize;++i){</div>
+<div class="line">                (*mMatrix)[i][i]=value;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="af2f0cc71c8edc4284a9a4ea4a0da236f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::alignment::setMatrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_stoch_h_m_m.html#aa2b3dd2b727765cfd6d43997a64eba32">mmMatrix</a> &amp;&#160;</td>
+          <td class="paramname"><em>matrix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8cpp_source.html#l00078">78</a> of file <a class="el" href="alignment_8cpp_source.html">alignment.cpp</a>.</p>
+
+<p>References <a class="el" href="alignment_8h_source.html#l00094">mMatrix</a>, <a class="el" href="alignment_8h_source.html#l00089">query</a>, <a class="el" href="sequence_8h_source.html#l00111">StochHMM::sequence::size()</a>, and <a class="el" href="alignment_8h_source.html#l00088">target</a>.</p>
+<div class="fragment"><div class="line">                                             {</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>==NULL &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>==NULL){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Either target or query sequence must be set before defining match matrix&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordtype">size_t</span> alphaSize=(<a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>!=NULL) ? <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a1f5d5edaebf1d71995c7826ca0ab2a37">size</a>() : <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a1f5d5edaebf1d71995c7826ca0ab2a37">size</a>();</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>==NULL){</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>=&amp;matrix;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>=&amp;matrix;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a55b1312a0d3a0ddee71e086649b991e3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::alignment::setMismatch </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8cpp_source.html#l00096">96</a> of file <a class="el" href="alignment_8cpp_source.html">alignment.cpp</a>.</p>
+
+<p>References <a class="el" href="alignment_8h_source.html#l00094">mMatrix</a>, <a class="el" href="alignment_8h_source.html#l00089">query</a>, <a class="el" href="sequence_8h_source.html#l00111">StochHMM::sequence::size()</a>, and <a class="el" href="alignment_8h_source.html#l00088">target</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00235">align()</a>.</p>
+<div class="fragment"><div class="line">                                           {</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>==NULL &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>==NULL){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Either target or query sequence must be set before defining match matrix&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <span class="keywordtype">size_t</span> alphaSize=(<a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>!=NULL) ? <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a1f5d5edaebf1d71995c7826ca0ab2a37">size</a>() : <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a1f5d5edaebf1d71995c7826ca0ab2a37">size</a>();</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>==NULL){</div>
+<div class="line">                std::vector&lt;double&gt; row (0.0,alphaSize);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a> = <span class="keyword">new</span> <a class="code" href="namespace_stoch_h_m_m.html#aa2b3dd2b727765cfd6d43997a64eba32">mmMatrix</a>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>-&gt;insert(<a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>-&gt;begin(),alphaSize,row);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>-&gt;size()!=alphaSize){</div>
+<div class="line">                <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>=NULL;</div>
+<div class="line">                std::vector&lt;double&gt; row (0.0,alphaSize);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a> = <span class="keyword">new</span> <a class="code" href="namespace_stoch_h_m_m.html#aa2b3dd2b727765cfd6d43997a64eba32">mmMatrix</a>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>-&gt;insert(<a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>-&gt;begin(),alphaSize,row);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> row=0;row&lt;alphaSize;++row){</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> col=0;col&lt;alphaSize;++col){</div>
+<div class="line">                    <span class="keywordflow">if</span> (row!=col){</div>
+<div class="line">                        (*mMatrix)[row][col]=value;</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a8c3800fa7795eefab6b73472c58f1079"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::alignment::setQuery </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;&#160;</td>
+          <td class="paramname"><em>seq</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8cpp_source.html#l00147">147</a> of file <a class="el" href="alignment_8cpp_source.html">alignment.cpp</a>.</p>
+
+<p>References <a class="el" href="alignment_8cpp_source.html#l00038">_resetSeqs()</a>, <a class="el" href="alignment_8h_source.html#l00101">end_position</a>, <a class="el" href="sequence_8h_source.html#l00115">StochHMM::sequence::getTrack()</a>, <a class="el" href="alignment_8h_source.html#l00099">high_score</a>, <a class="el" href="alignment_8h_source.html#l00089">query</a>, <a class="el" href="alignment_8h_source.html#l00100">start_position</a>, and <a class="el" href="alignment_8h_source.html#l00091">tr</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00235">align()</a>, and <a class="el" href="alignment_8cpp_source.html#l00400">calc_pvalue()</a>.</p>
+<div class="fragment"><div class="line">                                          {</div>
+<div class="line">        track* temp = seq.getTrack();</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a3310664991bb22f421a7f4cf93b5109a">tr</a>==temp){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>= &amp;seq;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a580b08a8157fa6b66b91ded72ddaa01f">high_score</a>=0;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a6134dcec9e8707947e8c8a7bd719c8df">start_position</a>=0;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ab9cbea03ebe4d0fd682d29e8e5187dd5">end_position</a>=0;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a3310664991bb22f421a7f4cf93b5109a">tr</a>==NULL){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a> = &amp;seq;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a3310664991bb22f421a7f4cf93b5109a">tr</a>=temp;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#aae068ed3899f35fe79bbe8202fed4524">_resetSeqs</a>();</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a> = &amp;seq;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a3310664991bb22f421a7f4cf93b5109a">tr</a>=temp;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ad552f0117eb7637f8a3761ad923c45e9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::alignment::setTarget </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;&#160;</td>
+          <td class="paramname"><em>seq</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8cpp_source.html#l00127">127</a> of file <a class="el" href="alignment_8cpp_source.html">alignment.cpp</a>.</p>
+
+<p>References <a class="el" href="alignment_8cpp_source.html#l00038">_resetSeqs()</a>, <a class="el" href="alignment_8h_source.html#l00101">end_position</a>, <a class="el" href="sequence_8h_source.html#l00115">StochHMM::sequence::getTrack()</a>, <a class="el" href="alignment_8h_source.html#l00099">high_score</a>, <a class="el" href="alignment_8h_source.html#l00100">start_position</a>, <a class="el" href="alignment_8h_source.html#l00088">target</a>, and <a class="el" href="alignment_8h_source.html#l00091">tr</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00235">align()</a>.</p>
+<div class="fragment"><div class="line">                                          {</div>
+<div class="line">        track* temp = seq.getTrack();</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a3310664991bb22f421a7f4cf93b5109a">tr</a>==temp){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>= &amp;seq;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a580b08a8157fa6b66b91ded72ddaa01f">high_score</a>=0;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a6134dcec9e8707947e8c8a7bd719c8df">start_position</a>=0;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ab9cbea03ebe4d0fd682d29e8e5187dd5">end_position</a>=0;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a3310664991bb22f421a7f4cf93b5109a">tr</a>==NULL){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a> = &amp;seq;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a3310664991bb22f421a7f4cf93b5109a">tr</a>=temp;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#aae068ed3899f35fe79bbe8202fed4524">_resetSeqs</a>();</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a> = &amp;seq;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a3310664991bb22f421a7f4cf93b5109a">tr</a>=temp;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ad0892e53f72e887dc0c305ae256f3c0a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::alignment::stochasticTraceback </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab2414a7ad7751c0fd193819fae171df7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::alignment::traceback </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="ab9cbea03ebe4d0fd682d29e8e5187dd5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::alignment::end_position</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8h_source.html#l00101">101</a> of file <a class="el" href="alignment_8h_source.html">alignment.h</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00024">_reset()</a>, <a class="el" href="alignment_8cpp_source.html#l00038">_resetSeqs()</a>, <a class="el" href="alignment_8h_source.html#l00072">getAlignmentSize()</a>, <a class="el" href="alignment_8cpp_source.html#l00147">setQuery()</a>, and <a class="el" href="alignment_8cpp_source.html#l00127">setTarget()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaf150d0ee4f5950452c0eed9c2b4aa60"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double StochHMM::alignment::gap</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8h_source.html#l00096">96</a> of file <a class="el" href="alignment_8h_source.html">alignment.h</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00167">_getGapScore()</a>, <a class="el" href="alignment_8cpp_source.html#l00192">_initTrellis()</a>, and <a class="el" href="alignment_8cpp_source.html#l00024">_reset()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9ddb17d7243969d6954c89ac8118bb19"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double StochHMM::alignment::gap_ext</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8h_source.html#l00097">97</a> of file <a class="el" href="alignment_8h_source.html">alignment.h</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00167">_getGapScore()</a>, <a class="el" href="alignment_8cpp_source.html#l00192">_initTrellis()</a>, <a class="el" href="alignment_8cpp_source.html#l00024">_reset()</a>, and <a class="el" href="alignment_8h_source.html#l00065">setGapExt()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a580b08a8157fa6b66b91ded72ddaa01f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double StochHMM::alignment::high_score</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8h_source.html#l00099">99</a> of file <a class="el" href="alignment_8h_source.html">alignment.h</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00024">_reset()</a>, <a class="el" href="alignment_8cpp_source.html#l00038">_resetSeqs()</a>, <a class="el" href="alignment_8h_source.html#l00070">getHighScore()</a>, <a class="el" href="alignment_8cpp_source.html#l00147">setQuery()</a>, and <a class="el" href="alignment_8cpp_source.html#l00127">setTarget()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afaf8d72127a1b0f019d5cdcb0d318c0c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;double&gt; &gt;* StochHMM::alignment::mMatrix</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8h_source.html#l00094">94</a> of file <a class="el" href="alignment_8h_source.html">alignment.h</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00024">_reset()</a>, <a class="el" href="alignment_8cpp_source.html#l00038">_resetSeqs()</a>, <a class="el" href="alignment_8cpp_source.html#l00387">estimateLambda()</a>, <a class="el" href="alignment_8cpp_source.html#l00048">setMatch()</a>, <a class="el" href="alignment_8cpp_source.html#l00078">setMatrix()</a>, and <a class="el" href="alignment_8cpp_source.html#l00096">setMismatch()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4afa64f253b0e73a66b55e4482719b03"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>* StochHMM::alignment::query</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8h_source.html#l00089">89</a> of file <a class="el" href="alignment_8h_source.html">alignment.h</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00024">_reset()</a>, <a class="el" href="alignment_8cpp_source.html#l00038">_resetSeqs()</a>, <a class="el" href="alignment_8cpp_source.html#l00247">align()</a>, <a class="el" href="alignment_8cpp_source.html#l00400">calc_pvalue()</a>, <a class="el" href="alignment_8cpp_source.html#l00048">setMatch()</a>, <a class="el" href="alignment_8cpp_source.html#l00078">setMatrix()</a>, <a class="el" href="alignment_8cpp_source.html#l00096">setMismatch()</a>, and <a class="el" href="alignment_8cpp_source.html#l00147">setQuery()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6134dcec9e8707947e8c8a7bd719c8df"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::alignment::start_position</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8h_source.html#l00100">100</a> of file <a class="el" href="alignment_8h_source.html">alignment.h</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00024">_reset()</a>, <a class="el" href="alignment_8cpp_source.html#l00038">_resetSeqs()</a>, <a class="el" href="alignment_8h_source.html#l00072">getAlignmentSize()</a>, <a class="el" href="alignment_8cpp_source.html#l00147">setQuery()</a>, and <a class="el" href="alignment_8cpp_source.html#l00127">setTarget()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ada9ae4105993852469853cb45d5d1b02"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>* StochHMM::alignment::target</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8h_source.html#l00088">88</a> of file <a class="el" href="alignment_8h_source.html">alignment.h</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00024">_reset()</a>, <a class="el" href="alignment_8cpp_source.html#l00038">_resetSeqs()</a>, <a class="el" href="alignment_8cpp_source.html#l00247">align()</a>, <a class="el" href="alignment_8cpp_source.html#l00048">setMatch()</a>, <a class="el" href="alignment_8cpp_source.html#l00078">setMatrix()</a>, <a class="el" href="alignment_8cpp_source.html#l00096">setMismatch()</a>, and <a class="el" href="alignment_8cpp_source.html#l00127">setTarget()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3310664991bb22f421a7f4cf93b5109a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a>* StochHMM::alignment::tr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8h_source.html#l00091">91</a> of file <a class="el" href="alignment_8h_source.html">alignment.h</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00024">_reset()</a>, <a class="el" href="alignment_8cpp_source.html#l00147">setQuery()</a>, and <a class="el" href="alignment_8cpp_source.html#l00127">setTarget()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af8ee18f1f9828f8ef0c2746bb0465993"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;<a class="el" href="class_stoch_h_m_m_1_1cell.html">cell</a>&gt; &gt;* StochHMM::alignment::trellis</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="alignment_8h_source.html#l00093">93</a> of file <a class="el" href="alignment_8h_source.html">alignment.h</a>.</p>
+
+<p>Referenced by <a class="el" href="alignment_8cpp_source.html#l00192">_initTrellis()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="alignment_8h_source.html">alignment.h</a></li>
 <li><a class="el" href="alignment_8cpp_source.html">alignment.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1alignment.html">alignment</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:36 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

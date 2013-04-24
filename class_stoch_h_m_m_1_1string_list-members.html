@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1string_list.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,11 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">stringList</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">StochHMM::stringList Member List</div>  </div>
@@ -96,34 +111,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#ae45d1f256e95196b56c1d0dd3bb00384">clear</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#ad046f4e2f4ab44c9597ca3b29a88a34c">_splitIndividual</a>(std::string &amp;, size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#ae45d1f256e95196b56c1d0dd3bb00384">clear</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#af06c41965bc91027bf41fc9c7e955e74">comment</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#ab774c316ee5256c78b5431f785ea27d9">contains</a>(const std::string &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>containsExact</b>(const std::string &amp;txt) (defined in <a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#ac976e146eb4b564ffa889f5fc3fc56d3">containsExact</a>(const std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a56c0c24a8aeaedcbe641399086d59d0b">delimiters</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a41fdaa14397743aa5112f883f48503e7">foundAlphaDelimiter</a>(const std::string &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a87c83c20ab626afbb5ae1087394a0140">fromAlpha</a>(const std::string &amp;, size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a96abb92a33ff00cc25cc1b7db65ffb5d">fromAlpha</a>(std::istream &amp;, size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a57c91ce5608adbe7dda475b0004c9e1b">fromDef</a>(std::string &amp;, std::string &amp;, std::string &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a73036242b16b152c5326323a82ca9bd8">fromDef</a>(std::istream &amp;, std::string &amp;, std::string &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a8ac6be3e9d57cc7ce917581d994bc5a8">fromNext</a>(std::string &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a7e9ad93ddc1ee513fc925efa725135af">fromNext</a>(std::istream &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>fromTable</b>(std::string &amp;) (defined in <a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>fromTable</b>(std::istream &amp;) (defined in <a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#ab9873ae2a0020825702981b9470006f8">fromTable</a>(std::string &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a82e323f9d2c50c26b14e2f0e9c01773f">fromTable</a>(std::istream &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a91b69c5882881c0df97c0966ab435522">fromTrack</a>(std::string &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a33a5ae907910ac9fb7e15af7bea2e226">fromTrack</a>(std::istream &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a9f7ae7f7ed0157c4c748cdd5bdd5c0bc">fromTxt</a>(std::string &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a3e5f8b68d05aa0966f821656ab0fb76e">fromTxt</a>(std::istream &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#ae352f81984d36369e2c5588f2999b1e2">getComment</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>getLine</b>(std::istream &amp;) (defined in <a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#abe41ceda1c236e8fda7345efb0deb832">getLine</a>(std::istream &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a73596f1c9e18935f03bf6aa84a76b1e9">indexOf</a>(const std::string &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a1eda8ba68879932f98ceb410275babc6">indexOf</a>(const std::string &amp;, size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#aa299c26678780ffbe2e4a0b19b5446f4">operator&lt;&lt;</a>(std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a7a0f3826aa2945a148dcc9bf45dba3e6">operator=</a>(stringList &amp;lst)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a7d1a5a67f397d3be8a7f32e4f7d6a8f9">operator[]</a>(size_t iter)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>pop_ith</b>(size_t) (defined in <a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#acb37ddbd8e7cc1442e373d4a4dadde91">print</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a3d67344bc1913b3ad2f86d4869e2d661">processString</a>(std::string &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#ad2917e18c0d24243237ca6b5e26fbb4b">push_back</a>(std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a8aac8660baaa5ec2e5dd6d9451fc241d">removeComments</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a1465a905712ca408761af4b80413ed76">removeLWS</a>(const std::string &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#aa299c26678780ffbe2e4a0b19b5446f4">operator&lt;&lt;</a>(std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a7a0f3826aa2945a148dcc9bf45dba3e6">operator=</a>(stringList &amp;lst)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a7d1a5a67f397d3be8a7f32e4f7d6a8f9">operator[]</a>(size_t iter)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a3b25bc35290070a46166e032fd1c7b42">pop_ith</a>(size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#acb37ddbd8e7cc1442e373d4a4dadde91">print</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a3d67344bc1913b3ad2f86d4869e2d661">processString</a>(std::string &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#ad2917e18c0d24243237ca6b5e26fbb4b">push_back</a>(std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a8aac8660baaa5ec2e5dd6d9451fc241d">removeComments</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a1465a905712ca408761af4b80413ed76">removeLWS</a>(const std::string &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a6be290a3361c4ef901c3e71e7013705d">removeWS</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a2655c2c8298f1be7e0e00d863609d54d">setDelimiters</a>(const std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#aaf5149ec18088d9a55b3474656d1eba0">setRemoveWS</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#af001d4f5c6330af830c5f69e7703eb3b">setWhitespace</a>(const std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
@@ -131,19 +152,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a1eac87241f01b5a3c47e393eb63f97f9">splitND</a>(const std::string &amp;, const std::string &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">splitString</a>(const std::string &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#abda5a78b8a3e9a915c45d6b6845319ac">splitString</a>(const std::string &amp;, const std::string &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>splitString</b>(const std::string &amp;, size_t) (defined in <a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a2fdca02f2802420ca4f231f21e0deb7d">splitString</a>(const std::string &amp;, size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#aa0001412c430bac613941da657c07bd0">stringify</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a18e8038519dd0a10ca6b4fdcf63629f2">stringList</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#aeebe807a0e30f850790bed41ac928bc5">stringList</a>(std::string &amp;, std::string &amp;, std::string &amp;, bool)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#aae8eb698ad8e564d3ebdf6fce1a97039">toVecDouble</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a3b650ef109af4884e9e6e566190862d1">toVecInt</a>(std::vector&lt; int &gt; &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a405ceea15027c6e37a5a58d7262844aa">unsetRemoveWS</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html#a3da96b954f74cfc12963eda2f48a19db">whitespace</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">StochHMM::stringList</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:38 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

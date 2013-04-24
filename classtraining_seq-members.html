@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classtraining_seq.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,7 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">trainingSeq Member List</div>  </div>
@@ -92,24 +111,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="classtraining_seq.html">trainingSeq</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>getDNA</b>() (defined in <a class="el" href="classtraining_seq.html">trainingSeq</a>)</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getHeader</b>() (defined in <a class="el" href="classtraining_seq.html">trainingSeq</a>)</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>getMask</b>(int i) (defined in <a class="el" href="classtraining_seq.html">trainingSeq</a>)</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getSequence</b>() (defined in <a class="el" href="classtraining_seq.html">trainingSeq</a>)</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>importMask</b>() (defined in <a class="el" href="classtraining_seq.html">trainingSeq</a>)</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>isMasked</b>() (defined in <a class="el" href="classtraining_seq.html">trainingSeq</a>)</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>next</b>() (defined in <a class="el" href="classtraining_seq.html">trainingSeq</a>)</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator[]</b>(int pos) (defined in <a class="el" href="classtraining_seq.html">trainingSeq</a>)</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>reverseComplement</b>() (defined in <a class="el" href="classtraining_seq.html">trainingSeq</a>)</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>sequence</b>(string &amp;) (defined in <a class="el" href="classtraining_seq.html">trainingSeq</a>)</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>setMasked</b>() (defined in <a class="el" href="classtraining_seq.html">trainingSeq</a>)</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>size</b>() (defined in <a class="el" href="classtraining_seq.html">trainingSeq</a>)</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classtraining_seq.html#a118e690962995c56d364c9920a247434">getDNA</a>()</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classtraining_seq.html#ab2422d8065276d5045a81df28a29b5ff">getHeader</a>()</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classtraining_seq.html#aab1e6887d01a2983b20c6f547d7b097d">getMask</a>(int i)</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classtraining_seq.html#a2bd7626e02dbd727fc48c3362c10edcd">getSequence</a>()</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classtraining_seq.html#aa60a92b5be63bbb241bcc1345a7d621c">header</a></td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classtraining_seq.html#a59de6b61fda990ca747d0fc58eddeba6">importMask</a>()</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classtraining_seq.html#a033f8d7ca450a3c5ad6f6c1b40417126">isMasked</a>()</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classtraining_seq.html#af1e347210f8e2e9caf77c0059b391ca5">next</a>()</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classtraining_seq.html#a479bd4473b76ff7927d109852c6517bf">operator[]</a>(int pos)</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classtraining_seq.html#a48cf388a486ad995a51642acaa41ed56">reverseComplement</a>()</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classtraining_seq.html#ab2824ee86d1b021fa164a84bdc76949f">seq</a></td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classtraining_seq.html#af32bef5a56dd3fe19d3be3fe3ba2f39f">sequence</a>(string &amp;)</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classtraining_seq.html#a5fa439df68cd6bb51dc9a8a958d83b3c">setMasked</a>()</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classtraining_seq.html#a7a4ba9c51dc8b1a6eb744715fd3a7f7a">size</a>()</td><td class="entry"><a class="el" href="classtraining_seq.html">trainingSeq</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:36 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

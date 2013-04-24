@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1_p_w_m.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,11 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">PWM</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">StochHMM::PWM Member List</div>  </div>
@@ -96,31 +111,66 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>getTrack</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a3a05877ba27e439e1fce6d79b2d34d89">import</a>(std::string &amp;file)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a17b17d47b6878aaa10b2d9ed948aad41">import</a>(const char *file)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a29df1c1c3f4ad1fe51a9f057a6577c63">parse</a>(const std::string &amp;matrix)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>print</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#aa34bd9cff548e96ac06150eead1678fa">_finalizeTransitions</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#af4ae4fda208fd7096d165781156676d2">_getOrderedPositionNames</a>(stringList &amp;states, stringList &amp;names)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a7e1e268cebff217017ad0aee2b5b5f3b">_parseAmbiguous</a>(std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ae6b83c51074029a3f8c3eb42470454dd">_parseBackground</a>(std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a8cae401d526732dedf115461a8415d9e">_parsePositions</a>(std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a5cbf831102d16223c018a00967f6dfed">_parseSpacer</a>(std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#aa76c7af742c8397909cf7fc8bf3efcfa">_parseThreshold</a>(std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ac6957aa4ac86b723262c6c35dd4302ef">_parseTrack</a>(std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ad0fdfa1a6eb56432ed916dfa5fc9e2ef">_splitPositions</a>(std::string &amp;txt, stringList &amp;sts)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ad085f43a9b167fb50e13caa90391eda1">backScored</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#aad26ebd802b8f860330e9d7882b6168e">backScores</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ab89223c66725b3a0445ec3f6b6282566">backWeightMatrix</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a9f3a6fc5da57e56a7019cfbd661c215b">backWeightName</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a9e14233cb6039bd0f1034373b67e9ce2">bgWeight</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a5d77503203a654d323e66c15522fc212">calculateBack</a>(sequences *seqs, size_t position, float sum)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#abce60bc7f27f1f62b90d4404ab0b0d4c">calculateBack</a>(sequence *seq, size_t position, float sum)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#abeaf8cf7769bcaa171e3073e80b23cc9">currentThreshold</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a0ffcdd8eddb62f6187a97135a6f93755">frontWeightMatrix</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a23673cb4df5c069e2e14d76e8d277dea">frontWeightName</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a5366f748c8be151c36288e65d0948259">getTrack</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a3a05877ba27e439e1fce6d79b2d34d89">import</a>(std::string &amp;file)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a17b17d47b6878aaa10b2d9ed948aad41">import</a>(const char *file)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a4f266d4e9b2bdb425deb2936b0912791">max_spacer</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a2b713c0d22ca1c7ba59b5a65bdc5ce17">min_spacer</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a29df1c1c3f4ad1fe51a9f057a6577c63">parse</a>(const std::string &amp;matrix)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ae7209e498e2f7d99ee35af4aef2b741c">positionNames</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a29304ddbe937a46f439a76aa131f383e">print</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ab6c55e858633c22d8647d6fd1cb1239b">PWM</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>score</b>(sequences *seqs) (defined in <a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>score</b>(sequence *seq) (defined in <a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>scoreSimple</b>(sequences *seqs) (defined in <a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>scoreSimple</b>(sequence *seq) (defined in <a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>scoreUndefSpacer</b>(sequences *seqs) (defined in <a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>scoreUndefSpacer</b>(sequence *seq) (defined in <a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>scoreVariableSpacer</b>(sequences *seqs) (defined in <a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>scoreVariableSpacer</b>(sequence *seq) (defined in <a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>setBackground</b>(emm *bg) (defined in <a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>setCurrentThreshold</b>(float *thresh) (defined in <a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>setSimpleThreshold</b>(float thresh) (defined in <a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>setTrack</b>(track *tr) (defined in <a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>stringify</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#abe644c3391196a64fe32e2d9ca753759">score</a>(sequences *seqs)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a4254b77ef5082feb9fdf579c0651d9de">score</a>(sequence *seq)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a00d973a91a0a94230b55b9699eac9a5b">scoreSimple</a>(sequences *seqs)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a409d470228cb1c37f18fe47321565d85">scoreSimple</a>(sequence *seq)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ab47bf38c9c3e6504868f1db0eb96825f">scoreUndefSpacer</a>(sequences *seqs)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a05971bcf5b761f0b6203fa6702480572">scoreUndefSpacer</a>(sequence *seq)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a398a7a8485ff08ef20f2d95b4c6dd96c">scoreVariableSpacer</a>(sequences *seqs)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a93898d598b53cb086615bf728af90fc2">scoreVariableSpacer</a>(sequence *seq)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ae3763eba21ede79da6082f7b637f467b">setBackground</a>(emm *bg)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#afea506d793c2b86c6fd8503c0c9acd09">setCurrentThreshold</a>(float *thresh)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ac2468961f3eaca304c58ca35203221a7">setSimpleThreshold</a>(float thresh)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ad2617f5ce32500e54d44e1da8e23a03c">setTrack</a>(track *tr)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a2a43b9c11dc54a5503599d457ea0b280">simple</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ac8c49bb9fd863723e887cad868c05e96">simpleThreshold</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#aeb89d141a04e160db594bfaa73c3a606">stringify</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a27094af48a6f5c69302015d02e17d1c9">trk</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a5072cea0c4bcc267c115f86a7761b595">undefinedSpacer</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a28c7c5d061e4a25975e0fd41753d64ee">undefSpacerSizes</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#ab75c1736cdb748f5e5fef048702cc2b1">valType</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a839f6a99ff365d17d9ae3aec661f5138">variableSpacer</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a495733b8c69fd24967b0999d1599535f">variableSpacerMatrix</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a8cb600cfa0012fff21a20329879ca16f">variableTransition</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html#a3ea5c34457c73676fa20b46b41bb01c0">weightMatrix</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1_p_w_m.html">StochHMM::PWM</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:37 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

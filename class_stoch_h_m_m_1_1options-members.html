@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1options.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,11 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1options.html">options</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">StochHMM::options Member List</div>  </div>
@@ -96,23 +111,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#a195fcf95ef76ea286d9fd6cb0cc83381">dopt</a>(const char *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#a9bf2b67b41735f3a8bc9f1196b7b519c">getopt</a>(const char *, int &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#ab7522021bcaa93648668469f141b44a1">getopt</a>(const char *, double &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#a1bf9b1dcc49120d2d238382d10d5cd7e">getopt</a>(const char *, std::string &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#a9b4366923dfe5f5de25e11c5e93de9a9">iopt</a>(const char *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#abfe10326b47d065a1289e989346038c8">isFlagSet</a>(const char *, const char *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#a6903fcd2bb32637409cc5bccece934cc">isSet</a>(const char *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>options</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#ad519df2884a2eae1e55bb82b5e063c84">alternatives</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#a195fcf95ef76ea286d9fd6cb0cc83381">dopt</a>(const char *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#a9bf2b67b41735f3a8bc9f1196b7b519c">getopt</a>(const char *, int &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#ab7522021bcaa93648668469f141b44a1">getopt</a>(const char *, double &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#a1bf9b1dcc49120d2d238382d10d5cd7e">getopt</a>(const char *, std::string &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#a9b4366923dfe5f5de25e11c5e93de9a9">iopt</a>(const char *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#abfe10326b47d065a1289e989346038c8">isFlagSet</a>(const char *, const char *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#a6903fcd2bb32637409cc5bccece934cc">isSet</a>(const char *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#a60ad5bef6119b180eaa1130bea026e67">options</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#a2488d7c3774582836140ebf67ec9a13c">parse_commandline</a>(int, const char **)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#acf4588749c0c109dc3be7f49b162fa0a">set_parameters</a>(opt_parameters *, int, const char *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#abc552cfdbe95db3dbd9da8ab062b3d83">sopt</a>(const char *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html#a0ff78e34f82f741da2b00eb77e3d376e">usage</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1options.html">StochHMM::options</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:37 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

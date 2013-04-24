@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1stencil.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,14 +103,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1stencil.html">stencil</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::stencil Class Reference</div>  </div>
 </div><!--header-->
@@ -105,26 +121,90 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac10c64c57aa175676abf89eacc3aa886"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac10c64c57aa175676abf89eacc3aa886"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>stencil</b> (std::string &amp;)</td></tr>
+<tr class="memitem:a3bd97000d0170f64939b0a6b097de93f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1stencil.html#a3bd97000d0170f64939b0a6b097de93f">stencil</a> ()</td></tr>
+<tr class="memitem:ac10c64c57aa175676abf89eacc3aa886"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1stencil.html#ac10c64c57aa175676abf89eacc3aa886">stencil</a> (std::string &amp;)</td></tr>
 <tr class="memitem:a4437123c718b0c24093ef50ae6573830"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1stencil.html#a4437123c718b0c24093ef50ae6573830">parse</a> (std::string &amp;)</td></tr>
 <tr class="memdesc:a4437123c718b0c24093ef50ae6573830"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct stencil from string.  <a href="#a4437123c718b0c24093ef50ae6573830"></a><br/></td></tr>
 <tr class="memitem:af3743b9fcba8281ff92f520d4c947775"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1stencil.html#af3743b9fcba8281ff92f520d4c947775">getTemplate</a> (std::string &amp;, std::string &amp;, std::map&lt; std::string, std::string &gt; &amp;)</td></tr>
 <tr class="memdesc:af3743b9fcba8281ff92f520d4c947775"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string with template filled out.  <a href="#af3743b9fcba8281ff92f520d4c947775"></a><br/></td></tr>
-<tr class="memitem:a3aeeca9084edcfee40f8f09be7689ea4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3aeeca9084edcfee40f8f09be7689ea4"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1stencil.html#a3aeeca9084edcfee40f8f09be7689ea4">CheckParameter</a> (std::string &amp;)</td></tr>
-<tr class="memdesc:a3aeeca9084edcfee40f8f09be7689ea4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the template with all user and identifiers filled out. <br/></td></tr>
-<tr class="memitem:ab1ba4ff515c1650073627be7aba29e17"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab1ba4ff515c1650073627be7aba29e17"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr>
-<tr class="memitem:a9694d4ca4a51460f01f1222eb5c64f3b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9694d4ca4a51460f01f1222eb5c64f3b"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1stencil.html#a9694d4ca4a51460f01f1222eb5c64f3b">stringify</a> ()</td></tr>
-<tr class="memdesc:a9694d4ca4a51460f01f1222eb5c64f3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints template string. <br/></td></tr>
+<tr class="memitem:a3aeeca9084edcfee40f8f09be7689ea4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1stencil.html#a3aeeca9084edcfee40f8f09be7689ea4">CheckParameter</a> (std::string &amp;)</td></tr>
+<tr class="memdesc:a3aeeca9084edcfee40f8f09be7689ea4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the template with all user and identifiers filled out.  <a href="#a3aeeca9084edcfee40f8f09be7689ea4"></a><br/></td></tr>
+<tr class="memitem:ab1ba4ff515c1650073627be7aba29e17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1stencil.html#ab1ba4ff515c1650073627be7aba29e17">print</a> ()</td></tr>
+<tr class="memitem:a9694d4ca4a51460f01f1222eb5c64f3b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1stencil.html#a9694d4ca4a51460f01f1222eb5c64f3b">stringify</a> ()</td></tr>
+<tr class="memdesc:a9694d4ca4a51460f01f1222eb5c64f3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints template string.  <a href="#a9694d4ca4a51460f01f1222eb5c64f3b"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a6f08c50a9bdc890b9b843d3b1cc85c09"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1stencil.html#a6f08c50a9bdc890b9b843d3b1cc85c09">states</a></td></tr>
+<tr class="memdesc:a6f08c50a9bdc890b9b843d3b1cc85c09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns template string.  <a href="#a6f08c50a9bdc890b9b843d3b1cc85c09"></a><br/></td></tr>
+<tr class="memitem:a7269233cdd342cd0220c6934c543b3ce"><td class="memItemLeft" align="right" valign="top">std::set&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1stencil.html#a7269233cdd342cd0220c6934c543b3ce">UserParameterKeys</a></td></tr>
+<tr class="memdesc:a7269233cdd342cd0220c6934c543b3ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template string.  <a href="#a7269233cdd342cd0220c6934c543b3ce"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>class stencil: contains individial model template and keeps track of coordinates for replacement </p>
 
 <p>Definition at line <a class="el" href="model_template_8h_source.html#l00043">43</a> of file <a class="el" href="model_template_8h_source.html">modelTemplate.h</a>.</p>
-</div><hr/><h2>Member Function Documentation</h2>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a3bd97000d0170f64939b0a6b097de93f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::stencil::stencil </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="model_template_8cpp_source.html#l00031">31</a> of file <a class="el" href="model_template_8cpp_source.html">modelTemplate.cpp</a>.</p>
+<div class="fragment"><div class="line">{};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ac10c64c57aa175676abf89eacc3aa886"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::stencil::stencil </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>txt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="model_template_8cpp_source.html#l00033">33</a> of file <a class="el" href="model_template_8cpp_source.html">modelTemplate.cpp</a>.</p>
+
+<p>References <a class="el" href="model_template_8cpp_source.html#l00039">parse()</a>.</p>
+<div class="fragment"><div class="line">                                  {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1stencil.html#a4437123c718b0c24093ef50ae6573830" title="Construct stencil from string.">parse</a>(txt);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a3aeeca9084edcfee40f8f09be7689ea4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::stencil::CheckParameter </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the template with all user and identifiers filled out. </p>
+
+</div>
+</div>
 <a class="anchor" id="af3743b9fcba8281ff92f520d4c947775"></a>
 <div class="memitem">
 <div class="memproto">
@@ -169,9 +249,11 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <p>Check the coordinates and replace with proper coordinats The name should be only the tagName without brackets But the start should be the position of first bracket and stop should be the position of the last bracket</p>
 
 <p>Definition at line <a class="el" href="model_template_8cpp_source.html#l00063">63</a> of file <a class="el" href="model_template_8cpp_source.html">modelTemplate.cpp</a>.</p>
+
+<p>References <a class="el" href="model_template_8h_source.html#l00056">states</a>.</p>
 <div class="fragment"><div class="line">                                                                                                              {</div>
 <div class="line">        </div>
-<div class="line">        std::string FilledOutModel = states;</div>
+<div class="line">        std::string FilledOutModel = <a class="code" href="class_stoch_h_m_m_1_1stencil.html#a6f08c50a9bdc890b9b843d3b1cc85c09" title="Returns template string.">states</a>;</div>
 <div class="line">        <span class="keywordtype">size_t</span> beginposition=FilledOutModel.find(<span class="stringliteral">&quot;&lt;&lt;&quot;</span>);</div>
 <div class="line">        <span class="keywordtype">size_t</span> endposition=0;<span class="comment"></span></div>
 <div class="line"><span class="comment">        //!Find all userParameters and replace</span></div>
@@ -222,17 +304,19 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 
 <p>Definition at line <a class="el" href="model_template_8cpp_source.html#l00039">39</a> of file <a class="el" href="model_template_8cpp_source.html">modelTemplate.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="model_template_8cpp_source.html#l00110">StochHMM::templates::parse()</a>.</p>
+<p>References <a class="el" href="model_template_8h_source.html#l00056">states</a>, and <a class="el" href="model_template_8h_source.html#l00060">UserParameterKeys</a>.</p>
+
+<p>Referenced by <a class="el" href="model_template_8cpp_source.html#l00110">StochHMM::templates::parse()</a>, and <a class="el" href="model_template_8cpp_source.html#l00033">stencil()</a>.</p>
 <div class="fragment"><div class="line">                                     {</div>
 <div class="line">        </div>
-<div class="line">        states = txt;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1stencil.html#a6f08c50a9bdc890b9b843d3b1cc85c09" title="Returns template string.">states</a> = txt;</div>
 <div class="line">        <span class="keywordtype">size_t</span> opening=txt.find(<span class="stringliteral">&quot;&lt;&lt;&quot;</span>);</div>
 <div class="line">        <span class="keywordtype">size_t</span> closing=0;<span class="comment"></span></div>
 <div class="line"><span class="comment">        //!Find all userParameters Marks</span></div>
 <div class="line"><span class="comment"></span>        <span class="keywordflow">while</span> (opening!=std::string::npos){</div>
 <div class="line">            closing=txt.find(<span class="stringliteral">&quot;&gt;&gt;&quot;</span>,opening+1);</div>
 <div class="line">            std::string tagName=txt.substr(opening+2,closing-opening-2);</div>
-<div class="line">            UserParameterKeys.insert(tagName);</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1stencil.html#a7269233cdd342cd0220c6934c543b3ce" title="Template string.">UserParameterKeys</a>.insert(tagName);</div>
 <div class="line">            opening=txt.find(<span class="stringliteral">&quot;&lt;&lt;&quot;</span>,closing+1);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -240,16 +324,133 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </div><!-- fragment -->
 </div>
 </div>
+<a class="anchor" id="ab1ba4ff515c1650073627be7aba29e17"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::stencil::print </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="model_template_8h_source.html#l00055">55</a> of file <a class="el" href="model_template_8h_source.html">modelTemplate.h</a>.</p>
+
+<p>References <a class="el" href="model_template_8h_source.html#l00056">stringify()</a>.</p>
+<div class="fragment"><div class="line">{std::cout &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1stencil.html#a9694d4ca4a51460f01f1222eb5c64f3b" title="Prints template string.">stringify</a>() &lt;&lt;std::endl;};<span class="comment">//!Prints template string</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a9694d4ca4a51460f01f1222eb5c64f3b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::stencil::stringify </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prints template string. </p>
+
+<p>Definition at line <a class="el" href="model_template_8h_source.html#l00056">56</a> of file <a class="el" href="model_template_8h_source.html">modelTemplate.h</a>.</p>
+
+<p>References <a class="el" href="model_template_8h_source.html#l00056">states</a>.</p>
+
+<p>Referenced by <a class="el" href="model_template_8h_source.html#l00055">print()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1stencil.html#a6f08c50a9bdc890b9b843d3b1cc85c09" title="Returns template string.">states</a>;}; <span class="comment">//!Returns template string</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a6f08c50a9bdc890b9b843d3b1cc85c09"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::stencil::states</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns template string. </p>
+
+<p>Definition at line <a class="el" href="model_template_8h_source.html#l00056">56</a> of file <a class="el" href="model_template_8h_source.html">modelTemplate.h</a>.</p>
+
+<p>Referenced by <a class="el" href="model_template_8cpp_source.html#l00063">getTemplate()</a>, <a class="el" href="model_template_8cpp_source.html#l00039">parse()</a>, and <a class="el" href="model_template_8h_source.html#l00056">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7269233cdd342cd0220c6934c543b3ce"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::set&lt;std::string&gt; StochHMM::stencil::UserParameterKeys</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Template string. </p>
+
+<p>Definition at line <a class="el" href="model_template_8h_source.html#l00060">60</a> of file <a class="el" href="model_template_8h_source.html">modelTemplate.h</a>.</p>
+
+<p>Referenced by <a class="el" href="model_template_8cpp_source.html#l00039">parse()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="model_template_8h_source.html">modelTemplate.h</a></li>
 <li><a class="el" href="model_template_8cpp_source.html">modelTemplate.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1stencil.html">stencil</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:37 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

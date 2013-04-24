@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1simple_table.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,41 +103,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">simpleTable</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::simpleTable&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p><code>#include &lt;<a class="el" href="simple_table_8h_source.html">simpleTable.h</a>&gt;</code></p>
+
 <p><a href="class_stoch_h_m_m_1_1simple_table-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a10ae21fafc96fc67ccee8395947823c8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a10ae21fafc96fc67ccee8395947823c8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>simpleTable</b> (std::vector&lt; size_t &gt; &amp;order, std::vector&lt; size_t &gt; &amp;alpha, std::vector&lt; size_t &gt; <a class="el" href="class_stoch_h_m_m_1_1tracks.html">tracks</a>, T init)</td></tr>
-<tr class="memitem:a3c44eea9fca36a59a049f363632050a2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c44eea9fca36a59a049f363632050a2"></a>
-T&#160;</td><td class="memItemRight" valign="bottom"><b>get</b> (<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> &amp;seqs, size_t position)</td></tr>
-<tr class="memitem:a08a1cbd46cc0bcc90e0032a970026766"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a08a1cbd46cc0bcc90e0032a970026766"></a>
-const T&#160;</td><td class="memItemRight" valign="bottom"><b>get</b> (<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> &amp;seqs, size_t position) const </td></tr>
-<tr class="memitem:a4e59f2cd1b9447377e34332a5a14f660"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e59f2cd1b9447377e34332a5a14f660"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>assign</b> (T &amp;value, size_t index)</td></tr>
-<tr class="memitem:a76ee21bf46dbf087d75525f0b0213ecf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a76ee21bf46dbf087d75525f0b0213ecf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>assign</b> (T &amp;value, std::vector&lt; uint8_t &gt; &amp;seq)</td></tr>
-<tr class="memitem:ac6d88b41a79b376cfce4be2a4c807d50"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac6d88b41a79b376cfce4be2a4c807d50"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const </td></tr>
-<tr class="memitem:ad3444f3e0aeee33462b316d442f5d74f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad3444f3e0aeee33462b316d442f5d74f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>empty</b> () const </td></tr>
-<tr class="memitem:a413f27e76abaeb6da56b93d1353bab95"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a413f27e76abaeb6da56b93d1353bab95"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> (unsigned int Dim) const </td></tr>
-<tr class="memitem:a6434c85679eb2550b1aa2cbb058e3dcd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6434c85679eb2550b1aa2cbb058e3dcd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+<tr class="memitem:a10ae21fafc96fc67ccee8395947823c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a10ae21fafc96fc67ccee8395947823c8">simpleTable</a> (std::vector&lt; size_t &gt; &amp;<a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a6c6b0453f169a92d59402418fb757945">order</a>, std::vector&lt; size_t &gt; &amp;<a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a381f6b3df2d67f5008dd24a62dff6255">alpha</a>, std::vector&lt; size_t &gt; <a class="el" href="class_stoch_h_m_m_1_1tracks.html">tracks</a>, T init)</td></tr>
+<tr class="memitem:a6ebf47025244d96b07fb1ba7fcdd3c44"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a6ebf47025244d96b07fb1ba7fcdd3c44">~simpleTable</a> ()</td></tr>
+<tr class="memitem:a3c44eea9fca36a59a049f363632050a2"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a3c44eea9fca36a59a049f363632050a2">get</a> (<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> &amp;seqs, size_t position)</td></tr>
+<tr class="memitem:a08a1cbd46cc0bcc90e0032a970026766"><td class="memItemLeft" align="right" valign="top">const T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a08a1cbd46cc0bcc90e0032a970026766">get</a> (<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> &amp;seqs, size_t position) const </td></tr>
+<tr class="memitem:a4e59f2cd1b9447377e34332a5a14f660"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a4e59f2cd1b9447377e34332a5a14f660">assign</a> (T &amp;value, size_t index)</td></tr>
+<tr class="memitem:a76ee21bf46dbf087d75525f0b0213ecf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a76ee21bf46dbf087d75525f0b0213ecf">assign</a> (T &amp;value, std::vector&lt; uint8_t &gt; &amp;seq)</td></tr>
+<tr class="memitem:ac6d88b41a79b376cfce4be2a4c807d50"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#ac6d88b41a79b376cfce4be2a4c807d50">size</a> () const </td></tr>
+<tr class="memitem:ad3444f3e0aeee33462b316d442f5d74f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#ad3444f3e0aeee33462b316d442f5d74f">empty</a> () const </td></tr>
+<tr class="memitem:a413f27e76abaeb6da56b93d1353bab95"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a413f27e76abaeb6da56b93d1353bab95">size</a> (unsigned int Dim) const </td></tr>
+<tr class="memitem:a6434c85679eb2550b1aa2cbb058e3dcd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a6434c85679eb2550b1aa2cbb058e3dcd">clear</a> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a063726b93ef23bdf9f38ac29e3060a10"><td class="memItemLeft" align="right" valign="top">std::vector&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a063726b93ef23bdf9f38ac29e3060a10">elements</a></td></tr>
+<tr class="memitem:aad4486cd183fb6d32709f71dcee0402e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#aad4486cd183fb6d32709f71dcee0402e">num_of_elements</a></td></tr>
+<tr class="memitem:a09cc9513e3092a34316d201fa2c3226d"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a09cc9513e3092a34316d201fa2c3226d">num_of_alphabets</a></td></tr>
+<tr class="memitem:a02808042d7f7d0c739329f3548fd141d"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a02808042d7f7d0c739329f3548fd141d">num_of_dimensions</a></td></tr>
+<tr class="memitem:a6c6b0453f169a92d59402418fb757945"><td class="memItemLeft" align="right" valign="top">std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a6c6b0453f169a92d59402418fb757945">order</a></td></tr>
+<tr class="memitem:a381f6b3df2d67f5008dd24a62dff6255"><td class="memItemLeft" align="right" valign="top">std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a381f6b3df2d67f5008dd24a62dff6255">alpha</a></td></tr>
+<tr class="memitem:a36a65c1259ee140b6452be83f44a2aa1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; size_t, <br class="typebreak"/>
+size_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a36a65c1259ee140b6452be83f44a2aa1">upstream</a></td></tr>
+<tr class="memitem:a9c951ec4d5940baf4bc3ad0853cc6caf"><td class="memItemLeft" align="right" valign="top">std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a9c951ec4d5940baf4bc3ad0853cc6caf">dimensions</a></td></tr>
+<tr class="memitem:ad123a009b5b353d56e11186fde0aab09"><td class="memItemLeft" align="right" valign="top">std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#ad123a009b5b353d56e11186fde0aab09">subarray_length</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br/>
@@ -125,15 +148,675 @@ class StochHMM::simpleTable&lt; T &gt;</h3>
 
 
 <p>Definition at line <a class="el" href="simple_table_8h_source.html#l00022">22</a> of file <a class="el" href="simple_table_8h_source.html">simpleTable.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a10ae21fafc96fc67ccee8395947823c8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable</a>&lt; T &gt;::<a class="el" href="class_stoch_h_m_m_1_1simple_table.html">simpleTable</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; size_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>order</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; size_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; size_t &gt;&#160;</td>
+          <td class="paramname"><em>tracks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>init</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="simple_table_8h_source.html#l00039">39</a> of file <a class="el" href="simple_table_8h_source.html">simpleTable.h</a>.</p>
+
+<p>References <a class="el" href="simple_table_8h_source.html#l00031">StochHMM::simpleTable&lt; T &gt;::alpha</a>, <a class="el" href="simple_table_8h_source.html#l00035">StochHMM::simpleTable&lt; T &gt;::dimensions</a>, <a class="el" href="simple_table_8h_source.html#l00025">StochHMM::simpleTable&lt; T &gt;::elements</a>, <a class="el" href="simple_table_8h_source.html#l00027">StochHMM::simpleTable&lt; T &gt;::num_of_alphabets</a>, <a class="el" href="simple_table_8h_source.html#l00028">StochHMM::simpleTable&lt; T &gt;::num_of_dimensions</a>, <a class="el" href="simple_table_8h_source.html#l00026">StochHMM::simpleTable&lt; T &gt;::num_of_elements</a>, <a class="el" href="simple_table_8h_source.html#l00030">StochHMM::simpleTable&lt; T &gt;::order</a>, <a class="el" href="simple_table_8h_source.html#l00036">StochHMM::simpleTable&lt; T &gt;::subarray_length</a>, and <a class="el" href="simple_table_8h_source.html#l00033">StochHMM::simpleTable&lt; T &gt;::upstream</a>.</p>
+<div class="fragment"><div class="line">                                                                                                                    : <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a063726b93ef23bdf9f38ac29e3060a10">elements</a>(NULL), <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#aad4486cd183fb6d32709f71dcee0402e">num_of_elements</a>(1){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a09cc9513e3092a34316d201fa2c3226d">num_of_alphabets</a> = <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a381f6b3df2d67f5008dd24a62dff6255">alpha</a>.size();</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a09cc9513e3092a34316d201fa2c3226d">num_of_alphabets</a> != <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a6c6b0453f169a92d59402418fb757945">order</a>.size()){</div>
+<div class="line">                                std::cerr &lt;&lt; <span class="stringliteral">&quot;Differing number of orders and alphabets handed to SimpleArray&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                                exit(2);</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a09cc9513e3092a34316d201fa2c3226d">num_of_alphabets</a>;++i){</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#aad4486cd183fb6d32709f71dcee0402e">num_of_elements</a>*= pow(<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a381f6b3df2d67f5008dd24a62dff6255">alpha</a>[i],<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a6c6b0453f169a92d59402418fb757945">order</a>[i]+1);</div>
+<div class="line">                                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j=0;j&lt;=<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a6c6b0453f169a92d59402418fb757945">order</a>[i];++j){</div>
+<div class="line">                                        <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a9c951ec4d5940baf4bc3ad0853cc6caf">dimensions</a>.push_back(<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a381f6b3df2d67f5008dd24a62dff6255">alpha</a>[i]);</div>
+<div class="line">                                        </div>
+<div class="line">                                        std::pair&lt;size_t,size_t&gt; temp(tracks[i],<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a6c6b0453f169a92d59402418fb757945">order</a>[i]-j);</div>
+<div class="line">                                        <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a36a65c1259ee140b6452be83f44a2aa1">upstream</a>.push_back(temp);</div>
+<div class="line">                                }</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a02808042d7f7d0c739329f3548fd141d">num_of_dimensions</a> = <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a9c951ec4d5940baf4bc3ad0853cc6caf">dimensions</a>.size();</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a02808042d7f7d0c739329f3548fd141d">num_of_dimensions</a>;++i){</div>
+<div class="line">                                <span class="keywordtype">size_t</span> temp = 1;</div>
+<div class="line">                                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j=i+1;j&lt;<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a02808042d7f7d0c739329f3548fd141d">num_of_dimensions</a>;++j){</div>
+<div class="line">                                        temp*=<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a9c951ec4d5940baf4bc3ad0853cc6caf">dimensions</a>[j];</div>
+<div class="line">                                }</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#ad123a009b5b353d56e11186fde0aab09">subarray_length</a>.push_back(temp);</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a063726b93ef23bdf9f38ac29e3060a10">elements</a> = <span class="keyword">new</span> (std::nothrow) std::vector&lt;T&gt;(<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#aad4486cd183fb6d32709f71dcee0402e">num_of_elements</a>, init);</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a063726b93ef23bdf9f38ac29e3060a10">elements</a> == NULL){</div>
+<div class="line">                                std::cerr &lt;&lt; <span class="stringliteral">&quot;Unable to allocate SimpleArray&quot;</span> &lt;&lt;std::endl;</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">return</span>;</div>
+<div class="line">                };</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a6ebf47025244d96b07fb1ba7fcdd3c44"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable</a>&lt; T &gt;::~<a class="el" href="class_stoch_h_m_m_1_1simple_table.html">simpleTable</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="simple_table_8h_source.html#l00078">78</a> of file <a class="el" href="simple_table_8h_source.html">simpleTable.h</a>.</p>
+
+<p>References <a class="el" href="simple_table_8h_source.html#l00025">StochHMM::simpleTable&lt; T &gt;::elements</a>.</p>
+<div class="fragment"><div class="line">{ <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a063726b93ef23bdf9f38ac29e3060a10">elements</a>; }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a4e59f2cd1b9447377e34332a5a14f660"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable</a>&lt; T &gt;::assign </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="simple_table_8h_source.html#l00099">99</a> of file <a class="el" href="simple_table_8h_source.html">simpleTable.h</a>.</p>
+
+<p>References <a class="el" href="simple_table_8h_source.html#l00026">StochHMM::simpleTable&lt; T &gt;::num_of_elements</a>.</p>
+<div class="fragment"><div class="line">                                                   {</div>
+<div class="line">                        <span class="keywordflow">if</span> (index &gt; <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#aad4486cd183fb6d32709f71dcee0402e">num_of_elements</a>){</div>
+<div class="line">                                std::cerr &lt;&lt; <span class="stringliteral">&quot;Adding element beyond range of array&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                        }</div>
+<div class="line">                        (*elements)[index] = value;</div>
+<div class="line">                };</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a76ee21bf46dbf087d75525f0b0213ecf"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable</a>&lt; T &gt;::assign </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; uint8_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>seq</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="simple_table_8h_source.html#l00106">106</a> of file <a class="el" href="simple_table_8h_source.html">simpleTable.h</a>.</p>
+
+<p>References <a class="el" href="simple_table_8h_source.html#l00035">StochHMM::simpleTable&lt; T &gt;::dimensions</a>, and <a class="el" href="simple_table_8h_source.html#l00028">StochHMM::simpleTable&lt; T &gt;::num_of_dimensions</a>.</p>
+<div class="fragment"><div class="line">                                                              {</div>
+<div class="line">                        <span class="keywordtype">size_t</span> index(0);</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a02808042d7f7d0c739329f3548fd141d">num_of_dimensions</a>; i++){</div>
+<div class="line">                                index += seq[i] * <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a9c951ec4d5940baf4bc3ad0853cc6caf">dimensions</a>[i];</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        (*elements)[index]=value;</div>
+<div class="line">                }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a6434c85679eb2550b1aa2cbb058e3dcd"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable</a>&lt; T &gt;::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad3444f3e0aeee33462b316d442f5d74f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable</a>&lt; T &gt;::empty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="simple_table_8h_source.html#l00117">117</a> of file <a class="el" href="simple_table_8h_source.html">simpleTable.h</a>.</p>
+
+<p>References <a class="el" href="simple_table_8h_source.html#l00026">StochHMM::simpleTable&lt; T &gt;::num_of_elements</a>.</p>
+<div class="fragment"><div class="line">{ <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#aad4486cd183fb6d32709f71dcee0402e">num_of_elements</a>==0; }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a3c44eea9fca36a59a049f363632050a2"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable</a>&lt; T &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> &amp;&#160;</td>
+          <td class="paramname"><em>seqs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="simple_table_8h_source.html#l00081">81</a> of file <a class="el" href="simple_table_8h_source.html">simpleTable.h</a>.</p>
+
+<p>References <a class="el" href="simple_table_8h_source.html#l00025">StochHMM::simpleTable&lt; T &gt;::elements</a>, <a class="el" href="simple_table_8h_source.html#l00028">StochHMM::simpleTable&lt; T &gt;::num_of_dimensions</a>, <a class="el" href="simple_table_8h_source.html#l00036">StochHMM::simpleTable&lt; T &gt;::subarray_length</a>, and <a class="el" href="simple_table_8h_source.html#l00033">StochHMM::simpleTable&lt; T &gt;::upstream</a>.</p>
+<div class="fragment"><div class="line">                                                       {</div>
+<div class="line">                        <span class="keywordtype">size_t</span> index(0);</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a02808042d7f7d0c739329f3548fd141d">num_of_dimensions</a>; i++){</div>
+<div class="line">                                index += seqs[<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a36a65c1259ee140b6452be83f44a2aa1">upstream</a>[i].first][position-<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a36a65c1259ee140b6452be83f44a2aa1">upstream</a>[i].second] * <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#ad123a009b5b353d56e11186fde0aab09">subarray_length</a>[i];</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">return</span> (*<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a063726b93ef23bdf9f38ac29e3060a10">elements</a>)[index];</div>
+<div class="line">                }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a08a1cbd46cc0bcc90e0032a970026766"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable</a>&lt; T &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> &amp;&#160;</td>
+          <td class="paramname"><em>seqs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="simple_table_8h_source.html#l00090">90</a> of file <a class="el" href="simple_table_8h_source.html">simpleTable.h</a>.</p>
+
+<p>References <a class="el" href="simple_table_8h_source.html#l00035">StochHMM::simpleTable&lt; T &gt;::dimensions</a>, <a class="el" href="simple_table_8h_source.html#l00025">StochHMM::simpleTable&lt; T &gt;::elements</a>, <a class="el" href="simple_table_8h_source.html#l00028">StochHMM::simpleTable&lt; T &gt;::num_of_dimensions</a>, and <a class="el" href="simple_table_8h_source.html#l00033">StochHMM::simpleTable&lt; T &gt;::upstream</a>.</p>
+<div class="fragment"><div class="line">                                                                   {</div>
+<div class="line">                        <span class="keywordtype">size_t</span> index(0);</div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a02808042d7f7d0c739329f3548fd141d">num_of_dimensions</a>; i++){</div>
+<div class="line">                                index += seqs[<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a36a65c1259ee140b6452be83f44a2aa1">upstream</a>[i].first][position-<a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a36a65c1259ee140b6452be83f44a2aa1">upstream</a>[i].second] * <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a9c951ec4d5940baf4bc3ad0853cc6caf">dimensions</a>[i];</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a063726b93ef23bdf9f38ac29e3060a10">elements</a>[index];</div>
+<div class="line">                }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ac6d88b41a79b376cfce4be2a4c807d50"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable</a>&lt; T &gt;::size </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="simple_table_8h_source.html#l00116">116</a> of file <a class="el" href="simple_table_8h_source.html">simpleTable.h</a>.</p>
+
+<p>References <a class="el" href="simple_table_8h_source.html#l00026">StochHMM::simpleTable&lt; T &gt;::num_of_elements</a>.</p>
+<div class="fragment"><div class="line">{ <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#aad4486cd183fb6d32709f71dcee0402e">num_of_elements</a>; }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a413f27e76abaeb6da56b93d1353bab95"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable</a>&lt; T &gt;::size </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>Dim</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="simple_table_8h_source.html#l00120">120</a> of file <a class="el" href="simple_table_8h_source.html">simpleTable.h</a>.</p>
+
+<p>References <a class="el" href="simple_table_8h_source.html#l00035">StochHMM::simpleTable&lt; T &gt;::dimensions</a>.</p>
+<div class="fragment"><div class="line">{ <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1simple_table.html#a9c951ec4d5940baf4bc3ad0853cc6caf">dimensions</a>[Dim-1];}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a381f6b3df2d67f5008dd24a62dff6255"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;size_t&gt; <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable</a>&lt; T &gt;::alpha</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="simple_table_8h_source.html#l00031">31</a> of file <a class="el" href="simple_table_8h_source.html">simpleTable.h</a>.</p>
+
+<p>Referenced by <a class="el" href="simple_table_8h_source.html#l00039">StochHMM::simpleTable&lt; T &gt;::simpleTable()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9c951ec4d5940baf4bc3ad0853cc6caf"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;size_t&gt; <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable</a>&lt; T &gt;::dimensions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="simple_table_8h_source.html#l00035">35</a> of file <a class="el" href="simple_table_8h_source.html">simpleTable.h</a>.</p>
+
+<p>Referenced by <a class="el" href="simple_table_8h_source.html#l00106">StochHMM::simpleTable&lt; T &gt;::assign()</a>, <a class="el" href="simple_table_8h_source.html#l00090">StochHMM::simpleTable&lt; T &gt;::get()</a>, <a class="el" href="simple_table_8h_source.html#l00039">StochHMM::simpleTable&lt; T &gt;::simpleTable()</a>, and <a class="el" href="simple_table_8h_source.html#l00120">StochHMM::simpleTable&lt; T &gt;::size()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a063726b93ef23bdf9f38ac29e3060a10"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;T&gt;* <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable</a>&lt; T &gt;::elements</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="simple_table_8h_source.html#l00025">25</a> of file <a class="el" href="simple_table_8h_source.html">simpleTable.h</a>.</p>
+
+<p>Referenced by <a class="el" href="simple_table_8h_source.html#l00081">StochHMM::simpleTable&lt; T &gt;::get()</a>, <a class="el" href="simple_table_8h_source.html#l00039">StochHMM::simpleTable&lt; T &gt;::simpleTable()</a>, and <a class="el" href="simple_table_8h_source.html#l00078">StochHMM::simpleTable&lt; T &gt;::~simpleTable()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a09cc9513e3092a34316d201fa2c3226d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable</a>&lt; T &gt;::num_of_alphabets</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="simple_table_8h_source.html#l00027">27</a> of file <a class="el" href="simple_table_8h_source.html">simpleTable.h</a>.</p>
+
+<p>Referenced by <a class="el" href="simple_table_8h_source.html#l00039">StochHMM::simpleTable&lt; T &gt;::simpleTable()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a02808042d7f7d0c739329f3548fd141d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable</a>&lt; T &gt;::num_of_dimensions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="simple_table_8h_source.html#l00028">28</a> of file <a class="el" href="simple_table_8h_source.html">simpleTable.h</a>.</p>
+
+<p>Referenced by <a class="el" href="simple_table_8h_source.html#l00106">StochHMM::simpleTable&lt; T &gt;::assign()</a>, <a class="el" href="simple_table_8h_source.html#l00081">StochHMM::simpleTable&lt; T &gt;::get()</a>, and <a class="el" href="simple_table_8h_source.html#l00039">StochHMM::simpleTable&lt; T &gt;::simpleTable()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aad4486cd183fb6d32709f71dcee0402e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable</a>&lt; T &gt;::num_of_elements</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="simple_table_8h_source.html#l00026">26</a> of file <a class="el" href="simple_table_8h_source.html">simpleTable.h</a>.</p>
+
+<p>Referenced by <a class="el" href="simple_table_8h_source.html#l00099">StochHMM::simpleTable&lt; T &gt;::assign()</a>, <a class="el" href="simple_table_8h_source.html#l00117">StochHMM::simpleTable&lt; T &gt;::empty()</a>, <a class="el" href="simple_table_8h_source.html#l00039">StochHMM::simpleTable&lt; T &gt;::simpleTable()</a>, and <a class="el" href="simple_table_8h_source.html#l00116">StochHMM::simpleTable&lt; T &gt;::size()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6c6b0453f169a92d59402418fb757945"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;size_t&gt; <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable</a>&lt; T &gt;::order</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="simple_table_8h_source.html#l00030">30</a> of file <a class="el" href="simple_table_8h_source.html">simpleTable.h</a>.</p>
+
+<p>Referenced by <a class="el" href="simple_table_8h_source.html#l00039">StochHMM::simpleTable&lt; T &gt;::simpleTable()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad123a009b5b353d56e11186fde0aab09"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;size_t&gt; <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable</a>&lt; T &gt;::subarray_length</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="simple_table_8h_source.html#l00036">36</a> of file <a class="el" href="simple_table_8h_source.html">simpleTable.h</a>.</p>
+
+<p>Referenced by <a class="el" href="simple_table_8h_source.html#l00081">StochHMM::simpleTable&lt; T &gt;::get()</a>, and <a class="el" href="simple_table_8h_source.html#l00039">StochHMM::simpleTable&lt; T &gt;::simpleTable()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a36a65c1259ee140b6452be83f44a2aa1"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::pair&lt;size_t,size_t&gt; &gt; <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable</a>&lt; T &gt;::upstream</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="simple_table_8h_source.html#l00033">33</a> of file <a class="el" href="simple_table_8h_source.html">simpleTable.h</a>.</p>
+
+<p>Referenced by <a class="el" href="simple_table_8h_source.html#l00081">StochHMM::simpleTable&lt; T &gt;::get()</a>, and <a class="el" href="simple_table_8h_source.html#l00039">StochHMM::simpleTable&lt; T &gt;::simpleTable()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="simple_table_8h_source.html">simpleTable.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">simpleTable</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:38 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -64,15 +70,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('model_template_8h.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,7 +106,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">modelTemplate.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<a href="model_template_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  stateTemplate.h</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//Copyright (c) 2007-2012 Paul C Lott </span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//University of California, Davis</span></div>
@@ -123,15 +143,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;text.h&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="text_8h.html">text.h</a>&quot;</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">namespace </span>StochHMM{</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">    //!class stencil: contains individial model template and keeps track of coordinates for replacement</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1stencil.html">   43</a></span>&#160;<span class="comment"></span>    <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1stencil.html" title="class stencil: contains individial model template and keeps track of coordinates for replacement...">stencil</a>{</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1stencil.html" title="class stencil: contains individial model template and keeps track of coordinates for replacement...">stencil</a>();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1stencil.html" title="class stencil: contains individial model template and keeps track of coordinates for replacement...">stencil</a>(std::string&amp;); <span class="comment">//! Construct stencil from string</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1stencil.html#a3bd97000d0170f64939b0a6b097de93f">stencil</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1stencil.html#a3bd97000d0170f64939b0a6b097de93f">stencil</a>(std::string&amp;); <span class="comment">//! Construct stencil from string</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"></span>        </div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">//MUTATORS</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1stencil.html#a4437123c718b0c24093ef50ae6573830" title="Construct stencil from string.">parse</a>(std::string&amp;);</div>
@@ -140,12 +160,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        std::string <a class="code" href="class_stoch_h_m_m_1_1stencil.html#af3743b9fcba8281ff92f520d4c947775" title="Returns a string with template filled out.">getTemplate</a>(std::string&amp;, std::string&amp;, std::map&lt;std::string,std::string&gt;&amp;); <span class="comment">//!Returns the template with all user and identifiers filled out</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span>        std::string <a class="code" href="class_stoch_h_m_m_1_1stencil.html#a3aeeca9084edcfee40f8f09be7689ea4" title="Returns the template with all user and identifiers filled out.">CheckParameter</a>(std::string&amp;);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> print(){std::cout &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1stencil.html#a9694d4ca4a51460f01f1222eb5c64f3b" title="Prints template string.">stringify</a>() &lt;&lt;std::endl;};<span class="comment">//!Prints template string</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1stencil.html#a9694d4ca4a51460f01f1222eb5c64f3b">   56</a></span>&#160;<span class="comment"></span>        <span class="keyword">inline</span> std::string <a class="code" href="class_stoch_h_m_m_1_1stencil.html#a9694d4ca4a51460f01f1222eb5c64f3b" title="Prints template string.">stringify</a>(){<span class="keywordflow">return</span> states;}; <span class="comment">//!Returns template string</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1stencil.html#ab1ba4ff515c1650073627be7aba29e17">   55</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1stencil.html#ab1ba4ff515c1650073627be7aba29e17">print</a>(){std::cout &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1stencil.html#a9694d4ca4a51460f01f1222eb5c64f3b" title="Prints template string.">stringify</a>() &lt;&lt;std::endl;};<span class="comment">//!Prints template string</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1stencil.html#a9694d4ca4a51460f01f1222eb5c64f3b">   56</a></span>&#160;<span class="comment"></span>        <span class="keyword">inline</span> std::string <a class="code" href="class_stoch_h_m_m_1_1stencil.html#a9694d4ca4a51460f01f1222eb5c64f3b" title="Prints template string.">stringify</a>(){<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1stencil.html#a6f08c50a9bdc890b9b843d3b1cc85c09" title="Returns template string.">states</a>;}; <span class="comment">//!Returns template string</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"></span>        </div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        std::string states; <span class="comment">//!Template string</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment"></span>        std::set&lt;std::string&gt; UserParameterKeys; <span class="comment">//!All UserDefinedVariables in Model Template</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        std::string <a class="code" href="class_stoch_h_m_m_1_1stencil.html#a6f08c50a9bdc890b9b843d3b1cc85c09" title="Returns template string.">states</a>; <span class="comment">//!Template string</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1stencil.html#a7269233cdd342cd0220c6934c543b3ce">   60</a></span>&#160;<span class="comment"></span>        std::set&lt;std::string&gt; <a class="code" href="class_stoch_h_m_m_1_1stencil.html#a7269233cdd342cd0220c6934c543b3ce" title="Template string.">UserParameterKeys</a>; <span class="comment">//!All UserDefinedVariables in Model Template</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"></span>    };</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment"></span></div>
@@ -153,8 +173,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"></span><span class="comment">    /*!class templates: contains a map of all templates, each should have a different identifier.  */</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1templates.html">   66</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1templates.html" title="class templates: contains a map of all templates">templates</a>{</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1templates.html" title="class templates: contains a map of all templates">templates</a>();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1templates.html" title="class templates: contains a map of all templates">templates</a>(std::string&amp;); <span class="comment">//!Create templates from file</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1templates.html#a621361c8e519c2e250399a03df7b43d8">templates</a>();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1templates.html#a621361c8e519c2e250399a03df7b43d8">templates</a>(std::string&amp;); <span class="comment">//!Create templates from file</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment"></span>        <a class="code" href="class_stoch_h_m_m_1_1templates.html#a34cf70b27d21e81a8afab0c1b1808c56" title="Create templates from file.">~templates</a>();</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="comment">//MUTATOR</span></div>
@@ -163,8 +183,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1templates.html#a880e3efd09bb411919305cc05518c31f" title="hand it a string with multiple stencles and have it parse out each one to be added to the templates...">addTemplate</a>(std::string&amp;);        </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        </div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="comment">//ACCESSOR</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> print(){std::cout &lt;&lt; stringify() &lt;&lt;std::endl;};</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        std::string&amp; stringify();</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1templates.html#aa6342004fa8779cb12b16b993e3f890f">   78</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1templates.html#aa6342004fa8779cb12b16b993e3f890f">print</a>(){std::cout &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1templates.html#a1becdf15fdaa4317bb00cb1b33468c11">stringify</a>() &lt;&lt;std::endl;};</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        std::string&amp; <a class="code" href="class_stoch_h_m_m_1_1templates.html#a1becdf15fdaa4317bb00cb1b33468c11">stringify</a>();</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        </div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="comment"></span></div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">        //!returns string representation of states with all parameters filled out</span></div>
@@ -173,16 +193,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">        //!returns all filled out templates for ID give</span></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment"></span>        </div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        std::map&lt;std::string,stencil*&gt; temps; <span class="comment">//!Map of all stencils</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1templates.html#a92ef0eca9282aeec3228f4074eff8986">   88</a></span>&#160;        std::map&lt;std::string,stencil*&gt; <a class="code" href="class_stoch_h_m_m_1_1templates.html#a92ef0eca9282aeec3228f4074eff8986" title="returns all filled out templates for ID give">temps</a>; <span class="comment">//!Map of all stencils</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment"></span>    };</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:49 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="model_template_8h.html">modelTemplate.h</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:33 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

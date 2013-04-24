@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -64,15 +70,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('distributions_8h.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,7 +106,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">distributions.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<a href="distributions_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  statistics.h</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  Created by Paul Lott on 4/22/09.</span></div>
@@ -99,13 +119,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;stochMath.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stoch_math_8h.html">stochMath.h</a>&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span>StochHMM {</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define PI 3.145926535897932</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="distributions_8h.html#a598a3330b3c21701223ee0ca14316eca">   20</a></span>&#160;<span class="preprocessor">#define PI 3.145926535897932</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span>    </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="comment"></span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">    ///////////////////DISTRIBUTIONS////////////////////////</span></div>
@@ -134,7 +154,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">//Continuous</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> sCauchy(std::vector&lt;double&gt;&amp;,<span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a18c558dbb3558a3224591e88b34cffd8">sCauchy</a>(std::vector&lt;double&gt;&amp;,<span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a775983c15ffef75bfa907b14a14a14a3">sChiSquared</a>(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>);</div>
@@ -142,36 +162,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a02fd6da4e9493af00591c0265e9be33f">sExponential</a> (std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> sExtremeValue(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>, <span class="keywordtype">double</span>,<span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> sFDistribution(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> sGamma(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> sGeometric (std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> sLaplace(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> sLogNormal(std::vector&lt;double&gt;&amp;,<span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> sLogarithmic(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> sLogistic(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> sMaxwellBoltzman(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> sNegativeBinomial(std::vector&lt;double&gt;&amp;,<span class="keywordtype">int</span>, <span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> sNonCentralF(std::vector&lt;double&gt;&amp;,<span class="keywordtype">double</span>, <span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> sNonCentralT(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> sNormal(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> sPareto(std::vector&lt;double&gt;&amp;,<span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> sPoisson(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> sRayleigh(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> sTriangular(std::vector&lt;double&gt;&amp;,<span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> sUser (std::vector&lt;double&gt;&amp;, std::vector&lt;double&gt;&amp;);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> sWeibull(std::vector&lt;double&gt;&amp;,<span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#acf36bfeb94aea22d17e387c768e0e076">sExtremeValue</a>(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>, <span class="keywordtype">double</span>,<span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#accc55f1a2ced2a6713131c27931bdec3">sFDistribution</a>(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a237908a3487ceb25f4db170113ba9ce7">sGamma</a>(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#add3ec31bd37811c3002a3803963a2285">sGeometric</a> (std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a06dc1e202d18ac263d45286f7711dfb1">sLaplace</a>(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a70c7c3c349d673368132c1a5df70f910">sLogNormal</a>(std::vector&lt;double&gt;&amp;,<span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a9ff9e3a6be7b8f45a21c4f11efbc218c">sLogarithmic</a>(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a09f2ec6b9cdddc64adf729132b152623">sLogistic</a>(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a920bd54ff6f95548ee68de9cda095a87">sMaxwellBoltzman</a>(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a70b6c759e8b9dac5b45893d6c39d71d0">sNegativeBinomial</a>(std::vector&lt;double&gt;&amp;,<span class="keywordtype">int</span>, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a508b4101767259432591d810166422e5">sNonCentralF</a>(std::vector&lt;double&gt;&amp;,<span class="keywordtype">double</span>, <span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a1e7367037b69ca287a794f6318072184">sNonCentralT</a>(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a8740772f7db79174661151647c25506c">sNormal</a>(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a88d623642f292cd40843b4f4f51e73bb">sPareto</a>(std::vector&lt;double&gt;&amp;,<span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a2c4b35812d4f546bb29b29ece4701dbe">sPoisson</a>(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a5b22a39b6d3f7c192d7a2cd07e6f8f39">sRayleigh</a>(std::vector&lt;double&gt;&amp;, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a2b3ab1f7b2a9ecf7af54127ea6c3d1e2">sTriangular</a>(std::vector&lt;double&gt;&amp;,<span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a36beb857d29ceb1aa74fa71b472097f7">sUser</a> (std::vector&lt;double&gt;&amp;, std::vector&lt;double&gt;&amp;);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a92e6f9d44a4844fb61e6c3bcd0e435d8">sWeibull</a>(std::vector&lt;double&gt;&amp;,<span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/*INC_FILENAME_H*/</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:49 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="distributions_8h.html">distributions.h</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:33 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

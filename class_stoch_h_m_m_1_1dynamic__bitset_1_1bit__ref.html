@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,57 +103,371 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::dynamic_bitset::bit_ref Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p><code>#include &lt;<a class="el" href="dynamic__bitset_8h_source.html">dynamic_bitset.h</a>&gt;</code></p>
+
 <p><a href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5b0be59783e90d968bb4187aab0f64e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b0be59783e90d968bb4187aab0f64e6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>bit_ref</b> (uint32_t &amp;v, size_t position)</td></tr>
-<tr class="memitem:a2d914995ac0b7d32bd786cdffc50398b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d914995ac0b7d32bd786cdffc50398b"></a>
-<a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (bool value)</td></tr>
-<tr class="memitem:a48b45106cb9434bd2a77e407e7078d2f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a48b45106cb9434bd2a77e407e7078d2f"></a>
-<a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a> &amp;rhs)</td></tr>
-<tr class="memitem:aeb6b752f4908c79288710682061cad3f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb6b752f4908c79288710682061cad3f"></a>
-<a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator|=</b> (bool value)</td></tr>
-<tr class="memitem:aff89298e8936da00884560b1dca8a840"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aff89298e8936da00884560b1dca8a840"></a>
-<a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&amp;=</b> (bool value)</td></tr>
-<tr class="memitem:a9af10366c44af5401d4d9e9f563582f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9af10366c44af5401d4d9e9f563582f6"></a>
-<a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator^=</b> (bool value)</td></tr>
-<tr class="memitem:a0b7fa52776d95f71f8a65ecf62de7aac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b7fa52776d95f71f8a65ecf62de7aac"></a>
-<a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>flip</b> ()</td></tr>
-<tr class="memitem:af9f625edcb52c46ac3119de27c4bcf29"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af9f625edcb52c46ac3119de27c4bcf29"></a>
-<a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> ()</td></tr>
-<tr class="memitem:ae94c5ed7c1e71d38d899a3e00c35ebff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae94c5ed7c1e71d38d899a3e00c35ebff"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator~</b> () const </td></tr>
-<tr class="memitem:a7776c98f6755fcdb06f07f76879f15dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7776c98f6755fcdb06f07f76879f15dc"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>operator bool</b> () const </td></tr>
+<tr class="memitem:a5b0be59783e90d968bb4187aab0f64e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a5b0be59783e90d968bb4187aab0f64e6">bit_ref</a> (uint32_t &amp;v, size_t position)</td></tr>
+<tr class="memitem:a2d914995ac0b7d32bd786cdffc50398b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a2d914995ac0b7d32bd786cdffc50398b">operator=</a> (bool value)</td></tr>
+<tr class="memitem:a48b45106cb9434bd2a77e407e7078d2f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a48b45106cb9434bd2a77e407e7078d2f">operator=</a> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a> &amp;rhs)</td></tr>
+<tr class="memitem:aeb6b752f4908c79288710682061cad3f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#aeb6b752f4908c79288710682061cad3f">operator|=</a> (bool value)</td></tr>
+<tr class="memitem:aff89298e8936da00884560b1dca8a840"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#aff89298e8936da00884560b1dca8a840">operator&amp;=</a> (bool value)</td></tr>
+<tr class="memitem:a9af10366c44af5401d4d9e9f563582f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a9af10366c44af5401d4d9e9f563582f6">operator^=</a> (bool value)</td></tr>
+<tr class="memitem:a0b7fa52776d95f71f8a65ecf62de7aac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a0b7fa52776d95f71f8a65ecf62de7aac">flip</a> ()</td></tr>
+<tr class="memitem:af9f625edcb52c46ac3119de27c4bcf29"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#af9f625edcb52c46ac3119de27c4bcf29">reset</a> ()</td></tr>
+<tr class="memitem:ae94c5ed7c1e71d38d899a3e00c35ebff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#ae94c5ed7c1e71d38d899a3e00c35ebff">operator~</a> () const </td></tr>
+<tr class="memitem:a7776c98f6755fcdb06f07f76879f15dc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a7776c98f6755fcdb06f07f76879f15dc">operator bool</a> () const </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aa66d8b981a8d6d173199e48c6340e891"><td class="memItemLeft" align="right" valign="top">uint32_t &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#aa66d8b981a8d6d173199e48c6340e891">val</a></td></tr>
+<tr class="memitem:a0715fa3c357a627667cdb0de0f32e9e8"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a0715fa3c357a627667cdb0de0f32e9e8">pos</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="dynamic__bitset_8h_source.html#l00051">51</a> of file <a class="el" href="dynamic__bitset_8h_source.html">dynamic_bitset.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a5b0be59783e90d968bb4187aab0f64e6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::dynamic_bitset::bit_ref::bit_ref </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8h_source.html#l00053">53</a> of file <a class="el" href="dynamic__bitset_8h_source.html">dynamic_bitset.h</a>.</p>
+<div class="fragment"><div class="line">:<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#aa66d8b981a8d6d173199e48c6340e891">val</a>(v),<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a0715fa3c357a627667cdb0de0f32e9e8">pos</a>(position){}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a0b7fa52776d95f71f8a65ecf62de7aac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">dynamic_bitset::bit_ref</a> &amp; StochHMM::dynamic_bitset::bit_ref::flip </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l01138">1138</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                          {</div>
+<div class="line">                <span class="comment">//Flip the bit</span></div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#aa66d8b981a8d6d173199e48c6340e891">val</a>^= (1 &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a0715fa3c357a627667cdb0de0f32e9e8">pos</a>);</div>
+<div class="line">                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a7776c98f6755fcdb06f07f76879f15dc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::dynamic_bitset::bit_ref::operator bool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8h_source.html#l00064">64</a> of file <a class="el" href="dynamic__bitset_8h_source.html">dynamic_bitset.h</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00067">pos</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00066">val</a>.</p>
+<div class="fragment"><div class="line">{ <span class="keywordflow">return</span> (this-&gt;<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#aa66d8b981a8d6d173199e48c6340e891">val</a> &gt;&gt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a0715fa3c357a627667cdb0de0f32e9e8">pos</a>) &amp; 1;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aff89298e8936da00884560b1dca8a840"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">dynamic_bitset::bit_ref</a> &amp; StochHMM::dynamic_bitset::bit_ref::operator&amp;= </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l01123">1123</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                          {</div>
+<div class="line">                <span class="comment">//if value is false and val is true then clear val bit</span></div>
+<div class="line">                <span class="keywordflow">if</span> (!value  &amp;&amp; ((this-&gt;<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#aa66d8b981a8d6d173199e48c6340e891">val</a> &gt;&gt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a0715fa3c357a627667cdb0de0f32e9e8">pos</a>) &amp; 1)){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#aa66d8b981a8d6d173199e48c6340e891">val</a> &amp;= ~(1 &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a0715fa3c357a627667cdb0de0f32e9e8">pos</a>);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="comment">//otherwise leave unchanged</span></div>
+<div class="line">                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a2d914995ac0b7d32bd786cdffc50398b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">dynamic_bitset::bit_ref</a> &amp; StochHMM::dynamic_bitset::bit_ref::operator= </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l01090">1090</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00067">pos</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00066">val</a>.</p>
+<div class="fragment"><div class="line">                                                                         {</div>
+<div class="line">                <span class="comment">//if true then set the bit at position</span></div>
+<div class="line">                <span class="keywordflow">if</span> (value){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#aa66d8b981a8d6d173199e48c6340e891">val</a> |= (1&lt;&lt;<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a0715fa3c357a627667cdb0de0f32e9e8">pos</a>);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="comment">//else clear the bit at the position</span></div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#aa66d8b981a8d6d173199e48c6340e891">val</a> &amp;= ~(1&lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a0715fa3c357a627667cdb0de0f32e9e8">pos</a>);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a48b45106cb9434bd2a77e407e7078d2f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">dynamic_bitset::bit_ref</a> &amp; StochHMM::dynamic_bitset::bit_ref::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l01102">1102</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00066">val</a>.</p>
+<div class="fragment"><div class="line">                                                                                 {</div>
+<div class="line">                <span class="comment">//if set in rhs then set in this position</span></div>
+<div class="line">                <span class="keywordflow">if</span> ((rhs.val &gt;&gt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a0715fa3c357a627667cdb0de0f32e9e8">pos</a>) &amp; 1){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#aa66d8b981a8d6d173199e48c6340e891">val</a> |= (1 &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a0715fa3c357a627667cdb0de0f32e9e8">pos</a>);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="comment">//else clear the bit at this position</span></div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#aa66d8b981a8d6d173199e48c6340e891">val</a> &amp;= ~(1 &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a0715fa3c357a627667cdb0de0f32e9e8">pos</a>);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a9af10366c44af5401d4d9e9f563582f6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">dynamic_bitset::bit_ref</a> &amp; StochHMM::dynamic_bitset::bit_ref::operator^= </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l01132">1132</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                          {</div>
+<div class="line">                <span class="comment">//Flip the bit</span></div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#aa66d8b981a8d6d173199e48c6340e891">val</a>^= (1 &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a0715fa3c357a627667cdb0de0f32e9e8">pos</a>);</div>
+<div class="line">                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aeb6b752f4908c79288710682061cad3f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">dynamic_bitset::bit_ref</a> &amp; StochHMM::dynamic_bitset::bit_ref::operator|= </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l01114">1114</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                          {</div>
+<div class="line">                <span class="comment">//if true then set bit</span></div>
+<div class="line">                <span class="keywordflow">if</span> (value){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#aa66d8b981a8d6d173199e48c6340e891">val</a> |= (1 &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a0715fa3c357a627667cdb0de0f32e9e8">pos</a>);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="comment">//Otherwise leave it alone</span></div>
+<div class="line">                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ae94c5ed7c1e71d38d899a3e00c35ebff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::dynamic_bitset::bit_ref::operator~ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l01150">1150</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                  {</div>
+<div class="line">                <span class="keywordflow">return</span> !((this-&gt;<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#aa66d8b981a8d6d173199e48c6340e891">val</a> &gt;&gt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a0715fa3c357a627667cdb0de0f32e9e8">pos</a>) &amp; 1);</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="af9f625edcb52c46ac3119de27c4bcf29"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">dynamic_bitset::bit_ref</a> &amp; StochHMM::dynamic_bitset::bit_ref::reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l01144">1144</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                           {</div>
+<div class="line">                <span class="comment">//Clear the bit</span></div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#aa66d8b981a8d6d173199e48c6340e891">val</a> &amp;= ~(1 &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a0715fa3c357a627667cdb0de0f32e9e8">pos</a>);</div>
+<div class="line">                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a0715fa3c357a627667cdb0de0f32e9e8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::dynamic_bitset::bit_ref::pos</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8h_source.html#l00067">67</a> of file <a class="el" href="dynamic__bitset_8h_source.html">dynamic_bitset.h</a>.</p>
+
+<p>Referenced by <a class="el" href="dynamic__bitset_8h_source.html#l00064">operator bool()</a>, and <a class="el" href="dynamic__bitset_8cpp_source.html#l01090">operator=()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa66d8b981a8d6d173199e48c6340e891"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t&amp; StochHMM::dynamic_bitset::bit_ref::val</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8h_source.html#l00066">66</a> of file <a class="el" href="dynamic__bitset_8h_source.html">dynamic_bitset.h</a>.</p>
+
+<p>Referenced by <a class="el" href="dynamic__bitset_8h_source.html#l00064">operator bool()</a>, and <a class="el" href="dynamic__bitset_8cpp_source.html#l01090">operator=()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="dynamic__bitset_8h_source.html">dynamic_bitset.h</a></li>
 <li><a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:36 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -1,8 +1,26 @@
 var searchData=
 [
-  ['u_5fquadratic_5fpdf',['u_quadratic_pdf',['../group___p_d_f.html#ga4dba3476412b5a15f6256b39c1a2d83d',1,'StochHMM']]],
+  ['u_5fquadratic_5fpdf',['u_quadratic_pdf',['../group___p_d_f.html#ga4dba3476412b5a15f6256b39c1a2d83d',1,'StochHMM::u_quadratic_pdf(double x, double a, double b)'],['../group___p_d_f.html#gac8f45a7de820599ef6699cdfa7ee214b',1,'StochHMM::u_quadratic_pdf(const double x, const std::vector&lt; double &gt; *param)']]],
+  ['uint16_5fmax',['UINT16_MAX',['../stoch_math_8h.html#a3ea490c9b3617d4479bd80ef93cd5602',1,'stochMath.h']]],
+  ['unambiguous',['unambiguous',['../class_stoch_h_m_m_1_1track.html#a98a2babc7bcf8058b5d353ae29896dd9',1,'StochHMM::track']]],
+  ['undef_5fopt',['UNDEF_OPT',['../namespace_stoch_h_m_m.html#a419f35fb0f66fa603a5b63abfa2ff627a07956eeaf513b30e1e902fa376416a50',1,'StochHMM']]],
+  ['undefined',['UNDEFINED',['../namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53a66ac80bb8e51bb958e866afa1f8b6dfb',1,'StochHMM']]],
+  ['undefinedspacer',['undefinedSpacer',['../class_stoch_h_m_m_1_1_p_w_m.html#a5072cea0c4bcc267c115f86a7761b595',1,'StochHMM::PWM']]],
+  ['undefspacersizes',['undefSpacerSizes',['../class_stoch_h_m_m_1_1_p_w_m.html#a28c7c5d061e4a25975e0fd41753d64ee',1,'StochHMM::PWM']]],
   ['undigitize',['undigitize',['../class_stoch_h_m_m_1_1sequence.html#adec874da223aa69e0f2291d8f08a4fac',1,'StochHMM::sequence::undigitize()'],['../class_stoch_h_m_m_1_1sequences.html#ae95c322b792e2fb7bb4da66875a68418',1,'StochHMM::sequences::undigitize()']]],
+  ['undigitized',['undigitized',['../class_stoch_h_m_m_1_1sequence.html#add3d8e8c4f632b715fee51e648b8fe99',1,'StochHMM::sequence']]],
   ['unknowncharscoringtype',['unknownCharScoringType',['../namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521',1,'StochHMM']]],
+  ['unknowndefinedscore',['unknownDefinedScore',['../class_stoch_h_m_m_1_1lexical_table.html#a570fa33046702cb01c4e6cb31c102ef9',1,'StochHMM::lexicalTable']]],
+  ['unknownscoretype',['unknownScoreType',['../class_stoch_h_m_m_1_1lexical_table.html#a5234de754c4cde4fdaf02c3021d181eb',1,'StochHMM::lexicalTable']]],
   ['unset',['unset',['../class_stoch_h_m_m_1_1dynamic__bitset.html#a0da18659f651e1a3a7459344b349ed04',1,'StochHMM::dynamic_bitset']]],
-  ['unsetremovews',['unsetRemoveWS',['../class_stoch_h_m_m_1_1string_list.html#a405ceea15027c6e37a5a58d7262844aa',1,'StochHMM::stringList']]]
+  ['unsetremovews',['unsetRemoveWS',['../class_stoch_h_m_m_1_1string_list.html#a405ceea15027c6e37a5a58d7262844aa',1,'StochHMM::stringList']]],
+  ['up',['UP',['../namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fbae803b23d926af911cb9d94b3697cd0f8',1,'StochHMM']]],
+  ['update_5femissions',['update_emissions',['../class_stoch_h_m_m_1_1trellis.html#a2a2a0eeb01758549106f8b9dec187856',1,'StochHMM::trellis']]],
+  ['update_5ftransitions',['update_transitions',['../class_stoch_h_m_m_1_1trellis.html#a2d79891d87ff38791b49a870ddc11ecb',1,'StochHMM::trellis']]],
+  ['upper_5figamma',['upper_igamma',['../namespace_stoch_h_m_m.html#adacf88c9bdbc7057759795e79003f9d1',1,'StochHMM']]],
+  ['upstream',['upstream',['../class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2',1,'StochHMM::Counter::upstream()'],['../class_stoch_h_m_m_1_1simple_table.html#a36a65c1259ee140b6452be83f44a2aa1',1,'StochHMM::simpleTable::upstream()']]],
+  ['usage',['usage',['../class_stoch_h_m_m_1_1options.html#a0ff78e34f82f741da2b00eb77e3d376e',1,'StochHMM::options::usage()'],['../_motif_scorer_8h.html#ae2bb377fa3ddc2c1ca300f43c4728f81',1,'usage():&#160;MotifScorer.h'],['../_stoch_h_m_m__usage_8h.html#ae2bb377fa3ddc2c1ca300f43c4728f81',1,'usage():&#160;StochHMM_usage.h']]],
+  ['userfunctions_2ecpp',['userFunctions.cpp',['../user_functions_8cpp.html',1,'']]],
+  ['userfunctions_2eh',['userFunctions.h',['../user_functions_8h.html',1,'']]],
+  ['userparameterkeys',['UserParameterKeys',['../class_stoch_h_m_m_1_1stencil.html#a7269233cdd342cd0220c6934c543b3ce',1,'StochHMM::stencil']]]
 ];

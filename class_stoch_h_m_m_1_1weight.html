@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1weight.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,14 +103,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1weight.html">weight</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::weight Class Reference</div>  </div>
 </div><!--header-->
@@ -105,11 +121,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a851de8b01b18ea579ba47c2169c39793"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1weight.html#a851de8b01b18ea579ba47c2169c39793">weight</a> ()</td></tr>
+<tr class="memitem:a7defe1698d57433adbf33e5c74607128"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1weight.html#a7defe1698d57433adbf33e5c74607128">~weight</a> ()</td></tr>
 <tr class="memitem:af43a303a0bbaffe23dd1246f904dd187"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1weight.html#af43a303a0bbaffe23dd1246f904dd187">isAbsolute</a> ()</td></tr>
-<tr class="memitem:ae9b8dbb74bc2c83953c38a092effa84b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae9b8dbb74bc2c83953c38a092effa84b"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getAbsolute</b> ()</td></tr>
-<tr class="memitem:aab7c55e675989d05a98c98505f8e50e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab7c55e675989d05a98c98505f8e50e9"></a>
-std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> ()</td></tr>
+<tr class="memitem:ae9b8dbb74bc2c83953c38a092effa84b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1weight.html#ae9b8dbb74bc2c83953c38a092effa84b">getAbsolute</a> ()</td></tr>
+<tr class="memitem:aab7c55e675989d05a98c98505f8e50e9"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1weight.html#aab7c55e675989d05a98c98505f8e50e9">getName</a> ()</td></tr>
 <tr class="memitem:a48f7c71efbccd5bc9a88b4ee33fb2c9f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1weight.html#a48f7c71efbccd5bc9a88b4ee33fb2c9f">getWeightedScore</a> (double)</td></tr>
 <tr class="memitem:a83a97dd299f46bce877ce111fad3ae41"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1weight.html#a83a97dd299f46bce877ce111fad3ae41">size</a> ()</td></tr>
 <tr class="memdesc:a83a97dd299f46bce877ce111fad3ae41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a score (x) it will map the score to F(x)  <a href="#a83a97dd299f46bce877ce111fad3ae41"></a><br/></td></tr>
@@ -120,18 +136,145 @@ std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getName<
 <tr class="memitem:a21c934de118373502edfe7e08fdd3b58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1weight.html#a21c934de118373502edfe7e08fdd3b58">setWeights</a> (std::vector&lt; double &gt; &amp;, std::vector&lt; double &gt; &amp;)</td></tr>
 <tr class="memitem:a3afe01c95afa16dd5ca7f715830c14d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1weight.html#a3afe01c95afa16dd5ca7f715830c14d7">setMaxWeight</a> (double &amp;, double &amp;)</td></tr>
 <tr class="memitem:aeb279922c774f3acd9e51171af263245"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1weight.html#aeb279922c774f3acd9e51171af263245">setMinWeight</a> (double &amp;, double &amp;)</td></tr>
-<tr class="memitem:a456e0e3d92296f9ab34d8c0c2a5e615f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a456e0e3d92296f9ab34d8c0c2a5e615f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setName</b> (std::string &amp;nm)</td></tr>
-<tr class="memitem:a931ef0097297a17751c5bf3cf1f6bc5b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a931ef0097297a17751c5bf3cf1f6bc5b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1weight.html#a931ef0097297a17751c5bf3cf1f6bc5b">parse</a> (const std::string &amp;)</td></tr>
-<tr class="memdesc:a931ef0097297a17751c5bf3cf1f6bc5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse weight from string. <br/></td></tr>
+<tr class="memitem:a456e0e3d92296f9ab34d8c0c2a5e615f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1weight.html#a456e0e3d92296f9ab34d8c0c2a5e615f">setName</a> (std::string &amp;nm)</td></tr>
+<tr class="memitem:a931ef0097297a17751c5bf3cf1f6bc5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1weight.html#a931ef0097297a17751c5bf3cf1f6bc5b">parse</a> (const std::string &amp;)</td></tr>
+<tr class="memdesc:a931ef0097297a17751c5bf3cf1f6bc5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse weight from string.  <a href="#a931ef0097297a17751c5bf3cf1f6bc5b"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae92e9492f7ecccf9dbdc3ee2d75b13eb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1weight.html#ae92e9492f7ecccf9dbdc3ee2d75b13eb">absolute</a></td></tr>
+<tr class="memitem:abfadf35cb29afe9cf622e9010c0ca0e8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1weight.html#abfadf35cb29afe9cf622e9010c0ca0e8">absoluteValue</a></td></tr>
+<tr class="memdesc:abfadf35cb29afe9cf622e9010c0ca0e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores whether Weight is a constant value.  <a href="#abfadf35cb29afe9cf622e9010c0ca0e8"></a><br/></td></tr>
+<tr class="memitem:af09d5805de3f6861debee09c206680f5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1weight.html#af09d5805de3f6861debee09c206680f5">name</a></td></tr>
+<tr class="memdesc:af09d5805de3f6861debee09c206680f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the constant value.  <a href="#af09d5805de3f6861debee09c206680f5"></a><br/></td></tr>
+<tr class="memitem:af5e5c795992535100d8d6115d5868b75"><td class="memItemLeft" align="right" valign="top">std::pair&lt; double, double &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a></td></tr>
+<tr class="memitem:a6da60d2680fbd615a5c26f19b8b83c8b"><td class="memItemLeft" align="right" valign="top">std::pair&lt; double, double &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1weight.html#a6da60d2680fbd615a5c26f19b8b83c8b">minValue</a></td></tr>
+<tr class="memdesc:a6da60d2680fbd615a5c26f19b8b83c8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the MAX value of x and the corresponding F(x)  <a href="#a6da60d2680fbd615a5c26f19b8b83c8b"></a><br/></td></tr>
+<tr class="memitem:a06c9d606b61e4d62d2d1b096e8afd961"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; double, <br class="typebreak"/>
+double &gt; &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1weight.html#a06c9d606b61e4d62d2d1b096e8afd961">vals</a></td></tr>
+<tr class="memdesc:a06c9d606b61e4d62d2d1b096e8afd961"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the MIN value of x and the corresponding F(x)  <a href="#a06c9d606b61e4d62d2d1b096e8afd961"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>weight class contains scaling factors for external scores </p>
 <p>weight class contains either an *1. Absolute scaling value: meaning the returned value multiplied by constant *2. Score Mapping: x and y values describing the transformation from x=returned score to y the scaled score. If the returned value isn't equal to a specific y the score is interpolated or extrapolated. If the return score x&lt;MIN then="" y="scaled" min="" if="" the="" return="" score="" x&gt;=""&gt;MAX then y=scaled MAX Scores provided to weight should be log(Prob) It will return a log(Prob) scaled score </p>
 
 <p>Definition at line <a class="el" href="weight_8h_source.html#l00056">56</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
-</div><hr/><h2>Member Function Documentation</h2>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a851de8b01b18ea579ba47c2169c39793"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::weight::weight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="weight_8cpp_source.html#l00032">32</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
+
+<p>References <a class="el" href="weight_8h_source.html#l00146">absolute</a>, <a class="el" href="weight_8h_source.html#l00147">absoluteValue</a>, <a class="el" href="weight_8h_source.html#l00150">maxValue</a>, <a class="el" href="weight_8h_source.html#l00151">minValue</a>, and <a class="el" href="weight_8h_source.html#l00153">vals</a>.</p>
+<div class="fragment"><div class="line">                  {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1weight.html#ae92e9492f7ecccf9dbdc3ee2d75b13eb">absolute</a>=<span class="keyword">false</span>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1weight.html#abfadf35cb29afe9cf622e9010c0ca0e8" title="Stores whether Weight is a constant value.">absoluteValue</a>=-INFINITY;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a>=NULL;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1weight.html#a6da60d2680fbd615a5c26f19b8b83c8b" title="Stores the MAX value of x and the corresponding F(x)">minValue</a>=NULL;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1weight.html#a06c9d606b61e4d62d2d1b096e8afd961" title="Stores the MIN value of x and the corresponding F(x)">vals</a>=NULL;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a7defe1698d57433adbf33e5c74607128"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::weight::~weight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="weight_8cpp_source.html#l00040">40</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
+
+<p>References <a class="el" href="weight_8h_source.html#l00150">maxValue</a>, <a class="el" href="weight_8h_source.html#l00151">minValue</a>, and <a class="el" href="weight_8h_source.html#l00153">vals</a>.</p>
+<div class="fragment"><div class="line">                   {</div>
+<div class="line">        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a>;</div>
+<div class="line">        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1weight.html#a6da60d2680fbd615a5c26f19b8b83c8b" title="Stores the MAX value of x and the corresponding F(x)">minValue</a>;</div>
+<div class="line">        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1weight.html#a06c9d606b61e4d62d2d1b096e8afd961" title="Stores the MIN value of x and the corresponding F(x)">vals</a>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a>=NULL;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1weight.html#a6da60d2680fbd615a5c26f19b8b83c8b" title="Stores the MAX value of x and the corresponding F(x)">minValue</a>=NULL;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1weight.html#a06c9d606b61e4d62d2d1b096e8afd961" title="Stores the MIN value of x and the corresponding F(x)">vals</a>=NULL;</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="ae9b8dbb74bc2c83953c38a092effa84b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double StochHMM::weight::getAbsolute </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="weight_8h_source.html#l00069">69</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
+
+<p>References <a class="el" href="weight_8h_source.html#l00147">absoluteValue</a>.</p>
+
+<p>Referenced by <a class="el" href="external_funcs_8cpp_source.html#l00170">StochHMM::transitionFuncParam::stringify()</a>, and <a class="el" href="external_funcs_8cpp_source.html#l00333">StochHMM::emissionFuncParam::stringify()</a>.</p>
+<div class="fragment"><div class="line">{ <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1weight.html#abfadf35cb29afe9cf622e9010c0ca0e8" title="Stores whether Weight is a constant value.">absoluteValue</a>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aab7c55e675989d05a98c98505f8e50e9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string&amp; StochHMM::weight::getName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="weight_8h_source.html#l00071">71</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
+
+<p>References <a class="el" href="weight_8h_source.html#l00148">name</a>.</p>
+
+<p>Referenced by <a class="el" href="weight_8cpp_source.html#l00418">StochHMM::weights::addWeight()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00170">StochHMM::transitionFuncParam::stringify()</a>, and <a class="el" href="external_funcs_8cpp_source.html#l00333">StochHMM::emissionFuncParam::stringify()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1weight.html#af09d5805de3f6861debee09c206680f5" title="Stores the constant value.">name</a>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="a48f7c71efbccd5bc9a88b4ee33fb2c9f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -156,38 +299,40 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="weight_8cpp_source.html#l00127">127</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_math_8cpp_source.html#l00051">StochHMM::extrapolate()</a>, and <a class="el" href="stoch_math_8cpp_source.html#l00043">StochHMM::interpolate()</a>.</p>
+<p>References <a class="el" href="weight_8h_source.html#l00146">absolute</a>, <a class="el" href="weight_8h_source.html#l00147">absoluteValue</a>, <a class="el" href="weight_8cpp_source.html#l00121">StochHMM::compXval()</a>, <a class="el" href="stoch_math_8cpp_source.html#l00051">StochHMM::extrapolate()</a>, <a class="el" href="stoch_math_8cpp_source.html#l00043">StochHMM::interpolate()</a>, <a class="el" href="weight_8h_source.html#l00150">maxValue</a>, <a class="el" href="weight_8h_source.html#l00151">minValue</a>, and <a class="el" href="weight_8h_source.html#l00153">vals</a>.</p>
+
+<p>Referenced by <a class="el" href="external_funcs_8cpp_source.html#l00353">StochHMM::emissionFuncParam::evaluate()</a>.</p>
 <div class="fragment"><div class="line">                                               {</div>
 <div class="line">        <span class="comment">//Find score that flanks or is equal to the score we supply</span></div>
 <div class="line">        <span class="comment">//If there is one equal to then we return it, otherwise</span></div>
 <div class="line">        <span class="comment">//we get the two values and interpolate the score linearly</span></div>
 <div class="line">        <span class="comment">//unless we are on the ends then we extrapolate</span></div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> (absolute){</div>
-<div class="line">            <span class="keywordflow">return</span> score + absoluteValue;</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1weight.html#ae92e9492f7ecccf9dbdc3ee2d75b13eb">absolute</a>){</div>
+<div class="line">            <span class="keywordflow">return</span> score + <a class="code" href="class_stoch_h_m_m_1_1weight.html#abfadf35cb29afe9cf622e9010c0ca0e8" title="Stores whether Weight is a constant value.">absoluteValue</a>;</div>
 <div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (maxValue!=NULL &amp;&amp; score &gt; maxValue-&gt;first){</div>
-<div class="line">            <span class="keywordflow">return</span> maxValue-&gt;second;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a>!=NULL &amp;&amp; score &gt; <a class="code" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a>-&gt;first){</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a>-&gt;second;</div>
 <div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (maxValue!=NULL &amp;&amp; score &lt; minValue-&gt;first){</div>
-<div class="line">            <span class="keywordflow">return</span> minValue-&gt;second;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a>!=NULL &amp;&amp; score &lt; minValue-&gt;first){</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1weight.html#a6da60d2680fbd615a5c26f19b8b83c8b" title="Stores the MAX value of x and the corresponding F(x)">minValue</a>-&gt;second;</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
 <div class="line">            std::vector&lt;std::pair&lt;double,double&gt; &gt;::iterator it;</div>
 <div class="line">            </div>
 <div class="line">            std::pair&lt;double,double&gt; temp (score,0);</div>
 <div class="line">            </div>
-<div class="line">            it=lower_bound(vals-&gt;begin(),vals-&gt;end(),temp ,compXval);</div>
+<div class="line">            it=lower_bound(<a class="code" href="class_stoch_h_m_m_1_1weight.html#a06c9d606b61e4d62d2d1b096e8afd961" title="Stores the MIN value of x and the corresponding F(x)">vals</a>-&gt;begin(),<a class="code" href="class_stoch_h_m_m_1_1weight.html#a06c9d606b61e4d62d2d1b096e8afd961" title="Stores the MIN value of x and the corresponding F(x)">vals</a>-&gt;end(),temp ,<a class="code" href="namespace_stoch_h_m_m.html#ab83ea9d6def4c5b610775ea56ee708e7">compXval</a>);</div>
 <div class="line">            </div>
 <div class="line">            <span class="comment">//std::cout &lt;&lt; (*it).first &lt;&lt; &quot;\t&quot; &lt;&lt; exp((*it).first) &lt;&lt;std::endl;</span></div>
 <div class="line">            </div>
 <div class="line">            <span class="keywordflow">if</span> ((*it).first==score){</div>
 <div class="line">                <span class="keywordflow">return</span> (*it).second;</div>
 <div class="line">            }</div>
-<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (it==vals-&gt;begin()){ <span class="comment">//extrapolate based on beginning</span></div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (it==<a class="code" href="class_stoch_h_m_m_1_1weight.html#a06c9d606b61e4d62d2d1b096e8afd961" title="Stores the MIN value of x and the corresponding F(x)">vals</a>-&gt;begin()){ <span class="comment">//extrapolate based on beginning</span></div>
 <div class="line">                <span class="keywordflow">return</span> <a class="code" href="namespace_stoch_h_m_m.html#a936d6e0be2b0efa67f5415a320c81fb7" title="Extrapolates the Y value of point given by cx and two previous points.">extrapolate</a>((*it),(*(it+1)),score);</div>
 <div class="line">            }</div>
-<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (it==vals-&gt;end()){  <span class="comment">//extrapolate based on end</span></div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (it==<a class="code" href="class_stoch_h_m_m_1_1weight.html#a06c9d606b61e4d62d2d1b096e8afd961" title="Stores the MIN value of x and the corresponding F(x)">vals</a>-&gt;end()){  <span class="comment">//extrapolate based on end</span></div>
 <div class="line">                <span class="keywordflow">return</span> <a class="code" href="namespace_stoch_h_m_m.html#a936d6e0be2b0efa67f5415a320c81fb7" title="Extrapolates the Y value of point given by cx and two previous points.">extrapolate</a>((*(it-2)), (*(it-1)),score);</div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span>{</div>
@@ -223,8 +368,248 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="weight_8h_source.html#l00067">67</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
 
+<p>References <a class="el" href="weight_8h_source.html#l00146">absolute</a>.</p>
+
 <p>Referenced by <a class="el" href="external_funcs_8cpp_source.html#l00170">StochHMM::transitionFuncParam::stringify()</a>, and <a class="el" href="external_funcs_8cpp_source.html#l00333">StochHMM::emissionFuncParam::stringify()</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> absolute;};</div>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1weight.html#ae92e9492f7ecccf9dbdc3ee2d75b13eb">absolute</a>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a931ef0097297a17751c5bf3cf1f6bc5b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::weight::parse </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>txt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parse weight from string. </p>
+
+<p>Definition at line <a class="el" href="weight_8cpp_source.html#l00201">201</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00435">StochHMM::clear_whitespace()</a>, <a class="el" href="statistics_8cpp_source.html#l00040">StochHMM::max()</a>, <a class="el" href="statistics_8cpp_source.html#l00031">StochHMM::min()</a>, <a class="el" href="weight_8h_source.html#l00148">name</a>, <a class="el" href="text_8h_source.html#l00107">StochHMM::stringList::push_back()</a>, <a class="el" href="weight_8h_source.html#l00103">setAbsolute()</a>, <a class="el" href="weight_8cpp_source.html#l00050">setMaxWeight()</a>, <a class="el" href="weight_8cpp_source.html#l00065">setMinWeight()</a>, <a class="el" href="weight_8cpp_source.html#l00096">setWeights()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, and <a class="el" href="text_8cpp_source.html#l00636">StochHMM::stringToDouble()</a>.</p>
+
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00636">StochHMM::model::_parseScaling()</a>.</p>
+<div class="fragment"><div class="line">                                          {</div>
+<div class="line">        stringList lst;</div>
+<div class="line">        lst.splitString(txt,<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">bool</span> <a class="code" href="namespace_stoch_h_m_m.html#ab2f92e32e70e349af9b5e6ecaf19b4ab">table</a>=<span class="keyword">false</span>;</div>
+<div class="line">        std::vector&lt;double&gt; xVal;</div>
+<div class="line">        std::vector&lt;double&gt; yVal;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">bool</span> <a class="code" href="namespace_stoch_h_m_m.html#a0ced3dacc1b4944b71c6ce87edf1b289">min</a>=<span class="keyword">false</span>;</div>
+<div class="line">        <span class="keywordtype">double</span> minXVal(0);</div>
+<div class="line">        <span class="keywordtype">double</span> minYVal(0);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">bool</span> <a class="code" href="namespace_stoch_h_m_m.html#a8f9197e4dd6f06db75b1eb2039e28ce0">max</a>=<span class="keyword">false</span>;</div>
+<div class="line">        <span class="keywordtype">double</span> maxXVal(0);</div>
+<div class="line">        <span class="keywordtype">double</span> maxYVal(0);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;lst.size();i++){</div>
+<div class="line">            stringList line;</div>
+<div class="line">            <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(lst[i],<span class="stringliteral">&quot;:[]\n &quot;</span>);</div>
+<div class="line">            line.splitString(lst[i],<span class="stringliteral">&quot;\t,&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">if</span> (line.size()==0){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Unable to parse weight line: &quot;</span> &lt;&lt; lst[i] &lt;&lt; std::endl;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">                </div>
+<div class="line">            <span class="keywordflow">if</span> (line[0].compare(<span class="stringliteral">&quot;SCALE&quot;</span>)==0){</div>
+<div class="line">                <span class="keywordflow">if</span> (line.size()==2){</div>
+<div class="line">                    <a class="code" href="class_stoch_h_m_m_1_1weight.html#af09d5805de3f6861debee09c206680f5" title="Stores the constant value.">name</a>=line[1];</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Weight Scale is missing a name&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[0].compare(<span class="stringliteral">&quot;ABSOLUTE&quot;</span>)==0){</div>
+<div class="line">                <span class="keywordflow">if</span> (line.size()&lt;2){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Weight Absolute value is missing &quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>; </div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">double</span> val;</div>
+<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[1], val)){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Weighted Absoolute value not numeric: &quot;</span> &lt;&lt; line[1] &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>; </div>
+<div class="line">                }</div>
+<div class="line">                                </div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1weight.html#ab30408d118b2523af5b7c6986a4943b3">setAbsolute</a>(val);</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[0].compare(<span class="stringliteral">&quot;VALUE&quot;</span>)==0){</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (line.size()&lt;3){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Weight VALUE line is missing values&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>; </div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">bool</span> px=line[1].compare(<span class="stringliteral">&quot;P(X)&quot;</span>)==0;</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=2;i&lt;line.size();i++){</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="keywordtype">double</span> tempValue;</div>
+<div class="line">                    <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[i], tempValue)){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Weighted VALUE not numeric: &quot;</span> &lt;&lt; line[i] &lt;&lt; std::endl;</div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                    }</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="keywordflow">if</span> (px){</div>
+<div class="line">                        xVal.push_back(log(tempValue));</div>
+<div class="line">                    }</div>
+<div class="line">                    <span class="keywordflow">else</span>{</div>
+<div class="line">                        xVal.push_back(tempValue);</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">                table=<span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[0].compare(<span class="stringliteral">&quot;SCALED&quot;</span>)==0){</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (line.size()&lt;3){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Weight SCALED line is missing values&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>; </div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">bool</span> px = line[1].compare(<span class="stringliteral">&quot;P(X)&quot;</span>)==0;</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=2;i&lt;line.size();i++){</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="keywordtype">double</span> tempValue;</div>
+<div class="line">                    <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[i], tempValue)){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Weighted SCALED value not numeric: &quot;</span> &lt;&lt; line[i] &lt;&lt; std::endl;</div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                    }</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="keywordflow">if</span> (px){</div>
+<div class="line">                        yVal.push_back(log(tempValue));</div>
+<div class="line">                    }</div>
+<div class="line">                    <span class="keywordflow">else</span>{</div>
+<div class="line">                        yVal.push_back(tempValue);</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">                table=<span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[0].compare(<span class="stringliteral">&quot;MIN_VALUE&quot;</span>)==0){</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (line.size()&lt;3){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Weight MIN_VALUE line is missing values&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>; </div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">double</span> tempValue;</div>
+<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[2], tempValue)){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Weighted VALUE not numeric: &quot;</span> &lt;&lt; line[i] &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (line[1].compare(<span class="stringliteral">&quot;P(X)&quot;</span>)==0){</div>
+<div class="line">                    minXVal=log(tempValue);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                    minXVal=tempValue;</div>
+<div class="line">                }</div>
+<div class="line">                min=<span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[0].compare(<span class="stringliteral">&quot;MIN_SCALED&quot;</span>)==0){</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (line.size()&lt;3){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Weight MIN_SCALED line is missing values&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>; </div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">double</span> tempValue;</div>
+<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[2], tempValue)){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Weighted MIN_SCALED value not numeric: &quot;</span> &lt;&lt; line[i] &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line"></div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (line[1].compare(<span class="stringliteral">&quot;P(X)&quot;</span>)==0){</div>
+<div class="line">                    minYVal=log(tempValue);</div>
+<div class="line">                    </div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                    minYVal=tempValue;</div>
+<div class="line">                    </div>
+<div class="line">                }</div>
+<div class="line">                min=<span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[0].compare(<span class="stringliteral">&quot;MAX_VALUE&quot;</span>)==0){</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (line.size()&lt;3){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Weight MAX_VALUE line is missing values&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>; </div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">double</span> tempValue;</div>
+<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[2], tempValue)){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Weighted MAX_VALUE value not numeric: &quot;</span> &lt;&lt; line[i] &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line"></div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (line[1].compare(<span class="stringliteral">&quot;P(X)&quot;</span>)==0){</div>
+<div class="line">                    maxXVal=log(tempValue);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                    maxXVal=tempValue;</div>
+<div class="line">                }</div>
+<div class="line">                max=<span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[0].compare(<span class="stringliteral">&quot;MAX_SCALED&quot;</span>)==0){</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (line.size()&lt;3){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Weight MAX_SCALED line is missing values&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>; </div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">double</span> tempValue;</div>
+<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[2], tempValue)){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Weighted MAX_SCALED value not numeric: &quot;</span> &lt;&lt; line[i] &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (line[1].compare(<span class="stringliteral">&quot;P(X)&quot;</span>)==0){</div>
+<div class="line">                    maxYVal=log(tempValue);</div>
+<div class="line">                    </div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                    maxYVal=tempValue;</div>
+<div class="line">                }</div>
+<div class="line">                max=<span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (table &amp;&amp; (yVal.size()==xVal.size())){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1weight.html#a70d47c6cfbe6fff590c2c6d309415f17">setWeights</a>(xVal, yVal);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Scaling Values entries don&#39;t match up. They are of different sizes&quot;</span> &lt;&lt;std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (min){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1weight.html#aeb279922c774f3acd9e51171af263245">setMinWeight</a>(minXVal, minYVal);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (max){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1weight.html#a3afe01c95afa16dd5ca7f715830c14d7">setMaxWeight</a>(maxXVal, maxYVal);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -288,8 +673,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="weight_8h_source.html#l00103">103</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
 
+<p>References <a class="el" href="weight_8h_source.html#l00146">absolute</a>, and <a class="el" href="weight_8h_source.html#l00147">absoluteValue</a>.</p>
+
 <p>Referenced by <a class="el" href="external_funcs_8cpp_source.html#l00050">StochHMM::transitionFuncParam::parse()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00257">StochHMM::emissionFuncParam::parse()</a>, and <a class="el" href="weight_8cpp_source.html#l00201">parse()</a>.</p>
-<div class="fragment"><div class="line">{absoluteValue=val; absolute=<span class="keyword">true</span>; <span class="keywordflow">return</span>;};</div>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1weight.html#abfadf35cb29afe9cf622e9010c0ca0e8" title="Stores whether Weight is a constant value.">absoluteValue</a>=val; <a class="code" href="class_stoch_h_m_m_1_1weight.html#ae92e9492f7ecccf9dbdc3ee2d75b13eb">absolute</a>=<span class="keyword">true</span>; <span class="keywordflow">return</span>;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -327,19 +714,21 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="weight_8cpp_source.html#l00050">50</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
 
+<p>References <a class="el" href="weight_8h_source.html#l00150">maxValue</a>.</p>
+
 <p>Referenced by <a class="el" href="weight_8cpp_source.html#l00201">parse()</a>.</p>
 <div class="fragment"><div class="line">                                                 {</div>
-<div class="line">        <span class="keywordflow">if</span> (maxValue!=NULL){</div>
-<div class="line">            <span class="keyword">delete</span> maxValue;</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a>!=NULL){</div>
+<div class="line">            <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a>;</div>
 <div class="line">        }</div>
 <div class="line">        </div>
-<div class="line">        maxValue=<span class="keyword">new</span>(std::nothrow) std::pair&lt;double,double&gt;;</div>
-<div class="line">        <span class="keywordflow">if</span> (maxValue==NULL){</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a>=<span class="keyword">new</span>(std::nothrow) std::pair&lt;double,double&gt;;</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a>==NULL){</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
 <div class="line">            exit(1);</div>
 <div class="line">        }</div>
-<div class="line">        maxValue-&gt;first=x;</div>
-<div class="line">        maxValue-&gt;second=y;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a>-&gt;first=x;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a>-&gt;second=y;</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
@@ -379,21 +768,52 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="weight_8cpp_source.html#l00065">65</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
 
+<p>References <a class="el" href="weight_8h_source.html#l00151">minValue</a>.</p>
+
 <p>Referenced by <a class="el" href="weight_8cpp_source.html#l00201">parse()</a>.</p>
 <div class="fragment"><div class="line">                                                 {</div>
-<div class="line">        <span class="keywordflow">if</span> (minValue!=NULL){</div>
-<div class="line">            <span class="keyword">delete</span> minValue;</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1weight.html#a6da60d2680fbd615a5c26f19b8b83c8b" title="Stores the MAX value of x and the corresponding F(x)">minValue</a>!=NULL){</div>
+<div class="line">            <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1weight.html#a6da60d2680fbd615a5c26f19b8b83c8b" title="Stores the MAX value of x and the corresponding F(x)">minValue</a>;</div>
 <div class="line">        }</div>
 <div class="line">        </div>
-<div class="line">        minValue=<span class="keyword">new</span>(std::nothrow) std::pair&lt;double,double&gt;;</div>
-<div class="line">        <span class="keywordflow">if</span> (minValue==NULL){</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1weight.html#a6da60d2680fbd615a5c26f19b8b83c8b" title="Stores the MAX value of x and the corresponding F(x)">minValue</a>=<span class="keyword">new</span>(std::nothrow) std::pair&lt;double,double&gt;;</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1weight.html#a6da60d2680fbd615a5c26f19b8b83c8b" title="Stores the MAX value of x and the corresponding F(x)">minValue</a>==NULL){</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
 <div class="line">            exit(1);</div>
 <div class="line">        }</div>
-<div class="line">        minValue-&gt;first=x;</div>
-<div class="line">        minValue-&gt;second=y;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1weight.html#a6da60d2680fbd615a5c26f19b8b83c8b" title="Stores the MAX value of x and the corresponding F(x)">minValue</a>-&gt;first=x;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1weight.html#a6da60d2680fbd615a5c26f19b8b83c8b" title="Stores the MAX value of x and the corresponding F(x)">minValue</a>-&gt;second=y;</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a456e0e3d92296f9ab34d8c0c2a5e615f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::weight::setName </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>nm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="weight_8h_source.html#l00139">139</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
+
+<p>References <a class="el" href="weight_8h_source.html#l00148">name</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1weight.html#af09d5805de3f6861debee09c206680f5" title="Stores the constant value.">name</a>=nm;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -445,15 +865,17 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="weight_8cpp_source.html#l00096">96</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
 
+<p>References <a class="el" href="weight_8h_source.html#l00153">vals</a>.</p>
+
 <p>Referenced by <a class="el" href="weight_8cpp_source.html#l00201">parse()</a>, and <a class="el" href="weight_8cpp_source.html#l00080">setWeights()</a>.</p>
 <div class="fragment"><div class="line">                                                                                                                                           {</div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> (vals!=NULL){</div>
-<div class="line">            <span class="keyword">delete</span> vals;</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1weight.html#a06c9d606b61e4d62d2d1b096e8afd961" title="Stores the MIN value of x and the corresponding F(x)">vals</a>!=NULL){</div>
+<div class="line">            <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1weight.html#a06c9d606b61e4d62d2d1b096e8afd961" title="Stores the MIN value of x and the corresponding F(x)">vals</a>;</div>
 <div class="line">        }</div>
 <div class="line">        </div>
-<div class="line">        vals=<span class="keyword">new</span>(std::nothrow) std::vector&lt;std::pair&lt;double,double&gt; &gt;;</div>
-<div class="line">        <span class="keywordflow">if</span> (vals==NULL){</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1weight.html#a06c9d606b61e4d62d2d1b096e8afd961" title="Stores the MIN value of x and the corresponding F(x)">vals</a>=<span class="keyword">new</span>(std::nothrow) std::vector&lt;std::pair&lt;double,double&gt; &gt;;</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1weight.html#a06c9d606b61e4d62d2d1b096e8afd961" title="Stores the MIN value of x and the corresponding F(x)">vals</a>==NULL){</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
 <div class="line">            exit(1);</div>
 <div class="line">        }</div>
@@ -465,7 +887,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;xVals.size();i++){</div>
 <div class="line">            std::pair&lt;double,double&gt; xy (xVals[i],yVals[i]);</div>
-<div class="line">            vals-&gt;push_back(xy);</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1weight.html#a06c9d606b61e4d62d2d1b096e8afd961" title="Stores the MIN value of x and the corresponding F(x)">vals</a>-&gt;push_back(xy);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
@@ -506,19 +928,19 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="weight_8cpp_source.html#l00080">80</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
 
-<p>References <a class="el" href="weight_8cpp_source.html#l00096">setWeights()</a>.</p>
+<p>References <a class="el" href="weight_8h_source.html#l00150">maxValue</a>, <a class="el" href="weight_8h_source.html#l00151">minValue</a>, and <a class="el" href="weight_8cpp_source.html#l00096">setWeights()</a>.</p>
 <div class="fragment"><div class="line">                                                                             {</div>
-<div class="line">        <span class="keywordflow">if</span> (maxValue==NULL &amp;&amp; minValue==NULL){</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a>==NULL &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1weight.html#a6da60d2680fbd615a5c26f19b8b83c8b" title="Stores the MAX value of x and the corresponding F(x)">minValue</a>==NULL){</div>
 <div class="line">            <a class="code" href="class_stoch_h_m_m_1_1weight.html#a70d47c6cfbe6fff590c2c6d309415f17">setWeights</a>(xVals, yVals, NULL, NULL);</div>
 <div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (maxValue==NULL){</div>
-<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1weight.html#a70d47c6cfbe6fff590c2c6d309415f17">setWeights</a>(xVals, yVals, minValue, NULL);</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a>==NULL){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1weight.html#a70d47c6cfbe6fff590c2c6d309415f17">setWeights</a>(xVals, yVals, <a class="code" href="class_stoch_h_m_m_1_1weight.html#a6da60d2680fbd615a5c26f19b8b83c8b" title="Stores the MAX value of x and the corresponding F(x)">minValue</a>, NULL);</div>
 <div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (minValue==NULL){</div>
-<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1weight.html#a70d47c6cfbe6fff590c2c6d309415f17">setWeights</a>(xVals, yVals, NULL, maxValue);</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1weight.html#a6da60d2680fbd615a5c26f19b8b83c8b" title="Stores the MAX value of x and the corresponding F(x)">minValue</a>==NULL){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1weight.html#a70d47c6cfbe6fff590c2c6d309415f17">setWeights</a>(xVals, yVals, NULL, <a class="code" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a>);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
-<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1weight.html#a70d47c6cfbe6fff590c2c6d309415f17">setWeights</a>(xVals,yVals,minValue,maxValue);</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1weight.html#a70d47c6cfbe6fff590c2c6d309415f17">setWeights</a>(xVals,yVals,<a class="code" href="class_stoch_h_m_m_1_1weight.html#a6da60d2680fbd615a5c26f19b8b83c8b" title="Stores the MAX value of x and the corresponding F(x)">minValue</a>,<a class="code" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a>);</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
@@ -551,7 +973,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <dl class="section return"><dt>Returns:</dt><dd>size_t value of vector size; </dd></dl>
 
 <p>Definition at line <a class="el" href="weight_8h_source.html#l00084">84</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> vals-&gt;size();};</div>
+
+<p>References <a class="el" href="weight_8h_source.html#l00153">vals</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1weight.html#a06c9d606b61e4d62d2d1b096e8afd961" title="Stores the MIN value of x and the corresponding F(x)">vals</a>-&gt;size();};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -571,7 +995,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="weight_8cpp_source.html#l00166">166</a> of file <a class="el" href="weight_8cpp_source.html">weight.cpp</a>.</p>
 
-<p>References <a class="el" href="text_8cpp_source.html#l00585">StochHMM::double_to_string()</a>.</p>
+<p>References <a class="el" href="text_8cpp_source.html#l00585">StochHMM::double_to_string()</a>, <a class="el" href="weight_8h_source.html#l00150">maxValue</a>, <a class="el" href="weight_8h_source.html#l00151">minValue</a>, and <a class="el" href="weight_8h_source.html#l00153">vals</a>.</p>
 
 <p>Referenced by <a class="el" href="weight_8h_source.html#l00089">print()</a>.</p>
 <div class="fragment"><div class="line">                               {</div>
@@ -579,31 +1003,31 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <div class="line">        </div>
 <div class="line">        <span class="comment">//Process Values and scaled values;</span></div>
 <div class="line">        scaleString+= <span class="stringliteral">&quot;\tVALUE:\tLOG\t[&quot;</span>;</div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;vals-&gt;size();i++){</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1weight.html#a06c9d606b61e4d62d2d1b096e8afd961" title="Stores the MIN value of x and the corresponding F(x)">vals</a>-&gt;size();i++){</div>
 <div class="line">            <span class="keywordflow">if</span> (i&gt;0){</div>
 <div class="line">                scaleString+= <span class="stringliteral">&quot;,&quot;</span>;</div>
 <div class="line">            }</div>
-<div class="line">            scaleString+= <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>((*vals)[i].first);</div>
+<div class="line">            scaleString+= <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>((*<a class="code" href="class_stoch_h_m_m_1_1weight.html#a06c9d606b61e4d62d2d1b096e8afd961" title="Stores the MIN value of x and the corresponding F(x)">vals</a>)[i].first);</div>
 <div class="line">        }</div>
 <div class="line">        scaleString+= <span class="stringliteral">&quot;]\n&quot;</span>;</div>
 <div class="line">        </div>
 <div class="line">        scaleString+= <span class="stringliteral">&quot;\tSCALED:\tLOG\t[&quot;</span>;</div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;vals-&gt;size();i++){</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1weight.html#a06c9d606b61e4d62d2d1b096e8afd961" title="Stores the MIN value of x and the corresponding F(x)">vals</a>-&gt;size();i++){</div>
 <div class="line">            <span class="keywordflow">if</span> (i&gt;0){</div>
 <div class="line">                scaleString+= <span class="stringliteral">&quot;,&quot;</span>;</div>
 <div class="line">            }</div>
-<div class="line">            scaleString+= <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>((*vals)[i].second);</div>
+<div class="line">            scaleString+= <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>((*<a class="code" href="class_stoch_h_m_m_1_1weight.html#a06c9d606b61e4d62d2d1b096e8afd961" title="Stores the MIN value of x and the corresponding F(x)">vals</a>)[i].second);</div>
 <div class="line">        }</div>
 <div class="line">        scaleString+=<span class="stringliteral">&quot;]\n&quot;</span>;</div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> (minValue!=NULL){</div>
-<div class="line">            scaleString+= <span class="stringliteral">&quot;\tMIN_VALUE:\tLOG\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(minValue-&gt;first) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line">            scaleString+= <span class="stringliteral">&quot;\tMIN_SCALED:\tLOG\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(minValue-&gt;second) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1weight.html#a6da60d2680fbd615a5c26f19b8b83c8b" title="Stores the MAX value of x and the corresponding F(x)">minValue</a>!=NULL){</div>
+<div class="line">            scaleString+= <span class="stringliteral">&quot;\tMIN_VALUE:\tLOG\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1weight.html#a6da60d2680fbd615a5c26f19b8b83c8b" title="Stores the MAX value of x and the corresponding F(x)">minValue</a>-&gt;first) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">            scaleString+= <span class="stringliteral">&quot;\tMIN_SCALED:\tLOG\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1weight.html#a6da60d2680fbd615a5c26f19b8b83c8b" title="Stores the MAX value of x and the corresponding F(x)">minValue</a>-&gt;second) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line">        }</div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> (maxValue!=NULL){</div>
-<div class="line">            scaleString+= <span class="stringliteral">&quot;\tMAX_VALUE:\tLOG\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(maxValue-&gt;first) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line">            scaleString+= <span class="stringliteral">&quot;\tMAX_SCALED:\tLOG\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(maxValue-&gt;second) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a>!=NULL){</div>
+<div class="line">            scaleString+= <span class="stringliteral">&quot;\tMAX_VALUE:\tLOG\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a>-&gt;first) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">            scaleString+= <span class="stringliteral">&quot;\tMAX_SCALED:\tLOG\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1weight.html#af5e5c795992535100d8d6115d5868b75">maxValue</a>-&gt;second) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line">        }</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">return</span> scaleString;</div>
@@ -611,16 +1035,173 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><!-- fragment -->
 </div>
 </div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="ae92e9492f7ecccf9dbdc3ee2d75b13eb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::weight::absolute</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="weight_8h_source.html#l00146">146</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
+
+<p>Referenced by <a class="el" href="weight_8cpp_source.html#l00127">getWeightedScore()</a>, <a class="el" href="weight_8h_source.html#l00067">isAbsolute()</a>, <a class="el" href="weight_8h_source.html#l00103">setAbsolute()</a>, and <a class="el" href="weight_8cpp_source.html#l00032">weight()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abfadf35cb29afe9cf622e9010c0ca0e8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double StochHMM::weight::absoluteValue</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stores whether Weight is a constant value. </p>
+
+<p>Definition at line <a class="el" href="weight_8h_source.html#l00147">147</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
+
+<p>Referenced by <a class="el" href="weight_8h_source.html#l00069">getAbsolute()</a>, <a class="el" href="weight_8cpp_source.html#l00127">getWeightedScore()</a>, <a class="el" href="weight_8h_source.html#l00103">setAbsolute()</a>, and <a class="el" href="weight_8cpp_source.html#l00032">weight()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af5e5c795992535100d8d6115d5868b75"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt;double,double&gt;* StochHMM::weight::maxValue</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="weight_8h_source.html#l00150">150</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
+
+<p>Referenced by <a class="el" href="weight_8cpp_source.html#l00127">getWeightedScore()</a>, <a class="el" href="weight_8cpp_source.html#l00050">setMaxWeight()</a>, <a class="el" href="weight_8cpp_source.html#l00080">setWeights()</a>, <a class="el" href="weight_8cpp_source.html#l00166">stringify()</a>, <a class="el" href="weight_8cpp_source.html#l00032">weight()</a>, and <a class="el" href="weight_8cpp_source.html#l00040">~weight()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6da60d2680fbd615a5c26f19b8b83c8b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt;double,double&gt;* StochHMM::weight::minValue</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stores the MAX value of x and the corresponding F(x) </p>
+
+<p>Definition at line <a class="el" href="weight_8h_source.html#l00151">151</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
+
+<p>Referenced by <a class="el" href="weight_8cpp_source.html#l00127">getWeightedScore()</a>, <a class="el" href="weight_8cpp_source.html#l00065">setMinWeight()</a>, <a class="el" href="weight_8cpp_source.html#l00080">setWeights()</a>, <a class="el" href="weight_8cpp_source.html#l00166">stringify()</a>, <a class="el" href="weight_8cpp_source.html#l00032">weight()</a>, and <a class="el" href="weight_8cpp_source.html#l00040">~weight()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af09d5805de3f6861debee09c206680f5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::weight::name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stores the constant value. </p>
+
+<p>Definition at line <a class="el" href="weight_8h_source.html#l00148">148</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
+
+<p>Referenced by <a class="el" href="weight_8h_source.html#l00071">getName()</a>, <a class="el" href="weight_8cpp_source.html#l00201">parse()</a>, and <a class="el" href="weight_8h_source.html#l00139">setName()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a06c9d606b61e4d62d2d1b096e8afd961"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::pair&lt;double,double&gt; &gt;* StochHMM::weight::vals</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stores the MIN value of x and the corresponding F(x) </p>
+
+<p>Definition at line <a class="el" href="weight_8h_source.html#l00153">153</a> of file <a class="el" href="weight_8h_source.html">weight.h</a>.</p>
+
+<p>Referenced by <a class="el" href="weight_8cpp_source.html#l00127">getWeightedScore()</a>, <a class="el" href="weight_8cpp_source.html#l00096">setWeights()</a>, <a class="el" href="weight_8h_source.html#l00084">size()</a>, <a class="el" href="weight_8cpp_source.html#l00166">stringify()</a>, <a class="el" href="weight_8cpp_source.html#l00032">weight()</a>, and <a class="el" href="weight_8cpp_source.html#l00040">~weight()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="weight_8h_source.html">weight.h</a></li>
 <li><a class="el" href="weight_8cpp_source.html">weight.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1weight.html">weight</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:39 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

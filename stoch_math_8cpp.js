@@ -1,0 +1,26 @@
+var stoch_math_8cpp =
+[
+    [ "_integrate", "stoch_math_8cpp.html#a5a969738d868bb162d110cac47e595f2", null ],
+    [ "adapt_simpson", "stoch_math_8cpp.html#ac3c735ad0324954d041d2ca4430e0dc7", null ],
+    [ "beta", "stoch_math_8cpp.html#a207e1a7c14fbf8f0486c0d98f74738e6", null ],
+    [ "betaPDF", "stoch_math_8cpp.html#a1532ed1ad723ff0e54be573ce6ad6703", null ],
+    [ "bin_coef", "stoch_math_8cpp.html#a3332499db32946b9183f18da42b0b9dc", null ],
+    [ "bin_coef", "stoch_math_8cpp.html#a809921571a08702c4509d79f7dd90cdc", null ],
+    [ "entropy", "stoch_math_8cpp.html#a16a1156ec2aff100415ecc1f316802cb", null ],
+    [ "entropy", "stoch_math_8cpp.html#a3f0b72a6c90c80f2f2ee7c14abdcf38b", null ],
+    [ "extrapolate", "stoch_math_8cpp.html#a936d6e0be2b0efa67f5415a320c81fb7", null ],
+    [ "factorial", "stoch_math_8cpp.html#a53bb7adc9ae52a6084667ca526e0febd", null ],
+    [ "generateUnknownIndices", "stoch_math_8cpp.html#a3c11111d7c06482d094ab60f109cb0a5", null ],
+    [ "ibeta", "stoch_math_8cpp.html#a17c1c0266b9723ee685dd017ca0cd3a8", null ],
+    [ "igamma_lower", "stoch_math_8cpp.html#a8d3a54392b1f33dcba7f165434eccc80", null ],
+    [ "igamma_upper", "stoch_math_8cpp.html#a6c083d3fc1e970967ed2d17aed8d05b7", null ],
+    [ "integrate", "stoch_math_8cpp.html#a68570196f971db6ba51d73a9401a0df7", null ],
+    [ "interpolate", "stoch_math_8cpp.html#afa5f255f6976f352370e9ed2bd0380b4", null ],
+    [ "rel_entropy", "stoch_math_8cpp.html#a2a81e248286d845a3b415826838579de", null ],
+    [ "rel_entropy", "stoch_math_8cpp.html#ad3cada7623c923014992a8bfad75d07b", null ],
+    [ "rgammap", "stoch_math_8cpp.html#a1ed3b493550d62642fad34e9c39364da", null ],
+    [ "rgammaq", "stoch_math_8cpp.html#a4ef63ce42db3c265d57faacb85c1253e", null ],
+    [ "ribeta", "stoch_math_8cpp.html#ad2cd95133bd80788546e9b567a0d2713", null ],
+    [ "simpson", "stoch_math_8cpp.html#a6c85ebbcb0c731996d26b547787d8af0", null ],
+    [ "summation", "stoch_math_8cpp.html#a04fea9a033e66d0d6e2f564738f65f9a", null ]
+];

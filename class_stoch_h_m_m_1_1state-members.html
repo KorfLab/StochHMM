@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1state.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,11 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1state.html">state</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">StochHMM::state Member List</div>  </div>
@@ -96,12 +111,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>_finalizeTransitions</b>(std::map&lt; std::string, state * &gt; &amp;state_index) (defined in <a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a900783c2ef686305862085d6c37aaf81">addEmission</a>(emm *em)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a5aee1c24bad4a3c1d0b7991fc1b80256">addFromState</a>(state *st)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a394c5e58ee0d98b4c722a959819de7b2">addToState</a>(state *st)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a2cefe7e62ed5167795cd938bccba432a">addTransition</a>(transition *trans)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#abcf89f656a8758dca531459f8e441abd">checkLabels</a>(std::set&lt; std::string &gt; &amp;, std::set&lt; std::string &gt; &amp;, std::set&lt; std::string &gt; &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a434dbf305826348f0b225864ccb83559">_finalizeTransitions</a>(std::map&lt; std::string, state * &gt; &amp;state_index)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#af7743eb5dc9b2ae858b8726565a40311">_parseEmission</a>(std::string &amp;, stringList &amp;, tracks &amp;, weights *, StateFuncs *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a3e3df3ab4922c7078fddc861eda099a7">_parseHeader</a>(std::string &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a4ab5905749a8b16b9998c7f09f90336a">_parseTransition</a>(std::string &amp;, stringList &amp;, tracks &amp;, weights *, StateFuncs *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a900783c2ef686305862085d6c37aaf81">addEmission</a>(emm *em)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a5aee1c24bad4a3c1d0b7991fc1b80256">addFromState</a>(state *st)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a394c5e58ee0d98b4c722a959819de7b2">addToState</a>(state *st)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a2cefe7e62ed5167795cd938bccba432a">addTransition</a>(transition *trans)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#abcf89f656a8758dca531459f8e441abd">checkLabels</a>(std::set&lt; std::string &gt; &amp;, std::set&lt; std::string &gt; &amp;, std::set&lt; std::string &gt; &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#af7e994cec885af4967eaed6cac032914">emission</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#ae58061df69b616656f0589d8a47e0c0f">endi</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#aebd5e6a43a92b3571d3bd1f79bd365be">from</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a96de994cffc9108c7e4194a84d36e317">get_emission_prob</a>(sequences &amp;seqs, size_t iter)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#ac2f3abf105cf945a21606e26dab86633">get_transition_prob</a>(sequences &amp;seqs, size_t to, size_t iter)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#af109fa0ba9d53419f805518b0bf7bf52">getEmission</a>(size_t iter)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
@@ -115,29 +136,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a1aa3e052885226bd9663e5b3e9fd674a">getTo</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#afb40076c4d7f0c7ceb256c7e7eec9f6b">getTrans</a>(size_t iter)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#ad8e37a9faab55e66832a3e782b8d4db8">getTransitions</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>hasComplexEmission</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>hasComplexTransition</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>hasSimpleEmission</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>hasSimpleTransition</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>isSimple</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>model</b> (defined in <a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a0cbb513086803822dc8368e277d2c28e">parse</a>(std::string &amp;, stringList &amp;, tracks &amp;, weights *, StateFuncs *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>print</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a738d0a524c1bb8338e254650781ee18e">setEndingTransition</a>(transition *trans)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a672145e26a5d30ef5bc9238428d8f681">setGFF</a>(std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a7fefa7b17ddde43333bb80e3158b09ff">setIter</a>(size_t val)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#aaa76f5bfcc777e5d8cf1102ebd99d933">setLabel</a>(std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a61f03e8137f2f85e8f6216d9b62a9178">setName</a>(std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a724a2e126a2dd8adcc4aa5809f028e2b">state</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#ad577c169b7a7e4c859ca75e44ed0da9b">state</a>(std::string &amp;, stringList &amp;, tracks &amp;, weights *, StateFuncs *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#ab14d48bab585f461a4f9b558cc524daa">gff</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a65781f1c5f49a7a3edabb3ad23bc5bd6">hasComplexEmission</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a9c7b7d3c419253d07c0ec561a9261caf">hasComplexTransition</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a0d98460ec11df3709f826cbd2506ab3e">hasSimpleEmission</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a2e743caf6f3e7afb3697571958eac4f1">hasSimpleTransition</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#afb7319415b0662fec7d3c004c32a6bb0">isSimple</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a3a756180fbb3f338a2446ca6cafc0261">label</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a6e37bb755d74e24f1b3e7e2def3b13e0">model</a> class</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a58c7e6b9ab1f0bdd44718448687ac700">name</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a0cbb513086803822dc8368e277d2c28e">parse</a>(std::string &amp;, stringList &amp;, tracks &amp;, weights *, StateFuncs *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a4f81bb15d013c2f87cdc1817301a8039">print</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a738d0a524c1bb8338e254650781ee18e">setEndingTransition</a>(transition *trans)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a672145e26a5d30ef5bc9238428d8f681">setGFF</a>(std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a7fefa7b17ddde43333bb80e3158b09ff">setIter</a>(size_t val)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#aaa76f5bfcc777e5d8cf1102ebd99d933">setLabel</a>(std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a61f03e8137f2f85e8f6216d9b62a9178">setName</a>(std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a724a2e126a2dd8adcc4aa5809f028e2b">state</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#ad577c169b7a7e4c859ca75e44ed0da9b">state</a>(std::string &amp;, stringList &amp;, tracks &amp;, weights *, StateFuncs *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a85a287ad17a215fe2acfcd042070d466">stateIterator</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#affdd46a537fe5f4d6bce781f90f45636">stringify</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#ae926d05079c5695b25a439bc0c1a2bdf">to</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a62c74dae9736574f8ea13d1b43d5c75d">transi</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html#a7666c1a1912dad5e1cf9aa4de1cf47e6">~state</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1state.html">StochHMM::state</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:38 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1transition_func_param.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,28 +103,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html">transitionFuncParam</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::transitionFuncParam Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a>&gt;</code></p>
 
 <p><a href="class_stoch_h_m_m_1_1transition_func_param-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a830df8e53883996b8b30603556bd65e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a830df8e53883996b8b30603556bd65e6">transitionFuncParam</a> ()</td></tr>
-<tr class="memitem:a0ceb539f5281ec5d8a0147a9ba575ba0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ceb539f5281ec5d8a0147a9ba575ba0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a0ceb539f5281ec5d8a0147a9ba575ba0">parse</a> (<a class="el" href="class_stoch_h_m_m_1_1string_list.html">stringList</a> &amp;, <a class="el" href="class_stoch_h_m_m_1_1tracks.html">tracks</a> &amp;, <a class="el" href="class_stoch_h_m_m_1_1weights.html">weights</a> *, <a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html">StateFuncs</a> *)</td></tr>
-<tr class="memdesc:a0ceb539f5281ec5d8a0147a9ba575ba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the <a class="el" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a> from model import. <br/></td></tr>
-<tr class="memitem:a3dc8932b14325686bd21eda4f9a316fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a3dc8932b14325686bd21eda4f9a316fd">setTransFunc</a> (std::string &amp;, transitionFunc *, <a class="el" href="class_stoch_h_m_m_1_1weight.html">weight</a> *)</td></tr>
+<tr class="memitem:a0ceb539f5281ec5d8a0147a9ba575ba0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a0ceb539f5281ec5d8a0147a9ba575ba0">parse</a> (<a class="el" href="class_stoch_h_m_m_1_1string_list.html">stringList</a> &amp;, <a class="el" href="class_stoch_h_m_m_1_1tracks.html">tracks</a> &amp;, <a class="el" href="class_stoch_h_m_m_1_1weights.html">weights</a> *, <a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html">StateFuncs</a> *)</td></tr>
+<tr class="memdesc:a0ceb539f5281ec5d8a0147a9ba575ba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the <a class="el" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a> from model import.  <a href="#a0ceb539f5281ec5d8a0147a9ba575ba0"></a><br/></td></tr>
+<tr class="memitem:a3dc8932b14325686bd21eda4f9a316fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a3dc8932b14325686bd21eda4f9a316fd">setTransFunc</a> (std::string &amp;, <a class="el" href="namespace_stoch_h_m_m.html#a3e8439e572cd4e42d0d645bae56d8706">transitionFunc</a> *, <a class="el" href="class_stoch_h_m_m_1_1weight.html">weight</a> *)</td></tr>
 <tr class="memitem:ad2533ae3d26c5d62f4cd1d10eccfb7b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#ad2533ae3d26c5d62f4cd1d10eccfb7b5">setTransTB</a> (<a class="el" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0">tracebackIdentifier</a>, std::string &amp;, <a class="el" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3af">combineIdentifier</a>, std::string &amp;)</td></tr>
 <tr class="memitem:a9085d8f46b0a09acf072587f1b5e55d9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a9085d8f46b0a09acf072587f1b5e55d9">isTracebackDefined</a> ()</td></tr>
 <tr class="memitem:a6a610164f59eef33f214b0863f81a1ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0">tracebackIdentifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a6a610164f59eef33f214b0863f81a1ff">getTracebackType</a> ()</td></tr>
@@ -112,15 +129,33 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a07501a3c6a348ddb8bf9251108b6e800"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a07501a3c6a348ddb8bf9251108b6e800">getCombineName</a> ()</td></tr>
 <tr class="memitem:a318e1dbaed8248a6515f4277c538ca9d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3af">combineIdentifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a318e1dbaed8248a6515f4277c538ca9d">getCombineType</a> ()</td></tr>
 <tr class="memitem:a8e8a3261544e7859768f18a646097a71"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a8e8a3261544e7859768f18a646097a71">getTrackName</a> ()</td></tr>
-<tr class="memitem:aeb5ab01387b3bf16657f4dc9fdbff7a8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb5ab01387b3bf16657f4dc9fdbff7a8"></a>
-<a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getTrack</b> ()</td></tr>
-<tr class="memitem:a30e0fb41c9911ab63b2069e3c32862bb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a30e0fb41c9911ab63b2069e3c32862bb"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>evaluate</b> (const std::string *, size_t, const std::string *, size_t)</td></tr>
-<tr class="memitem:adde1b580634010b05724e3036bc90cfe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adde1b580634010b05724e3036bc90cfe"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#adde1b580634010b05724e3036bc90cfe">print</a> ()</td></tr>
-<tr class="memdesc:adde1b580634010b05724e3036bc90cfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the externalFuncts to stdout. <br/></td></tr>
+<tr class="memitem:aeb5ab01387b3bf16657f4dc9fdbff7a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#aeb5ab01387b3bf16657f4dc9fdbff7a8">getTrack</a> ()</td></tr>
+<tr class="memitem:a30e0fb41c9911ab63b2069e3c32862bb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a30e0fb41c9911ab63b2069e3c32862bb">evaluate</a> (const std::string *, size_t, const std::string *, size_t)</td></tr>
+<tr class="memitem:adde1b580634010b05724e3036bc90cfe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#adde1b580634010b05724e3036bc90cfe">print</a> ()</td></tr>
+<tr class="memdesc:adde1b580634010b05724e3036bc90cfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the externalFuncts to stdout.  <a href="#adde1b580634010b05724e3036bc90cfe"></a><br/></td></tr>
 <tr class="memitem:ae6123ce62a2a1a9742599b26c4e26d03"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#ae6123ce62a2a1a9742599b26c4e26d03">stringify</a> ()</td></tr>
 <tr class="memdesc:ae6123ce62a2a1a9742599b26c4e26d03"><td class="mdescLeft">&#160;</td><td class="mdescRight">prints the string representation of the externFuncs to stdout  <a href="#ae6123ce62a2a1a9742599b26c4e26d03"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aca74129889813417b11dee56f36ce922"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_stoch_h_m_m.html#a3e8439e572cd4e42d0d645bae56d8706">transitionFunc</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#aca74129889813417b11dee56f36ce922">transFunc</a></td></tr>
+<tr class="memdesc:aca74129889813417b11dee56f36ce922"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return string representation of the externFuncs definition in the model.  <a href="#aca74129889813417b11dee56f36ce922"></a><br/></td></tr>
+<tr class="memitem:a28a0b0cf4da23acac8b72c4c4e4b26c6"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a28a0b0cf4da23acac8b72c4c4e4b26c6">trackName</a></td></tr>
+<tr class="memitem:a210fe7d827acf1bc35eefe95efd96131"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a210fe7d827acf1bc35eefe95efd96131">transFuncTrack</a></td></tr>
+<tr class="memdesc:a210fe7d827acf1bc35eefe95efd96131"><td class="mdescLeft">&#160;</td><td class="mdescRight">What track to pass to the function.  <a href="#a210fe7d827acf1bc35eefe95efd96131"></a><br/></td></tr>
+<tr class="memitem:aac7800047784d5c066b27dff7a8846f8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#aac7800047784d5c066b27dff7a8846f8">transFuncName</a></td></tr>
+<tr class="memdesc:aac7800047784d5c066b27dff7a8846f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to track function uses.  <a href="#aac7800047784d5c066b27dff7a8846f8"></a><br/></td></tr>
+<tr class="memitem:a2d5bb60ee3299105d4ba8739ad4a3179"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1weight.html">weight</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a2d5bb60ee3299105d4ba8739ad4a3179">transFuncScaling</a></td></tr>
+<tr class="memdesc:a2d5bb60ee3299105d4ba8739ad4a3179"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Name of the external function as used in the model  <a href="#a2d5bb60ee3299105d4ba8739ad4a3179"></a><br/></td></tr>
+<tr class="memitem:a136b2da7d5b0a1e127fdafd9aa5af8e3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a136b2da7d5b0a1e127fdafd9aa5af8e3">transFuncTraceback</a></td></tr>
+<tr class="memdesc:a136b2da7d5b0a1e127fdafd9aa5af8e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; weighting information for values  <a href="#a136b2da7d5b0a1e127fdafd9aa5af8e3"></a><br/></td></tr>
+<tr class="memitem:a5755cd32266bfb38ad037147c96c5c15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0">tracebackIdentifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a5755cd32266bfb38ad037147c96c5c15">transFuncTracebackIdentifier</a></td></tr>
+<tr class="memdesc:a5755cd32266bfb38ad037147c96c5c15"><td class="mdescLeft">&#160;</td><td class="mdescRight">defines whether a traceback in necessary for the function  <a href="#a5755cd32266bfb38ad037147c96c5c15"></a><br/></td></tr>
+<tr class="memitem:a2b8bbf56fbe42d9eac3d5e6ce5ab6e0e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a2b8bbf56fbe42d9eac3d5e6ce5ab6e0e">transFuncTracebackString</a></td></tr>
+<tr class="memitem:a3b61ca5d146aac74216af2d2b5781bd4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3af">combineIdentifier</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#a3b61ca5d146aac74216af2d2b5781bd4">transFuncCombineIdentifier</a></td></tr>
+<tr class="memdesc:a3b61ca5d146aac74216af2d2b5781bd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains name of traceback.  <a href="#a3b61ca5d146aac74216af2d2b5781bd4"></a><br/></td></tr>
+<tr class="memitem:ac44d4ae36ecb609a2ae51d92c017821d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html#ac44d4ae36ecb609a2ae51d92c017821d">transFuncCombineString</a></td></tr>
+<tr class="memdesc:ac44d4ae36ecb609a2ae51d92c017821d"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Contains information on how to combine the traceback information  <a href="#ac44d4ae36ecb609a2ae51d92c017821d"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
@@ -150,13 +185,62 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 
 <p>Definition at line <a class="el" href="external_funcs_8cpp_source.html#l00039">39</a> of file <a class="el" href="external_funcs_8cpp_source.html">externalFuncs.cpp</a>.</p>
+
+<p>References <a class="el" href="external_funcs_8h_source.html#l00113">transFunc</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
-<div class="line">        transFunc=NULL;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#aca74129889813417b11dee56f36ce922" title="Return string representation of the externFuncs definition in the model.">transFunc</a>=NULL;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a30e0fb41c9911ab63b2069e3c32862bb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double StochHMM::transitionFuncParam::evaluate </td>
+          <td>(</td>
+          <td class="paramtype">const std::string *&#160;</td>
+          <td class="paramname"><em>fullSequence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string *&#160;</td>
+          <td class="paramname"><em>partialSequence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="external_funcs_8cpp_source.html#l00225">225</a> of file <a class="el" href="external_funcs_8cpp_source.html">externalFuncs.cpp</a>.</p>
+
+<p>References <a class="el" href="external_funcs_8h_source.html#l00113">transFunc</a>.</p>
+
+<p>Referenced by <a class="el" href="trellis_8cpp_source.html#l00315">StochHMM::trellis::transitionFuncTraceback()</a>.</p>
+<div class="fragment"><div class="line">                                                                                                                                 {</div>
+<div class="line">        <span class="keywordflow">return</span> (*<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#aca74129889813417b11dee56f36ce922" title="Return string representation of the externFuncs definition in the model.">transFunc</a>)(fullSequence, pos, partialSequence,length);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="a07501a3c6a348ddb8bf9251108b6e800"></a>
 <div class="memitem">
 <div class="memproto">
@@ -182,8 +266,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="external_funcs_8h_source.html#l00093">93</a> of file <a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a>.</p>
 
-<p>Referenced by <a class="el" href="state_8cpp_source.html#l00451">StochHMM::state::checkLabels()</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> transFuncCombineString;};</div>
+<p>References <a class="el" href="external_funcs_8h_source.html#l00128">transFuncCombineString</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8cpp_source.html#l00451">StochHMM::state::checkLabels()</a>, and <a class="el" href="trellis_8cpp_source.html#l00315">StochHMM::trellis::transitionFuncTraceback()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#ac44d4ae36ecb609a2ae51d92c017821d" title="&lt; Contains information on how to combine the traceback information">transFuncCombineString</a>;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -213,8 +299,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="external_funcs_8h_source.html#l00099">99</a> of file <a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a>.</p>
 
-<p>Referenced by <a class="el" href="state_8cpp_source.html#l00451">StochHMM::state::checkLabels()</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> transFuncCombineIdentifier;};</div>
+<p>References <a class="el" href="external_funcs_8h_source.html#l00127">transFuncCombineIdentifier</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8cpp_source.html#l00451">StochHMM::state::checkLabels()</a>, and <a class="el" href="trellis_8cpp_source.html#l00315">StochHMM::trellis::transitionFuncTraceback()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a3b61ca5d146aac74216af2d2b5781bd4" title="Contains name of traceback.">transFuncCombineIdentifier</a>;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -243,8 +331,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="external_funcs_8h_source.html#l00089">89</a> of file <a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a>.</p>
 
-<p>Referenced by <a class="el" href="state_8cpp_source.html#l00451">StochHMM::state::checkLabels()</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> transFuncTracebackString;};</div>
+<p>References <a class="el" href="external_funcs_8h_source.html#l00125">transFuncTracebackString</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8cpp_source.html#l00451">StochHMM::state::checkLabels()</a>, and <a class="el" href="trellis_8cpp_source.html#l00315">StochHMM::trellis::transitionFuncTraceback()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2b8bbf56fbe42d9eac3d5e6ce5ab6e0e">transFuncTracebackString</a>;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -274,8 +364,40 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="external_funcs_8h_source.html#l00085">85</a> of file <a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a>.</p>
 
-<p>Referenced by <a class="el" href="state_8cpp_source.html#l00451">StochHMM::state::checkLabels()</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> transFuncTracebackIdentifier;};</div>
+<p>References <a class="el" href="external_funcs_8h_source.html#l00124">transFuncTracebackIdentifier</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8cpp_source.html#l00451">StochHMM::state::checkLabels()</a>, and <a class="el" href="trellis_8cpp_source.html#l00315">StochHMM::trellis::transitionFuncTraceback()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a5755cd32266bfb38ad037147c96c5c15" title="defines whether a traceback in necessary for the function">transFuncTracebackIdentifier</a>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aeb5ab01387b3bf16657f4dc9fdbff7a8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a>* StochHMM::transitionFuncParam::getTrack </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="external_funcs_8h_source.html#l00105">105</a> of file <a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a>.</p>
+
+<p>References <a class="el" href="external_funcs_8h_source.html#l00115">transFuncTrack</a>.</p>
+
+<p>Referenced by <a class="el" href="trellis_8cpp_source.html#l00315">StochHMM::trellis::transitionFuncTraceback()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a210fe7d827acf1bc35eefe95efd96131" title="What track to pass to the function.">transFuncTrack</a>;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -303,7 +425,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <dl class="section return"><dt>Returns:</dt><dd>std::string Track Name as defined in the model to be passed to the function </dd></dl>
 
 <p>Definition at line <a class="el" href="external_funcs_8h_source.html#l00103">103</a> of file <a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> trackName;};</div>
+
+<p>References <a class="el" href="external_funcs_8h_source.html#l00114">trackName</a>.</p>
+
+<p>Referenced by <a class="el" href="transitions_8cpp_source.html#l00121">StochHMM::transition::_processTags()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a28a0b0cf4da23acac8b72c4c4e4b26c6">trackName</a>;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -333,7 +459,191 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 false if a traceback is not required </dd></dl>
 
 <p>Definition at line <a class="el" href="external_funcs_8h_source.html#l00080">80</a> of file <a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> transFuncTraceback;};</div>
+
+<p>References <a class="el" href="external_funcs_8h_source.html#l00122">transFuncTraceback</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a136b2da7d5b0a1e127fdafd9aa5af8e3" title="&lt; weighting information for values">transFuncTraceback</a>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a0ceb539f5281ec5d8a0147a9ba575ba0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::transitionFuncParam::parse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">stringList</a> &amp;&#160;</td>
+          <td class="paramname"><em>lst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1tracks.html">tracks</a> &amp;&#160;</td>
+          <td class="paramname"><em>trcks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1weights.html">weights</a> *&#160;</td>
+          <td class="paramname"><em>wts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html">StateFuncs</a> *&#160;</td>
+          <td class="paramname"><em>funcs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parse the <a class="el" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a> from model import. </p>
+
+<p>Definition at line <a class="el" href="external_funcs_8cpp_source.html#l00050">50</a> of file <a class="el" href="external_funcs_8cpp_source.html">externalFuncs.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="weight_8h_source.html#l00168">StochHMM::weights::count()</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::DIFF_STATE</a>, <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::FULL</a>, <a class="el" href="track_8cpp_source.html#l00542">StochHMM::tracks::getTrack()</a>, <a class="el" href="user_functions_8cpp_source.html#l00141">StochHMM::StateFuncs::getTransitionFunction()</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="text_8cpp_source.html#l00808">StochHMM::isNumeric()</a>, <a class="el" href="weight_8h_source.html#l00103">StochHMM::weight::setAbsolute()</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::START_INIT</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_GFF</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_LABEL</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_NAME</a>, <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::STATEGFF</a>, <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::STATELABEL</a>, <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::STATENAME</a>, <a class="el" href="text_8cpp_source.html#l00636">StochHMM::stringToDouble()</a>, <a class="el" href="external_funcs_8h_source.html#l00114">trackName</a>, <a class="el" href="external_funcs_8h_source.html#l00113">transFunc</a>, <a class="el" href="external_funcs_8h_source.html#l00127">transFuncCombineIdentifier</a>, <a class="el" href="external_funcs_8h_source.html#l00128">transFuncCombineString</a>, <a class="el" href="external_funcs_8h_source.html#l00117">transFuncName</a>, <a class="el" href="external_funcs_8h_source.html#l00119">transFuncScaling</a>, <a class="el" href="external_funcs_8h_source.html#l00122">transFuncTraceback</a>, <a class="el" href="external_funcs_8h_source.html#l00124">transFuncTracebackIdentifier</a>, <a class="el" href="external_funcs_8h_source.html#l00125">transFuncTracebackString</a>, and <a class="el" href="external_funcs_8h_source.html#l00115">transFuncTrack</a>.</p>
+
+<p>Referenced by <a class="el" href="transitions_8cpp_source.html#l00121">StochHMM::transition::_processTags()</a>.</p>
+<div class="fragment"><div class="line">                                                                                                  {</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">size_t</span> idx;</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//FUNCTION NAME (REQUIRED)</span></div>
+<div class="line">        <span class="keywordflow">if</span> (lst.contains(<span class="stringliteral">&quot;FUNCTION&quot;</span>)){</div>
+<div class="line">            idx=lst.indexOf(<span class="stringliteral">&quot;FUNCTION&quot;</span>);</div>
+<div class="line">            idx++;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#aac7800047784d5c066b27dff7a8846f8" title="Pointer to track function uses.">transFuncName</a> = lst[idx];</div>
+<div class="line">            <span class="keywordflow">if</span> (funcs!=NULL){</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#aca74129889813417b11dee56f36ce922" title="Return string representation of the externFuncs definition in the model.">transFunc</a> = funcs-&gt;getTransitionFunction(<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#aac7800047784d5c066b27dff7a8846f8" title="Pointer to track function uses.">transFuncName</a>);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Tag was parsed but contains no FUNCTION: . Please check the formatting of the tags\n&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//errorInfo(sCantParseLine, &quot;Tag was parsed but contains no FUNCTION: . Please check the formatting of the tags\n&quot;);</span></div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Implement Which track to pass to function</span></div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (lst.contains(<span class="stringliteral">&quot;TRACK&quot;</span>)){</div>
+<div class="line">            idx=lst.indexOf(<span class="stringliteral">&quot;TRACK&quot;</span>);</div>
+<div class="line">            idx++;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a28a0b0cf4da23acac8b72c4c4e4b26c6">trackName</a>=lst[idx];</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a210fe7d827acf1bc35eefe95efd96131" title="What track to pass to the function.">transFuncTrack</a> = trcks.getTrack(<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a28a0b0cf4da23acac8b72c4c4e4b26c6">trackName</a>);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Tag was parsed but contains no TRACK: . Please check the formatting of the tags\n&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            <span class="comment">//errorInfo(sCantParseLine, &quot;Tag was parsed but contains no TRACK: . Please check the formatting of the tags\n&quot;);</span></div>
+<div class="line">        }</div>
+<div class="line">            </div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (lst.contains(<span class="stringliteral">&quot;SCALE&quot;</span>)){</div>
+<div class="line">            idx=lst.indexOf(<span class="stringliteral">&quot;SCALE&quot;</span>);</div>
+<div class="line">            idx++;</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="group___text.html#ga7297a0284778c0591fa5505d24ff491d">isNumeric</a>(lst[idx])){</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2d5bb60ee3299105d4ba8739ad4a3179" title="&lt; Name of the external function as used in the model">transFuncScaling</a> = <span class="keyword">new</span>(std::nothrow) weight;</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2d5bb60ee3299105d4ba8739ad4a3179" title="&lt; Name of the external function as used in the model">transFuncScaling</a>==NULL){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                    exit(1);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordtype">double</span> tempValue;</div>
+<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(lst[idx], tempValue)){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Ambiguous Value couldn&#39;t be parsed: &quot;</span>&lt;&lt; lst[idx] &lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2d5bb60ee3299105d4ba8739ad4a3179" title="&lt; Name of the external function as used in the model">transFuncScaling</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1weight.html#ab30408d118b2523af5b7c6986a4943b3">setAbsolute</a>(tempValue);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::string weightName=lst[idx];</div>
+<div class="line">                <span class="keywordflow">if</span> (wts-&gt;count(weightName)){</div>
+<div class="line">                    <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2d5bb60ee3299105d4ba8739ad4a3179" title="&lt; Name of the external function as used in the model">transFuncScaling</a> = (*wts)[weightName];</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Process Traceback Commands</span></div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Parse the TO Traceback Labels in the function tag</span></div>
+<div class="line">        <span class="keyword">const</span> std::string tbLabels[]= {<span class="stringliteral">&quot;TO_LABEL&quot;</span>,<span class="stringliteral">&quot;TB-&gt;LABEL&quot;</span>,<span class="stringliteral">&quot;TO_GFF&quot;</span>,<span class="stringliteral">&quot;TB-&gt;GFF&quot;</span>,<span class="stringliteral">&quot;TO_STATE&quot;</span>,<span class="stringliteral">&quot;TB-&gt;STATE&quot;</span>,<span class="stringliteral">&quot;TO_START&quot;</span>,<span class="stringliteral">&quot;TB-&gt;START&quot;</span>,<span class="stringliteral">&quot;DIFF_STATE&quot;</span>};</div>
+<div class="line">        <span class="keyword">const</span> <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0">tracebackIdentifier</a> typs[]= {<a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0ac2040123c6c745b59fc47ad26b2e6da4">STATE_LABEL</a>,<a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0ac2040123c6c745b59fc47ad26b2e6da4">STATE_LABEL</a>,<a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a58a38a1a765f474348b77316f16a6705">STATE_GFF</a>,<a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a58a38a1a765f474348b77316f16a6705">STATE_GFF</a>,<a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a18e765406f9d8a5caa2b0d0a6c9f998a">STATE_NAME</a>,<a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a18e765406f9d8a5caa2b0d0a6c9f998a">STATE_NAME</a>,<a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0affb06959a95d912e7fbdb602fe454108">START_INIT</a>,<a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0affb06959a95d912e7fbdb602fe454108">START_INIT</a>,<a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a4854244905e0725bfd743559f2825d97">DIFF_STATE</a>};</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;9;i++){</div>
+<div class="line">            <span class="keywordflow">if</span> (lst.contains(tbLabels[i])){</div>
+<div class="line">                </div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a136b2da7d5b0a1e127fdafd9aa5af8e3" title="&lt; weighting information for values">transFuncTraceback</a>=<span class="keyword">true</span>;</div>
+<div class="line">                </div>
+<div class="line">                idx=lst.indexOf(tbLabels[i]);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a5755cd32266bfb38ad037147c96c5c15" title="defines whether a traceback in necessary for the function">transFuncTracebackIdentifier</a>=typs[i];</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (typs[i]!=<a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0affb06959a95d912e7fbdb602fe454108">START_INIT</a> || typs[i]!=<a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a4854244905e0725bfd743559f2825d97">DIFF_STATE</a>){</div>
+<div class="line">                    <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2b8bbf56fbe42d9eac3d5e6ce5ab6e0e">transFuncTracebackString</a>=lst[idx+1];</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// Parse the Combine tags</span></div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a136b2da7d5b0a1e127fdafd9aa5af8e3" title="&lt; weighting information for values">transFuncTraceback</a>){</div>
+<div class="line">            <span class="comment">//Process Traceback Combining Commands</span></div>
+<div class="line">            std::string combineLabels[] = {<span class="stringliteral">&quot;COMBINE_LABEL&quot;</span>,<span class="stringliteral">&quot;COMBINE_GFF&quot;</span>,<span class="stringliteral">&quot;COMBINE_STATE&quot;</span>, <span class="stringliteral">&quot;NO_COMBINE&quot;</span>};</div>
+<div class="line">            <span class="keyword">const</span> <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3af">combineIdentifier</a> comtyps[] = {<a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa93fcf6d9e9ea65f68afa730e67a5d4b1">STATELABEL</a>,<a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa49875a64cf5df70e633b53bb59795369">STATEGFF</a>,<a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa198b8fa516af18756740aa9bcdd35ea9">STATENAME</a>,<a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa1d7fc605341a3b076cf0752b9aef65c5">FULL</a>};</div>
+<div class="line">            <span class="keywordtype">bool</span> combineTypeProvided=<span class="keyword">false</span>;</div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;4;i++){</div>
+<div class="line">                <span class="keywordflow">if</span> (lst.contains(combineLabels[i])){</div>
+<div class="line">                    idx=lst.indexOf(combineLabels[i]);</div>
+<div class="line">                    <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a3b61ca5d146aac74216af2d2b5781bd4" title="Contains name of traceback.">transFuncCombineIdentifier</a>=comtyps[i];</div>
+<div class="line">                    <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#ac44d4ae36ecb609a2ae51d92c017821d" title="&lt; Contains information on how to combine the traceback information">transFuncCombineString</a>=lst[idx+1];</div>
+<div class="line">                    combineTypeProvided=<span class="keyword">true</span>;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (!combineTypeProvided){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Transition Function tag with a traceback was called, but no CombineType was provided.  If no traceback is needed then please remove traceback command. \n&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//errorInfo(sTagIncorrect, &quot;Transition Function tag with a traceback was called, but no CombineType was provided.  If no traceback is needed then please remove traceback command. \n&quot;);</span></div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="adde1b580634010b05724e3036bc90cfe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::transitionFuncParam::print </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print the externalFuncts to stdout. </p>
+
+<p>Definition at line <a class="el" href="external_funcs_8cpp_source.html#l00164">164</a> of file <a class="el" href="external_funcs_8cpp_source.html">externalFuncs.cpp</a>.</p>
+
+<p>References <a class="el" href="external_funcs_8cpp_source.html#l00170">stringify()</a>.</p>
+<div class="fragment"><div class="line">                                   {</div>
+<div class="line">        std::cout&lt;&lt;<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#ae6123ce62a2a1a9742599b26c4e26d03" title="prints the string representation of the externFuncs to stdout">stringify</a>()&lt;&lt;std::endl;</div>
+<div class="line">    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -350,7 +660,7 @@ false if a traceback is not required </dd></dl>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">transitionFunc *&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_stoch_h_m_m.html#a3e8439e572cd4e42d0d645bae56d8706">transitionFunc</a> *&#160;</td>
           <td class="paramname"><em>function</em>, </td>
         </tr>
         <tr>
@@ -377,10 +687,12 @@ false if a traceback is not required </dd></dl>
 </dl>
 
 <p>Definition at line <a class="el" href="external_funcs_8cpp_source.html#l00204">204</a> of file <a class="el" href="external_funcs_8cpp_source.html">externalFuncs.cpp</a>.</p>
+
+<p>References <a class="el" href="external_funcs_8h_source.html#l00113">transFunc</a>, <a class="el" href="external_funcs_8h_source.html#l00117">transFuncName</a>, and <a class="el" href="external_funcs_8h_source.html#l00119">transFuncScaling</a>.</p>
 <div class="fragment"><div class="line">                                                                                                        {</div>
-<div class="line">        transFunc=<span class="keyword">function</span>;</div>
-<div class="line">        transFuncName=funcName;</div>
-<div class="line">        transFuncScaling=scaling;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#aca74129889813417b11dee56f36ce922" title="Return string representation of the externFuncs definition in the model.">transFunc</a>=<span class="keyword">function</span>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#aac7800047784d5c066b27dff7a8846f8" title="Pointer to track function uses.">transFuncName</a>=funcName;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2d5bb60ee3299105d4ba8739ad4a3179" title="&lt; Name of the external function as used in the model">transFuncScaling</a>=scaling;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
@@ -432,12 +744,14 @@ false if a traceback is not required </dd></dl>
 </dl>
 
 <p>Definition at line <a class="el" href="external_funcs_8cpp_source.html#l00215">215</a> of file <a class="el" href="external_funcs_8cpp_source.html">externalFuncs.cpp</a>.</p>
+
+<p>References <a class="el" href="external_funcs_8h_source.html#l00127">transFuncCombineIdentifier</a>, <a class="el" href="external_funcs_8h_source.html#l00128">transFuncCombineString</a>, <a class="el" href="external_funcs_8h_source.html#l00122">transFuncTraceback</a>, <a class="el" href="external_funcs_8h_source.html#l00124">transFuncTracebackIdentifier</a>, and <a class="el" href="external_funcs_8h_source.html#l00125">transFuncTracebackString</a>.</p>
 <div class="fragment"><div class="line">                                                                                                                                       {</div>
-<div class="line">        transFuncTracebackIdentifier=tbIdent;</div>
-<div class="line">        transFuncTracebackString=tbString;</div>
-<div class="line">        transFuncCombineIdentifier=cbIdent;</div>
-<div class="line">        transFuncCombineString=cbString;</div>
-<div class="line">        transFuncTraceback=<span class="keyword">true</span>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a5755cd32266bfb38ad037147c96c5c15" title="defines whether a traceback in necessary for the function">transFuncTracebackIdentifier</a>=tbIdent;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2b8bbf56fbe42d9eac3d5e6ce5ab6e0e">transFuncTracebackString</a>=tbString;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a3b61ca5d146aac74216af2d2b5781bd4" title="Contains name of traceback.">transFuncCombineIdentifier</a>=cbIdent;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#ac44d4ae36ecb609a2ae51d92c017821d" title="&lt; Contains information on how to combine the traceback information">transFuncCombineString</a>=cbString;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a136b2da7d5b0a1e127fdafd9aa5af8e3" title="&lt; weighting information for values">transFuncTraceback</a>=<span class="keyword">true</span>;</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
@@ -462,30 +776,30 @@ false if a traceback is not required </dd></dl>
 
 <p>Definition at line <a class="el" href="external_funcs_8cpp_source.html#l00170">170</a> of file <a class="el" href="external_funcs_8cpp_source.html">externalFuncs.cpp</a>.</p>
 
-<p>References <a class="el" href="text_8cpp_source.html#l00585">StochHMM::double_to_string()</a>, and <a class="el" href="weight_8h_source.html#l00067">StochHMM::weight::isAbsolute()</a>.</p>
+<p>References <a class="el" href="text_8cpp_source.html#l00585">StochHMM::double_to_string()</a>, <a class="el" href="weight_8h_source.html#l00069">StochHMM::weight::getAbsolute()</a>, <a class="el" href="weight_8h_source.html#l00071">StochHMM::weight::getName()</a>, <a class="el" href="weight_8h_source.html#l00067">StochHMM::weight::isAbsolute()</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::START_INIT</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_GFF</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_LABEL</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_NAME</a>, <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::STATEGFF</a>, <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::STATELABEL</a>, <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::STATENAME</a>, <a class="el" href="external_funcs_8h_source.html#l00114">trackName</a>, <a class="el" href="external_funcs_8h_source.html#l00127">transFuncCombineIdentifier</a>, <a class="el" href="external_funcs_8h_source.html#l00128">transFuncCombineString</a>, <a class="el" href="external_funcs_8h_source.html#l00117">transFuncName</a>, <a class="el" href="external_funcs_8h_source.html#l00119">transFuncScaling</a>, <a class="el" href="external_funcs_8h_source.html#l00122">transFuncTraceback</a>, <a class="el" href="external_funcs_8h_source.html#l00124">transFuncTracebackIdentifier</a>, and <a class="el" href="external_funcs_8h_source.html#l00125">transFuncTracebackString</a>.</p>
 
 <p>Referenced by <a class="el" href="external_funcs_8cpp_source.html#l00164">print()</a>, and <a class="el" href="transitions_8cpp_source.html#l00521">StochHMM::transition::stringify()</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
 <div class="line">        std::string exFuncString;</div>
-<div class="line">        exFuncString+=<span class="stringliteral">&quot;[ FUNCTION:\t&quot;</span> + transFuncName + <span class="stringliteral">&quot;\t&quot;</span>;</div>
-<div class="line">        exFuncString+=<span class="stringliteral">&quot;TRACK:\t&quot;</span> + trackName + <span class="stringliteral">&quot;\t&quot;</span>;</div>
-<div class="line">        <span class="keywordflow">if</span> (transFuncTraceback){</div>
-<div class="line">            exFuncString+= (transFuncTracebackIdentifier == STATE_NAME)  ? <span class="stringliteral">&quot;TO_STATE:\t&quot;</span> + transFuncTracebackString + <span class="stringliteral">&quot;\t&quot;</span>:</div>
-<div class="line">                           (transFuncTracebackIdentifier == STATE_LABEL) ? <span class="stringliteral">&quot;TO_LABEL:\t&quot;</span> + transFuncTracebackString + <span class="stringliteral">&quot;\t&quot;</span>: </div>
-<div class="line">                           (transFuncTracebackIdentifier == STATE_GFF)   ? <span class="stringliteral">&quot;TO_GFF:\t&quot;</span> + transFuncTracebackString   + <span class="stringliteral">&quot;\t&quot;</span>:</div>
-<div class="line">                           (transFuncTracebackIdentifier == START_INIT)  ? <span class="stringliteral">&quot;TO_START:\t&quot;</span>: <span class="stringliteral">&quot;DIFF_STATE:\t&quot;</span> ;</div>
+<div class="line">        exFuncString+=<span class="stringliteral">&quot;[ FUNCTION:\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#aac7800047784d5c066b27dff7a8846f8" title="Pointer to track function uses.">transFuncName</a> + <span class="stringliteral">&quot;\t&quot;</span>;</div>
+<div class="line">        exFuncString+=<span class="stringliteral">&quot;TRACK:\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a28a0b0cf4da23acac8b72c4c4e4b26c6">trackName</a> + <span class="stringliteral">&quot;\t&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a136b2da7d5b0a1e127fdafd9aa5af8e3" title="&lt; weighting information for values">transFuncTraceback</a>){</div>
+<div class="line">            exFuncString+= (<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a5755cd32266bfb38ad037147c96c5c15" title="defines whether a traceback in necessary for the function">transFuncTracebackIdentifier</a> == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a18e765406f9d8a5caa2b0d0a6c9f998a">STATE_NAME</a>)  ? <span class="stringliteral">&quot;TO_STATE:\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2b8bbf56fbe42d9eac3d5e6ce5ab6e0e">transFuncTracebackString</a> + <span class="stringliteral">&quot;\t&quot;</span>:</div>
+<div class="line">                           (<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a5755cd32266bfb38ad037147c96c5c15" title="defines whether a traceback in necessary for the function">transFuncTracebackIdentifier</a> == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0ac2040123c6c745b59fc47ad26b2e6da4">STATE_LABEL</a>) ? <span class="stringliteral">&quot;TO_LABEL:\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2b8bbf56fbe42d9eac3d5e6ce5ab6e0e">transFuncTracebackString</a> + <span class="stringliteral">&quot;\t&quot;</span>: </div>
+<div class="line">                           (<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a5755cd32266bfb38ad037147c96c5c15" title="defines whether a traceback in necessary for the function">transFuncTracebackIdentifier</a> == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a58a38a1a765f474348b77316f16a6705">STATE_GFF</a>)   ? <span class="stringliteral">&quot;TO_GFF:\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2b8bbf56fbe42d9eac3d5e6ce5ab6e0e">transFuncTracebackString</a>   + <span class="stringliteral">&quot;\t&quot;</span>:</div>
+<div class="line">                           (<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a5755cd32266bfb38ad037147c96c5c15" title="defines whether a traceback in necessary for the function">transFuncTracebackIdentifier</a> == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0affb06959a95d912e7fbdb602fe454108">START_INIT</a>)  ? <span class="stringliteral">&quot;TO_START:\t&quot;</span>: <span class="stringliteral">&quot;DIFF_STATE:\t&quot;</span> ;</div>
 <div class="line">            </div>
-<div class="line">            exFuncString+=  (transFuncCombineIdentifier == STATENAME) ? <span class="stringliteral">&quot;COMBINE_STATE:\t&quot;</span> + transFuncCombineString + <span class="stringliteral">&quot;\t&quot;</span>:</div>
-<div class="line">                            (transFuncCombineIdentifier == STATELABEL) ? <span class="stringliteral">&quot;COMBINE_LABEL:\t&quot;</span> + transFuncCombineString + <span class="stringliteral">&quot;\t&quot;</span>:</div>
-<div class="line">                            (transFuncCombineIdentifier == STATEGFF) ? <span class="stringliteral">&quot;COMBINE_GFF:\t&quot;</span> + transFuncCombineString :<span class="stringliteral">&quot;NO_COMBINE:\t&quot;</span>;</div>
+<div class="line">            exFuncString+=  (<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a3b61ca5d146aac74216af2d2b5781bd4" title="Contains name of traceback.">transFuncCombineIdentifier</a> == <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa198b8fa516af18756740aa9bcdd35ea9">STATENAME</a>) ? <span class="stringliteral">&quot;COMBINE_STATE:\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#ac44d4ae36ecb609a2ae51d92c017821d" title="&lt; Contains information on how to combine the traceback information">transFuncCombineString</a> + <span class="stringliteral">&quot;\t&quot;</span>:</div>
+<div class="line">                            (<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a3b61ca5d146aac74216af2d2b5781bd4" title="Contains name of traceback.">transFuncCombineIdentifier</a> == <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa93fcf6d9e9ea65f68afa730e67a5d4b1">STATELABEL</a>) ? <span class="stringliteral">&quot;COMBINE_LABEL:\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#ac44d4ae36ecb609a2ae51d92c017821d" title="&lt; Contains information on how to combine the traceback information">transFuncCombineString</a> + <span class="stringliteral">&quot;\t&quot;</span>:</div>
+<div class="line">                            (<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a3b61ca5d146aac74216af2d2b5781bd4" title="Contains name of traceback.">transFuncCombineIdentifier</a> == <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa49875a64cf5df70e633b53bb59795369">STATEGFF</a>) ? <span class="stringliteral">&quot;COMBINE_GFF:\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#ac44d4ae36ecb609a2ae51d92c017821d" title="&lt; Contains information on how to combine the traceback information">transFuncCombineString</a> :<span class="stringliteral">&quot;NO_COMBINE:\t&quot;</span>;</div>
 <div class="line">        }</div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> (transFuncScaling!=NULL){</div>
-<div class="line">            <span class="keywordflow">if</span> (transFuncScaling-&gt;<a class="code" href="class_stoch_h_m_m_1_1weight.html#af43a303a0bbaffe23dd1246f904dd187">isAbsolute</a>()){</div>
-<div class="line">                exFuncString+=<span class="stringliteral">&quot;SCALE:\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(transFuncScaling-&gt;getAbsolute());</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2d5bb60ee3299105d4ba8739ad4a3179" title="&lt; Name of the external function as used in the model">transFuncScaling</a>!=NULL){</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2d5bb60ee3299105d4ba8739ad4a3179" title="&lt; Name of the external function as used in the model">transFuncScaling</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1weight.html#af43a303a0bbaffe23dd1246f904dd187">isAbsolute</a>()){</div>
+<div class="line">                exFuncString+=<span class="stringliteral">&quot;SCALE:\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2d5bb60ee3299105d4ba8739ad4a3179" title="&lt; Name of the external function as used in the model">transFuncScaling</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1weight.html#ae9b8dbb74bc2c83953c38a092effa84b">getAbsolute</a>());</div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span>{</div>
-<div class="line">                exFuncString+=<span class="stringliteral">&quot;SCALE:\t&quot;</span> + transFuncScaling-&gt;getName();</div>
+<div class="line">                exFuncString+=<span class="stringliteral">&quot;SCALE:\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a2d5bb60ee3299105d4ba8739ad4a3179" title="&lt; Name of the external function as used in the model">transFuncScaling</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1weight.html#aab7c55e675989d05a98c98505f8e50e9">getName</a>();</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        </div>
@@ -496,16 +810,278 @@ false if a traceback is not required </dd></dl>
 </div><!-- fragment -->
 </div>
 </div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a28a0b0cf4da23acac8b72c4c4e4b26c6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::transitionFuncParam::trackName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="external_funcs_8h_source.html#l00114">114</a> of file <a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a>.</p>
+
+<p>Referenced by <a class="el" href="external_funcs_8h_source.html#l00103">getTrackName()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00050">parse()</a>, and <a class="el" href="external_funcs_8cpp_source.html#l00170">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aca74129889813417b11dee56f36ce922"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_stoch_h_m_m.html#a3e8439e572cd4e42d0d645bae56d8706">transitionFunc</a>* StochHMM::transitionFuncParam::transFunc</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return string representation of the externFuncs definition in the model. </p>
+
+<p>Definition at line <a class="el" href="external_funcs_8h_source.html#l00113">113</a> of file <a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a>.</p>
+
+<p>Referenced by <a class="el" href="external_funcs_8cpp_source.html#l00225">evaluate()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00050">parse()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00204">setTransFunc()</a>, and <a class="el" href="external_funcs_8cpp_source.html#l00039">transitionFuncParam()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3b61ca5d146aac74216af2d2b5781bd4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3af">combineIdentifier</a> StochHMM::transitionFuncParam::transFuncCombineIdentifier</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Contains name of traceback. </p>
+
+<p>Definition at line <a class="el" href="external_funcs_8h_source.html#l00127">127</a> of file <a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a>.</p>
+
+<p>Referenced by <a class="el" href="external_funcs_8h_source.html#l00099">getCombineType()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00050">parse()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00215">setTransTB()</a>, and <a class="el" href="external_funcs_8cpp_source.html#l00170">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac44d4ae36ecb609a2ae51d92c017821d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::transitionFuncParam::transFuncCombineString</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>&lt; Contains information on how to combine the traceback information </p>
+
+<p>Definition at line <a class="el" href="external_funcs_8h_source.html#l00128">128</a> of file <a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a>.</p>
+
+<p>Referenced by <a class="el" href="external_funcs_8h_source.html#l00093">getCombineName()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00050">parse()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00215">setTransTB()</a>, and <a class="el" href="external_funcs_8cpp_source.html#l00170">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aac7800047784d5c066b27dff7a8846f8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::transitionFuncParam::transFuncName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pointer to track function uses. </p>
+
+<p>Definition at line <a class="el" href="external_funcs_8h_source.html#l00117">117</a> of file <a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a>.</p>
+
+<p>Referenced by <a class="el" href="external_funcs_8cpp_source.html#l00050">parse()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00204">setTransFunc()</a>, and <a class="el" href="external_funcs_8cpp_source.html#l00170">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2d5bb60ee3299105d4ba8739ad4a3179"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1weight.html">weight</a>* StochHMM::transitionFuncParam::transFuncScaling</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>&lt; Name of the external function as used in the model </p>
+
+<p>Definition at line <a class="el" href="external_funcs_8h_source.html#l00119">119</a> of file <a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a>.</p>
+
+<p>Referenced by <a class="el" href="external_funcs_8cpp_source.html#l00050">parse()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00204">setTransFunc()</a>, and <a class="el" href="external_funcs_8cpp_source.html#l00170">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a136b2da7d5b0a1e127fdafd9aa5af8e3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::transitionFuncParam::transFuncTraceback</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>&lt; weighting information for values </p>
+
+<p>Definition at line <a class="el" href="external_funcs_8h_source.html#l00122">122</a> of file <a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a>.</p>
+
+<p>Referenced by <a class="el" href="external_funcs_8h_source.html#l00080">isTracebackDefined()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00050">parse()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00215">setTransTB()</a>, and <a class="el" href="external_funcs_8cpp_source.html#l00170">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5755cd32266bfb38ad037147c96c5c15"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0">tracebackIdentifier</a> StochHMM::transitionFuncParam::transFuncTracebackIdentifier</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>defines whether a traceback in necessary for the function </p>
+<p>What to traceback until </p>
+
+<p>Definition at line <a class="el" href="external_funcs_8h_source.html#l00124">124</a> of file <a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a>.</p>
+
+<p>Referenced by <a class="el" href="external_funcs_8h_source.html#l00085">getTracebackType()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00050">parse()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00215">setTransTB()</a>, and <a class="el" href="external_funcs_8cpp_source.html#l00170">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2b8bbf56fbe42d9eac3d5e6ce5ab6e0e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::transitionFuncParam::transFuncTracebackString</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="external_funcs_8h_source.html#l00125">125</a> of file <a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a>.</p>
+
+<p>Referenced by <a class="el" href="external_funcs_8h_source.html#l00089">getTracebackName()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00050">parse()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00215">setTransTB()</a>, and <a class="el" href="external_funcs_8cpp_source.html#l00170">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a210fe7d827acf1bc35eefe95efd96131"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a>* StochHMM::transitionFuncParam::transFuncTrack</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>What track to pass to the function. </p>
+
+<p>Definition at line <a class="el" href="external_funcs_8h_source.html#l00115">115</a> of file <a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a>.</p>
+
+<p>Referenced by <a class="el" href="external_funcs_8h_source.html#l00105">getTrack()</a>, and <a class="el" href="external_funcs_8cpp_source.html#l00050">parse()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="external_funcs_8h_source.html">externalFuncs.h</a></li>
 <li><a class="el" href="external_funcs_8cpp_source.html">externalFuncs.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1transition_func_param.html">transitionFuncParam</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:37 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

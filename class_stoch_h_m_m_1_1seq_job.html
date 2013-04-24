@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1seq_job.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,14 +103,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">seqJob</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::seqJob Class Reference</div>  </div>
@@ -103,58 +119,682 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a11a11ba0a7cd17559095cbe0f837276f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a11a11ba0a7cd17559095cbe0f837276f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a11a11ba0a7cd17559095cbe0f837276f">seqJob</a> (size_t)</td></tr>
-<tr class="memdesc:a11a11ba0a7cd17559095cbe0f837276f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">seqJob</a>. <br/></td></tr>
-<tr class="memitem:a5ccece52713e4e49885d442a19f39ccb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5ccece52713e4e49885d442a19f39ccb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a5ccece52713e4e49885d442a19f39ccb">~seqJob</a> ()</td></tr>
-<tr class="memdesc:a5ccece52713e4e49885d442a19f39ccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy a <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">seqJob</a>. <br/></td></tr>
-<tr class="memitem:a5b0f0e7395cc4e3bf09c8ea138f859b4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b0f0e7395cc4e3bf09c8ea138f859b4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>evaluateFunctions</b> ()</td></tr>
-<tr class="memitem:a6d5e1c3039741df846a08576e0f37e56"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d5e1c3039741df846a08576e0f37e56"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> ()</td></tr>
-<tr class="memitem:abe7ed9cbf4a21cedd6a20ddcea8b3520"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abe7ed9cbf4a21cedd6a20ddcea8b3520"></a>
-<a class="el" href="class_stoch_h_m_m_1_1model.html">model</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getModel</b> ()</td></tr>
-<tr class="memitem:a1c85d7cee8f51c64c17c307266391777"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c85d7cee8f51c64c17c307266391777"></a>
-<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSeqs</b> ()</td></tr>
-<tr class="memitem:a84914c98520e9f2885a4393ff333dac9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84914c98520e9f2885a4393ff333dac9"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getHeader</b> ()</td></tr>
-<tr class="memitem:ac2ceb3286faf0525077dc75383b5cbf2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac2ceb3286faf0525077dc75383b5cbf2"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>evaluated</b> ()</td></tr>
-<tr class="memitem:a404cd9f679acb7078bfedd4664f10516"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a404cd9f679acb7078bfedd4664f10516"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>printModel</b> ()</td></tr>
-<tr class="memitem:ac95e8d61f31de6c9c0a0e1fabe2536e2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac95e8d61f31de6c9c0a0e1fabe2536e2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>printSeq</b> ()</td></tr>
-<tr class="memitem:a50c9e021b15270784c6c12fcecdf06fc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50c9e021b15270784c6c12fcecdf06fc"></a>
-<a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getPath</b> ()</td></tr>
-<tr class="memitem:aacd8cca067936193a4e3b3c43d9c2304"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aacd8cca067936193a4e3b3c43d9c2304"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getSeqAttrib</b> ()</td></tr>
-<tr class="memitem:a2911aacf6c7fab2233ec29ad3a0b0ef7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2911aacf6c7fab2233ec29ad3a0b0ef7"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getSeqFilename</b> (size_t iter)</td></tr>
-<tr class="memitem:a2cc2d3df107b646605e21b7c483fcff2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2cc2d3df107b646605e21b7c483fcff2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSeqFilename</b> (std::string &amp;filename)</td></tr>
-<tr class="memitem:aca5c0bccfb928ccf09ba81ba0aa78e4c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca5c0bccfb928ccf09ba81ba0aa78e4c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>printFilenames</b> ()</td></tr>
+<tr class="memitem:a11a11ba0a7cd17559095cbe0f837276f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a11a11ba0a7cd17559095cbe0f837276f">seqJob</a> (size_t)</td></tr>
+<tr class="memdesc:a11a11ba0a7cd17559095cbe0f837276f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">seqJob</a>.  <a href="#a11a11ba0a7cd17559095cbe0f837276f"></a><br/></td></tr>
+<tr class="memitem:a5ccece52713e4e49885d442a19f39ccb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a5ccece52713e4e49885d442a19f39ccb">~seqJob</a> ()</td></tr>
+<tr class="memdesc:a5ccece52713e4e49885d442a19f39ccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy a <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">seqJob</a>.  <a href="#a5ccece52713e4e49885d442a19f39ccb"></a><br/></td></tr>
+<tr class="memitem:a5b0f0e7395cc4e3bf09c8ea138f859b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a5b0f0e7395cc4e3bf09c8ea138f859b4">evaluateFunctions</a> ()</td></tr>
+<tr class="memitem:a6d5e1c3039741df846a08576e0f37e56"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a6d5e1c3039741df846a08576e0f37e56">size</a> ()</td></tr>
+<tr class="memitem:abe7ed9cbf4a21cedd6a20ddcea8b3520"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1model.html">model</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#abe7ed9cbf4a21cedd6a20ddcea8b3520">getModel</a> ()</td></tr>
+<tr class="memitem:a1c85d7cee8f51c64c17c307266391777"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a1c85d7cee8f51c64c17c307266391777">getSeqs</a> ()</td></tr>
+<tr class="memitem:a84914c98520e9f2885a4393ff333dac9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a84914c98520e9f2885a4393ff333dac9">getHeader</a> ()</td></tr>
+<tr class="memitem:ac2ceb3286faf0525077dc75383b5cbf2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#ac2ceb3286faf0525077dc75383b5cbf2">evaluated</a> ()</td></tr>
+<tr class="memitem:a404cd9f679acb7078bfedd4664f10516"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a404cd9f679acb7078bfedd4664f10516">printModel</a> ()</td></tr>
+<tr class="memitem:ac95e8d61f31de6c9c0a0e1fabe2536e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#ac95e8d61f31de6c9c0a0e1fabe2536e2">printSeq</a> ()</td></tr>
+<tr class="memitem:a50c9e021b15270784c6c12fcecdf06fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a50c9e021b15270784c6c12fcecdf06fc">getPath</a> ()</td></tr>
+<tr class="memitem:aacd8cca067936193a4e3b3c43d9c2304"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#aacd8cca067936193a4e3b3c43d9c2304">getSeqAttrib</a> ()</td></tr>
+<tr class="memitem:a2911aacf6c7fab2233ec29ad3a0b0ef7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a2911aacf6c7fab2233ec29ad3a0b0ef7">getSeqFilename</a> (size_t iter)</td></tr>
+<tr class="memitem:a2cc2d3df107b646605e21b7c483fcff2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a2cc2d3df107b646605e21b7c483fcff2">setSeqFilename</a> (std::string &amp;filename)</td></tr>
+<tr class="memitem:aca5c0bccfb928ccf09ba81ba0aa78e4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#aca5c0bccfb928ccf09ba81ba0aa78e4c">printFilenames</a> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aafc405d1cdac77b1f1ebd2a6b9754df9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1model.html">model</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#aafc405d1cdac77b1f1ebd2a6b9754df9">hmm</a></td></tr>
+<tr class="memitem:ab61dc8ef7d57f5f515ab061d87dc35ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#ab61dc8ef7d57f5f515ab061d87dc35ff">set</a></td></tr>
+<tr class="memitem:a4e7004a62401483f65dbebbbcaaf5a44"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a4e7004a62401483f65dbebbbcaaf5a44">seqFilename</a></td></tr>
+<tr class="memitem:a31b7479f7a4cfa4f9f9fea2c5ff173fa"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a31b7479f7a4cfa4f9f9fea2c5ff173fa">attrib</a></td></tr>
+<tr class="memitem:a9ed04b886c7fab884c932c200653d743"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a9ed04b886c7fab884c932c200653d743">funcEvaluated</a></td></tr>
+<tr class="memitem:a95bd76bc98fb2335797941a947671e71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1_track_funcs.html">TrackFuncs</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a95bd76bc98fb2335797941a947671e71">functions</a></td></tr>
+<tr class="memitem:a9c2aeb5b874186d0245fcc3b46928220"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a9c2aeb5b874186d0245fcc3b46928220">decodingPerformed</a></td></tr>
+<tr class="memitem:aaddf53b2bb8c0f88f419a4409abc3463"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#aaddf53b2bb8c0f88f419a4409abc3463">path</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a637db8a64e3b3931aca08eaaba4796dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a637db8a64e3b3931aca08eaaba4796dc"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>seqTracks</b></td></tr>
+<tr class="memitem:a637db8a64e3b3931aca08eaaba4796dc"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a637db8a64e3b3931aca08eaaba4796dc">seqTracks</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>*Stores the model and sequence information for each job </p>
 
 <p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00236">236</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a11a11ba0a7cd17559095cbe0f837276f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::seqJob::seqJob </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>sz</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">seqJob</a>. </p>
+
+<p>Definition at line <a class="el" href="seq_jobs_8cpp_source.html#l00033">33</a> of file <a class="el" href="seq_jobs_8cpp_source.html">seqJobs.cpp</a>.</p>
+
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00280">attrib</a>, <a class="el" href="seq_tracks_8h_source.html#l00285">decodingPerformed</a>, <a class="el" href="seq_tracks_8h_source.html#l00272">hmm</a>, and <a class="el" href="seq_tracks_8h_source.html#l00286">path</a>.</p>
+<div class="fragment"><div class="line">                           {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#a9c2aeb5b874186d0245fcc3b46928220">decodingPerformed</a>=<span class="keyword">false</span>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#a31b7479f7a4cfa4f9f9fea2c5ff173fa">attrib</a>=-INFINITY;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#aafc405d1cdac77b1f1ebd2a6b9754df9">hmm</a>=NULL;</div>
+<div class="line">        <span class="keyword">set</span>=<span class="keyword">new</span> sequences(sz);</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#aaddf53b2bb8c0f88f419a4409abc3463">path</a>=NULL;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a5ccece52713e4e49885d442a19f39ccb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::seqJob::~seqJob </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destroy a <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">seqJob</a>. </p>
+
+<p>Definition at line <a class="el" href="seq_jobs_8cpp_source.html#l00042">42</a> of file <a class="el" href="seq_jobs_8cpp_source.html">seqJobs.cpp</a>.</p>
+
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00272">hmm</a>, and <a class="el" href="seq_tracks_8h_source.html#l00286">path</a>.</p>
+<div class="fragment"><div class="line">                   {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#aafc405d1cdac77b1f1ebd2a6b9754df9">hmm</a>=NULL;</div>
+<div class="line">        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#aaddf53b2bb8c0f88f419a4409abc3463">path</a>;</div>
+<div class="line">        <span class="keyword">delete</span> <span class="keyword">set</span>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#aaddf53b2bb8c0f88f419a4409abc3463">path</a>=NULL;</div>
+<div class="line">        <span class="keyword">set</span>=NULL;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="ac2ceb3286faf0525077dc75383b5cbf2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::seqJob::evaluated </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00259">259</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00281">funcEvaluated</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#a9ed04b886c7fab884c932c200653d743">funcEvaluated</a>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a5b0f0e7395cc4e3bf09c8ea138f859b4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::seqJob::evaluateFunctions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a84914c98520e9f2885a4393ff333dac9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::seqJob::getHeader </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00257">257</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <span class="keyword">set</span>-&gt;getHeader();};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="abe7ed9cbf4a21cedd6a20ddcea8b3520"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1model.html">model</a>* StochHMM::seqJob::getModel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00254">254</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00272">hmm</a>.</p>
+
+<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00095">main()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#aafc405d1cdac77b1f1ebd2a6b9754df9">hmm</a>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a50c9e021b15270784c6c12fcecdf06fc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a>* StochHMM::seqJob::getPath </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00266">266</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00285">decodingPerformed</a>, and <a class="el" href="seq_tracks_8h_source.html#l00286">path</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#a9c2aeb5b874186d0245fcc3b46928220">decodingPerformed</a>) <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#aaddf53b2bb8c0f88f419a4409abc3463">path</a>;<span class="keywordflow">else</span> <span class="keywordflow">return</span> NULL;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aacd8cca067936193a4e3b3c43d9c2304"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double StochHMM::seqJob::getSeqAttrib </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00268">268</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00280">attrib</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#a31b7479f7a4cfa4f9f9fea2c5ff173fa">attrib</a>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a2911aacf6c7fab2233ec29ad3a0b0ef7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::seqJob::getSeqFilename </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>iter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00270">270</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00278">seqFilename</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#a4e7004a62401483f65dbebbbcaaf5a44">seqFilename</a>[iter];};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a1c85d7cee8f51c64c17c307266391777"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>* StochHMM::seqJob::getSeqs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00255">255</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00095">main()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <span class="keyword">set</span>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aca5c0bccfb928ccf09ba81ba0aa78e4c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::seqJob::printFilenames </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00272">272</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00278">seqFilename</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#a4e7004a62401483f65dbebbbcaaf5a44">seqFilename</a>.size();i++){ std::cout &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#a4e7004a62401483f65dbebbbcaaf5a44">seqFilename</a>[i] &lt;&lt; std::endl;}};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a404cd9f679acb7078bfedd4664f10516"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::seqJob::printModel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00262">262</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00272">hmm</a>, and <a class="el" href="hmm_8cpp_source.html#l01130">StochHMM::model::print()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">if</span>(<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#aafc405d1cdac77b1f1ebd2a6b9754df9">hmm</a>) <a class="code" href="class_stoch_h_m_m_1_1seq_job.html#aafc405d1cdac77b1f1ebd2a6b9754df9">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#af9d2656c4f9a4c794fc308db6bd1f4d8" title="Print model by std::cout.">print</a>();};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ac95e8d61f31de6c9c0a0e1fabe2536e2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::seqJob::printSeq </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00264">264</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keyword">set</span>-&gt;print();};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a2cc2d3df107b646605e21b7c483fcff2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::seqJob::setSeqFilename </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00271">271</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+
+<p>References <a class="el" href="seq_tracks_8h_source.html#l00278">seqFilename</a>.</p>
+
+<p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00696">StochHMM::seqTracks::getNext()</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#a4e7004a62401483f65dbebbbcaaf5a44">seqFilename</a>.push_back(filename); <span class="keywordflow">return</span>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a6d5e1c3039741df846a08576e0f37e56"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::seqJob::size </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00252">252</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <span class="keyword">set</span>-&gt;getLength();};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Friends And Related Function Documentation</h2>
+<a class="anchor" id="a637db8a64e3b3931aca08eaaba4796dc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_stoch_h_m_m_1_1seq_tracks.html">seqTracks</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00244">244</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a31b7479f7a4cfa4f9f9fea2c5ff173fa"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double StochHMM::seqJob::attrib</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00280">280</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+
+<p>Referenced by <a class="el" href="seq_tracks_8h_source.html#l00268">getSeqAttrib()</a>, and <a class="el" href="seq_jobs_8cpp_source.html#l00033">seqJob()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9c2aeb5b874186d0245fcc3b46928220"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::seqJob::decodingPerformed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00285">285</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+
+<p>Referenced by <a class="el" href="seq_tracks_8h_source.html#l00266">getPath()</a>, and <a class="el" href="seq_jobs_8cpp_source.html#l00033">seqJob()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9ed04b886c7fab884c932c200653d743"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::seqJob::funcEvaluated</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00281">281</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+
+<p>Referenced by <a class="el" href="seq_tracks_8h_source.html#l00259">evaluated()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a95bd76bc98fb2335797941a947671e71"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1_track_funcs.html">TrackFuncs</a>* StochHMM::seqJob::functions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00283">283</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aafc405d1cdac77b1f1ebd2a6b9754df9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1model.html">model</a>* StochHMM::seqJob::hmm</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00272">272</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+
+<p>Referenced by <a class="el" href="seq_tracks_8h_source.html#l00254">getModel()</a>, <a class="el" href="seq_tracks_8cpp_source.html#l00696">StochHMM::seqTracks::getNext()</a>, <a class="el" href="seq_tracks_8h_source.html#l00262">printModel()</a>, <a class="el" href="seq_jobs_8cpp_source.html#l00033">seqJob()</a>, and <a class="el" href="seq_jobs_8cpp_source.html#l00042">~seqJob()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaddf53b2bb8c0f88f419a4409abc3463"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a>* StochHMM::seqJob::path</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00286">286</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+
+<p>Referenced by <a class="el" href="seq_tracks_8h_source.html#l00266">getPath()</a>, <a class="el" href="seq_jobs_8cpp_source.html#l00033">seqJob()</a>, and <a class="el" href="seq_jobs_8cpp_source.html#l00042">~seqJob()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4e7004a62401483f65dbebbbcaaf5a44"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string&gt; StochHMM::seqJob::seqFilename</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00278">278</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+
+<p>Referenced by <a class="el" href="seq_tracks_8h_source.html#l00270">getSeqFilename()</a>, <a class="el" href="seq_tracks_8h_source.html#l00272">printFilenames()</a>, and <a class="el" href="seq_tracks_8h_source.html#l00271">setSeqFilename()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab61dc8ef7d57f5f515ab061d87dc35ff"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a>* StochHMM::seqJob::set</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="seq_tracks_8h_source.html#l00276">276</a> of file <a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a>.</p>
+
+<p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00696">StochHMM::seqTracks::getNext()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="seq_tracks_8h_source.html">seqTracks.h</a></li>
 <li><a class="el" href="seq_jobs_8cpp_source.html">seqJobs.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">seqJob</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:38 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,11 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">StochHMM::dynamic_bitset::bit_ref Member List</div>  </div>
@@ -96,22 +111,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>bit_ref</b>(uint32_t &amp;v, size_t position) (defined in <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>flip</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>operator bool</b>() const  (defined in <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator&amp;=</b>(bool value) (defined in <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>operator=</b>(bool value) (defined in <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator=</b>(const bit_ref &amp;rhs) (defined in <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>operator^=</b>(bool value) (defined in <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator|=</b>(bool value) (defined in <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>operator~</b>() const  (defined in <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>reset</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a5b0be59783e90d968bb4187aab0f64e6">bit_ref</a>(uint32_t &amp;v, size_t position)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a0b7fa52776d95f71f8a65ecf62de7aac">flip</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a7776c98f6755fcdb06f07f76879f15dc">operator bool</a>() const </td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#aff89298e8936da00884560b1dca8a840">operator&amp;=</a>(bool value)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a2d914995ac0b7d32bd786cdffc50398b">operator=</a>(bool value)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a48b45106cb9434bd2a77e407e7078d2f">operator=</a>(const bit_ref &amp;rhs)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a9af10366c44af5401d4d9e9f563582f6">operator^=</a>(bool value)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#aeb6b752f4908c79288710682061cad3f">operator|=</a>(bool value)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#ae94c5ed7c1e71d38d899a3e00c35ebff">operator~</a>() const </td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#a0715fa3c357a627667cdb0de0f32e9e8">pos</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#af9f625edcb52c46ac3119de27c4bcf29">reset</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#aa66d8b981a8d6d173199e48c6340e891">val</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">StochHMM::dynamic_bitset::bit_ref</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:36 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

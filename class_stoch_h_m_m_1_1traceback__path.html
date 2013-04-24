@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1traceback__path.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,14 +103,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::traceback_path Class Reference</div>  </div>
 </div><!--header-->
@@ -109,13 +125,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a70d1c7fb77c8ded7605aba536cdd5c41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase the traceback.  <a href="#a70d1c7fb77c8ded7605aba536cdd5c41"></a><br/></td></tr>
 <tr class="memitem:a7af71ae5e73b710c3fa9acb42547e9c9"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a7af71ae5e73b710c3fa9acb42547e9c9">size</a> () const </td></tr>
 <tr class="memdesc:a7af71ae5e73b710c3fa9acb42547e9c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the size (ie. length) of the <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a>.  <a href="#a7af71ae5e73b710c3fa9acb42547e9c9"></a><br/></td></tr>
-<tr class="memitem:a4e82053a9b464fdbab5e34d21f7f24e8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e82053a9b464fdbab5e34d21f7f24e8"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a4e82053a9b464fdbab5e34d21f7f24e8">val</a> (size_t it)</td></tr>
-<tr class="memdesc:a4e82053a9b464fdbab5e34d21f7f24e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the state index at a given position (it) within the traceback sequence. <br/></td></tr>
+<tr class="memitem:a4e82053a9b464fdbab5e34d21f7f24e8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a4e82053a9b464fdbab5e34d21f7f24e8">val</a> (size_t it)</td></tr>
+<tr class="memdesc:a4e82053a9b464fdbab5e34d21f7f24e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the state index at a given position (it) within the traceback sequence.  <a href="#a4e82053a9b464fdbab5e34d21f7f24e8"></a><br/></td></tr>
 <tr class="memitem:aa80110da30a3e6e09fce958635e0f5dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1model.html">model</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#aa80110da30a3e6e09fce958635e0f5dc">getModel</a> () const </td></tr>
-<tr class="memitem:a8ef8000d61af5108defbbab5e17ba514"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ef8000d61af5108defbbab5e17ba514"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a8ef8000d61af5108defbbab5e17ba514">fprint_path</a> (std::ofstream &amp;)</td></tr>
-<tr class="memdesc:a8ef8000d61af5108defbbab5e17ba514"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the path to file stream. <br/></td></tr>
+<tr class="memitem:a8ef8000d61af5108defbbab5e17ba514"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a8ef8000d61af5108defbbab5e17ba514">fprint_path</a> (std::ofstream &amp;)</td></tr>
+<tr class="memdesc:a8ef8000d61af5108defbbab5e17ba514"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the path to file stream.  <a href="#a8ef8000d61af5108defbbab5e17ba514"></a><br/></td></tr>
 <tr class="memitem:a5e4a96bf7f43ca3b4081d6431651cbd7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a5e4a96bf7f43ca3b4081d6431651cbd7">label</a> (std::vector&lt; std::string &gt; &amp;)</td></tr>
 <tr class="memdesc:a5e4a96bf7f43ca3b4081d6431651cbd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the label of the <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> and assigns to vector&lt;string&gt; ref.  <a href="#a5e4a96bf7f43ca3b4081d6431651cbd7"></a><br/></td></tr>
 <tr class="memitem:aea195fe532a99d6d9d510bbdcd3e99ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#aea195fe532a99d6d9d510bbdcd3e99ae">label</a> (std::string &amp;)</td></tr>
@@ -131,29 +145,27 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:aa69604d4fdf231c4f459e702e16460af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs the gff formatted output for the traceback to stdout.  <a href="#aa69604d4fdf231c4f459e702e16460af"></a><br/></td></tr>
 <tr class="memitem:a1036f576efbf3f2f67d8278afb8b3806"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a1036f576efbf3f2f67d8278afb8b3806">print_gff</a> (std::string) const </td></tr>
 <tr class="memdesc:a1036f576efbf3f2f67d8278afb8b3806"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs the gff formatted output for the traceback.  <a href="#a1036f576efbf3f2f67d8278afb8b3806"></a><br/></td></tr>
-<tr class="memitem:adc81f310680c4acf94f4074c61ff209a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc81f310680c4acf94f4074c61ff209a"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#adc81f310680c4acf94f4074c61ff209a">getScore</a> ()</td></tr>
-<tr class="memdesc:adc81f310680c4acf94f4074c61ff209a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the score that is associated with the traceback. <br/></td></tr>
-<tr class="memitem:a394e1bb43518f80efd96817f357e6c84"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a394e1bb43518f80efd96817f357e6c84"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a394e1bb43518f80efd96817f357e6c84">setScore</a> (double scr)</td></tr>
-<tr class="memdesc:a394e1bb43518f80efd96817f357e6c84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the score for the traceback;. <br/></td></tr>
-<tr class="memitem:a2032df8f1a9ab6004be644aae4c6700e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2032df8f1a9ab6004be644aae4c6700e"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (size_t <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a4e82053a9b464fdbab5e34d21f7f24e8">val</a>) const </td></tr>
-<tr class="memitem:ae95831d4d169b94d0e61cbcd808a7996"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae95831d4d169b94d0e61cbcd808a7996"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#ae95831d4d169b94d0e61cbcd808a7996">operator==</a> (const <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> &amp;) const </td></tr>
-<tr class="memdesc:ae95831d4d169b94d0e61cbcd808a7996"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check to see if paths are the same. <br/></td></tr>
-<tr class="memitem:a2c0cd3eb7d9730702e73d7857cc30f2a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c0cd3eb7d9730702e73d7857cc30f2a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a2c0cd3eb7d9730702e73d7857cc30f2a">operator&lt;</a> (const <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> &amp;) const </td></tr>
-<tr class="memdesc:a2c0cd3eb7d9730702e73d7857cc30f2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison operators for path. <br/></td></tr>
-<tr class="memitem:a89342fafd4afa01f0c95052364d48aee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a89342fafd4afa01f0c95052364d48aee"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a89342fafd4afa01f0c95052364d48aee">operator&gt;</a> (const <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> &amp;) const </td></tr>
-<tr class="memdesc:a89342fafd4afa01f0c95052364d48aee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison operators for path. <br/></td></tr>
-<tr class="memitem:a3832ea7d391ca4b36b430ca584120186"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3832ea7d391ca4b36b430ca584120186"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a3832ea7d391ca4b36b430ca584120186">operator&lt;=</a> (const <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> &amp;) const </td></tr>
-<tr class="memdesc:a3832ea7d391ca4b36b430ca584120186"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison operators for path. <br/></td></tr>
-<tr class="memitem:a7ff1a311473c702fc67471a1be155e40"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7ff1a311473c702fc67471a1be155e40"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a7ff1a311473c702fc67471a1be155e40">operator&gt;=</a> (const <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> &amp;) const </td></tr>
-<tr class="memdesc:a7ff1a311473c702fc67471a1be155e40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison operators for path. <br/></td></tr>
+<tr class="memitem:adc81f310680c4acf94f4074c61ff209a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#adc81f310680c4acf94f4074c61ff209a">getScore</a> ()</td></tr>
+<tr class="memdesc:adc81f310680c4acf94f4074c61ff209a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the score that is associated with the traceback.  <a href="#adc81f310680c4acf94f4074c61ff209a"></a><br/></td></tr>
+<tr class="memitem:a394e1bb43518f80efd96817f357e6c84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a394e1bb43518f80efd96817f357e6c84">setScore</a> (double scr)</td></tr>
+<tr class="memdesc:a394e1bb43518f80efd96817f357e6c84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the score for the traceback;.  <a href="#a394e1bb43518f80efd96817f357e6c84"></a><br/></td></tr>
+<tr class="memitem:a2032df8f1a9ab6004be644aae4c6700e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a2032df8f1a9ab6004be644aae4c6700e">operator[]</a> (size_t <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a4e82053a9b464fdbab5e34d21f7f24e8">val</a>) const </td></tr>
+<tr class="memitem:ae95831d4d169b94d0e61cbcd808a7996"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#ae95831d4d169b94d0e61cbcd808a7996">operator==</a> (const <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> &amp;) const </td></tr>
+<tr class="memdesc:ae95831d4d169b94d0e61cbcd808a7996"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check to see if paths are the same.  <a href="#ae95831d4d169b94d0e61cbcd808a7996"></a><br/></td></tr>
+<tr class="memitem:a2c0cd3eb7d9730702e73d7857cc30f2a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a2c0cd3eb7d9730702e73d7857cc30f2a">operator&lt;</a> (const <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> &amp;) const </td></tr>
+<tr class="memdesc:a2c0cd3eb7d9730702e73d7857cc30f2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison operators for path.  <a href="#a2c0cd3eb7d9730702e73d7857cc30f2a"></a><br/></td></tr>
+<tr class="memitem:a89342fafd4afa01f0c95052364d48aee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a89342fafd4afa01f0c95052364d48aee">operator&gt;</a> (const <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> &amp;) const </td></tr>
+<tr class="memdesc:a89342fafd4afa01f0c95052364d48aee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison operators for path.  <a href="#a89342fafd4afa01f0c95052364d48aee"></a><br/></td></tr>
+<tr class="memitem:a3832ea7d391ca4b36b430ca584120186"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a3832ea7d391ca4b36b430ca584120186">operator&lt;=</a> (const <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> &amp;) const </td></tr>
+<tr class="memdesc:a3832ea7d391ca4b36b430ca584120186"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison operators for path.  <a href="#a3832ea7d391ca4b36b430ca584120186"></a><br/></td></tr>
+<tr class="memitem:a7ff1a311473c702fc67471a1be155e40"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a7ff1a311473c702fc67471a1be155e40">operator&gt;=</a> (const <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> &amp;) const </td></tr>
+<tr class="memdesc:a7ff1a311473c702fc67471a1be155e40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison operators for path.  <a href="#a7ff1a311473c702fc67471a1be155e40"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a865c91c58efad1102e4e14eb7a3351c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1model.html">model</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a865c91c58efad1102e4e14eb7a3351c4">hmm</a></td></tr>
+<tr class="memitem:a82125f42f4e274e6baffabbee334205c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a></td></tr>
+<tr class="memitem:a8a51b33a8ca4d69ed03cf5b3d5d3b3e7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html#a8a51b33a8ca4d69ed03cf5b3d5d3b3e7">score</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Perform traceback of traceback table Stores one traceback path for a sequence </p>
@@ -182,8 +194,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 
 <p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00035">35</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
+
+<p>References <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>.</p>
 <div class="fragment"><div class="line">                                             {</div>
-<div class="line">        hmm=modl;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a865c91c58efad1102e4e14eb7a3351c4">hmm</a>=modl;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
@@ -206,8 +220,40 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Clears all traceback path information. </p>
 
 <p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00051">51</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
+
+<p>References <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
 <div class="fragment"><div class="line">                              {</div>
-<div class="line">        trace_path.clear();</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>.clear();</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a8ef8000d61af5108defbbab5e17ba514"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::traceback_path::fprint_path </td>
+          <td>(</td>
+          <td class="paramtype">std::ofstream &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print the path to file stream. </p>
+
+<p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00191">191</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
+
+<p>References <a class="el" href="traceback__path_8cpp_source.html#l00046">size()</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
+<div class="fragment"><div class="line">                                                     {</div>
+<div class="line">        <span class="keywordtype">int</span> line=0;</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k=this-&gt;<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7af71ae5e73b710c3fa9acb42547e9c9" title="Returns the size (ie. length) of the traceback_path.">size</a>()-1;k != <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>; k--){</div>
+<div class="line">            file &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>[k]&lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line">            line++;</div>
+<div class="line">        }</div>
+<div class="line">        file &lt;&lt; std::endl;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
@@ -236,7 +282,43 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <dl class="section return"><dt>Returns:</dt><dd>model </dd></dl>
 
 <p>Definition at line <a class="el" href="traceback__path_8h_source.html#l00088">88</a> of file <a class="el" href="traceback__path_8h_source.html">traceback_path.h</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> hmm;};</div>
+
+<p>References <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a865c91c58efad1102e4e14eb7a3351c4">hmm</a>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="adc81f310680c4acf94f4074c61ff209a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double StochHMM::traceback_path::getScore </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the score that is associated with the traceback. </p>
+
+<p>Definition at line <a class="el" href="traceback__path_8h_source.html#l00137">137</a> of file <a class="el" href="traceback__path_8h_source.html">traceback_path.h</a>.</p>
+
+<p>References <a class="el" href="traceback__path_8h_source.html#l00157">score</a>.</p>
+
+<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00378">print_output()</a>.</p>
+<div class="fragment"><div class="line">                                {</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a8a51b33a8ca4d69ed03cf5b3d5d3b3e7">score</a>;</div>
+<div class="line">        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -281,20 +363,20 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00103">103</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
 
-<p>References <a class="el" href="state_8h_source.html#l00074">StochHMM::state::getGFF()</a>, <a class="el" href="hmm_8h_source.html#l00080">StochHMM::model::getName()</a>, <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>, and <a class="el" href="traceback__path_8cpp_source.html#l00046">size()</a>.</p>
+<p>References <a class="el" href="traceback__path_8h_source.html#l00057">StochHMM::gff_feature::attribute</a>, <a class="el" href="traceback__path_8h_source.html#l00053">StochHMM::gff_feature::end</a>, <a class="el" href="traceback__path_8h_source.html#l00051">StochHMM::gff_feature::feature</a>, <a class="el" href="traceback__path_8h_source.html#l00056">StochHMM::gff_feature::frame</a>, <a class="el" href="state_8h_source.html#l00074">StochHMM::state::getGFF()</a>, <a class="el" href="hmm_8h_source.html#l00080">StochHMM::model::getName()</a>, <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="traceback__path_8h_source.html#l00054">StochHMM::gff_feature::score</a>, <a class="el" href="traceback__path_8h_source.html#l00049">StochHMM::gff_feature::seqname</a>, <a class="el" href="traceback__path_8cpp_source.html#l00046">size()</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, <a class="el" href="traceback__path_8h_source.html#l00050">StochHMM::gff_feature::source</a>, <a class="el" href="traceback__path_8h_source.html#l00052">StochHMM::gff_feature::start</a>, <a class="el" href="traceback__path_8h_source.html#l00055">StochHMM::gff_feature::strand</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
 <div class="fragment"><div class="line">                                                                               {</div>
 <div class="line">        std::string current_label=<span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line">        <span class="keywordtype">long</span> <span class="keywordtype">long</span> start=0;</div>
 <div class="line">        <span class="keywordtype">size_t</span> path_size=<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7af71ae5e73b710c3fa9acb42547e9c9" title="Returns the size (ie. length) of the traceback_path.">size</a>();</div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k = path_size-1;k != SIZE_MAX; k--){</div>
-<div class="line">            state* st = hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(trace_path[k]);</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k = path_size-1;k != <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>; k--){</div>
+<div class="line">            state* st = <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a865c91c58efad1102e4e14eb7a3351c4">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>[k]);</div>
 <div class="line">            std::string new_label=st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a19f06f455f339e01577e163570b1e2b2">getGFF</a>();</div>
 <div class="line">            <span class="keywordflow">if</span> (new_label.compare(<span class="stringliteral">&quot;&quot;</span>)==0){</div>
 <div class="line">                <span class="keywordflow">if</span> (start&gt;0){</div>
 <div class="line">                    gff_feature ln;</div>
 <div class="line">                    ln.seqname=sequenceName;</div>
-<div class="line">                    ln.source=hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a00e9429e7f06f053563d1e7439860cd1" title="Get the Name of the Model.">getName</a>();</div>
+<div class="line">                    ln.source=<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a865c91c58efad1102e4e14eb7a3351c4">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a00e9429e7f06f053563d1e7439860cd1" title="Get the Name of the Model.">getName</a>();</div>
 <div class="line">                    ln.feature=current_label;</div>
 <div class="line">                    ln.start=start;</div>
 <div class="line">                    ln.end=path_size-(k+1);</div>
@@ -316,7 +398,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <div class="line">                <span class="keywordflow">if</span>(k==0){</div>
 <div class="line">                    gff_feature ln;</div>
 <div class="line">                    ln.seqname=sequenceName;</div>
-<div class="line">                    ln.source=hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a00e9429e7f06f053563d1e7439860cd1" title="Get the Name of the Model.">getName</a>();</div>
+<div class="line">                    ln.source=<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a865c91c58efad1102e4e14eb7a3351c4">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a00e9429e7f06f053563d1e7439860cd1" title="Get the Name of the Model.">getName</a>();</div>
 <div class="line">                    ln.feature=current_label;</div>
 <div class="line">                    ln.start=start;</div>
 <div class="line">                    ln.end=path_size-(k+1);</div>
@@ -337,7 +419,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <div class="line">                <span class="keywordflow">else</span> {</div>
 <div class="line">                    gff_feature ln;</div>
 <div class="line">                    ln.seqname=sequenceName;</div>
-<div class="line">                    ln.source=hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a00e9429e7f06f053563d1e7439860cd1" title="Get the Name of the Model.">getName</a>();</div>
+<div class="line">                    ln.source=<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a865c91c58efad1102e4e14eb7a3351c4">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a00e9429e7f06f053563d1e7439860cd1" title="Get the Name of the Model.">getName</a>();</div>
 <div class="line">                    ln.feature=current_label;</div>
 <div class="line">                    ln.start=start;</div>
 <div class="line">                    ln.end=path_size-(k+1);</div>
@@ -385,11 +467,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00065">65</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
 
-<p>References <a class="el" href="state_8h_source.html#l00078">StochHMM::state::getLabel()</a>, and <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>.</p>
+<p>References <a class="el" href="state_8h_source.html#l00078">StochHMM::state::getLabel()</a>, <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
 <div class="fragment"><div class="line">                                                       {</div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k=trace_path.size()-1; k!=SIZE_MAX; k--){</div>
-<div class="line">            state* st = hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(trace_path[k]);</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k=<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>.size()-1; k!=<a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>; k--){</div>
+<div class="line">            state* st = <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a865c91c58efad1102e4e14eb7a3351c4">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>[k]);</div>
 <div class="line">            pth.push_back(st-&gt;getLabel());</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
@@ -422,7 +504,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00076">76</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
 
-<p>References <a class="el" href="state_8h_source.html#l00078">StochHMM::state::getLabel()</a>, and <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>.</p>
+<p>References <a class="el" href="state_8h_source.html#l00078">StochHMM::state::getLabel()</a>, <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">if</span> (pth.size()&gt;0){</div>
@@ -430,8 +512,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <div class="line">        }</div>
 <div class="line">        </div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k=trace_path.size()-1; k!=SIZE_MAX; k--){</div>
-<div class="line">            state* st = hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(trace_path[k]);</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k=<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>.size()-1; k!=<a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>; k--){</div>
+<div class="line">            state* st = <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a865c91c58efad1102e4e14eb7a3351c4">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>[k]);</div>
 <div class="line">            pth+=st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#ac58f8dfc39b64abbba92a94029565cc9">getLabel</a>();</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
@@ -462,14 +544,193 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00092">92</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
 
-<p>References <a class="el" href="state_8h_source.html#l00070">StochHMM::state::getName()</a>, and <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>.</p>
+<p>References <a class="el" href="state_8h_source.html#l00070">StochHMM::state::getName()</a>, <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
 <div class="fragment"><div class="line">                                                      {</div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k = trace_path.size()-1; k != SIZE_MAX; k--){</div>
-<div class="line">            state* st = hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(trace_path[k]);</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k = <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>.size()-1; k != <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>; k--){</div>
+<div class="line">            state* st = <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a865c91c58efad1102e4e14eb7a3351c4">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>[k]);</div>
 <div class="line">            pth.push_back(st-&gt;getName());</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a2c0cd3eb7d9730702e73d7857cc30f2a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::traceback_path::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comparison operators for path. </p>
+
+<p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00211">211</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
+
+<p>References <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
+<div class="fragment"><div class="line">                                                                    {</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>&lt;rhs.trace_path){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> {</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a3832ea7d391ca4b36b430ca584120186"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::traceback_path::operator&lt;= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comparison operators for path. </p>
+
+<p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00231">231</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
+
+<p>References <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
+<div class="fragment"><div class="line">                                                                    {</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>&lt;=rhs.trace_path){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> {</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ae95831d4d169b94d0e61cbcd808a7996"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::traceback_path::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check to see if paths are the same. </p>
+
+<p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00201">201</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
+
+<p>References <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
+<div class="fragment"><div class="line">                                                                   {</div>
+<div class="line">        <span class="keywordflow">if</span> (rhs.trace_path==<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> {</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a89342fafd4afa01f0c95052364d48aee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::traceback_path::operator&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comparison operators for path. </p>
+
+<p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00221">221</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
+
+<p>References <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
+<div class="fragment"><div class="line">                                                                   {</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>&gt;rhs.trace_path){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> {</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a7ff1a311473c702fc67471a1be155e40"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::traceback_path::operator&gt;= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comparison operators for path. </p>
+
+<p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00241">241</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
+
+<p>References <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
+<div class="fragment"><div class="line">                                                                    {</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>&gt;=rhs.trace_path){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> {</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a2032df8f1a9ab6004be644aae4c6700e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int StochHMM::traceback_path::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="traceback__path_8h_source.html#l00148">148</a> of file <a class="el" href="traceback__path_8h_source.html">traceback_path.h</a>.</p>
+
+<p>References <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>, and <a class="el" href="traceback__path_8h_source.html#l00078">val()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>[<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a4e82053a9b464fdbab5e34d21f7f24e8" title="Returns the state index at a given position (it) within the traceback sequence.">val</a>];};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -495,8 +756,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 
 <p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00058">58</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
+
+<p>References <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
 <div class="fragment"><div class="line">                                                {</div>
-<div class="line">        pth=trace_path;</div>
+<div class="line">        pth=<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>;</div>
 <div class="line">        return ;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
@@ -559,18 +822,20 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00268">268</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
 
-<p>References <a class="el" href="state_8h_source.html#l00074">StochHMM::state::getGFF()</a>, <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>, and <a class="el" href="traceback__path_8cpp_source.html#l00046">size()</a>.</p>
+<p>References <a class="el" href="state_8h_source.html#l00074">StochHMM::state::getGFF()</a>, <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="traceback__path_8cpp_source.html#l00046">size()</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
+
+<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00378">print_output()</a>.</p>
 <div class="fragment"><div class="line">                                                                                                                        {</div>
 <div class="line">        std::string current_label=<span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line">        <span class="keywordtype">long</span> <span class="keywordtype">long</span> start=0;</div>
 <div class="line">        <span class="keywordtype">size_t</span> path_size=this-&gt;<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7af71ae5e73b710c3fa9acb42547e9c9" title="Returns the size (ie. length) of the traceback_path.">size</a>();</div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k=path_size-1;k != SIZE_MAX;k--){</div>
-<div class="line">            state* st = hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(trace_path[k]);</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k=path_size-1;k != <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>;k--){</div>
+<div class="line">            state* st = <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a865c91c58efad1102e4e14eb7a3351c4">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>[k]);</div>
 <div class="line">            std::string new_label=st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a19f06f455f339e01577e163570b1e2b2">getGFF</a>();</div>
 <div class="line">            <span class="keywordflow">if</span> (new_label.compare(<span class="stringliteral">&quot;&quot;</span>)==0){</div>
 <div class="line">                <span class="keywordflow">if</span> (start&gt;0){</div>
-<div class="line">                    std::cout &lt;&lt; sequence_name &lt;&lt; <span class="stringliteral">&quot;\tStochHMM\t&quot;</span> &lt;&lt; current_label &lt;&lt;<span class="stringliteral">&quot;\t&quot;</span>&lt;&lt; start &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; path_size-(k+1) &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; score &lt;&lt; <span class="stringliteral">&quot;\t+\t.\tRank:&quot;</span>&lt;&lt;ranking&lt;&lt;<span class="stringliteral">&quot;,Counts:&quot;</span> &lt;&lt; times&lt;&lt;<span class="stringliteral">&quot;,Posterior:&quot;</span>&lt;&lt;posterior&lt;&lt;std::endl;</div>
+<div class="line">                    std::cout &lt;&lt; sequence_name &lt;&lt; <span class="stringliteral">&quot;\tStochHMM\t&quot;</span> &lt;&lt; current_label &lt;&lt;<span class="stringliteral">&quot;\t&quot;</span>&lt;&lt; start &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; path_size-(k+1) &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a8a51b33a8ca4d69ed03cf5b3d5d3b3e7">score</a> &lt;&lt; <span class="stringliteral">&quot;\t+\t.\tRank:&quot;</span>&lt;&lt;ranking&lt;&lt;<span class="stringliteral">&quot;,Counts:&quot;</span> &lt;&lt; times&lt;&lt;<span class="stringliteral">&quot;,Posterior:&quot;</span>&lt;&lt;posterior&lt;&lt;std::endl;</div>
 <div class="line">                    start=0;</div>
 <div class="line">                    current_label=new_label;</div>
 <div class="line">                }</div>
@@ -580,7 +845,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span> {</div>
 <div class="line">                <span class="keywordflow">if</span>(k==0){</div>
-<div class="line">                    std::cout &lt;&lt; sequence_name &lt;&lt; <span class="stringliteral">&quot;\tStochHMM\t&quot;</span> &lt;&lt; current_label &lt;&lt;<span class="stringliteral">&quot;\t&quot;</span>&lt;&lt; start &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; path_size &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; score &lt;&lt; <span class="stringliteral">&quot;\t+\t.\tRank:&quot;</span>&lt;&lt;ranking&lt;&lt;<span class="stringliteral">&quot;,Counts:&quot;</span> &lt;&lt; times&lt;&lt;<span class="stringliteral">&quot;,Posterior:&quot;</span>&lt;&lt;posterior&lt;&lt;std::endl;</div>
+<div class="line">                    std::cout &lt;&lt; sequence_name &lt;&lt; <span class="stringliteral">&quot;\tStochHMM\t&quot;</span> &lt;&lt; current_label &lt;&lt;<span class="stringliteral">&quot;\t&quot;</span>&lt;&lt; start &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; path_size &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a8a51b33a8ca4d69ed03cf5b3d5d3b3e7">score</a> &lt;&lt; <span class="stringliteral">&quot;\t+\t.\tRank:&quot;</span>&lt;&lt;ranking&lt;&lt;<span class="stringliteral">&quot;,Counts:&quot;</span> &lt;&lt; times&lt;&lt;<span class="stringliteral">&quot;,Posterior:&quot;</span>&lt;&lt;posterior&lt;&lt;std::endl;</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (start==0){</div>
 <div class="line">                    start=path_size-k;</div>
@@ -590,7 +855,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <div class="line">                    <span class="keywordflow">continue</span>;</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">else</span> {</div>
-<div class="line">                    std::cout &lt;&lt; sequence_name &lt;&lt; <span class="stringliteral">&quot;\tStochHMM\t&quot;</span> &lt;&lt; current_label &lt;&lt;<span class="stringliteral">&quot;\t&quot;</span>&lt;&lt; start &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; path_size-(k+1) &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; score &lt;&lt; <span class="stringliteral">&quot;\t+\t.\tRank:&quot;</span>&lt;&lt;ranking&lt;&lt;<span class="stringliteral">&quot;,Counts:&quot;</span> &lt;&lt; times&lt;&lt;<span class="stringliteral">&quot;,Posterior:&quot;</span>&lt;&lt;posterior&lt;&lt;std::endl;</div>
+<div class="line">                    std::cout &lt;&lt; sequence_name &lt;&lt; <span class="stringliteral">&quot;\tStochHMM\t&quot;</span> &lt;&lt; current_label &lt;&lt;<span class="stringliteral">&quot;\t&quot;</span>&lt;&lt; start &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; path_size-(k+1) &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a8a51b33a8ca4d69ed03cf5b3d5d3b3e7">score</a> &lt;&lt; <span class="stringliteral">&quot;\t+\t.\tRank:&quot;</span>&lt;&lt;ranking&lt;&lt;<span class="stringliteral">&quot;,Counts:&quot;</span> &lt;&lt; times&lt;&lt;<span class="stringliteral">&quot;,Posterior:&quot;</span>&lt;&lt;posterior&lt;&lt;std::endl;</div>
 <div class="line">                    start=path_size-k;</div>
 <div class="line">                    current_label=new_label;</div>
 <div class="line">                }</div>
@@ -620,15 +885,15 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00309">309</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
 
-<p>References <a class="el" href="state_8h_source.html#l00074">StochHMM::state::getGFF()</a>, <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>, and <a class="el" href="traceback__path_8cpp_source.html#l00046">size()</a>.</p>
+<p>References <a class="el" href="state_8h_source.html#l00074">StochHMM::state::getGFF()</a>, <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="traceback__path_8cpp_source.html#l00046">size()</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
 <div class="fragment"><div class="line">                                                                {</div>
 <div class="line">        std::string current_label=<span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line">        <span class="keywordtype">long</span> <span class="keywordtype">long</span> start=0;</div>
 <div class="line">        <span class="keywordtype">size_t</span> path_size=<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7af71ae5e73b710c3fa9acb42547e9c9" title="Returns the size (ie. length) of the traceback_path.">size</a>();</div>
 <div class="line">        <span class="comment">//cout &lt;&lt; trace_path.size() &lt;&lt; endl;</span></div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k = path_size-1; k != SIZE_MAX; k--){</div>
-<div class="line">            state* st = hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(trace_path[k]);</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k = path_size-1; k != <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>; k--){</div>
+<div class="line">            state* st = <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a865c91c58efad1102e4e14eb7a3351c4">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>[k]);</div>
 <div class="line">            std::string new_label=st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a19f06f455f339e01577e163570b1e2b2">getGFF</a>();</div>
 <div class="line">            <span class="keywordflow">if</span> (new_label.compare(<span class="stringliteral">&quot;&quot;</span>)==0){</div>
 <div class="line">                <span class="keywordflow">if</span> (start&gt;0){</div>
@@ -683,15 +948,17 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00252">252</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
 
-<p>References <a class="el" href="state_8h_source.html#l00078">StochHMM::state::getLabel()</a>, and <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>.</p>
+<p>References <a class="el" href="state_8h_source.html#l00078">StochHMM::state::getLabel()</a>, <a class="el" href="hmm_8h_source.html#l00136">StochHMM::model::getState()</a>, <a class="el" href="traceback__path_8h_source.html#l00155">hmm</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
+
+<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00378">print_output()</a>.</p>
 <div class="fragment"><div class="line">                                           {</div>
 <div class="line">        <span class="keywordtype">int</span> line=0;</div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k = trace_path.size()-1;k != SIZE_MAX;k--){</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k = <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>.size()-1;k != <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>;k--){</div>
 <div class="line"><span class="comment">//            if(line==WID &amp;&amp; WID&gt;0){</span></div>
 <div class="line"><span class="comment">//                std::cout&lt;&lt; std::endl;</span></div>
 <div class="line"><span class="comment">//                line=0;</span></div>
 <div class="line"><span class="comment">//            }</span></div>
-<div class="line">            state* st = hmm-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(trace_path[k]);</div>
+<div class="line">            state* st = <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a865c91c58efad1102e4e14eb7a3351c4">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>[k]);</div>
 <div class="line">            std::cout &lt;&lt; st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#ac58f8dfc39b64abbba92a94029565cc9">getLabel</a>() &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
 <div class="line">            line++;</div>
 <div class="line">        }</div>
@@ -720,11 +987,13 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00181">181</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
 
-<p>References <a class="el" href="traceback__path_8cpp_source.html#l00046">size()</a>.</p>
+<p>References <a class="el" href="traceback__path_8cpp_source.html#l00046">size()</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
+
+<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00378">print_output()</a>.</p>
 <div class="fragment"><div class="line">                                         {</div>
 <div class="line">        <span class="keywordtype">int</span> line=0;</div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k = this-&gt;<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7af71ae5e73b710c3fa9acb42547e9c9" title="Returns the size (ie. length) of the traceback_path.">size</a>()-1; k != SIZE_MAX; k--){</div>
-<div class="line">            std::cout &lt;&lt; trace_path[k]&lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k = this-&gt;<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7af71ae5e73b710c3fa9acb42547e9c9" title="Returns the size (ie. length) of the traceback_path.">size</a>()-1; k != <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>; k--){</div>
+<div class="line">            std::cout &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>[k]&lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
 <div class="line">            line++;</div>
 <div class="line">        }</div>
 <div class="line">        std::cout &lt;&lt; std::endl &lt;&lt; std::endl;</div>
@@ -757,10 +1026,48 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00041">41</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="stoch_table_8cpp_source.html#l00161">StochHMM::stochTable::traceback()</a>, and <a class="el" href="trellis_8cpp_source.html#l00400">StochHMM::trellis::traceback()</a>.</p>
+<p>References <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
+
+<p>Referenced by <a class="el" href="stoch_table_8cpp_source.html#l00161">StochHMM::stochTable::traceback()</a>, <a class="el" href="trellis_8cpp_source.html#l00400">StochHMM::trellis::traceback()</a>, <a class="el" href="trellis_8cpp_source.html#l00479">StochHMM::trellis::traceback_nth()</a>, <a class="el" href="posterior_8cpp_source.html#l00331">StochHMM::trellis::traceback_posterior()</a>, and <a class="el" href="posterior_8cpp_source.html#l00355">StochHMM::trellis::traceback_stoch_posterior()</a>.</p>
 <div class="fragment"><div class="line">                                           {</div>
-<div class="line">        trace_path.push_back(state);</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>.push_back(state);</div>
 <div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a394e1bb43518f80efd96817f357e6c84"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::traceback_path::setScore </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>scr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the score for the traceback;. </p>
+
+<p>Definition at line <a class="el" href="traceback__path_8h_source.html#l00142">142</a> of file <a class="el" href="traceback__path_8h_source.html">traceback_path.h</a>.</p>
+
+<p>References <a class="el" href="traceback__path_8h_source.html#l00157">score</a>.</p>
+
+<p>Referenced by <a class="el" href="trellis_8cpp_source.html#l00400">StochHMM::trellis::traceback()</a>, and <a class="el" href="trellis_8cpp_source.html#l00479">StochHMM::trellis::traceback_nth()</a>.</p>
+<div class="fragment"><div class="line">                                        {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a8a51b33a8ca4d69ed03cf5b3d5d3b3e7">score</a> = scr;</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        };</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -784,11 +1091,125 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Definition at line <a class="el" href="traceback__path_8cpp_source.html#l00046">46</a> of file <a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a>.</p>
 
+<p>References <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
+
 <p>Referenced by <a class="el" href="traceback__path_8cpp_source.html#l00191">fprint_path()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00103">gff()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00268">print_gff()</a>, and <a class="el" href="traceback__path_8cpp_source.html#l00181">print_path()</a>.</p>
 <div class="fragment"><div class="line">                                     {</div>
-<div class="line">        <span class="keywordflow">return</span> trace_path.size();</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>.size();</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a4e82053a9b464fdbab5e34d21f7f24e8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int StochHMM::traceback_path::val </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>it</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the state index at a given position (it) within the traceback sequence. </p>
+
+<p>Definition at line <a class="el" href="traceback__path_8h_source.html#l00078">78</a> of file <a class="el" href="traceback__path_8h_source.html">traceback_path.h</a>.</p>
+
+<p>References <a class="el" href="traceback__path_8h_source.html#l00156">trace_path</a>.</p>
+
+<p>Referenced by <a class="el" href="traceback__path_8h_source.html#l00148">operator[]()</a>.</p>
+<div class="fragment"><div class="line">                                 {</div>
+<div class="line">                        <span class="keywordflow">if</span> (it&gt;=<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>.size()){</div>
+<div class="line">                                std::cerr &lt;&lt; <span class="stringliteral">&quot;Out of Range index\n &quot;</span>;</div>
+<div class="line">                                exit(2);</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a82125f42f4e274e6baffabbee334205c">trace_path</a>[it];</div>
+<div class="line">                }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a865c91c58efad1102e4e14eb7a3351c4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1model.html">model</a>* StochHMM::traceback_path::hmm</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="traceback__path_8h_source.html#l00155">155</a> of file <a class="el" href="traceback__path_8h_source.html">traceback_path.h</a>.</p>
+
+<p>Referenced by <a class="el" href="traceback__path_8h_source.html#l00088">getModel()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00103">gff()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00065">label()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00092">name()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00268">print_gff()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00252">print_label()</a>, and <a class="el" href="traceback__path_8cpp_source.html#l00035">traceback_path()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8a51b33a8ca4d69ed03cf5b3d5d3b3e7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double StochHMM::traceback_path::score</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="traceback__path_8h_source.html#l00157">157</a> of file <a class="el" href="traceback__path_8h_source.html">traceback_path.h</a>.</p>
+
+<p>Referenced by <a class="el" href="traceback__path_8h_source.html#l00137">getScore()</a>, and <a class="el" href="traceback__path_8h_source.html#l00142">setScore()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a82125f42f4e274e6baffabbee334205c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;int&gt; StochHMM::traceback_path::trace_path</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="traceback__path_8h_source.html#l00156">156</a> of file <a class="el" href="traceback__path_8h_source.html">traceback_path.h</a>.</p>
+
+<p>Referenced by <a class="el" href="traceback__path_8cpp_source.html#l00051">clear()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00191">fprint_path()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00103">gff()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00065">label()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00092">name()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00211">operator&lt;()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00231">operator&lt;=()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00201">operator==()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00221">operator&gt;()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00241">operator&gt;=()</a>, <a class="el" href="traceback__path_8h_source.html#l00148">operator[]()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00058">path()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00268">print_gff()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00252">print_label()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00181">print_path()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00041">push_back()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00046">size()</a>, and <a class="el" href="traceback__path_8h_source.html#l00078">val()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -796,11 +1217,15 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <li><a class="el" href="traceback__path_8cpp_source.html">traceback_path.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:38 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

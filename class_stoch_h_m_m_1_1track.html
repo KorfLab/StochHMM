@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1track.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,14 +103,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::track Class Reference</div>  </div>
@@ -103,13 +120,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2e91d800bf3bff2cf2650de28a97be20"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2e91d800bf3bff2cf2650de28a97be20"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a2e91d800bf3bff2cf2650de28a97be20">track</a> ()</td></tr>
-<tr class="memdesc:a2e91d800bf3bff2cf2650de28a97be20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a track. <br/></td></tr>
-<tr class="memitem:a138a9f67b13465a9cccde32e7be6b667"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a138a9f67b13465a9cccde32e7be6b667"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>track</b> (<a class="el" href="class_stoch_h_m_m_1_1_track_funcs.html">TrackFuncs</a> *)</td></tr>
-<tr class="memitem:a07cf3a743727a68013a16f18462e5a53"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a07cf3a743727a68013a16f18462e5a53"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>track</b> (std::vector&lt; std::string &gt; &amp;)</td></tr>
+<tr class="memitem:a2e91d800bf3bff2cf2650de28a97be20"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a2e91d800bf3bff2cf2650de28a97be20">track</a> ()</td></tr>
+<tr class="memdesc:a2e91d800bf3bff2cf2650de28a97be20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a track.  <a href="#a2e91d800bf3bff2cf2650de28a97be20"></a><br/></td></tr>
+<tr class="memitem:a138a9f67b13465a9cccde32e7be6b667"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a138a9f67b13465a9cccde32e7be6b667">track</a> (<a class="el" href="class_stoch_h_m_m_1_1_track_funcs.html">TrackFuncs</a> *)</td></tr>
+<tr class="memitem:a07cf3a743727a68013a16f18462e5a53"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a07cf3a743727a68013a16f18462e5a53">track</a> (std::vector&lt; std::string &gt; &amp;)</td></tr>
 <tr class="memitem:a4562832a987bb22a030f1c4c73b82aa1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a4562832a987bb22a030f1c4c73b82aa1">parse</a> (std::string &amp;)</td></tr>
 <tr class="memitem:a4bdf7361bae5389018b535d773232361"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a4bdf7361bae5389018b535d773232361">parseAmbiguous</a> (std::string &amp;)</td></tr>
 <tr class="memitem:a22f0e71cadaeaccab5562303656019fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a22f0e71cadaeaccab5562303656019fd">setName</a> (std::string &amp;nm)</td></tr>
@@ -117,24 +131,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2e10c17739bf3cbfe4d314db52cfca12"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a2e10c17739bf3cbfe4d314db52cfca12">setIndex</a> (size_t indx)</td></tr>
 <tr class="memitem:a714d6094e545fe160bebb2b29bbbf333"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a714d6094e545fe160bebb2b29bbbf333">setAlphaType</a> (<a class="el" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53">trackType</a> typ)</td></tr>
 <tr class="memitem:a14cb394c945f825584d63569a4de060a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a14cb394c945f825584d63569a4de060a">addAlphabetChar</a> (std::string &amp;)</td></tr>
-<tr class="memitem:a04ea496f9b594700af6d98b563c58479"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a04ea496f9b594700af6d98b563c58479"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>addAlphabetChar</b> (const char *)</td></tr>
-<tr class="memitem:a693c5690e791e9771cda7e249051449d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a693c5690e791e9771cda7e249051449d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>addAlphabetChar</b> (std::vector&lt; std::string &gt; &amp;)</td></tr>
-<tr class="memitem:a8763c690d8c9bd4329fd0094adaf13dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8763c690d8c9bd4329fd0094adaf13dc"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>addAlphabetChar</b> (size_t chSize, const char *characters[])</td></tr>
-<tr class="memitem:a41afb479cd1ac55eff7664df92ee2c8e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a41afb479cd1ac55eff7664df92ee2c8e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>addAlphabetChar</b> (std::string &amp;character, std::string &amp;complement)</td></tr>
-<tr class="memitem:a8d1df8b68cc18726c9d4686ddb20abe4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d1df8b68cc18726c9d4686ddb20abe4"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>addAlphabetChar</b> (size_t chSize, const char *characters[], const char *complements[])</td></tr>
-<tr class="memitem:a7924ea87d6b7559db1903d72cf3c25a1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7924ea87d6b7559db1903d72cf3c25a1"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>addAlphabetChar</b> (std::vector&lt; std::string &gt; &amp;characters, std::vector&lt; std::string &gt; &amp;complements)</td></tr>
-<tr class="memitem:afd8f10d605931c45a9f3c863674c46fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd8f10d605931c45a9f3c863674c46fd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addComplement</b> (std::string &amp;, std::string &amp;)</td></tr>
-<tr class="memitem:a2bac5f4bdb8f9e7fe114cc92008cd4c3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2bac5f4bdb8f9e7fe114cc92008cd4c3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addComplement</b> (const char *, const char *)</td></tr>
-<tr class="memitem:a11a1af6e1764b8976c3e8519c9833bd5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a11a1af6e1764b8976c3e8519c9833bd5"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>addComplement</b> (std::vector&lt; std::string &gt; &amp;characters, std::vector&lt; std::string &gt; &amp;complements)</td></tr>
+<tr class="memitem:a04ea496f9b594700af6d98b563c58479"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a04ea496f9b594700af6d98b563c58479">addAlphabetChar</a> (const char *)</td></tr>
+<tr class="memitem:a693c5690e791e9771cda7e249051449d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a693c5690e791e9771cda7e249051449d">addAlphabetChar</a> (std::vector&lt; std::string &gt; &amp;)</td></tr>
+<tr class="memitem:a8763c690d8c9bd4329fd0094adaf13dc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a8763c690d8c9bd4329fd0094adaf13dc">addAlphabetChar</a> (size_t chSize, const char *characters[])</td></tr>
+<tr class="memitem:a41afb479cd1ac55eff7664df92ee2c8e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a41afb479cd1ac55eff7664df92ee2c8e">addAlphabetChar</a> (std::string &amp;character, std::string &amp;complement)</td></tr>
+<tr class="memitem:a8d1df8b68cc18726c9d4686ddb20abe4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a8d1df8b68cc18726c9d4686ddb20abe4">addAlphabetChar</a> (size_t chSize, const char *characters[], const char *complements[])</td></tr>
+<tr class="memitem:a7924ea87d6b7559db1903d72cf3c25a1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a7924ea87d6b7559db1903d72cf3c25a1">addAlphabetChar</a> (std::vector&lt; std::string &gt; &amp;characters, std::vector&lt; std::string &gt; &amp;complements)</td></tr>
+<tr class="memitem:afd8f10d605931c45a9f3c863674c46fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#afd8f10d605931c45a9f3c863674c46fd">addComplement</a> (std::string &amp;, std::string &amp;)</td></tr>
+<tr class="memitem:a2bac5f4bdb8f9e7fe114cc92008cd4c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a2bac5f4bdb8f9e7fe114cc92008cd4c3">addComplement</a> (const char *, const char *)</td></tr>
+<tr class="memitem:a11a1af6e1764b8976c3e8519c9833bd5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a11a1af6e1764b8976c3e8519c9833bd5">addComplement</a> (std::vector&lt; std::string &gt; &amp;characters, std::vector&lt; std::string &gt; &amp;complements)</td></tr>
 <tr class="memitem:a3079bae61c6d73e1a796897e3118ce4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a3079bae61c6d73e1a796897e3118ce4c">setAmbiguous</a> ()</td></tr>
 <tr class="memitem:a8066137833cd5df1cc0ed119204a0c86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a8066137833cd5df1cc0ed119204a0c86">addAmbiguous</a> (std::string &amp;, std::vector&lt; std::string &gt; &amp;)</td></tr>
 <tr class="memitem:aef2e0ba6264ad17c0dfb13eec6134adb"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#aef2e0ba6264ad17c0dfb13eec6134adb">getName</a> ()</td></tr>
@@ -142,9 +147,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>addComplement</b> (st
 <tr class="memitem:a2c18fbb6e1c6aa8aa41a33d07bc6e279"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a2c18fbb6e1c6aa8aa41a33d07bc6e279">getIndex</a> ()</td></tr>
 <tr class="memitem:a4ce8b421ac3f61a6093d81867b4a981f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53">trackType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a4ce8b421ac3f61a6093d81867b4a981f">getAlphaType</a> ()</td></tr>
 <tr class="memitem:a4d3759f267996b13d71bb8e9a173c54c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a4d3759f267996b13d71bb8e9a173c54c">getAlphaSize</a> ()</td></tr>
-<tr class="memitem:a71a9c06dc6de93bd774c0446482afc8f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a71a9c06dc6de93bd774c0446482afc8f"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a71a9c06dc6de93bd774c0446482afc8f">getTotalAlphabetSize</a> ()</td></tr>
-<tr class="memdesc:a71a9c06dc6de93bd774c0446482afc8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get alphabet size including ambiguous characters. <br/></td></tr>
+<tr class="memitem:a71a9c06dc6de93bd774c0446482afc8f"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a71a9c06dc6de93bd774c0446482afc8f">getTotalAlphabetSize</a> ()</td></tr>
+<tr class="memdesc:a71a9c06dc6de93bd774c0446482afc8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get alphabet size including ambiguous characters.  <a href="#a71a9c06dc6de93bd774c0446482afc8f"></a><br/></td></tr>
 <tr class="memitem:a548bf92e3a6ec84e79a0496ec51d621e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a548bf92e3a6ec84e79a0496ec51d621e">getAlphaMax</a> ()</td></tr>
 <tr class="memitem:a6a233038df789a2b0a0796a1f51a9931"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a6a233038df789a2b0a0796a1f51a9931">getAlpha</a> (int)</td></tr>
 <tr class="memitem:a637c1dc8ec86116a72d06df3640acffd"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a637c1dc8ec86116a72d06df3640acffd">getAlpha</a> (size_t)</td></tr>
@@ -154,48 +158,213 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="memitem:a24c259f1b2aa2aaa24b5e948fd019318"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a24c259f1b2aa2aaa24b5e948fd019318">getComplementIndex</a> (std::string &amp;)</td></tr>
 <tr class="memitem:a3986bf756cb25a7637c31608d66e2d49"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a3986bf756cb25a7637c31608d66e2d49">getComplementSymbol</a> (std::string &amp;character)</td></tr>
 <tr class="memitem:ad022003bace94df16a3a5181f3b9f655"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#ad022003bace94df16a3a5181f3b9f655">getComplementSymbol</a> (uint8_t value)</td></tr>
-<tr class="memitem:a0868bfb8403e96e01c18b8ba8000dd34"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0868bfb8403e96e01c18b8ba8000dd34"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isComplementDefined</b> ()</td></tr>
+<tr class="memitem:a0868bfb8403e96e01c18b8ba8000dd34"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a0868bfb8403e96e01c18b8ba8000dd34">isComplementDefined</a> ()</td></tr>
 <tr class="memitem:ad7154d14625389cc8f694e59498c484e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#ad7154d14625389cc8f694e59498c484e">isAmbiguousSet</a> ()</td></tr>
 <tr class="memitem:a7ccbf6be8098e5911b3914d32072e164"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a7ccbf6be8098e5911b3914d32072e164">isAlpha</a> ()</td></tr>
 <tr class="memitem:add793f3af354f7f90741770d7a985589"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#add793f3af354f7f90741770d7a985589">getAmbiguousSize</a> ()</td></tr>
 <tr class="memitem:aca0dbd7837fab998e7effad83ddf48ab"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#aca0dbd7837fab998e7effad83ddf48ab">getAmbiguousCharacter</a> (size_t)</td></tr>
 <tr class="memitem:a9f599bab7a7381d21f740d73ebd5bfcc"><td class="memItemLeft" align="right" valign="top">std::vector&lt; size_t &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a9f599bab7a7381d21f740d73ebd5bfcc">getAmbiguousSet</a> (uint8_t val)</td></tr>
-<tr class="memitem:a09a3011083a93607cb25741ec6719ae5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a09a3011083a93607cb25741ec6719ae5"></a>
-std::vector&lt; size_t &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getUnambiguousSet</b> ()</td></tr>
+<tr class="memitem:a09a3011083a93607cb25741ec6719ae5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; size_t &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a09a3011083a93607cb25741ec6719ae5">getUnambiguousSet</a> ()</td></tr>
 <tr class="memitem:a4f3d856b99c7a2d12c31c620e16477bc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a4f3d856b99c7a2d12c31c620e16477bc">stringify</a> ()</td></tr>
 <tr class="memitem:ad5177cd51d3cc37b7aa663b509fa3f75"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#ad5177cd51d3cc37b7aa663b509fa3f75">stringifyAmbig</a> ()</td></tr>
-<tr class="memitem:ae5d7ff9cc0c7f57c9953a4ac8cf34cff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae5d7ff9cc0c7f57c9953a4ac8cf34cff"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#ae5d7ff9cc0c7f57c9953a4ac8cf34cff">print</a> ()</td></tr>
-<tr class="memdesc:ae5d7ff9cc0c7f57c9953a4ac8cf34cff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the string representation of the track to stdout. <br/></td></tr>
-<tr class="memitem:aee2c5820f8352178e27854742298b8d2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee2c5820f8352178e27854742298b8d2"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>convertIndexToWord</b> (size_t, size_t)</td></tr>
-<tr class="memitem:a3e0fa7719933bf5b252d7eb8bacd3ce5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3e0fa7719933bf5b252d7eb8bacd3ce5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>convertIndexToDigital</b> (size_t, size_t, uint8_t *)</td></tr>
+<tr class="memitem:ae5d7ff9cc0c7f57c9953a4ac8cf34cff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#ae5d7ff9cc0c7f57c9953a4ac8cf34cff">print</a> ()</td></tr>
+<tr class="memdesc:ae5d7ff9cc0c7f57c9953a4ac8cf34cff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the string representation of the track to stdout.  <a href="#ae5d7ff9cc0c7f57c9953a4ac8cf34cff"></a><br/></td></tr>
+<tr class="memitem:aee2c5820f8352178e27854742298b8d2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#aee2c5820f8352178e27854742298b8d2">convertIndexToWord</a> (size_t, size_t)</td></tr>
+<tr class="memitem:a3e0fa7719933bf5b252d7eb8bacd3ce5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a3e0fa7719933bf5b252d7eb8bacd3ce5">convertIndexToDigital</a> (size_t, size_t, uint8_t *)</td></tr>
 <tr class="memitem:a04e51fb4eacbec28b72e09d519846306"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a04e51fb4eacbec28b72e09d519846306">isTrackFuncDefined</a> ()</td></tr>
 <tr class="memitem:a4684b917aeac79cf7b0f7d6df570604d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a4684b917aeac79cf7b0f7d6df570604d">getTrackFunction</a> ()</td></tr>
-<tr class="memitem:a2d683fb3208a84d293d8655ce414699f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d683fb3208a84d293d8655ce414699f"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a2d683fb3208a84d293d8655ce414699f">getTrackToUse</a> ()</td></tr>
-<tr class="memdesc:a2d683fb3208a84d293d8655ce414699f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get name of Track to use for trackFunc. <br/></td></tr>
-<tr class="memitem:aef3c98d940f4e0fad2fc484db4f22693"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef3c98d940f4e0fad2fc484db4f22693"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getMaxUnambiguous</b> ()</td></tr>
-<tr class="memitem:a28f96ff9b8d9125c4d684771be1e11c5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a28f96ff9b8d9125c4d684771be1e11c5"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getMaxAmbiguous</b> ()</td></tr>
+<tr class="memitem:a2d683fb3208a84d293d8655ce414699f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a2d683fb3208a84d293d8655ce414699f">getTrackToUse</a> ()</td></tr>
+<tr class="memdesc:a2d683fb3208a84d293d8655ce414699f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get name of Track to use for trackFunc.  <a href="#a2d683fb3208a84d293d8655ce414699f"></a><br/></td></tr>
+<tr class="memitem:aef3c98d940f4e0fad2fc484db4f22693"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#aef3c98d940f4e0fad2fc484db4f22693">getMaxUnambiguous</a> ()</td></tr>
+<tr class="memitem:a28f96ff9b8d9125c4d684771be1e11c5"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a28f96ff9b8d9125c4d684771be1e11c5">getMaxAmbiguous</a> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:afb313e600c37b89783875c5a3b5cec65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#afb313e600c37b89783875c5a3b5cec65">_splitAmbiguousList</a> (std::vector&lt; std::pair&lt; std::string, std::vector&lt; std::string &gt; &gt; &gt; &amp;, const std::string &amp;)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a4039778fdb2b9a02487caaeb11d63e65"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a4039778fdb2b9a02487caaeb11d63e65">name</a></td></tr>
+<tr class="memitem:a833a6ec151db41542cf40f4827d844f0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a833a6ec151db41542cf40f4827d844f0">description</a></td></tr>
+<tr class="memitem:abd141c962ef00d26cd1aa0dc5e816a92"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#abd141c962ef00d26cd1aa0dc5e816a92">trackIndex</a></td></tr>
+<tr class="memitem:add44d406ff29bb0d147a977bbc1d3c70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53">trackType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#add44d406ff29bb0d147a977bbc1d3c70">alpha_type</a></td></tr>
+<tr class="memitem:aa5f4c5aa7c4147a15c7d97a38ac25e2f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#aa5f4c5aa7c4147a15c7d97a38ac25e2f">trackFunctionDefined</a></td></tr>
+<tr class="memdesc:aa5f4c5aa7c4147a15c7d97a38ac25e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Track Functions for defining Real Number Tracks.  <a href="#aa5f4c5aa7c4147a15c7d97a38ac25e2f"></a><br/></td></tr>
+<tr class="memitem:a48bd5803ccf8033dced6e33c62e3ec1c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a48bd5803ccf8033dced6e33c62e3ec1c">complementSet</a></td></tr>
+<tr class="memitem:a443581a547c4c8500474d1f370364266"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a443581a547c4c8500474d1f370364266">trackToUse</a></td></tr>
+<tr class="memitem:aff307cbe33fd8e3478987bbb99af2f7b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#aff307cbe33fd8e3478987bbb99af2f7b">trackFunction</a></td></tr>
+<tr class="memitem:a56fb05711fd43566c34086a85c4a732c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a56fb05711fd43566c34086a85c4a732c">alphabet</a></td></tr>
+<tr class="memitem:aa27682469cda508f94247f9034ca3a8a"><td class="memItemLeft" align="right" valign="top">std::map&lt; uint8_t, uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#aa27682469cda508f94247f9034ca3a8a">complementAlphabet</a></td></tr>
+<tr class="memitem:a148c0253c8652982c6610eda9bca701e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a148c0253c8652982c6610eda9bca701e">maxSize</a></td></tr>
+<tr class="memitem:a4b4f90d6b60362a9268a2be2c6ae3dbe"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a4b4f90d6b60362a9268a2be2c6ae3dbe">max_unambiguous</a></td></tr>
+<tr class="memitem:a585680381cf2f596695c8fd76f3e6ed5"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a585680381cf2f596695c8fd76f3e6ed5">max_ambiguous</a></td></tr>
+<tr class="memitem:a98a2babc7bcf8058b5d353ae29896dd9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a98a2babc7bcf8058b5d353ae29896dd9">unambiguous</a></td></tr>
+<tr class="memitem:ace296599903cdff94453c391eb10ba5c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#ace296599903cdff94453c391eb10ba5c">ambiguous</a></td></tr>
+<tr class="memitem:a5721e5076dcc3ae864151371c2651910"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a5721e5076dcc3ae864151371c2651910">defaultAmbiguous</a></td></tr>
+<tr class="memitem:a7fa4cafeb6cdf2ba77c221d9fc734c21"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1ambig_character.html">ambigCharacter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a7fa4cafeb6cdf2ba77c221d9fc734c21">ambiguousSymbols</a></td></tr>
+<tr class="memitem:a3276396b543423baa2524a52bf71a342"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a3276396b543423baa2524a52bf71a342">symbolIndices</a></td></tr>
+<tr class="memitem:ae73f1ff229704adfc331de3deb9c3292"><td class="memItemLeft" align="right" valign="top">std::vector&lt; uint8_t &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#ae73f1ff229704adfc331de3deb9c3292">charIndices</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a9ded23f3edbd367dcaa3a3c3d49428eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ded23f3edbd367dcaa3a3c3d49428eb"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
-<tr class="memitem:a6e37bb755d74e24f1b3e7e2def3b13e0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e37bb755d74e24f1b3e7e2def3b13e0"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
-<tr class="memitem:a35e25a2b355df026ed6d98372219574f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35e25a2b355df026ed6d98372219574f"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
+<tr class="memitem:a9ded23f3edbd367dcaa3a3c3d49428eb"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a9ded23f3edbd367dcaa3a3c3d49428eb">state</a></td></tr>
+<tr class="memitem:a6e37bb755d74e24f1b3e7e2def3b13e0"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a6e37bb755d74e24f1b3e7e2def3b13e0">model</a></td></tr>
+<tr class="memitem:a35e25a2b355df026ed6d98372219574f"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1track.html#a35e25a2b355df026ed6d98372219574f">tracks</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Defines types of data (real-value, text-sequence) used in the model and the alphabet that a text-sequence uses. Tracks are used to digitize the sequence before decoding in HMM </p>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00086">86</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
-</div><hr/><h2>Member Function Documentation</h2>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a2e91d800bf3bff2cf2650de28a97be20"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::track::track </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a track. </p>
+
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00047">47</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8h_source.html#l00254">alpha_type</a>, <a class="el" href="track_8h_source.html#l00272">ambiguous</a>, <a class="el" href="track_8h_source.html#l00281">charIndices</a>, <a class="el" href="track_8h_source.html#l00258">complementSet</a>, <a class="el" href="track_8h_source.html#l00273">defaultAmbiguous</a>, <a class="el" href="statistics_8cpp_source.html#l00040">StochHMM::max()</a>, <a class="el" href="track_8h_source.html#l00269">max_ambiguous</a>, <a class="el" href="track_8h_source.html#l00268">max_unambiguous</a>, <a class="el" href="track_8h_source.html#l00266">maxSize</a>, <a class="el" href="track_8h_source.html#l00257">trackFunctionDefined</a>, <a class="el" href="track_8h_source.html#l00252">trackIndex</a>, and <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::UNDEFINED</a>.</p>
+<div class="fragment"><div class="line">                {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#add44d406ff29bb0d147a977bbc1d3c70">alpha_type</a>=<a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53a66ac80bb8e51bb958e866afa1f8b6dfb">UNDEFINED</a>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#abd141c962ef00d26cd1aa0dc5e816a92">trackIndex</a>=<a class="code" href="namespace_stoch_h_m_m.html#a8f9197e4dd6f06db75b1eb2039e28ce0">std::numeric_limits&lt;size_t&gt;::max</a>();</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#ace296599903cdff94453c391eb10ba5c">ambiguous</a>=<span class="keyword">false</span>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#a5721e5076dcc3ae864151371c2651910">defaultAmbiguous</a>=-1;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#aa5f4c5aa7c4147a15c7d97a38ac25e2f" title="Track Functions for defining Real Number Tracks.">trackFunctionDefined</a>= <span class="keyword">false</span>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#a148c0253c8652982c6610eda9bca701e">maxSize</a>=0;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a585680381cf2f596695c8fd76f3e6ed5">max_ambiguous</a> =0;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a4b4f90d6b60362a9268a2be2c6ae3dbe">max_unambiguous</a> =0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#a48bd5803ccf8033dced6e33c62e3ec1c">complementSet</a>=<span class="keyword">false</span>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#ae73f1ff229704adfc331de3deb9c3292">charIndices</a> = NULL;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a138a9f67b13465a9cccde32e7be6b667"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::track::track </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1_track_funcs.html">TrackFuncs</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a07cf3a743727a68013a16f18462e5a53"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::track::track </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>characters</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00060">60</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00272">ambiguous</a>, <a class="el" href="track_8h_source.html#l00281">charIndices</a>, <a class="el" href="track_8h_source.html#l00258">complementSet</a>, <a class="el" href="track_8h_source.html#l00273">defaultAmbiguous</a>, <a class="el" href="statistics_8cpp_source.html#l00040">StochHMM::max()</a>, <a class="el" href="track_8h_source.html#l00269">max_ambiguous</a>, <a class="el" href="track_8h_source.html#l00268">max_unambiguous</a>, <a class="el" href="track_8h_source.html#l00266">maxSize</a>, <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>, <a class="el" href="track_8h_source.html#l00257">trackFunctionDefined</a>, and <a class="el" href="track_8h_source.html#l00252">trackIndex</a>.</p>
+<div class="fragment"><div class="line">                                                    {</div>
+<div class="line">                </div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#abd141c962ef00d26cd1aa0dc5e816a92">trackIndex</a>=<a class="code" href="namespace_stoch_h_m_m.html#a8f9197e4dd6f06db75b1eb2039e28ce0">std::numeric_limits&lt;size_t&gt;::max</a>();</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#ace296599903cdff94453c391eb10ba5c">ambiguous</a>=<span class="keyword">false</span>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#a5721e5076dcc3ae864151371c2651910">defaultAmbiguous</a>=-1;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#aa5f4c5aa7c4147a15c7d97a38ac25e2f" title="Track Functions for defining Real Number Tracks.">trackFunctionDefined</a>= <span class="keyword">false</span>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#a148c0253c8652982c6610eda9bca701e">maxSize</a>=0;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a585680381cf2f596695c8fd76f3e6ed5">max_ambiguous</a> =0;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a4b4f90d6b60362a9268a2be2c6ae3dbe">max_unambiguous</a> =0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#a48bd5803ccf8033dced6e33c62e3ec1c">complementSet</a>=<span class="keyword">false</span>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#ae73f1ff229704adfc331de3deb9c3292">charIndices</a> = NULL;</div>
+<div class="line">                </div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a14cb394c945f825584d63569a4de060a">addAlphabetChar</a>(characters);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a714d6094e545fe160bebb2b29bbbf333">setAlphaType</a>(<a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53adfe7ec039db35bf483fe6d9f5b17ff75">ALPHA_NUM</a>);</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="afb313e600c37b89783875c5a3b5cec65"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::track::_splitAmbiguousList </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::pair&lt; std::string, std::vector&lt; std::string &gt; &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>results</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00471">471</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00435">StochHMM::clear_whitespace()</a>, and <a class="el" href="text_8cpp_source.html#l00716">StochHMM::split_line()</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00456">parseAmbiguous()</a>.</p>
+<div class="fragment"><div class="line">                                                                                                                       {</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">size_t</span> opening;</div>
+<div class="line">        <span class="keywordtype">size_t</span> closing;</div>
+<div class="line">        <span class="keywordtype">size_t</span> start=0;</div>
+<div class="line">        </div>
+<div class="line">        opening=text.find_first_of(<span class="charliteral">&#39;[&#39;</span>);</div>
+<div class="line">        <span class="keywordflow">while</span>(opening!=std::string::npos){</div>
+<div class="line">            std::pair&lt;std::string,std::vector&lt;std::string&gt; &gt; amb;</div>
+<div class="line">            amb.first=text.substr(start,opening-start);</div>
+<div class="line">                        <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(amb.first, <span class="stringliteral">&quot;\t &quot;</span>);</div>
+<div class="line">            </div>
+<div class="line">            closing=text.find_first_of(<span class="charliteral">&#39;]&#39;</span>,opening);</div>
+<div class="line">            <span class="keywordflow">if</span> (closing!=std::string::npos){</div>
+<div class="line">                std::string tempString=text.substr(opening+1,closing-opening-1);</div>
+<div class="line">                <a class="code" href="group___text.html#ga4cec2ea0c1f6cbeb092d15b9867443b0">split_line</a>(amb.second, tempString);</div>
+<div class="line">            }</div>
+<div class="line">            start=text.find_first_not_of(<span class="charliteral">&#39;,&#39;</span>,closing+1);</div>
+<div class="line">            results.push_back(amb);</div>
+<div class="line">            opening=text.find_first_of(<span class="charliteral">&#39;[&#39;</span>,closing);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="a14cb394c945f825584d63569a4de060a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -219,30 +388,256 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00109">109</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>.</p>
+<p>References <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00263">alphabet</a>, <a class="el" href="track_8h_source.html#l00268">max_unambiguous</a>, <a class="el" href="track_8h_source.html#l00266">maxSize</a>, <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>, <a class="el" href="track_8h_source.html#l00279">symbolIndices</a>, and <a class="el" href="track_8h_source.html#l00270">unambiguous</a>.</p>
 
-<p>Referenced by <a class="el" href="track_8cpp_source.html#l00310">parse()</a>.</p>
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00132">addAlphabetChar()</a>, <a class="el" href="track_8cpp_source.html#l00310">parse()</a>, and <a class="el" href="track_8cpp_source.html#l00060">track()</a>.</p>
 <div class="fragment"><div class="line">                                                   {</div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> (alphabet.size() &gt;= 255){</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#a56fb05711fd43566c34086a85c4a732c">alphabet</a>.size() &gt;= 255){</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Alphabet limit reached.   Unable to add additional characters to the track:\t&quot;</span> &lt;&lt; character &lt;&lt; std::endl;</div>
 <div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">        }</div>
 <div class="line">        </div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> (character.size()&gt;maxSize){maxSize=character.size();};</div>
+<div class="line">        <span class="keywordflow">if</span> (character.size()&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a148c0253c8652982c6610eda9bca701e">maxSize</a>){<a class="code" href="class_stoch_h_m_m_1_1track.html#a148c0253c8652982c6610eda9bca701e">maxSize</a>=character.size();};</div>
 <div class="line">        </div>
-<div class="line">                alphabet.push_back(character);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a56fb05711fd43566c34086a85c4a732c">alphabet</a>.push_back(character);</div>
 <div class="line">        </div>
-<div class="line">                <span class="keywordtype">size_t</span> index = alphabet.size()-1;</div>
+<div class="line">                <span class="keywordtype">size_t</span> index = <a class="code" href="class_stoch_h_m_m_1_1track.html#a56fb05711fd43566c34086a85c4a732c">alphabet</a>.size()-1;</div>
 <div class="line">        </div>
-<div class="line">                symbolIndices[character]=index;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a3276396b543423baa2524a52bf71a342">symbolIndices</a>[character]=index;</div>
 <div class="line">                </div>
-<div class="line">                max_unambiguous = index;</div>
-<div class="line">                unambiguous.push_back(index);</div>
-<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a714d6094e545fe160bebb2b29bbbf333">setAlphaType</a>(ALPHA_NUM);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a4b4f90d6b60362a9268a2be2c6ae3dbe">max_unambiguous</a> = index;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a98a2babc7bcf8058b5d353ae29896dd9">unambiguous</a>.push_back(index);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a714d6094e545fe160bebb2b29bbbf333">setAlphaType</a>(<a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53adfe7ec039db35bf483fe6d9f5b17ff75">ALPHA_NUM</a>);</div>
 <div class="line">        </div>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a04ea496f9b594700af6d98b563c58479"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::track::addAlphabetChar </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>character</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00132">132</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00266">maxSize</a>, and <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>.</p>
+<div class="fragment"><div class="line">                                                    {</div>
+<div class="line">        std::string string_character(character);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a714d6094e545fe160bebb2b29bbbf333">setAlphaType</a>(<a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53adfe7ec039db35bf483fe6d9f5b17ff75">ALPHA_NUM</a>);</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (string_character.size()&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a148c0253c8652982c6610eda9bca701e">maxSize</a>){<a class="code" href="class_stoch_h_m_m_1_1track.html#a148c0253c8652982c6610eda9bca701e">maxSize</a>=string_character.size();};</div>
+<div class="line"></div>
+<div class="line">        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a14cb394c945f825584d63569a4de060a">addAlphabetChar</a>(string_character);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a693c5690e791e9771cda7e249051449d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::track::addAlphabetChar </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>characters</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00141">141</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::ALPHA_NUM</a>, and <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>.</p>
+<div class="fragment"><div class="line">                                                                   {</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;characters.size();i++){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1track.html#a14cb394c945f825584d63569a4de060a">addAlphabetChar</a>(characters[i]);</div>
+<div class="line">        }</div>
+<div class="line">                </div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a714d6094e545fe160bebb2b29bbbf333">setAlphaType</a>(<a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53adfe7ec039db35bf483fe6d9f5b17ff75">ALPHA_NUM</a>);</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a8763c690d8c9bd4329fd0094adaf13dc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::track::addAlphabetChar </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>chSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>characters</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00152">152</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>.</p>
+<div class="fragment"><div class="line">                                                                           {</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i =0; i &lt; chSize; i++ ){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1track.html#a14cb394c945f825584d63569a4de060a">addAlphabetChar</a>(characters[i]);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a41afb479cd1ac55eff7664df92ee2c8e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::track::addAlphabetChar </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>character</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>complement</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00160">160</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="track_8cpp_source.html#l00203">addComplement()</a>, <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00258">complementSet</a>, and <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>.</p>
+<div class="fragment"><div class="line">                                                                              {</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a14cb394c945f825584d63569a4de060a">addAlphabetChar</a>(character);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#afd8f10d605931c45a9f3c863674c46fd">addComplement</a>(character, complement);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a48bd5803ccf8033dced6e33c62e3ec1c">complementSet</a> = <span class="keyword">true</span>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a714d6094e545fe160bebb2b29bbbf333">setAlphaType</a>(<a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53adfe7ec039db35bf483fe6d9f5b17ff75">ALPHA_NUM</a>);</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a8d1df8b68cc18726c9d4686ddb20abe4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::track::addAlphabetChar </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>chSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>characters</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>complements</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00168">168</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="track_8cpp_source.html#l00203">addComplement()</a>, <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00258">complementSet</a>, and <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>.</p>
+<div class="fragment"><div class="line">                                                                                                     {</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;chSize;i++){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1track.html#a14cb394c945f825584d63569a4de060a">addAlphabetChar</a>(characters[i]);</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1track.html#afd8f10d605931c45a9f3c863674c46fd">addComplement</a>(characters[i], complements[i]);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#a48bd5803ccf8033dced6e33c62e3ec1c">complementSet</a> = <span class="keyword">true</span>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a714d6094e545fe160bebb2b29bbbf333">setAlphaType</a>(<a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53adfe7ec039db35bf483fe6d9f5b17ff75">ALPHA_NUM</a>);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a7924ea87d6b7559db1903d72cf3c25a1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::track::addAlphabetChar </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>characters</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>complements</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00183">183</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="track_8cpp_source.html#l00203">addComplement()</a>, <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00258">complementSet</a>, and <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>.</p>
+<div class="fragment"><div class="line">                                                                                                  {</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (characters.size() != complements.size()){</div>
+<div class="line">            <span class="comment">//Error Message</span></div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Number of Complement characters and Characters don&#39;t match.\n&quot;</span>;</div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;characters.size();i++){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1track.html#a14cb394c945f825584d63569a4de060a">addAlphabetChar</a>(characters[i]);</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1track.html#afd8f10d605931c45a9f3c863674c46fd">addComplement</a>(characters[i], complements[i]);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#a48bd5803ccf8033dced6e33c62e3ec1c">complementSet</a> = <span class="keyword">true</span>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a714d6094e545fe160bebb2b29bbbf333">setAlphaType</a>(<a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53adfe7ec039db35bf483fe6d9f5b17ff75">ALPHA_NUM</a>);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
@@ -280,24 +675,258 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00237">237</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
+<p>References <a class="el" href="track_8h_source.html#l00277">ambiguousSymbols</a>, <a class="el" href="track_8h_source.html#l00273">defaultAmbiguous</a>, <a class="el" href="track_8h_source.html#l00269">max_ambiguous</a>, <a class="el" href="track_8h_source.html#l00268">max_unambiguous</a>, and <a class="el" href="track_8h_source.html#l00279">symbolIndices</a>.</p>
+
 <p>Referenced by <a class="el" href="track_8cpp_source.html#l00456">parseAmbiguous()</a>.</p>
 <div class="fragment"><div class="line">                                                                          {</div>
-<div class="line">                <span class="keywordflow">if</span> (defaultAmbiguous==-1){</div>
-<div class="line">                        defaultAmbiguous = max_unambiguous+1;</div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#a5721e5076dcc3ae864151371c2651910">defaultAmbiguous</a>==-1){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1track.html#a5721e5076dcc3ae864151371c2651910">defaultAmbiguous</a> = <a class="code" href="class_stoch_h_m_m_1_1track.html#a4b4f90d6b60362a9268a2be2c6ae3dbe">max_unambiguous</a>+1;</div>
 <div class="line">                }</div>
 <div class="line">        ambigCharacter amb(<span class="keyword">this</span>,ambChar,defs);</div>
-<div class="line">        ambiguousSymbols.push_back(amb);</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#a7fa4cafeb6cdf2ba77c221d9fc734c21">ambiguousSymbols</a>.push_back(amb);</div>
 <div class="line">        </div>
-<div class="line">                <span class="keywordtype">int</span> index = (int) symbolIndices.size();  <span class="comment">//Get the index position and new digital reference value</span></div>
+<div class="line">                <span class="keywordtype">int</span> index = (int) <a class="code" href="class_stoch_h_m_m_1_1track.html#a3276396b543423baa2524a52bf71a342">symbolIndices</a>.size();  <span class="comment">//Get the index position and new digital reference value</span></div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordflow">if</span> (index &gt;= 255){</div>
 <div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Maximum number of discrete symbols reached at 255\n&quot;</span>;</div>
 <div class="line">                        exit(2);</div>
 <div class="line">                }</div>
 <div class="line">                </div>
-<div class="line">        symbolIndices[ambChar]=index;</div>
-<div class="line">                max_ambiguous = index;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#a3276396b543423baa2524a52bf71a342">symbolIndices</a>[ambChar]=index;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#a585680381cf2f596695c8fd76f3e6ed5">max_ambiguous</a> = index;</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="afd8f10d605931c45a9f3c863674c46fd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::track::addComplement </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>character</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>complement</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00203">203</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8h_source.html#l00264">complementAlphabet</a>, <a class="el" href="track_8h_source.html#l00258">complementSet</a>, and <a class="el" href="track_8cpp_source.html#l00259">symbolIndex()</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00160">addAlphabetChar()</a>, and <a class="el" href="track_8cpp_source.html#l00212">addComplement()</a>.</p>
+<div class="fragment"><div class="line">                                                                        {</div>
+<div class="line">        <span class="keywordtype">int</span> index = <a class="code" href="class_stoch_h_m_m_1_1track.html#aca825987aefb56d95601eabd48b8ac93">symbolIndex</a>(character);</div>
+<div class="line">        <span class="keywordtype">int</span> comp  = <a class="code" href="class_stoch_h_m_m_1_1track.html#aca825987aefb56d95601eabd48b8ac93">symbolIndex</a>(complement);</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#aa27682469cda508f94247f9034ca3a8a">complementAlphabet</a>[index]=comp;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#a48bd5803ccf8033dced6e33c62e3ec1c">complementSet</a> = <span class="keyword">true</span>;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a2bac5f4bdb8f9e7fe114cc92008cd4c3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::track::addComplement </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>character</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>complement</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00212">212</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00203">addComplement()</a>.</p>
+<div class="fragment"><div class="line">                                                                           {</div>
+<div class="line">        std::string string_character(character);</div>
+<div class="line">        std::string string_complement(complement);</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#afd8f10d605931c45a9f3c863674c46fd">addComplement</a>(string_character, string_complement);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a11a1af6e1764b8976c3e8519c9833bd5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::track::addComplement </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>characters</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>complements</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00220">220</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00203">addComplement()</a>.</p>
+<div class="fragment"><div class="line">                                                                                                    {</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (characters.size() != complements.size()){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Number of Complement characters and Characters don&#39;t match.\n&quot;</span>;</div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;characters.size();i++){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1track.html#afd8f10d605931c45a9f3c863674c46fd">addComplement</a>(characters[i], complements[i]);</div>
+<div class="line">        }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a3e0fa7719933bf5b252d7eb8bacd3ce5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::track::convertIndexToDigital </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00429">429</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8h_source.html#l00263">alphabet</a>, and <a class="el" href="stoch_math_8h_source.html#l00091">StochHMM::POWER</a>.</p>
+<div class="fragment"><div class="line">                                                                                       {</div>
+<div class="line">        <span class="keywordflow">if</span> (order == 0){</div>
+<div class="line">                        word[0]=wordIndex;</div>
+<div class="line">                        <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line">                </div>
+<div class="line">                std::cout &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1track.html#a56fb05711fd43566c34086a85c4a732c">alphabet</a>.size() &lt;&lt; std::endl;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">size_t</span> currentOrder = order;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">while</span> (currentOrder&gt;1){</div>
+<div class="line">            <span class="keywordtype">double</span> dreg=<a class="code" href="namespace_stoch_h_m_m.html#acb07ade72ef51c27dfd7e32b286cebca">POWER</a>[currentOrder-1][<a class="code" href="class_stoch_h_m_m_1_1track.html#a56fb05711fd43566c34086a85c4a732c">alphabet</a>.size()-1];</div>
+<div class="line">            <span class="keywordtype">size_t</span> temp = floor ((<span class="keywordtype">double</span>) wordIndex / dreg);</div>
+<div class="line">                        word[currentOrder-1] = temp;</div>
+<div class="line">            wordIndex-=temp*dreg;</div>
+<div class="line">            currentOrder--;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        word[0] = wordIndex;</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aee2c5820f8352178e27854742298b8d2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::track::convertIndexToWord </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>wordIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>order</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8cpp_source.html#l00402">402</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8h_source.html#l00263">alphabet</a>, <a class="el" href="track_8h_source.html#l00266">maxSize</a>, and <a class="el" href="stoch_math_8h_source.html#l00091">StochHMM::POWER</a>.</p>
+<div class="fragment"><div class="line">                                                                     {</div>
+<div class="line">        std::string output=<span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (order == 0){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">size_t</span> currentOrder = order;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">while</span> (currentOrder&gt;1){</div>
+<div class="line">            <span class="keywordtype">double</span> dreg=<a class="code" href="namespace_stoch_h_m_m.html#acb07ade72ef51c27dfd7e32b286cebca">POWER</a>[currentOrder-1][<a class="code" href="class_stoch_h_m_m_1_1track.html#a56fb05711fd43566c34086a85c4a732c">alphabet</a>.size()-1];</div>
+<div class="line">            <span class="keywordtype">size_t</span> temp = floor ((<span class="keywordtype">double</span>) wordIndex / dreg);</div>
+<div class="line">            output+=<a class="code" href="class_stoch_h_m_m_1_1track.html#a56fb05711fd43566c34086a85c4a732c">alphabet</a>[temp];</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#a148c0253c8652982c6610eda9bca701e">maxSize</a>!=1){</div>
+<div class="line">                                output += <span class="stringliteral">&quot;,&quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">                        </div>
+<div class="line">            wordIndex-=temp*dreg;</div>
+<div class="line">            currentOrder--;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        output+=<a class="code" href="class_stoch_h_m_m_1_1track.html#a56fb05711fd43566c34086a85c4a732c">alphabet</a>[wordIndex];</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> output;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
@@ -326,14 +955,14 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00079">79</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8cpp_source.html#l00500">getAmbiguousCharacter()</a>.</p>
+<p>References <a class="el" href="track_8h_source.html#l00263">alphabet</a>, <a class="el" href="track_8cpp_source.html#l00500">getAmbiguousCharacter()</a>, <a class="el" href="track_8h_source.html#l00269">max_ambiguous</a>, and <a class="el" href="track_8h_source.html#l00268">max_unambiguous</a>.</p>
 
 <p>Referenced by <a class="el" href="track_8cpp_source.html#l00635">getComplementSymbol()</a>, <a class="el" href="sequence_8cpp_source.html#l00772">StochHMM::sequence::getSymbol()</a>, <a class="el" href="sequence_8cpp_source.html#l00959">StochHMM::random_sequence()</a>, and <a class="el" href="sequence_8cpp_source.html#l00344">StochHMM::sequence::undigitize()</a>.</p>
 <div class="fragment"><div class="line">                                     {</div>
-<div class="line">                <span class="keywordflow">if</span> (iter&lt;=max_unambiguous){</div>
-<div class="line">                        <span class="keywordflow">return</span> alphabet[iter];</div>
+<div class="line">                <span class="keywordflow">if</span> (iter&lt;=<a class="code" href="class_stoch_h_m_m_1_1track.html#a4b4f90d6b60362a9268a2be2c6ae3dbe">max_unambiguous</a>){</div>
+<div class="line">                        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a56fb05711fd43566c34086a85c4a732c">alphabet</a>[iter];</div>
 <div class="line">                }</div>
-<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (iter &lt;= max_ambiguous){</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (iter &lt;= <a class="code" href="class_stoch_h_m_m_1_1track.html#a585680381cf2f596695c8fd76f3e6ed5">max_ambiguous</a>){</div>
 <div class="line">                        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#aca0dbd7837fab998e7effad83ddf48ab">getAmbiguousCharacter</a>(iter);</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">else</span>{</div>
@@ -367,12 +996,12 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00094">94</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8cpp_source.html#l00500">getAmbiguousCharacter()</a>.</p>
+<p>References <a class="el" href="track_8h_source.html#l00263">alphabet</a>, <a class="el" href="track_8cpp_source.html#l00500">getAmbiguousCharacter()</a>, <a class="el" href="track_8h_source.html#l00269">max_ambiguous</a>, and <a class="el" href="track_8h_source.html#l00268">max_unambiguous</a>.</p>
 <div class="fragment"><div class="line">                                        {</div>
-<div class="line">                <span class="keywordflow">if</span> (iter&lt;=max_unambiguous){</div>
-<div class="line">                        <span class="keywordflow">return</span> alphabet[iter];</div>
+<div class="line">                <span class="keywordflow">if</span> (iter&lt;=<a class="code" href="class_stoch_h_m_m_1_1track.html#a4b4f90d6b60362a9268a2be2c6ae3dbe">max_unambiguous</a>){</div>
+<div class="line">                        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a56fb05711fd43566c34086a85c4a732c">alphabet</a>[iter];</div>
 <div class="line">                }</div>
-<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (iter &lt;= max_ambiguous){</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (iter &lt;= <a class="code" href="class_stoch_h_m_m_1_1track.html#a585680381cf2f596695c8fd76f3e6ed5">max_ambiguous</a>){</div>
 <div class="line">                        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#aca0dbd7837fab998e7effad83ddf48ab">getAmbiguousCharacter</a>(iter);</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">else</span>{</div>
@@ -407,8 +1036,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00180">180</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
 
-<p>Referenced by <a class="el" href="sequence_8cpp_source.html#l00868">StochHMM::sequence::complement()</a>, <a class="el" href="sequence_8cpp_source.html#l00829">StochHMM::sequence::reverse()</a>, and <a class="el" href="sequence_8cpp_source.html#l00344">StochHMM::sequence::undigitize()</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> maxSize;};</div>
+<p>References <a class="el" href="track_8h_source.html#l00266">maxSize</a>.</p>
+
+<p>Referenced by <a class="el" href="sequence_8cpp_source.html#l00505">StochHMM::sequence::_digitize()</a>, <a class="el" href="sequence_8cpp_source.html#l00868">StochHMM::sequence::complement()</a>, <a class="el" href="sequence_8cpp_source.html#l00829">StochHMM::sequence::reverse()</a>, <a class="el" href="trellis_8cpp_source.html#l00315">StochHMM::trellis::transitionFuncTraceback()</a>, and <a class="el" href="sequence_8cpp_source.html#l00344">StochHMM::sequence::undigitize()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a148c0253c8652982c6610eda9bca701e">maxSize</a>;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -437,8 +1068,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00173">173</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
 
-<p>Referenced by <a class="el" href="lexical_table_8cpp_source.html#l00158">StochHMM::lexicalTable::addTrack()</a>, and <a class="el" href="sequence_8cpp_source.html#l00959">StochHMM::random_sequence()</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> alphabet.size();};</div>
+<p>References <a class="el" href="track_8h_source.html#l00263">alphabet</a>.</p>
+
+<p>Referenced by <a class="el" href="lexical_table_8cpp_source.html#l00158">StochHMM::lexicalTable::addTrack()</a>, <a class="el" href="_counter_8cpp_source.html#l00634">StochHMM::Counter::initializeTable()</a>, and <a class="el" href="sequence_8cpp_source.html#l00959">StochHMM::random_sequence()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a56fb05711fd43566c34086a85c4a732c">alphabet</a>.size();};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -468,8 +1101,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00169">169</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
 
-<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00783">StochHMM::emm::isReal()</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> alpha_type;}</div>
+<p>References <a class="el" href="track_8h_source.html#l00254">alpha_type</a>.</p>
+
+<p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00622">StochHMM::seqTracks::_initImportTrackInfo()</a>, and <a class="el" href="emm_8cpp_source.html#l00783">StochHMM::emm::isReal()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#add44d406ff29bb0d147a977bbc1d3c70">alpha_type</a>;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -496,7 +1131,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00500">500</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8h_source.html#l00213">getAmbiguousSize()</a>.</p>
+<p>References <a class="el" href="track_8h_source.html#l00277">ambiguousSymbols</a>, <a class="el" href="track_8h_source.html#l00213">getAmbiguousSize()</a>, and <a class="el" href="track_8h_source.html#l00268">max_unambiguous</a>.</p>
 
 <p>Referenced by <a class="el" href="track_8cpp_source.html#l00079">getAlpha()</a>, and <a class="el" href="track_8cpp_source.html#l00381">stringifyAmbig()</a>.</p>
 <div class="fragment"><div class="line">                                                    {</div>
@@ -504,7 +1139,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <div class="line">            <span class="keywordflow">return</span> <span class="stringliteral">&quot;*&quot;</span>;</div>
 <div class="line">        }</div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">return</span> ambiguousSymbols[(val-max_unambiguous)-1].getSymbol();</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a7fa4cafeb6cdf2ba77c221d9fc734c21">ambiguousSymbols</a>[(val-<a class="code" href="class_stoch_h_m_m_1_1track.html#a4b4f90d6b60362a9268a2be2c6ae3dbe">max_unambiguous</a>)-1].getSymbol();</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
@@ -535,8 +1170,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00220">220</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
 
+<p>References <a class="el" href="track_8h_source.html#l00277">ambiguousSymbols</a>, and <a class="el" href="track_8h_source.html#l00268">max_unambiguous</a>.</p>
+
 <p>Referenced by <a class="el" href="track_8cpp_source.html#l00381">stringifyAmbig()</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> ambiguousSymbols[(val-max_unambiguous)-1].getDef();}</div>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a7fa4cafeb6cdf2ba77c221d9fc734c21">ambiguousSymbols</a>[(val-<a class="code" href="class_stoch_h_m_m_1_1track.html#a4b4f90d6b60362a9268a2be2c6ae3dbe">max_unambiguous</a>)-1].getDef();}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -565,8 +1202,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00213">213</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
 
+<p>References <a class="el" href="track_8h_source.html#l00277">ambiguousSymbols</a>.</p>
+
 <p>Referenced by <a class="el" href="track_8cpp_source.html#l00500">getAmbiguousCharacter()</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> ambiguousSymbols.size();};</div>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a7fa4cafeb6cdf2ba77c221d9fc734c21">ambiguousSymbols</a>.size();};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -594,11 +1233,13 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00593">593</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
+<p>References <a class="el" href="track_8h_source.html#l00264">complementAlphabet</a>, and <a class="el" href="track_8h_source.html#l00258">complementSet</a>.</p>
+
 <p>Referenced by <a class="el" href="sequence_8cpp_source.html#l00868">StochHMM::sequence::complement()</a>.</p>
 <div class="fragment"><div class="line">                                                {</div>
-<div class="line">        <span class="keywordflow">if</span> (complementSet){</div>
-<div class="line">            <span class="keywordflow">if</span> (complementAlphabet.count(val)){</div>
-<div class="line">                <span class="keywordflow">return</span> complementAlphabet[val];</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#a48bd5803ccf8033dced6e33c62e3ec1c">complementSet</a>){</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#aa27682469cda508f94247f9034ca3a8a">complementAlphabet</a>.count(val)){</div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#aa27682469cda508f94247f9034ca3a8a">complementAlphabet</a>[val];</div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span>{</div>
 <div class="line">                std::cerr&lt;&lt; <span class="stringliteral">&quot;Complement of &quot;</span> &lt;&lt; val &lt;&lt; <span class="stringliteral">&quot; is not set in track\n&quot;</span>;</div>
@@ -637,12 +1278,12 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00614">614</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8cpp_source.html#l00259">symbolIndex()</a>.</p>
+<p>References <a class="el" href="track_8h_source.html#l00264">complementAlphabet</a>, <a class="el" href="track_8h_source.html#l00258">complementSet</a>, <a class="el" href="track_8cpp_source.html#l00259">symbolIndex()</a>, and <a class="el" href="track_8h_source.html#l00279">symbolIndices</a>.</p>
 <div class="fragment"><div class="line">                                                         {</div>
-<div class="line">        <span class="keywordflow">if</span> (complementSet){</div>
-<div class="line">            <span class="keywordflow">if</span> (symbolIndices.count(character)){</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#a48bd5803ccf8033dced6e33c62e3ec1c">complementSet</a>){</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#a3276396b543423baa2524a52bf71a342">symbolIndices</a>.count(character)){</div>
 <div class="line">                <span class="keywordtype">int</span> characterIndex = <a class="code" href="class_stoch_h_m_m_1_1track.html#aca825987aefb56d95601eabd48b8ac93">symbolIndex</a>(character);</div>
-<div class="line">                <span class="keywordflow">return</span> complementAlphabet[characterIndex];</div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#aa27682469cda508f94247f9034ca3a8a">complementAlphabet</a>[characterIndex];</div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span>{</div>
 <div class="line">                std::cerr&lt;&lt; <span class="stringliteral">&quot;Complement of &quot;</span> &lt;&lt; character &lt;&lt; <span class="stringliteral">&quot; is not set in track\n&quot;</span>;</div>
@@ -681,14 +1322,14 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00657">657</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8cpp_source.html#l00079">getAlpha()</a>, and <a class="el" href="track_8cpp_source.html#l00259">symbolIndex()</a>.</p>
+<p>References <a class="el" href="track_8h_source.html#l00264">complementAlphabet</a>, <a class="el" href="track_8h_source.html#l00258">complementSet</a>, <a class="el" href="track_8cpp_source.html#l00079">getAlpha()</a>, <a class="el" href="track_8cpp_source.html#l00259">symbolIndex()</a>, and <a class="el" href="track_8h_source.html#l00279">symbolIndices</a>.</p>
 
 <p>Referenced by <a class="el" href="sequence_8cpp_source.html#l00868">StochHMM::sequence::complement()</a>.</p>
 <div class="fragment"><div class="line">                                                            {</div>
-<div class="line">        <span class="keywordflow">if</span> (complementSet){</div>
-<div class="line">            <span class="keywordflow">if</span> (symbolIndices.count(character)){</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#a48bd5803ccf8033dced6e33c62e3ec1c">complementSet</a>){</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#a3276396b543423baa2524a52bf71a342">symbolIndices</a>.count(character)){</div>
 <div class="line">                <span class="keywordtype">int</span> characterIndex = <a class="code" href="class_stoch_h_m_m_1_1track.html#aca825987aefb56d95601eabd48b8ac93">symbolIndex</a>(character);</div>
-<div class="line">                <span class="keywordtype">int</span> complement_value = complementAlphabet[characterIndex];</div>
+<div class="line">                <span class="keywordtype">int</span> complement_value = <a class="code" href="class_stoch_h_m_m_1_1track.html#aa27682469cda508f94247f9034ca3a8a">complementAlphabet</a>[characterIndex];</div>
 <div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a6a233038df789a2b0a0796a1f51a9931">getAlpha</a>(complement_value);</div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span>{</div>
@@ -728,11 +1369,11 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00635">635</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8cpp_source.html#l00079">getAlpha()</a>.</p>
+<p>References <a class="el" href="track_8h_source.html#l00264">complementAlphabet</a>, <a class="el" href="track_8h_source.html#l00258">complementSet</a>, and <a class="el" href="track_8cpp_source.html#l00079">getAlpha()</a>.</p>
 <div class="fragment"><div class="line">                                                     {</div>
-<div class="line">        <span class="keywordflow">if</span> (complementSet){</div>
-<div class="line">            <span class="keywordflow">if</span> (complementAlphabet.count(value)){</div>
-<div class="line">                <span class="keywordtype">int</span> complement_value = complementAlphabet[value];</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#a48bd5803ccf8033dced6e33c62e3ec1c">complementSet</a>){</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#aa27682469cda508f94247f9034ca3a8a">complementAlphabet</a>.count(value)){</div>
+<div class="line">                <span class="keywordtype">int</span> complement_value = <a class="code" href="class_stoch_h_m_m_1_1track.html#aa27682469cda508f94247f9034ca3a8a">complementAlphabet</a>[value];</div>
 <div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a6a233038df789a2b0a0796a1f51a9931">getAlpha</a>(complement_value);</div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span>{</div>
@@ -773,7 +1414,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>std::string Description of the track </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00154">154</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> description;};</div>
+
+<p>References <a class="el" href="track_8h_source.html#l00251">description</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a833a6ec151db41542cf40f4827d844f0">description</a>;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -802,14 +1445,72 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00158">158</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
 
-<p>Referenced by <a class="el" href="sequences_8cpp_source.html#l00262">StochHMM::sequences::addSeq()</a>, <a class="el" href="emm_8cpp_source.html#l00681">StochHMM::emm::get_emission()</a>, and <a class="el" href="external_funcs_8cpp_source.html#l00257">StochHMM::emissionFuncParam::parse()</a>.</p>
+<p>References <a class="el" href="statistics_8cpp_source.html#l00040">StochHMM::max()</a>, and <a class="el" href="track_8h_source.html#l00252">trackIndex</a>.</p>
+
+<p>Referenced by <a class="el" href="sequences_8cpp_source.html#l00262">StochHMM::sequences::addSeq()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00231">StochHMM::emissionFuncParam::emissionFuncParam()</a>, <a class="el" href="emm_8cpp_source.html#l00681">StochHMM::emm::get_emission()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00257">StochHMM::emissionFuncParam::parse()</a>, and <a class="el" href="trellis_8cpp_source.html#l00315">StochHMM::trellis::transitionFuncTraceback()</a>.</p>
 <div class="fragment"><div class="line">                                {</div>
-<div class="line">            <span class="keywordflow">if</span> (trackIndex&lt;std::numeric_limits&lt;size_t&gt;::max()){</div>
-<div class="line">                <span class="keywordflow">return</span> trackIndex;</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#abd141c962ef00d26cd1aa0dc5e816a92">trackIndex</a>&lt;<a class="code" href="namespace_stoch_h_m_m.html#a8f9197e4dd6f06db75b1eb2039e28ce0">std::numeric_limits&lt;size_t&gt;::max</a>()){</div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#abd141c962ef00d26cd1aa0dc5e816a92">trackIndex</a>;</div>
 <div class="line">            }</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Track Index is not set in track.  Set the track index with setIndex(size_t indx) before calling.\n&quot;</span>;</div>
 <div class="line">            exit(1);</div>
 <div class="line">        };</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a28f96ff9b8d9125c4d684771be1e11c5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t StochHMM::track::getMaxAmbiguous </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00247">247</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>References <a class="el" href="track_8h_source.html#l00269">max_ambiguous</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a585680381cf2f596695c8fd76f3e6ed5">max_ambiguous</a>;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aef3c98d940f4e0fad2fc484db4f22693"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t StochHMM::track::getMaxUnambiguous </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00246">246</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>References <a class="el" href="track_8h_source.html#l00268">max_unambiguous</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a4b4f90d6b60362a9268a2be2c6ae3dbe">max_unambiguous</a>;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -838,8 +1539,40 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00150">150</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
 
-<p>Referenced by <a class="el" href="track_8cpp_source.html#l00511">StochHMM::tracks::push_back()</a>, <a class="el" href="sequences_8cpp_source.html#l00184">StochHMM::sequences::stringify()</a>, <a class="el" href="transitions_8cpp_source.html#l00521">StochHMM::transition::stringify()</a>, and <a class="el" href="sequences_8cpp_source.html#l00204">StochHMM::sequences::undigitize()</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> name;};</div>
+<p>References <a class="el" href="track_8h_source.html#l00250">name</a>.</p>
+
+<p>Referenced by <a class="el" href="external_funcs_8cpp_source.html#l00231">StochHMM::emissionFuncParam::emissionFuncParam()</a>, <a class="el" href="track_8cpp_source.html#l00511">StochHMM::tracks::push_back()</a>, <a class="el" href="emm_8cpp_source.html#l00795">StochHMM::emm::stringify()</a>, <a class="el" href="sequences_8cpp_source.html#l00184">StochHMM::sequences::stringify()</a>, <a class="el" href="transitions_8cpp_source.html#l00521">StochHMM::transition::stringify()</a>, and <a class="el" href="sequences_8cpp_source.html#l00204">StochHMM::sequences::undigitize()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a4039778fdb2b9a02487caaeb11d63e65">name</a>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a71a9c06dc6de93bd774c0446482afc8f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::track::getTotalAlphabetSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get alphabet size including ambiguous characters. </p>
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00176">176</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>References <a class="el" href="track_8h_source.html#l00279">symbolIndices</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a3276396b543423baa2524a52bf71a342">symbolIndices</a>.size();}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -867,7 +1600,71 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>std::string Name of trackFunc defined </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00241">241</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> trackFunction;}</div>
+
+<p>References <a class="el" href="track_8h_source.html#l00261">trackFunction</a>.</p>
+
+<p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00622">StochHMM::seqTracks::_initImportTrackInfo()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#aff307cbe33fd8e3478987bbb99af2f7b">trackFunction</a>;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a2d683fb3208a84d293d8655ce414699f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::track::getTrackToUse </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get name of Track to use for trackFunc. </p>
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00244">244</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>References <a class="el" href="track_8h_source.html#l00260">trackToUse</a>.</p>
+
+<p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00622">StochHMM::seqTracks::_initImportTrackInfo()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a443581a547c4c8500474d1f370364266">trackToUse</a>;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a09a3011083a93607cb25741ec6719ae5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;size_t&gt;&amp; StochHMM::track::getUnambiguousSet </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00222">222</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>References <a class="el" href="track_8h_source.html#l00270">unambiguous</a>.</p>
+<div class="fragment"><div class="line">{ <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a98a2babc7bcf8058b5d353ae29896dd9">unambiguous</a>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -897,7 +1694,11 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>tracks</b></td></tr>
 false if it is a REAL type </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00209">209</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">if</span> (alpha_type == ALPHA_NUM){<span class="keywordflow">return</span> <span class="keyword">true</span>;} <span class="keywordflow">else</span> {<span class="keywordflow">return</span> <span class="keyword">false</span>;}};</div>
+
+<p>References <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::ALPHA_NUM</a>, and <a class="el" href="track_8h_source.html#l00254">alpha_type</a>.</p>
+
+<p>Referenced by <a class="el" href="trellis_8cpp_source.html#l00315">StochHMM::trellis::transitionFuncTraceback()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#add44d406ff29bb0d147a977bbc1d3c70">alpha_type</a> == <a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53adfe7ec039db35bf483fe6d9f5b17ff75">ALPHA_NUM</a>){<span class="keywordflow">return</span> <span class="keyword">true</span>;} <span class="keywordflow">else</span> {<span class="keywordflow">return</span> <span class="keyword">false</span>;}};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -927,7 +1728,37 @@ false if it is a REAL type </dd></dl>
 false if not set </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00203">203</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> ambiguous;};</div>
+
+<p>References <a class="el" href="track_8h_source.html#l00272">ambiguous</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#ace296599903cdff94453c391eb10ba5c">ambiguous</a>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a0868bfb8403e96e01c18b8ba8000dd34"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::track::isComplementDefined </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00197">197</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>References <a class="el" href="track_8h_source.html#l00258">complementSet</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a48bd5803ccf8033dced6e33c62e3ec1c">complementSet</a>;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -955,7 +1786,11 @@ false if not set </dd></dl>
 <dl class="section return"><dt>Returns:</dt><dd>true if the track has a trackFunc defined </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00237">237</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> trackFunctionDefined;}</div>
+
+<p>References <a class="el" href="track_8h_source.html#l00257">trackFunctionDefined</a>.</p>
+
+<p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00622">StochHMM::seqTracks::_initImportTrackInfo()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#aa5f4c5aa7c4147a15c7d97a38ac25e2f" title="Track Functions for defining Real Number Tracks.">trackFunctionDefined</a>;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -983,7 +1818,9 @@ false if not set </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00310">310</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="text_8cpp_source.html#l00743">StochHMM::extractTag()</a>, <a class="el" href="text_8cpp_source.html#l00241">StochHMM::stringList::fromNext()</a>, <a class="el" href="text_8h_source.html#l00121">StochHMM::stringList::getComment()</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>, <a class="el" href="track_8h_source.html#l00108">setDescription()</a>, <a class="el" href="track_8h_source.html#l00104">setName()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, and <a class="el" href="text_8cpp_source.html#l00402">StochHMM::stringList::stringify()</a>.</p>
+<p>References <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::ALPHA_NUM</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="text_8cpp_source.html#l00743">StochHMM::extractTag()</a>, <a class="el" href="text_8cpp_source.html#l00241">StochHMM::stringList::fromNext()</a>, <a class="el" href="text_8h_source.html#l00121">StochHMM::stringList::getComment()</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::REAL</a>, <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>, <a class="el" href="track_8h_source.html#l00108">setDescription()</a>, <a class="el" href="track_8h_source.html#l00104">setName()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00402">StochHMM::stringList::stringify()</a>, <a class="el" href="track_8h_source.html#l00261">trackFunction</a>, <a class="el" href="track_8h_source.html#l00257">trackFunctionDefined</a>, and <a class="el" href="track_8h_source.html#l00260">trackToUse</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00760">StochHMM::PWM::_parseTrack()</a>, and <a class="el" href="hmm_8cpp_source.html#l00581">StochHMM::model::_parseTracks()</a>.</p>
 <div class="fragment"><div class="line">                                   {</div>
 <div class="line">        stringList lst;</div>
 <div class="line">        stringList tag = <a class="code" href="group___text.html#gabad7e59fdc834721ee71b12524c40002">extractTag</a>(txt);</div>
@@ -994,11 +1831,11 @@ false if not set </dd></dl>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#ae59177d38cf345949d0686e440e1a450">setDescription</a>(lst.getComment());</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">if</span> (lst[1].compare(<span class="stringliteral">&quot;REAL_NUMBER&quot;</span>)==0){</div>
-<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1track.html#a714d6094e545fe160bebb2b29bbbf333">setAlphaType</a>(REAL);</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1track.html#a714d6094e545fe160bebb2b29bbbf333">setAlphaType</a>(<a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53ae7cffd9ec42f739ee9862d2076d8d83f">REAL</a>);</div>
 <div class="line">            <span class="keywordflow">if</span> (tag.size()&gt;0){</div>
 <div class="line">                <span class="keywordflow">if</span> (tag.contains(<span class="stringliteral">&quot;FUNCTION&quot;</span>)){</div>
 <div class="line">                    index=tag.indexOf(<span class="stringliteral">&quot;FUNCTION&quot;</span>);</div>
-<div class="line">                    trackFunction=tag[index+1];</div>
+<div class="line">                    <a class="code" href="class_stoch_h_m_m_1_1track.html#aff307cbe33fd8e3478987bbb99af2f7b">trackFunction</a>=tag[index+1];</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">else</span>{</div>
 <div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Real number track function tag must contain FUNCTION: and USE: . Please check the formatting of your tag.  Here is the tag as parsed: &quot;</span> &lt;&lt;  tag.stringify() &lt;&lt; std::endl;</div>
@@ -1008,17 +1845,17 @@ false if not set </dd></dl>
 <div class="line">                </div>
 <div class="line">                <span class="keywordflow">if</span> (tag.contains(<span class="stringliteral">&quot;USE&quot;</span>)){</div>
 <div class="line">                    index=tag.indexOf(<span class="stringliteral">&quot;USE&quot;</span>);</div>
-<div class="line">                    trackToUse=tag[index+1];</div>
+<div class="line">                    <a class="code" href="class_stoch_h_m_m_1_1track.html#a443581a547c4c8500474d1f370364266">trackToUse</a>=tag[index+1];</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">else</span>{</div>
 <div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Real number track tag must contain FUNCTION: and USE: . Please check the formatting of your tag.  Here is the tag as parsed: &quot;</span> &lt;&lt;  tag.stringify() &lt;&lt; std::endl;</div>
 <div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                }</div>
-<div class="line">                trackFunctionDefined=<span class="keyword">true</span>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#aa5f4c5aa7c4147a15c7d97a38ac25e2f" title="Track Functions for defining Real Number Tracks.">trackFunctionDefined</a>=<span class="keyword">true</span>;</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
-<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1track.html#a714d6094e545fe160bebb2b29bbbf333">setAlphaType</a>(ALPHA_NUM);</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1track.html#a714d6094e545fe160bebb2b29bbbf333">setAlphaType</a>(<a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53adfe7ec039db35bf483fe6d9f5b17ff75">ALPHA_NUM</a>);</div>
 <div class="line">                        </div>
 <div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;lst.size();i++){</div>
 <div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1track.html#a14cb394c945f825584d63569a4de060a">addAlphabetChar</a>(lst[i])){</div>
@@ -1057,11 +1894,13 @@ false if not set </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00456">456</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8cpp_source.html#l00237">addAmbiguous()</a>, and <a class="el" href="track_8h_source.html#l00142">setAmbiguous()</a>.</p>
+<p>References <a class="el" href="track_8cpp_source.html#l00471">_splitAmbiguousList()</a>, <a class="el" href="track_8cpp_source.html#l00237">addAmbiguous()</a>, and <a class="el" href="track_8h_source.html#l00142">setAmbiguous()</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00783">StochHMM::PWM::_parseAmbiguous()</a>, and <a class="el" href="hmm_8cpp_source.html#l00611">StochHMM::model::_parseAmbiguous()</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
 <div class="line">        std::vector&lt;std::pair&lt;std::string,std::vector&lt;std::string&gt; &gt; &gt; temp;</div>
 <div class="line">        </div>
-<div class="line">        _splitAmbiguousList(temp, txt);</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1track.html#afb313e600c37b89783875c5a3b5cec65">_splitAmbiguousList</a>(temp, txt);</div>
 <div class="line">                <span class="keywordflow">if</span> (temp.size()==0){</div>
 <div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                }</div>
@@ -1072,6 +1911,36 @@ false if not set </dd></dl>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ae5d7ff9cc0c7f57c9953a4ac8cf34cff"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::track::print </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Print the string representation of the track to stdout. </p>
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00229">229</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>References <a class="el" href="track_8cpp_source.html#l00360">stringify()</a>.</p>
+<div class="fragment"><div class="line">{ std::cout &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1track.html#a4f3d856b99c7a2d12c31c620e16477bc">stringify</a>() &lt;&lt; std::endl;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1106,8 +1975,10 @@ false if not set </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00124">124</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
 
-<p>Referenced by <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, and <a class="el" href="track_8cpp_source.html#l00310">parse()</a>.</p>
-<div class="fragment"><div class="line">{alpha_type=typ;};</div>
+<p>References <a class="el" href="track_8h_source.html#l00254">alpha_type</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="track_8cpp_source.html#l00310">parse()</a>, and <a class="el" href="track_8cpp_source.html#l00060">track()</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1track.html#add44d406ff29bb0d147a977bbc1d3c70">alpha_type</a>=typ;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1135,8 +2006,10 @@ false if not set </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00142">142</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
 
+<p>References <a class="el" href="track_8h_source.html#l00272">ambiguous</a>.</p>
+
 <p>Referenced by <a class="el" href="track_8cpp_source.html#l00456">parseAmbiguous()</a>.</p>
-<div class="fragment"><div class="line">{ambiguous=<span class="keyword">true</span>; <span class="keywordflow">return</span>;};</div>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1track.html#ace296599903cdff94453c391eb10ba5c">ambiguous</a>=<span class="keyword">true</span>; <span class="keywordflow">return</span>;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1171,8 +2044,10 @@ false if not set </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00108">108</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
 
+<p>References <a class="el" href="track_8h_source.html#l00251">description</a>.</p>
+
 <p>Referenced by <a class="el" href="track_8cpp_source.html#l00310">parse()</a>.</p>
-<div class="fragment"><div class="line">{description=desc;};</div>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1track.html#a833a6ec151db41542cf40f4827d844f0">description</a>=desc;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1206,9 +2081,13 @@ false if not set </dd></dl>
 </dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00112">112</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>References <a class="el" href="statistics_8cpp_source.html#l00040">StochHMM::max()</a>, and <a class="el" href="track_8h_source.html#l00252">trackIndex</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00760">StochHMM::PWM::_parseTrack()</a>, and <a class="el" href="hmm_8cpp_source.html#l00581">StochHMM::model::_parseTracks()</a>.</p>
 <div class="fragment"><div class="line">                                         {</div>
-<div class="line">            <span class="keywordflow">if</span> (indx&lt;std::numeric_limits&lt;size_t&gt;::max()){</div>
-<div class="line">                trackIndex=indx;</div>
+<div class="line">            <span class="keywordflow">if</span> (indx&lt;<a class="code" href="namespace_stoch_h_m_m.html#a8f9197e4dd6f06db75b1eb2039e28ce0">std::numeric_limits&lt;size_t&gt;::max</a>()){</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1track.html#abd141c962ef00d26cd1aa0dc5e816a92">trackIndex</a>=indx;</div>
 <div class="line">                <span class="keywordflow">return</span>;</div>
 <div class="line">            }</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Track index: &quot;</span> &lt;&lt; indx &lt;&lt; <span class="stringliteral">&quot; is OUT_OF_RANGE\n&quot;</span>;</div>
@@ -1248,8 +2127,10 @@ false if not set </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00104">104</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
 
+<p>References <a class="el" href="track_8h_source.html#l00250">name</a>.</p>
+
 <p>Referenced by <a class="el" href="track_8cpp_source.html#l00310">parse()</a>.</p>
-<div class="fragment"><div class="line">{name=nm;};</div>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1track.html#a4039778fdb2b9a02487caaeb11d63e65">name</a>=nm;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1270,21 +2151,21 @@ false if not set </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00360">360</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="text_8cpp_source.html#l00519">StochHMM::join()</a>.</p>
+<p>References <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::ALPHA_NUM</a>, <a class="el" href="track_8h_source.html#l00254">alpha_type</a>, <a class="el" href="track_8h_source.html#l00263">alphabet</a>, <a class="el" href="text_8cpp_source.html#l00519">StochHMM::join()</a>, <a class="el" href="track_8h_source.html#l00250">name</a>, <a class="el" href="track_8h_source.html#l00261">trackFunction</a>, <a class="el" href="track_8h_source.html#l00257">trackFunctionDefined</a>, and <a class="el" href="track_8h_source.html#l00260">trackToUse</a>.</p>
 
-<p>Referenced by <a class="el" href="track_8h_source.html#l00229">print()</a>.</p>
+<p>Referenced by <a class="el" href="track_8h_source.html#l00229">print()</a>, and <a class="el" href="pwm_8cpp_source.html#l00308">StochHMM::PWM::stringify()</a>.</p>
 <div class="fragment"><div class="line">                              {</div>
 <div class="line">        std::string output;</div>
-<div class="line">        output+=name + <span class="stringliteral">&quot;:\t&quot;</span>;</div>
+<div class="line">        output+=<a class="code" href="class_stoch_h_m_m_1_1track.html#a4039778fdb2b9a02487caaeb11d63e65">name</a> + <span class="stringliteral">&quot;:\t&quot;</span>;</div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> (alpha_type == ALPHA_NUM){</div>
-<div class="line">            output+=<a class="code" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">join</a>(alphabet,<span class="charliteral">&#39;,&#39;</span>);</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#add44d406ff29bb0d147a977bbc1d3c70">alpha_type</a> == <a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53adfe7ec039db35bf483fe6d9f5b17ff75">ALPHA_NUM</a>){</div>
+<div class="line">            output+=<a class="code" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">join</a>(<a class="code" href="class_stoch_h_m_m_1_1track.html#a56fb05711fd43566c34086a85c4a732c">alphabet</a>,<span class="charliteral">&#39;,&#39;</span>);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
 <div class="line">            output+=<span class="stringliteral">&quot;REAL_NUMBER&quot;</span>;</div>
-<div class="line">            <span class="keywordflow">if</span> (trackFunctionDefined){</div>
-<div class="line">                output+=<span class="stringliteral">&quot;\t[FUNCTION:\t&quot;</span> + trackFunction;</div>
-<div class="line">                output+=<span class="stringliteral">&quot;\tUSE:\t&quot;</span> + trackToUse + <span class="stringliteral">&quot;]&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#aa5f4c5aa7c4147a15c7d97a38ac25e2f" title="Track Functions for defining Real Number Tracks.">trackFunctionDefined</a>){</div>
+<div class="line">                output+=<span class="stringliteral">&quot;\t[FUNCTION:\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1track.html#aff307cbe33fd8e3478987bbb99af2f7b">trackFunction</a>;</div>
+<div class="line">                output+=<span class="stringliteral">&quot;\tUSE:\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1track.html#a443581a547c4c8500474d1f370364266">trackToUse</a> + <span class="stringliteral">&quot;]&quot;</span>;</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        output+=<span class="stringliteral">&quot;\n&quot;</span>;</div>
@@ -1311,12 +2192,12 @@ false if not set </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00381">381</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8cpp_source.html#l00500">getAmbiguousCharacter()</a>, and <a class="el" href="track_8h_source.html#l00220">getAmbiguousSet()</a>.</p>
+<p>References <a class="el" href="track_8h_source.html#l00263">alphabet</a>, <a class="el" href="track_8cpp_source.html#l00500">getAmbiguousCharacter()</a>, <a class="el" href="track_8h_source.html#l00220">getAmbiguousSet()</a>, <a class="el" href="track_8h_source.html#l00269">max_ambiguous</a>, <a class="el" href="track_8h_source.html#l00268">max_unambiguous</a>, and <a class="el" href="track_8h_source.html#l00250">name</a>.</p>
 <div class="fragment"><div class="line">                                   {</div>
 <div class="line">        std::string output;</div>
-<div class="line">        output+=name + <span class="stringliteral">&quot;:\t&quot;</span>;</div>
-<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = max_unambiguous+1; i &lt;= max_ambiguous; i++){</div>
-<div class="line">            <span class="keywordflow">if</span> (i &gt; (<span class="keywordtype">size_t</span>) max_unambiguous+1){ output+= <span class="stringliteral">&quot;,&quot;</span>;}</div>
+<div class="line">        output+=<a class="code" href="class_stoch_h_m_m_1_1track.html#a4039778fdb2b9a02487caaeb11d63e65">name</a> + <span class="stringliteral">&quot;:\t&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = <a class="code" href="class_stoch_h_m_m_1_1track.html#a4b4f90d6b60362a9268a2be2c6ae3dbe">max_unambiguous</a>+1; i &lt;= <a class="code" href="class_stoch_h_m_m_1_1track.html#a585680381cf2f596695c8fd76f3e6ed5">max_ambiguous</a>; i++){</div>
+<div class="line">            <span class="keywordflow">if</span> (i &gt; (<span class="keywordtype">size_t</span>) <a class="code" href="class_stoch_h_m_m_1_1track.html#a4b4f90d6b60362a9268a2be2c6ae3dbe">max_unambiguous</a>+1){ output+= <span class="stringliteral">&quot;,&quot;</span>;}</div>
 <div class="line">            </div>
 <div class="line">            output+=<a class="code" href="class_stoch_h_m_m_1_1track.html#aca0dbd7837fab998e7effad83ddf48ab">getAmbiguousCharacter</a>(i);</div>
 <div class="line">            output+=<span class="stringliteral">&quot;[&quot;</span>;</div>
@@ -1324,7 +2205,7 @@ false if not set </dd></dl>
 <div class="line">            std::vector&lt;size_t&gt;&amp; regChar = <a class="code" href="class_stoch_h_m_m_1_1track.html#a9f599bab7a7381d21f740d73ebd5bfcc">getAmbiguousSet</a>(i);</div>
 <div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> k = 0; k&lt;regChar.size();k++){</div>
 <div class="line">                <span class="keywordflow">if</span> (k&gt;0){output+=<span class="stringliteral">&quot;,&quot;</span>;}</div>
-<div class="line">                output+=alphabet[regChar[k]];</div>
+<div class="line">                output+=<a class="code" href="class_stoch_h_m_m_1_1track.html#a56fb05711fd43566c34086a85c4a732c">alphabet</a>[regChar[k]];</div>
 <div class="line">            }</div>
 <div class="line">            output+=<span class="stringliteral">&quot;]&quot;</span>;</div>
 <div class="line">        }</div>
@@ -1356,12 +2237,14 @@ false if not set </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00259">259</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="track_8cpp_source.html#l00036">StochHMM::ambigCharacter::ambigCharacter()</a>, <a class="el" href="track_8cpp_source.html#l00614">getComplementIndex()</a>, and <a class="el" href="track_8cpp_source.html#l00657">getComplementSymbol()</a>.</p>
+<p>References <a class="el" href="track_8h_source.html#l00272">ambiguous</a>, <a class="el" href="track_8h_source.html#l00273">defaultAmbiguous</a>, and <a class="el" href="track_8h_source.html#l00279">symbolIndices</a>.</p>
+
+<p>Referenced by <a class="el" href="sequence_8cpp_source.html#l00505">StochHMM::sequence::_digitize()</a>, <a class="el" href="track_8cpp_source.html#l00203">addComplement()</a>, <a class="el" href="track_8cpp_source.html#l00036">StochHMM::ambigCharacter::ambigCharacter()</a>, <a class="el" href="track_8cpp_source.html#l00614">getComplementIndex()</a>, and <a class="el" href="track_8cpp_source.html#l00657">getComplementSymbol()</a>.</p>
 <div class="fragment"><div class="line">                                                     {</div>
-<div class="line">        <span class="keywordflow">if</span> (symbolIndices.count(symbol)==0){  <span class="comment">//If isn&#39;t found in the hash</span></div>
-<div class="line">            <span class="keywordflow">if</span> (ambiguous){ <span class="comment">//Return default character if ambiguous is set</span></div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#a3276396b543423baa2524a52bf71a342">symbolIndices</a>.count(symbol)==0){  <span class="comment">//If isn&#39;t found in the hash</span></div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#ace296599903cdff94453c391eb10ba5c">ambiguous</a>){ <span class="comment">//Return default character if ambiguous is set</span></div>
 <div class="line">                                std::cerr &lt;&lt; symbol &lt;&lt; <span class="stringliteral">&quot;not found in HMM definitions. Using default ambiguous character.\n&quot;</span>; </div>
-<div class="line">                <span class="keywordflow">return</span> defaultAmbiguous;</div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a5721e5076dcc3ae864151371c2651910">defaultAmbiguous</a>;</div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span>{</div>
 <div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Encountered an ambiguous character in the sequence.  No ambiguous characters are allowed because they weren&#39;t set in the model.   To allow ambiguous characters, please add an \&quot; Ambiguous Character Definition\&quot; to the model&quot;</span> &lt;&lt; std::endl;</div>
@@ -1369,7 +2252,7 @@ false if not set </dd></dl>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
-<div class="line">            <span class="keywordflow">return</span> symbolIndices[symbol];</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a3276396b543423baa2524a52bf71a342">symbolIndices</a>[symbol];</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
@@ -1397,23 +2280,25 @@ false if not set </dd></dl>
 </dl>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00277">277</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
+
+<p>References <a class="el" href="track_8h_source.html#l00272">ambiguous</a>, <a class="el" href="track_8h_source.html#l00281">charIndices</a>, <a class="el" href="track_8h_source.html#l00273">defaultAmbiguous</a>, <a class="el" href="track_8h_source.html#l00266">maxSize</a>, and <a class="el" href="track_8h_source.html#l00279">symbolIndices</a>.</p>
 <div class="fragment"><div class="line">                                                  {</div>
 <div class="line">                </div>
-<div class="line">                <span class="keywordflow">if</span> (maxSize != 1){</div>
-<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Track Max Symbols Size:\t&quot;</span> &lt;&lt; maxSize &lt;&lt; <span class="stringliteral">&quot;\t Must use function track::symbolIndex(const std::string&amp; symbol)\n&quot;</span>;</div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#a148c0253c8652982c6610eda9bca701e">maxSize</a> != 1){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Track Max Symbols Size:\t&quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1track.html#a148c0253c8652982c6610eda9bca701e">maxSize</a> &lt;&lt; <span class="stringliteral">&quot;\t Must use function track::symbolIndex(const std::string&amp; symbol)\n&quot;</span>;</div>
 <div class="line">                }</div>
 <div class="line">                </div>
-<div class="line">                <span class="keywordflow">if</span> (charIndices == NULL){</div>
-<div class="line">                        charIndices = <span class="keyword">new</span> (std::nothrow) std::vector&lt;uint8_t&gt;(255,255);</div>
-<div class="line">                        <span class="keywordflow">for</span>(std::map&lt;std::string,uint8_t&gt;::iterator it = symbolIndices.begin(); it != symbolIndices.end(); it++){</div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#ae73f1ff229704adfc331de3deb9c3292">charIndices</a> == NULL){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1track.html#ae73f1ff229704adfc331de3deb9c3292">charIndices</a> = <span class="keyword">new</span> (std::nothrow) std::vector&lt;uint8_t&gt;(255,255);</div>
+<div class="line">                        <span class="keywordflow">for</span>(std::map&lt;std::string,uint8_t&gt;::iterator it = <a class="code" href="class_stoch_h_m_m_1_1track.html#a3276396b543423baa2524a52bf71a342">symbolIndices</a>.begin(); it != <a class="code" href="class_stoch_h_m_m_1_1track.html#a3276396b543423baa2524a52bf71a342">symbolIndices</a>.end(); it++){</div>
 <div class="line">                                (*charIndices)[(it-&gt;first)[0]] = it-&gt;second;</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                </div>
-<div class="line">                <span class="keywordflow">if</span> ((*charIndices)[symbol]==255){  <span class="comment">//If isn&#39;t found in the array</span></div>
-<div class="line">            <span class="keywordflow">if</span> (ambiguous){ <span class="comment">//Return default character if ambiguous is set</span></div>
-<div class="line">                <span class="keywordflow">return</span> defaultAmbiguous;</div>
+<div class="line">                <span class="keywordflow">if</span> ((*<a class="code" href="class_stoch_h_m_m_1_1track.html#ae73f1ff229704adfc331de3deb9c3292">charIndices</a>)[symbol]==255){  <span class="comment">//If isn&#39;t found in the array</span></div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1track.html#ace296599903cdff94453c391eb10ba5c">ambiguous</a>){ <span class="comment">//Return default character if ambiguous is set</span></div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1track.html#a5721e5076dcc3ae864151371c2651910">defaultAmbiguous</a>;</div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span>{</div>
 <div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Encountered an ambiguous character in the sequence.  No ambiguous characters are allowed because they weren&#39;t set in the model.   To allow ambiguous characters, please add an \&quot; Ambiguous Character Definition\&quot; to the model&quot;</span> &lt;&lt; std::endl;</div>
@@ -1421,10 +2306,536 @@ false if not set </dd></dl>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
-<div class="line">            <span class="keywordflow">return</span> (*charIndices)[symbol];</div>
+<div class="line">            <span class="keywordflow">return</span> (*<a class="code" href="class_stoch_h_m_m_1_1track.html#ae73f1ff229704adfc331de3deb9c3292">charIndices</a>)[symbol];</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Friends And Related Function Documentation</h2>
+<a class="anchor" id="a6e37bb755d74e24f1b3e7e2def3b13e0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_stoch_h_m_m_1_1model.html">model</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00095">95</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9ded23f3edbd367dcaa3a3c3d49428eb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_stoch_h_m_m_1_1state.html">state</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00094">94</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a35e25a2b355df026ed6d98372219574f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_stoch_h_m_m_1_1tracks.html">tracks</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00096">96</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="add44d406ff29bb0d147a977bbc1d3c70"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53">trackType</a> StochHMM::track::alpha_type</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00254">254</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8h_source.html#l00169">getAlphaType()</a>, <a class="el" href="track_8h_source.html#l00209">isAlpha()</a>, <a class="el" href="track_8h_source.html#l00124">setAlphaType()</a>, <a class="el" href="track_8cpp_source.html#l00360">stringify()</a>, and <a class="el" href="track_8cpp_source.html#l00047">track()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a56fb05711fd43566c34086a85c4a732c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; StochHMM::track::alphabet</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00263">263</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="track_8cpp_source.html#l00429">convertIndexToDigital()</a>, <a class="el" href="track_8cpp_source.html#l00402">convertIndexToWord()</a>, <a class="el" href="track_8cpp_source.html#l00079">getAlpha()</a>, <a class="el" href="track_8h_source.html#l00173">getAlphaSize()</a>, <a class="el" href="track_8cpp_source.html#l00360">stringify()</a>, and <a class="el" href="track_8cpp_source.html#l00381">stringifyAmbig()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ace296599903cdff94453c391eb10ba5c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::track::ambiguous</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00272">272</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8h_source.html#l00203">isAmbiguousSet()</a>, <a class="el" href="track_8h_source.html#l00142">setAmbiguous()</a>, <a class="el" href="track_8cpp_source.html#l00259">symbolIndex()</a>, and <a class="el" href="track_8cpp_source.html#l00047">track()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7fa4cafeb6cdf2ba77c221d9fc734c21"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_stoch_h_m_m_1_1ambig_character.html">ambigCharacter</a>&gt; StochHMM::track::ambiguousSymbols</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00277">277</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00237">addAmbiguous()</a>, <a class="el" href="track_8cpp_source.html#l00500">getAmbiguousCharacter()</a>, <a class="el" href="track_8h_source.html#l00220">getAmbiguousSet()</a>, and <a class="el" href="track_8h_source.html#l00213">getAmbiguousSize()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae73f1ff229704adfc331de3deb9c3292"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;uint8_t&gt;* StochHMM::track::charIndices</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00281">281</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00277">symbolIndex()</a>, and <a class="el" href="track_8cpp_source.html#l00047">track()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa27682469cda508f94247f9034ca3a8a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;uint8_t,uint8_t&gt; StochHMM::track::complementAlphabet</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00264">264</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00203">addComplement()</a>, <a class="el" href="track_8cpp_source.html#l00593">getComplementIndex()</a>, and <a class="el" href="track_8cpp_source.html#l00635">getComplementSymbol()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a48bd5803ccf8033dced6e33c62e3ec1c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::track::complementSet</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00258">258</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00160">addAlphabetChar()</a>, <a class="el" href="track_8cpp_source.html#l00203">addComplement()</a>, <a class="el" href="track_8cpp_source.html#l00593">getComplementIndex()</a>, <a class="el" href="track_8cpp_source.html#l00635">getComplementSymbol()</a>, <a class="el" href="track_8h_source.html#l00197">isComplementDefined()</a>, and <a class="el" href="track_8cpp_source.html#l00047">track()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5721e5076dcc3ae864151371c2651910"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int StochHMM::track::defaultAmbiguous</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00273">273</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00237">addAmbiguous()</a>, <a class="el" href="track_8cpp_source.html#l00259">symbolIndex()</a>, and <a class="el" href="track_8cpp_source.html#l00047">track()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a833a6ec151db41542cf40f4827d844f0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::track::description</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00251">251</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8h_source.html#l00154">getDescription()</a>, and <a class="el" href="track_8h_source.html#l00108">setDescription()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a585680381cf2f596695c8fd76f3e6ed5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t StochHMM::track::max_ambiguous</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00269">269</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00237">addAmbiguous()</a>, <a class="el" href="track_8cpp_source.html#l00079">getAlpha()</a>, <a class="el" href="track_8h_source.html#l00247">getMaxAmbiguous()</a>, <a class="el" href="track_8cpp_source.html#l00381">stringifyAmbig()</a>, and <a class="el" href="track_8cpp_source.html#l00047">track()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4b4f90d6b60362a9268a2be2c6ae3dbe"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t StochHMM::track::max_unambiguous</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00268">268</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="track_8cpp_source.html#l00237">addAmbiguous()</a>, <a class="el" href="track_8cpp_source.html#l00079">getAlpha()</a>, <a class="el" href="track_8cpp_source.html#l00500">getAmbiguousCharacter()</a>, <a class="el" href="track_8h_source.html#l00220">getAmbiguousSet()</a>, <a class="el" href="track_8h_source.html#l00246">getMaxUnambiguous()</a>, <a class="el" href="track_8cpp_source.html#l00381">stringifyAmbig()</a>, and <a class="el" href="track_8cpp_source.html#l00047">track()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a148c0253c8652982c6610eda9bca701e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::track::maxSize</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00266">266</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="track_8cpp_source.html#l00402">convertIndexToWord()</a>, <a class="el" href="track_8h_source.html#l00180">getAlphaMax()</a>, <a class="el" href="track_8cpp_source.html#l00277">symbolIndex()</a>, and <a class="el" href="track_8cpp_source.html#l00047">track()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4039778fdb2b9a02487caaeb11d63e65"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::track::name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00250">250</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8h_source.html#l00150">getName()</a>, <a class="el" href="track_8cpp_source.html#l00511">StochHMM::tracks::push_back()</a>, <a class="el" href="track_8h_source.html#l00104">setName()</a>, <a class="el" href="track_8cpp_source.html#l00360">stringify()</a>, and <a class="el" href="track_8cpp_source.html#l00381">stringifyAmbig()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3276396b543423baa2524a52bf71a342"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;std::string,uint8_t&gt; StochHMM::track::symbolIndices</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00279">279</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, <a class="el" href="track_8cpp_source.html#l00237">addAmbiguous()</a>, <a class="el" href="track_8cpp_source.html#l00614">getComplementIndex()</a>, <a class="el" href="track_8cpp_source.html#l00657">getComplementSymbol()</a>, <a class="el" href="track_8h_source.html#l00176">getTotalAlphabetSize()</a>, and <a class="el" href="track_8cpp_source.html#l00259">symbolIndex()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aff307cbe33fd8e3478987bbb99af2f7b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::track::trackFunction</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00261">261</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8h_source.html#l00241">getTrackFunction()</a>, <a class="el" href="track_8cpp_source.html#l00310">parse()</a>, and <a class="el" href="track_8cpp_source.html#l00360">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa5f4c5aa7c4147a15c7d97a38ac25e2f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::track::trackFunctionDefined</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Track Functions for defining Real Number Tracks. </p>
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00257">257</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8h_source.html#l00237">isTrackFuncDefined()</a>, <a class="el" href="track_8cpp_source.html#l00310">parse()</a>, <a class="el" href="track_8cpp_source.html#l00360">stringify()</a>, and <a class="el" href="track_8cpp_source.html#l00047">track()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abd141c962ef00d26cd1aa0dc5e816a92"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::track::trackIndex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00252">252</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8h_source.html#l00158">getIndex()</a>, <a class="el" href="track_8h_source.html#l00112">setIndex()</a>, and <a class="el" href="track_8cpp_source.html#l00047">track()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a443581a547c4c8500474d1f370364266"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::track::trackToUse</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00260">260</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8h_source.html#l00244">getTrackToUse()</a>, <a class="el" href="track_8cpp_source.html#l00310">parse()</a>, and <a class="el" href="track_8cpp_source.html#l00360">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a98a2babc7bcf8058b5d353ae29896dd9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;size_t&gt; StochHMM::track::unambiguous</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00270">270</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00109">addAlphabetChar()</a>, and <a class="el" href="track_8h_source.html#l00222">getUnambiguousSet()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -1432,11 +2843,15 @@ false if not set </dd></dl>
 <li><a class="el" href="track_8cpp_source.html">track.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:38 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

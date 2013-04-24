@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('classtraining_seqs.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,55 +103,544 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">trainingSeqs Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p><code>#include &lt;<a class="el" href="training_seq_8h_source.html">trainingSeq.h</a>&gt;</code></p>
+
 <p><a href="classtraining_seqs-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a540ec870d2ae4f031abfc9e014de20eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a540ec870d2ae4f031abfc9e014de20eb"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>fileCount</b> ()</td></tr>
-<tr class="memitem:a652da6ab40d53b206159ddd0008975a0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a652da6ab40d53b206159ddd0008975a0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>eof</b> (size_t iter)</td></tr>
-<tr class="memitem:a5e092d3841f3b8c83f71ca45f525ab2e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e092d3841f3b8c83f71ca45f525ab2e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>good</b> (size_t iter)</td></tr>
-<tr class="memitem:ad685e6da4db219452caa2a15af472804"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad685e6da4db219452caa2a15af472804"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_open</b> (size_t iter)</td></tr>
-<tr class="memitem:a66de25a1fede876ed3cf4b3e8d3152fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a66de25a1fede876ed3cf4b3e8d3152fd"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>queueSize</b> (size_t iter)</td></tr>
-<tr class="memitem:a9c57345279d5a985c13986f362e2f3da"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c57345279d5a985c13986f362e2f3da"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>openFiles</b> (std::string &amp;)</td></tr>
-<tr class="memitem:abe500bbd2b67c2e5693e038f8bee4f5b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abe500bbd2b67c2e5693e038f8bee4f5b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>openFiles</b> (char **)</td></tr>
-<tr class="memitem:a56823bfb3531846c5bc0d984d16eca93"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a56823bfb3531846c5bc0d984d16eca93"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>importMask</b> (std::string &amp;)</td></tr>
-<tr class="memitem:a5523c2ec66a7acbdce48945077aa906a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5523c2ec66a7acbdce48945077aa906a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>importMask</b> (char **)</td></tr>
-<tr class="memitem:a6a939bde0a241199cbafe469aac35e84"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a939bde0a241199cbafe469aac35e84"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>determineAlphabet</b> (size_t iter)</td></tr>
-<tr class="memitem:adc60da2f4f52d48424de23d1694daa62"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc60da2f4f52d48424de23d1694daa62"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setAlphabet</b> (size_t, <a class="el" href="class_stoch_h_m_m_1_1string_list.html">stringList</a> &amp;)</td></tr>
+<tr class="memitem:a540ec870d2ae4f031abfc9e014de20eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtraining_seqs.html#a540ec870d2ae4f031abfc9e014de20eb">fileCount</a> ()</td></tr>
+<tr class="memitem:a652da6ab40d53b206159ddd0008975a0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtraining_seqs.html#a652da6ab40d53b206159ddd0008975a0">eof</a> (size_t iter)</td></tr>
+<tr class="memitem:a5e092d3841f3b8c83f71ca45f525ab2e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtraining_seqs.html#a5e092d3841f3b8c83f71ca45f525ab2e">good</a> (size_t iter)</td></tr>
+<tr class="memitem:ad685e6da4db219452caa2a15af472804"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtraining_seqs.html#ad685e6da4db219452caa2a15af472804">is_open</a> (size_t iter)</td></tr>
+<tr class="memitem:a66de25a1fede876ed3cf4b3e8d3152fd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtraining_seqs.html#a66de25a1fede876ed3cf4b3e8d3152fd">queueSize</a> (size_t iter)</td></tr>
+<tr class="memitem:a9c57345279d5a985c13986f362e2f3da"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtraining_seqs.html#a9c57345279d5a985c13986f362e2f3da">openFiles</a> (std::string &amp;)</td></tr>
+<tr class="memitem:abe500bbd2b67c2e5693e038f8bee4f5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtraining_seqs.html#abe500bbd2b67c2e5693e038f8bee4f5b">openFiles</a> (char **)</td></tr>
+<tr class="memitem:a56823bfb3531846c5bc0d984d16eca93"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtraining_seqs.html#a56823bfb3531846c5bc0d984d16eca93">importMask</a> (std::string &amp;)</td></tr>
+<tr class="memitem:a5523c2ec66a7acbdce48945077aa906a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtraining_seqs.html#a5523c2ec66a7acbdce48945077aa906a">importMask</a> (char **)</td></tr>
+<tr class="memitem:a6a939bde0a241199cbafe469aac35e84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtraining_seqs.html#a6a939bde0a241199cbafe469aac35e84">determineAlphabet</a> (size_t iter)</td></tr>
+<tr class="memitem:adc60da2f4f52d48424de23d1694daa62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtraining_seqs.html#adc60da2f4f52d48424de23d1694daa62">setAlphabet</a> (size_t, <a class="el" href="class_stoch_h_m_m_1_1string_list.html">stringList</a> &amp;)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aae4e0ceb20a93ffbf1d8f4b1da81a280"><td class="memItemLeft" align="right" valign="top">vector&lt; std::ifstream * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtraining_seqs.html#aae4e0ceb20a93ffbf1d8f4b1da81a280">seqFiles</a></td></tr>
+<tr class="memitem:a9a9a5960c79e69208c33a12262fbbea6"><td class="memItemLeft" align="right" valign="top">std::ifstream *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtraining_seqs.html#a9a9a5960c79e69208c33a12262fbbea6">maskFile</a></td></tr>
+<tr class="memitem:ab8f06fb70a383d14d61db48d49febf17"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtraining_seqs.html#ab8f06fb70a383d14d61db48d49febf17">masked</a></td></tr>
+<tr class="memitem:ab75bf881c6b744bd408030567c29c949"><td class="memItemLeft" align="right" valign="top">queue&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtraining_seqs.html#ab75bf881c6b744bd408030567c29c949">stateMask</a></td></tr>
+<tr class="memitem:a34c93da3e1142236747cd2668b73d4b9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::map<br class="typebreak"/>
+&lt; std::string, int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtraining_seqs.html#a34c93da3e1142236747cd2668b73d4b9">alphaIndex</a></td></tr>
+<tr class="memitem:a8e84ae4508b50b7dca1feb6cf8b01659"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector<br class="typebreak"/>
+&lt; std::string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtraining_seqs.html#a8e84ae4508b50b7dca1feb6cf8b01659">indexAlpha</a></td></tr>
+<tr class="memitem:a6017d3e1ae5609383bfb2f99a07d285c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_stoch_h_m_m_1_1state_info.html">stateInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtraining_seqs.html#a6017d3e1ae5609383bfb2f99a07d285c">stateEmm</a></td></tr>
+<tr class="memitem:a415556f7b8d061bba0514cc9faaad978"><td class="memItemLeft" align="right" valign="top">std::map&lt; int, map&lt; int, int &gt;<br class="typebreak"/>
+ &gt; transitions std::vector<br class="typebreak"/>
+&lt; <a class="el" href="classtraining_seq.html">trainingSeq</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtraining_seqs.html#a415556f7b8d061bba0514cc9faaad978">seqs</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="training_seq_8h_source.html#l00053">53</a> of file <a class="el" href="training_seq_8h_source.html">trainingSeq.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a6a939bde0a241199cbafe469aac35e84"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void trainingSeqs::determineAlphabet </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>iter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="training_seq_8cpp_source.html#l00184">184</a> of file <a class="el" href="training_seq_8cpp_source.html">trainingSeq.cpp</a>.</p>
+
+<p>References <a class="el" href="training_seq_8h_source.html#l00027">MAX_BUFFER</a>.</p>
+<div class="fragment"><div class="line">                                               {</div>
+<div class="line">    <span class="keyword">const</span> std::ifstream* file(seqFile[iter]);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">//Import a buffer full of the sequence</span></div>
+<div class="line">    std::string temp;</div>
+<div class="line">    std::string undigitized;</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">while</span>(getline(*file,temp,<span class="charliteral">&#39;\n&#39;</span>)){</div>
+<div class="line">        <span class="keywordflow">if</span> (temp[0]== <span class="charliteral">&#39;&gt;&#39;</span>){</div>
+<div class="line">            <span class="keywordflow">continue</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            undigitized+=temp;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (undigitized.size() &gt;= <a class="code" href="training_seq_8h.html#a1d5dab30b404fab91608086105afc78c">MAX_BUFFER</a>){</div>
+<div class="line">            <span class="keywordflow">break</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    std::set&lt;std::string&gt; alphabet;</div>
+<div class="line">    pair&lt;std::set&lt;int&gt;::iterator,<span class="keywordtype">bool</span>&gt; ret;</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;undigitized.size();i++){</div>
+<div class="line">        ret = alphabet.insert(undigitized[i]);</div>
+<div class="line">        <span class="keywordflow">if</span> (ret.second()){</div>
+<div class="line">            <a class="code" href="classtraining_seqs.html#a8e84ae4508b50b7dca1feb6cf8b01659">indexAlpha</a>[iter].push_back(undigitized[i]);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="classtraining_seqs.html#a8e84ae4508b50b7dca1feb6cf8b01659">indexAlpha</a>[iter].size();i++){</div>
+<div class="line">        <span class="keywordtype">string</span> &amp;temp= <a class="code" href="classtraining_seqs.html#a8e84ae4508b50b7dca1feb6cf8b01659">indexAlpha</a>[iter][i];</div>
+<div class="line">        <a class="code" href="classtraining_seqs.html#a34c93da3e1142236747cd2668b73d4b9">alphaIndex</a>[iter][temp]=i;</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    file.seekg(0,std::ios::beg);</div>
+<div class="line">    file.clear();</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">return</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a652da6ab40d53b206159ddd0008975a0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool trainingSeqs::eof </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>iter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="training_seq_8h_source.html#l00056">56</a> of file <a class="el" href="training_seq_8h_source.html">trainingSeq.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="classtraining_seqs.html#aae4e0ceb20a93ffbf1d8f4b1da81a280">seqFiles</a>[iter]-&gt;eof();}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a540ec870d2ae4f031abfc9e014de20eb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int trainingSeqs::fileCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="training_seq_8h_source.html#l00055">55</a> of file <a class="el" href="training_seq_8h_source.html">trainingSeq.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="classtraining_seqs.html#aae4e0ceb20a93ffbf1d8f4b1da81a280">seqFiles</a>.size();};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a5e092d3841f3b8c83f71ca45f525ab2e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool trainingSeqs::good </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>iter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="training_seq_8h_source.html#l00057">57</a> of file <a class="el" href="training_seq_8h_source.html">trainingSeq.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="classtraining_seqs.html#aae4e0ceb20a93ffbf1d8f4b1da81a280">seqFiles</a>[iter]-&gt;good();}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a56823bfb3531846c5bc0d984d16eca93"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool trainingSeqs::importMask </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5523c2ec66a7acbdce48945077aa906a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool trainingSeqs::importMask </td>
+          <td>(</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad685e6da4db219452caa2a15af472804"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool trainingSeqs::is_open </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>iter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="training_seq_8h_source.html#l00058">58</a> of file <a class="el" href="training_seq_8h_source.html">trainingSeq.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="classtraining_seqs.html#aae4e0ceb20a93ffbf1d8f4b1da81a280">seqFiles</a>[iter]-&gt;is_open();}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a9c57345279d5a985c13986f362e2f3da"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool trainingSeqs::openFiles </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="training_seq_8cpp_source.html#l00172">172</a> of file <a class="el" href="training_seq_8cpp_source.html">trainingSeq.cpp</a>.</p>
+<div class="fragment"><div class="line">                                               {</div>
+<div class="line">    </div>
+<div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="abe500bbd2b67c2e5693e038f8bee4f5b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool trainingSeqs::openFiles </td>
+          <td>(</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a66de25a1fede876ed3cf4b3e8d3152fd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int trainingSeqs::queueSize </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>iter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="training_seq_8h_source.html#l00061">61</a> of file <a class="el" href="training_seq_8h_source.html">trainingSeq.h</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="classtraining_seqs.html#a415556f7b8d061bba0514cc9faaad978">seqs</a>.size();}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="adc60da2f4f52d48424de23d1694daa62"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void trainingSeqs::setAlphabet </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>iter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">stringList</a> &amp;&#160;</td>
+          <td class="paramname"><em>lst</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="training_seq_8cpp_source.html#l00225">225</a> of file <a class="el" href="training_seq_8cpp_source.html">trainingSeq.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8h_source.html#l00107">StochHMM::stringList::push_back()</a>, and <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>.</p>
+<div class="fragment"><div class="line">                                                          {</div>
+<div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;lst.<a class="code" href="class_stoch_h_m_m_1_1string_list.html#aa66b0d5fa9a0bec45d6638be23408b71" title="Return the amount of strings in the stringList.">size</a>();i++){</div>
+<div class="line">        <span class="keywordtype">string</span>&amp; temp = lst[i];</div>
+<div class="line">        <a class="code" href="classtraining_seqs.html#a8e84ae4508b50b7dca1feb6cf8b01659">indexAlpha</a>[iter].push_back(temp);</div>
+<div class="line">        <a class="code" href="classtraining_seqs.html#a34c93da3e1142236747cd2668b73d4b9">alphaIndex</a>[iter][temp]=i;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a34c93da3e1142236747cd2668b73d4b9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::map&lt;std::string, int&gt; &gt; trainingSeqs::alphaIndex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="training_seq_8h_source.html#l00078">78</a> of file <a class="el" href="training_seq_8h_source.html">trainingSeq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8e84ae4508b50b7dca1feb6cf8b01659"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;std::string&gt; &gt; trainingSeqs::indexAlpha</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="training_seq_8h_source.html#l00079">79</a> of file <a class="el" href="training_seq_8h_source.html">trainingSeq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab8f06fb70a383d14d61db48d49febf17"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool trainingSeqs::masked</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="training_seq_8h_source.html#l00075">75</a> of file <a class="el" href="training_seq_8h_source.html">trainingSeq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9a9a5960c79e69208c33a12262fbbea6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ifstream* trainingSeqs::maskFile</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="training_seq_8h_source.html#l00073">73</a> of file <a class="el" href="training_seq_8h_source.html">trainingSeq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aae4e0ceb20a93ffbf1d8f4b1da81a280"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;std::ifstream*&gt; trainingSeqs::seqFiles</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="training_seq_8h_source.html#l00072">72</a> of file <a class="el" href="training_seq_8h_source.html">trainingSeq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a415556f7b8d061bba0514cc9faaad978"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;int,map&lt;int,int&gt; &gt; transitions std::vector&lt;<a class="el" href="classtraining_seq.html">trainingSeq</a>&gt; trainingSeqs::seqs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="training_seq_8h_source.html#l00086">86</a> of file <a class="el" href="training_seq_8h_source.html">trainingSeq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6017d3e1ae5609383bfb2f99a07d285c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="struct_stoch_h_m_m_1_1state_info.html">stateInfo</a>&gt; trainingSeqs::stateEmm</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="training_seq_8h_source.html#l00081">81</a> of file <a class="el" href="training_seq_8h_source.html">trainingSeq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab75bf881c6b744bd408030567c29c949"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">queue&lt;int&gt; trainingSeqs::stateMask</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="training_seq_8h_source.html#l00076">76</a> of file <a class="el" href="training_seq_8h_source.html">trainingSeq.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="training_seq_8h_source.html">trainingSeq.h</a></li>
 <li><a class="el" href="training_seq_8cpp_source.html">trainingSeq.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classtraining_seqs.html">trainingSeqs</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:36 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

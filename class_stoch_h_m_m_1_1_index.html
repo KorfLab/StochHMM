@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1_index.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,37 +103,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::Index Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p><code>#include &lt;<a class="el" href="index_8h_source.html">index.h</a>&gt;</code></p>
+
 <p><a href="class_stoch_h_m_m_1_1_index-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5b59cd26ab6ce533d896aeb62ff27b58"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b59cd26ab6ce533d896aeb62ff27b58"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_index.html#a5b59cd26ab6ce533d896aeb62ff27b58">Index</a> ()</td></tr>
-<tr class="memdesc:a5b59cd26ab6ce533d896aeb62ff27b58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an index. <br/></td></tr>
-<tr class="memitem:a29e46d540eed2a5a2712c70e93782856"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a29e46d540eed2a5a2712c70e93782856"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_index.html#a29e46d540eed2a5a2712c70e93782856">Index</a> (const <a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a> &amp;)</td></tr>
-<tr class="memdesc:a29e46d540eed2a5a2712c70e93782856"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an <a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a> by copy. <br/></td></tr>
-<tr class="memitem:a648c52690ed12512cfa6a5fbc2cdbb4d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a648c52690ed12512cfa6a5fbc2cdbb4d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_index.html#a648c52690ed12512cfa6a5fbc2cdbb4d">~Index</a> ()</td></tr>
-<tr class="memdesc:a648c52690ed12512cfa6a5fbc2cdbb4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy <a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a>. <br/></td></tr>
-<tr class="memitem:a7556e63e90b5d58cace77279b91386c5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7556e63e90b5d58cace77279b91386c5"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_index.html#a7556e63e90b5d58cace77279b91386c5">isAmbiguous</a> ()</td></tr>
-<tr class="memdesc:a7556e63e90b5d58cace77279b91386c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether there is an ambiguous character. <br/></td></tr>
-<tr class="memitem:ade1ec1034f5966b05ba75e23ecbeacc6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade1ec1034f5966b05ba75e23ecbeacc6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setAmbiguous</b> (const std::vector&lt; size_t &gt; &amp;)</td></tr>
+<tr class="memitem:a5b59cd26ab6ce533d896aeb62ff27b58"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_index.html#a5b59cd26ab6ce533d896aeb62ff27b58">Index</a> ()</td></tr>
+<tr class="memdesc:a5b59cd26ab6ce533d896aeb62ff27b58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an index.  <a href="#a5b59cd26ab6ce533d896aeb62ff27b58"></a><br/></td></tr>
+<tr class="memitem:a29e46d540eed2a5a2712c70e93782856"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_index.html#a29e46d540eed2a5a2712c70e93782856">Index</a> (const <a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a> &amp;)</td></tr>
+<tr class="memdesc:a29e46d540eed2a5a2712c70e93782856"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an <a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a> by copy.  <a href="#a29e46d540eed2a5a2712c70e93782856"></a><br/></td></tr>
+<tr class="memitem:a648c52690ed12512cfa6a5fbc2cdbb4d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_index.html#a648c52690ed12512cfa6a5fbc2cdbb4d">~Index</a> ()</td></tr>
+<tr class="memdesc:a648c52690ed12512cfa6a5fbc2cdbb4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy <a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a>.  <a href="#a648c52690ed12512cfa6a5fbc2cdbb4d"></a><br/></td></tr>
+<tr class="memitem:a7556e63e90b5d58cace77279b91386c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_index.html#a7556e63e90b5d58cace77279b91386c5">isAmbiguous</a> ()</td></tr>
+<tr class="memdesc:a7556e63e90b5d58cace77279b91386c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether there is an ambiguous character.  <a href="#a7556e63e90b5d58cace77279b91386c5"></a><br/></td></tr>
+<tr class="memitem:ade1ec1034f5966b05ba75e23ecbeacc6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_index.html#ade1ec1034f5966b05ba75e23ecbeacc6">setAmbiguous</a> (const std::vector&lt; size_t &gt; &amp;)</td></tr>
 <tr class="memitem:a2c26a4f140f2bf586594c1a113dc06b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_index.html#a2c26a4f140f2bf586594c1a113dc06b4">operator=</a> (const <a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a> &amp;)</td></tr>
 <tr class="memdesc:a2c26a4f140f2bf586594c1a113dc06b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the <a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a> as ambiguous.  <a href="#a2c26a4f140f2bf586594c1a113dc06b4"></a><br/></td></tr>
 <tr class="memitem:a85f2c3684fefd6f55b84375c58bc9cd6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_index.html#a85f2c3684fefd6f55b84375c58bc9cd6">operator+</a> (const <a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a> &amp;)</td></tr>
@@ -130,11 +143,136 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setAmbiguous</b> (con
 <tr class="memdesc:a58a810b6a19d2507788bee1d37b89c87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply int to <a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a>.  <a href="#a58a810b6a19d2507788bee1d37b89c87"></a><br/></td></tr>
 <tr class="memitem:aa57b5dd3f6c0f3728cf0af6e804be278"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_index.html#aa57b5dd3f6c0f3728cf0af6e804be278">operator[]</a> (const size_t)</td></tr>
 <tr class="memdesc:aa57b5dd3f6c0f3728cf0af6e804be278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Number of indices.  <a href="#aa57b5dd3f6c0f3728cf0af6e804be278"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a7378bf71257ba379dba4effae3ea9829"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_index.html#a7378bf71257ba379dba4effae3ea9829">index</a></td></tr>
+<tr class="memitem:af31b709865666c28f0896e24db497a94"><td class="memItemLeft" align="right" valign="top">std::vector&lt; size_t &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a></td></tr>
+<tr class="memitem:a30405a91258017ca25ec2ac1a13174b6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_index.html#a30405a91258017ca25ec2ac1a13174b6">ambiguous</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="index_8h_source.html#l00042">42</a> of file <a class="el" href="index_8h_source.html">index.h</a>.</p>
-</div><hr/><h2>Member Function Documentation</h2>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a5b59cd26ab6ce533d896aeb62ff27b58"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::Index::Index </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create an index. </p>
+
+<p>Definition at line <a class="el" href="index_8cpp_source.html#l00033">33</a> of file <a class="el" href="index_8cpp_source.html">index.cpp</a>.</p>
+
+<p>References <a class="el" href="index_8h_source.html#l00070">amb</a>, <a class="el" href="index_8h_source.html#l00071">ambiguous</a>, and <a class="el" href="index_8h_source.html#l00069">index</a>.</p>
+<div class="fragment"><div class="line">                {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_index.html#a7378bf71257ba379dba4effae3ea9829">index</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>=NULL;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_index.html#a30405a91258017ca25ec2ac1a13174b6">ambiguous</a>=<span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a29e46d540eed2a5a2712c70e93782856"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::Index::Index </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a> &amp;&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create an <a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a> by copy. </p>
+
+<p>Definition at line <a class="el" href="index_8cpp_source.html#l00040">40</a> of file <a class="el" href="index_8cpp_source.html">index.cpp</a>.</p>
+
+<p>References <a class="el" href="index_8h_source.html#l00070">amb</a>, <a class="el" href="index_8h_source.html#l00071">ambiguous</a>, and <a class="el" href="index_8h_source.html#l00069">index</a>.</p>
+<div class="fragment"><div class="line">                              {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_index.html#a7378bf71257ba379dba4effae3ea9829">index</a>=a.index;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_index.html#a30405a91258017ca25ec2ac1a13174b6">ambiguous</a>=a.ambiguous;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>!=NULL){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>=<span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(a.amb-&gt;size());</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>==NULL){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            copy( a.amb-&gt;begin(), a.amb-&gt;end(), <a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>-&gt;begin());</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a648c52690ed12512cfa6a5fbc2cdbb4d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::Index::~Index </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destroy <a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a>. </p>
+
+<p>Definition at line <a class="el" href="index_8cpp_source.html#l00057">57</a> of file <a class="el" href="index_8cpp_source.html">index.cpp</a>.</p>
+
+<p>References <a class="el" href="index_8h_source.html#l00070">amb</a>.</p>
+<div class="fragment"><div class="line">                 {</div>
+<div class="line">        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>=NULL;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a7556e63e90b5d58cace77279b91386c5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::Index::isAmbiguous </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns whether there is an ambiguous character. </p>
+
+<p>Definition at line <a class="el" href="index_8h_source.html#l00052">52</a> of file <a class="el" href="index_8h_source.html">index.h</a>.</p>
+
+<p>References <a class="el" href="index_8h_source.html#l00071">ambiguous</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1_index.html#a30405a91258017ca25ec2ac1a13174b6">ambiguous</a>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="a0a5e06dd4ee9d6fd6e5fba0cfb4e5db9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -153,13 +291,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setAmbiguous</b> (con
 <p>Multiply Indices by integer. </p>
 
 <p>Definition at line <a class="el" href="index_8cpp_source.html#l00196">196</a> of file <a class="el" href="index_8cpp_source.html">index.cpp</a>.</p>
+
+<p>References <a class="el" href="index_8h_source.html#l00070">amb</a>, <a class="el" href="index_8h_source.html#l00071">ambiguous</a>, <a class="el" href="index_8h_source.html#l00069">index</a>, and <a class="el" href="stoch_math_8h_source.html#l00286">StochHMM::multiplyValueToVector()</a>.</p>
 <div class="fragment"><div class="line">                                           {</div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_index.html#a5b59cd26ab6ce533d896aeb62ff27b58" title="Create an index.">Index</a> temp;</div>
-<div class="line">        <span class="keywordflow">if</span> (ambiguous){</div>
-<div class="line">            multiplyValueToVector(*amb, lhs);</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_index.html#a30405a91258017ca25ec2ac1a13174b6">ambiguous</a>){</div>
+<div class="line">            <a class="code" href="namespace_stoch_h_m_m.html#a294a8634f2775be4d6637f3fb28b55da">multiplyValueToVector</a>(*<a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>, lhs);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
-<div class="line">            index*=lhs;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_index.html#a7378bf71257ba379dba4effae3ea9829">index</a>*=lhs;</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">return</span> temp;</div>
 <div class="line">    }</div>
@@ -190,12 +330,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setAmbiguous</b> (con
 </dl>
 
 <p>Definition at line <a class="el" href="index_8cpp_source.html#l00184">184</a> of file <a class="el" href="index_8cpp_source.html">index.cpp</a>.</p>
+
+<p>References <a class="el" href="index_8h_source.html#l00070">amb</a>, <a class="el" href="index_8h_source.html#l00071">ambiguous</a>, <a class="el" href="index_8h_source.html#l00069">index</a>, and <a class="el" href="stoch_math_8h_source.html#l00286">StochHMM::multiplyValueToVector()</a>.</p>
 <div class="fragment"><div class="line">                                           {</div>
-<div class="line">        <span class="keywordflow">if</span> (ambiguous){</div>
-<div class="line">            multiplyValueToVector(*amb, lhs);</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_index.html#a30405a91258017ca25ec2ac1a13174b6">ambiguous</a>){</div>
+<div class="line">            <a class="code" href="namespace_stoch_h_m_m.html#a294a8634f2775be4d6637f3fb28b55da">multiplyValueToVector</a>(*<a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>, lhs);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
-<div class="line">            index*=lhs;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_index.html#a7378bf71257ba379dba4effae3ea9829">index</a>*=lhs;</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
@@ -227,10 +369,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setAmbiguous</b> (con
 <dl class="section return"><dt>Returns:</dt><dd><a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a> with values added </dd></dl>
 
 <p>Definition at line <a class="el" href="index_8cpp_source.html#l00086">86</a> of file <a class="el" href="index_8cpp_source.html">index.cpp</a>.</p>
+
+<p>References <a class="el" href="stoch_math_8h_source.html#l00272">StochHMM::addValueToVector()</a>, <a class="el" href="stoch_math_8h_source.html#l00209">StochHMM::addVectorCombinatorial()</a>, <a class="el" href="index_8h_source.html#l00070">amb</a>, <a class="el" href="index_8h_source.html#l00071">ambiguous</a>, and <a class="el" href="index_8h_source.html#l00069">index</a>.</p>
 <div class="fragment"><div class="line">                                           {</div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_index.html#a5b59cd26ab6ce533d896aeb62ff27b58" title="Create an index.">Index</a> temp;</div>
-<div class="line">        temp.index=lhs.index + this-&gt;index;</div>
-<div class="line">        <span class="keywordflow">if</span> (ambiguous){</div>
+<div class="line">        temp.index=lhs.index + this-&gt;<a class="code" href="class_stoch_h_m_m_1_1_index.html#a7378bf71257ba379dba4effae3ea9829">index</a>;</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_index.html#a30405a91258017ca25ec2ac1a13174b6">ambiguous</a>){</div>
 <div class="line">            <span class="keywordflow">if</span> (lhs.ambiguous){</div>
 <div class="line">                temp.ambiguous=<span class="keyword">true</span>;</div>
 <div class="line">                temp.amb=<span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;;</div>
@@ -240,19 +384,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setAmbiguous</b> (con
 <div class="line">                    exit(1);</div>
 <div class="line">                }</div>
 <div class="line">                </div>
-<div class="line">                addVectorCombinatorial(*temp.amb, *this-&gt;amb, *lhs.amb);</div>
+<div class="line">                <a class="code" href="namespace_stoch_h_m_m.html#a100d30362da8e1685e09f6068ba53a4a">addVectorCombinatorial</a>(*temp.amb, *this-&gt;amb, *lhs.amb);</div>
 <div class="line">                </div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span>{</div>
 <div class="line">                temp.ambiguous=<span class="keyword">true</span>;</div>
-<div class="line">                temp.amb=<span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(*this-&gt;amb);</div>
+<div class="line">                temp.amb=<span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(*this-&gt;<a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>);</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordflow">if</span> (temp.amb==NULL){</div>
 <div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
 <div class="line">                    exit(1);</div>
 <div class="line">                }</div>
 <div class="line">                </div>
-<div class="line">                addValueToVector(*temp.amb, lhs.index);</div>
+<div class="line">                <a class="code" href="namespace_stoch_h_m_m.html#a40a05066bb234bef21f9147c7d3195c3">addValueToVector</a>(*temp.amb, lhs.index);</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
@@ -265,7 +409,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setAmbiguous</b> (con
 <div class="line">                    exit(1);</div>
 <div class="line">                }</div>
 <div class="line">                </div>
-<div class="line">                addValueToVector(*temp.amb, this-&gt;index);</div>
+<div class="line">                <a class="code" href="namespace_stoch_h_m_m.html#a40a05066bb234bef21f9147c7d3195c3">addValueToVector</a>(*temp.amb, this-&gt;index);</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">return</span> temp;</div>
@@ -291,12 +435,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setAmbiguous</b> (con
 <p>Add and Assign. </p>
 
 <p>Definition at line <a class="el" href="index_8cpp_source.html#l00132">132</a> of file <a class="el" href="index_8cpp_source.html">index.cpp</a>.</p>
+
+<p>References <a class="el" href="stoch_math_8h_source.html#l00272">StochHMM::addValueToVector()</a>, <a class="el" href="stoch_math_8h_source.html#l00209">StochHMM::addVectorCombinatorial()</a>, <a class="el" href="index_8h_source.html#l00070">amb</a>, <a class="el" href="index_8h_source.html#l00071">ambiguous</a>, and <a class="el" href="index_8h_source.html#l00069">index</a>.</p>
 <div class="fragment"><div class="line">                                           {</div>
-<div class="line">        <span class="keywordflow">if</span> (!ambiguous &amp;&amp; !lhs.ambiguous){</div>
-<div class="line">            index+=lhs.index;</div>
+<div class="line">        <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1_index.html#a30405a91258017ca25ec2ac1a13174b6">ambiguous</a> &amp;&amp; !lhs.ambiguous){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_index.html#a7378bf71257ba379dba4effae3ea9829">index</a>+=lhs.index;</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
 <div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ambiguous){</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_index.html#a30405a91258017ca25ec2ac1a13174b6">ambiguous</a>){</div>
 <div class="line">            <span class="keywordflow">if</span> (lhs.ambiguous){</div>
 <div class="line">                std::vector&lt;size_t&gt;* temp = <span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;;</div>
 <div class="line">                </div>
@@ -305,25 +451,25 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setAmbiguous</b> (con
 <div class="line">                    exit(1);</div>
 <div class="line">                }</div>
 <div class="line">                </div>
-<div class="line">                addVectorCombinatorial(*temp, *(this-&gt;amb), *(lhs.amb));</div>
-<div class="line">                <span class="keyword">delete</span> amb;</div>
-<div class="line">                amb=temp;</div>
+<div class="line">                <a class="code" href="namespace_stoch_h_m_m.html#a100d30362da8e1685e09f6068ba53a4a">addVectorCombinatorial</a>(*temp, *(this-&gt;<a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>), *(lhs.amb));</div>
+<div class="line">                <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>=temp;</div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span>{</div>
-<div class="line">                addValueToVector(*this-&gt;amb, lhs.index);</div>
+<div class="line">                <a class="code" href="namespace_stoch_h_m_m.html#a40a05066bb234bef21f9147c7d3195c3">addValueToVector</a>(*this-&gt;<a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>, lhs.index);</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
 <div class="line">            <span class="keywordflow">if</span> (lhs.ambiguous){</div>
-<div class="line">                amb=<span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(*lhs.amb);</div>
-<div class="line">                                ambiguous = <span class="keyword">true</span>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>=<span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(*lhs.amb);</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1_index.html#a30405a91258017ca25ec2ac1a13174b6">ambiguous</a> = <span class="keyword">true</span>;</div>
 <div class="line">                </div>
-<div class="line">                <span class="keywordflow">if</span> (amb==NULL){</div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>==NULL){</div>
 <div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
 <div class="line">                    exit(1);</div>
 <div class="line">                }</div>
 <div class="line">                </div>
-<div class="line">                addValueToVector(*amb, index);</div>
+<div class="line">                <a class="code" href="namespace_stoch_h_m_m.html#a40a05066bb234bef21f9147c7d3195c3">addValueToVector</a>(*<a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>, <a class="code" href="class_stoch_h_m_m_1_1_index.html#a7378bf71257ba379dba4effae3ea9829">index</a>);</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
@@ -355,12 +501,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setAmbiguous</b> (con
 </dl>
 
 <p>Definition at line <a class="el" href="index_8cpp_source.html#l00172">172</a> of file <a class="el" href="index_8cpp_source.html">index.cpp</a>.</p>
+
+<p>References <a class="el" href="stoch_math_8h_source.html#l00272">StochHMM::addValueToVector()</a>, <a class="el" href="index_8h_source.html#l00070">amb</a>, <a class="el" href="index_8h_source.html#l00071">ambiguous</a>, and <a class="el" href="index_8h_source.html#l00069">index</a>.</p>
 <div class="fragment"><div class="line">                                           {</div>
-<div class="line">        <span class="keywordflow">if</span> (ambiguous){</div>
-<div class="line">            addValueToVector(*amb, lhs);</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_index.html#a30405a91258017ca25ec2ac1a13174b6">ambiguous</a>){</div>
+<div class="line">            <a class="code" href="namespace_stoch_h_m_m.html#a40a05066bb234bef21f9147c7d3195c3">addValueToVector</a>(*<a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>, lhs);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
-<div class="line">            index+=lhs;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_index.html#a7378bf71257ba379dba4effae3ea9829">index</a>+=lhs;</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
@@ -391,19 +539,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setAmbiguous</b> (con
 </dl>
 
 <p>Definition at line <a class="el" href="index_8cpp_source.html#l00066">66</a> of file <a class="el" href="index_8cpp_source.html">index.cpp</a>.</p>
+
+<p>References <a class="el" href="index_8h_source.html#l00070">amb</a>, <a class="el" href="index_8h_source.html#l00071">ambiguous</a>, and <a class="el" href="index_8h_source.html#l00069">index</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
-<div class="line">        index=rhs.index;</div>
-<div class="line">        ambiguous=rhs.ambiguous;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_index.html#a7378bf71257ba379dba4effae3ea9829">index</a>=rhs.index;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_index.html#a30405a91258017ca25ec2ac1a13174b6">ambiguous</a>=rhs.ambiguous;</div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> (amb!=NULL){</div>
-<div class="line">            amb=<span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(rhs.amb-&gt;size());</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>!=NULL){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>=<span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(rhs.amb-&gt;size());</div>
 <div class="line">            </div>
-<div class="line">            <span class="keywordflow">if</span> (amb==NULL){</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>==NULL){</div>
 <div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
 <div class="line">                exit(1);</div>
 <div class="line">            }</div>
 <div class="line">            </div>
-<div class="line">            copy( rhs.amb-&gt;begin(), rhs.amb-&gt;end(), amb-&gt;begin());</div>
+<div class="line">            copy( rhs.amb-&gt;begin(), rhs.amb-&gt;end(), <a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>-&gt;begin());</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line">    }</div>
@@ -435,17 +585,52 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setAmbiguous</b> (con
 <dl class="section return"><dt>Returns:</dt><dd>int Integer value of index </dd></dl>
 
 <p>Definition at line <a class="el" href="index_8cpp_source.html#l00221">221</a> of file <a class="el" href="index_8cpp_source.html">index.cpp</a>.</p>
+
+<p>References <a class="el" href="index_8h_source.html#l00070">amb</a>, <a class="el" href="index_8h_source.html#l00071">ambiguous</a>, and <a class="el" href="index_8h_source.html#l00069">index</a>.</p>
 <div class="fragment"><div class="line">                                             {</div>
-<div class="line">        <span class="keywordflow">if</span> (!ambiguous &amp;&amp; iter==0){</div>
-<div class="line">            <span class="keywordflow">return</span> index;</div>
+<div class="line">        <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1_index.html#a30405a91258017ca25ec2ac1a13174b6">ambiguous</a> &amp;&amp; iter==0){</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1_index.html#a7378bf71257ba379dba4effae3ea9829">index</a>;</div>
 <div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ambiguous){</div>
-<div class="line">            <span class="keywordflow">return</span> (*amb)[iter];</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_index.html#a30405a91258017ca25ec2ac1a13174b6">ambiguous</a>){</div>
+<div class="line">            <span class="keywordflow">return</span> (*<a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>)[iter];</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;iterator: &quot;</span> &lt;&lt; iter &lt;&lt; <span class="stringliteral">&quot; called on unambiguous value.   Can only access with Iterator = 0&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line">            exit(5);</div>
 <div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ade1ec1034f5966b05ba75e23ecbeacc6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::Index::setAmbiguous </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; size_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="index_8cpp_source.html#l00239">239</a> of file <a class="el" href="index_8cpp_source.html">index.cpp</a>.</p>
+
+<p>References <a class="el" href="index_8h_source.html#l00070">amb</a>, and <a class="el" href="index_8h_source.html#l00071">ambiguous</a>.</p>
+
+<p>Referenced by <a class="el" href="lexical_table_8cpp_source.html#l00718">StochHMM::lexicalTable::getAmbiguousScore()</a>, and <a class="el" href="lexical_table_8cpp_source.html#l00607">StochHMM::lexicalTable::getReducedOrder()</a>.</p>
+<div class="fragment"><div class="line">                                                        {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>=<span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(vec);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>==NULL){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_index.html#a30405a91258017ca25ec2ac1a13174b6">ambiguous</a> = <span class="keyword">true</span>;</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
@@ -467,9 +652,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setAmbiguous</b> (con
 <p>Get the number of indices in <a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a>. </p>
 
 <p>Definition at line <a class="el" href="index_8cpp_source.html#l00208">208</a> of file <a class="el" href="index_8cpp_source.html">index.cpp</a>.</p>
+
+<p>References <a class="el" href="index_8h_source.html#l00070">amb</a>, and <a class="el" href="index_8h_source.html#l00071">ambiguous</a>.</p>
+
+<p>Referenced by <a class="el" href="lexical_table_8cpp_source.html#l00718">StochHMM::lexicalTable::getAmbiguousScore()</a>, and <a class="el" href="lexical_table_8cpp_source.html#l00607">StochHMM::lexicalTable::getReducedOrder()</a>.</p>
 <div class="fragment"><div class="line">                      {</div>
-<div class="line">        <span class="keywordflow">if</span> (ambiguous){</div>
-<div class="line">            <span class="keywordflow">return</span> amb-&gt;size();</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_index.html#a30405a91258017ca25ec2ac1a13174b6">ambiguous</a>){</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1_index.html#af31b709865666c28f0896e24db497a94">amb</a>-&gt;size();</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
 <div class="line">            <span class="keywordflow">return</span> 1;</div>
@@ -478,16 +667,93 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setAmbiguous</b> (con
 </div><!-- fragment -->
 </div>
 </div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="af31b709865666c28f0896e24db497a94"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;size_t&gt;* StochHMM::Index::amb</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="index_8h_source.html#l00070">70</a> of file <a class="el" href="index_8h_source.html">index.h</a>.</p>
+
+<p>Referenced by <a class="el" href="index_8cpp_source.html#l00033">Index()</a>, <a class="el" href="index_8cpp_source.html#l00196">operator*()</a>, <a class="el" href="index_8cpp_source.html#l00184">operator*=()</a>, <a class="el" href="index_8cpp_source.html#l00086">operator+()</a>, <a class="el" href="index_8cpp_source.html#l00132">operator+=()</a>, <a class="el" href="index_8cpp_source.html#l00066">operator=()</a>, <a class="el" href="index_8cpp_source.html#l00221">operator[]()</a>, <a class="el" href="index_8cpp_source.html#l00239">setAmbiguous()</a>, <a class="el" href="index_8cpp_source.html#l00208">size()</a>, and <a class="el" href="index_8cpp_source.html#l00057">~Index()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a30405a91258017ca25ec2ac1a13174b6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::Index::ambiguous</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="index_8h_source.html#l00071">71</a> of file <a class="el" href="index_8h_source.html">index.h</a>.</p>
+
+<p>Referenced by <a class="el" href="index_8cpp_source.html#l00033">Index()</a>, <a class="el" href="index_8h_source.html#l00052">isAmbiguous()</a>, <a class="el" href="index_8cpp_source.html#l00196">operator*()</a>, <a class="el" href="index_8cpp_source.html#l00184">operator*=()</a>, <a class="el" href="index_8cpp_source.html#l00086">operator+()</a>, <a class="el" href="index_8cpp_source.html#l00132">operator+=()</a>, <a class="el" href="index_8cpp_source.html#l00066">operator=()</a>, <a class="el" href="index_8cpp_source.html#l00221">operator[]()</a>, <a class="el" href="index_8cpp_source.html#l00239">setAmbiguous()</a>, and <a class="el" href="index_8cpp_source.html#l00208">size()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7378bf71257ba379dba4effae3ea9829"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::Index::index</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="index_8h_source.html#l00069">69</a> of file <a class="el" href="index_8h_source.html">index.h</a>.</p>
+
+<p>Referenced by <a class="el" href="index_8cpp_source.html#l00033">Index()</a>, <a class="el" href="index_8cpp_source.html#l00196">operator*()</a>, <a class="el" href="index_8cpp_source.html#l00184">operator*=()</a>, <a class="el" href="index_8cpp_source.html#l00086">operator+()</a>, <a class="el" href="index_8cpp_source.html#l00132">operator+=()</a>, <a class="el" href="index_8cpp_source.html#l00066">operator=()</a>, and <a class="el" href="index_8cpp_source.html#l00221">operator[]()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="index_8h_source.html">index.h</a></li>
 <li><a class="el" href="index_8cpp_source.html">index.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:37 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1cell.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,11 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1cell.html">cell</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">StochHMM::cell Member List</div>  </div>
@@ -96,20 +111,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>cell</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getScore</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>getTraceback</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>setDiag</b>(double value) (defined in <a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>setLeft</b>(double value) (defined in <a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>setScore</b>(double value) (defined in <a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>setTraceback</b>(tracebackDirection dir) (defined in <a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>setUp</b>(double value) (defined in <a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html#af9f3b5ef96e709cdf02581796463fbaf">cell</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html#a5d5fcd6d6234317eafbdfd4b9044ac5f">getScore</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html#a9bc20be21f879c12016cc86bcbdb7307">getTraceback</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html#a6041c70f379e589f2a360bcd03a84a56">score</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html#aeec6b94ac2b9183497bceadd9c3b86df">scores</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html#a4723f120f9c22a8cb6b92111d22572af">setDiag</a>(double value)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html#a558b1d02517d182270e4f42772a7fefb">setLeft</a>(double value)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html#a1057c5c3d994f7729148b22429a19799">setScore</a>(double value)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html#ac68775cff8d963e6bf38d505c3b28993">setTraceback</a>(tracebackDirection dir)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html#af3bb1ab4d32dc6bb250e2cc728d9e846">setUp</a>(double value)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html#a689cb99895d30c817a45606dbaaaeaab">traceback</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1cell.html">StochHMM::cell</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:36 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

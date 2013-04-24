@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1transition.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,11 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1transition.html">transition</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">StochHMM::transition Member List</div>  </div>
@@ -96,42 +111,61 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>FunctionDefined</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>get_reduced_order</b>(int, sequences *) (defined in <a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a54b3f75e5a0cd3877d9e7b0bcf15a5e6">_parseDuration</a>(stringList &amp;, stringList &amp;, valueType)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#adc760045c73b72207e98ce4ce75b7c4f">_parseLexical</a>(stringList &amp;, stringList &amp;, valueType, tracks &amp;, StateFuncs *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#ac5ba3166aa448205466e2596b5f3ec9c">_parseStandard</a>(std::string &amp;, stringList &amp;, valueType)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a4d2c8c73105ff3f127fc8feeb6cff031">_processTags</a>(std::string &amp;, tracks &amp;, weights *, StateFuncs *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#ad26d6d48172b34532ef1cdea1bfbbd4e">distribution</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a98411a63358844f990e71e38ad54befe">extendedValue</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a81ceac576dbb50088263a9cfeac74f80">func</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a7baa1870535e2e0056b830491af7b2ff">function</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a75c6c95717a84a502bb985cfb2fb4d2b">FunctionDefined</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a71c6d474fc9e7187bf748d3124650a0e">get_reduced_order</a>(int, sequences *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#ae48346f707ca1deb8ff34092bce35068">getExtFunction</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getLexicalFunctionName</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a727d502ebec584d5b6d01b291842b1da">getLexicalFunctionName</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#aef83e0694115d3de846b6945a031b460">getName</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a76557c67c0fdc78b12a3ea3bc3a1febb">getState</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a4b5769b7b26685e5dfd5540a7c90b6cd">getTracebackIdentifier</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#ae1c7d74bdfa8a85ef1347d5827cdd82b">getTracebackString</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a50da471f7e318275f049b7e3f14a0225">getTransition</a>(size_t, sequences *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getTransition</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a40c1d98400be3175e7245b82e6069cd7">getTransition</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#aaf5209b81d8e3bd7c336748cfdbc4d7a">getTransitionType</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>isComplex</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>isSimple</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>LexFunctionDefined</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>model</b> (defined in <a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#ad0aaa9a127411b4bf97099bb8dc09ebf">isComplex</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a495c4b09fa6f898a57969b5b3fe6bf9b">isSimple</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#abe79f7f41f564999525347656718db3c">lexFunc</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#ad22cf436db1ca7e8e764df9dd47701d2">LexFunctionDefined</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a02dae54a9b3a7068994c3c42e7183d13">log_trans</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a6e37bb755d74e24f1b3e7e2def3b13e0">model</a> class</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#ad5b8f4df50ef8b5771319bdb4614e728">parse</a>(std::string &amp;, stringList &amp;, valueType valtyp, tracks &amp;, weights *, StateFuncs *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#ae214752883819d70cca0f14079ca9e92">parse</a>(stringList &amp;, stringList &amp;, valueType valtyp, tracks &amp;, weights *, StateFuncs *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a9d54cd615cb424734f9301626d4bee2f">print</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a32ea9bbf8df00da2a0aaadd26026b10b">setDistribution</a>(std::vector&lt; double &gt; *dst)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#ab2f57cfb8ddca23efb92637a430b59f9">setName</a>(std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#af053d45aa8a24feddb4c1e930b89aaee">setState</a>(state *st)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a8115ddd8cfb50d1956a69d1366035d34">setTB_Identifier</a>(tracebackIdentifier tbIdt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a48c7cd355669d9aa3c9b4e78000957e3">setTB_String</a>(std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a60bd08123d01d067155ee787674d43a1">setTransProb</a>(double value)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a71e28e8a5af03f7b9e5d2963e67fe1ef">setTransType</a>(transType type)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>state</b> (defined in <a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a71ea8d8ea0d76cf5dc9697a318d3bf9c">scoreTable</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a32ea9bbf8df00da2a0aaadd26026b10b">setDistribution</a>(std::vector&lt; double &gt; *dst)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#ab2f57cfb8ddca23efb92637a430b59f9">setName</a>(std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#af053d45aa8a24feddb4c1e930b89aaee">setState</a>(state *st)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a8115ddd8cfb50d1956a69d1366035d34">setTB_Identifier</a>(tracebackIdentifier tbIdt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a48c7cd355669d9aa3c9b4e78000957e3">setTB_String</a>(std::string &amp;txt)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a60bd08123d01d067155ee787674d43a1">setTransProb</a>(double value)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a71e28e8a5af03f7b9e5d2963e67fe1ef">setTransType</a>(transType type)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a9ded23f3edbd367dcaa3a3c3d49428eb">state</a> class</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#af30cab5615a4af8c0e8d2d53841df78f">stateName</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a318b00aa1f690a81687a6d81a04edba5">stringify</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>transition</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a944455b569a5c20f0c93a1f185ef52dd">transition</a>(transType)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#ad7213a59642ff8f569ab4c8c3799e9c2">transition</a>(transType, valueType, bool)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a4a0ddb0d99ad357604bd4ef060c03b4a">toState</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a403471c97023f3c8db9f16d08fd2f168">traceback_identifier</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a3ba61793c588d74b353ef03ef279aea8">traceback_string</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#ad54137cbc2f37a870dcfe347d0c03cf2">transition</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a944455b569a5c20f0c93a1f185ef52dd">transition</a>(transType)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#ad7213a59642ff8f569ab4c8c3799e9c2">transition</a>(transType, valueType, bool)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html#a3d22a0d5fdcfba3c4e2d4a19604a7e32">transition_type</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1transition.html">StochHMM::transition</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:38 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

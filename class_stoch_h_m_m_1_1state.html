@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1state.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,94 +103,118 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1state.html">state</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::state Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p><code>#include &lt;<a class="el" href="state_8h_source.html">state.h</a>&gt;</code></p>
+
 <p><a href="class_stoch_h_m_m_1_1state-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a724a2e126a2dd8adcc4aa5809f028e2b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a724a2e126a2dd8adcc4aa5809f028e2b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a724a2e126a2dd8adcc4aa5809f028e2b">state</a> ()</td></tr>
-<tr class="memdesc:a724a2e126a2dd8adcc4aa5809f028e2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a state object. <br/></td></tr>
+<tr class="memitem:a724a2e126a2dd8adcc4aa5809f028e2b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a724a2e126a2dd8adcc4aa5809f028e2b">state</a> ()</td></tr>
+<tr class="memdesc:a724a2e126a2dd8adcc4aa5809f028e2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a state object.  <a href="#a724a2e126a2dd8adcc4aa5809f028e2b"></a><br/></td></tr>
 <tr class="memitem:ad577c169b7a7e4c859ca75e44ed0da9b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#ad577c169b7a7e4c859ca75e44ed0da9b">state</a> (std::string &amp;, <a class="el" href="class_stoch_h_m_m_1_1string_list.html">stringList</a> &amp;, <a class="el" href="class_stoch_h_m_m_1_1tracks.html">tracks</a> &amp;, <a class="el" href="class_stoch_h_m_m_1_1weights.html">weights</a> *, <a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html">StateFuncs</a> *)</td></tr>
-<tr class="memitem:a7666c1a1912dad5e1cf9aa4de1cf47e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7666c1a1912dad5e1cf9aa4de1cf47e6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a7666c1a1912dad5e1cf9aa4de1cf47e6">~state</a> ()</td></tr>
-<tr class="memdesc:a7666c1a1912dad5e1cf9aa4de1cf47e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create state from string. <br/></td></tr>
+<tr class="memitem:a7666c1a1912dad5e1cf9aa4de1cf47e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a7666c1a1912dad5e1cf9aa4de1cf47e6">~state</a> ()</td></tr>
+<tr class="memdesc:a7666c1a1912dad5e1cf9aa4de1cf47e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create state from string.  <a href="#a7666c1a1912dad5e1cf9aa4de1cf47e6"></a><br/></td></tr>
 <tr class="memitem:a2c11ceb39aba9631ba41e3a5259e8da5"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a2c11ceb39aba9631ba41e3a5259e8da5">getIterator</a> ()</td></tr>
 <tr class="memitem:a71abeddc4bd5dd3d950c48b199a515d2"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a71abeddc4bd5dd3d950c48b199a515d2">getName</a> ()</td></tr>
 <tr class="memitem:a19f06f455f339e01577e163570b1e2b2"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a19f06f455f339e01577e163570b1e2b2">getGFF</a> ()</td></tr>
 <tr class="memitem:ac58f8dfc39b64abbba92a94029565cc9"><td class="memItemLeft" align="right" valign="top">std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#ac58f8dfc39b64abbba92a94029565cc9">getLabel</a> ()</td></tr>
 <tr class="memitem:ad8e37a9faab55e66832a3e782b8d4db8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1transition.html">transition</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#ad8e37a9faab55e66832a3e782b8d4db8">getTransitions</a> ()</td></tr>
-<tr class="memitem:a1aa3e052885226bd9663e5b3e9fd674a"><td class="memItemLeft" align="right" valign="top">std::bitset&lt; STATE_MAX &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a1aa3e052885226bd9663e5b3e9fd674a">getTo</a> ()</td></tr>
-<tr class="memitem:abc5b6b3bff0b55ce2e3ac24d37b32828"><td class="memItemLeft" align="right" valign="top">std::bitset&lt; STATE_MAX &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#abc5b6b3bff0b55ce2e3ac24d37b32828">getFrom</a> ()</td></tr>
+<tr class="memitem:a1aa3e052885226bd9663e5b3e9fd674a"><td class="memItemLeft" align="right" valign="top">std::bitset&lt; <a class="el" href="_stoch_h_m_m_8cpp.html#ae127900152d47e7d641708811ffdfe39">STATE_MAX</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a1aa3e052885226bd9663e5b3e9fd674a">getTo</a> ()</td></tr>
+<tr class="memitem:abc5b6b3bff0b55ce2e3ac24d37b32828"><td class="memItemLeft" align="right" valign="top">std::bitset&lt; <a class="el" href="_stoch_h_m_m_8cpp.html#ae127900152d47e7d641708811ffdfe39">STATE_MAX</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#abc5b6b3bff0b55ce2e3ac24d37b32828">getFrom</a> ()</td></tr>
 <tr class="memitem:afb40076c4d7f0c7ceb256c7e7eec9f6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1transition.html">transition</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#afb40076c4d7f0c7ceb256c7e7eec9f6b">getTrans</a> (size_t iter)</td></tr>
 <tr class="memitem:aeb58e53753f3c2312f8c27fbc6b67d4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1transition.html">transition</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#aeb58e53753f3c2312f8c27fbc6b67d4d">getEnding</a> ()</td></tr>
 <tr class="memitem:af109fa0ba9d53419f805518b0bf7bf52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#af109fa0ba9d53419f805518b0bf7bf52">getEmission</a> (size_t iter)</td></tr>
 <tr class="memitem:a96de994cffc9108c7e4194a84d36e317"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a96de994cffc9108c7e4194a84d36e317">get_emission_prob</a> (<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> &amp;seqs, size_t iter)</td></tr>
-<tr class="memitem:ac2f3abf105cf945a21606e26dab86633"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#ac2f3abf105cf945a21606e26dab86633">get_transition_prob</a> (<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> &amp;seqs, size_t to, size_t iter)</td></tr>
-<tr class="memitem:a29ea1ce016de1ea998c7dc5fffeea53b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a29ea1ce016de1ea998c7dc5fffeea53b"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a29ea1ce016de1ea998c7dc5fffeea53b">getEndTrans</a> ()</td></tr>
-<tr class="memdesc:a29ea1ce016de1ea998c7dc5fffeea53b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the log probability transitioning to end from the state. <br/></td></tr>
-<tr class="memitem:a4f81bb15d013c2f87cdc1817301a8039"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f81bb15d013c2f87cdc1817301a8039"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr>
+<tr class="memitem:ac2f3abf105cf945a21606e26dab86633"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#ac2f3abf105cf945a21606e26dab86633">get_transition_prob</a> (<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> &amp;seqs, size_t <a class="el" href="class_stoch_h_m_m_1_1state.html#ae926d05079c5695b25a439bc0c1a2bdf">to</a>, size_t iter)</td></tr>
+<tr class="memitem:a29ea1ce016de1ea998c7dc5fffeea53b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a29ea1ce016de1ea998c7dc5fffeea53b">getEndTrans</a> ()</td></tr>
+<tr class="memdesc:a29ea1ce016de1ea998c7dc5fffeea53b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the log probability transitioning to end from the state.  <a href="#a29ea1ce016de1ea998c7dc5fffeea53b"></a><br/></td></tr>
+<tr class="memitem:a4f81bb15d013c2f87cdc1817301a8039"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a4f81bb15d013c2f87cdc1817301a8039">print</a> ()</td></tr>
 <tr class="memitem:affdd46a537fe5f4d6bce781f90f45636"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#affdd46a537fe5f4d6bce781f90f45636">stringify</a> ()</td></tr>
 <tr class="memitem:a0cbb513086803822dc8368e277d2c28e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a0cbb513086803822dc8368e277d2c28e">parse</a> (std::string &amp;, <a class="el" href="class_stoch_h_m_m_1_1string_list.html">stringList</a> &amp;, <a class="el" href="class_stoch_h_m_m_1_1tracks.html">tracks</a> &amp;, <a class="el" href="class_stoch_h_m_m_1_1weights.html">weights</a> *, <a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html">StateFuncs</a> *)</td></tr>
 <tr class="memitem:a2cefe7e62ed5167795cd938bccba432a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a2cefe7e62ed5167795cd938bccba432a">addTransition</a> (<a class="el" href="class_stoch_h_m_m_1_1transition.html">transition</a> *trans)</td></tr>
 <tr class="memitem:a738d0a524c1bb8338e254650781ee18e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a738d0a524c1bb8338e254650781ee18e">setEndingTransition</a> (<a class="el" href="class_stoch_h_m_m_1_1transition.html">transition</a> *trans)</td></tr>
 <tr class="memitem:a900783c2ef686305862085d6c37aaf81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a900783c2ef686305862085d6c37aaf81">addEmission</a> (<a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a> *em)</td></tr>
 <tr class="memitem:a61f03e8137f2f85e8f6216d9b62a9178"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a61f03e8137f2f85e8f6216d9b62a9178">setName</a> (std::string &amp;txt)</td></tr>
-<tr class="memitem:a672145e26a5d30ef5bc9238428d8f681"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a672145e26a5d30ef5bc9238428d8f681"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a672145e26a5d30ef5bc9238428d8f681">setGFF</a> (std::string &amp;txt)</td></tr>
-<tr class="memdesc:a672145e26a5d30ef5bc9238428d8f681"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the GFF Tag for the state. <br/></td></tr>
-<tr class="memitem:aaa76f5bfcc777e5d8cf1102ebd99d933"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa76f5bfcc777e5d8cf1102ebd99d933"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#aaa76f5bfcc777e5d8cf1102ebd99d933">setLabel</a> (std::string &amp;txt)</td></tr>
-<tr class="memdesc:aaa76f5bfcc777e5d8cf1102ebd99d933"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Label for the state. <br/></td></tr>
-<tr class="memitem:a394c5e58ee0d98b4c722a959819de7b2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a394c5e58ee0d98b4c722a959819de7b2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a394c5e58ee0d98b4c722a959819de7b2">addToState</a> (<a class="el" href="class_stoch_h_m_m_1_1state.html">state</a> *st)</td></tr>
-<tr class="memdesc:a394c5e58ee0d98b4c722a959819de7b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add state that this state transitions to. <br/></td></tr>
-<tr class="memitem:a5aee1c24bad4a3c1d0b7991fc1b80256"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5aee1c24bad4a3c1d0b7991fc1b80256"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a5aee1c24bad4a3c1d0b7991fc1b80256">addFromState</a> (<a class="el" href="class_stoch_h_m_m_1_1state.html">state</a> *st)</td></tr>
-<tr class="memdesc:a5aee1c24bad4a3c1d0b7991fc1b80256"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add state that transitions to this state. <br/></td></tr>
-<tr class="memitem:a7fefa7b17ddde43333bb80e3158b09ff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7fefa7b17ddde43333bb80e3158b09ff"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a7fefa7b17ddde43333bb80e3158b09ff">setIter</a> (size_t val)</td></tr>
-<tr class="memdesc:a7fefa7b17ddde43333bb80e3158b09ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the index value to be used for the state. <br/></td></tr>
-<tr class="memitem:a65781f1c5f49a7a3edabb3ad23bc5bd6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a65781f1c5f49a7a3edabb3ad23bc5bd6"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasComplexEmission</b> ()</td></tr>
-<tr class="memitem:a9c7b7d3c419253d07c0ec561a9261caf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c7b7d3c419253d07c0ec561a9261caf"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasComplexTransition</b> ()</td></tr>
-<tr class="memitem:a0d98460ec11df3709f826cbd2506ab3e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d98460ec11df3709f826cbd2506ab3e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasSimpleEmission</b> ()</td></tr>
-<tr class="memitem:a2e743caf6f3e7afb3697571958eac4f1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2e743caf6f3e7afb3697571958eac4f1"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasSimpleTransition</b> ()</td></tr>
-<tr class="memitem:afb7319415b0662fec7d3c004c32a6bb0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afb7319415b0662fec7d3c004c32a6bb0"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isSimple</b> ()</td></tr>
-<tr class="memitem:abcf89f656a8758dca531459f8e441abd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abcf89f656a8758dca531459f8e441abd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#abcf89f656a8758dca531459f8e441abd">checkLabels</a> (std::set&lt; std::string &gt; &amp;, std::set&lt; std::string &gt; &amp;, std::set&lt; std::string &gt; &amp;)</td></tr>
-<tr class="memdesc:abcf89f656a8758dca531459f8e441abd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the label tags for traceback and combine identifiers. <br/></td></tr>
-<tr class="memitem:a434dbf305826348f0b225864ccb83559"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a434dbf305826348f0b225864ccb83559"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>_finalizeTransitions</b> (std::map&lt; std::string, <a class="el" href="class_stoch_h_m_m_1_1state.html">state</a> * &gt; &amp;state_index)</td></tr>
+<tr class="memitem:a672145e26a5d30ef5bc9238428d8f681"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a672145e26a5d30ef5bc9238428d8f681">setGFF</a> (std::string &amp;txt)</td></tr>
+<tr class="memdesc:a672145e26a5d30ef5bc9238428d8f681"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the GFF Tag for the state.  <a href="#a672145e26a5d30ef5bc9238428d8f681"></a><br/></td></tr>
+<tr class="memitem:aaa76f5bfcc777e5d8cf1102ebd99d933"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#aaa76f5bfcc777e5d8cf1102ebd99d933">setLabel</a> (std::string &amp;txt)</td></tr>
+<tr class="memdesc:aaa76f5bfcc777e5d8cf1102ebd99d933"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Label for the state.  <a href="#aaa76f5bfcc777e5d8cf1102ebd99d933"></a><br/></td></tr>
+<tr class="memitem:a394c5e58ee0d98b4c722a959819de7b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a394c5e58ee0d98b4c722a959819de7b2">addToState</a> (<a class="el" href="class_stoch_h_m_m_1_1state.html">state</a> *st)</td></tr>
+<tr class="memdesc:a394c5e58ee0d98b4c722a959819de7b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add state that this state transitions to.  <a href="#a394c5e58ee0d98b4c722a959819de7b2"></a><br/></td></tr>
+<tr class="memitem:a5aee1c24bad4a3c1d0b7991fc1b80256"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a5aee1c24bad4a3c1d0b7991fc1b80256">addFromState</a> (<a class="el" href="class_stoch_h_m_m_1_1state.html">state</a> *st)</td></tr>
+<tr class="memdesc:a5aee1c24bad4a3c1d0b7991fc1b80256"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add state that transitions to this state.  <a href="#a5aee1c24bad4a3c1d0b7991fc1b80256"></a><br/></td></tr>
+<tr class="memitem:a7fefa7b17ddde43333bb80e3158b09ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a7fefa7b17ddde43333bb80e3158b09ff">setIter</a> (size_t val)</td></tr>
+<tr class="memdesc:a7fefa7b17ddde43333bb80e3158b09ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the index value to be used for the state.  <a href="#a7fefa7b17ddde43333bb80e3158b09ff"></a><br/></td></tr>
+<tr class="memitem:a65781f1c5f49a7a3edabb3ad23bc5bd6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a65781f1c5f49a7a3edabb3ad23bc5bd6">hasComplexEmission</a> ()</td></tr>
+<tr class="memitem:a9c7b7d3c419253d07c0ec561a9261caf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a9c7b7d3c419253d07c0ec561a9261caf">hasComplexTransition</a> ()</td></tr>
+<tr class="memitem:a0d98460ec11df3709f826cbd2506ab3e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a0d98460ec11df3709f826cbd2506ab3e">hasSimpleEmission</a> ()</td></tr>
+<tr class="memitem:a2e743caf6f3e7afb3697571958eac4f1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a2e743caf6f3e7afb3697571958eac4f1">hasSimpleTransition</a> ()</td></tr>
+<tr class="memitem:afb7319415b0662fec7d3c004c32a6bb0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#afb7319415b0662fec7d3c004c32a6bb0">isSimple</a> ()</td></tr>
+<tr class="memitem:abcf89f656a8758dca531459f8e441abd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#abcf89f656a8758dca531459f8e441abd">checkLabels</a> (std::set&lt; std::string &gt; &amp;, std::set&lt; std::string &gt; &amp;, std::set&lt; std::string &gt; &amp;)</td></tr>
+<tr class="memdesc:abcf89f656a8758dca531459f8e441abd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the label tags for traceback and combine identifiers.  <a href="#abcf89f656a8758dca531459f8e441abd"></a><br/></td></tr>
+<tr class="memitem:a434dbf305826348f0b225864ccb83559"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a434dbf305826348f0b225864ccb83559">_finalizeTransitions</a> (std::map&lt; std::string, <a class="el" href="class_stoch_h_m_m_1_1state.html">state</a> * &gt; &amp;state_index)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a3e3df3ab4922c7078fddc861eda099a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a3e3df3ab4922c7078fddc861eda099a7">_parseHeader</a> (std::string &amp;)</td></tr>
+<tr class="memitem:a4ab5905749a8b16b9998c7f09f90336a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a4ab5905749a8b16b9998c7f09f90336a">_parseTransition</a> (std::string &amp;, <a class="el" href="class_stoch_h_m_m_1_1string_list.html">stringList</a> &amp;, <a class="el" href="class_stoch_h_m_m_1_1tracks.html">tracks</a> &amp;, <a class="el" href="class_stoch_h_m_m_1_1weights.html">weights</a> *, <a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html">StateFuncs</a> *)</td></tr>
+<tr class="memitem:af7743eb5dc9b2ae858b8726565a40311"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#af7743eb5dc9b2ae858b8726565a40311">_parseEmission</a> (std::string &amp;, <a class="el" href="class_stoch_h_m_m_1_1string_list.html">stringList</a> &amp;, <a class="el" href="class_stoch_h_m_m_1_1tracks.html">tracks</a> &amp;, <a class="el" href="class_stoch_h_m_m_1_1weights.html">weights</a> *, <a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html">StateFuncs</a> *)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a58c7e6b9ab1f0bdd44718448687ac700"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a58c7e6b9ab1f0bdd44718448687ac700">name</a></td></tr>
+<tr class="memitem:ab14d48bab585f461a4f9b558cc524daa"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#ab14d48bab585f461a4f9b558cc524daa">gff</a></td></tr>
+<tr class="memitem:a3a756180fbb3f338a2446ca6cafc0261"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a3a756180fbb3f338a2446ca6cafc0261">label</a></td></tr>
+<tr class="memitem:a62c74dae9736574f8ea13d1b43d5c75d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1transition.html">transition</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a62c74dae9736574f8ea13d1b43d5c75d">transi</a></td></tr>
+<tr class="memitem:ae58061df69b616656f0589d8a47e0c0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1transition.html">transition</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#ae58061df69b616656f0589d8a47e0c0f">endi</a></td></tr>
+<tr class="memitem:af7e994cec885af4967eaed6cac032914"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#af7e994cec885af4967eaed6cac032914">emission</a></td></tr>
+<tr class="memitem:a85a287ad17a215fe2acfcd042070d466"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a85a287ad17a215fe2acfcd042070d466">stateIterator</a></td></tr>
+<tr class="memitem:ae926d05079c5695b25a439bc0c1a2bdf"><td class="memItemLeft" align="right" valign="top">std::bitset&lt; <a class="el" href="_stoch_h_m_m_8cpp.html#ae127900152d47e7d641708811ffdfe39">STATE_MAX</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#ae926d05079c5695b25a439bc0c1a2bdf">to</a></td></tr>
+<tr class="memitem:aebd5e6a43a92b3571d3bd1f79bd365be"><td class="memItemLeft" align="right" valign="top">std::bitset&lt; <a class="el" href="_stoch_h_m_m_8cpp.html#ae127900152d47e7d641708811ffdfe39">STATE_MAX</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#aebd5e6a43a92b3571d3bd1f79bd365be">from</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a6e37bb755d74e24f1b3e7e2def3b13e0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e37bb755d74e24f1b3e7e2def3b13e0"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
+<tr class="memitem:a6e37bb755d74e24f1b3e7e2def3b13e0"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1state.html#a6e37bb755d74e24f1b3e7e2def3b13e0">model</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="state_8h_source.html#l00053">53</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a724a2e126a2dd8adcc4aa5809f028e2b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::state::state </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a state object. </p>
+
+<p>Definition at line <a class="el" href="state_8cpp_source.html#l00031">31</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+
+<p>References <a class="el" href="state_8h_source.html#l00169">transi</a>.</p>
+<div class="fragment"><div class="line">                :<a class="code" href="class_stoch_h_m_m_1_1state.html#ae58061df69b616656f0589d8a47e0c0f">endi</a>(NULL), <a class="code" href="class_stoch_h_m_m_1_1state.html#a85a287ad17a215fe2acfcd042070d466">stateIterator</a>(<a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>){</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1state.html#a62c74dae9736574f8ea13d1b43d5c75d">transi</a> = <span class="keyword">new</span> (std::nothrow) std::vector&lt;transition*&gt;;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="ad577c169b7a7e4c859ca75e44ed0da9b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -226,17 +270,437 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 
 <p>Definition at line <a class="el" href="state_8cpp_source.html#l00042">42</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
 
-<p>References <a class="el" href="state_8cpp_source.html#l00073">parse()</a>.</p>
-<div class="fragment"><div class="line">                                                                                                :endi(NULL), stateIterator(SIZE_MAX){</div>
+<p>References <a class="el" href="state_8cpp_source.html#l00073">parse()</a>, and <a class="el" href="state_8h_source.html#l00169">transi</a>.</p>
+<div class="fragment"><div class="line">                                                                                                :<a class="code" href="class_stoch_h_m_m_1_1state.html#ae58061df69b616656f0589d8a47e0c0f">endi</a>(NULL), <a class="code" href="class_stoch_h_m_m_1_1state.html#a85a287ad17a215fe2acfcd042070d466">stateIterator</a>(<a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>){</div>
 <div class="line">        </div>
 <div class="line">        <span class="comment">//endi=new transition(STANDARD);</span></div>
-<div class="line">        transi = <span class="keyword">new</span> std::vector&lt;transition*&gt;;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1state.html#a62c74dae9736574f8ea13d1b43d5c75d">transi</a> = <span class="keyword">new</span> std::vector&lt;transition*&gt;;</div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1state.html#a0cbb513086803822dc8368e277d2c28e">parse</a>(txt,names,trcks, wts,funcs);</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
 </div>
+<a class="anchor" id="a7666c1a1912dad5e1cf9aa4de1cf47e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::state::~state </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create state from string. </p>
+
+<p>Definition at line <a class="el" href="state_8cpp_source.html#l00049">49</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+
+<p>References <a class="el" href="state_8h_source.html#l00169">transi</a>.</p>
+<div class="fragment"><div class="line">                 {</div>
+<div class="line">        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1state.html#a62c74dae9736574f8ea13d1b43d5c75d">transi</a>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1state.html#a62c74dae9736574f8ea13d1b43d5c75d">transi</a>=NULL;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a434dbf305826348f0b225864ccb83559"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::state::_finalizeTransitions </td>
+          <td>(</td>
+          <td class="paramtype">std::map&lt; std::string, <a class="el" href="class_stoch_h_m_m_1_1state.html">state</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>state_index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="state_8cpp_source.html#l00514">514</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+
+<p>References <a class="el" href="state_8h_source.html#l00066">getIterator()</a>, <a class="el" href="transitions_8h_source.html#l00129">StochHMM::transition::getName()</a>, <a class="el" href="state_8h_source.html#l00165">name</a>, and <a class="el" href="state_8h_source.html#l00169">transi</a>.</p>
+
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00884">StochHMM::model::finalize()</a>.</p>
+<div class="fragment"><div class="line">                                                                         {</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Get size # of states, but correct by -1 because</span></div>
+<div class="line">                <span class="comment">//initial state will be kept separate.</span></div>
+<div class="line">        <span class="keywordtype">size_t</span> number_of_states = state_index.size();</div>
+<div class="line">        std::vector&lt;transition*&gt;* fixed_trans = <span class="keyword">new</span> std::vector&lt;transition*&gt;(number_of_states-1,NULL);</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Find the proper place for the transition and put it in the correct position</span></div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1state.html#a62c74dae9736574f8ea13d1b43d5c75d">transi</a>-&gt;size(); i++){</div>
+<div class="line">            transition* temp = (*transi)[i];</div>
+<div class="line">            std::string <a class="code" href="class_stoch_h_m_m_1_1state.html#a58c7e6b9ab1f0bdd44718448687ac700">name</a> = temp-&gt;getName();</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1state.html#a724a2e126a2dd8adcc4aa5809f028e2b" title="Create a state object.">state</a>* st = state_index[<a class="code" href="class_stoch_h_m_m_1_1state.html#a58c7e6b9ab1f0bdd44718448687ac700">name</a>];</div>
+<div class="line">                        <span class="keywordflow">if</span> (st == NULL){</div>
+<div class="line">                                std::cerr &lt;&lt; <span class="stringliteral">&quot;State: &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; was declared but not defined in the model.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                                exit(2);</div>
+<div class="line">                        }</div>
+<div class="line">            <span class="keywordtype">size_t</span> index = st-&gt;getIterator();</div>
+<div class="line">            (*fixed_trans)[index]=temp;</div>
+<div class="line">            (*transi)[i]=NULL;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1state.html#a62c74dae9736574f8ea13d1b43d5c75d">transi</a>;  <span class="comment">//Don&#39;t need the old transition vector anymore</span></div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1state.html#a62c74dae9736574f8ea13d1b43d5c75d">transi</a> = fixed_trans;</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="af7743eb5dc9b2ae858b8726565a40311"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::state::_parseEmission </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>txt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">stringList</a> &amp;&#160;</td>
+          <td class="paramname"><em>names</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1tracks.html">tracks</a> &amp;&#160;</td>
+          <td class="paramname"><em>trks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1weights.html">weights</a> *&#160;</td>
+          <td class="paramname"><em>wts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html">StateFuncs</a> *&#160;</td>
+          <td class="paramname"><em>funcs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Parses the emission for a state from a string </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">txt</td><td>String representation of emissions </td></tr>
+    <tr><td class="paramname">names</td><td><a class="el" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a> of all state names defined in the model </td></tr>
+    <tr><td class="paramname">trks</td><td>Tracks defined in the model </td></tr>
+    <tr><td class="paramname">wts</td><td>Weight defined of the model </td></tr>
+    <tr><td class="paramname">funcs</td><td>StateFunction defined for the model </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="state_8cpp_source.html#l00296">296</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+
+<p>References <a class="el" href="state_8h_source.html#l00173">emission</a>, <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, and <a class="el" href="text_8cpp_source.html#l00163">StochHMM::stringList::splitND()</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8cpp_source.html#l00073">parse()</a>.</p>
+<div class="fragment"><div class="line">                                                                                                              {</div>
+<div class="line">        stringList lst;</div>
+<div class="line">        lst.splitND(txt,<span class="stringliteral">&quot;EMISSION:&quot;</span>);</div>
+<div class="line">        <span class="comment">//lst.print();</span></div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> iter=0; iter&lt;lst.size();iter++){</div>
+<div class="line">            emm* temp = <span class="keyword">new</span>(std::nothrow) emm;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (temp==NULL){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (!temp-&gt;parse(lst[iter],trks,wts,funcs)){</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1state.html#af7e994cec885af4967eaed6cac032914">emission</a>.push_back(temp);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a3e3df3ab4922c7078fddc861eda099a7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::state::_parseHeader </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>txt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Parse the state header information and assign to class variables *Required header information includes then NAME and PATH_LABEL *Optonal header information includes GFF_DESC </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">txt</td><td>String representation of state header </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="state_8cpp_source.html#l00127">127</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00435">StochHMM::clear_whitespace()</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="state_8h_source.html#l00166">gff</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="state_8h_source.html#l00167">label</a>, <a class="el" href="state_8h_source.html#l00165">name</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, and <a class="el" href="text_8cpp_source.html#l00495">StochHMM::splitString()</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8cpp_source.html#l00073">parse()</a>.</p>
+<div class="fragment"><div class="line">                                          {</div>
+<div class="line">        </div>
+<div class="line">        <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(txt,<span class="stringliteral">&quot;\t &quot;</span>);</div>
+<div class="line">        stringList lst = <a class="code" href="group___text.html#ga011a05da53674a925fe8dc3402ac3f24" title="Splits string using delimiters and return stringList.">splitString</a>(txt,<span class="stringliteral">&quot;\n:&quot;</span>);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">size_t</span> idx;</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//parse NAME  (REQUIRED)</span></div>
+<div class="line">        <span class="keywordflow">if</span> (lst.contains(<span class="stringliteral">&quot;NAME&quot;</span>)){</div>
+<div class="line">            idx= lst.indexOf(<span class="stringliteral">&quot;NAME&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">if</span> (idx+1 &lt; lst.size()){</div>
+<div class="line">                idx++;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1state.html#a58c7e6b9ab1f0bdd44718448687ac700">name</a>=lst[idx];</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;The states NAME couldn&#39;t be parsed from &quot;</span> &lt;&lt; txt &lt;&lt; std::endl;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1state.html#a58c7e6b9ab1f0bdd44718448687ac700">name</a>.compare(<span class="stringliteral">&quot;INIT&quot;</span>)==0){</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;No NAME found in state header information. Please check formatting. Following is header information recieved: &quot;</span> &lt;&lt; txt &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//parse PATH_LABEL  (REQUIRED)</span></div>
+<div class="line">        <span class="keywordflow">if</span> (lst.contains(<span class="stringliteral">&quot;PATH&quot;</span>)){</div>
+<div class="line">            idx= lst.indexOf(<span class="stringliteral">&quot;PATH&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">if</span> (idx+1 &lt; lst.size()){</div>
+<div class="line">                idx++;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1state.html#a3a756180fbb3f338a2446ca6cafc0261">label</a>=lst[idx];</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr &lt;&lt;  <span class="stringliteral">&quot;The states PATH_LABEL couldn&#39;t be parsed from &quot;</span> &lt;&lt; txt &lt;&lt; std::endl;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;No PATH_LABEL found in state header information. Please check formatting. Following is header information recieved: &quot;</span> &lt;&lt; txt &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Parse GFF_DESC  (Optional)</span></div>
+<div class="line">        <span class="keywordflow">if</span> (lst.contains(<span class="stringliteral">&quot;GFF&quot;</span>)){</div>
+<div class="line">            idx= lst.indexOf(<span class="stringliteral">&quot;GFF&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">if</span> (idx+1 &lt; lst.size()){</div>
+<div class="line">                idx++;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1state.html#ab14d48bab585f461a4f9b558cc524daa">gff</a>=lst[idx];</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr &lt;&lt;  <span class="stringliteral">&quot;The states GFF_DESC couldn&#39;t be parsed from &quot;</span> &lt;&lt; txt &lt;&lt; std::endl;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">                </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a4ab5905749a8b16b9998c7f09f90336a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::state::_parseTransition </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>txt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1string_list.html">stringList</a> &amp;&#160;</td>
+          <td class="paramname"><em>names</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1tracks.html">tracks</a> &amp;&#160;</td>
+          <td class="paramname"><em>trks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1weights.html">weights</a> *&#160;</td>
+          <td class="paramname"><em>wts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html">StateFuncs</a> *&#160;</td>
+          <td class="paramname"><em>funcs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Parses the transitions of the state from a text string </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">txt</td><td>Text representation of the transitions </td></tr>
+    <tr><td class="paramname">name</td><td>StringList of all state names defined in the model </td></tr>
+    <tr><td class="paramname">trks</td><td>Reference to tracks for the model </td></tr>
+    <tr><td class="paramname">wts</td><td>Weight defined in the model </td></tr>
+    <tr><td class="paramname">funcs</td><td>State functions defined for the model </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="state_8cpp_source.html#l00197">197</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+
+<p>References <a class="el" href="state_8h_source.html#l00123">addTransition()</a>, <a class="el" href="text_8cpp_source.html#l00435">StochHMM::clear_whitespace()</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::COUNTS</a>, <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::DURATION</a>, <a class="el" href="state_8h_source.html#l00170">endi</a>, <a class="el" href="transitions_8h_source.html#l00129">StochHMM::transition::getName()</a>, <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::LEXICAL</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::LOG_PROB</a>, <a class="el" href="transitions_8cpp_source.html#l00067">StochHMM::transition::parse()</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::PROBABILITY</a>, <a class="el" href="text_8cpp_source.html#l00414">StochHMM::stringList::removeComments()</a>, <a class="el" href="text_8cpp_source.html#l00185">StochHMM::stringList::removeLWS()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00163">StochHMM::stringList::splitND()</a>, <a class="el" href="text_8cpp_source.html#l00495">StochHMM::splitString()</a>, and <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::STANDARD</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8cpp_source.html#l00073">parse()</a>.</p>
+<div class="fragment"><div class="line">                                                                                                                {</div>
+<div class="line">        <span class="comment">//SPLIT UP TRANSITIONS AND APPLY SEPARATELY</span></div>
+<div class="line">        stringList lst;</div>
+<div class="line">        lst.splitND(txt,<span class="stringliteral">&quot;TRANSITION:&quot;</span>);</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> iter=0;iter&lt;lst.size();iter++){</div>
+<div class="line">            </div>
+<div class="line">            stringList line=<a class="code" href="group___text.html#ga011a05da53674a925fe8dc3402ac3f24" title="Splits string using delimiters and return stringList.">splitString</a>(lst[iter],<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line">            line.removeLWS(<span class="stringliteral">&quot;\t &quot;</span>);</div>
+<div class="line">            line.removeComments();</div>
+<div class="line">            <span class="comment">//Line 1 defines transition type</span></div>
+<div class="line">            </div>
+<div class="line">            <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(line[0],<span class="stringliteral">&quot;\t&quot;</span>);</div>
+<div class="line">            stringList head=<a class="code" href="group___text.html#ga011a05da53674a925fe8dc3402ac3f24" title="Splits string using delimiters and return stringList.">splitString</a>(line[0],<span class="stringliteral">&quot;:&quot;</span>);</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//DETERMINE TYPE</span></div>
+<div class="line">            <a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0">transType</a> tp;</div>
+<div class="line">            <span class="keywordflow">if</span> (head.contains(<span class="stringliteral">&quot;STANDARD&quot;</span>)){tp=<a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0a73806aba512ce6a2f6ba00c5acb1bd5c">STANDARD</a>;}</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (head.contains(<span class="stringliteral">&quot;DURATION&quot;</span>)){tp=<a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0a318aeefa858c2510dba13533a5ac9a34">DURATION</a>;}</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (head.contains(<span class="stringliteral">&quot;LEXICAL&quot;</span>)){tp=<a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0a039965fb2f21a114426ab5c90f15901b">LEXICAL</a>;}</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Unrecognized Transition type(STANDARD, DURATION, LEXICAL):&quot;</span> &lt;&lt; txt &lt;&lt; std::endl;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                <span class="comment">//Error not recognized transition type</span></div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//DETERMINE VALUE TYPE</span></div>
+<div class="line">            <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835">valueType</a> valtyp;</div>
+<div class="line">            <span class="keywordflow">if</span> (head.contains(<span class="stringliteral">&quot;P(X)&quot;</span>)){valtyp=<a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a92649806455862fab71c5b2aa48bfc55">PROBABILITY</a>;}</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (head.contains(<span class="stringliteral">&quot;LOG&quot;</span>)){valtyp=<a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a26e61ea2119ea2b9482e5a16b4a51604">LOG_PROB</a>;}</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (head.contains(<span class="stringliteral">&quot;COUNTS&quot;</span>)){valtyp=<a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a68071cfc928cf75eda3d522a63517b31">COUNTS</a>;}</div>
+<div class="line">            <span class="keywordflow">else</span> {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Unrecognized Transition value type( P(X), LOG, COUNTS): &quot;</span> &lt;&lt; txt &lt;&lt; std::endl;</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                <span class="comment">//Error not recognized value type</span></div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            </div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (tp==<a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0a73806aba512ce6a2f6ba00c5acb1bd5c">STANDARD</a>){</div>
+<div class="line">                <span class="comment">//Process each following from line</span></div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> iter=1;iter&lt;line.size();iter++){</div>
+<div class="line">                    transition* temp = <span class="keyword">new</span>(std::nothrow) transition(tp);</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="keywordflow">if</span> (temp==NULL){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                        exit(1);</div>
+<div class="line">                    }</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="keywordflow">if</span> (!temp-&gt;parse(line[iter], names, valtyp, trks, wts, funcs)){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t parse Transition &quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                    }</div>
+<div class="line">                    </div>
+<div class="line">                    std::string transName = temp-&gt;getName();</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="keywordflow">if</span> (transName==<span class="stringliteral">&quot;END&quot;</span>){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1state.html#ae58061df69b616656f0589d8a47e0c0f">endi</a> = temp;</div>
+<div class="line">                    }</div>
+<div class="line">                    <span class="keywordflow">else</span>{</div>
+<div class="line">                        <span class="comment">//size_t idx = names.indexOf(transName);</span></div>
+<div class="line">                        <span class="comment">//idx--;</span></div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1state.html#a2cefe7e62ed5167795cd938bccba432a">addTransition</a>(temp);</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">            }</div>
+<div class="line">                        </div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tp==<a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0a318aeefa858c2510dba13533a5ac9a34">DURATION</a> || tp==<a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0a039965fb2f21a114426ab5c90f15901b">LEXICAL</a> ){</div>
+<div class="line">                transition* temp = <span class="keyword">new</span>(std::nothrow) transition(tp);</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (temp==NULL){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                    exit(1);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (!temp-&gt;parse(line,names,valtyp,trks,wts,funcs)){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t parse Transition &quot;</span>&lt;&lt; std::endl;</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">                std::string transName = temp-&gt;getName();</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//size_t idx = names.indexOf(transName);</span></div>
+<div class="line">                <span class="comment">//idx--;</span></div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1state.html#a2cefe7e62ed5167795cd938bccba432a">addTransition</a>(temp);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="a900783c2ef686305862085d6c37aaf81"></a>
 <div class="memitem">
 <div class="memproto">
@@ -267,7 +731,75 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="state_8h_source.html#l00131">131</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
-<div class="fragment"><div class="line">{emission.push_back(em);};</div>
+
+<p>References <a class="el" href="state_8h_source.html#l00173">emission</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1state.html#af7e994cec885af4967eaed6cac032914">emission</a>.push_back(em);};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a5aee1c24bad4a3c1d0b7991fc1b80256"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::state::addFromState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1state.html">state</a> *&#160;</td>
+          <td class="paramname"><em>st</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add state that transitions to this state. </p>
+
+<p>Definition at line <a class="el" href="state_8h_source.html#l00147">147</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+
+<p>References <a class="el" href="state_8h_source.html#l00179">from</a>, and <a class="el" href="state_8h_source.html#l00066">getIterator()</a>.</p>
+
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l01021">StochHMM::model::_addStateToFromTransition()</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1state.html#aebd5e6a43a92b3571d3bd1f79bd365be">from</a>[st-&gt;getIterator()]=1;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a394c5e58ee0d98b4c722a959819de7b2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::state::addToState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1state.html">state</a> *&#160;</td>
+          <td class="paramname"><em>st</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add state that this state transitions to. </p>
+
+<p>Definition at line <a class="el" href="state_8h_source.html#l00144">144</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+
+<p>References <a class="el" href="state_8h_source.html#l00066">getIterator()</a>, and <a class="el" href="state_8h_source.html#l00178">to</a>.</p>
+
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l01021">StochHMM::model::_addStateToFromTransition()</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1state.html#ae926d05079c5695b25a439bc0c1a2bdf">to</a>[st-&gt;getIterator()]=1;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -301,7 +833,104 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="state_8h_source.html#l00123">123</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
-<div class="fragment"><div class="line">{transi-&gt;push_back(trans);};</div>
+
+<p>References <a class="el" href="state_8h_source.html#l00169">transi</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8cpp_source.html#l00197">_parseTransition()</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1state.html#a62c74dae9736574f8ea13d1b43d5c75d">transi</a>-&gt;push_back(trans);};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="abcf89f656a8758dca531459f8e441abd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::state::checkLabels </td>
+          <td>(</td>
+          <td class="paramtype">std::set&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>labels</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::set&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>gff</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::set&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks the label tags for traceback and combine identifiers. </p>
+
+<p>Definition at line <a class="el" href="state_8cpp_source.html#l00451">451</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+
+<p>References <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::DIFF_STATE</a>, <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::FULL</a>, <a class="el" href="external_funcs_8h_source.html#l00093">StochHMM::transitionFuncParam::getCombineName()</a>, <a class="el" href="external_funcs_8h_source.html#l00099">StochHMM::transitionFuncParam::getCombineType()</a>, <a class="el" href="external_funcs_8h_source.html#l00089">StochHMM::transitionFuncParam::getTracebackName()</a>, <a class="el" href="external_funcs_8h_source.html#l00085">StochHMM::transitionFuncParam::getTracebackType()</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::START_INIT</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_GFF</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_LABEL</a>, <a class="el" href="stoch_types_8h_source.html#l00051">StochHMM::STATE_NAME</a>, <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::STATEGFF</a>, <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::STATELABEL</a>, and <a class="el" href="stoch_types_8h_source.html#l00061">StochHMM::STATENAME</a>.</p>
+<div class="fragment"><div class="line">                                                                                                     {</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0;i&lt;(*transi).size();i++){</div>
+<div class="line">            transitionFuncParam* func = (*transi)[i]-&gt;getExtFunction();</div>
+<div class="line">            <span class="keywordflow">if</span> (func!=NULL){</div>
+<div class="line">                </div>
+<div class="line">                <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0">tracebackIdentifier</a> tt = func-&gt;getTracebackType();</div>
+<div class="line">                std::string tn = func-&gt;getTracebackName();</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Traceback Identifier</span></div>
+<div class="line">                <span class="keywordflow">if</span> (tt != <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0affb06959a95d912e7fbdb602fe454108">START_INIT</a> &amp;&amp; tt != <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a4854244905e0725bfd743559f2825d97">DIFF_STATE</a>){</div>
+<div class="line">                    <span class="keywordflow">if</span> (tt == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a18e765406f9d8a5caa2b0d0a6c9f998a">STATE_NAME</a>){</div>
+<div class="line">                        <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1state.html#a58c7e6b9ab1f0bdd44718448687ac700">name</a>.count(tn)){</div>
+<div class="line">                            std::cerr &lt;&lt; <span class="stringliteral">&quot;Model Function or Distribution traceback definition contains Unknown State Name:\t&quot;</span> &lt;&lt; tn &lt;&lt; std::endl;</div>
+<div class="line">                        }</div>
+<div class="line">                    }</div>
+<div class="line">                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tt == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a58a38a1a765f474348b77316f16a6705">STATE_GFF</a>){</div>
+<div class="line">                        <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1state.html#ab14d48bab585f461a4f9b558cc524daa">gff</a>.count(tn)){</div>
+<div class="line">                            std::cerr &lt;&lt; <span class="stringliteral">&quot;Model function or distribution traceback definition contains Unknown GFF Descrition:\t&quot;</span> &lt;&lt; tn &lt;&lt; std::endl;</div>
+<div class="line">                        }</div>
+<div class="line">                    }</div>
+<div class="line">                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tt == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0ac2040123c6c745b59fc47ad26b2e6da4">STATE_LABEL</a>){</div>
+<div class="line">                        <span class="keywordflow">if</span> (!labels.count(tn)){</div>
+<div class="line">                            std::cerr &lt;&lt; <span class="stringliteral">&quot;Model function or distribution traceback definition contains Unknown Path Label:\t&quot;</span> &lt;&lt; tn &lt;&lt; std::endl;</div>
+<div class="line">                        }</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3af">combineIdentifier</a> ct = func-&gt;getCombineType();</div>
+<div class="line">                std::string cn = func-&gt;getCombineName();</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Combine Identifiers</span></div>
+<div class="line">                <span class="keywordflow">if</span> (ct != <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa1d7fc605341a3b076cf0752b9aef65c5">FULL</a>){</div>
+<div class="line">                    <span class="keywordflow">if</span> (ct == <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa198b8fa516af18756740aa9bcdd35ea9">STATENAME</a>){</div>
+<div class="line">                        <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1state.html#a58c7e6b9ab1f0bdd44718448687ac700">name</a>.count(cn)){</div>
+<div class="line">                            std::cerr &lt;&lt; <span class="stringliteral">&quot;Traceback Combine definition contains Unknown State Name:\t&quot;</span> &lt;&lt; cn &lt;&lt; std::endl;</div>
+<div class="line">                        }</div>
+<div class="line">                    }</div>
+<div class="line">                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ct == <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa49875a64cf5df70e633b53bb59795369">STATEGFF</a>){</div>
+<div class="line">                        <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1state.html#ab14d48bab585f461a4f9b558cc524daa">gff</a>.count(cn)){</div>
+<div class="line">                            std::cerr &lt;&lt; <span class="stringliteral">&quot;Traceback Combine definition contains Unknown GFF Descrition:\t&quot;</span> &lt;&lt; cn &lt;&lt; std::endl;</div>
+<div class="line">                        }</div>
+<div class="line">                    }</div>
+<div class="line">                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ct == <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa93fcf6d9e9ea65f68afa730e67a5d4b1">STATELABEL</a>){</div>
+<div class="line">                        <span class="keywordflow">if</span> (!labels.count(cn)){</div>
+<div class="line">                            std::cerr &lt;&lt; <span class="stringliteral">&quot;Traceback Combine definition contains Unknown Path Label:\t&quot;</span> &lt;&lt; cn &lt;&lt; std::endl;</div>
+<div class="line">                        }</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">                                </div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -338,10 +967,14 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="state_8cpp_source.html#l00411">411</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+
+<p>References <a class="el" href="state_8h_source.html#l00173">emission</a>.</p>
+
+<p>Referenced by <a class="el" href="forward_8cpp_source.html#l00177">StochHMM::trellis::naive_forward()</a>, <a class="el" href="nth__best_8cpp_source.html#l00194">StochHMM::trellis::naive_nth_viterbi()</a>, <a class="el" href="stoch__forward_8cpp_source.html#l00174">StochHMM::trellis::naive_stochastic_forward()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00181">StochHMM::trellis::naive_stochastic_viterbi()</a>, <a class="el" href="viterbi_8cpp_source.html#l00201">StochHMM::trellis::naive_viterbi()</a>, <a class="el" href="backward_8cpp_source.html#l00131">StochHMM::trellis::simple_backward()</a>, and <a class="el" href="posterior_8cpp_source.html#l00056">StochHMM::trellis::simple_posterior()</a>.</p>
 <div class="fragment"><div class="line">                                                               {</div>
-<div class="line">        <span class="keywordtype">double</span> value(emission[0]-&gt;get_emission(seqs,iter));</div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;emission.size();i++){</div>
-<div class="line">            value+=emission[i]-&gt;get_emission(seqs,iter);  <span class="comment">//Pass sequences type to get_emission for each emission in the state</span></div>
+<div class="line">        <span class="keywordtype">double</span> value(<a class="code" href="class_stoch_h_m_m_1_1state.html#af7e994cec885af4967eaed6cac032914">emission</a>[0]-&gt;get_emission(seqs,iter));</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;<a class="code" href="class_stoch_h_m_m_1_1state.html#af7e994cec885af4967eaed6cac032914">emission</a>.size();i++){</div>
+<div class="line">            value+=<a class="code" href="class_stoch_h_m_m_1_1state.html#af7e994cec885af4967eaed6cac032914">emission</a>[i]-&gt;get_emission(seqs,iter);  <span class="comment">//Pass sequences type to get_emission for each emission in the state</span></div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">return</span> value;</div>
 <div class="line">    }</div>
@@ -388,18 +1021,20 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="state_8cpp_source.html#l00424">424</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+
+<p>References <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::STANDARD</a>, <a class="el" href="state_8h_source.html#l00178">to</a>, and <a class="el" href="state_8h_source.html#l00169">transi</a>.</p>
 <div class="fragment"><div class="line">                                                                            {</div>
 <div class="line">        <span class="keywordtype">double</span> value;</div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> ((*transi)[to]==NULL){</div>
+<div class="line">        <span class="keywordflow">if</span> ((*<a class="code" href="class_stoch_h_m_m_1_1state.html#a62c74dae9736574f8ea13d1b43d5c75d">transi</a>)[<a class="code" href="class_stoch_h_m_m_1_1state.html#ae926d05079c5695b25a439bc0c1a2bdf">to</a>]==NULL){</div>
 <div class="line">            <span class="keywordflow">return</span> -INFINITY;</div>
 <div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((*transi)[to]-&gt;transition_type==STANDARD){</div>
-<div class="line">            value = (*transi)[to]-&gt;log_trans;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((*<a class="code" href="class_stoch_h_m_m_1_1state.html#a62c74dae9736574f8ea13d1b43d5c75d">transi</a>)[<a class="code" href="class_stoch_h_m_m_1_1state.html#ae926d05079c5695b25a439bc0c1a2bdf">to</a>]-&gt;transition_type==<a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0a73806aba512ce6a2f6ba00c5acb1bd5c">STANDARD</a>){</div>
+<div class="line">            value = (*transi)[<a class="code" href="class_stoch_h_m_m_1_1state.html#ae926d05079c5695b25a439bc0c1a2bdf">to</a>]-&gt;log_trans;</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Need to implement this functionality&quot;</span> &lt;&lt;std::endl;</div>
-<div class="line">            value = (*transi)[to]-&gt;getTransition(iter,&amp;seqs);</div>
+<div class="line">            value = (*transi)[<a class="code" href="class_stoch_h_m_m_1_1state.html#ae926d05079c5695b25a439bc0c1a2bdf">to</a>]-&gt;getTransition(iter,&amp;seqs);</div>
 <div class="line">            </div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">return</span> value;</div>
@@ -437,7 +1072,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="state_8h_source.html#l00109">109</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> emission[iter];};</div>
+
+<p>References <a class="el" href="state_8h_source.html#l00173">emission</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1state.html#af7e994cec885af4967eaed6cac032914">emission</a>[iter];};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -465,7 +1102,36 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>transition* Pointer to ending transition  not defined return value should be NULL </dd></dl>
 
 <p>Definition at line <a class="el" href="state_8h_source.html#l00104">104</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> endi;};</div>
+
+<p>References <a class="el" href="state_8h_source.html#l00170">endi</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1state.html#ae58061df69b616656f0589d8a47e0c0f">endi</a>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a29ea1ce016de1ea998c7dc5fffeea53b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double StochHMM::state::getEndTrans </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the log probability transitioning to end from the state. </p>
+
+<p>Definition at line <a class="el" href="state_8cpp_source.html#l00442">442</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+
+<p>References <a class="el" href="state_8h_source.html#l00170">endi</a>, and <a class="el" href="transitions_8h_source.html#l00185">StochHMM::transition::log_trans</a>.</p>
+<div class="fragment"><div class="line">                             {</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1state.html#ae58061df69b616656f0589d8a47e0c0f">endi</a>==NULL){</div>
+<div class="line">            <span class="keywordflow">return</span> -INFINITY;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1state.html#ae58061df69b616656f0589d8a47e0c0f">endi</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition.html#a02dae54a9b3a7068994c3c42e7183d13">log_trans</a>;</div>
+<div class="line">    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -477,7 +1143,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::bitset&lt;STATE_MAX&gt;* StochHMM::state::getFrom </td>
+          <td class="memname">std::bitset&lt;<a class="el" href="_stoch_h_m_m_8cpp.html#ae127900152d47e7d641708811ffdfe39">STATE_MAX</a>&gt;* StochHMM::state::getFrom </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -493,7 +1159,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>std::vector&lt;state*&gt;* Pointer to all state that transition to this state </dd></dl>
 
 <p>Definition at line <a class="el" href="state_8h_source.html#l00092">92</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> &amp;from;};</div>
+
+<p>References <a class="el" href="state_8h_source.html#l00179">from</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> &amp;<a class="code" href="class_stoch_h_m_m_1_1state.html#aebd5e6a43a92b3571d3bd1f79bd365be">from</a>;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -521,8 +1189,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 
 <p>Definition at line <a class="el" href="state_8h_source.html#l00074">74</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
 
-<p>Referenced by <a class="el" href="traceback__path_8cpp_source.html#l00103">StochHMM::traceback_path::gff()</a>, and <a class="el" href="traceback__path_8cpp_source.html#l00268">StochHMM::traceback_path::print_gff()</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> gff;};</div>
+<p>References <a class="el" href="state_8h_source.html#l00166">gff</a>.</p>
+
+<p>Referenced by <a class="el" href="trellis_8cpp_source.html#l00271">StochHMM::trellis::get_explicit_duration_length()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00103">StochHMM::traceback_path::gff()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00268">StochHMM::traceback_path::print_gff()</a>, and <a class="el" href="trellis_8cpp_source.html#l00315">StochHMM::trellis::transitionFuncTraceback()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1state.html#ab14d48bab585f461a4f9b558cc524daa">gff</a>;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -551,8 +1221,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 
 <p>Definition at line <a class="el" href="state_8h_source.html#l00066">66</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
 
-<p>Referenced by <a class="el" href="state_8h_source.html#l00147">addFromState()</a>, and <a class="el" href="state_8h_source.html#l00144">addToState()</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> stateIterator;};</div>
+<p>References <a class="el" href="state_8h_source.html#l00177">stateIterator</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8cpp_source.html#l00514">_finalizeTransitions()</a>, <a class="el" href="state_8h_source.html#l00147">addFromState()</a>, <a class="el" href="state_8h_source.html#l00144">addToState()</a>, <a class="el" href="trellis_8cpp_source.html#l00271">StochHMM::trellis::get_explicit_duration_length()</a>, <a class="el" href="trellis_8cpp_source.html#l00220">StochHMM::trellis::getTransition()</a>, and <a class="el" href="trellis_8cpp_source.html#l00315">StochHMM::trellis::transitionFuncTraceback()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1state.html#a85a287ad17a215fe2acfcd042070d466">stateIterator</a>;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -581,8 +1253,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 
 <p>Definition at line <a class="el" href="state_8h_source.html#l00078">78</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
 
-<p>Referenced by <a class="el" href="traceback__path_8cpp_source.html#l00065">StochHMM::traceback_path::label()</a>, and <a class="el" href="traceback__path_8cpp_source.html#l00252">StochHMM::traceback_path::print_label()</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> label;};</div>
+<p>References <a class="el" href="state_8h_source.html#l00167">label</a>.</p>
+
+<p>Referenced by <a class="el" href="trellis_8cpp_source.html#l00271">StochHMM::trellis::get_explicit_duration_length()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00065">StochHMM::traceback_path::label()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00252">StochHMM::traceback_path::print_label()</a>, and <a class="el" href="trellis_8cpp_source.html#l00315">StochHMM::trellis::transitionFuncTraceback()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1state.html#a3a756180fbb3f338a2446ca6cafc0261">label</a>;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -611,8 +1285,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 
 <p>Definition at line <a class="el" href="state_8h_source.html#l00070">70</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
 
-<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00735">StochHMM::model::addState()</a>, and <a class="el" href="traceback__path_8cpp_source.html#l00092">StochHMM::traceback_path::name()</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> name;};</div>
+<p>References <a class="el" href="state_8h_source.html#l00165">name</a>.</p>
+
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00688">StochHMM::model::_parseStates()</a>, <a class="el" href="hmm_8cpp_source.html#l00735">StochHMM::model::addState()</a>, <a class="el" href="trellis_8cpp_source.html#l00271">StochHMM::trellis::get_explicit_duration_length()</a>, <a class="el" href="traceback__path_8cpp_source.html#l00092">StochHMM::traceback_path::name()</a>, and <a class="el" href="trellis_8cpp_source.html#l00315">StochHMM::trellis::transitionFuncTraceback()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1state.html#a58c7e6b9ab1f0bdd44718448687ac700">name</a>;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -624,7 +1300,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::bitset&lt;STATE_MAX&gt;* StochHMM::state::getTo </td>
+          <td class="memname">std::bitset&lt;<a class="el" href="_stoch_h_m_m_8cpp.html#ae127900152d47e7d641708811ffdfe39">STATE_MAX</a>&gt;* StochHMM::state::getTo </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -640,7 +1316,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>std::vector&lt;state*&gt;* Pointer to all state that are transitioned to </dd></dl>
 
 <p>Definition at line <a class="el" href="state_8h_source.html#l00086">86</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> &amp;to;};</div>
+
+<p>References <a class="el" href="state_8h_source.html#l00178">to</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> &amp;<a class="code" href="class_stoch_h_m_m_1_1state.html#ae926d05079c5695b25a439bc0c1a2bdf">to</a>;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -675,7 +1353,11 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>transition* pointer to the transition </dd></dl>
 
 <p>Definition at line <a class="el" href="state_8h_source.html#l00099">99</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> (*transi)[iter];};</div>
+
+<p>References <a class="el" href="state_8h_source.html#l00169">transi</a>.</p>
+
+<p>Referenced by <a class="el" href="trellis_8cpp_source.html#l00220">StochHMM::trellis::getTransition()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> (*<a class="code" href="class_stoch_h_m_m_1_1state.html#a62c74dae9736574f8ea13d1b43d5c75d">transi</a>)[iter];};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -703,7 +1385,129 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>std::vector&lt;transitions*&gt;* Pointer to all transitions in state </dd></dl>
 
 <p>Definition at line <a class="el" href="state_8h_source.html#l00082">82</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> transi;};</div>
+
+<p>References <a class="el" href="state_8h_source.html#l00169">transi</a>.</p>
+
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l01021">StochHMM::model::_addStateToFromTransition()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1state.html#a62c74dae9736574f8ea13d1b43d5c75d">transi</a>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a65781f1c5f49a7a3edabb3ad23bc5bd6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::state::hasComplexEmission </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="state_8cpp_source.html#l00541">541</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+
+<p>References <a class="el" href="state_8h_source.html#l00173">emission</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8cpp_source.html#l00566">isSimple()</a>.</p>
+<div class="fragment"><div class="line">                                      {</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1state.html#af7e994cec885af4967eaed6cac032914">emission</a>.size() ; ++i){</div>
+<div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1state.html#af7e994cec885af4967eaed6cac032914">emission</a>[i]-&gt;isComplex()){</div>
+<div class="line">                                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a9c7b7d3c419253d07c0ec561a9261caf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::state::hasComplexTransition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="state_8cpp_source.html#l00552">552</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+
+<p>References <a class="el" href="state_8h_source.html#l00169">transi</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8cpp_source.html#l00566">isSimple()</a>.</p>
+<div class="fragment"><div class="line">                                        {</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;(*transi).size();++i){</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> ((*<a class="code" href="class_stoch_h_m_m_1_1state.html#a62c74dae9736574f8ea13d1b43d5c75d">transi</a>)[i]==NULL){</div>
+<div class="line">                                <span class="keywordflow">continue</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> ((*<a class="code" href="class_stoch_h_m_m_1_1state.html#a62c74dae9736574f8ea13d1b43d5c75d">transi</a>)[i]-&gt;isComplex()){</div>
+<div class="line">                                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a0d98460ec11df3709f826cbd2506ab3e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::state::hasSimpleEmission </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2e743caf6f3e7afb3697571958eac4f1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::state::hasSimpleTransition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afb7319415b0662fec7d3c004c32a6bb0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::state::isSimple </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="state_8cpp_source.html#l00566">566</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+
+<p>References <a class="el" href="state_8cpp_source.html#l00541">hasComplexEmission()</a>, and <a class="el" href="state_8cpp_source.html#l00552">hasComplexTransition()</a>.</p>
+<div class="fragment"><div class="line">                            {</div>
+<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1state.html#a65781f1c5f49a7a3edabb3ad23bc5bd6">hasComplexEmission</a>() &amp;&amp; ! <a class="code" href="class_stoch_h_m_m_1_1state.html#a9c7b7d3c419253d07c0ec561a9261caf">hasComplexTransition</a>()){</div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -759,7 +1563,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 
 <p>Definition at line <a class="el" href="state_8cpp_source.html#l00073">73</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="state_8cpp_source.html#l00042">state()</a>.</p>
+<p>References <a class="el" href="state_8cpp_source.html#l00296">_parseEmission()</a>, <a class="el" href="state_8cpp_source.html#l00127">_parseHeader()</a>, <a class="el" href="state_8cpp_source.html#l00197">_parseTransition()</a>, and <a class="el" href="state_8h_source.html#l00165">name</a>.</p>
+
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00688">StochHMM::model::_parseStates()</a>, and <a class="el" href="state_8cpp_source.html#l00042">state()</a>.</p>
 <div class="fragment"><div class="line">                                                                                                    {</div>
 <div class="line">        <span class="keywordtype">size_t</span> stateHeaderInfo = txt.find(<span class="stringliteral">&quot;STATE:&quot;</span>);</div>
 <div class="line">        <span class="keywordtype">size_t</span> transitionsInfo = txt.find(<span class="stringliteral">&quot;TRANSITION:&quot;</span>);</div>
@@ -778,7 +1584,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <div class="line">        </div>
 <div class="line">        <span class="comment">//Extract and Parse Header Information</span></div>
 <div class="line">        std::string header = txt.substr(stateHeaderInfo,transitionsInfo-stateHeaderInfo);</div>
-<div class="line">        <span class="keywordflow">if</span> (!_parseHeader(header)){</div>
+<div class="line">        <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1state.html#a3e3df3ab4922c7078fddc861eda099a7">_parseHeader</a>(header)){</div>
 <div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">        }</div>
 <div class="line">                </div>
@@ -786,7 +1592,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <div class="line">        <span class="comment">//Extract and Parse Transition Information</span></div>
 <div class="line">        std::string trans = (emissionInfo==std::string::npos) ? txt.substr(transitionsInfo) : txt.substr(transitionsInfo, emissionInfo - transitionsInfo);</div>
 <div class="line">        <span class="comment">//std::cout &lt;&lt; trans &lt;&lt; std::endl;</span></div>
-<div class="line">        <span class="keywordflow">if</span> (!_parseTransition(trans, names, trks, wts, funcs)){</div>
+<div class="line">        <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1state.html#a4ab5905749a8b16b9998c7f09f90336a">_parseTransition</a>(trans, names, trks, wts, funcs)){</div>
 <div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">        }</div>
 <div class="line">        </div>
@@ -794,20 +1600,42 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <div class="line">        <span class="comment">//Check emissions existence  (only INIT state can have no emission)</span></div>
 <div class="line">        <span class="keywordflow">if</span> (emissionInfo != std::string::npos){</div>
 <div class="line">            std::string emmis = txt.substr(emissionInfo);</div>
-<div class="line">            <span class="keywordflow">if</span> (!_parseEmission(emmis, names, trks, wts, funcs)){</div>
-<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t parse the emissions for state: &quot;</span> &lt;&lt; name &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1state.html#af7743eb5dc9b2ae858b8726565a40311">_parseEmission</a>(emmis, names, trks, wts, funcs)){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t parse the emissions for state: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1state.html#a58c7e6b9ab1f0bdd44718448687ac700">name</a> &lt;&lt; std::endl;</div>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
 <div class="line">            <span class="comment">//Check name is INIT.   Only INIT state can not have an emission</span></div>
-<div class="line">            <span class="keywordflow">if</span> (name.compare(<span class="stringliteral">&quot;INIT&quot;</span>)!=0){</div>
-<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;No emission defined for State: &quot;</span> &lt;&lt; name &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1state.html#a58c7e6b9ab1f0bdd44718448687ac700">name</a>.compare(<span class="stringliteral">&quot;INIT&quot;</span>)!=0){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;No emission defined for State: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1state.html#a58c7e6b9ab1f0bdd44718448687ac700">name</a> &lt;&lt; std::endl;</div>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a4f81bb15d013c2f87cdc1817301a8039"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::state::print </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="state_8cpp_source.html#l00319">319</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
+
+<p>References <a class="el" href="state_8cpp_source.html#l00326">stringify()</a>.</p>
+<div class="fragment"><div class="line">                     {</div>
+<div class="line">        std::cout&lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1state.html#affdd46a537fe5f4d6bce781f90f45636">stringify</a>() &lt;&lt; std::endl;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
@@ -842,7 +1670,102 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="state_8h_source.html#l00127">127</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
-<div class="fragment"><div class="line">{endi=trans;};</div>
+
+<p>References <a class="el" href="state_8h_source.html#l00170">endi</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1state.html#ae58061df69b616656f0589d8a47e0c0f">endi</a>=trans;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a672145e26a5d30ef5bc9238428d8f681"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::state::setGFF </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>txt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the GFF Tag for the state. </p>
+
+<p>Definition at line <a class="el" href="state_8h_source.html#l00138">138</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+
+<p>References <a class="el" href="state_8h_source.html#l00166">gff</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1state.html#ab14d48bab585f461a4f9b558cc524daa">gff</a>=txt;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a7fefa7b17ddde43333bb80e3158b09ff"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::state::setIter </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the index value to be used for the state. </p>
+
+<p>Definition at line <a class="el" href="state_8h_source.html#l00150">150</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+
+<p>References <a class="el" href="state_8h_source.html#l00177">stateIterator</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1state.html#a85a287ad17a215fe2acfcd042070d466">stateIterator</a>=val;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aaa76f5bfcc777e5d8cf1102ebd99d933"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::state::setLabel </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>txt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the Label for the state. </p>
+
+<p>Definition at line <a class="el" href="state_8h_source.html#l00141">141</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+
+<p>References <a class="el" href="state_8h_source.html#l00167">label</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1state.html#a3a756180fbb3f338a2446ca6cafc0261">label</a>=txt;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -876,7 +1799,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 </dl>
 
 <p>Definition at line <a class="el" href="state_8h_source.html#l00135">135</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
-<div class="fragment"><div class="line">{name=txt;};</div>
+
+<p>References <a class="el" href="state_8h_source.html#l00165">name</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1state.html#a58c7e6b9ab1f0bdd44718448687ac700">name</a>=txt;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -896,15 +1821,17 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 
 <p>Definition at line <a class="el" href="state_8cpp_source.html#l00326">326</a> of file <a class="el" href="state_8cpp_source.html">state.cpp</a>.</p>
 
-<p>References <a class="el" href="transitions_8cpp_source.html#l00521">StochHMM::transition::stringify()</a>.</p>
+<p>References <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::DURATION</a>, <a class="el" href="state_8h_source.html#l00173">emission</a>, <a class="el" href="state_8h_source.html#l00170">endi</a>, <a class="el" href="state_8h_source.html#l00166">gff</a>, <a class="el" href="state_8h_source.html#l00167">label</a>, <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::LEXICAL</a>, <a class="el" href="state_8h_source.html#l00165">name</a>, <a class="el" href="stoch_types_8h_source.html#l00040">StochHMM::STANDARD</a>, <a class="el" href="transitions_8cpp_source.html#l00521">StochHMM::transition::stringify()</a>, and <a class="el" href="state_8h_source.html#l00169">transi</a>.</p>
+
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l01107">StochHMM::model::_stringifyStates()</a>, and <a class="el" href="state_8cpp_source.html#l00319">print()</a>.</p>
 <div class="fragment"><div class="line">                              {</div>
 <div class="line">        std::string stateString;</div>
 <div class="line">        stateString+=<span class="stringliteral">&quot;STATE:\n&quot;</span>;</div>
-<div class="line">        stateString+=<span class="stringliteral">&quot;\tNAME:\t&quot;</span> + name + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        stateString+=<span class="stringliteral">&quot;\tNAME:\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1state.html#a58c7e6b9ab1f0bdd44718448687ac700">name</a> + <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> (name.compare(<span class="stringliteral">&quot;INIT&quot;</span>)!=0){</div>
-<div class="line">            <span class="keywordflow">if</span> (!gff.empty()){ stateString+=<span class="stringliteral">&quot;\tGFF_DESC:\t&quot;</span> + gff + <span class="stringliteral">&quot;\n&quot;</span>;}</div>
-<div class="line">            stateString+=<span class="stringliteral">&quot;\tPATH_LABEL:\t&quot;</span> + label + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1state.html#a58c7e6b9ab1f0bdd44718448687ac700">name</a>.compare(<span class="stringliteral">&quot;INIT&quot;</span>)!=0){</div>
+<div class="line">            <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1state.html#ab14d48bab585f461a4f9b558cc524daa">gff</a>.empty()){ stateString+=<span class="stringliteral">&quot;\tGFF_DESC:\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1state.html#ab14d48bab585f461a4f9b558cc524daa">gff</a> + <span class="stringliteral">&quot;\n&quot;</span>;}</div>
+<div class="line">            stateString+=<span class="stringliteral">&quot;\tPATH_LABEL:\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1state.html#a3a756180fbb3f338a2446ca6cafc0261">label</a> + <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line">        }</div>
 <div class="line">        </div>
 <div class="line">        std::string standardString;</div>
@@ -912,23 +1839,23 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <div class="line">        std::string lexicalString;</div>
 <div class="line">        </div>
 <div class="line">        <span class="comment">//Get Transitions Standard, Distribution, Lexical</span></div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;transi-&gt;size();i++){</div>
-<div class="line">            <span class="keywordflow">if</span> ((*transi)[i]==NULL){ <span class="keywordflow">continue</span>;}</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a62c74dae9736574f8ea13d1b43d5c75d">transi</a>-&gt;size();i++){</div>
+<div class="line">            <span class="keywordflow">if</span> ((*<a class="code" href="class_stoch_h_m_m_1_1state.html#a62c74dae9736574f8ea13d1b43d5c75d">transi</a>)[i]==NULL){ <span class="keywordflow">continue</span>;}</div>
 <div class="line">            </div>
-<div class="line">            transType tp = (*transi)[i]-&gt;getTransitionType();</div>
-<div class="line">            <span class="keywordflow">if</span> (tp == STANDARD){</div>
+<div class="line">            <a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0">transType</a> tp = (*transi)[i]-&gt;getTransitionType();</div>
+<div class="line">            <span class="keywordflow">if</span> (tp == <a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0a73806aba512ce6a2f6ba00c5acb1bd5c">STANDARD</a>){</div>
 <div class="line">                <span class="keywordflow">if</span> (standardString.empty()){</div>
 <div class="line">                    standardString+=<span class="stringliteral">&quot;TRANSITION:\tSTANDARD:\tLOG\n&quot;</span>;</div>
 <div class="line">                }</div>
 <div class="line">                standardString+=(*transi)[i]-&gt;stringify() + <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line">            }</div>
-<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tp == DURATION){</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tp == <a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0a318aeefa858c2510dba13533a5ac9a34">DURATION</a>){</div>
 <div class="line">                distribString+=<span class="stringliteral">&quot;TRANSITION:\tDURATION:\tLOG\n&quot;</span>;</div>
 <div class="line">                distribString+=(*transi)[i]-&gt;stringify();</div>
 <div class="line">                </div>
 <div class="line">            }</div>
-<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tp == LEXICAL){</div>
-<div class="line">                <span class="keywordflow">if</span> ((*transi)[i]-&gt;LexFunctionDefined()){</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tp == <a class="code" href="namespace_stoch_h_m_m.html#ab6fd77caf411d9f591ea4d60c1019ce0a039965fb2f21a114426ab5c90f15901b">LEXICAL</a>){</div>
+<div class="line">                <span class="keywordflow">if</span> ((*<a class="code" href="class_stoch_h_m_m_1_1state.html#a62c74dae9736574f8ea13d1b43d5c75d">transi</a>)[i]-&gt;LexFunctionDefined()){</div>
 <div class="line">                    lexicalString+=<span class="stringliteral">&quot;TRANSITION:\tLEXICAL:\tFUNCTION:\t&quot;</span>;</div>
 <div class="line">                    lexicalString+=(*transi)[i]-&gt;getLexicalFunctionName();</div>
 <div class="line">                    lexicalString+=<span class="stringliteral">&quot;\n&quot;</span>;</div>
@@ -943,15 +1870,15 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <div class="line">        </div>
 <div class="line">        </div>
 <div class="line">        <span class="comment">//Process Transition to Ending;</span></div>
-<div class="line">        <span class="keywordflow">if</span> (endi!=NULL){</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1state.html#ae58061df69b616656f0589d8a47e0c0f">endi</a>!=NULL){</div>
 <div class="line">            <span class="keywordflow">if</span> (standardString.empty()){</div>
 <div class="line">                standardString+=<span class="stringliteral">&quot;TRANSITIONS:\tSTANDARD:\tLOG\n&quot;</span>;</div>
 <div class="line">            }</div>
-<div class="line">            standardString+=endi-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition.html#a318b00aa1f690a81687a6d81a04edba5">stringify</a>();</div>
+<div class="line">            standardString+=<a class="code" href="class_stoch_h_m_m_1_1state.html#ae58061df69b616656f0589d8a47e0c0f">endi</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition.html#a318b00aa1f690a81687a6d81a04edba5">stringify</a>();</div>
 <div class="line">        }</div>
 <div class="line">        </div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> (name.compare(<span class="stringliteral">&quot;INIT&quot;</span>)==0){</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1state.html#a58c7e6b9ab1f0bdd44718448687ac700">name</a>.compare(<span class="stringliteral">&quot;INIT&quot;</span>)==0){</div>
 <div class="line">            stateString+=standardString + <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
 <div class="line">            <span class="keywordflow">return</span> stateString;</div>
 <div class="line">        }</div>
@@ -972,8 +1899,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <div class="line">        </div>
 <div class="line">        </div>
 <div class="line">        <span class="comment">//Print Emissions</span></div>
-<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;emission.size();i++){</div>
-<div class="line">            stateString+=emission[i]-&gt;stringify();</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1state.html#af7e994cec885af4967eaed6cac032914">emission</a>.size();i++){</div>
+<div class="line">            stateString+=<a class="code" href="class_stoch_h_m_m_1_1state.html#af7e994cec885af4967eaed6cac032914">emission</a>[i]-&gt;stringify();</div>
 <div class="line">        }</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">return</span> stateString;</div>
@@ -981,16 +1908,260 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
+<hr/><h2>Friends And Related Function Documentation</h2>
+<a class="anchor" id="a6e37bb755d74e24f1b3e7e2def3b13e0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_stoch_h_m_m_1_1model.html">model</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="state_8h_source.html#l00060">60</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="af7e994cec885af4967eaed6cac032914"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a>*&gt; StochHMM::state::emission</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="state_8h_source.html#l00173">173</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8cpp_source.html#l00296">_parseEmission()</a>, <a class="el" href="state_8h_source.html#l00131">addEmission()</a>, <a class="el" href="state_8cpp_source.html#l00411">get_emission_prob()</a>, <a class="el" href="state_8h_source.html#l00109">getEmission()</a>, <a class="el" href="state_8cpp_source.html#l00541">hasComplexEmission()</a>, and <a class="el" href="state_8cpp_source.html#l00326">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae58061df69b616656f0589d8a47e0c0f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1transition.html">transition</a>* StochHMM::state::endi</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="state_8h_source.html#l00170">170</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l01021">StochHMM::model::_addStateToFromTransition()</a>, <a class="el" href="state_8cpp_source.html#l00197">_parseTransition()</a>, <a class="el" href="state_8h_source.html#l00104">getEnding()</a>, <a class="el" href="state_8cpp_source.html#l00442">getEndTrans()</a>, <a class="el" href="state_8h_source.html#l00127">setEndingTransition()</a>, and <a class="el" href="state_8cpp_source.html#l00326">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aebd5e6a43a92b3571d3bd1f79bd365be"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::bitset&lt;<a class="el" href="_stoch_h_m_m_8cpp.html#ae127900152d47e7d641708811ffdfe39">STATE_MAX</a>&gt; StochHMM::state::from</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="state_8h_source.html#l00179">179</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8h_source.html#l00147">addFromState()</a>, <a class="el" href="hmm_8h_source.html#l00177">StochHMM::model::getEndingFrom()</a>, and <a class="el" href="state_8h_source.html#l00092">getFrom()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab14d48bab585f461a4f9b558cc524daa"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::state::gff</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="state_8h_source.html#l00166">166</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8cpp_source.html#l00127">_parseHeader()</a>, <a class="el" href="state_8h_source.html#l00074">getGFF()</a>, <a class="el" href="state_8h_source.html#l00138">setGFF()</a>, and <a class="el" href="state_8cpp_source.html#l00326">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3a756180fbb3f338a2446ca6cafc0261"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::state::label</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="state_8h_source.html#l00167">167</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8cpp_source.html#l00127">_parseHeader()</a>, <a class="el" href="state_8h_source.html#l00078">getLabel()</a>, <a class="el" href="state_8h_source.html#l00141">setLabel()</a>, and <a class="el" href="state_8cpp_source.html#l00326">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a58c7e6b9ab1f0bdd44718448687ac700"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::state::name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="state_8h_source.html#l00165">165</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8cpp_source.html#l00514">_finalizeTransitions()</a>, <a class="el" href="state_8cpp_source.html#l00127">_parseHeader()</a>, <a class="el" href="state_8h_source.html#l00070">getName()</a>, <a class="el" href="state_8cpp_source.html#l00073">parse()</a>, <a class="el" href="state_8h_source.html#l00135">setName()</a>, and <a class="el" href="state_8cpp_source.html#l00326">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a85a287ad17a215fe2acfcd042070d466"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::state::stateIterator</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="state_8h_source.html#l00177">177</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8h_source.html#l00066">getIterator()</a>, and <a class="el" href="state_8h_source.html#l00150">setIter()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae926d05079c5695b25a439bc0c1a2bdf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::bitset&lt;<a class="el" href="_stoch_h_m_m_8cpp.html#ae127900152d47e7d641708811ffdfe39">STATE_MAX</a>&gt; StochHMM::state::to</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="state_8h_source.html#l00178">178</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8h_source.html#l00144">addToState()</a>, <a class="el" href="state_8cpp_source.html#l00424">get_transition_prob()</a>, <a class="el" href="hmm_8h_source.html#l00166">StochHMM::model::getInitialTo()</a>, and <a class="el" href="state_8h_source.html#l00086">getTo()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a62c74dae9736574f8ea13d1b43d5c75d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_stoch_h_m_m_1_1transition.html">transition</a>*&gt;* StochHMM::state::transi</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="state_8h_source.html#l00169">169</a> of file <a class="el" href="state_8h_source.html">state.h</a>.</p>
+
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l01283">StochHMM::model::_checkTopology()</a>, <a class="el" href="state_8cpp_source.html#l00514">_finalizeTransitions()</a>, <a class="el" href="state_8h_source.html#l00123">addTransition()</a>, <a class="el" href="state_8cpp_source.html#l00424">get_transition_prob()</a>, <a class="el" href="state_8h_source.html#l00099">getTrans()</a>, <a class="el" href="state_8h_source.html#l00082">getTransitions()</a>, <a class="el" href="state_8cpp_source.html#l00552">hasComplexTransition()</a>, <a class="el" href="state_8cpp_source.html#l00031">state()</a>, <a class="el" href="state_8cpp_source.html#l00326">stringify()</a>, and <a class="el" href="state_8cpp_source.html#l00049">~state()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="state_8h_source.html">state.h</a></li>
 <li><a class="el" href="state_8cpp_source.html">state.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1state.html">state</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:38 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

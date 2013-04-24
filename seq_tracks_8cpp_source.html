@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -64,15 +70,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('seq_tracks_8cpp.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,7 +106,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">seqTracks.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<a href="seq_tracks_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  seqTracks.cpp</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//Copyright (c) 2007-2012 Paul C Lott </span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//University of California, Davis</span></div>
@@ -120,7 +140,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">    //!Create an empty initialized seqTrack</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acf2f630fd46c018b0546f0f712e2b272">   34</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acf2f630fd46c018b0546f0f712e2b272" title="Create an empty initialized seqTrack.">seqTracks::seqTracks</a>(){</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        _init();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a63f29e99f67b6b868114be02a3cab68c">_init</a>();</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    </div>
@@ -131,9 +151,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">    //!\param filename  Sequence File filename</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">    //!\param format  Sequence file Format (FASTA or FASTQ)</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a9021558b778670aba23f2be18469b534">   45</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acf2f630fd46c018b0546f0f712e2b272" title="Create an empty initialized seqTrack.">seqTracks::seqTracks</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>&amp; mdl , std::string&amp; filename){</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        _init();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a63f29e99f67b6b868114be02a3cab68c">_init</a>();</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">loadSeqs</a>(mdl, filename, FASTA, NULL);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">loadSeqs</a>(mdl, filename, <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42ca4cae7b871050786522aebf8762ec5e55">FASTA</a>, NULL);</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
@@ -143,8 +163,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">    //!\param mdl  Single model</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">    //!\param filename  Sequence File filename</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">    //!\param format  Sequence file Format (FASTA or FASTQ)</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2e33ac02282ee8b55d7218fb5da6bf55">   58</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acf2f630fd46c018b0546f0f712e2b272" title="Create an empty initialized seqTrack.">seqTracks::seqTracks</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>&amp; mdl , std::string&amp; filename, SeqFileFormat format){</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        _init();</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2e33ac02282ee8b55d7218fb5da6bf55">   58</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acf2f630fd46c018b0546f0f712e2b272" title="Create an empty initialized seqTrack.">seqTracks::seqTracks</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>&amp; mdl , std::string&amp; filename, <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42c">SeqFileFormat</a> format){</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a63f29e99f67b6b868114be02a3cab68c">_init</a>();</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">loadSeqs</a>(mdl, filename, format, NULL);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        </div>
@@ -156,8 +176,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">    //!\param filename  Sequence File filename</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">    //!\param format  Sequence file Format (FASTA or FASTQ)</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">    //!\param trFunc TrackFunc* functions to create tracks based on imported sequences</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a9488aa3b77d4e1f6ed363c867e5d7202">   71</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acf2f630fd46c018b0546f0f712e2b272" title="Create an empty initialized seqTrack.">seqTracks::seqTracks</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>&amp; mdl , std::string&amp; filename , SeqFileFormat format, <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html" title="Stores pointer to user functions used to create Real Number Tracks.">TrackFuncs</a>* trFunc){</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        _init();</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a9488aa3b77d4e1f6ed363c867e5d7202">   71</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acf2f630fd46c018b0546f0f712e2b272" title="Create an empty initialized seqTrack.">seqTracks::seqTracks</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>&amp; mdl , std::string&amp; filename , <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42c">SeqFileFormat</a> format, <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html" title="Stores pointer to user functions used to create Real Number Tracks.">TrackFuncs</a>* trFunc){</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a63f29e99f67b6b868114be02a3cab68c">_init</a>();</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        </div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">loadSeqs</a>(mdl, filename,format, trFunc);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        </div>
@@ -173,8 +193,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">    //!\param filenames  List of Sequence File filenames</span></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">    //!\param format  Sequence file Format (FASTA or FASTQ)</span></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">    //!\param type Single track per file (SINGLE) or multiple tracks per file (MULTI)</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a1dffe371199cdedd4f497807c5c95e31">   88</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acf2f630fd46c018b0546f0f712e2b272" title="Create an empty initialized seqTrack.">seqTracks::seqTracks</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>&amp; mdl , std::vector&lt;std::string&gt;&amp; filenames, SeqFileFormat format, SeqFilesType type){</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        _init();</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a1dffe371199cdedd4f497807c5c95e31">   88</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acf2f630fd46c018b0546f0f712e2b272" title="Create an empty initialized seqTrack.">seqTracks::seqTracks</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>&amp; mdl , std::vector&lt;std::string&gt;&amp; filenames, <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42c">SeqFileFormat</a> format, <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76">SeqFilesType</a> type){</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a63f29e99f67b6b868114be02a3cab68c">_init</a>();</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        </div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">loadSeqs</a>(mdl, filenames, format, type, NULL);</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        </div>
@@ -188,8 +208,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">    //!\param format  Sequence file Format (FASTA or FASTQ)</span></div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">    //!\param type Single track per file (SINGLE) or multiple tracks per file (MULTI)</span></div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">    //!\param trFunc TrackFunc* functions to create tracks based on imported sequences</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a671a39ddfe29c7395d990a8b584e5d52">  103</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acf2f630fd46c018b0546f0f712e2b272" title="Create an empty initialized seqTrack.">seqTracks::seqTracks</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>&amp; mdl , std::vector&lt;std::string&gt;&amp; filenames, SeqFileFormat format, SeqFilesType type, <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html" title="Stores pointer to user functions used to create Real Number Tracks.">TrackFuncs</a>* trFunc){</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        _init();</div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a671a39ddfe29c7395d990a8b584e5d52">  103</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acf2f630fd46c018b0546f0f712e2b272" title="Create an empty initialized seqTrack.">seqTracks::seqTracks</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>&amp; mdl , std::vector&lt;std::string&gt;&amp; filenames, <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42c">SeqFileFormat</a> format, <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76">SeqFilesType</a> type, <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html" title="Stores pointer to user functions used to create Real Number Tracks.">TrackFuncs</a>* trFunc){</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a63f29e99f67b6b868114be02a3cab68c">_init</a>();</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        </div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        </div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">loadSeqs</a>(mdl, filenames, format, type, trFunc);</div>
@@ -206,8 +226,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment">    //!\param filename Sequence File filename</span></div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">    //!\param format  Sequence file Format (FASTA or FASTQ)</span></div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">    //!\param attribFunc  pt2Attrib function to choose model based on sequence attributes</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a670443b3cf57c05c92fa89a411efe52e">  121</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acf2f630fd46c018b0546f0f712e2b272" title="Create an empty initialized seqTrack.">seqTracks::seqTracks</a>(<a class="code" href="class_stoch_h_m_m_1_1models.html">models</a>&amp; mdls , std::string&amp; filename , SeqFileFormat format, pt2Attrib* attribFunc){</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        _init();</div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a670443b3cf57c05c92fa89a411efe52e">  121</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acf2f630fd46c018b0546f0f712e2b272" title="Create an empty initialized seqTrack.">seqTracks::seqTracks</a>(<a class="code" href="class_stoch_h_m_m_1_1models.html">models</a>&amp; mdls , std::string&amp; filename , <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42c">SeqFileFormat</a> format, <a class="code" href="namespace_stoch_h_m_m.html#a8a670349d99357e6dcd6d12025d243e9">pt2Attrib</a>* attribFunc){</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a63f29e99f67b6b868114be02a3cab68c">_init</a>();</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                </div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">loadSeqs</a>(mdls,filename,format,attribFunc, NULL);</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            </div>
@@ -221,8 +241,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment">    //!\param format  Sequence file Format (FASTA or FASTQ)</span></div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="comment">    //!\param attribFunc  pt2Attrib function to choose model based on sequence attributes</span></div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="comment">    //!\param trFunc TrackFunc* functions to create tracks based on imported sequences</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aca911afc6212df1d7466233669d24813">  136</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acf2f630fd46c018b0546f0f712e2b272" title="Create an empty initialized seqTrack.">seqTracks::seqTracks</a>(<a class="code" href="class_stoch_h_m_m_1_1models.html">models</a>&amp; mdls , std::string&amp; filename , SeqFileFormat format, pt2Attrib* attribFunc, <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html" title="Stores pointer to user functions used to create Real Number Tracks.">TrackFuncs</a>* trFunc){</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        _init();</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aca911afc6212df1d7466233669d24813">  136</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acf2f630fd46c018b0546f0f712e2b272" title="Create an empty initialized seqTrack.">seqTracks::seqTracks</a>(<a class="code" href="class_stoch_h_m_m_1_1models.html">models</a>&amp; mdls , std::string&amp; filename , <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42c">SeqFileFormat</a> format, <a class="code" href="namespace_stoch_h_m_m.html#a8a670349d99357e6dcd6d12025d243e9">pt2Attrib</a>* attribFunc, <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html" title="Stores pointer to user functions used to create Real Number Tracks.">TrackFuncs</a>* trFunc){</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a63f29e99f67b6b868114be02a3cab68c">_init</a>();</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;       </div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">loadSeqs</a>(mdls,filename,format,attribFunc,trFunc);</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        </div>
@@ -238,8 +258,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="comment">    //!\param format  Sequence file Format (FASTA or FASTQ)</span></div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment">    //!\param type Single track per file (SINGLE) or multiple tracks per file (MULTI)</span></div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="comment">    //!\param attribFunc  pt2Attrib function to choose model based on sequence attributes</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a7eca36407ba889d474cb5a01e23d856f">  153</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acf2f630fd46c018b0546f0f712e2b272" title="Create an empty initialized seqTrack.">seqTracks::seqTracks</a>(<a class="code" href="class_stoch_h_m_m_1_1models.html">models</a>&amp; mdls , std::vector&lt;std::string&gt;&amp; filenames, SeqFileFormat format, SeqFilesType type, pt2Attrib* attribFunc){</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        _init();</div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a7eca36407ba889d474cb5a01e23d856f">  153</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acf2f630fd46c018b0546f0f712e2b272" title="Create an empty initialized seqTrack.">seqTracks::seqTracks</a>(<a class="code" href="class_stoch_h_m_m_1_1models.html">models</a>&amp; mdls , std::vector&lt;std::string&gt;&amp; filenames, <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42c">SeqFileFormat</a> format, <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76">SeqFilesType</a> type, <a class="code" href="namespace_stoch_h_m_m.html#a8a670349d99357e6dcd6d12025d243e9">pt2Attrib</a>* attribFunc){</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a63f29e99f67b6b868114be02a3cab68c">_init</a>();</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                </div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">loadSeqs</a>(mdls, filenames, format, type, attribFunc, NULL);</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        </div>
@@ -254,8 +274,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="comment">    //!\param type Single track per file (SINGLE) or multiple tracks per file (MULTI)</span></div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment">    //!\param attribFunc  pt2Attrib function to choose model based on sequence attributes</span></div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="comment">    //!\param trFunc TrackFunc* functions to create tracks based on imported sequences</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aade09a5e67b8bb4dac831200a55f1607">  169</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acf2f630fd46c018b0546f0f712e2b272" title="Create an empty initialized seqTrack.">seqTracks::seqTracks</a>(<a class="code" href="class_stoch_h_m_m_1_1models.html">models</a>&amp; mdls , std::vector&lt;std::string&gt;&amp; filenames, SeqFileFormat format, SeqFilesType type, pt2Attrib* attribFunc, <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html" title="Stores pointer to user functions used to create Real Number Tracks.">TrackFuncs</a>* trFunc){</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        _init();</div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aade09a5e67b8bb4dac831200a55f1607">  169</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acf2f630fd46c018b0546f0f712e2b272" title="Create an empty initialized seqTrack.">seqTracks::seqTracks</a>(<a class="code" href="class_stoch_h_m_m_1_1models.html">models</a>&amp; mdls , std::vector&lt;std::string&gt;&amp; filenames, <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42c">SeqFileFormat</a> format, <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76">SeqFilesType</a> type, <a class="code" href="namespace_stoch_h_m_m.html#a8a670349d99357e6dcd6d12025d243e9">pt2Attrib</a>* attribFunc, <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html" title="Stores pointer to user functions used to create Real Number Tracks.">TrackFuncs</a>* trFunc){</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a63f29e99f67b6b868114be02a3cab68c">_init</a>();</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        </div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">loadSeqs</a>(mdls, filenames, format, type, attribFunc, trFunc);</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        </div>
@@ -266,19 +286,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment">    //!Destroy seqTracks</span></div>
 <div class="line"><a name="l00180"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a17f0298ea56c8e86e7e27c20b6811b45">  180</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a17f0298ea56c8e86e7e27c20b6811b45" title="Destroy seqTracks.">seqTracks::~seqTracks</a>(){</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;filehandles.size();i++){</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            <span class="keywordflow">if</span> (filehandles[i]!=NULL){</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                filehandles[i]-&gt;close();</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>.size();i++){</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[i]!=NULL){</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[i]-&gt;close();</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            }</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        }</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        </div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        hmms=NULL;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        trackFunctions = NULL;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        attribModelFunc = NULL;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6a17845605d8f7e14e17a4d70ec141b1">hmms</a>=NULL;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aa81d8bbb02fde19a025d254a51894219">trackFunctions</a> = NULL;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a97a90b2e41715ffa9852325c238fdd57">attribModelFunc</a> = NULL;</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        </div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordflow">while</span>(!jobQueue.empty()){</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_job.html">seqJob</a>* element=jobQueue.front();</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            jobQueue.pop();</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordflow">while</span>(!<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a3a5c878d0c4be95c4fd46fecbff6255a">jobQueue</a>.empty()){</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_job.html">seqJob</a>* element=<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a3a5c878d0c4be95c4fd46fecbff6255a">jobQueue</a>.front();</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a3a5c878d0c4be95c4fd46fecbff6255a">jobQueue</a>.pop();</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            <span class="keyword">delete</span> element;</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            element = NULL;</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        }</div>
@@ -287,49 +307,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    }</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    </div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    </div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordtype">void</span> seqTracks::_init(){</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        numImportJobs=1;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        jobs=0;</div>
+<div class="line"><a name="l00202"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a63f29e99f67b6b868114be02a3cab68c">  202</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a63f29e99f67b6b868114be02a3cab68c">seqTracks::_init</a>(){</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a278ed837c738539b151742f1d7e7b3a6">numImportJobs</a>=1;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a53ce2744e6e7d6277498520f4692e99f">jobs</a>=0;</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        </div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        hmms    = NULL;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        hmm     = NULL;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        trackFunctions   = NULL;</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        attribModelFunc  = NULL;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6a17845605d8f7e14e17a4d70ec141b1">hmms</a>    = NULL;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#abadcfb34522e061f4515960838fc06eb">hmm</a>     = NULL;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aa81d8bbb02fde19a025d254a51894219">trackFunctions</a>   = NULL;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a97a90b2e41715ffa9852325c238fdd57">attribModelFunc</a>  = NULL;</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        </div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        </div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        seqFormat = FASTA;  <span class="comment">//Set default file format to fasta</span></div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        fileType = SINGLE_TRACK;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a1df9ef5558137e4cadc1d7b415d5e9cc">seqFormat</a> = <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42ca4cae7b871050786522aebf8762ec5e55">FASTA</a>;  <span class="comment">//Set default file format to fasta</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a9e14581607e6fad3a5bf8b2868db5429">fileType</a> = <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76ad337e28bb92cd6c319a91c9a5b365565">SINGLE_TRACK</a>;</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        </div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        good=<span class="keyword">false</span>;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2288f2fa9235f4ef7140dd6109e22fea">good</a>=<span class="keyword">false</span>;</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        </div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        <span class="comment">//Make seqTrack thread-safe</span></div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="preprocessor">#ifdef THREADS</span></div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="preprocessor"></span>        pthread_mutex_init(&amp;exit_thread_flag_mutex, NULL);</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        pthread_cond_init(&amp;exit_thread_flag_cv, NULL);</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="preprocessor"></span>        exit_thread=1;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="preprocessor"></span>        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a24c56f85dd7699965bd579559a887e5b">exit_thread</a>=1;</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    }</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    </div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="comment">//Reset the Queue, Files, and Import Tracks</span></div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="comment">//Does not reset track Functions or Attribute model selection functions </span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordtype">void</span> seqTracks::_reset(){</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;filehandles.size();i++){</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            <span class="keyword">delete</span> filehandles[i];</div>
+<div class="line"><a name="l00227"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acd2888ef01bbe559da158ff2372d1139">  227</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acd2888ef01bbe559da158ff2372d1139">seqTracks::_reset</a>(){</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>.size();i++){</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[i];</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        }</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        </div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        filehandles.clear();</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        seqFilenames.clear();</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>.clear();</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>.clear();</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        </div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        hmms    = NULL;</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        hmm     = NULL;</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        seqFormat = FASTA;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        fileType  = SINGLE_TRACK;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6a17845605d8f7e14e17a4d70ec141b1">hmms</a>    = NULL;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#abadcfb34522e061f4515960838fc06eb">hmm</a>     = NULL;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a1df9ef5558137e4cadc1d7b415d5e9cc">seqFormat</a> = <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42ca4cae7b871050786522aebf8762ec5e55">FASTA</a>;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a9e14581607e6fad3a5bf8b2868db5429">fileType</a>  = <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76ad337e28bb92cd6c319a91c9a5b365565">SINGLE_TRACK</a>;</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        </div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        good = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2288f2fa9235f4ef7140dd6109e22fea">good</a> = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        </div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        exit_thread = 1;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a24c56f85dd7699965bd579559a887e5b">exit_thread</a> = 1;</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        </div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        importTracks.clear();</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>.clear();</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    }</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
@@ -347,14 +367,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="comment">    //! \param mod  Model to be used</span></div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment">    //! \param seqFile  Fasta sequence filename</span></div>
 <div class="line"><a name="l00261"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">  261</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">seqTracks::loadSeqs</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>&amp; mod, std::string&amp; seqFile){</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">loadSeqs</a>(mod,seqFile,FASTA,NULL);</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">loadSeqs</a>(mod,seqFile,<a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42ca4cae7b871050786522aebf8762ec5e55">FASTA</a>,NULL);</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    }</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        </div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        <span class="comment"></span></div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="comment">        //! Load the fasta sequence file</span></div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="comment">    //! \param mod  Model to be used</span></div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="comment">    //! \param seqFile  Fasta sequence filename</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#abf040f4289a7bb4963a67d43c57de39d">  269</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">seqTracks::loadSeqs</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>&amp; mod, std::string&amp; seqFile, SeqFileFormat format){     </div>
+<div class="line"><a name="l00269"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#abf040f4289a7bb4963a67d43c57de39d">  269</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">seqTracks::loadSeqs</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>&amp; mod, std::string&amp; seqFile, <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42c">SeqFileFormat</a> format){     </div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">loadSeqs</a>(mod,seqFile,format,NULL);</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    }</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    </div>
@@ -362,27 +382,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="comment">    //! Load the fasta sequence file</span></div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="comment">    //! \param mod  Model to be used</span></div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="comment">    //! \param seqFile  Sequence filename</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27e12e35e2c460f56e6e7d10558eb5aa">  277</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">seqTracks::loadSeqs</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>&amp; mod, std::string&amp; seqFile, SeqFileFormat format, <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html" title="Stores pointer to user functions used to create Real Number Tracks.">TrackFuncs</a>* trFuncs){</div>
+<div class="line"><a name="l00277"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27e12e35e2c460f56e6e7d10558eb5aa">  277</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">seqTracks::loadSeqs</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>&amp; mod, std::string&amp; seqFile, <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42c">SeqFileFormat</a> format, <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html" title="Stores pointer to user functions used to create Real Number Tracks.">TrackFuncs</a>* trFuncs){</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        </div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <span class="keywordflow">if</span> (filehandles.size()&gt;0){</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            _reset();</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>.size()&gt;0){</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acd2888ef01bbe559da158ff2372d1139">_reset</a>();</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        }</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        </div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        hmm = &amp;mod;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        seqFormat = format;</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        seqFilenames.push_back(seqFile);</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#abadcfb34522e061f4515960838fc06eb">hmm</a> = &amp;mod;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a1df9ef5558137e4cadc1d7b415d5e9cc">seqFormat</a> = format;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>.push_back(seqFile);</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        </div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        <span class="comment">//Assign valid Track Functions</span></div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <span class="keywordflow">if</span> (trFuncs!=NULL){</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;            trackFunctions = trFuncs;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aa81d8bbb02fde19a025d254a51894219">trackFunctions</a> = trFuncs;</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        }</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        </div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <span class="comment">//Get State Information and Determine # of tracks to import</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                info = mod.getStateInfo();</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        _initImportTrackInfo();</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        fileType = (importTracks.size()&gt;1) ? MULTI_TRACK : SINGLE_TRACK;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a1b906bd01b3d6583f9f571be4985c3ea">info</a> = mod.<a class="code" href="class_stoch_h_m_m_1_1model.html#ab11645ebf40febaf15c1fada7e8b203b">getStateInfo</a>();</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a597c1836626e01b12c391c7c1a20fc95">_initImportTrackInfo</a>();</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a9e14581607e6fad3a5bf8b2868db5429">fileType</a> = (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>.size()&gt;1) ? <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76a7566ebf6fb7565e06068c2e11162d5b4">MULTI_TRACK</a> : <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76ad337e28bb92cd6c319a91c9a5b365565">SINGLE_TRACK</a>;</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        </div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        _open();</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a715c742574a6feea82fe5284bbd296d6">_open</a>();</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        </div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        <span class="comment">//Fill Job Queue</span></div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#ac84df53cafe738403af9c898b26b2da5" title="Get a job and Add to the queue.">importJobs</a>();</div>
@@ -400,7 +420,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="comment">    //! \param mod  Model to be used</span></div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="comment">    //! \param seqFile  Fasta sequence filenames</span></div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="comment">    //! \param type  SINGLE track per file or MULTI tracks per file</span></div>
-<div class="line"><a name="l00315"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a0d04682ab8acd390ac3b473472853775">  315</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">seqTracks::loadSeqs</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>&amp; mod, std::vector&lt;std::string&gt;&amp; seqFiles, SeqFileFormat format, SeqFilesType type){</div>
+<div class="line"><a name="l00315"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a0d04682ab8acd390ac3b473472853775">  315</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">seqTracks::loadSeqs</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>&amp; mod, std::vector&lt;std::string&gt;&amp; seqFiles, <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42c">SeqFileFormat</a> format, <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76">SeqFilesType</a> type){</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">loadSeqs</a>(mod, seqFiles, format,type,NULL);</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    }</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    </div>
@@ -410,40 +430,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment">    //! \param seqFile  Fasta sequence filenames</span></div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="comment">    //! \param type SINGLE track per file or MULTI tracks per file</span></div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="comment">    //! \param trFuncs  Track Functions to create tracks using imported seqs</span></div>
-<div class="line"><a name="l00325"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a56ad8749c55e0f4914cbed6a7a5bc0e5">  325</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">seqTracks::loadSeqs</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>&amp; mod, std::vector&lt;std::string&gt;&amp; seqFiles, SeqFileFormat format, SeqFilesType type, <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html" title="Stores pointer to user functions used to create Real Number Tracks.">TrackFuncs</a>* trFuncs){</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="keywordflow">if</span> (filehandles.size()&gt;0 || importTracks.size()&gt;0){</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;            _reset();</div>
+<div class="line"><a name="l00325"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a56ad8749c55e0f4914cbed6a7a5bc0e5">  325</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">seqTracks::loadSeqs</a>(<a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>&amp; mod, std::vector&lt;std::string&gt;&amp; seqFiles, <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42c">SeqFileFormat</a> format, <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76">SeqFilesType</a> type, <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html" title="Stores pointer to user functions used to create Real Number Tracks.">TrackFuncs</a>* trFuncs){</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>.size()&gt;0 || <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>.size()&gt;0){</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acd2888ef01bbe559da158ff2372d1139">_reset</a>();</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        }</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        </div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        hmm = &amp;mod;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        seqFormat = format;</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        fileType = type;</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        seqFilenames = seqFiles;</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#abadcfb34522e061f4515960838fc06eb">hmm</a> = &amp;mod;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a1df9ef5558137e4cadc1d7b415d5e9cc">seqFormat</a> = format;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a9e14581607e6fad3a5bf8b2868db5429">fileType</a> = type;</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a> = seqFiles;</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        </div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        <span class="comment">//Assign valid Track Functions</span></div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        <span class="keywordflow">if</span> (trFuncs!=NULL){</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;            trackFunctions = trFuncs;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aa81d8bbb02fde19a025d254a51894219">trackFunctions</a> = trFuncs;</div>
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        }</div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        </div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        <span class="comment">//Get State Information and Determine # of tracks to import</span></div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;                info = mod.getStateInfo();</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        _initImportTrackInfo();</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a1b906bd01b3d6583f9f571be4985c3ea">info</a> = mod.<a class="code" href="class_stoch_h_m_m_1_1model.html#ab11645ebf40febaf15c1fada7e8b203b">getStateInfo</a>();</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a597c1836626e01b12c391c7c1a20fc95">_initImportTrackInfo</a>();</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        </div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        </div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        <span class="keywordtype">size_t</span> tracksToImport = importTracks.size();</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        <span class="keywordflow">if</span> (fileType == SINGLE_TRACK &amp;&amp; tracksToImport&gt;1){</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        <span class="keywordtype">size_t</span> tracksToImport = <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>.size();</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a9e14581607e6fad3a5bf8b2868db5429">fileType</a> == <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76ad337e28bb92cd6c319a91c9a5b365565">SINGLE_TRACK</a> &amp;&amp; tracksToImport&gt;1){</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;            <span class="keywordtype">size_t</span> sequenceFiles = seqFiles.size();</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;            <span class="keywordflow">if</span> (tracksToImport!=sequenceFiles){</div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;Number of tracks to import and sequenced don&#39;t match.  # Files == # Tracks to import &quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                _reset();</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acd2888ef01bbe559da158ff2372d1139">_reset</a>();</div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;            }</div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        }</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        </div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        <span class="comment">//Open File</span></div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        _open();</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a715c742574a6feea82fe5284bbd296d6">_open</a>();</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        </div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="comment">//        for(size_t i = 0; i&lt;seqFiles.size();i++){</span></div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="comment">//            std::ifstream *SEQ= new std::ifstream;</span></div>
@@ -490,39 +510,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;<span class="comment">    //! \param format   Sequence File Format</span></div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<span class="comment">    //! \param attribFunc   Pointer to Attribute calculation function</span></div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;<span class="comment">    //! \param trFuncs      Pointer to Track Functions</span></div>
-<div class="line"><a name="l00405"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a1d727ec89507363d8b11dadcd8b2cb6a">  405</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">seqTracks::loadSeqs</a>(<a class="code" href="class_stoch_h_m_m_1_1models.html">models</a> &amp;mModels, std::string &amp;seqFile, SeqFileFormat format, pt2Attrib* attribFunc, <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html" title="Stores pointer to user functions used to create Real Number Tracks.">TrackFuncs</a>* trFuncs){</div>
+<div class="line"><a name="l00405"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a1d727ec89507363d8b11dadcd8b2cb6a">  405</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">seqTracks::loadSeqs</a>(<a class="code" href="class_stoch_h_m_m_1_1models.html">models</a> &amp;mModels, std::string &amp;seqFile, <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42c">SeqFileFormat</a> format, <a class="code" href="namespace_stoch_h_m_m.html#a8a670349d99357e6dcd6d12025d243e9">pt2Attrib</a>* attribFunc, <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html" title="Stores pointer to user functions used to create Real Number Tracks.">TrackFuncs</a>* trFuncs){</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        </div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        <span class="keywordflow">if</span> (filehandles.size()&gt;0){</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;            _reset();</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>.size()&gt;0){</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acd2888ef01bbe559da158ff2372d1139">_reset</a>();</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        }</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        </div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        hmms = &amp;mModels;</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        seqFormat = format;</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        seqFilenames.push_back(seqFile);</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6a17845605d8f7e14e17a4d70ec141b1">hmms</a> = &amp;mModels;</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a1df9ef5558137e4cadc1d7b415d5e9cc">seqFormat</a> = format;</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>.push_back(seqFile);</div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;        </div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        <span class="comment">//Assign valid Attribute Function</span></div>
 <div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;        <span class="keywordflow">if</span> (attribFunc!=NULL){</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;            attribModelFunc = attribFunc;</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a97a90b2e41715ffa9852325c238fdd57">attribModelFunc</a> = attribFunc;</div>
 <div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        }</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        </div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        <span class="keywordflow">if</span> (attribModelFunc==NULL){</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a97a90b2e41715ffa9852325c238fdd57">attribModelFunc</a>==NULL){</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;No valid Attribute calculating function&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        }</div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;        </div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        <span class="comment">//Assign valid Track Functions</span></div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        <span class="keywordflow">if</span> (trFuncs!=NULL){</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;            trackFunctions = trFuncs;</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aa81d8bbb02fde19a025d254a51894219">trackFunctions</a> = trFuncs;</div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        }</div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        </div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;        <span class="comment">//Get State Information and Determine # of tracks to import</span></div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                info = hmms-&gt;<a class="code" href="class_stoch_h_m_m_1_1models.html#a287c21ac381e5e61d25a47ea6b95142a">getModel</a>(0)-&gt;getStateInfo();</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;        _initImportTrackInfo();</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;        fileType = (importTracks.size()&gt;1) ? MULTI_TRACK : SINGLE_TRACK;</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a1b906bd01b3d6583f9f571be4985c3ea">info</a> = <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6a17845605d8f7e14e17a4d70ec141b1">hmms</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1models.html#a287c21ac381e5e61d25a47ea6b95142a">getModel</a>(0)-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#ab11645ebf40febaf15c1fada7e8b203b">getStateInfo</a>();</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a597c1836626e01b12c391c7c1a20fc95">_initImportTrackInfo</a>();</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a9e14581607e6fad3a5bf8b2868db5429">fileType</a> = (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>.size()&gt;1) ? <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76a7566ebf6fb7565e06068c2e11162d5b4">MULTI_TRACK</a> : <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76ad337e28bb92cd6c319a91c9a5b365565">SINGLE_TRACK</a>;</div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;        </div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;        </div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        <span class="comment">//Open File </span></div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        _open();</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a715c742574a6feea82fe5284bbd296d6">_open</a>();</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;<span class="comment">//        std::ifstream *SEQ= new std::ifstream;</span></div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;<span class="comment">//        filehandles.push_back(SEQ);</span></div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;<span class="comment">//        </span></div>
@@ -552,7 +572,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;<span class="comment">    //! Load the fasta sequence file</span></div>
 <div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;<span class="comment">    //! \param mModels  Models to be used</span></div>
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="comment">    //! \param seqFile  Fasta sequence filename</span></div>
-<div class="line"><a name="l00467"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aee9f66d2980f1a56d31b99b7ca896918">  467</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">seqTracks::loadSeqs</a>(<a class="code" href="class_stoch_h_m_m_1_1models.html">models</a> &amp;mModels, std::string &amp;seqFile, SeqFileFormat format){</div>
+<div class="line"><a name="l00467"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aee9f66d2980f1a56d31b99b7ca896918">  467</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">seqTracks::loadSeqs</a>(<a class="code" href="class_stoch_h_m_m_1_1models.html">models</a> &amp;mModels, std::string &amp;seqFile, <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42c">SeqFileFormat</a> format){</div>
 <div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">loadSeqs</a>(mModels, seqFile, format, NULL,NULL);</div>
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    }</div>
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    </div>
@@ -565,39 +585,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;<span class="comment">    //! Load the fasta sequence files</span></div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;<span class="comment">    //! \param mModels  Models to be used</span></div>
 <div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;<span class="comment">    //! \param seqFiles  Fasta sequence filenames</span></div>
-<div class="line"><a name="l00480"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2aa0617ca64acfc5cd22ef380045339c">  480</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">seqTracks::loadSeqs</a>(<a class="code" href="class_stoch_h_m_m_1_1models.html">models</a>&amp; mModels, std::vector&lt;std::string&gt;&amp; seqFiles, SeqFileFormat format, SeqFilesType type, pt2Attrib* attribFunc, <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html" title="Stores pointer to user functions used to create Real Number Tracks.">TrackFuncs</a>* trFuncs){</div>
+<div class="line"><a name="l00480"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2aa0617ca64acfc5cd22ef380045339c">  480</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">seqTracks::loadSeqs</a>(<a class="code" href="class_stoch_h_m_m_1_1models.html">models</a>&amp; mModels, std::vector&lt;std::string&gt;&amp; seqFiles, <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42c">SeqFileFormat</a> format, <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76">SeqFilesType</a> type, <a class="code" href="namespace_stoch_h_m_m.html#a8a670349d99357e6dcd6d12025d243e9">pt2Attrib</a>* attribFunc, <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html" title="Stores pointer to user functions used to create Real Number Tracks.">TrackFuncs</a>* trFuncs){</div>
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;        </div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;        <span class="keywordflow">if</span> (filehandles.size()&gt;0){</div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;            _reset();</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>.size()&gt;0){</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#acd2888ef01bbe559da158ff2372d1139">_reset</a>();</div>
 <div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;        }</div>
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;        </div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;        hmms = &amp;mModels;</div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;        seqFormat = format;</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;        fileType = type;</div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;        seqFilenames = seqFiles;</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6a17845605d8f7e14e17a4d70ec141b1">hmms</a> = &amp;mModels;</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a1df9ef5558137e4cadc1d7b415d5e9cc">seqFormat</a> = format;</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a9e14581607e6fad3a5bf8b2868db5429">fileType</a> = type;</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a> = seqFiles;</div>
 <div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;</div>
 <div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;        </div>
 <div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;        <span class="comment">//Assign valid Track Functions</span></div>
 <div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;        <span class="keywordflow">if</span> (trFuncs!=NULL){</div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;            trackFunctions = trFuncs;</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aa81d8bbb02fde19a025d254a51894219">trackFunctions</a> = trFuncs;</div>
 <div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;        }</div>
 <div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;        </div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;        <span class="comment">//Assign valid Attribute Function</span></div>
 <div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;        <span class="keywordflow">if</span> (attribFunc!=NULL){</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;            attribModelFunc = attribFunc;</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a97a90b2e41715ffa9852325c238fdd57">attribModelFunc</a> = attribFunc;</div>
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;        }</div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;        </div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;        <span class="keywordflow">if</span> (attribModelFunc==NULL){</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a97a90b2e41715ffa9852325c238fdd57">attribModelFunc</a>==NULL){</div>
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;No valid Attribute calculating function&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;        }</div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;        </div>
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;        <span class="comment">//Get State Information and Determine # of tracks to import</span></div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;        info = hmms-&gt;<a class="code" href="class_stoch_h_m_m_1_1models.html#a287c21ac381e5e61d25a47ea6b95142a">getModel</a>(0)-&gt;getStateInfo();</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;        _initImportTrackInfo();</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a1b906bd01b3d6583f9f571be4985c3ea">info</a> = <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6a17845605d8f7e14e17a4d70ec141b1">hmms</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1models.html#a287c21ac381e5e61d25a47ea6b95142a">getModel</a>(0)-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#ab11645ebf40febaf15c1fada7e8b203b">getStateInfo</a>();</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a597c1836626e01b12c391c7c1a20fc95">_initImportTrackInfo</a>();</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;        </div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;        <span class="keywordtype">size_t</span> tracksToImport = importTracks.size();</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;        <span class="keywordflow">if</span> (fileType == SINGLE_TRACK &amp;&amp; tracksToImport&gt;1){</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;        <span class="keywordtype">size_t</span> tracksToImport = <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>.size();</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a9e14581607e6fad3a5bf8b2868db5429">fileType</a> == <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76ad337e28bb92cd6c319a91c9a5b365565">SINGLE_TRACK</a> &amp;&amp; tracksToImport&gt;1){</div>
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;            <span class="keywordtype">size_t</span> sequenceFiles = seqFiles.size();</div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;            </div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;            <span class="keywordflow">if</span> (tracksToImport!=sequenceFiles){</div>
@@ -607,7 +627,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;        }</div>
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;        </div>
 <div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;        <span class="comment">//Open File</span></div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        _open();</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a715c742574a6feea82fe5284bbd296d6">_open</a>();</div>
 <div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;<span class="comment">//        for(size_t i = 0; i&lt;seqFiles.size();i++){</span></div>
 <div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;<span class="comment">//            std::ifstream *SEQ= new std::ifstream;</span></div>
 <div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;<span class="comment">//            filehandles.push_back(SEQ);</span></div>
@@ -646,7 +666,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;<span class="comment">    //! Load the fasta sequence files</span></div>
 <div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;<span class="comment">    //! \param mModels  Models to be used</span></div>
 <div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;<span class="comment">    //! \param seqFiles  Fasta sequence filenames</span></div>
-<div class="line"><a name="l00561"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#af9a0cefc8c78695ceb54767a2f6833dc">  561</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">seqTracks::loadSeqs</a>(<a class="code" href="class_stoch_h_m_m_1_1models.html">models</a>&amp; mModels, std::vector&lt;std::string&gt;&amp; seqFiles , SeqFileFormat format, SeqFilesType type){</div>
+<div class="line"><a name="l00561"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#af9a0cefc8c78695ceb54767a2f6833dc">  561</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">seqTracks::loadSeqs</a>(<a class="code" href="class_stoch_h_m_m_1_1models.html">models</a>&amp; mModels, std::vector&lt;std::string&gt;&amp; seqFiles , <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42c">SeqFileFormat</a> format, <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76">SeqFilesType</a> type){</div>
 <div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">loadSeqs</a>(mModels, seqFiles, format, type, NULL, NULL);</div>
 <div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;    }</div>
 <div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;    </div>
@@ -654,7 +674,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;<span class="comment">    //! Load the fasta sequence files</span></div>
 <div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;<span class="comment">    //! \param mModels  Models to be used</span></div>
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;<span class="comment">    //! \param seqFiles  Fasta sequence filenames</span></div>
-<div class="line"><a name="l00569"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a05646d6c27fa1027908d072be0becd6c">  569</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">seqTracks::loadSeqs</a>(<a class="code" href="class_stoch_h_m_m_1_1models.html">models</a>&amp; mModels, std::vector&lt;std::string&gt;&amp; seqFiles, SeqFileFormat format, SeqFilesType type, pt2Attrib* attribFunc){</div>
+<div class="line"><a name="l00569"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a05646d6c27fa1027908d072be0becd6c">  569</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">seqTracks::loadSeqs</a>(<a class="code" href="class_stoch_h_m_m_1_1models.html">models</a>&amp; mModels, std::vector&lt;std::string&gt;&amp; seqFiles, <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42c">SeqFileFormat</a> format, <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76">SeqFilesType</a> type, <a class="code" href="namespace_stoch_h_m_m.html#a8a670349d99357e6dcd6d12025d243e9">pt2Attrib</a>* attribFunc){</div>
 <div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a88cfdc76ba1aa8fd2f64c1a1c7e58e96">loadSeqs</a>(mModels, seqFiles, format, type,attribFunc,NULL);</div>
 <div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    }</div>
 <div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;</div>
@@ -666,37 +686,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_job.html">seqJob</a> *jb= NULL;</div>
 <div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;        </div>
 <div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;        <span class="comment">//Check job queue and if necessary fill the job queue</span></div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;        <span class="keywordflow">if</span> ((jobs==0 || (jobs &lt; (numImportJobs/2))) &amp;&amp; good){</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;            <span class="keywordflow">while</span>(good &amp;&amp; jobs&lt;numImportJobs){</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;        <span class="keywordflow">if</span> ((<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a53ce2744e6e7d6277498520f4692e99f">jobs</a>==0 || (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a53ce2744e6e7d6277498520f4692e99f">jobs</a> &lt; (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a278ed837c738539b151742f1d7e7b3a6">numImportJobs</a>/2))) &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2288f2fa9235f4ef7140dd6109e22fea">good</a>){</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;            <span class="keywordflow">while</span>(<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2288f2fa9235f4ef7140dd6109e22fea">good</a> &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a53ce2744e6e7d6277498520f4692e99f">jobs</a>&lt;<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a278ed837c738539b151742f1d7e7b3a6">numImportJobs</a>){</div>
 <div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a84865b67818677dc3977100746a19269" title="Get the next sequence job.">getNext</a>();</div>
 <div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;            }</div>
 <div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;        }</div>
 <div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;        </div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;        <span class="keywordflow">if</span> (!good){</div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;            <span class="keywordflow">if</span> (fileType==SINGLE_TRACK){</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;                <span class="keywordflow">if</span> (seqFilenames.size()&gt;importTracks.size()){</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;                    _close();</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;                    _open();</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2288f2fa9235f4ef7140dd6109e22fea">good</a>){</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a9e14581607e6fad3a5bf8b2868db5429">fileType</a>==<a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76ad337e28bb92cd6c319a91c9a5b365565">SINGLE_TRACK</a>){</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>.size()&gt;<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>.size()){</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#ad8968470cb2685fac59b612002867a1a">_close</a>();</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a715c742574a6feea82fe5284bbd296d6">_open</a>();</div>
 <div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;                }</div>
 <div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;                <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;                    _close();</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#ad8968470cb2685fac59b612002867a1a">_close</a>();</div>
 <div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;                }</div>
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;            }</div>
 <div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;            <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;                <span class="keywordflow">if</span> (seqFilenames.size()&gt;0){</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;                    _close();</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;                    _open();</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>.size()&gt;0){</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#ad8968470cb2685fac59b612002867a1a">_close</a>();</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a715c742574a6feea82fe5284bbd296d6">_open</a>();</div>
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;                }</div>
 <div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;                <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;                    _close();</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#ad8968470cb2685fac59b612002867a1a">_close</a>();</div>
 <div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;                }</div>
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;            }</div>
 <div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;        }</div>
 <div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;        </div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;        <span class="keywordflow">if</span> (jobs&gt;0){</div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;            jb=jobQueue.front();</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;            jobQueue.pop();</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;            jobs--;</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a53ce2744e6e7d6277498520f4692e99f">jobs</a>&gt;0){</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;            jb=<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a3a5c878d0c4be95c4fd46fecbff6255a">jobQueue</a>.front();</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a3a5c878d0c4be95c4fd46fecbff6255a">jobQueue</a>.pop();</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a53ce2744e6e7d6277498520f4692e99f">jobs</a>--;</div>
 <div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;        }</div>
 <div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;        </div>
 <div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;        <span class="keywordflow">return</span> jb;</div>
@@ -707,10 +727,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;    </div>
 <div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;    <span class="comment">// TODO: fix PT2TRACKFUNC function assignment</span></div>
 <div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;    </div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;    <span class="keywordtype">bool</span> seqTracks::_initImportTrackInfo(){</div>
+<div class="line"><a name="l00622"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a597c1836626e01b12c391c7c1a20fc95">  622</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a597c1836626e01b12c391c7c1a20fc95">seqTracks::_initImportTrackInfo</a>(){</div>
 <div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1model.html">model</a>* temp = NULL;</div>
 <div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;        </div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;        <span class="keywordflow">if</span> (hmms!=NULL){</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6a17845605d8f7e14e17a4d70ec141b1">hmms</a>!=NULL){</div>
 <div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;            temp = (*hmms)[0];</div>
 <div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;            </div>
 <div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;            <span class="keywordflow">if</span> (temp == NULL){</div>
@@ -719,33 +739,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;            }</div>
 <div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;            </div>
 <div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;        }</div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (hmm!=NULL){</div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;            temp = hmm;</div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#abadcfb34522e061f4515960838fc06eb">hmm</a>!=NULL){</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;            temp = <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#abadcfb34522e061f4515960838fc06eb">hmm</a>;</div>
 <div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;        }</div>
 <div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;        <span class="keywordflow">else</span>{</div>
 <div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;seqTracks initialization error:  Model is not defined. Therefore, can&#39;t initiate seqTrack with necessary model inforamation&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;        }</div>
 <div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;        </div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;        modelTracks = temp-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a44555845bd523fd57e52ec25ca77e886">getTracks</a>();</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a93f3f88ea4b7680220f8f8a8a964570c">modelTracks</a> = temp-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a44555845bd523fd57e52ec25ca77e886">getTracks</a>();</div>
 <div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;        </div>
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;        <span class="comment">//Determine which tracks to import and which to get by using track functions</span></div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;        track* tempTrack;</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;        trackCount= temp-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a494309f4adda6226f56c8ba03c74a6dc" title="Get the number of tracks defined in the model.">track_size</a>();</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;trackCount;i++){</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1track.html">track</a>* tempTrack;</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#af657ac2fb77de00efee8b32ac90ad61d">trackCount</a>= temp-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a494309f4adda6226f56c8ba03c74a6dc" title="Get the number of tracks defined in the model.">track_size</a>();</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#af657ac2fb77de00efee8b32ac90ad61d">trackCount</a>;i++){</div>
 <div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;            tempTrack = temp-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#ae73039df41e18c26172c8dff246e306d">getTrack</a>(i);</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;            <span class="keywordflow">if</span> (tempTrack-&gt;isTrackFuncDefined()){</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;                ppTrack tmp;</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;                tmp.func = NULL;</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;                tmp.trackNumber=i;</div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;                tmp.trackToUse=temp-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a8de8a0302c27d0dfeeb6039eaa8d2d83">getTrackIter</a>(tempTrack-&gt;getTrackToUse());</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;                std::string functionTouse=tempTrack-&gt;getTrackFunction();</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;            <span class="keywordflow">if</span> (tempTrack-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a04e51fb4eacbec28b72e09d519846306">isTrackFuncDefined</a>()){</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;                <a class="code" href="struct_stoch_h_m_m_1_1pp_track.html">ppTrack</a> tmp;</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;                tmp.<a class="code" href="struct_stoch_h_m_m_1_1pp_track.html#afe78eb6aa00479b73b197c4af3b30577">func</a> = NULL;</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;                tmp.<a class="code" href="struct_stoch_h_m_m_1_1pp_track.html#a4b99ef6a09a44f98599f78d4b045d9e5">trackNumber</a>=i;</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;                tmp.<a class="code" href="struct_stoch_h_m_m_1_1pp_track.html#a3df95d861ce6b6048a4611ae57ce5615">trackToUse</a>=temp-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a8de8a0302c27d0dfeeb6039eaa8d2d83">getTrackIter</a>(tempTrack-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a2d683fb3208a84d293d8655ce414699f" title="Get name of Track to use for trackFunc.">getTrackToUse</a>());</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;                std::string functionTouse=tempTrack-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a4684b917aeac79cf7b0f7d6df570604d">getTrackFunction</a>();</div>
 <div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;                </div>
 <div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;                <span class="comment">//tmp.func = funcs-&gt;getFunction(functionTouse);</span></div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;                postprocessTracks.push_back(tmp);</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#ae5b4030350ca8c970320c919bac7e7de">postprocessTracks</a>.push_back(tmp);</div>
 <div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;            }</div>
 <div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;            <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;                importTracks.push_back(std::make_pair(i,tempTrack-&gt;getAlphaType()));</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>.push_back(std::make_pair(i,tempTrack-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a4ce8b421ac3f61a6093d81867b4a981f">getAlphaType</a>()));</div>
 <div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;            }</div>
 <div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;        }</div>
 <div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -754,7 +774,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;<span class="comment">    //!Print the seqTracks to stdout</span></div>
 <div class="line"><a name="l00667"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2046aac4b5c6c29eb78c27462bcc7000">  667</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2046aac4b5c6c29eb78c27462bcc7000" title="Print the seqTracks to stdout.">seqTracks::print</a>(){</div>
 <div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;        </div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i&lt;jobQueue.size();i++){</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a3a5c878d0c4be95c4fd46fecbff6255a">jobQueue</a>.size();i++){</div>
 <div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;            <span class="comment">//jobQueue[i]-&gt;print_seq();</span></div>
 <div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;        }</div>
 <div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;        <span class="keywordflow">return</span>;</div>
@@ -763,13 +783,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;<span class="comment">    //!Get a job and Add to the queue</span></div>
 <div class="line"><a name="l00677"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#ac84df53cafe738403af9c898b26b2da5">  677</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#ac84df53cafe738403af9c898b26b2da5" title="Get a job and Add to the queue.">seqTracks::importJobs</a>(){</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;        <span class="keywordflow">while</span>(good &amp;&amp; jobs&lt;numImportJobs){</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;        <span class="keywordflow">while</span>(<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2288f2fa9235f4ef7140dd6109e22fea">good</a> &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a53ce2744e6e7d6277498520f4692e99f">jobs</a>&lt;<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a278ed837c738539b151742f1d7e7b3a6">numImportJobs</a>){</div>
 <div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a84865b67818677dc3977100746a19269" title="Get the next sequence job.">getNext</a>();</div>
 <div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;        }</div>
 <div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;        </div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;        <span class="keywordflow">if</span> (!good &amp;&amp; seqFilenames.size()&gt;importTracks.size()){</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;            _close();</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;            _open();</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2288f2fa9235f4ef7140dd6109e22fea">good</a> &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>.size()&gt;<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>.size()){</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#ad8968470cb2685fac59b612002867a1a">_close</a>();</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a715c742574a6feea82fe5284bbd296d6">_open</a>();</div>
 <div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;        }</div>
 <div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;        </div>
 <div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -782,7 +802,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;<span class="comment">    //!Get the next sequence job</span></div>
 <div class="line"><a name="l00696"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a84865b67818677dc3977100746a19269">  696</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a84865b67818677dc3977100746a19269" title="Get the next sequence job.">seqTracks::getNext</a>(){</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_job.html">seqJob</a>* temp_job=<span class="keyword">new</span>(std::nothrow) <a class="code" href="class_stoch_h_m_m_1_1seq_job.html">seqJob</a>(trackCount);</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1seq_job.html">seqJob</a>* temp_job=<span class="keyword">new</span>(std::nothrow) <a class="code" href="class_stoch_h_m_m_1_1seq_job.html">seqJob</a>(<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#af657ac2fb77de00efee8b32ac90ad61d">trackCount</a>);</div>
 <div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;        </div>
 <div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;        <span class="keywordflow">if</span> (temp_job==NULL){</div>
 <div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
@@ -795,10 +815,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;        </div>
 <div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;        <span class="comment">//std::cout &lt;&lt; importTracks.size() &lt;&lt; std::endl;</span></div>
 <div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;        </div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;importTracks.size();i++){</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>.size();i++){</div>
 <div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;            <span class="keywordtype">bool</span> success;</div>
 <div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;            <span class="keywordflow">if</span> (importTracks[i].second == REAL){</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>[i].second == <a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53ae7cffd9ec42f739ee9862d2076d8d83f">REAL</a>){</div>
 <div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;                sq=<span class="keyword">new</span>(std::nothrow) <a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>(<span class="keyword">true</span>);</div>
 <div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;                </div>
 <div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;                <span class="keywordflow">if</span> (sq==NULL){</div>
@@ -806,15 +826,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;                    exit(1);</div>
 <div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;                }</div>
 <div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;                </div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;                <span class="keywordflow">if</span> (fileType == SINGLE_TRACK){</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;                    success = sq-&gt;getReal(*filehandles[i], (*modelTracks)[importTracks[i].first]);</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a9e14581607e6fad3a5bf8b2868db5429">fileType</a> == <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76ad337e28bb92cd6c319a91c9a5b365565">SINGLE_TRACK</a>){</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;                    success = sq-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a8fec693df516f59cb7ccf8b2a9668205">getReal</a>(*<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[i], (*<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a93f3f88ea4b7680220f8f8a8a964570c">modelTracks</a>)[<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>[i].first]);</div>
 <div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;                }</div>
 <div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;                <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;                    success = sq-&gt;getReal(*filehandles[0], (*modelTracks)[importTracks[i].first]);</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;                    success = sq-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a8fec693df516f59cb7ccf8b2a9668205">getReal</a>(*<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[0], (*<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a93f3f88ea4b7680220f8f8a8a964570c">modelTracks</a>)[<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>[i].first]);</div>
 <div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;                }</div>
 <div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;                </div>
 <div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;            }</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (seqFormat == FASTA){ <span class="comment">// AlphaNum and Fasta</span></div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a1df9ef5558137e4cadc1d7b415d5e9cc">seqFormat</a> == <a class="code" href="namespace_stoch_h_m_m.html#a7e915f1895626c747973dc285457a42ca4cae7b871050786522aebf8762ec5e55">FASTA</a>){ <span class="comment">// AlphaNum and Fasta</span></div>
 <div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;                sq=<span class="keyword">new</span>(std::nothrow) <a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>(<span class="keyword">false</span>);</div>
 <div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;                </div>
 <div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;                <span class="keywordflow">if</span> (sq==NULL){</div>
@@ -822,11 +842,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;                    exit(1);</div>
 <div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;                }</div>
 <div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;                </div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;                <span class="keywordflow">if</span> (fileType == SINGLE_TRACK){</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;                    success = sq-&gt;getFasta(*filehandles[i], (*modelTracks)[importTracks[i].first], info);</div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a9e14581607e6fad3a5bf8b2868db5429">fileType</a> == <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76ad337e28bb92cd6c319a91c9a5b365565">SINGLE_TRACK</a>){</div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;                    success = sq-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#ab44b110da498a28b195c89dc0812a1bc">getFasta</a>(*<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[i], (*<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a93f3f88ea4b7680220f8f8a8a964570c">modelTracks</a>)[<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>[i].first], <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a1b906bd01b3d6583f9f571be4985c3ea">info</a>);</div>
 <div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;                }</div>
 <div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;                <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;                    success = sq-&gt;getFasta(*filehandles[0], (*modelTracks)[importTracks[i].first], info);</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;                    success = sq-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#ab44b110da498a28b195c89dc0812a1bc">getFasta</a>(*<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[0], (*<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a93f3f88ea4b7680220f8f8a8a964570c">modelTracks</a>)[<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>[i].first], <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a1b906bd01b3d6583f9f571be4985c3ea">info</a>);</div>
 <div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;                }             </div>
 <div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;            }</div>
 <div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;            <span class="keywordflow">else</span>{</div>
@@ -835,29 +855,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;                    std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;                    exit(1);</div>
 <div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;                }</div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;                <span class="keywordflow">if</span> (fileType == SINGLE_TRACK){</div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;                    success = sq-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a8380c028b5a8b03043a0a5d7e3e451d7">getFastq</a>(*filehandles[i], (*modelTracks)[importTracks[i].first]);</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a9e14581607e6fad3a5bf8b2868db5429">fileType</a> == <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76ad337e28bb92cd6c319a91c9a5b365565">SINGLE_TRACK</a>){</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;                    success = sq-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a8380c028b5a8b03043a0a5d7e3e451d7">getFastq</a>(*<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[i], (*<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a93f3f88ea4b7680220f8f8a8a964570c">modelTracks</a>)[<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>[i].first]);</div>
 <div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;                }</div>
 <div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;                <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;                    success = sq-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a8380c028b5a8b03043a0a5d7e3e451d7">getFastq</a>(*filehandles[0], (*modelTracks)[importTracks[i].first]);</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;                    success = sq-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a8380c028b5a8b03043a0a5d7e3e451d7">getFastq</a>(*<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[0], (*<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a93f3f88ea4b7680220f8f8a8a964570c">modelTracks</a>)[<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>[i].first]);</div>
 <div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;                }</div>
 <div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;                </div>
 <div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;            }</div>
 <div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;            </div>
 <div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;            </div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;            <span class="keywordflow">if</span> (fileType == SINGLE_TRACK){</div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;                <span class="keywordflow">if</span> (!filehandles[i]-&gt;good()){</div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;                    good=<span class="keyword">false</span>;</div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a9e14581607e6fad3a5bf8b2868db5429">fileType</a> == <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76ad337e28bb92cd6c319a91c9a5b365565">SINGLE_TRACK</a>){</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[i]-&gt;<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2288f2fa9235f4ef7140dd6109e22fea">good</a>()){</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2288f2fa9235f4ef7140dd6109e22fea">good</a>=<span class="keyword">false</span>;</div>
 <div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;                }</div>
 <div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;            }</div>
 <div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;            <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;                <span class="keywordflow">if</span> (!filehandles[0]-&gt;good()){</div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;                    good=<span class="keyword">false</span>;</div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[0]-&gt;<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2288f2fa9235f4ef7140dd6109e22fea">good</a>()){</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2288f2fa9235f4ef7140dd6109e22fea">good</a>=<span class="keyword">false</span>;</div>
 <div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;                }</div>
 <div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;            }</div>
 <div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;            </div>
 <div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;            <span class="keywordflow">if</span> (!success){</div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to import data track from &quot;</span> &lt;&lt; seqFilenames[i] &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to import data track from &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>[i] &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;                <span class="keyword">delete</span> sq;</div>
 <div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;                sq = NULL;</div>
 <div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;            }</div>
@@ -869,15 +889,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;            <span class="keywordflow">else</span>{</div>
 <div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;                <span class="comment">//If exDef is defined in sequence put it in sequences</span></div>
 <div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;                <span class="keywordflow">if</span> (sq-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#aff6d39d021daf7ea0ab2a48bc3d96b44">exDefDefined</a>()){</div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;                    temp_job-&gt;set-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a3a2e2f4d2af3fe24f1ca10e351b456a8">setExDef</a>(sq-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a65528e0b31c9d062b2bad180b9fde545">getExDef</a>());</div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;                    temp_job-&gt;<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#ab61dc8ef7d57f5f515ab061d87dc35ff">set</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a3a2e2f4d2af3fe24f1ca10e351b456a8">setExDef</a>(sq-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a65528e0b31c9d062b2bad180b9fde545">getExDef</a>());</div>
 <div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;                }</div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;                temp_job-&gt;set-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#ae52e575cc20a6388b79f9eabab4c5ce4" title="Get sequence based on alphabet.">addSeq</a>(sq,importTracks[i].first);</div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;                temp_job-&gt;<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#ab61dc8ef7d57f5f515ab061d87dc35ff">set</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#ae52e575cc20a6388b79f9eabab4c5ce4" title="Get sequence based on alphabet.">addSeq</a>(sq,<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>[i].first);</div>
 <div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;                </div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;                <span class="keywordflow">if</span> (fileType==SINGLE_TRACK){</div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;                    temp_job-&gt;setSeqFilename(seqFilenames[i]);</div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a9e14581607e6fad3a5bf8b2868db5429">fileType</a>==<a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76ad337e28bb92cd6c319a91c9a5b365565">SINGLE_TRACK</a>){</div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;                    temp_job-&gt;<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#a2cc2d3df107b646605e21b7c483fcff2">setSeqFilename</a>(<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>[i]);</div>
 <div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;                }</div>
 <div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;                <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;                    temp_job-&gt;setSeqFilename(seqFilenames[0]);</div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;                    temp_job-&gt;<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#a2cc2d3df107b646605e21b7c483fcff2">setSeqFilename</a>(<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>[0]);</div>
 <div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;                }</div>
 <div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;            }</div>
 <div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;        }</div>
@@ -886,14 +906,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;        <span class="keywordflow">if</span> (valid){</div>
 <div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;            </div>
 <div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;            <span class="comment">//Get sequences defined by sequence external function that is user-defined</span></div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;           <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i =0;i&lt;postprocessTracks.size();i++) {</div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;           <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i =0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#ae5b4030350ca8c970320c919bac7e7de">postprocessTracks</a>.size();i++) {</div>
 <div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;               std::vector&lt;double&gt;* rl = NULL;</div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;               <span class="keywordflow">if</span> (postprocessTracks[i].func != NULL ){</div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;                   rl = (*postprocessTracks[i].func)(temp_job-&gt;set-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a360ce70b661a950da79d0668a3afac9a">getUndigitized</a>(postprocessTracks[i].trackToUse));</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;               <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#ae5b4030350ca8c970320c919bac7e7de">postprocessTracks</a>[i].func != NULL ){</div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;                   rl = (*<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#ae5b4030350ca8c970320c919bac7e7de">postprocessTracks</a>[i].func)(temp_job-&gt;<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#ab61dc8ef7d57f5f515ab061d87dc35ff">set</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a360ce70b661a950da79d0668a3afac9a">getUndigitized</a>(<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#ae5b4030350ca8c970320c919bac7e7de">postprocessTracks</a>[i].trackToUse));</div>
 <div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;               }</div>
 <div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;               <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;                   std::cerr &lt;&lt; <span class="stringliteral">&quot;Sequence external function not defined for track number: &quot;</span> &lt;&lt; postprocessTracks[i].trackNumber &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;                   std::cerr &lt;&lt; <span class="stringliteral">&quot;Using Sequences from track: &quot;</span> &lt;&lt; postprocessTracks[i].trackToUse &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;                   std::cerr &lt;&lt; <span class="stringliteral">&quot;Sequence external function not defined for track number: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#ae5b4030350ca8c970320c919bac7e7de">postprocessTracks</a>[i].trackNumber &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;                   std::cerr &lt;&lt; <span class="stringliteral">&quot;Using Sequences from track: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#ae5b4030350ca8c970320c919bac7e7de">postprocessTracks</a>[i].trackToUse &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;                   rl = <span class="keyword">new</span>(std::nothrow) std::vector&lt;double&gt;;</div>
 <div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;                   <span class="keywordflow">if</span> (rl==NULL){</div>
 <div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;                       std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
@@ -901,56 +921,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;                   }</div>
 <div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;               }</div>
 <div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;                </div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;               <a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>* sq = <span class="keyword">new</span>(std::nothrow) <a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>(rl , (*modelTracks)[postprocessTracks[i].trackNumber]);</div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;               <a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>* sq = <span class="keyword">new</span>(std::nothrow) <a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>(rl , (*<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a93f3f88ea4b7680220f8f8a8a964570c">modelTracks</a>)[<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#ae5b4030350ca8c970320c919bac7e7de">postprocessTracks</a>[i].trackNumber]);</div>
 <div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;               </div>
 <div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;               <span class="keywordflow">if</span> (sq==NULL){</div>
 <div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;                   std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;                   exit(1);</div>
 <div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;               }</div>
 <div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;               </div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;               temp_job-&gt;set-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#ae52e575cc20a6388b79f9eabab4c5ce4" title="Get sequence based on alphabet.">addSeq</a>(sq,postprocessTracks[i].trackNumber);</div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;               temp_job-&gt;<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#ab61dc8ef7d57f5f515ab061d87dc35ff">set</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#ae52e575cc20a6388b79f9eabab4c5ce4" title="Get sequence based on alphabet.">addSeq</a>(sq,<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#ae5b4030350ca8c970320c919bac7e7de">postprocessTracks</a>[i].trackNumber);</div>
 <div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;            }</div>
 <div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;            </div>
 <div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;            <span class="comment">//TODO:  Fix the selection of models based upon the attribute model function</span></div>
 <div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;            <span class="comment">//Select Model based on models distance from attributes</span></div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;            <span class="keywordflow">if</span> (hmms){</div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6a17845605d8f7e14e17a4d70ec141b1">hmms</a>){</div>
 <div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;                </div>
 <div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;                <span class="comment">//If we have a attribute calculation function we&#39;ll access which model to use</span></div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;                <span class="keywordflow">if</span> (attribModelFunc){</div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a97a90b2e41715ffa9852325c238fdd57">attribModelFunc</a>){</div>
 <div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;                    <span class="comment">//Calculate attribute</span></div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;                    <span class="keywordtype">double</span> attb = (*attribModelFunc)(temp_job-&gt;set-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a360ce70b661a950da79d0668a3afac9a">getUndigitized</a>(TrackToUseForAttrib));</div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;                    <span class="keywordtype">double</span> attb = (*attribModelFunc)(temp_job-&gt;<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#ab61dc8ef7d57f5f515ab061d87dc35ff">set</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a360ce70b661a950da79d0668a3afac9a">getUndigitized</a>(<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a4412dfb6fe46e16151c21088bbdf12df">TrackToUseForAttrib</a>));</div>
 <div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;                    </div>
 <div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;                    <span class="comment">//assign first by default</span></div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;                    <span class="keywordtype">double</span> min = (*hmms)[0]-&gt;getDistanceToAttrib(attb);</div>
-<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;                    temp_job-&gt;hmm=(*hmms)[0];  </div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;                    <span class="keywordtype">double</span> <a class="code" href="namespace_stoch_h_m_m.html#a0ced3dacc1b4944b71c6ce87edf1b289">min</a> = (*hmms)[0]-&gt;getDistanceToAttrib(attb);</div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;                    temp_job-&gt;<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#aafc405d1cdac77b1f1ebd2a6b9754df9">hmm</a>=(*hmms)[0];  </div>
 <div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;                    </div>
 <div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;                    <span class="comment">//Check other models for one that is closer to attb</span></div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;                    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;hmms-&gt;<a class="code" href="class_stoch_h_m_m_1_1models.html#acccd6101165f462525b6198e1dc368e2">size</a>();i++){</div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;                    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=1;i&lt;<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6a17845605d8f7e14e17a4d70ec141b1">hmms</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1models.html#acccd6101165f462525b6198e1dc368e2">size</a>();i++){</div>
 <div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;                        <span class="keywordtype">double</span> newVal=(*hmms)[i]-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a0f8d96377aeacd9ebfb561e90cd53e20" title="Get Distance from the model attrib values to user defined value.">getDistanceToAttrib</a>(attb);</div>
 <div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;                        </div>
 <div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;                        <span class="comment">//If it&#39;s closer assign it to the job</span></div>
 <div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;                        <span class="keywordflow">if</span> (newVal&lt;min){</div>
-<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;                            temp_job-&gt;hmm=(*hmms)[i];</div>
+<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;                            temp_job-&gt;<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#aafc405d1cdac77b1f1ebd2a6b9754df9">hmm</a>=(*hmms)[i];</div>
 <div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;                        }</div>
 <div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;                    }</div>
 <div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;</div>
 <div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;                }</div>
 <div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;                <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;                    temp_job-&gt;hmm=(*hmms)[0];  <span class="comment">//Default to first HMM</span></div>
+<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;                    temp_job-&gt;<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#aafc405d1cdac77b1f1ebd2a6b9754df9">hmm</a>=(*hmms)[0];  <span class="comment">//Default to first HMM</span></div>
 <div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;                }</div>
 <div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;            }</div>
 <div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;            </div>
 <div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;            <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;                temp_job-&gt;hmm=hmm;  <span class="comment">//assign single model to job</span></div>
+<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;                temp_job-&gt;<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#aafc405d1cdac77b1f1ebd2a6b9754df9">hmm</a>=<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#abadcfb34522e061f4515960838fc06eb">hmm</a>;  <span class="comment">//assign single model to job</span></div>
 <div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;            }</div>
 <div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;            </div>
 <div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;            </div>
 <div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;            <span class="comment">//Check that all sequences are same length.</span></div>
-<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;            <span class="keywordtype">size_t</span> lengthOfAll=SIZE_MAX;</div>
-<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i&lt;trackCount;i++){</div>
+<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;            <span class="keywordtype">size_t</span> lengthOfAll=<a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>;</div>
+<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#af657ac2fb77de00efee8b32ac90ad61d">trackCount</a>;i++){</div>
 <div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;                </div>
-<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;                <span class="keywordtype">size_t</span> length=temp_job-&gt;set-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a4330384386d607990d4f46e4ec710b27">getLength</a>(i);</div>
-<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;                <span class="keywordflow">if</span> (lengthOfAll==SIZE_MAX){</div>
+<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;                <span class="keywordtype">size_t</span> length=temp_job-&gt;<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#ab61dc8ef7d57f5f515ab061d87dc35ff">set</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a4330384386d607990d4f46e4ec710b27">getLength</a>(i);</div>
+<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;                <span class="keywordflow">if</span> (lengthOfAll==<a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>){</div>
 <div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;                    lengthOfAll=length;</div>
 <div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;                }</div>
 <div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (lengthOfAll!=length){</div>
@@ -963,9 +983,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;                }</div>
 <div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;</div>
 <div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;            }</div>
-<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;            temp_job-&gt;set-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a5c45ecfdf5a9e2fbdaeb0bf7e3eb1cce" title="Set Length of sequences.">setLength</a>(lengthOfAll);</div>
-<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;            jobQueue.push(temp_job);</div>
-<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;            jobs++;</div>
+<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;            temp_job-&gt;<a class="code" href="class_stoch_h_m_m_1_1seq_job.html#ab61dc8ef7d57f5f515ab061d87dc35ff">set</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a5c45ecfdf5a9e2fbdaeb0bf7e3eb1cce" title="Set Length of sequences.">setLength</a>(lengthOfAll);</div>
+<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a3a5c878d0c4be95c4fd46fecbff6255a">jobQueue</a>.push(temp_job);</div>
+<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a53ce2744e6e7d6277498520f4692e99f">jobs</a>++;</div>
 <div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;        }</div>
 <div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;        <span class="keywordflow">else</span>{</div>
 <div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;            <span class="keyword">delete</span> temp_job;</div>
@@ -975,18 +995,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;    }</div>
 <div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;    </div>
 <div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;    </div>
-<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;    <span class="keywordtype">bool</span> seqTracks::_open(){</div>
+<div class="line"><a name="l00890"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a715c742574a6feea82fe5284bbd296d6">  890</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a715c742574a6feea82fe5284bbd296d6">seqTracks::_open</a>(){</div>
 <div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;        </div>
-<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;        <span class="keywordflow">if</span> (seqFilenames.size()==0){</div>
+<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>.size()==0){</div>
 <div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;        }</div>
 <div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;        </div>
-<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;        <span class="keywordflow">if</span> (fileType == SINGLE_TRACK ){</div>
-<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;            <span class="keywordflow">if</span> (seqFilenames.size()&lt;importTracks.size()){</div>
+<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a9e14581607e6fad3a5bf8b2868db5429">fileType</a> == <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76ad337e28bb92cd6c319a91c9a5b365565">SINGLE_TRACK</a> ){</div>
+<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>.size()&lt;<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>.size()){</div>
 <div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;Number of sequences provided doesn&#39;t match the number of tracks. Given that the sequences files contain a single track per file. &quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;            }</div>
 <div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;            </div>
-<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i&lt;importTracks.size();i++){</div>
+<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i&lt;<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>.size();i++){</div>
 <div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;                std::ifstream *SEQ= <span class="keyword">new</span>(std::nothrow) std::ifstream;</div>
 <div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;                </div>
 <div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;                <span class="keywordflow">if</span> (SEQ==NULL){</div>
@@ -994,31 +1014,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;                    exit(1);</div>
 <div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;                }</div>
 <div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;                </div>
-<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;                filehandles.push_back(SEQ);</div>
+<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>.push_back(SEQ);</div>
 <div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;                </div>
-<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;                <span class="keywordflow">if</span> (seqFilenames.size()&lt;i+1){</div>
+<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>.size()&lt;i+1){</div>
 <div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160;                }</div>
 <div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;                </div>
-<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;                filehandles[i]-&gt;open(seqFilenames[i].c_str());</div>
+<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[i]-&gt;open(<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>[i].c_str());</div>
 <div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;                </div>
-<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;                <span class="keywordflow">if</span> (!filehandles[i]-&gt;is_open()){</div>
-<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Can&#39;t open sequence file: &quot;</span>  &lt;&lt; seqFilenames[i] &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[i]-&gt;is_open()){</div>
+<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Can&#39;t open sequence file: &quot;</span>  &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>[i] &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;                }</div>
 <div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;                </div>
-<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;                <span class="keywordflow">if</span> (filehandles[i]-&gt;good()){</div>
-<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;                    good = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[i]-&gt;<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2288f2fa9235f4ef7140dd6109e22fea">good</a>()){</div>
+<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2288f2fa9235f4ef7140dd6109e22fea">good</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;                }</div>
 <div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;                <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Can&#39;t read from file: &quot;</span> &lt;&lt; seqFilenames[i] &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;                    std::cerr &lt;&lt; <span class="stringliteral">&quot;Can&#39;t read from file: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>[i] &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;                    </div>
-<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;                    <span class="keywordflow">if</span> (fileType == SINGLE_TRACK &amp;&amp; importTracks.size()&gt;1){</div>
-<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed import of &quot;</span> &lt;&lt; seqFilenames[i] &lt;&lt; <span class="stringliteral">&quot; causes there to be a missing track in sequence data.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;                    <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a9e14581607e6fad3a5bf8b2868db5429">fileType</a> == <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76ad337e28bb92cd6c319a91c9a5b365565">SINGLE_TRACK</a> &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>.size()&gt;1){</div>
+<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed import of &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>[i] &lt;&lt; <span class="stringliteral">&quot; causes there to be a missing track in sequence data.&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;                    }</div>
 <div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;                    <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Skipped processing of &quot;</span> &lt;&lt; seqFilenames[i] &lt;&lt; <span class="stringliteral">&quot;.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Skipped processing of &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>[i] &lt;&lt; <span class="stringliteral">&quot;.&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;                    }</div>
 <div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;                }</div>
 <div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;            }</div>
@@ -1032,20 +1052,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;                exit(1);</div>
 <div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;            }</div>
 <div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;            </div>
-<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;            filehandles.push_back(SEQ);</div>
+<div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>.push_back(SEQ);</div>
 <div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;            </div>
-<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;            filehandles[0]-&gt;open(seqFilenames[0].c_str());</div>
+<div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[0]-&gt;open(<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>[0].c_str());</div>
 <div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;            </div>
-<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;            <span class="keywordflow">if</span> (!filehandles[0]-&gt;is_open()){</div>
-<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;Can&#39;t open sequence file: &quot;</span>  &lt;&lt; seqFilenames[0] &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[0]-&gt;is_open()){</div>
+<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;Can&#39;t open sequence file: &quot;</span>  &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>[0] &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;            }</div>
 <div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;            </div>
-<div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;            <span class="keywordflow">if</span> (filehandles[0]-&gt;good()){</div>
-<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;                good = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[0]-&gt;<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2288f2fa9235f4ef7140dd6109e22fea">good</a>()){</div>
+<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a2288f2fa9235f4ef7140dd6109e22fea">good</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160;            }</div>
 <div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160;            <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;Can&#39;t read from file: &quot;</span> &lt;&lt; seqFilenames[0] &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;Can&#39;t read from file: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>[0] &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00961"></a><span class="lineno">  961</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00962"></a><span class="lineno">  962</span>&#160;            }</div>
 <div class="line"><a name="l00963"></a><span class="lineno">  963</span>&#160;        }</div>
@@ -1056,26 +1076,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00968"></a><span class="lineno">  968</span>&#160;    }</div>
 <div class="line"><a name="l00969"></a><span class="lineno">  969</span>&#160;                   </div>
 <div class="line"><a name="l00970"></a><span class="lineno">  970</span>&#160;                   </div>
-<div class="line"><a name="l00971"></a><span class="lineno">  971</span>&#160;    <span class="keywordtype">bool</span> seqTracks::_close(){</div>
-<div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;        <span class="keywordflow">if</span> (fileType == SINGLE_TRACK){</div>
-<div class="line"><a name="l00973"></a><span class="lineno">  973</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;importTracks.size();i++){</div>
+<div class="line"><a name="l00971"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#ad8968470cb2685fac59b612002867a1a">  971</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#ad8968470cb2685fac59b612002867a1a">seqTracks::_close</a>(){</div>
+<div class="line"><a name="l00972"></a><span class="lineno">  972</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a9e14581607e6fad3a5bf8b2868db5429">fileType</a> == <a class="code" href="namespace_stoch_h_m_m.html#a21c4b50449b98555d1521444c7884f76ad337e28bb92cd6c319a91c9a5b365565">SINGLE_TRACK</a>){</div>
+<div class="line"><a name="l00973"></a><span class="lineno">  973</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>.size();i++){</div>
 <div class="line"><a name="l00974"></a><span class="lineno">  974</span>&#160;                <span class="comment">//std::cout &lt;&lt; importTracks.size() &lt;&lt; &quot;\t&quot; &lt;&lt; filehandles.size() &lt;&lt; std::endl;</span></div>
 <div class="line"><a name="l00975"></a><span class="lineno">  975</span>&#160;</div>
-<div class="line"><a name="l00976"></a><span class="lineno">  976</span>&#160;                <span class="keywordflow">if</span> (filehandles.size()&gt;=importTracks.size()){</div>
-<div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160;                    filehandles[i]-&gt;close();</div>
-<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;                    <span class="keyword">delete</span> filehandles[i];</div>
-<div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;                    filehandles[i]=NULL;</div>
-<div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160;                    filehandles.erase(filehandles.begin());</div>
-<div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;                    seqFilenames.erase(seqFilenames.begin());</div>
+<div class="line"><a name="l00976"></a><span class="lineno">  976</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>.size()&gt;=<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#aacd6e5c03950168055625bb80a0f9e47">importTracks</a>.size()){</div>
+<div class="line"><a name="l00977"></a><span class="lineno">  977</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[i]-&gt;close();</div>
+<div class="line"><a name="l00978"></a><span class="lineno">  978</span>&#160;                    <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[i];</div>
+<div class="line"><a name="l00979"></a><span class="lineno">  979</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[i]=NULL;</div>
+<div class="line"><a name="l00980"></a><span class="lineno">  980</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>.erase(<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>.begin());</div>
+<div class="line"><a name="l00981"></a><span class="lineno">  981</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>.erase(<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>.begin());</div>
 <div class="line"><a name="l00982"></a><span class="lineno">  982</span>&#160;                }</div>
 <div class="line"><a name="l00983"></a><span class="lineno">  983</span>&#160;                </div>
 <div class="line"><a name="l00984"></a><span class="lineno">  984</span>&#160;            }</div>
 <div class="line"><a name="l00985"></a><span class="lineno">  985</span>&#160;        }</div>
 <div class="line"><a name="l00986"></a><span class="lineno">  986</span>&#160;        <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;            filehandles[0]-&gt;clear();</div>
-<div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;            <span class="keyword">delete</span> filehandles[0];</div>
-<div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;            filehandles.erase(filehandles.begin());</div>
-<div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;            seqFilenames.erase(seqFilenames.begin());</div>
+<div class="line"><a name="l00987"></a><span class="lineno">  987</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[0]-&gt;clear();</div>
+<div class="line"><a name="l00988"></a><span class="lineno">  988</span>&#160;            <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>[0];</div>
+<div class="line"><a name="l00989"></a><span class="lineno">  989</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>.erase(<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a6897f1b9bde11537c938f00515233edf">filehandles</a>.begin());</div>
+<div class="line"><a name="l00990"></a><span class="lineno">  990</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>.erase(<a class="code" href="class_stoch_h_m_m_1_1seq_tracks.html#a27556eaf3296668b0f54378a8a62da58">seqFilenames</a>.begin());</div>
 <div class="line"><a name="l00991"></a><span class="lineno">  991</span>&#160;        }</div>
 <div class="line"><a name="l00992"></a><span class="lineno">  992</span>&#160;        </div>
 <div class="line"><a name="l00993"></a><span class="lineno">  993</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -1083,11 +1103,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00995"></a><span class="lineno">  995</span>&#160;                    </div>
 <div class="line"><a name="l00996"></a><span class="lineno">  996</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:49 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="seq_tracks_8cpp.html">seqTracks.cpp</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:34 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

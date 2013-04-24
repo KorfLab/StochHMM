@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1seq_job.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,11 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">seqJob</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">StochHMM::seqJob Member List</div>  </div>
@@ -96,28 +111,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>evaluated</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>evaluateFunctions</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>getHeader</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getModel</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>getPath</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getSeqAttrib</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>getSeqFilename</b>(size_t iter) (defined in <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getSeqs</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>printFilenames</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>printModel</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>printSeq</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a11a11ba0a7cd17559095cbe0f837276f">seqJob</a>(size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>seqTracks</b> (defined in <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>setSeqFilename</b>(std::string &amp;filename) (defined in <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>size</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a31b7479f7a4cfa4f9f9fea2c5ff173fa">attrib</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a9c2aeb5b874186d0245fcc3b46928220">decodingPerformed</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#ac2ceb3286faf0525077dc75383b5cbf2">evaluated</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a5b0f0e7395cc4e3bf09c8ea138f859b4">evaluateFunctions</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a9ed04b886c7fab884c932c200653d743">funcEvaluated</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a95bd76bc98fb2335797941a947671e71">functions</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a84914c98520e9f2885a4393ff333dac9">getHeader</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#abe7ed9cbf4a21cedd6a20ddcea8b3520">getModel</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a50c9e021b15270784c6c12fcecdf06fc">getPath</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#aacd8cca067936193a4e3b3c43d9c2304">getSeqAttrib</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a2911aacf6c7fab2233ec29ad3a0b0ef7">getSeqFilename</a>(size_t iter)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a1c85d7cee8f51c64c17c307266391777">getSeqs</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#aafc405d1cdac77b1f1ebd2a6b9754df9">hmm</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#aaddf53b2bb8c0f88f419a4409abc3463">path</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#aca5c0bccfb928ccf09ba81ba0aa78e4c">printFilenames</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a404cd9f679acb7078bfedd4664f10516">printModel</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#ac95e8d61f31de6c9c0a0e1fabe2536e2">printSeq</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a4e7004a62401483f65dbebbbcaaf5a44">seqFilename</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a11a11ba0a7cd17559095cbe0f837276f">seqJob</a>(size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a637db8a64e3b3931aca08eaaba4796dc">seqTracks</a> class</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#ab61dc8ef7d57f5f515ab061d87dc35ff">set</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a2cc2d3df107b646605e21b7c483fcff2">setSeqFilename</a>(std::string &amp;filename)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a6d5e1c3039741df846a08576e0f37e56">size</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html#a5ccece52713e4e49885d442a19f39ccb">~seqJob</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1seq_job.html">StochHMM::seqJob</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:38 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

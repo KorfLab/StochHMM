@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1matrix_position.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,14 +103,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html">matrixPosition</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::matrixPosition Class Reference</div>  </div>
 </div><!--header-->
@@ -102,35 +118,318 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ad4d72150f8f0f9536c705e106878c7ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#ad4d72150f8f0f9536c705e106878c7ee">matrixPosition</a> ()</td></tr>
+<tr class="memitem:a933878f0723fc942f0cfbf6132355ff2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#a933878f0723fc942f0cfbf6132355ff2">~matrixPosition</a> ()</td></tr>
 <tr class="memitem:a325d7ccb4e744e1796c43df8d897f725"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#a325d7ccb4e744e1796c43df8d897f725">parse</a> (std::string &amp;txt, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *trk, <a class="el" href="class_stoch_h_m_m_1_1string_list.html">stringList</a> &amp;names)</td></tr>
-<tr class="memitem:a6781c6da1a0ba288f082c4adf21c2e53"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6781c6da1a0ba288f082c4adf21c2e53"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getEmissionValue</b> (<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *, size_t)</td></tr>
-<tr class="memitem:acbf54e85c769c39346d5bfd9dfea8584"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acbf54e85c769c39346d5bfd9dfea8584"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getEmissionValue</b> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> *, size_t)</td></tr>
-<tr class="memitem:ac025a36e2f1abda68adb926c7624850f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac025a36e2f1abda68adb926c7624850f"></a>
-<a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getEmission</b> ()</td></tr>
-<tr class="memitem:a671522105c79d51b1d7157ab80501c5b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a671522105c79d51b1d7157ab80501c5b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addTransition</b> (<a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a> *trans)</td></tr>
-<tr class="memitem:ad3e50714d61ad4b3d188901f5c7bbebd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad3e50714d61ad4b3d188901f5c7bbebd"></a>
-std::vector&lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getTransitionNames</b> ()</td></tr>
-<tr class="memitem:a95b82c5a5ad6f1e37b244320e1ab34ca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a95b82c5a5ad6f1e37b244320e1ab34ca"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setThreshold</b> (float thresh)</td></tr>
-<tr class="memitem:a391b2bd5c2bffbc1fbd69307f3233cdb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a391b2bd5c2bffbc1fbd69307f3233cdb"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><b>getThresholdPtr</b> ()</td></tr>
-<tr class="memitem:a1fd317b9bdfa9efc3ee8cce0028d6325"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1fd317b9bdfa9efc3ee8cce0028d6325"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getThreshold</b> ()</td></tr>
-<tr class="memitem:a88305efe66c38cd97dcde17c31c1be21"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a88305efe66c38cd97dcde17c31c1be21"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>transitionsSize</b> ()</td></tr>
-<tr class="memitem:a79e76d597a7a4e9d95a13c7dc4ebaab1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a79e76d597a7a4e9d95a13c7dc4ebaab1"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isThresholdSet</b> ()</td></tr>
-<tr class="memitem:aac2be0145059756839071c05c0734bc8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac2be0145059756839071c05c0734bc8"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>stringify</b> ()</td></tr>
+<tr class="memitem:a6781c6da1a0ba288f082c4adf21c2e53"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#a6781c6da1a0ba288f082c4adf21c2e53">getEmissionValue</a> (<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *, size_t)</td></tr>
+<tr class="memitem:acbf54e85c769c39346d5bfd9dfea8584"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#acbf54e85c769c39346d5bfd9dfea8584">getEmissionValue</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> *, size_t)</td></tr>
+<tr class="memitem:ac025a36e2f1abda68adb926c7624850f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#ac025a36e2f1abda68adb926c7624850f">getEmission</a> ()</td></tr>
+<tr class="memitem:a671522105c79d51b1d7157ab80501c5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#a671522105c79d51b1d7157ab80501c5b">addTransition</a> (<a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a> *trans)</td></tr>
+<tr class="memitem:ad3e50714d61ad4b3d188901f5c7bbebd"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#ad3e50714d61ad4b3d188901f5c7bbebd">getTransitionNames</a> ()</td></tr>
+<tr class="memitem:a95b82c5a5ad6f1e37b244320e1ab34ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#a95b82c5a5ad6f1e37b244320e1ab34ca">setThreshold</a> (float thresh)</td></tr>
+<tr class="memitem:a391b2bd5c2bffbc1fbd69307f3233cdb"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#a391b2bd5c2bffbc1fbd69307f3233cdb">getThresholdPtr</a> ()</td></tr>
+<tr class="memitem:a1fd317b9bdfa9efc3ee8cce0028d6325"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#a1fd317b9bdfa9efc3ee8cce0028d6325">getThreshold</a> ()</td></tr>
+<tr class="memitem:a88305efe66c38cd97dcde17c31c1be21"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#a88305efe66c38cd97dcde17c31c1be21">transitionsSize</a> ()</td></tr>
+<tr class="memitem:a79e76d597a7a4e9d95a13c7dc4ebaab1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#a79e76d597a7a4e9d95a13c7dc4ebaab1">isThresholdSet</a> ()</td></tr>
+<tr class="memitem:aac2be0145059756839071c05c0734bc8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#aac2be0145059756839071c05c0734bc8">stringify</a> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae851a7d559593d504e9f462aa3b5087e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#ae851a7d559593d504e9f462aa3b5087e">positionMatrix</a></td></tr>
+<tr class="memitem:a50067880d444bf5f2ffa0a3e8f666766"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#a50067880d444bf5f2ffa0a3e8f666766">thresholdSet</a></td></tr>
+<tr class="memitem:a00c4c139b61045ef5bc4f1b1e1b3874b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#a00c4c139b61045ef5bc4f1b1e1b3874b">threshold</a></td></tr>
+<tr class="memitem:a3229baeddb9af306d231059551e42e03"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#a3229baeddb9af306d231059551e42e03">transitions</a></td></tr>
+<tr class="memitem:a41d1e5b3e9b52747ba43648a75ea67e2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#a41d1e5b3e9b52747ba43648a75ea67e2">transition_names</a></td></tr>
+<tr class="memitem:a879f8f62bf25e4b2f4f0cc548b53f9b6"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html#a879f8f62bf25e4b2f4f0cc548b53f9b6">name</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Stores weight information for a position in the position weight matrix </p>
 
 <p>Definition at line <a class="el" href="pwm_8h_source.html#l00122">122</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
-</div><hr/><h2>Member Function Documentation</h2>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ad4d72150f8f0f9536c705e106878c7ee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::matrixPosition::matrixPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00217">217</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00140">positionMatrix</a>, <a class="el" href="pwm_8h_source.html#l00142">threshold</a>, and <a class="el" href="pwm_8h_source.html#l00141">thresholdSet</a>.</p>
+<div class="fragment"><div class="line">                                      {</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#ae851a7d559593d504e9f462aa3b5087e">positionMatrix</a>  = NULL;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#a50067880d444bf5f2ffa0a3e8f666766">thresholdSet</a>    = <span class="keyword">false</span>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#a00c4c139b61045ef5bc4f1b1e1b3874b">threshold</a>               = -INFINITY;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a933878f0723fc942f0cfbf6132355ff2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::matrixPosition::~matrixPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00223">223</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00140">positionMatrix</a>.</p>
+<div class="fragment"><div class="line">                                       {</div>
+<div class="line">                <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#ae851a7d559593d504e9f462aa3b5087e">positionMatrix</a>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#ae851a7d559593d504e9f462aa3b5087e">positionMatrix</a> = NULL;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a671522105c79d51b1d7157ab80501c5b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::matrixPosition::addTransition </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a> *&#160;</td>
+          <td class="paramname"><em>trans</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00130">130</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00143">transitions</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#a3229baeddb9af306d231059551e42e03">transitions</a>.push_back(trans);}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ac025a36e2f1abda68adb926c7624850f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a>* StochHMM::matrixPosition::getEmission </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00129">129</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00140">positionMatrix</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#ae851a7d559593d504e9f462aa3b5087e">positionMatrix</a>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a6781c6da1a0ba288f082c4adf21c2e53"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float StochHMM::matrixPosition::getEmissionValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> *&#160;</td>
+          <td class="paramname"><em>seqs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00397">397</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="emm_8cpp_source.html#l00681">StochHMM::emm::get_emission()</a>, and <a class="el" href="pwm_8h_source.html#l00140">positionMatrix</a>.</p>
+<div class="fragment"><div class="line">                                                                         {</div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#ae851a7d559593d504e9f462aa3b5087e">positionMatrix</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1emm.html#a1457a3361531d3ada37535af51e3444f">get_emission</a>(*seqs, pos);</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="acbf54e85c769c39346d5bfd9dfea8584"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float StochHMM::matrixPosition::getEmissionValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> *&#160;</td>
+          <td class="paramname"><em>seq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00401">401</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="emm_8cpp_source.html#l00681">StochHMM::emm::get_emission()</a>, and <a class="el" href="pwm_8h_source.html#l00140">positionMatrix</a>.</p>
+<div class="fragment"><div class="line">                                                                       {</div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#ae851a7d559593d504e9f462aa3b5087e">positionMatrix</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1emm.html#a1457a3361531d3ada37535af51e3444f">get_emission</a>(*seq, pos);</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a1fd317b9bdfa9efc3ee8cce0028d6325"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float StochHMM::matrixPosition::getThreshold </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00134">134</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00142">threshold</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#a00c4c139b61045ef5bc4f1b1e1b3874b">threshold</a>;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a391b2bd5c2bffbc1fbd69307f3233cdb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* StochHMM::matrixPosition::getThresholdPtr </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00133">133</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00142">threshold</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> &amp;<a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#a00c4c139b61045ef5bc4f1b1e1b3874b">threshold</a>;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ad3e50714d61ad4b3d188901f5c7bbebd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt;&amp; StochHMM::matrixPosition::getTransitionNames </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00131">131</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00144">transition_names</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#a41d1e5b3e9b52747ba43648a75ea67e2">transition_names</a>;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a79e76d597a7a4e9d95a13c7dc4ebaab1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::matrixPosition::isThresholdSet </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00136">136</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00141">thresholdSet</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#a50067880d444bf5f2ffa0a3e8f666766">thresholdSet</a>;}</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="a325d7ccb4e744e1796c43df8d897f725"></a>
 <div class="memitem">
 <div class="memproto">
@@ -174,7 +473,9 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>stringify</b> 
 
 <p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00235">235</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
 
-<p>References <a class="el" href="text_8cpp_source.html#l00435">StochHMM::clear_whitespace()</a>, <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00163">StochHMM::stringList::splitND()</a>, and <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>.</p>
+<p>References <a class="el" href="text_8cpp_source.html#l00435">StochHMM::clear_whitespace()</a>, <a class="el" href="pwm_8h_source.html#l00145">name</a>, <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>, <a class="el" href="pwm_8h_source.html#l00140">positionMatrix</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00163">StochHMM::stringList::splitND()</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, <a class="el" href="pwm_8h_source.html#l00142">threshold</a>, <a class="el" href="pwm_8h_source.html#l00141">thresholdSet</a>, and <a class="el" href="pwm_8h_source.html#l00144">transition_names</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00807">StochHMM::PWM::_parsePositions()</a>.</p>
 <div class="fragment"><div class="line">                                                                           {</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordtype">size_t</span> nameHeader = txt.find(<span class="stringliteral">&quot;NAME:&quot;</span>);</div>
@@ -194,7 +495,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>stringify</b> 
 <div class="line">                        stringList tmp;</div>
 <div class="line">                        tmp.splitString(temp_name, <span class="stringliteral">&quot;:&quot;</span>);</div>
 <div class="line">                        <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(tmp[1], <span class="stringliteral">&quot;\t\n &quot;</span>);</div>
-<div class="line">                        name = tmp[1];</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#a879f8f62bf25e4b2f4f0cc548b53f9b6">name</a> = tmp[1];</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">else</span>{</div>
 <div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Position is missing NAME definition\n&quot;</span>&lt;&lt; txt &lt;&lt; std::endl;</div>
@@ -211,7 +512,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>stringify</b> 
 <div class="line">                        transi.splitString(temp,<span class="stringliteral">&quot;:,&quot;</span>);</div>
 <div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 1; i &lt; transi.size(); i++){</div>
 <div class="line">                                <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(transi[i], <span class="stringliteral">&quot; \t\n&quot;</span>);</div>
-<div class="line">                                transition_names.push_back(transi[i]);</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#a41d1e5b3e9b52747ba43648a75ea67e2">transition_names</a>.push_back(transi[i]);</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
 <div class="line">                </div>
@@ -223,8 +524,8 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>stringify</b> 
 <div class="line">                        stringList tmp;</div>
 <div class="line">                        tmp.splitString(temp, <span class="stringliteral">&quot;:&quot;</span>);</div>
 <div class="line">                        <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(tmp[1], <span class="stringliteral">&quot;\t\n &quot;</span>);</div>
-<div class="line">                        threshold = atof(tmp[1].c_str());</div>
-<div class="line">                        thresholdSet = <span class="keyword">true</span>;</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#a00c4c139b61045ef5bc4f1b1e1b3874b">threshold</a> = atof(tmp[1].c_str());</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#a50067880d444bf5f2ffa0a3e8f666766">thresholdSet</a> = <span class="keyword">true</span>;</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                </div>
@@ -242,11 +543,247 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>stringify</b> 
 <div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                }</div>
 <div class="line">                </div>
-<div class="line">                positionMatrix = temp_emm;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#ae851a7d559593d504e9f462aa3b5087e">positionMatrix</a> = temp_emm;</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a95b82c5a5ad6f1e37b244320e1ab34ca"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::matrixPosition::setThreshold </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>thresh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00132">132</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00142">threshold</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#a00c4c139b61045ef5bc4f1b1e1b3874b">threshold</a> = thresh;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aac2be0145059756839071c05c0734bc8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::matrixPosition::stringify </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8cpp_source.html#l00353">353</a> of file <a class="el" href="pwm_8cpp_source.html">pwm.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00585">StochHMM::double_to_string()</a>, <a class="el" href="text_8cpp_source.html#l00519">StochHMM::join()</a>, <a class="el" href="pwm_8h_source.html#l00145">name</a>, <a class="el" href="pwm_8h_source.html#l00140">positionMatrix</a>, <a class="el" href="emm_8cpp_source.html#l00795">StochHMM::emm::stringify()</a>, <a class="el" href="pwm_8h_source.html#l00142">threshold</a>, <a class="el" href="pwm_8h_source.html#l00141">thresholdSet</a>, and <a class="el" href="pwm_8h_source.html#l00144">transition_names</a>.</p>
+<div class="fragment"><div class="line">                                           {</div>
+<div class="line">                std::string mat;</div>
+<div class="line">                mat = <span class="stringliteral">&quot;NAME:\t&quot;</span> + <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#a879f8f62bf25e4b2f4f0cc548b53f9b6">name</a> + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#a50067880d444bf5f2ffa0a3e8f666766">thresholdSet</a>){</div>
+<div class="line">                        mat+= <span class="stringliteral">&quot;THRESHOLD:\t&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#a00c4c139b61045ef5bc4f1b1e1b3874b">threshold</a>) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#a41d1e5b3e9b52747ba43648a75ea67e2">transition_names</a>.size() &gt; 0){</div>
+<div class="line">                        mat += <span class="stringliteral">&quot;TRANSITIONS:&quot;</span> + <a class="code" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">join</a>(<a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#a41d1e5b3e9b52747ba43648a75ea67e2">transition_names</a>, <span class="charliteral">&#39;,&#39;</span>) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                mat += <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#ae851a7d559593d504e9f462aa3b5087e">positionMatrix</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1emm.html#a6498faaf6fe651e065d37042acf2f709">stringify</a>();</div>
+<div class="line">                <span class="keywordflow">return</span> mat;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a88305efe66c38cd97dcde17c31c1be21"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::matrixPosition::transitionsSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00135">135</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>References <a class="el" href="pwm_8h_source.html#l00143">transitions</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1matrix_position.html#a3229baeddb9af306d231059551e42e03">transitions</a>.size();}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a879f8f62bf25e4b2f4f0cc548b53f9b6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::matrixPosition::name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00145">145</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00235">parse()</a>, and <a class="el" href="pwm_8cpp_source.html#l00353">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae851a7d559593d504e9f462aa3b5087e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a>* StochHMM::matrixPosition::positionMatrix</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00140">140</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8h_source.html#l00129">getEmission()</a>, <a class="el" href="pwm_8cpp_source.html#l00397">getEmissionValue()</a>, <a class="el" href="pwm_8cpp_source.html#l00217">matrixPosition()</a>, <a class="el" href="pwm_8cpp_source.html#l00235">parse()</a>, <a class="el" href="pwm_8cpp_source.html#l00353">stringify()</a>, and <a class="el" href="pwm_8cpp_source.html#l00223">~matrixPosition()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a00c4c139b61045ef5bc4f1b1e1b3874b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float StochHMM::matrixPosition::threshold</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00142">142</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8h_source.html#l00134">getThreshold()</a>, <a class="el" href="pwm_8h_source.html#l00133">getThresholdPtr()</a>, <a class="el" href="pwm_8cpp_source.html#l00217">matrixPosition()</a>, <a class="el" href="pwm_8cpp_source.html#l00235">parse()</a>, <a class="el" href="pwm_8h_source.html#l00132">setThreshold()</a>, and <a class="el" href="pwm_8cpp_source.html#l00353">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a50067880d444bf5f2ffa0a3e8f666766"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::matrixPosition::thresholdSet</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00141">141</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8h_source.html#l00136">isThresholdSet()</a>, <a class="el" href="pwm_8cpp_source.html#l00217">matrixPosition()</a>, <a class="el" href="pwm_8cpp_source.html#l00235">parse()</a>, and <a class="el" href="pwm_8cpp_source.html#l00353">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a41d1e5b3e9b52747ba43648a75ea67e2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; StochHMM::matrixPosition::transition_names</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00144">144</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8h_source.html#l00131">getTransitionNames()</a>, <a class="el" href="pwm_8cpp_source.html#l00235">parse()</a>, and <a class="el" href="pwm_8cpp_source.html#l00353">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3229baeddb9af306d231059551e42e03"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a>*&gt; StochHMM::matrixPosition::transitions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="pwm_8h_source.html#l00143">143</a> of file <a class="el" href="pwm_8h_source.html">pwm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8h_source.html#l00130">addTransition()</a>, and <a class="el" href="pwm_8h_source.html#l00135">transitionsSize()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -254,11 +791,15 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>stringify</b> 
 <li><a class="el" href="pwm_8cpp_source.html">pwm.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1matrix_position.html">matrixPosition</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:37 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

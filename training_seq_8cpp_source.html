@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -64,15 +70,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('training_seq_8cpp.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,7 +106,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">trainingSeq.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<a href="training_seq_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  trainingSeq.cpp</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  StochHMM</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -94,7 +114,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//  Copyright (c) 2012 University of California, Davis. All rights reserved.</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;trainingSeq.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="training_seq_8h.html">trainingSeq.h</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;sequence::sequence(<span class="keywordtype">string</span>&amp; fileName){</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    file=<span class="keyword">new</span> std::ifstream;</div>
@@ -109,9 +129,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">bool</span> sequence::next(){</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    header=<span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a9962d7334e3441be81ccdddd77fee821">header</a>=<span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    DNA=<span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    seq.clear();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>.clear();</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">if</span> (file==NULL || file-&gt;eof()){</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -127,7 +147,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        getline(*file,temp,<span class="charliteral">&#39;\n&#39;</span>);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    getline(*file,header,<span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    getline(*file,<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a9962d7334e3441be81ccdddd77fee821">header</a>,<span class="charliteral">&#39;\n&#39;</span>);</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span> (file-&gt;eof()){</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -141,20 +161,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            temp[j]=toupper(temp[j]);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">switch</span> (temp[j]){</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keywordflow">case</span> <span class="charliteral">&#39;A&#39;</span>:</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                    seq.push_back(0);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>.push_back(0);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                    <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keywordflow">case</span> <span class="charliteral">&#39;C&#39;</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                    seq.push_back(1);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>.push_back(1);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                    <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">case</span> <span class="charliteral">&#39;G&#39;</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                    seq.push_back(2);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>.push_back(2);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                    <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">case</span> <span class="charliteral">&#39;T&#39;</span>:</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                    seq.push_back(3);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>.push_back(3);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                    <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">default</span>:</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                    temp[j]=<span class="charliteral">&#39;N&#39;</span>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    seq.push_back(-1);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>.push_back(-1);</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            }</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        </div>
@@ -174,7 +194,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    </div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span>(masked){</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        importMask();</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">if</span> (mask.size() != seq.size()){</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequence.html#ac7966e6884a0ae41785718923922c3f3">mask</a>.size() != <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>.size()){</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            cerr &lt;&lt; <span class="stringliteral">&quot;Mask not the same size as sequence\n&quot;</span>;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
@@ -183,7 +203,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keywordtype">bool</span> sequence::importMask(){</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    mask.clear();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <a class="code" href="class_stoch_h_m_m_1_1sequence.html#ac7966e6884a0ae41785718923922c3f3">mask</a>.clear();</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">if</span> (file==NULL || file-&gt;eof()){</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -216,7 +236,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        pch = strtok (str,<span class="stringliteral">&quot; ,.&quot;</span>);</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">while</span> (pch != NULL)</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        {</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            mask.push_back(atoi(pch));</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1sequence.html#ac7966e6884a0ae41785718923922c3f3">mask</a>.push_back(atoi(pch));</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            pch = strtok (NULL, <span class="stringliteral">&quot; ,.&quot;</span>);</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        }</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        </div>
@@ -237,39 +257,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="comment">//Creates the reverse compliment of a sequence</span></div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1sequence.html#ae9d70ad95f1f76f068cd2fe3d3f0a3a6">sequence::reverseComplement</a> () {</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordtype">size_t</span> length = seq.size();</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;length;i++){</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">switch</span> (seq[i]){</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a96de42ed5fb7eea115072bcd3fe39d11">length</a> = <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>.size();</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a96de42ed5fb7eea115072bcd3fe39d11">length</a>;i++){</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">switch</span> (<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>[i]){</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            <span class="keywordflow">case</span> 0:</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                seq[i]=3; <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>[i]=3; <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            <span class="keywordflow">case</span> 1:</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                seq[i]=2; <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>[i]=2; <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            <span class="keywordflow">case</span> 2:</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                seq[i]=1; <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>[i]=1; <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            <span class="keywordflow">case</span> 3:</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                seq[i]=0; <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>[i]=0; <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                seq[i]=-1;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>[i]=-1;</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        }</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        }</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <a class="code" href="class_stoch_h_m_m_1_1sequence.html#ae012923860db511882407aa87658f3f7">reverse</a>(seq.begin(),seq.end());</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <a class="code" href="class_stoch_h_m_m_1_1sequence.html#ae012923860db511882407aa87658f3f7">reverse</a>(<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>.begin(),<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>.end());</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;}</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="keywordtype">bool</span> trainingSeqs::openFiles(std::string&amp; filename){</div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="code" href="classtraining_seqs.html#a9c57345279d5a985c13986f362e2f3da">  172</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classtraining_seqs.html#a9c57345279d5a985c13986f362e2f3da">trainingSeqs::openFiles</a>(std::string&amp; filename){</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    </div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="keywordtype">bool</span> trainingSeqs::importMask(){</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classtraining_seqs.html#a56823bfb3531846c5bc0d984d16eca93">trainingSeqs::importMask</a>(){</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    </div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;}</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment">//Read upto million characters and determine the alphabet of that sequence</span></div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment">//Return a vector&lt;std::string&gt;</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="keywordtype">void</span> trainingSeqs::determineAlphabet(<span class="keywordtype">size_t</span> iter){</div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="code" href="classtraining_seqs.html#a6a939bde0a241199cbafe469aac35e84">  184</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classtraining_seqs.html#a6a939bde0a241199cbafe469aac35e84">trainingSeqs::determineAlphabet</a>(<span class="keywordtype">size_t</span> iter){</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keyword">const</span> std::ifstream* file(seqFile[iter]);</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    </div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="comment">//Import a buffer full of the sequence</span></div>
@@ -284,7 +304,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            undigitized+=temp;</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        }</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        </div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordflow">if</span> (undigitized.size() &gt;= MAX_BUFFER){</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordflow">if</span> (undigitized.size() &gt;= <a class="code" href="training_seq_8h.html#a1d5dab30b404fab91608086105afc78c">MAX_BUFFER</a>){</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        }</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    }</div>
@@ -310,7 +330,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;}</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="keywordtype">void</span> trainingSeqs::setAlphabet(<span class="keywordtype">size_t</span> iter, <a class="code" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a>&amp; lst){</div>
+<div class="line"><a name="l00225"></a><span class="lineno"><a class="code" href="classtraining_seqs.html#adc60da2f4f52d48424de23d1694daa62">  225</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classtraining_seqs.html#adc60da2f4f52d48424de23d1694daa62">trainingSeqs::setAlphabet</a>(<span class="keywordtype">size_t</span> iter, <a class="code" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a>&amp; lst){</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;lst.<a class="code" href="class_stoch_h_m_m_1_1string_list.html#aa66b0d5fa9a0bec45d6638be23408b71" title="Return the amount of strings in the stringList.">size</a>();i++){</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <span class="keywordtype">string</span>&amp; temp = lst[i];</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        indexAlpha[iter].<a class="code" href="class_stoch_h_m_m_1_1string_list.html#ad2917e18c0d24243237ca6b5e26fbb4b">push_back</a>(temp);</div>
@@ -381,11 +401,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="comment">//              return;</span></div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="comment">//          }</span></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="training_seq_8cpp.html">trainingSeq.cpp</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:35 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1sparse_array.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,11 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">sparseArray</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">StochHMM::sparseArray&lt; T &gt; Member List</div>  </div>
@@ -96,33 +111,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>at</b>(size_t pos) (defined in <a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>back</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>back</b>() const  (defined in <a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#ac098ccdfd3f7de726ba1f86a7f29eb9e">clear</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#a6f5d7c9d8ee9063385b59dfd8f5d521e">defined</a>(size_t pos)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#a5d0cc468fbb4ca7938c7c08090874a17">elements</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>erase</b>(size_t pos) (defined in <a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#ae171480704da4c3e7eda858077563613">array</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#a7ca9e6645085b3ce5f5b3971c9a6328a">at</a>(size_t pos)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#af5a76a5226458869c9eb12d9e4daedef">back</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#a3d5b3055544ee4f444e06ac0625863dd">back</a>() const </td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#ac098ccdfd3f7de726ba1f86a7f29eb9e">clear</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#a6f5d7c9d8ee9063385b59dfd8f5d521e">defined</a>(size_t pos)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#a5d0cc468fbb4ca7938c7c08090874a17">elements</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#a143f821d9c480244a7b1cf12ab94ed67">erase</a>(size_t pos)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#a5a3a85f0827a236cd6956623e98e56ab">flag</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#abfb38faa7ac0e10628d0f7a22ca847ff">insert</a>(size_t pos, T &amp;val)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>operator!=</b>(const sparseArray &amp;rhs) (defined in <a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator=</b>(const sparseArray &amp;rhs) (defined in <a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>operator==</b>(const sparseArray &amp;rhs) (defined in <a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#ad93eebb3195f564514016b0afecf9c63">operator!=</a>(const sparseArray &amp;rhs)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#aab551ec4b5e8d45574a2e9fd1675002a">operator=</a>(const sparseArray &amp;rhs)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#aae1791f1315bdc3a53b87b07e8d6b42a">operator==</a>(const sparseArray &amp;rhs)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#a320d754a3e982421dd2b4554769c61ab">operator[]</a>(size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#ae2b217691177ffe028651e707a6875d2">operator[]</a>(size_t) const </td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>pop_back</b>(size_t pos) (defined in <a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#a3a121700adc3605d6487f08f3ae3633b">pop_back</a>(size_t pos)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#a1ec70523ba1aeb6347ad1d29ff21221d">push_back</a>(T &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#ac5437f6d5eff0c68780944d27b36e7d3">reserve</a>(size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#acc3c611e4330190d62779cdcbe6920bd">resize</a>(size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#aa538a68004725e6ee1e86638d30b2655">size</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>sparseArray</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>sparseArray</b>(size_t sz) (defined in <a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>sparseArray</b>(const sparseArray &amp;val) (defined in <a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#a0a8c5081f3d1e77ed37349637a044490">sparseArray</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#a31b6e447d8d23d353b656dd9f9716883">sparseArray</a>(size_t sz)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#a64963fe9b7730690597e3ed5e84ff6f8">sparseArray</a>(const sparseArray &amp;val)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sparse_array.html">StochHMM::sparseArray&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:38 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

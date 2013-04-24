@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -64,15 +70,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('text_8cpp.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,7 +106,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">text.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//text.cpp</span></div>
+<a href="text_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//text.cpp</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; <span class="comment">//Copyright (c) 2007-2012 Paul C Lott </span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; <span class="comment">//University of California, Davis</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; <span class="comment">//Genome and Biomedical Sciences Facility</span></div>
@@ -112,13 +132,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; <span class="comment">//IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; <span class="comment">//CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;text.h&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="text_8h.html">text.h</a>&quot;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>StochHMM{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">    //! Create a new stringList</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">    //! Remove whitespace set to true by default.</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#a18e8038519dd0a10ca6b4fdcf63629f2">   32</a></span>&#160;<span class="comment"></span>    <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a18e8038519dd0a10ca6b4fdcf63629f2">stringList::stringList</a>(){</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        removeWS=<span class="keyword">true</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a6be290a3361c4ef901c3e71e7013705d">removeWS</a>=<span class="keyword">true</span>;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment"></span></div>
@@ -137,17 +157,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">    //! Searches for the string and returns bool if found or not</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">    //! \param txt String to search stringList</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#ab774c316ee5256c78b5431f785ea27d9">   51</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#ab774c316ee5256c78b5431f785ea27d9">stringList::contains</a>(<span class="keyword">const</span> std::string&amp; txt){</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i&lt;line.size();i++){</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">if</span> (line[i].find(txt) != std::string::npos){</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>.size();i++){</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>[i].find(txt) != std::string::npos){</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            }</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">bool</span> stringList::containsExact(<span class="keyword">const</span> std::string&amp; txt){</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i&lt;line.size();i++){</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">if</span> (line[i].compare(txt) == 0){</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#ac976e146eb4b564ffa889f5fc3fc56d3">   60</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#ac976e146eb4b564ffa889f5fc3fc56d3">stringList::containsExact</a>(<span class="keyword">const</span> std::string&amp; txt){</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>.size();i++){</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>[i].compare(txt) == 0){</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            }</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
@@ -157,38 +177,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">    //! Searches the stringList for matching string and returns the index position of first match</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">    //! \param txt String to search stringList for</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#a73596f1c9e18935f03bf6aa84a76b1e9">   71</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a73596f1c9e18935f03bf6aa84a76b1e9">stringList::indexOf</a>(<span class="keyword">const</span> std::string&amp;txt) {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i&lt;line.size();i++){</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">if</span> (line[i].find(txt) != std::string::npos){</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>.size();i++){</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>[i].find(txt) != std::string::npos){</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keywordflow">return</span> i;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            }</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">return</span> SIZE_MAX;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">    //! Searches the stringList for matching string and returns the index position of a given string from the starting position</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">    //! \param txt String to search stringList for</span></div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">    //! \param pos Position to start search from</span></div>
 <div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#a1eda8ba68879932f98ceb410275babc6">   83</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a73596f1c9e18935f03bf6aa84a76b1e9">stringList::indexOf</a>(<span class="keyword">const</span> std::string&amp;txt,<span class="keywordtype">size_t</span> pos){</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=pos;i&lt;line.size();i++){</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">if</span> (line[i].find(txt) != std::string::npos){</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=pos;i&lt;<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>.size();i++){</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>[i].find(txt) != std::string::npos){</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="keywordflow">return</span> i;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            }</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">return</span> SIZE_MAX;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">    //! Removes Comments, Removes Whitespace, and splits the string</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">    //! Whitespace and Split delimiters are required to be previously set in stringList</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d67344bc1913b3ad2f86d4869e2d661">   94</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d67344bc1913b3ad2f86d4869e2d661">stringList::processString</a>(std::string&amp; txt){</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        line.clear();</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        comment.clear();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>.clear();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#af06c41965bc91027bf41fc9c7e955e74">comment</a>.clear();</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        </div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="comment">//Extract Comments</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                comment=<a class="code" href="group___text.html#gae1e21893ae48aaa6969040d19e5085d7" title="Find first comment character and then return everything following the character.">parseComment</a>(txt, <span class="charliteral">&#39;#&#39;</span>);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1string_list.html#af06c41965bc91027bf41fc9c7e955e74">comment</a>=<a class="code" href="group___text.html#gae1e21893ae48aaa6969040d19e5085d7" title="Find first comment character and then return everything following the character.">parseComment</a>(txt, <span class="charliteral">&#39;#&#39;</span>);</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        </div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="comment">//Remove Whitespace</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">if</span> (removeWS){</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(txt, whitespace);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a6be290a3361c4ef901c3e71e7013705d">removeWS</a>){</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <a class="code" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">clear_whitespace</a>(txt, <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3da96b954f74cfc12963eda2f48a19db">whitespace</a>);</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        }</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                </div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">splitString</a>(txt);</div>
@@ -203,20 +223,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">    //! \param txt String to be split</span></div>
 <div class="line"><a name="l00116"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">  116</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">stringList::splitString</a>(<span class="keyword">const</span> std::string&amp; txt){</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        line.clear();</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        comment.clear();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>.clear();</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#af06c41965bc91027bf41fc9c7e955e74">comment</a>.clear();</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                <span class="keywordtype">size_t</span> found  = SIZE_MAX;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                <span class="keywordtype">size_t</span> initial= SIZE_MAX;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                <span class="keywordtype">size_t</span> found  = <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                <span class="keywordtype">size_t</span> initial= <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keywordflow">do</span> {</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            found++;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            initial=found;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            found=txt.find_first_of(delimiters.c_str(),found);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            found=txt.find_first_of(<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a56c0c24a8aeaedcbe641399086d59d0b">delimiters</a>.c_str(),found);</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            std::string st=txt.substr(initial,found-initial);</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            </div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <span class="keywordflow">if</span> (st.size()&gt;0){</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                                line.push_back(st);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>.push_back(st);</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                        }</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            </div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        } <span class="keywordflow">while</span> (found!=std::string::npos);</div>
@@ -231,14 +251,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment">    //! \param txt String to be split</span></div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="comment">    //! \param del Delimiters to use to split evaluated as single characters, not whole string</span></div>
 <div class="line"><a name="l00145"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#abda5a78b8a3e9a915c45d6b6845319ac">  145</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">stringList::splitString</a>(<span class="keyword">const</span> std::string&amp; txt, <span class="keyword">const</span> std::string&amp; del){</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        delimiters=del;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a56c0c24a8aeaedcbe641399086d59d0b">delimiters</a>=del;</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">splitString</a>(txt);</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    }</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    </div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">stringList::splitString</a>(<span class="keyword">const</span> std::string&amp; txt,<span class="keywordtype">size_t</span> charSize){</div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#a2fdca02f2802420ca4f231f21e0deb7d">  151</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">stringList::splitString</a>(<span class="keyword">const</span> std::string&amp; txt,<span class="keywordtype">size_t</span> charSize){</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;txt.size();i+=charSize){</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            line.push_back(txt.substr(i,charSize));</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>.push_back(txt.substr(i,charSize));</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        }</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    }</div>
@@ -249,8 +269,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="comment">    //! \param txt  String to be split</span></div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">    //! \param del  Delimiter string to use to split</span></div>
 <div class="line"><a name="l00163"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#a1eac87241f01b5a3c47e393eb63f97f9">  163</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a1eac87241f01b5a3c47e393eb63f97f9">stringList::splitND</a>(<span class="keyword">const</span> std::string&amp; txt,<span class="keyword">const</span> std::string&amp; del){</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                line.clear();</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        comment.clear();</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>.clear();</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#af06c41965bc91027bf41fc9c7e955e74">comment</a>.clear();</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordtype">size_t</span> initial=txt.find(del);</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        </div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">do</span> {</div>
@@ -258,7 +278,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            std::string st=txt.substr(initial,found-initial);</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            initial=found;</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            <span class="keywordflow">if</span> (st.size()&gt;0){</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                                line.push_back(st);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>.push_back(st);</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                        }</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            </div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        } <span class="keywordflow">while</span> (initial!=std::string::npos);</div>
@@ -350,10 +370,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="comment">    //! Remove whitespace characters &#39;\t&#39; and then splits string by delimiters &#39;:&#39; or &#39;\n&#39;</span></div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment">    //! \param txt String to be split</span></div>
 <div class="line"><a name="l00264"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#a87c83c20ab626afbb5ae1087394a0140">  264</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a87c83c20ab626afbb5ae1087394a0140">stringList::fromAlpha</a>(<span class="keyword">const</span> std::string&amp; txt,<span class="keywordtype">size_t</span> alpha){</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        line.clear();</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                comment.clear();</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>.clear();</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1string_list.html#af06c41965bc91027bf41fc9c7e955e74">comment</a>.clear();</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                </div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                <span class="keywordflow">if</span> (foundAlphaDelimiter(txt)){</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a41fdaa14397743aa5112f883f48503e7">foundAlphaDelimiter</a>(txt)){</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d525d294b34a1f0677ae846f5af33fd">splitString</a>(txt,<span class="stringliteral">&quot;;, \t&quot;</span>);</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        }</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        <span class="keywordflow">else</span>{</div>
@@ -369,7 +389,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="comment">    //! Returns true if text delimiters &quot;:,[space]\\t&quot; are found in the string</span></div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment">    //! \param txt String used to find delimiter</span></div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> stringList::foundAlphaDelimiter(<span class="keyword">const</span> std::string&amp; txt){</div>
+<div class="line"><a name="l00284"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#a41fdaa14397743aa5112f883f48503e7">  284</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a41fdaa14397743aa5112f883f48503e7">stringList::foundAlphaDelimiter</a>(<span class="keyword">const</span> std::string&amp; txt){</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;txt.size();i++){</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;            <span class="keywordflow">switch</span>(txt[i]){</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                    <span class="keywordflow">case</span> <span class="charliteral">&#39;:&#39;</span>:</div>
@@ -405,8 +425,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="comment">    //! \param ws Whitespace characters to use</span></div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="comment">    //! \param del Delimiters characters to use</span></div>
 <div class="line"><a name="l00319"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#a57c91ce5608adbe7dda475b0004c9e1b">  319</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a57c91ce5608adbe7dda475b0004c9e1b">stringList::fromDef</a>(std::string&amp; txt, std::string&amp; ws, std::string&amp; del){</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        whitespace=ws;</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        delimiters = del;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3da96b954f74cfc12963eda2f48a19db">whitespace</a>=ws;</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a56c0c24a8aeaedcbe641399086d59d0b">delimiters</a> = del;</div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3d67344bc1913b3ad2f86d4869e2d661">processString</a>(txt);</div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        </div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1string_list.html#aa66b0d5fa9a0bec45d6638be23408b71" title="Return the amount of strings in the stringList.">size</a>()&gt;0){</div>
@@ -423,21 +443,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="comment">    //! \param ws Whitespace characters to use</span></div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="comment">    //! \param del Delimiters characters to use</span></div>
 <div class="line"><a name="l00337"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#a73036242b16b152c5326323a82ca9bd8">  337</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a57c91ce5608adbe7dda475b0004c9e1b">stringList::fromDef</a>(std::istream&amp; in, std::string&amp; ws, std::string&amp; del){</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        whitespace=ws;</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        delimiters = del;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3da96b954f74cfc12963eda2f48a19db">whitespace</a>=ws;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a56c0c24a8aeaedcbe641399086d59d0b">delimiters</a> = del;</div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        std::string temp;</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        getline(in, temp, <span class="charliteral">&#39;\n&#39;</span>);</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a57c91ce5608adbe7dda475b0004c9e1b">fromDef</a>(temp, ws, del);</div>
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    }</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    </div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    </div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    std::string stringList::pop_ith(<span class="keywordtype">size_t</span> pos){</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        <span class="keywordflow">if</span> (pos&gt;=line.size()){</div>
+<div class="line"><a name="l00346"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3b25bc35290070a46166e032fd1c7b42">  346</a></span>&#160;    std::string <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3b25bc35290070a46166e032fd1c7b42">stringList::pop_ith</a>(<span class="keywordtype">size_t</span> pos){</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        <span class="keywordflow">if</span> (pos&gt;=<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>.size()){</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        }</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        </div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        std::string temp=line[pos];</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        line.erase(line.begin()+pos);</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        std::string temp=<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>[pos];</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>.erase(<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>.begin()+pos);</div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        <span class="keywordflow">return</span> temp;</div>
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    }</div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    </div>
@@ -445,11 +465,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="comment">    //! Returns the values in the stringList as std::vector of doubles</span></div>
 <div class="line"><a name="l00358"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#aae8eb698ad8e564d3ebdf6fce1a97039">  358</a></span>&#160;<span class="comment"></span>    std::vector&lt;double&gt; <a class="code" href="class_stoch_h_m_m_1_1string_list.html#aae8eb698ad8e564d3ebdf6fce1a97039" title="Returns the list as a Vector of Doubles.">stringList::toVecDouble</a>(){</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        std::vector&lt;double&gt; temp;</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> iter=0;iter&lt;line.size();iter++){</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> iter=0;iter&lt;<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>.size();iter++){</div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;            </div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;            <span class="keywordtype">double</span> val;</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;            </div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;            <a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[iter], val);</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;            <a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>[iter], val);</div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;            temp.push_back(val);</div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        }</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        <span class="keywordflow">return</span> temp;</div>
@@ -458,12 +478,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;<span class="comment">    //! Returns the values in the stringList as std::vector of integers</span></div>
 <div class="line"><a name="l00371"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3b650ef109af4884e9e6e566190862d1">  371</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a3b650ef109af4884e9e6e566190862d1" title="Returns the values in the stringList as std::vector of integers.">stringList::toVecInt</a>(std::vector&lt;int&gt;&amp; ret_val){</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        </div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> iter=0;iter&lt;line.size();iter++){</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> iter=0;iter&lt;<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>.size();iter++){</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;            </div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;            <span class="keywordtype">int</span> val(0);</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;            </div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(line[iter], val)){</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t convert &quot;</span> &lt;&lt; line[iter] &lt;&lt; <span class="stringliteral">&quot; to an integer\n&quot;</span>;</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="group___text.html#ga4797b0d53af278c2adb72a47f20cfe7d">stringToInt</a>(<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>[iter], val)){</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t convert &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>[iter] &lt;&lt; <span class="stringliteral">&quot; to an integer\n&quot;</span>;</div>
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;            }</div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;            <span class="keywordflow">else</span>{</div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;                ret_val.push_back(val);</div>
@@ -478,19 +498,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="comment">    //! Print each line to stdout</span></div>
 <div class="line"><a name="l00392"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#acb37ddbd8e7cc1442e373d4a4dadde91">  392</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#acb37ddbd8e7cc1442e373d4a4dadde91" title="Print each line to stdout.">stringList::print</a>(){</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;line.size();i++){</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;            std::cout &lt;&lt; line[i] &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>.size();i++){</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;            std::cout &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>[i] &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        }</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;#&quot;</span> &lt;&lt; comment &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;#&quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1string_list.html#af06c41965bc91027bf41fc9c7e955e74">comment</a> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    }</div>
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    </div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="comment">    //! Joins the stringList into string using &quot;\t&quot; and return string</span></div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="comment">    //! \return string of stringList joined by &quot;\\t&quot;</span></div>
 <div class="line"><a name="l00402"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#aa0001412c430bac613941da657c07bd0">  402</a></span>&#160;<span class="comment"></span>    std::string <a class="code" href="class_stoch_h_m_m_1_1string_list.html#aa0001412c430bac613941da657c07bd0">stringList::stringify</a>(){</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        std::string output=<a class="code" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">join</a>(line,<span class="charliteral">&#39;\t&#39;</span>);</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        <span class="keywordflow">if</span> (comment.size()&gt;0){</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;            output+=<span class="stringliteral">&quot;#&quot;</span>+ comment;</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        std::string output=<a class="code" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">join</a>(<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>,<span class="charliteral">&#39;\t&#39;</span>);</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1string_list.html#af06c41965bc91027bf41fc9c7e955e74">comment</a>.size()&gt;0){</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;            output+=<span class="stringliteral">&quot;#&quot;</span>+ <a class="code" href="class_stoch_h_m_m_1_1string_list.html#af06c41965bc91027bf41fc9c7e955e74">comment</a>;</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        }</div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        </div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        <span class="keywordflow">return</span> output;</div>
@@ -500,8 +520,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="comment">    //!Parses out the comments and stores the comment delimited by &quot;#&quot; </span></div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="comment">    //!Comment can be accessed by command getComment();</span></div>
 <div class="line"><a name="l00414"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1string_list.html#a8aac8660baaa5ec2e5dd6d9451fc241d">  414</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1string_list.html#a8aac8660baaa5ec2e5dd6d9451fc241d">stringList::removeComments</a>(){</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> iter=0;iter&lt;line.size();iter++){</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;            comment+=<a class="code" href="group___text.html#gae1e21893ae48aaa6969040d19e5085d7" title="Find first comment character and then return everything following the character.">parseComment</a>(line[iter], <span class="charliteral">&#39;#&#39;</span>);</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> iter=0;iter&lt;<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>.size();iter++){</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1string_list.html#af06c41965bc91027bf41fc9c7e955e74">comment</a>+=<a class="code" href="group___text.html#gae1e21893ae48aaa6969040d19e5085d7" title="Find first comment character and then return everything following the character.">parseComment</a>(<a class="code" href="class_stoch_h_m_m_1_1string_list.html#a0d6607148e425119c03f79fe2672a5ae">line</a>[iter], <span class="charliteral">&#39;#&#39;</span>);</div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        }</div>
 <div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    }</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    </div>
@@ -923,11 +943,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;    </div>
 <div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="text_8cpp.html">text.cpp</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:35 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

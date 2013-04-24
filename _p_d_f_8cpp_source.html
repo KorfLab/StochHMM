@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -64,15 +70,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_p_d_f_8cpp.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,7 +106,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">PDF.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<a href="_p_d_f_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  PDF.cpp</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  StochHMM</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -94,7 +114,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//  Copyright (c) 2012 Korf Lab, Genome Center, UC Davis, Davis, CA. All rights reserved.</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;PDF.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_p_d_f_8h.html">PDF.h</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>StochHMM{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    </div>
@@ -120,7 +140,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="group___p_d_f.html#gaa1fed912d16e8c9975dbd6399ec84783">   32</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">double</span> <a class="code" href="group___p_d_f.html#gaa1fed912d16e8c9975dbd6399ec84783">beta_binomial_pdf</a>(<span class="keywordtype">int</span> k, <span class="keywordtype">int</span> n, <span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b){</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">double</span> newAlpha = (double) k + a;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordtype">double</span> newBeta  = (double)(n-k) + b;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(n,k) * (beta(newAlpha,newBeta)/ beta(a,b));</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(n,k) * (<a class="code" href="namespace_stoch_h_m_m.html#a207e1a7c14fbf8f0486c0d98f74738e6">beta</a>(newAlpha,newBeta)/ <a class="code" href="namespace_stoch_h_m_m.html#a207e1a7c14fbf8f0486c0d98f74738e6">beta</a>(a,b));</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">    //!Degenerate probability mass function</span></div>
@@ -225,7 +245,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="comment">    //! \param a Shape parameter  a&gt;0</span></div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment">    //! \param x Value</span></div>
 <div class="line"><a name="l00139"></a><span class="lineno"><a class="code" href="group___p_d_f.html#gaf02bf513220645eb19ecd265a3eace35">  139</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">double</span> <a class="code" href="group___p_d_f.html#gaf02bf513220645eb19ecd265a3eace35">maxwell_boltzman_pdf</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> a){</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keywordflow">return</span> sqrtf(2/PI)*(pow(x,2)*exp(-1*pow(x,2)/(2*pow(a, 2))))/pow(a,3);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keywordflow">return</span> sqrtf(2/<a class="code" href="distributions_8h.html#a598a3330b3c21701223ee0ca14316eca">PI</a>)*(pow(x,2)*exp(-1*pow(x,2)/(2*pow(a, 2))))/pow(a,3);</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    }</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    </div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="comment"></span></div>
@@ -269,7 +289,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;Poisson PMF: Incorrect parameters\n&quot;</span>;</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            exit(2);</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        }</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">return</span> (pow(lambda,(<span class="keywordtype">double</span>)k)* exp(-1*lambda))/factorial(k);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">return</span> (pow(lambda,(<span class="keywordtype">double</span>)k)* exp(-1*lambda))/<a class="code" href="namespace_stoch_h_m_m.html#a53bb7adc9ae52a6084667ca526e0febd">factorial</a>(k);</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    }</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    </div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="comment"></span></div>
@@ -281,7 +301,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;Yule-Simon PMF: Incorrect parameters\n&quot;</span>;</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            exit(2);</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        }</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">return</span> p*beta(k, p+1);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">return</span> p*<a class="code" href="namespace_stoch_h_m_m.html#a207e1a7c14fbf8f0486c0d98f74738e6">beta</a>(k, p+1);</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    }</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    </div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="comment"></span></div>
@@ -332,7 +352,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;Arcsine PDF: Incorrect parameters\n&quot;</span>;</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            exit(2);</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        }</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        <span class="keywordflow">return</span> 1/(PI*sqrtf(x*(1-x)));</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        <span class="keywordflow">return</span> 1/(<a class="code" href="distributions_8h.html#a598a3330b3c21701223ee0ca14316eca">PI</a>*sqrtf(x*(1-x)));</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    }</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    </div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="comment"></span></div>
@@ -358,7 +378,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;Logit Normal PDF: Incorrect parameters\n&quot;</span>;</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;            exit(2);</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        }</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="keywordflow">return</span> (1/(sigma*sqrtf(2*PI)))*exp(-1*pow((<a class="code" href="namespace_stoch_h_m_m.html#a9f420c490a7aac6c0fd33173cf0fe3bc">logit</a>(x)-mu),2)/(2*pow(sigma,2)))*(1/(x*(1-x)));</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="keywordflow">return</span> (1/(sigma*sqrtf(2*<a class="code" href="distributions_8h.html#a598a3330b3c21701223ee0ca14316eca">PI</a>)))*exp(-1*pow((<a class="code" href="namespace_stoch_h_m_m.html#a9f420c490a7aac6c0fd33173cf0fe3bc">logit</a>(x)-mu),2)/(2*pow(sigma,2)))*(1/(x*(1-x)));</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    }</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    </div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="comment"></span></div>
@@ -400,7 +420,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;Raised cosine PDF:  Incorrect parameters\n&quot;</span>;</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;            exit(2);</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        }</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        <span class="keywordflow">return</span> 1/(2*s)*(1+cosf(PI*(x-mu)/s));</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        <span class="keywordflow">return</span> 1/(2*s)*(1+cosf(<a class="code" href="distributions_8h.html#a598a3330b3c21701223ee0ca14316eca">PI</a>*(x-mu)/s));</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    }</div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="comment">    //!Triangular probability distribution function</span></div>
@@ -441,14 +461,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        }</div>
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        </div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        <span class="keywordtype">double</span> alpha = (a-mu)/sd;</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        <span class="keywordtype">double</span> beta  = (b-mu)/sd;</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="namespace_stoch_h_m_m.html#a207e1a7c14fbf8f0486c0d98f74738e6">beta</a>  = (b-mu)/sd;</div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        <span class="keywordtype">double</span> xi = (x-mu)/sd;</div>
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        </div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        <span class="keywordtype">double</span> alpha_cdf = (0.5*(1+erf((alpha-mu)/sqrt(2*pow(sd,2)))));</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        <span class="keywordtype">double</span> beta_cdf = (0.5*(1+erf((beta-mu)/sqrt(2*pow(sd,2)))));</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        <span class="keywordtype">double</span> alpha_cdf = (0.5*(1+<a class="code" href="namespace_stoch_h_m_m.html#a89d069b0992f4a4a764e6495f77ef720">erf</a>((alpha-mu)/sqrt(2*pow(sd,2)))));</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="namespace_stoch_h_m_m.html#a8b58e377b48309f35ab93bd2dce0572b">beta_cdf</a> = (0.5*(1+<a class="code" href="namespace_stoch_h_m_m.html#a89d069b0992f4a4a764e6495f77ef720">erf</a>((beta-mu)/sqrt(2*pow(sd,2)))));</div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <span class="keywordtype">double</span> z = beta_cdf - alpha_cdf;</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        </div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        <span class="keywordflow">return</span> (0.5*(1+erf((xi-mu)/sqrt(2*pow(sd,2)))))/(sd * z);</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        <span class="keywordflow">return</span> (0.5*(1+<a class="code" href="namespace_stoch_h_m_m.html#a89d069b0992f4a4a764e6495f77ef720">erf</a>((xi-mu)/sqrt(2*pow(sd,2)))))/(sd * z);</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    }</div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    </div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <span class="comment"></span></div>
@@ -463,7 +483,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        }</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        </div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        <span class="keywordtype">double</span> alpha = 12 / powf(b-a, 3);</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        <span class="keywordtype">double</span> beta = (b + a)/2;</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="namespace_stoch_h_m_m.html#a207e1a7c14fbf8f0486c0d98f74738e6">beta</a> = (b + a)/2;</div>
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        <span class="keywordflow">return</span> alpha * powf(x-beta, 2);;</div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    }</div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    </div>
@@ -477,7 +497,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;            exit(2);</div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        }</div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        </div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        <span class="keywordflow">return</span> (2/(PI*powf(r, 2)))*sqrtf(powf(r, 2) - powf(x, 2));</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        <span class="keywordflow">return</span> (2/(<a class="code" href="distributions_8h.html#a598a3330b3c21701223ee0ca14316eca">PI</a>*powf(r, 2)))*sqrtf(powf(r, 2) - powf(x, 2));</div>
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    }</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    </div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    </div>
@@ -492,7 +512,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;Beta prime PDF: Incorrect parameters\n&quot;</span>;</div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;            exit(2);</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        }</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        <span class="keywordflow">return</span> (powf(x, a-1)*powf(1+x, -1*a-b))/ beta(a, b);</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        <span class="keywordflow">return</span> (powf(x, a-1)*powf(1+x, -1*a-b))/ <a class="code" href="namespace_stoch_h_m_m.html#a207e1a7c14fbf8f0486c0d98f74738e6">beta</a>(a, b);</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    }</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    </div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    <span class="comment"></span></div>
@@ -592,7 +612,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;            exit(2);</div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;        }</div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;        <span class="keywordtype">double</span> numerator = sqrtf((powf(d1*x, d1)*powf(d2, d2))/powf(d1*x+d2, d1+d2));</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;        <span class="keywordtype">double</span> denominator = x * beta(d1/2, d2/2);</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;        <span class="keywordtype">double</span> denominator = x * <a class="code" href="namespace_stoch_h_m_m.html#a207e1a7c14fbf8f0486c0d98f74738e6">beta</a>(d1/2, d2/2);</div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;        <span class="keywordflow">return</span> numerator / denominator;</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    }</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    </div>
@@ -607,7 +627,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;            exit(2);</div>
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;        }</div>
 <div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;        <span class="keywordtype">double</span> numerator = 2*powf(d1, d1/2)*powf(d2, d2/2)*exp(d1*x);</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        <span class="keywordtype">double</span> denominator = beta(d1/2, d2/2) * powf(d1*exp(2*x)+d2, (d1+d2)/2);</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        <span class="keywordtype">double</span> denominator = <a class="code" href="namespace_stoch_h_m_m.html#a207e1a7c14fbf8f0486c0d98f74738e6">beta</a>(d1/2, d2/2) * powf(d1*exp(2*x)+d2, (d1+d2)/2);</div>
 <div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;        <span class="keywordflow">return</span> numerator/denominator;</div>
 <div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    }</div>
 <div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    </div>
@@ -621,7 +641,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;Folded Normal PDF: Incorrect parameters\n&quot;</span>;</div>
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;            exit(2);</div>
 <div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;        }</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;        <span class="keywordtype">double</span> l_pdf = 1/(sqrtf(sigma_sqrd*2 * PI));</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;        <span class="keywordtype">double</span> l_pdf = 1/(sqrtf(sigma_sqrd*2 * <a class="code" href="distributions_8h.html#a598a3330b3c21701223ee0ca14316eca">PI</a>));</div>
 <div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;        <span class="keywordtype">double</span> l_temp = exp(-1* powf(-1*x-mu,2)/(2*sigma_sqrd));</div>
 <div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;        <span class="keywordtype">double</span> r_temp = exp(-1* powf(x-mu,2)/(2*sigma_sqrd));</div>
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;        </div>
@@ -648,7 +668,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;<span class="comment">        //! \param alpha Shape parameter a&gt;0</span></div>
 <div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;<span class="comment">        //! \param beta Rate parameter b&gt;0</span></div>
 <div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;<span class="comment">        //!http://en.wikipedia.org/wiki/Gamma_distribution</span></div>
-<div class="line"><a name="l00563"></a><span class="lineno"><a class="code" href="group___p_d_f.html#gaece31bdce0b92569cc51dd665e18eee8">  563</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">double</span> <a class="code" href="group___p_d_f.html#gaece31bdce0b92569cc51dd665e18eee8">gamma_pdf</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> alpha, <span class="keywordtype">double</span> beta){</div>
+<div class="line"><a name="l00563"></a><span class="lineno"><a class="code" href="group___p_d_f.html#gaece31bdce0b92569cc51dd665e18eee8">  563</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">double</span> <a class="code" href="group___p_d_f.html#gaece31bdce0b92569cc51dd665e18eee8">gamma_pdf</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> alpha, <span class="keywordtype">double</span> <a class="code" href="namespace_stoch_h_m_m.html#a207e1a7c14fbf8f0486c0d98f74738e6">beta</a>){</div>
 <div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;                <span class="keywordflow">if</span> (x &lt;= 0 ||  alpha &lt;= 0 || beta &lt;= 0){</div>
 <div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Gamma PDF: Incorrect parameters\n&quot;</span>;</div>
 <div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;            exit(2);</div>
@@ -661,7 +681,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;<span class="comment">        //! \param x Value x&gt;0</span></div>
 <div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;<span class="comment">        //! \param alpha Shape parameter x&gt;0</span></div>
 <div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;<span class="comment">        //! \param beta Scale parameter b&gt;0</span></div>
-<div class="line"><a name="l00576"></a><span class="lineno"><a class="code" href="group___p_d_f.html#gacae685d5ab58fe9d3890b100314ecae4">  576</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">double</span> <a class="code" href="group___p_d_f.html#gacae685d5ab58fe9d3890b100314ecae4">inv_gamma_pdf</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> alpha, <span class="keywordtype">double</span> beta){</div>
+<div class="line"><a name="l00576"></a><span class="lineno"><a class="code" href="group___p_d_f.html#gacae685d5ab58fe9d3890b100314ecae4">  576</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">double</span> <a class="code" href="group___p_d_f.html#gacae685d5ab58fe9d3890b100314ecae4">inv_gamma_pdf</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> alpha, <span class="keywordtype">double</span> <a class="code" href="namespace_stoch_h_m_m.html#a207e1a7c14fbf8f0486c0d98f74738e6">beta</a>){</div>
 <div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;                <span class="keywordflow">if</span> (x &lt;= 0 ||  alpha &lt;= 0 || beta &lt;= 0){</div>
 <div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Inverse Gamma PDF: Incorrect parameters\n&quot;</span>;</div>
 <div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;            exit(2);</div>
@@ -677,7 +697,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Half Normal PDF: Incorrect parameters\n&quot;</span>;</div>
 <div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;            exit(2);</div>
 <div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;                }</div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;                <span class="keywordflow">return</span> sqrt(2)/(sigma*sqrt(PI)) * exp(-1* pow(x,2)/(2*pow(sigma,2)));</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;                <span class="keywordflow">return</span> sqrt(2)/(sigma*sqrt(<a class="code" href="distributions_8h.html#a598a3330b3c21701223ee0ca14316eca">PI</a>)) * exp(-1* pow(x,2)/(2*pow(sigma,2)));</div>
 <div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;        }</div>
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;        <span class="comment"></span></div>
 <div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;<span class="comment">        //!Inverse Gaussian probability distribution</span></div>
@@ -689,7 +709,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Inverse Gaussian PDF: Incorrect parameters\n&quot;</span>;</div>
 <div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;            exit(2);</div>
 <div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;                }</div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;                <span class="keywordflow">return</span> sqrt(lambda/(2*PI*pow(x, 3))) * exp((lambda*pow(x-mu,2))/(2*pow(mu,2)*x));</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;                <span class="keywordflow">return</span> sqrt(lambda/(2*<a class="code" href="distributions_8h.html#a598a3330b3c21701223ee0ca14316eca">PI</a>*pow(x, 3))) * exp((lambda*pow(x-mu,2))/(2*pow(mu,2)*x));</div>
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;        }</div>
 <div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;        <span class="comment"></span></div>
 <div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;<span class="comment">        //!Levy probability distribution function</span></div>
@@ -701,7 +721,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Levy PDF: Incorrect parameters\n&quot;</span>;</div>
 <div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;            exit(2);</div>
 <div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;                }</div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;                <span class="keywordflow">return</span> sqrt(scale/(2*PI)) * (exp((-1*scale)/(2*(x-mu)))/pow(x-mu,1.5));</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;                <span class="keywordflow">return</span> sqrt(scale/(2*<a class="code" href="distributions_8h.html#a598a3330b3c21701223ee0ca14316eca">PI</a>)) * (exp((-1*scale)/(2*(x-mu)))/pow(x-mu,1.5));</div>
 <div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;        }</div>
 <div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;        <span class="comment"></span></div>
 <div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;<span class="comment">        //!Log Cauchy probability distribution function</span></div>
@@ -713,7 +733,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Log Cauchy PDF: Incorrect parameters\n&quot;</span>;</div>
 <div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;            exit(2);</div>
 <div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;                }</div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;                <span class="keywordflow">return</span> (1/(x*PI))*(sigma/(pow(log(x-mu),2)+pow(sigma,2)));</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;                <span class="keywordflow">return</span> (1/(x*<a class="code" href="distributions_8h.html#a598a3330b3c21701223ee0ca14316eca">PI</a>))*(sigma/(pow(log(x-mu),2)+pow(sigma,2)));</div>
 <div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;        }</div>
 <div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;        <span class="comment"></span></div>
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;<span class="comment">        //!Log Laplace probability distribution function</span></div>
@@ -750,7 +770,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Log Normal PDF: Incorrect parameters\n&quot;</span>;</div>
 <div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;                        exit(2);</div>
 <div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;                }</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;                <span class="keywordflow">return</span> (1/(x*sqrt(2*PI*sigma_sqrd)))*exp(-1* (pow(log(x)-mu,2))/(2*sigma_sqrd));</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;                <span class="keywordflow">return</span> (1/(x*sqrt(2*<a class="code" href="distributions_8h.html#a598a3330b3c21701223ee0ca14316eca">PI</a>*sigma_sqrd)))*exp(-1* (pow(log(x)-mu,2))/(2*sigma_sqrd));</div>
 <div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;        }</div>
 <div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;        </div>
 <div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;        <span class="comment"></span></div>
@@ -840,7 +860,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;                        exit(2);</div>
 <div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;                }</div>
 <div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;                </div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;                <span class="keywordflow">return</span> (1/PI)* (gamma)/(pow(x-x_o, 2)+pow(gamma,2));</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;                <span class="keywordflow">return</span> (1/<a class="code" href="distributions_8h.html#a598a3330b3c21701223ee0ca14316eca">PI</a>)* (gamma)/(pow(x-x_o, 2)+pow(gamma,2));</div>
 <div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;        }</div>
 <div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;        </div>
 <div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;</div>
@@ -849,7 +869,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;<span class="comment">        //! \param x Value</span></div>
 <div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;<span class="comment">        //! \param mu   Location parameter</span></div>
 <div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;<span class="comment">        //! \param beta Scale parameter</span></div>
-<div class="line"><a name="l00764"></a><span class="lineno"><a class="code" href="group___p_d_f.html#ga23847ecbfff12c65c641097edbd49301">  764</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">double</span> <a class="code" href="group___p_d_f.html#ga23847ecbfff12c65c641097edbd49301">gumbel_pdf</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> mu, <span class="keywordtype">double</span> beta){</div>
+<div class="line"><a name="l00764"></a><span class="lineno"><a class="code" href="group___p_d_f.html#ga23847ecbfff12c65c641097edbd49301">  764</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">double</span> <a class="code" href="group___p_d_f.html#ga23847ecbfff12c65c641097edbd49301">gumbel_pdf</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> mu, <span class="keywordtype">double</span> <a class="code" href="namespace_stoch_h_m_m.html#a207e1a7c14fbf8f0486c0d98f74738e6">beta</a>){</div>
 <div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;                <span class="keywordflow">if</span> (beta &lt;= 0){</div>
 <div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Gumbel PDF: Incorrect parameters\n&quot;</span>;</div>
 <div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;                        exit(2);</div>
@@ -876,7 +896,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;<span class="comment">        //! \param mu   Location parameter</span></div>
 <div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;<span class="comment">        //! \param alpha        scale parameter alpha&gt;0</span></div>
 <div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;<span class="comment">        //! \param beta shape parameter beta&gt;0</span></div>
-<div class="line"><a name="l00791"></a><span class="lineno"><a class="code" href="group___p_d_f.html#ga0055b2f99b97600bc7637613ab9d878a">  791</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">double</span> <a class="code" href="group___p_d_f.html#ga0055b2f99b97600bc7637613ab9d878a">generalized_normal_pdf</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> mu, <span class="keywordtype">double</span> alpha, <span class="keywordtype">double</span> beta){</div>
+<div class="line"><a name="l00791"></a><span class="lineno"><a class="code" href="group___p_d_f.html#ga0055b2f99b97600bc7637613ab9d878a">  791</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">double</span> <a class="code" href="group___p_d_f.html#ga0055b2f99b97600bc7637613ab9d878a">generalized_normal_pdf</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> mu, <span class="keywordtype">double</span> alpha, <span class="keywordtype">double</span> <a class="code" href="namespace_stoch_h_m_m.html#a207e1a7c14fbf8f0486c0d98f74738e6">beta</a>){</div>
 <div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;                <span class="keywordflow">if</span> ( alpha &lt; 0 || beta &lt; 0){</div>
 <div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Generalized normal PDF: Incorrect parameters\n&quot;</span>;</div>
 <div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;                        exit(2);</div>
@@ -887,7 +907,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;<span class="comment">        //!Hyperbolic secant probability distribution function</span></div>
 <div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;<span class="comment">        //! \param      x       Value</span></div>
 <div class="line"><a name="l00801"></a><span class="lineno"><a class="code" href="group___p_d_f.html#gaa7f266bf60a69dc54f98e9a8c1236ca3">  801</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">double</span> <a class="code" href="group___p_d_f.html#gaa7f266bf60a69dc54f98e9a8c1236ca3">hyperbolic_secant_pdf</a>(<span class="keywordtype">double</span> x){</div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;                <span class="keywordflow">return</span> 0.5*pow(cosh((PI/2)*x),-1);</div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;                <span class="keywordflow">return</span> 0.5*pow(cosh((<a class="code" href="distributions_8h.html#a598a3330b3c21701223ee0ca14316eca">PI</a>/2)*x),-1);</div>
 <div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;        }</div>
 <div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;        </div>
 <div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;        <span class="comment"></span></div>
@@ -923,7 +943,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;                        exit(2);</div>
 <div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;                }</div>
 <div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;                </div>
-<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;                <span class="keywordflow">return</span> (1/(sigma*sqrt(2*PI)))* exp(-1*pow(x-mu, 2)/(2*pow(sigma, 2)));</div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;                <span class="keywordflow">return</span> (1/(sigma*sqrt(2*<a class="code" href="distributions_8h.html#a598a3330b3c21701223ee0ca14316eca">PI</a>)))* exp(-1*pow(x-mu, 2)/(2*pow(sigma, 2)));</div>
 <div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;        }</div>
 <div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;        <span class="comment"></span></div>
 <div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;<span class="comment">        //!Student&#39;s t-probability distribution function</span></div>
@@ -934,7 +954,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Student&#39;s t-PDF: Incorrect parameters\n&quot;</span>;</div>
 <div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;                        exit(2);</div>
 <div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;                }</div>
-<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;                <span class="keywordtype">double</span> i = tgamma((v+1)/2)/(sqrt(v*PI)*tgamma(v/2));</div>
+<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;                <span class="keywordtype">double</span> i = tgamma((v+1)/2)/(sqrt(v*<a class="code" href="distributions_8h.html#a598a3330b3c21701223ee0ca14316eca">PI</a>)*tgamma(v/2));</div>
 <div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;                <span class="keywordflow">return</span> i * pow(1+(pow(x,2)/v),-1*(v+1)/2);</div>
 <div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;        }</div>
 <div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;        </div>
@@ -1030,7 +1050,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;<span class="comment">        //! \param      theta   Parameter: details of evolutionary model</span></div>
 <div class="line"><a name="l00943"></a><span class="lineno"><a class="code" href="group___p_d_f.html#ga76d6aad57c7ecd7d99fbd566eceba3e2">  943</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">double</span> <a class="code" href="group___p_d_f.html#ga76d6aad57c7ecd7d99fbd566eceba3e2">multivariate_ewens_pdf</a>(<span class="keyword">const</span> std::vector&lt;double&gt;&amp; x, <span class="keyword">const</span> <span class="keywordtype">double</span> theta){</div>
 <div class="line"><a name="l00944"></a><span class="lineno">  944</span>&#160;                </div>
-<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;                <span class="keywordtype">double</span> n = factorial(x.size());</div>
+<div class="line"><a name="l00945"></a><span class="lineno">  945</span>&#160;                <span class="keywordtype">double</span> n = <a class="code" href="namespace_stoch_h_m_m.html#a53bb7adc9ae52a6084667ca526e0febd">factorial</a>(x.size());</div>
 <div class="line"><a name="l00946"></a><span class="lineno">  946</span>&#160;                <span class="keywordtype">double</span> d(theta);</div>
 <div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i &lt; x.size() -1 ; ++i){</div>
 <div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;                        d *= theta + i;</div>
@@ -1038,7 +1058,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;                </div>
 <div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;                <span class="keywordtype">double</span> prob=1;</div>
 <div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i &lt; x.size() ; ++i){</div>
-<div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;                        prob*= pow(theta,x[i]) / (pow(i,x[i]) * factorial(x[i]));</div>
+<div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;                        prob*= pow(theta,x[i]) / (pow(i,x[i]) * <a class="code" href="namespace_stoch_h_m_m.html#a53bb7adc9ae52a6084667ca526e0febd">factorial</a>(x[i]));</div>
 <div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;                }</div>
 <div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;                <span class="keywordflow">return</span> (n/d) * prob;</div>
 <div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;        }</div>
@@ -1048,11 +1068,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;        </div>
 <div class="line"><a name="l00961"></a><span class="lineno">  961</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:49 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="_p_d_f_8cpp.html">PDF.cpp</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:33 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

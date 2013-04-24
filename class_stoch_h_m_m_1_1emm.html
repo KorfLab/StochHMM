@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1emm.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,14 +103,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::emm Class Reference</div>  </div>
@@ -103,55 +120,128 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4e5950e2b141aad4eced181fce61d61b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e5950e2b141aad4eced181fce61d61b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a4e5950e2b141aad4eced181fce61d61b">emm</a> ()</td></tr>
-<tr class="memdesc:a4e5950e2b141aad4eced181fce61d61b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an emission. <br/></td></tr>
-<tr class="memitem:a041ec7323ec5b7cfefe560bdcfaa4c05"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a041ec7323ec5b7cfefe560bdcfaa4c05"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a041ec7323ec5b7cfefe560bdcfaa4c05">emm</a> (std::string &amp;)</td></tr>
-<tr class="memdesc:a041ec7323ec5b7cfefe560bdcfaa4c05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty emission. <br/></td></tr>
+<tr class="memitem:a4e5950e2b141aad4eced181fce61d61b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a4e5950e2b141aad4eced181fce61d61b">emm</a> ()</td></tr>
+<tr class="memdesc:a4e5950e2b141aad4eced181fce61d61b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an emission.  <a href="#a4e5950e2b141aad4eced181fce61d61b"></a><br/></td></tr>
+<tr class="memitem:a041ec7323ec5b7cfefe560bdcfaa4c05"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a041ec7323ec5b7cfefe560bdcfaa4c05">emm</a> (std::string &amp;)</td></tr>
+<tr class="memdesc:a041ec7323ec5b7cfefe560bdcfaa4c05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty emission.  <a href="#a041ec7323ec5b7cfefe560bdcfaa4c05"></a><br/></td></tr>
 <tr class="memitem:aa54b9142ce68426ec436c8b15c11f38a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#aa54b9142ce68426ec436c8b15c11f38a">~emm</a> ()</td></tr>
 <tr class="memdesc:aa54b9142ce68426ec436c8b15c11f38a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs emission from a string;.  <a href="#aa54b9142ce68426ec436c8b15c11f38a"></a><br/></td></tr>
 <tr class="memitem:a52af53ba74c5cd581643ae4da9eeb080"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a52af53ba74c5cd581643ae4da9eeb080">parse</a> (std::string &amp;, <a class="el" href="class_stoch_h_m_m_1_1tracks.html">tracks</a> &amp;, <a class="el" href="class_stoch_h_m_m_1_1weights.html">weights</a> *, <a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html">StateFuncs</a> *)</td></tr>
 <tr class="memitem:a7226ce9e5bf85ea596f897bdcf0dc664"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a7226ce9e5bf85ea596f897bdcf0dc664">parse</a> (std::string &amp;txt, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *trk)</td></tr>
-<tr class="memitem:af47fc262c080fa58c97d5508c7fcfbba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af47fc262c080fa58c97d5508c7fcfbba"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#af47fc262c080fa58c97d5508c7fcfbba">setRealNumber</a> ()</td></tr>
-<tr class="memdesc:af47fc262c080fa58c97d5508c7fcfbba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the emission to a Real Number. <br/></td></tr>
-<tr class="memitem:ab95aa772208b03e5b767c09d1a9c0f68"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab95aa772208b03e5b767c09d1a9c0f68"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#ab95aa772208b03e5b767c09d1a9c0f68">setComplement</a> ()</td></tr>
-<tr class="memdesc:ab95aa772208b03e5b767c09d1a9c0f68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the emission to be the complement 1-P of given value. <br/></td></tr>
-<tr class="memitem:a4c24f3c19de4c4e3fa61ebfdd7066042"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c24f3c19de4c4e3fa61ebfdd7066042"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setLexicalFunction</b> (<a class="el" href="namespace_stoch_h_m_m.html#a7fad7f980bfaea3d96c891e6db7c8cf0">emissionFunc</a> *)</td></tr>
+<tr class="memitem:af47fc262c080fa58c97d5508c7fcfbba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#af47fc262c080fa58c97d5508c7fcfbba">setRealNumber</a> ()</td></tr>
+<tr class="memdesc:af47fc262c080fa58c97d5508c7fcfbba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the emission to a Real Number.  <a href="#af47fc262c080fa58c97d5508c7fcfbba"></a><br/></td></tr>
+<tr class="memitem:ab95aa772208b03e5b767c09d1a9c0f68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#ab95aa772208b03e5b767c09d1a9c0f68">setComplement</a> ()</td></tr>
+<tr class="memdesc:ab95aa772208b03e5b767c09d1a9c0f68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the emission to be the complement 1-P of given value.  <a href="#ab95aa772208b03e5b767c09d1a9c0f68"></a><br/></td></tr>
+<tr class="memitem:a4c24f3c19de4c4e3fa61ebfdd7066042"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a4c24f3c19de4c4e3fa61ebfdd7066042">setLexicalFunction</a> (<a class="el" href="namespace_stoch_h_m_m.html#a7fad7f980bfaea3d96c891e6db7c8cf0">emissionFunc</a> *)</td></tr>
 <tr class="memitem:a45b77f5140432fa2bb9edc9015fb910b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a45b77f5140432fa2bb9edc9015fb910b">isReal</a> ()</td></tr>
-<tr class="memitem:a6e6f1be7b72ac0c96c0ee875322b813f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e6f1be7b72ac0c96c0ee875322b813f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a6e6f1be7b72ac0c96c0ee875322b813f">isComplement</a> ()</td></tr>
-<tr class="memdesc:a6e6f1be7b72ac0c96c0ee875322b813f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check to see if emission will return the complement (1-P) value of emission. <br/></td></tr>
+<tr class="memitem:a6e6f1be7b72ac0c96c0ee875322b813f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a6e6f1be7b72ac0c96c0ee875322b813f">isComplement</a> ()</td></tr>
+<tr class="memdesc:a6e6f1be7b72ac0c96c0ee875322b813f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check to see if emission will return the complement (1-P) value of emission.  <a href="#a6e6f1be7b72ac0c96c0ee875322b813f"></a><br/></td></tr>
 <tr class="memitem:a1457a3361531d3ada37535af51e3444f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a1457a3361531d3ada37535af51e3444f">get_emission</a> (<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> &amp;, size_t)</td></tr>
 <tr class="memitem:addea95b05b0ba37ce8fc0cb85ccdcbc4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#addea95b05b0ba37ce8fc0cb85ccdcbc4">get_emission</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;, size_t)</td></tr>
 <tr class="memitem:a7565d01d1c90561cf48ffe175fc98d4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">emissionFuncParam</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a7565d01d1c90561cf48ffe175fc98d4e">getExtFunction</a> ()</td></tr>
-<tr class="memitem:ae283fd70c7987041b8cd3f2255594319"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae283fd70c7987041b8cd3f2255594319"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#ae283fd70c7987041b8cd3f2255594319">print</a> ()</td></tr>
-<tr class="memdesc:ae283fd70c7987041b8cd3f2255594319"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the string representation of the emission to stdout. <br/></td></tr>
-<tr class="memitem:a6498faaf6fe651e065d37042acf2f709"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6498faaf6fe651e065d37042acf2f709"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>stringify</b> ()</td></tr>
-<tr class="memitem:a6ba84f7a73e3b1ff184536dae34a7970"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6ba84f7a73e3b1ff184536dae34a7970"></a>
-<a class="el" href="class_stoch_h_m_m_1_1lexical_table.html">lexicalTable</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getTables</b> ()</td></tr>
-<tr class="memitem:a520d383fcbd364a25e985eedc14dda41"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a520d383fcbd364a25e985eedc14dda41"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isSimple</b> ()</td></tr>
-<tr class="memitem:ab2e8eb56a197fa10121cf58850d0fee7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab2e8eb56a197fa10121cf58850d0fee7"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isComplex</b> ()</td></tr>
+<tr class="memitem:ae283fd70c7987041b8cd3f2255594319"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#ae283fd70c7987041b8cd3f2255594319">print</a> ()</td></tr>
+<tr class="memdesc:ae283fd70c7987041b8cd3f2255594319"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the string representation of the emission to stdout.  <a href="#ae283fd70c7987041b8cd3f2255594319"></a><br/></td></tr>
+<tr class="memitem:a6498faaf6fe651e065d37042acf2f709"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a6498faaf6fe651e065d37042acf2f709">stringify</a> ()</td></tr>
+<tr class="memitem:a6ba84f7a73e3b1ff184536dae34a7970"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1lexical_table.html">lexicalTable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a6ba84f7a73e3b1ff184536dae34a7970">getTables</a> ()</td></tr>
+<tr class="memitem:a520d383fcbd364a25e985eedc14dda41"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a520d383fcbd364a25e985eedc14dda41">isSimple</a> ()</td></tr>
+<tr class="memitem:ab2e8eb56a197fa10121cf58850d0fee7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#ab2e8eb56a197fa10121cf58850d0fee7">isComplex</a> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aa07f02c87d3dedf2cdc4505d7062997d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#aa07f02c87d3dedf2cdc4505d7062997d">_processTags</a> (std::string &amp;, <a class="el" href="class_stoch_h_m_m_1_1tracks.html">tracks</a> &amp;, <a class="el" href="class_stoch_h_m_m_1_1weights.html">weights</a> *, <a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html">StateFuncs</a> *)</td></tr>
+<tr class="memdesc:aa07f02c87d3dedf2cdc4505d7062997d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the Emission Function Tag information from the text model definition.  <a href="#aa07f02c87d3dedf2cdc4505d7062997d"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aa406dbdef380fd8b693a91048a2d7c13"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#aa406dbdef380fd8b693a91048a2d7c13">real_number</a></td></tr>
+<tr class="memitem:a79e5d3ef383026093b3c88c12008d4e9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a79e5d3ef383026093b3c88c12008d4e9">continuous</a></td></tr>
+<tr class="memitem:a2d747721112b4151939f9064d729b24a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a2d747721112b4151939f9064d729b24a">multi_continuous</a></td></tr>
+<tr class="memitem:abb98b3f77d3fad47e87f159b53dca573"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#abb98b3f77d3fad47e87f159b53dca573">complement</a></td></tr>
+<tr class="memitem:a4ef3deac64d38ef52fac29c7ee2f86bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a4ef3deac64d38ef52fac29c7ee2f86bf">realTrack</a></td></tr>
+<tr class="memitem:aa5eb94931b0c0364d481a1664c925a2f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1lexical_table.html">lexicalTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a></td></tr>
+<tr class="memitem:a1440ce92f3844cb4d41373bc28526287"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a1440ce92f3844cb4d41373bc28526287">function</a></td></tr>
+<tr class="memitem:a78d571d86e8ffbe02d0471ab82dd5724"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">emissionFuncParam</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a78d571d86e8ffbe02d0471ab82dd5724">lexFunc</a></td></tr>
+<tr class="memitem:aa4536a7033157e08544a446ced1b03b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_stoch_h_m_m.html#a273f025f8870b79f2a971f293ea038e1">pdfFunc</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#aa4536a7033157e08544a446ced1b03b0">pdf</a></td></tr>
+<tr class="memitem:a9f98cb912239e3631fa1247f359d25c8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a9f98cb912239e3631fa1247f359d25c8">pdfName</a></td></tr>
+<tr class="memitem:a1e1f1ad31c51d08bd4f7fa2e57c050d5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a1e1f1ad31c51d08bd4f7fa2e57c050d5">dist_parameters</a></td></tr>
+<tr class="memitem:a84c5750ba1a95342e380051bfa18cfac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_stoch_h_m_m.html#ab99ca2cb1963df8ca0751cdaabfd664a">multiPdfFunc</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a84c5750ba1a95342e380051bfa18cfac">multiPdf</a></td></tr>
+<tr class="memitem:aef934224ee806c539e8db0dea293c0b8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#aef934224ee806c539e8db0dea293c0b8">multiPdfName</a></td></tr>
+<tr class="memitem:a5eb6aaa6ddc8ec3485eceba83fc27f35"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a5eb6aaa6ddc8ec3485eceba83fc27f35">number_of_tracks</a></td></tr>
+<tr class="memitem:adcc4d617c3706f42295c6afbdae299ce"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#adcc4d617c3706f42295c6afbdae299ce">trcks</a></td></tr>
+<tr class="memitem:a188830e6552ba217447a83230d4ecbd9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; size_t &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a188830e6552ba217447a83230d4ecbd9">track_indices</a></td></tr>
+<tr class="memitem:a50ad06b083c0587da5f339cdce36c03d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a50ad06b083c0587da5f339cdce36c03d">pass_values</a></td></tr>
+<tr class="memitem:af4c19242e7570437dce8c2411506d4ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">emissionFuncParam</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a9ded23f3edbd367dcaa3a3c3d49428eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ded23f3edbd367dcaa3a3c3d49428eb"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
-<tr class="memitem:a6e37bb755d74e24f1b3e7e2def3b13e0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e37bb755d74e24f1b3e7e2def3b13e0"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
+<tr class="memitem:a9ded23f3edbd367dcaa3a3c3d49428eb"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a9ded23f3edbd367dcaa3a3c3d49428eb">state</a></td></tr>
+<tr class="memitem:a6e37bb755d74e24f1b3e7e2def3b13e0"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1emm.html#a6e37bb755d74e24f1b3e7e2def3b13e0">model</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Emissions for model Contains the emission definition. Each emissions contains the probability, the log(p(x), and counts Counts are used for calculating lower order emissions from higher order. This is only applicable at the beginning of the sequence. Each emission depends on some track or function, an emission can have multiple tracks. Or in other words output a single character from each track it is associated with. Tracks can be either alphabetic, real numbers values. Emissions can also call an external function that is user defined. If ambiguity is defined in the alphabet, the emission score can be defined as such If ambiguity is not defined the returned value will be -INFINITY </p>
 
 <p>Definition at line <a class="el" href="emm_8h_source.html#l00058">58</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a4e5950e2b141aad4eced181fce61d61b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::emm::emm </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create an emission. </p>
+
+<p>Definition at line <a class="el" href="emm_8cpp_source.html#l00031">31</a> of file <a class="el" href="emm_8cpp_source.html">emm.cpp</a>.</p>
+
+<p>References <a class="el" href="emm_8h_source.html#l00116">complement</a>, <a class="el" href="emm_8h_source.html#l00114">continuous</a>, <a class="el" href="emm_8h_source.html#l00132">dist_parameters</a>, <a class="el" href="emm_8h_source.html#l00125">lexFunc</a>, <a class="el" href="emm_8h_source.html#l00115">multi_continuous</a>, <a class="el" href="emm_8h_source.html#l00137">multiPdf</a>, <a class="el" href="emm_8h_source.html#l00139">number_of_tracks</a>, <a class="el" href="emm_8h_source.html#l00142">pass_values</a>, <a class="el" href="emm_8h_source.html#l00128">pdf</a>, <a class="el" href="emm_8h_source.html#l00113">real_number</a>, <a class="el" href="emm_8h_source.html#l00118">realTrack</a>, <a class="el" href="emm_8h_source.html#l00145">tagFunc</a>, <a class="el" href="emm_8h_source.html#l00141">track_indices</a>, and <a class="el" href="emm_8h_source.html#l00140">trcks</a>.</p>
+<div class="fragment"><div class="line">            {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa406dbdef380fd8b693a91048a2d7c13">real_number</a>                     = <span class="keyword">false</span>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1emm.html#abb98b3f77d3fad47e87f159b53dca573">complement</a>                      = <span class="keyword">false</span>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1emm.html#a79e5d3ef383026093b3c88c12008d4e9">continuous</a>                      = <span class="keyword">false</span>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1emm.html#a2d747721112b4151939f9064d729b24a">multi_continuous</a>        = <span class="keyword">false</span>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1emm.html#a4ef3deac64d38ef52fac29c7ee2f86bf">realTrack</a>                       = NULL;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keyword">function</span>                        = <span class="keyword">false</span>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1emm.html#a78d571d86e8ffbe02d0471ab82dd5724">lexFunc</a>                         = NULL;</div>
+<div class="line">                </div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa4536a7033157e08544a446ced1b03b0">pdf</a>                                     = NULL;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1emm.html#a1e1f1ad31c51d08bd4f7fa2e57c050d5">dist_parameters</a>         = NULL;</div>
+<div class="line">                </div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1emm.html#a84c5750ba1a95342e380051bfa18cfac">multiPdf</a>                        = NULL;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1emm.html#a5eb6aaa6ddc8ec3485eceba83fc27f35">number_of_tracks</a>        = 0;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1emm.html#adcc4d617c3706f42295c6afbdae299ce">trcks</a>                           = NULL;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1emm.html#a50ad06b083c0587da5f339cdce36c03d">pass_values</a>                     = NULL;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1emm.html#a188830e6552ba217447a83230d4ecbd9">track_indices</a>           = NULL;</div>
+<div class="line">                </div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>                         = NULL;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a041ec7323ec5b7cfefe560bdcfaa4c05"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::emm::emm </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs an empty emission. </p>
+
+</div>
+</div>
 <a class="anchor" id="aa54b9142ce68426ec436c8b15c11f38a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -169,18 +259,106 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <p>Destroy an emission. </p>
 
 <p>Definition at line <a class="el" href="emm_8cpp_source.html#l00055">55</a> of file <a class="el" href="emm_8cpp_source.html">emm.cpp</a>.</p>
+
+<p>References <a class="el" href="emm_8h_source.html#l00125">lexFunc</a>, and <a class="el" href="emm_8h_source.html#l00145">tagFunc</a>.</p>
 <div class="fragment"><div class="line">             {</div>
-<div class="line">        <span class="keyword">delete</span> lexFunc;</div>
-<div class="line">        <span class="keyword">delete</span> tagFunc;</div>
+<div class="line">        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#a78d571d86e8ffbe02d0471ab82dd5724">lexFunc</a>;</div>
+<div class="line">        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>;</div>
 <div class="line">        <span class="keyword">function</span> =      <span class="keyword">false</span>;</div>
 <div class="line"></div>
-<div class="line">        lexFunc =       NULL;</div>
-<div class="line">        tagFunc =       NULL;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1emm.html#a78d571d86e8ffbe02d0471ab82dd5724">lexFunc</a> =       NULL;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a> =       NULL;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="aa07f02c87d3dedf2cdc4505d7062997d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::emm::_processTags </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>txt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1tracks.html">tracks</a> &amp;&#160;</td>
+          <td class="paramname"><em>trks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1weights.html">weights</a> *&#160;</td>
+          <td class="paramname"><em>wts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html">StateFuncs</a> *&#160;</td>
+          <td class="paramname"><em>funcs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parses the Emission Function Tag information from the text model definition. </p>
+
+<p>Definition at line <a class="el" href="emm_8cpp_source.html#l00640">640</a> of file <a class="el" href="emm_8cpp_source.html">emm.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00743">StochHMM::extractTag()</a>, <a class="el" href="external_funcs_8h_source.html#l00153">StochHMM::emissionFuncParam::getTrackName()</a>, <a class="el" href="track_8cpp_source.html#l00551">StochHMM::tracks::isTrackDefined()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00257">StochHMM::emissionFuncParam::parse()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00402">StochHMM::stringList::stringify()</a>, and <a class="el" href="emm_8h_source.html#l00145">tagFunc</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00069">parse()</a>.</p>
+<div class="fragment"><div class="line">                                                                                      {</div>
+<div class="line">        stringList lst = <a class="code" href="group___text.html#gabad7e59fdc834721ee71b12524c40002">extractTag</a>(txt);</div>
+<div class="line">                </div>
+<div class="line">        <span class="keywordflow">if</span> (lst.size() == 0){</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>=<span class="keyword">new</span>(std::nothrow) emissionFuncParam();</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>==NULL){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1emission_func_param.html#a429f099e09867b517541c08004c4870b" title="Parse the stringList from model import.">parse</a>(lst, trks, wts,funcs)){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t parse Emission Tag: &quot;</span> &lt;&lt; lst.stringify() &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        std::string trackName = <a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1emission_func_param.html#a8cbdaac4b51e7eb61b5ab9aa26f56bbc">getTrackName</a>();</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Don&#39;t need if we check in the parsing of emissionFuncParam....</span></div>
+<div class="line">        <span class="keywordflow">if</span> (!trks.isTrackDefined(trackName)){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;No Track defined with name:\t&quot;</span> &lt;&lt; trackName &lt;&lt; <span class="stringliteral">&quot;\nEmission Tag:\n&quot;</span> &lt;&lt; txt &lt;&lt; std::endl;</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="a1457a3361531d3ada37535af51e3444f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -216,47 +394,49 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 
 <p>Definition at line <a class="el" href="emm_8cpp_source.html#l00681">681</a> of file <a class="el" href="emm_8cpp_source.html">emm.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8h_source.html#l00158">StochHMM::track::getIndex()</a>, and <a class="el" href="sequences_8cpp_source.html#l00141">StochHMM::sequences::realValue()</a>.</p>
+<p>References <a class="el" href="emm_8h_source.html#l00116">complement</a>, <a class="el" href="emm_8h_source.html#l00114">continuous</a>, <a class="el" href="emm_8h_source.html#l00132">dist_parameters</a>, <a class="el" href="external_funcs_8cpp_source.html#l00353">StochHMM::emissionFuncParam::evaluate()</a>, <a class="el" href="track_8h_source.html#l00158">StochHMM::track::getIndex()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00113">StochHMM::lexicalTable::getValue()</a>, <a class="el" href="emm_8h_source.html#l00125">lexFunc</a>, <a class="el" href="emm_8h_source.html#l00115">multi_continuous</a>, <a class="el" href="emm_8h_source.html#l00139">number_of_tracks</a>, <a class="el" href="emm_8h_source.html#l00142">pass_values</a>, <a class="el" href="emm_8h_source.html#l00113">real_number</a>, <a class="el" href="emm_8h_source.html#l00118">realTrack</a>, <a class="el" href="sequences_8cpp_source.html#l00141">StochHMM::sequences::realValue()</a>, <a class="el" href="emm_8h_source.html#l00121">scores</a>, <a class="el" href="emm_8h_source.html#l00145">tagFunc</a>, and <a class="el" href="emm_8h_source.html#l00141">track_indices</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00397">StochHMM::matrixPosition::getEmissionValue()</a>.</p>
 <div class="fragment"><div class="line">                                                      {</div>
 <div class="line">        <span class="keywordtype">double</span> final_emission(-INFINITY);</div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> (real_number){</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa406dbdef380fd8b693a91048a2d7c13">real_number</a>){</div>
 <div class="line">            </div>
-<div class="line">            final_emission=seqs.realValue(realTrack-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a2c18fbb6e1c6aa8aa41a33d07bc6e279">getIndex</a>(),pos);</div>
-<div class="line">            <span class="keywordflow">if</span> (complement){</div>
+<div class="line">            final_emission=seqs.realValue(<a class="code" href="class_stoch_h_m_m_1_1emm.html#a4ef3deac64d38ef52fac29c7ee2f86bf">realTrack</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a2c18fbb6e1c6aa8aa41a33d07bc6e279">getIndex</a>(),pos);</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#abb98b3f77d3fad47e87f159b53dca573">complement</a>){</div>
 <div class="line">                final_emission=log(1-exp(final_emission));</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">function</span>){</div>
-<div class="line">            final_emission=lexFunc-&gt;evaluate(seqs, pos);</div>
+<div class="line">            final_emission=<a class="code" href="class_stoch_h_m_m_1_1emm.html#a78d571d86e8ffbe02d0471ab82dd5724">lexFunc</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1emission_func_param.html#afc6c0dcfed0e3ebada9807115fa24dbd">evaluate</a>(seqs, pos);</div>
 <div class="line">        }</div>
-<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (multi_continuous){</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#a2d747721112b4151939f9064d729b24a">multi_continuous</a>){</div>
 <div class="line">                        <span class="comment">//Get all values from the tracks</span></div>
-<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; number_of_tracks ; ++i){</div>
-<div class="line">                                (*pass_values)[i] = seqs.realValue((*track_indices)[i], pos);</div>
+<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1emm.html#a5eb6aaa6ddc8ec3485eceba83fc27f35">number_of_tracks</a> ; ++i){</div>
+<div class="line">                                (*pass_values)[i] = seqs.realValue((*<a class="code" href="class_stoch_h_m_m_1_1emm.html#a188830e6552ba217447a83230d4ecbd9">track_indices</a>)[i], pos);</div>
 <div class="line">                        }</div>
 <div class="line">                        </div>
-<div class="line">                        final_emission = (*multiPdf)(pass_values, dist_parameters);</div>
+<div class="line">                        final_emission = (*multiPdf)(<a class="code" href="class_stoch_h_m_m_1_1emm.html#a50ad06b083c0587da5f339cdce36c03d">pass_values</a>, <a class="code" href="class_stoch_h_m_m_1_1emm.html#a1e1f1ad31c51d08bd4f7fa2e57c050d5">dist_parameters</a>);</div>
 <div class="line">                        </div>
-<div class="line">                        <span class="keywordflow">if</span> (complement){</div>
+<div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#abb98b3f77d3fad47e87f159b53dca573">complement</a>){</div>
 <div class="line">                                final_emission=log(1-exp(final_emission));</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
-<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (continuous){</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#a79e5d3ef383026093b3c88c12008d4e9">continuous</a>){</div>
 <div class="line">                        </div>
-<div class="line">                        final_emission = (*pdf)(seqs.realValue(realTrack-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a2c18fbb6e1c6aa8aa41a33d07bc6e279">getIndex</a>(),pos),dist_parameters);</div>
+<div class="line">                        final_emission = (*pdf)(seqs.realValue(<a class="code" href="class_stoch_h_m_m_1_1emm.html#a4ef3deac64d38ef52fac29c7ee2f86bf">realTrack</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a2c18fbb6e1c6aa8aa41a33d07bc6e279">getIndex</a>(),pos),<a class="code" href="class_stoch_h_m_m_1_1emm.html#a1e1f1ad31c51d08bd4f7fa2e57c050d5">dist_parameters</a>);</div>
 <div class="line">                        </div>
-<div class="line">                        <span class="keywordflow">if</span> (complement){</div>
+<div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#abb98b3f77d3fad47e87f159b53dca573">complement</a>){</div>
 <div class="line">                                final_emission=log(1-exp(final_emission));</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
-<div class="line">            final_emission=scores.getValue(seqs, pos);</div>
+<div class="line">            final_emission=<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a7e497ae7971c6c66249f95a6627b00c0">getValue</a>(seqs, pos);</div>
 <div class="line">        }</div>
 <div class="line">        </div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> (tagFunc!=NULL){</div>
-<div class="line">            final_emission+=tagFunc-&gt;evaluate(seqs, pos);</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>!=NULL){</div>
+<div class="line">            final_emission+=<a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1emission_func_param.html#afc6c0dcfed0e3ebada9807115fa24dbd">evaluate</a>(seqs, pos);</div>
 <div class="line">        }</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">return</span> final_emission;</div>
@@ -299,47 +479,47 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 
 <p>Definition at line <a class="el" href="emm_8cpp_source.html#l00733">733</a> of file <a class="el" href="emm_8cpp_source.html">emm.cpp</a>.</p>
 
-<p>References <a class="el" href="sequence_8cpp_source.html#l00289">StochHMM::sequence::realValue()</a>.</p>
+<p>References <a class="el" href="emm_8h_source.html#l00116">complement</a>, <a class="el" href="emm_8h_source.html#l00114">continuous</a>, <a class="el" href="emm_8h_source.html#l00132">dist_parameters</a>, <a class="el" href="external_funcs_8cpp_source.html#l00353">StochHMM::emissionFuncParam::evaluate()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00113">StochHMM::lexicalTable::getValue()</a>, <a class="el" href="emm_8h_source.html#l00125">lexFunc</a>, <a class="el" href="emm_8h_source.html#l00115">multi_continuous</a>, <a class="el" href="emm_8h_source.html#l00139">number_of_tracks</a>, <a class="el" href="emm_8h_source.html#l00142">pass_values</a>, <a class="el" href="emm_8h_source.html#l00113">real_number</a>, <a class="el" href="sequence_8cpp_source.html#l00289">StochHMM::sequence::realValue()</a>, <a class="el" href="emm_8h_source.html#l00121">scores</a>, and <a class="el" href="emm_8h_source.html#l00145">tagFunc</a>.</p>
 <div class="fragment"><div class="line">                                                    {</div>
 <div class="line">        <span class="keywordtype">double</span> final_emission;</div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> (real_number){</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa406dbdef380fd8b693a91048a2d7c13">real_number</a>){</div>
 <div class="line">            </div>
 <div class="line">            final_emission=seq.realValue(pos);</div>
-<div class="line">            <span class="keywordflow">if</span> (complement){</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#abb98b3f77d3fad47e87f159b53dca573">complement</a>){</div>
 <div class="line">                final_emission=log(1-exp(final_emission));</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">function</span>){</div>
-<div class="line">            final_emission=lexFunc-&gt;evaluate(seq, pos);</div>
+<div class="line">            final_emission=<a class="code" href="class_stoch_h_m_m_1_1emm.html#a78d571d86e8ffbe02d0471ab82dd5724">lexFunc</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1emission_func_param.html#afc6c0dcfed0e3ebada9807115fa24dbd">evaluate</a>(seq, pos);</div>
 <div class="line">        }</div>
-<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (multi_continuous){</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#a2d747721112b4151939f9064d729b24a">multi_continuous</a>){</div>
 <div class="line">                        <span class="comment">//Get all values from the tracks</span></div>
-<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; number_of_tracks ; ++i){</div>
+<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1emm.html#a5eb6aaa6ddc8ec3485eceba83fc27f35">number_of_tracks</a> ; ++i){</div>
 <div class="line">                                (*pass_values)[i] = seq.realValue(pos);</div>
 <div class="line">                        }</div>
 <div class="line">                        </div>
-<div class="line">                        final_emission = (*multiPdf)(pass_values, dist_parameters);</div>
+<div class="line">                        final_emission = (*multiPdf)(<a class="code" href="class_stoch_h_m_m_1_1emm.html#a50ad06b083c0587da5f339cdce36c03d">pass_values</a>, <a class="code" href="class_stoch_h_m_m_1_1emm.html#a1e1f1ad31c51d08bd4f7fa2e57c050d5">dist_parameters</a>);</div>
 <div class="line">                        </div>
-<div class="line">                        <span class="keywordflow">if</span> (complement){</div>
+<div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#abb98b3f77d3fad47e87f159b53dca573">complement</a>){</div>
 <div class="line">                                final_emission=log(1-exp(final_emission));</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
-<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (continuous){</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#a79e5d3ef383026093b3c88c12008d4e9">continuous</a>){</div>
 <div class="line">                        </div>
-<div class="line">                        final_emission = (*pdf)(seq.realValue(pos),dist_parameters);</div>
+<div class="line">                        final_emission = (*pdf)(seq.realValue(pos),<a class="code" href="class_stoch_h_m_m_1_1emm.html#a1e1f1ad31c51d08bd4f7fa2e57c050d5">dist_parameters</a>);</div>
 <div class="line">                        </div>
-<div class="line">                        <span class="keywordflow">if</span> (complement){</div>
+<div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#abb98b3f77d3fad47e87f159b53dca573">complement</a>){</div>
 <div class="line">                                final_emission=log(1-exp(final_emission));</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
-<div class="line">            final_emission=scores.getValue(seq, pos);</div>
+<div class="line">            final_emission=<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a7e497ae7971c6c66249f95a6627b00c0">getValue</a>(seq, pos);</div>
 <div class="line">        }</div>
 <div class="line">        </div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> (tagFunc!=NULL){</div>
-<div class="line">            final_emission+=tagFunc-&gt;evaluate(seq, pos);</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>!=NULL){</div>
+<div class="line">            final_emission+=<a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1emission_func_param.html#afc6c0dcfed0e3ebada9807115fa24dbd">evaluate</a>(seq, pos);</div>
 <div class="line">        }</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">return</span> final_emission;</div>
@@ -371,7 +551,98 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>model</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>externalFuncs* </dd></dl>
 
 <p>Definition at line <a class="el" href="emm_8h_source.html#l00092">92</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> tagFunc;};</div>
+
+<p>References <a class="el" href="emm_8h_source.html#l00145">tagFunc</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a6ba84f7a73e3b1ff184536dae34a7970"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1lexical_table.html">lexicalTable</a>* StochHMM::emm::getTables </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00099">99</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>References <a class="el" href="emm_8h_source.html#l00121">scores</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> &amp;<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a6e6f1be7b72ac0c96c0ee875322b813f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::emm::isComplement </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check to see if emission will return the complement (1-P) value of emission. </p>
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00085">85</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>References <a class="el" href="emm_8h_source.html#l00116">complement</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1emm.html#abb98b3f77d3fad47e87f159b53dca573">complement</a>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ab2e8eb56a197fa10121cf58850d0fee7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::emm::isComplex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00105">105</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>References <a class="el" href="emm_8h_source.html#l00145">tagFunc</a>.</p>
+<div class="fragment"><div class="line">                                       {</div>
+<div class="line">                        <span class="keywordflow">if</span> (<span class="keyword">function</span> || <a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -394,15 +665,46 @@ false if track is alphanumerical track </dd></dl>
 
 <p>Definition at line <a class="el" href="emm_8cpp_source.html#l00783">783</a> of file <a class="el" href="emm_8cpp_source.html">emm.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8h_source.html#l00169">StochHMM::track::getAlphaType()</a>.</p>
+<p>References <a class="el" href="track_8h_source.html#l00169">StochHMM::track::getAlphaType()</a>, <a class="el" href="stoch_types_8h_source.html#l00085">StochHMM::REAL</a>, <a class="el" href="emm_8h_source.html#l00113">real_number</a>, and <a class="el" href="emm_8h_source.html#l00118">realTrack</a>.</p>
 <div class="fragment"><div class="line">                    {</div>
-<div class="line">        <span class="keywordflow">if</span> (real_number &amp;&amp; realTrack-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a4ce8b421ac3f61a6093d81867b4a981f">getAlphaType</a>()==REAL){</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa406dbdef380fd8b693a91048a2d7c13">real_number</a> &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1emm.html#a4ef3deac64d38ef52fac29c7ee2f86bf">realTrack</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a4ce8b421ac3f61a6093d81867b4a981f">getAlphaType</a>()==<a class="code" href="namespace_stoch_h_m_m.html#af40bae3e87d67dfcd79c715bc86a9f53ae7cffd9ec42f739ee9862d2076d8d83f">REAL</a>){</div>
 <div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
 <div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a520d383fcbd364a25e985eedc14dda41"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::emm::isSimple </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00100">100</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>References <a class="el" href="emm_8h_source.html#l00145">tagFunc</a>.</p>
+<div class="fragment"><div class="line">                                      {</div>
+<div class="line">                        <span class="keywordflow">if</span> (!<span class="keyword">function</span> &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>==NULL){<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
+<div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -454,11 +756,11 @@ false if track is alphanumerical track </dd></dl>
 
 <p>Definition at line <a class="el" href="emm_8cpp_source.html#l00069">69</a> of file <a class="el" href="emm_8cpp_source.html">emm.cpp</a>.</p>
 
-<p>References <a class="el" href="lexical_table_8cpp_source.html#l00158">StochHMM::lexicalTable::addTrack()</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="lexical_table_8h_source.html#l00087">StochHMM::lexicalTable::getAlphaSize()</a>, <a class="el" href="user_functions_8cpp_source.html#l00186">StochHMM::StateFuncs::getMultivariatePdfFunction()</a>, <a class="el" href="lexical_table_8h_source.html#l00078">StochHMM::lexicalTable::getOrder()</a>, <a class="el" href="user_functions_8cpp_source.html#l00171">StochHMM::StateFuncs::getPDFFunction()</a>, <a class="el" href="track_8cpp_source.html#l00542">StochHMM::tracks::getTrack()</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00856">StochHMM::lexicalTable::initialize_emission_table()</a>, <a class="el" href="text_8cpp_source.html#l00564">StochHMM::int_to_string()</a>, <a class="el" href="text_8h_source.html#l00107">StochHMM::stringList::push_back()</a>, <a class="el" href="lexical_table_8h_source.html#l00065">StochHMM::lexicalTable::setUnkScore()</a>, <a class="el" href="lexical_table_8h_source.html#l00062">StochHMM::lexicalTable::setUnkScoreType()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, <a class="el" href="text_8cpp_source.html#l00636">StochHMM::stringToDouble()</a>, <a class="el" href="text_8cpp_source.html#l00607">StochHMM::stringToInt()</a>, and <a class="el" href="text_8cpp_source.html#l00358">StochHMM::stringList::toVecDouble()</a>.</p>
+<p>References <a class="el" href="emm_8cpp_source.html#l00640">_processTags()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00158">StochHMM::lexicalTable::addTrack()</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::AVERAGE_SCORE</a>, <a class="el" href="emm_8h_source.html#l00116">complement</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="emm_8h_source.html#l00114">continuous</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::COUNTS</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::DEFINED_SCORE</a>, <a class="el" href="emm_8h_source.html#l00132">dist_parameters</a>, <a class="el" href="stoch_math_8h_source.html#l00397">StochHMM::expVector()</a>, <a class="el" href="lexical_table_8h_source.html#l00087">StochHMM::lexicalTable::getAlphaSize()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00069">StochHMM::lexicalTable::getCountsTable()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00099">StochHMM::lexicalTable::getLogProbabilityTable()</a>, <a class="el" href="user_functions_8cpp_source.html#l00186">StochHMM::StateFuncs::getMultivariatePdfFunction()</a>, <a class="el" href="lexical_table_8h_source.html#l00089">StochHMM::lexicalTable::getNumberOfAlphabets()</a>, <a class="el" href="lexical_table_8h_source.html#l00078">StochHMM::lexicalTable::getOrder()</a>, <a class="el" href="user_functions_8cpp_source.html#l00171">StochHMM::StateFuncs::getPDFFunction()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00084">StochHMM::lexicalTable::getProbabilityTable()</a>, <a class="el" href="track_8cpp_source.html#l00542">StochHMM::tracks::getTrack()</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::HIGHEST_SCORE</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00856">StochHMM::lexicalTable::initialize_emission_table()</a>, <a class="el" href="text_8cpp_source.html#l00564">StochHMM::int_to_string()</a>, <a class="el" href="emm_8h_source.html#l00125">lexFunc</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::LOG_PROB</a>, <a class="el" href="stoch_math_8h_source.html#l00385">StochHMM::logVector()</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::LOWEST_SCORE</a>, <a class="el" href="emm_8h_source.html#l00115">multi_continuous</a>, <a class="el" href="emm_8h_source.html#l00137">multiPdf</a>, <a class="el" href="emm_8h_source.html#l00138">multiPdfName</a>, <a class="el" href="emm_8h_source.html#l00139">number_of_tracks</a>, <a class="el" href="emm_8h_source.html#l00142">pass_values</a>, <a class="el" href="emm_8h_source.html#l00128">pdf</a>, <a class="el" href="emm_8h_source.html#l00129">pdfName</a>, <a class="el" href="text_8cpp_source.html#l00346">StochHMM::stringList::pop_ith()</a>, <a class="el" href="stoch_math_8h_source.html#l00091">StochHMM::POWER</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::PROBABILITY</a>, <a class="el" href="stoch_math_8h_source.html#l00420">StochHMM::probVector()</a>, <a class="el" href="text_8h_source.html#l00107">StochHMM::stringList::push_back()</a>, <a class="el" href="emm_8h_source.html#l00113">real_number</a>, <a class="el" href="emm_8h_source.html#l00118">realTrack</a>, <a class="el" href="emm_8h_source.html#l00121">scores</a>, <a class="el" href="lexical_table_8h_source.html#l00065">StochHMM::lexicalTable::setUnkScore()</a>, <a class="el" href="lexical_table_8h_source.html#l00062">StochHMM::lexicalTable::setUnkScoreType()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, <a class="el" href="text_8cpp_source.html#l00636">StochHMM::stringToDouble()</a>, <a class="el" href="text_8cpp_source.html#l00607">StochHMM::stringToInt()</a>, <a class="el" href="text_8cpp_source.html#l00358">StochHMM::stringList::toVecDouble()</a>, <a class="el" href="emm_8h_source.html#l00141">track_indices</a>, and <a class="el" href="emm_8h_source.html#l00140">trcks</a>.</p>
 
-<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00235">StochHMM::matrixPosition::parse()</a>.</p>
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00678">StochHMM::PWM::_parseBackground()</a>, <a class="el" href="state_8cpp_source.html#l00296">StochHMM::state::_parseEmission()</a>, and <a class="el" href="pwm_8cpp_source.html#l00235">StochHMM::matrixPosition::parse()</a>.</p>
 <div class="fragment"><div class="line">                                                                               {</div>
-<div class="line">        <span class="keywordflow">if</span> (!_processTags(txt,trks, wts, funcs)){</div>
+<div class="line">        <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa07f02c87d3dedf2cdc4505d7062997d" title="Parses the Emission Function Tag information from the text model definition.">_processTags</a>(txt,trks, wts, funcs)){</div>
 <div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">        }</div>
 <div class="line">        </div>
@@ -479,38 +781,38 @@ false if track is alphanumerical track </dd></dl>
 <div class="line">        <span class="keywordtype">size_t</span> typeBegin(0);</div>
 <div class="line">        </div>
 <div class="line">                <span class="comment">//Determine Emission Type and set appropriate flags</span></div>
-<div class="line">        <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835">valueType</a>  valtyp(PROBABILITY);</div>
+<div class="line">        <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835">valueType</a>  valtyp(<a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a92649806455862fab71c5b2aa48bfc55">PROBABILITY</a>);</div>
 <div class="line">        <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;P(X)&quot;</span>)){</div>
 <div class="line">            typeBegin = line.indexOf(<span class="stringliteral">&quot;P(X)&quot;</span>);</div>
-<div class="line">            valtyp=PROBABILITY;</div>
+<div class="line">            valtyp=<a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a92649806455862fab71c5b2aa48bfc55">PROBABILITY</a>;</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;LOG&quot;</span>)){</div>
 <div class="line">            typeBegin = line.indexOf(<span class="stringliteral">&quot;LOG&quot;</span>);</div>
-<div class="line">            valtyp=LOG_PROB;</div>
+<div class="line">            valtyp=<a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a26e61ea2119ea2b9482e5a16b4a51604">LOG_PROB</a>;</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;COUNTS&quot;</span>)){</div>
 <div class="line">            typeBegin = line.indexOf(<span class="stringliteral">&quot;COUNTS&quot;</span>);</div>
-<div class="line">            valtyp=COUNTS ;</div>
+<div class="line">            valtyp=<a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a68071cfc928cf75eda3d522a63517b31">COUNTS</a> ;</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;REAL_NUMBER&quot;</span>)){</div>
 <div class="line">            typeBegin = line.indexOf(<span class="stringliteral">&quot;REAL_NUMBER&quot;</span>);</div>
-<div class="line">            real_number = <span class="keyword">true</span>;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa406dbdef380fd8b693a91048a2d7c13">real_number</a> = <span class="keyword">true</span>;</div>
 <div class="line">            <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;COMPLEMENT&quot;</span>) || line.contains(<span class="stringliteral">&quot;1-P(X)&quot;</span>)) {</div>
-<div class="line">                complement=<span class="keyword">true</span>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1emm.html#abb98b3f77d3fad47e87f159b53dca573">complement</a>=<span class="keyword">true</span>;</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;MULTI_CONTINUOUS&quot;</span>)){</div>
 <div class="line">                        typeBegin = line.indexOf(<span class="stringliteral">&quot;MULTI_CONTINUOUS&quot;</span>);</div>
-<div class="line">                        multi_continuous=<span class="keyword">true</span>;</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1emm.html#a2d747721112b4151939f9064d729b24a">multi_continuous</a>=<span class="keyword">true</span>;</div>
 <div class="line">                        <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;COMPLEMENT&quot;</span>) || line.contains(<span class="stringliteral">&quot;1-P(X)&quot;</span>)) {</div>
-<div class="line">                complement=<span class="keyword">true</span>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1emm.html#abb98b3f77d3fad47e87f159b53dca573">complement</a>=<span class="keyword">true</span>;</div>
 <div class="line">            }</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;CONTINUOUS&quot;</span>)){</div>
 <div class="line">                        typeBegin = line.indexOf(<span class="stringliteral">&quot;CONTINUOUS&quot;</span>);</div>
-<div class="line">                        continuous=<span class="keyword">true</span>;</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1emm.html#a79e5d3ef383026093b3c88c12008d4e9">continuous</a>=<span class="keyword">true</span>;</div>
 <div class="line">                        <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;COMPLEMENT&quot;</span>) || line.contains(<span class="stringliteral">&quot;1-P(X)&quot;</span>)) {</div>
-<div class="line">                complement=<span class="keyword">true</span>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1emm.html#abb98b3f77d3fad47e87f159b53dca573">complement</a>=<span class="keyword">true</span>;</div>
 <div class="line">            }</div>
 <div class="line">                }</div>
 <div class="line">                </div>
@@ -540,18 +842,18 @@ false if track is alphanumerical track </dd></dl>
 <div class="line">        }</div>
 <div class="line">        </div>
 <div class="line">        <span class="comment">//Real Number Emissions</span></div>
-<div class="line">        <span class="keywordflow">if</span> (real_number){</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa406dbdef380fd8b693a91048a2d7c13">real_number</a>){</div>
 <div class="line">            </div>
 <div class="line">            <span class="keywordflow">if</span> (tempTracks.size()&gt;1){</div>
 <div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Multiple tracks listed under Real Track Emission Definition\n&quot;</span>;</div>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">            }</div>
 <div class="line">            </div>
-<div class="line">            realTrack = tempTracks[0];</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1emm.html#a4ef3deac64d38ef52fac29c7ee2f86bf">realTrack</a> = tempTracks[0];</div>
 <div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">        }</div>
 <div class="line">                <span class="comment">//Multivariate Continuous PDF emission</span></div>
-<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (multi_continuous){</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#a2d747721112b4151939f9064d729b24a">multi_continuous</a>){</div>
 <div class="line">                        <span class="keywordflow">if</span> (tempTracks.size()==1){</div>
 <div class="line">                                std::cerr &lt;&lt; <span class="stringliteral">&quot;Only a single track listed under MULTI_CONTINUOUS\n\</span></div>
 <div class="line"><span class="stringliteral">                                Use CONTINUOUS instead of MULTI-CONTINUOUS\n&quot;</span>;</div>
@@ -559,31 +861,31 @@ false if track is alphanumerical track </dd></dl>
 <div class="line">                        }</div>
 <div class="line">                        </div>
 <div class="line">                        <span class="comment">//Assign track information</span></div>
-<div class="line">                        track_indices = <span class="keyword">new</span> std::vector&lt;size_t&gt;;</div>
-<div class="line">                        trcks = <span class="keyword">new</span> std::vector&lt;track*&gt; (tempTracks);</div>
-<div class="line">                        number_of_tracks = trcks-&gt;size();</div>
-<div class="line">                        pass_values = <span class="keyword">new</span> std::vector&lt;double&gt; (number_of_tracks,-INFINITY);</div>
-<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; number_of_tracks ; ++i){</div>
-<div class="line">                                track_indices-&gt;push_back((*trcks)[i]-&gt;getIndex());</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1emm.html#a188830e6552ba217447a83230d4ecbd9">track_indices</a> = <span class="keyword">new</span> std::vector&lt;size_t&gt;;</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1emm.html#adcc4d617c3706f42295c6afbdae299ce">trcks</a> = <span class="keyword">new</span> std::vector&lt;track*&gt; (tempTracks);</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1emm.html#a5eb6aaa6ddc8ec3485eceba83fc27f35">number_of_tracks</a> = <a class="code" href="class_stoch_h_m_m_1_1emm.html#adcc4d617c3706f42295c6afbdae299ce">trcks</a>-&gt;size();</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1emm.html#a50ad06b083c0587da5f339cdce36c03d">pass_values</a> = <span class="keyword">new</span> std::vector&lt;double&gt; (<a class="code" href="class_stoch_h_m_m_1_1emm.html#a5eb6aaa6ddc8ec3485eceba83fc27f35">number_of_tracks</a>,-INFINITY);</div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1emm.html#a5eb6aaa6ddc8ec3485eceba83fc27f35">number_of_tracks</a> ; ++i){</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1emm.html#a188830e6552ba217447a83230d4ecbd9">track_indices</a>-&gt;push_back((*<a class="code" href="class_stoch_h_m_m_1_1emm.html#adcc4d617c3706f42295c6afbdae299ce">trcks</a>)[i]-&gt;getIndex());</div>
 <div class="line">                        }</div>
 <div class="line">                        </div>
 <div class="line">                        idx = ln.indexOf(<span class="stringliteral">&quot;PDF&quot;</span>);</div>
 <div class="line">                        line.splitString(ln[idx],<span class="stringliteral">&quot;\t:, &quot;</span>);</div>
 <div class="line">                        </div>
 <div class="line">                        <span class="keywordtype">size_t</span> function_idx = line.indexOf(<span class="stringliteral">&quot;PDF&quot;</span>) + 1;</div>
-<div class="line">                        multiPdfName = line[function_idx];</div>
-<div class="line">            multiPdf = funcs-&gt;getMultivariatePdfFunction(multiPdfName);</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1emm.html#aef934224ee806c539e8db0dea293c0b8">multiPdfName</a> = line[function_idx];</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1emm.html#a84c5750ba1a95342e380051bfa18cfac">multiPdf</a> = funcs-&gt;getMultivariatePdfFunction(<a class="code" href="class_stoch_h_m_m_1_1emm.html#aef934224ee806c539e8db0dea293c0b8">multiPdfName</a>);</div>
 <div class="line">                        </div>
 <div class="line">                        </div>
 <div class="line">                        <span class="keywordtype">size_t</span> parameter_idx = line.indexOf(<span class="stringliteral">&quot;PARAMETERS&quot;</span>);</div>
 <div class="line">                        </div>
-<div class="line">                        dist_parameters = <span class="keyword">new</span>(std::nothrow) std::vector&lt;double&gt;;</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1emm.html#a1e1f1ad31c51d08bd4f7fa2e57c050d5">dist_parameters</a> = <span class="keyword">new</span>(std::nothrow) std::vector&lt;double&gt;;</div>
 <div class="line">                        </div>
-<div class="line">                        <span class="keywordflow">if</span>(parameter_idx != SIZE_MAX){</div>
+<div class="line">                        <span class="keywordflow">if</span>(parameter_idx != <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>){</div>
 <div class="line">                                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = parameter_idx+1 ; i&lt; line.size() ; i++){</div>
 <div class="line">                                        <span class="keywordtype">double</span> value;</div>
 <div class="line">                                        <a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[i], value);</div>
-<div class="line">                                        dist_parameters-&gt;push_back(value);</div>
+<div class="line">                                        <a class="code" href="class_stoch_h_m_m_1_1emm.html#a1e1f1ad31c51d08bd4f7fa2e57c050d5">dist_parameters</a>-&gt;push_back(value);</div>
 <div class="line">                                }</div>
 <div class="line">                        }</div>
 <div class="line">                        </div>
@@ -591,7 +893,7 @@ false if track is alphanumerical track </dd></dl>
 <div class="line">                        </div>
 <div class="line">                }</div>
 <div class="line">                <span class="comment">//U</span></div>
-<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (continuous){</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#a79e5d3ef383026093b3c88c12008d4e9">continuous</a>){</div>
 <div class="line">                        </div>
 <div class="line">                        <span class="keywordflow">if</span> (tempTracks.size()&gt;1){</div>
 <div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Multiple tracks listed under CONTINUOUS Track Emission Definition\n\</span></div>
@@ -599,27 +901,27 @@ false if track is alphanumerical track </dd></dl>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">            }</div>
 <div class="line">            </div>
-<div class="line">            realTrack = tempTracks[0];</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1emm.html#a4ef3deac64d38ef52fac29c7ee2f86bf">realTrack</a> = tempTracks[0];</div>
 <div class="line">                        </div>
 <div class="line">                        idx = ln.indexOf(<span class="stringliteral">&quot;PDF&quot;</span>);</div>
 <div class="line">                        line.splitString(ln[idx],<span class="stringliteral">&quot;\t:, &quot;</span>);</div>
 <div class="line">                        </div>
 <div class="line">                        <span class="keywordtype">size_t</span> function_idx = line.indexOf(<span class="stringliteral">&quot;PDF&quot;</span>) + 1;</div>
-<div class="line">                        pdfName = line[function_idx];</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1emm.html#a9f98cb912239e3631fa1247f359d25c8">pdfName</a> = line[function_idx];</div>
 <div class="line">                        </div>
 <div class="line">                        <span class="keywordtype">size_t</span> parameter_idx = line.indexOf(<span class="stringliteral">&quot;PARAMETERS&quot;</span>);</div>
-<div class="line">                        dist_parameters = <span class="keyword">new</span>(std::nothrow) std::vector&lt;double&gt;;</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1emm.html#a1e1f1ad31c51d08bd4f7fa2e57c050d5">dist_parameters</a> = <span class="keyword">new</span>(std::nothrow) std::vector&lt;double&gt;;</div>
 <div class="line">                        </div>
 <div class="line">                        </div>
-<div class="line">                        <span class="keywordflow">if</span>(parameter_idx != SIZE_MAX){</div>
+<div class="line">                        <span class="keywordflow">if</span>(parameter_idx != <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>){</div>
 <div class="line">                                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = parameter_idx+1 ; i&lt; line.size() ; i++){</div>
 <div class="line">                                        <span class="keywordtype">double</span> value;</div>
 <div class="line">                                        <a class="code" href="group___text.html#ga68bd6b3175dd081e05a72e7cff42a7d8">stringToDouble</a>(line[i], value);</div>
-<div class="line">                                        dist_parameters-&gt;push_back(value);</div>
+<div class="line">                                        <a class="code" href="class_stoch_h_m_m_1_1emm.html#a1e1f1ad31c51d08bd4f7fa2e57c050d5">dist_parameters</a>-&gt;push_back(value);</div>
 <div class="line">                                }</div>
 <div class="line">                        }</div>
 <div class="line">                        </div>
-<div class="line">            pdf = funcs-&gt;getPDFFunction(pdfName);</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa4536a7033157e08544a446ced1b03b0">pdf</a> = funcs-&gt;getPDFFunction(<a class="code" href="class_stoch_h_m_m_1_1emm.html#a9f98cb912239e3631fa1247f359d25c8">pdfName</a>);</div>
 <div class="line">            </div>
 <div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">                }</div>
@@ -628,9 +930,9 @@ false if track is alphanumerical track </dd></dl>
 <div class="line">            std::string&amp; functionName = line[typeBegin+1];</div>
 <div class="line">                        </div>
 <div class="line">                        <span class="comment">//Set parameters for function</span></div>
-<div class="line">            lexFunc = <span class="keyword">new</span>(std::nothrow) emissionFuncParam(functionName,funcs,tempTracks[0]);</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1emm.html#a78d571d86e8ffbe02d0471ab82dd5724">lexFunc</a> = <span class="keyword">new</span>(std::nothrow) emissionFuncParam(functionName,funcs,tempTracks[0]);</div>
 <div class="line">            </div>
-<div class="line">            <span class="keywordflow">if</span> (lexFunc==NULL){</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#a78d571d86e8ffbe02d0471ab82dd5724">lexFunc</a>==NULL){</div>
 <div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
 <div class="line">                exit(1);</div>
 <div class="line">            }</div>
@@ -679,7 +981,7 @@ false if track is alphanumerical track </dd></dl>
 <div class="line">            </div>
 <div class="line">            <span class="keywordflow">if</span> (tempOrder.size() == tempTracks.size()){</div>
 <div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;tempOrder.size();i++){</div>
-<div class="line">                    scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a68d21a550a91ae82ae73b272208513f2">addTrack</a>(tempTracks[i], tempOrder[i]);</div>
+<div class="line">                    <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a68d21a550a91ae82ae73b272208513f2">addTrack</a>(tempTracks[i], tempOrder[i]);</div>
 <div class="line">                }</div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span>{</div>
@@ -693,17 +995,17 @@ false if track is alphanumerical track </dd></dl>
 <div class="line">                ambIdx++;</div>
 <div class="line">                <span class="keywordflow">if</span> (line.size()&lt;=ambIdx){</div>
 <div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;No scoring type after AMBIGUOUS label\nAssuming AVG\n&quot;</span>;</div>
-<div class="line">                    scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(AVERAGE_SCORE);</div>
+<div class="line">                    <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521aed328d88513ecbefe1e3cffe947d50e6">AVERAGE_SCORE</a>);</div>
 <div class="line">                }</div>
-<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;AVG&quot;</span>)==0){scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(AVERAGE_SCORE);}</div>
-<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;MAX&quot;</span>)==0){scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(HIGHEST_SCORE);}</div>
-<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;MIN&quot;</span>)==0){scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(LOWEST_SCORE);}</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;AVG&quot;</span>)==0){<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521aed328d88513ecbefe1e3cffe947d50e6">AVERAGE_SCORE</a>);}</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;MAX&quot;</span>)==0){<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521ac1432e7fb78a7ea096065f651778a133">HIGHEST_SCORE</a>);}</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;MIN&quot;</span>)==0){<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521ab07c716086c27e41abbe81f59037b176">LOWEST_SCORE</a>);}</div>
 <div class="line">                                </div>
 <div class="line">                                <span class="comment">//Constant values assigned for Ambiguous characters</span></div>
 <div class="line">                                <span class="comment">//Can either be passed as P(X) or LOG</span></div>
 <div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;P(X)&quot;</span>)==0)</div>
 <div class="line">                {</div>
-<div class="line">                    scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(DEFINED_SCORE);</div>
+<div class="line">                    <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521a6b21a727a6bb9967aeb5de84f8293080">DEFINED_SCORE</a>);</div>
 <div class="line">                    </div>
 <div class="line">                    ambIdx++;</div>
 <div class="line">                    <span class="keywordflow">if</span> (ambIdx&gt;=line.size()){</div>
@@ -718,10 +1020,10 @@ false if track is alphanumerical track </dd></dl>
 <div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                    }</div>
 <div class="line">                    </div>
-<div class="line">                    scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a6205d81408d19fb30da0729b0d68c860" title="Set a given score to be returned for unknownCharScoringType.">setUnkScore</a>(log(tempValue));</div>
+<div class="line">                    <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a6205d81408d19fb30da0729b0d68c860" title="Set a given score to be returned for unknownCharScoringType.">setUnkScore</a>(log(tempValue));</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;LOG&quot;</span>)==0){</div>
-<div class="line">                    scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(DEFINED_SCORE);</div>
+<div class="line">                    <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521a6b21a727a6bb9967aeb5de84f8293080">DEFINED_SCORE</a>);</div>
 <div class="line">                    ambIdx++;</div>
 <div class="line">                    </div>
 <div class="line">                    <span class="keywordflow">if</span> (ambIdx&gt;=line.size()){</div>
@@ -736,21 +1038,21 @@ false if track is alphanumerical track </dd></dl>
 <div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                    }</div>
 <div class="line">                    </div>
-<div class="line">                    scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a6205d81408d19fb30da0729b0d68c860" title="Set a given score to be returned for unknownCharScoringType.">setUnkScore</a>(tempValue);</div>
+<div class="line">                    <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a6205d81408d19fb30da0729b0d68c860" title="Set a given score to be returned for unknownCharScoringType.">setUnkScore</a>(tempValue);</div>
 <div class="line">                }</div>
 <div class="line">            }</div>
 <div class="line">        </div>
 <div class="line">            <span class="comment">//Get Emission Tables</span></div>
 <div class="line">            <span class="keywordtype">size_t</span> expectedColumns(1);</div>
 <div class="line">            <span class="keywordtype">size_t</span> expectedRows(1);</div>
-<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i&lt;scores.getNumberOfAlphabets(); i++){</div>
-<div class="line">                expectedColumns*=scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#aeb1a35912d089e165de43c3c35b9e3e4">getAlphaSize</a>(i);</div>
-<div class="line">                expectedRows*=POWER[scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a1516c1242e82b229a2449c6710735606">getOrder</a>(i)][scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#aeb1a35912d089e165de43c3c35b9e3e4">getAlphaSize</a>(i)-1];</div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i&lt;<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a279db9f6644c9b33a72a17d5562125f0">getNumberOfAlphabets</a>(); i++){</div>
+<div class="line">                expectedColumns*=<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#aeb1a35912d089e165de43c3c35b9e3e4">getAlphaSize</a>(i);</div>
+<div class="line">                expectedRows*=<a class="code" href="namespace_stoch_h_m_m.html#acb07ade72ef51c27dfd7e32b286cebca">POWER</a>[<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a1516c1242e82b229a2449c6710735606">getOrder</a>(i)][<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#aeb1a35912d089e165de43c3c35b9e3e4">getAlphaSize</a>(i)-1];</div>
 <div class="line">            }</div>
 <div class="line">            </div>
-<div class="line">            std::vector&lt;std::vector&lt;double&gt; &gt;* log_prob = scores.getLogProbabilityTable();</div>
-<div class="line">            std::vector&lt;std::vector&lt;double&gt; &gt;* prob = scores.getProbabilityTable();</div>
-<div class="line">            std::vector&lt;std::vector&lt;double&gt; &gt;* counts = scores.getCountsTable();</div>
+<div class="line">            std::vector&lt;std::vector&lt;double&gt; &gt;* log_prob = <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a1d863896e2de2d34cba24f03e846bed2">getLogProbabilityTable</a>();</div>
+<div class="line">            std::vector&lt;std::vector&lt;double&gt; &gt;* prob = <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#aaab5972f1750223050be2178b3d733be">getProbabilityTable</a>();</div>
+<div class="line">            std::vector&lt;std::vector&lt;double&gt; &gt;* counts = <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a5c4f88dcd973fd3e2f212288372c4f91">getCountsTable</a>();</div>
 <div class="line">            </div>
 <div class="line">            </div>
 <div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> iter = 2; iter&lt; ln.size();iter++){</div>
@@ -778,21 +1080,21 @@ false if track is alphanumerical track </dd></dl>
 <div class="line">                    <span class="comment">//errorInfo(sCantParseLine, info.c_str());</span></div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">else</span>{</div>
-<div class="line">                    <span class="keywordflow">if</span> (valtyp == PROBABILITY){</div>
+<div class="line">                    <span class="keywordflow">if</span> (valtyp == <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a92649806455862fab71c5b2aa48bfc55">PROBABILITY</a>){</div>
 <div class="line">                        prob-&gt;push_back(temp);</div>
-<div class="line">                        logVector(temp);</div>
+<div class="line">                        <a class="code" href="namespace_stoch_h_m_m.html#a3d00155ce02c8543f2867d223ec8409a">logVector</a>(temp);</div>
 <div class="line">                        log_prob-&gt;push_back(temp);</div>
 <div class="line">                    }</div>
-<div class="line">                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (valtyp == LOG_PROB){</div>
+<div class="line">                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (valtyp == <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a26e61ea2119ea2b9482e5a16b4a51604">LOG_PROB</a>){</div>
 <div class="line">                        log_prob-&gt;push_back(temp);</div>
-<div class="line">                        expVector(temp);</div>
+<div class="line">                        <a class="code" href="namespace_stoch_h_m_m.html#acb64e7768347fc9a7f9e22adb3b4df35">expVector</a>(temp);</div>
 <div class="line">                        prob-&gt;push_back(temp);</div>
 <div class="line">                    }</div>
-<div class="line">                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (valtyp == COUNTS){</div>
+<div class="line">                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (valtyp == <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a68071cfc928cf75eda3d522a63517b31">COUNTS</a>){</div>
 <div class="line">                        counts-&gt;push_back(temp);</div>
-<div class="line">                        probVector(temp);</div>
+<div class="line">                        <a class="code" href="namespace_stoch_h_m_m.html#a56196defd1a0c2b782d089b5beb040d9">probVector</a>(temp);</div>
 <div class="line">                        prob-&gt;push_back(temp);</div>
-<div class="line">                        logVector(temp);</div>
+<div class="line">                        <a class="code" href="namespace_stoch_h_m_m.html#a3d00155ce02c8543f2867d223ec8409a">logVector</a>(temp);</div>
 <div class="line">                        log_prob-&gt;push_back(temp);</div>
 <div class="line">                    }</div>
 <div class="line">                }</div>
@@ -803,7 +1105,7 @@ false if track is alphanumerical track </dd></dl>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">            }</div>
 <div class="line">                        </div>
-<div class="line">                        scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#abbb120b9335dea4067170fe62a9538ab" title="Initialize the final emission table with ambiguous characters.">initialize_emission_table</a>();</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#abbb120b9335dea4067170fe62a9538ab" title="Initialize the final emission table with ambiguous characters.">initialize_emission_table</a>();</div>
 <div class="line">                        </div>
 <div class="line">        }</div>
 <div class="line">        </div>
@@ -848,7 +1150,7 @@ false if track is alphanumerical track </dd></dl>
 
 <p>Definition at line <a class="el" href="emm_8cpp_source.html#l00427">427</a> of file <a class="el" href="emm_8cpp_source.html">emm.cpp</a>.</p>
 
-<p>References <a class="el" href="lexical_table_8cpp_source.html#l00158">StochHMM::lexicalTable::addTrack()</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="lexical_table_8h_source.html#l00087">StochHMM::lexicalTable::getAlphaSize()</a>, <a class="el" href="lexical_table_8h_source.html#l00078">StochHMM::lexicalTable::getOrder()</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00856">StochHMM::lexicalTable::initialize_emission_table()</a>, <a class="el" href="text_8cpp_source.html#l00564">StochHMM::int_to_string()</a>, <a class="el" href="text_8h_source.html#l00107">StochHMM::stringList::push_back()</a>, <a class="el" href="lexical_table_8h_source.html#l00065">StochHMM::lexicalTable::setUnkScore()</a>, <a class="el" href="lexical_table_8h_source.html#l00062">StochHMM::lexicalTable::setUnkScoreType()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, <a class="el" href="text_8cpp_source.html#l00636">StochHMM::stringToDouble()</a>, <a class="el" href="text_8cpp_source.html#l00607">StochHMM::stringToInt()</a>, and <a class="el" href="text_8cpp_source.html#l00358">StochHMM::stringList::toVecDouble()</a>.</p>
+<p>References <a class="el" href="lexical_table_8cpp_source.html#l00158">StochHMM::lexicalTable::addTrack()</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::AVERAGE_SCORE</a>, <a class="el" href="text_8cpp_source.html#l00051">StochHMM::stringList::contains()</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::COUNTS</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::DEFINED_SCORE</a>, <a class="el" href="stoch_math_8h_source.html#l00397">StochHMM::expVector()</a>, <a class="el" href="lexical_table_8h_source.html#l00087">StochHMM::lexicalTable::getAlphaSize()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00069">StochHMM::lexicalTable::getCountsTable()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00099">StochHMM::lexicalTable::getLogProbabilityTable()</a>, <a class="el" href="lexical_table_8h_source.html#l00089">StochHMM::lexicalTable::getNumberOfAlphabets()</a>, <a class="el" href="lexical_table_8h_source.html#l00078">StochHMM::lexicalTable::getOrder()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00084">StochHMM::lexicalTable::getProbabilityTable()</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::HIGHEST_SCORE</a>, <a class="el" href="text_8cpp_source.html#l00071">StochHMM::stringList::indexOf()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00856">StochHMM::lexicalTable::initialize_emission_table()</a>, <a class="el" href="text_8cpp_source.html#l00564">StochHMM::int_to_string()</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::LOG_PROB</a>, <a class="el" href="stoch_math_8h_source.html#l00385">StochHMM::logVector()</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::LOWEST_SCORE</a>, <a class="el" href="text_8cpp_source.html#l00346">StochHMM::stringList::pop_ith()</a>, <a class="el" href="stoch_math_8h_source.html#l00091">StochHMM::POWER</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::PROBABILITY</a>, <a class="el" href="stoch_math_8h_source.html#l00420">StochHMM::probVector()</a>, <a class="el" href="text_8h_source.html#l00107">StochHMM::stringList::push_back()</a>, <a class="el" href="emm_8h_source.html#l00121">scores</a>, <a class="el" href="lexical_table_8h_source.html#l00065">StochHMM::lexicalTable::setUnkScore()</a>, <a class="el" href="lexical_table_8h_source.html#l00062">StochHMM::lexicalTable::setUnkScoreType()</a>, <a class="el" href="text_8h_source.html#l00137">StochHMM::stringList::size()</a>, <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>, <a class="el" href="text_8cpp_source.html#l00636">StochHMM::stringToDouble()</a>, <a class="el" href="text_8cpp_source.html#l00607">StochHMM::stringToInt()</a>, <a class="el" href="emm_8h_source.html#l00145">tagFunc</a>, and <a class="el" href="text_8cpp_source.html#l00358">StochHMM::stringList::toVecDouble()</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
 <div class="line">        </div>
 <div class="line">        stringList ln;</div>
@@ -866,18 +1168,18 @@ false if track is alphanumerical track </dd></dl>
 <div class="line">        line.splitString(ln[idx], <span class="stringliteral">&quot;\t,: &quot;</span>);</div>
 <div class="line">                <span class="comment">//size_t typeBegin(0);</span></div>
 <div class="line">                </div>
-<div class="line">        <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835">valueType</a>  valtyp(PROBABILITY);</div>
+<div class="line">        <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835">valueType</a>  valtyp(<a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a92649806455862fab71c5b2aa48bfc55">PROBABILITY</a>);</div>
 <div class="line">        <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;P(X)&quot;</span>)){</div>
 <div class="line">            <span class="comment">//typeBegin = line.indexOf(&quot;P(X)&quot;);</span></div>
-<div class="line">            valtyp=PROBABILITY;</div>
+<div class="line">            valtyp=<a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a92649806455862fab71c5b2aa48bfc55">PROBABILITY</a>;</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;LOG&quot;</span>)){</div>
 <div class="line">            <span class="comment">//typeBegin = line.indexOf(&quot;LOG&quot;);</span></div>
-<div class="line">            valtyp=LOG_PROB;</div>
+<div class="line">            valtyp=<a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a26e61ea2119ea2b9482e5a16b4a51604">LOG_PROB</a>;</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line.contains(<span class="stringliteral">&quot;COUNTS&quot;</span>)){</div>
 <div class="line">            <span class="comment">//typeBegin = line.indexOf(&quot;COUNTS&quot;);</span></div>
-<div class="line">            valtyp=COUNTS ;</div>
+<div class="line">            valtyp=<a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a68071cfc928cf75eda3d522a63517b31">COUNTS</a> ;</div>
 <div class="line">        }</div>
 <div class="line">                <span class="keywordflow">else</span> {</div>
 <div class="line">            std::string info = <span class="stringliteral">&quot;Couldn&#39;t parse Value type in the Emission: &quot;</span> + txt  + <span class="stringliteral">&quot; Please check the formatting.   The allowed types are: P(X), LOG, COUNTS, or REAL_NUMBER. \n&quot;</span>;</div>
@@ -931,7 +1233,7 @@ false if track is alphanumerical track </dd></dl>
 <div class="line">                </div>
 <div class="line">                <span class="keywordflow">if</span> (temp_order.size() == temp_tracks.size()){</div>
 <div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;temp_order.size();i++){</div>
-<div class="line">                                scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a68d21a550a91ae82ae73b272208513f2">addTrack</a>(temp_tracks[i], temp_order[i]);</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a68d21a550a91ae82ae73b272208513f2">addTrack</a>(temp_tracks[i], temp_order[i]);</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">else</span>{</div>
@@ -945,14 +1247,14 @@ false if track is alphanumerical track </dd></dl>
 <div class="line">                        ambIdx++;</div>
 <div class="line">                        <span class="keywordflow">if</span> (line.size()&lt;=ambIdx){</div>
 <div class="line">                                std::cerr &lt;&lt; <span class="stringliteral">&quot;No scoring type after AMBIGUOUS label\nAssuming AVG\n&quot;</span>;</div>
-<div class="line">                                scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(AVERAGE_SCORE);</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521aed328d88513ecbefe1e3cffe947d50e6">AVERAGE_SCORE</a>);</div>
 <div class="line">                        }</div>
-<div class="line">                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;AVG&quot;</span>)==0){scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(AVERAGE_SCORE);}</div>
-<div class="line">                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;MAX&quot;</span>)==0){scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(HIGHEST_SCORE);}</div>
-<div class="line">                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;MIN&quot;</span>)==0){scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(LOWEST_SCORE);}</div>
+<div class="line">                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;AVG&quot;</span>)==0){<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521aed328d88513ecbefe1e3cffe947d50e6">AVERAGE_SCORE</a>);}</div>
+<div class="line">                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;MAX&quot;</span>)==0){<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521ac1432e7fb78a7ea096065f651778a133">HIGHEST_SCORE</a>);}</div>
+<div class="line">                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;MIN&quot;</span>)==0){<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521ab07c716086c27e41abbe81f59037b176">LOWEST_SCORE</a>);}</div>
 <div class="line">                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;P(X)&quot;</span>)==0)</div>
 <div class="line">                        {</div>
-<div class="line">                                scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(DEFINED_SCORE);</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521a6b21a727a6bb9967aeb5de84f8293080">DEFINED_SCORE</a>);</div>
 <div class="line">                                </div>
 <div class="line">                                ambIdx++;</div>
 <div class="line">                                <span class="keywordflow">if</span> (ambIdx&gt;=line.size()){</div>
@@ -967,10 +1269,10 @@ false if track is alphanumerical track </dd></dl>
 <div class="line">                                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                                }</div>
 <div class="line">                                </div>
-<div class="line">                                scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a6205d81408d19fb30da0729b0d68c860" title="Set a given score to be returned for unknownCharScoringType.">setUnkScore</a>(log(tempValue));</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a6205d81408d19fb30da0729b0d68c860" title="Set a given score to be returned for unknownCharScoringType.">setUnkScore</a>(log(tempValue));</div>
 <div class="line">                        }</div>
 <div class="line">                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line[ambIdx].compare(<span class="stringliteral">&quot;LOG&quot;</span>)==0){</div>
-<div class="line">                                scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(DEFINED_SCORE);</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a59b720c8669399e13c7dfb4c0118930f">setUnkScoreType</a>(<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521a6b21a727a6bb9967aeb5de84f8293080">DEFINED_SCORE</a>);</div>
 <div class="line">                                ambIdx++;</div>
 <div class="line">                                </div>
 <div class="line">                                <span class="keywordflow">if</span> (ambIdx&gt;=line.size()){</div>
@@ -985,21 +1287,21 @@ false if track is alphanumerical track </dd></dl>
 <div class="line">                                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                                }</div>
 <div class="line">                                </div>
-<div class="line">                                scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a6205d81408d19fb30da0729b0d68c860" title="Set a given score to be returned for unknownCharScoringType.">setUnkScore</a>(tempValue);</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a6205d81408d19fb30da0729b0d68c860" title="Set a given score to be returned for unknownCharScoringType.">setUnkScore</a>(tempValue);</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//Get Tables</span></div>
 <div class="line">                <span class="keywordtype">size_t</span> expectedColumns(1);</div>
 <div class="line">                <span class="keywordtype">size_t</span> expectedRows(1);</div>
-<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i&lt;scores.getNumberOfAlphabets(); i++){</div>
-<div class="line">                        expectedColumns*=scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#aeb1a35912d089e165de43c3c35b9e3e4">getAlphaSize</a>(i);</div>
-<div class="line">                        expectedRows*=POWER[scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a1516c1242e82b229a2449c6710735606">getOrder</a>(i)][scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#aeb1a35912d089e165de43c3c35b9e3e4">getAlphaSize</a>(i)-1];</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i&lt;<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a279db9f6644c9b33a72a17d5562125f0">getNumberOfAlphabets</a>(); i++){</div>
+<div class="line">                        expectedColumns*=<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#aeb1a35912d089e165de43c3c35b9e3e4">getAlphaSize</a>(i);</div>
+<div class="line">                        expectedRows*=<a class="code" href="namespace_stoch_h_m_m.html#acb07ade72ef51c27dfd7e32b286cebca">POWER</a>[<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a1516c1242e82b229a2449c6710735606">getOrder</a>(i)][<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#aeb1a35912d089e165de43c3c35b9e3e4">getAlphaSize</a>(i)-1];</div>
 <div class="line">                }</div>
 <div class="line">                </div>
-<div class="line">                std::vector&lt;std::vector&lt;double&gt; &gt;* log_prob = scores.getLogProbabilityTable();</div>
-<div class="line">                std::vector&lt;std::vector&lt;double&gt; &gt;* prob = scores.getProbabilityTable();</div>
-<div class="line">                std::vector&lt;std::vector&lt;double&gt; &gt;* counts = scores.getCountsTable();</div>
+<div class="line">                std::vector&lt;std::vector&lt;double&gt; &gt;* log_prob = <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a1d863896e2de2d34cba24f03e846bed2">getLogProbabilityTable</a>();</div>
+<div class="line">                std::vector&lt;std::vector&lt;double&gt; &gt;* prob = <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#aaab5972f1750223050be2178b3d733be">getProbabilityTable</a>();</div>
+<div class="line">                std::vector&lt;std::vector&lt;double&gt; &gt;* counts = <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a5c4f88dcd973fd3e2f212288372c4f91">getCountsTable</a>();</div>
 <div class="line">                </div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> iter = 2; iter&lt; ln.size();iter++){</div>
@@ -1027,21 +1329,21 @@ false if track is alphanumerical track </dd></dl>
 <div class="line">                                <span class="comment">//errorInfo(sCantParseLine, info.c_str());</span></div>
 <div class="line">                        }</div>
 <div class="line">                        <span class="keywordflow">else</span>{</div>
-<div class="line">                                <span class="keywordflow">if</span> (valtyp == PROBABILITY){</div>
+<div class="line">                                <span class="keywordflow">if</span> (valtyp == <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a92649806455862fab71c5b2aa48bfc55">PROBABILITY</a>){</div>
 <div class="line">                                        prob-&gt;push_back(temp);</div>
-<div class="line">                                        logVector(temp);</div>
+<div class="line">                                        <a class="code" href="namespace_stoch_h_m_m.html#a3d00155ce02c8543f2867d223ec8409a">logVector</a>(temp);</div>
 <div class="line">                                        log_prob-&gt;push_back(temp);</div>
 <div class="line">                                }</div>
-<div class="line">                                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (valtyp == LOG_PROB){</div>
+<div class="line">                                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (valtyp == <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a26e61ea2119ea2b9482e5a16b4a51604">LOG_PROB</a>){</div>
 <div class="line">                                        log_prob-&gt;push_back(temp);</div>
-<div class="line">                                        expVector(temp);</div>
+<div class="line">                                        <a class="code" href="namespace_stoch_h_m_m.html#acb64e7768347fc9a7f9e22adb3b4df35">expVector</a>(temp);</div>
 <div class="line">                                        prob-&gt;push_back(temp);</div>
 <div class="line">                                }</div>
-<div class="line">                                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (valtyp == COUNTS){</div>
+<div class="line">                                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (valtyp == <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a68071cfc928cf75eda3d522a63517b31">COUNTS</a>){</div>
 <div class="line">                                        counts-&gt;push_back(temp);</div>
-<div class="line">                                        probVector(temp);</div>
+<div class="line">                                        <a class="code" href="namespace_stoch_h_m_m.html#a56196defd1a0c2b782d089b5beb040d9">probVector</a>(temp);</div>
 <div class="line">                                        prob-&gt;push_back(temp);</div>
-<div class="line">                                        logVector(temp);</div>
+<div class="line">                                        <a class="code" href="namespace_stoch_h_m_m.html#a3d00155ce02c8543f2867d223ec8409a">logVector</a>(temp);</div>
 <div class="line">                                        log_prob-&gt;push_back(temp);</div>
 <div class="line">                                }</div>
 <div class="line">                        }</div>
@@ -1052,9 +1354,9 @@ false if track is alphanumerical track </dd></dl>
 <div class="line">                        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                }</div>
 <div class="line">                </div>
-<div class="line">                scores.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#abbb120b9335dea4067170fe62a9538ab" title="Initialize the final emission table with ambiguous characters.">initialize_emission_table</a>();</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#abbb120b9335dea4067170fe62a9538ab" title="Initialize the final emission table with ambiguous characters.">initialize_emission_table</a>();</div>
 <div class="line">                </div>
-<div class="line">                <span class="keywordflow">if</span> (tagFunc != NULL){</div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a> != NULL){</div>
 <div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Not NULL&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line">                }</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -1062,16 +1364,738 @@ false if track is alphanumerical track </dd></dl>
 </div><!-- fragment -->
 </div>
 </div>
+<a class="anchor" id="ae283fd70c7987041b8cd3f2255594319"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::emm::print </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Print the string representation of the emission to stdout. </p>
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00095">95</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>References <a class="el" href="emm_8cpp_source.html#l00795">stringify()</a>.</p>
+<div class="fragment"><div class="line">{std::cout &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1emm.html#a6498faaf6fe651e065d37042acf2f709">stringify</a>()&lt;&lt;std::endl;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ab95aa772208b03e5b767c09d1a9c0f68"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::emm::setComplement </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the emission to be the complement 1-P of given value. </p>
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00076">76</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>References <a class="el" href="emm_8h_source.html#l00116">complement</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1emm.html#abb98b3f77d3fad47e87f159b53dca573">complement</a>=<span class="keyword">true</span>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a4c24f3c19de4c4e3fa61ebfdd7066042"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::emm::setLexicalFunction </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_stoch_h_m_m.html#a7fad7f980bfaea3d96c891e6db7c8cf0">emissionFunc</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af47fc262c080fa58c97d5508c7fcfbba"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::emm::setRealNumber </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the emission to a Real Number. </p>
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00073">73</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>References <a class="el" href="emm_8h_source.html#l00113">real_number</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa406dbdef380fd8b693a91048a2d7c13">real_number</a>=<span class="keyword">true</span>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a6498faaf6fe651e065d37042acf2f709"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::emm::stringify </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8cpp_source.html#l00795">795</a> of file <a class="el" href="emm_8cpp_source.html">emm.cpp</a>.</p>
+
+<p>References <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::AVERAGE_SCORE</a>, <a class="el" href="emm_8h_source.html#l00116">complement</a>, <a class="el" href="emm_8h_source.html#l00114">continuous</a>, <a class="el" href="emm_8h_source.html#l00132">dist_parameters</a>, <a class="el" href="text_8cpp_source.html#l00585">StochHMM::double_to_string()</a>, <a class="el" href="lexical_table_8h_source.html#l00092">StochHMM::lexicalTable::getAmbDefinedScore()</a>, <a class="el" href="lexical_table_8h_source.html#l00091">StochHMM::lexicalTable::getAmbScoringType()</a>, <a class="el" href="track_8h_source.html#l00150">StochHMM::track::getName()</a>, <a class="el" href="external_funcs_8h_source.html#l00155">StochHMM::emissionFuncParam::getName()</a>, <a class="el" href="lexical_table_8h_source.html#l00078">StochHMM::lexicalTable::getOrder()</a>, <a class="el" href="lexical_table_8h_source.html#l00070">StochHMM::lexicalTable::getTrack()</a>, <a class="el" href="external_funcs_8h_source.html#l00157">StochHMM::emissionFuncParam::getTrack()</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::HIGHEST_SCORE</a>, <a class="el" href="text_8cpp_source.html#l00564">StochHMM::int_to_string()</a>, <a class="el" href="text_8cpp_source.html#l00519">StochHMM::join()</a>, <a class="el" href="emm_8h_source.html#l00125">lexFunc</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::LOWEST_SCORE</a>, <a class="el" href="emm_8h_source.html#l00115">multi_continuous</a>, <a class="el" href="stoch_types_8h_source.html#l00098">StochHMM::NO_SCORE</a>, <a class="el" href="emm_8h_source.html#l00139">number_of_tracks</a>, <a class="el" href="emm_8h_source.html#l00129">pdfName</a>, <a class="el" href="emm_8h_source.html#l00113">real_number</a>, <a class="el" href="emm_8h_source.html#l00118">realTrack</a>, <a class="el" href="emm_8h_source.html#l00121">scores</a>, <a class="el" href="lexical_table_8cpp_source.html#l00297">StochHMM::lexicalTable::stringify()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00333">StochHMM::emissionFuncParam::stringify()</a>, <a class="el" href="emm_8h_source.html#l00145">tagFunc</a>, and <a class="el" href="lexical_table_8h_source.html#l00074">StochHMM::lexicalTable::trackSize()</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8h_source.html#l00095">print()</a>, <a class="el" href="pwm_8cpp_source.html#l00308">StochHMM::PWM::stringify()</a>, and <a class="el" href="pwm_8cpp_source.html#l00353">StochHMM::matrixPosition::stringify()</a>.</p>
+<div class="fragment"><div class="line">                            {</div>
+<div class="line">        std::string emissionString(<span class="stringliteral">&quot;EMISSION:\t&quot;</span>);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa406dbdef380fd8b693a91048a2d7c13">real_number</a>){</div>
+<div class="line">            </div>
+<div class="line">            emissionString+=<a class="code" href="class_stoch_h_m_m_1_1emm.html#a4ef3deac64d38ef52fac29c7ee2f86bf">realTrack</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#aef2e0ba6264ad17c0dfb13eec6134adb">getName</a>();</div>
+<div class="line">            emissionString+=<span class="stringliteral">&quot;:\t&quot;</span>;</div>
+<div class="line">            </div>
+<div class="line">            emissionString+=<span class="stringliteral">&quot;REAL_NUMBER&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#abb98b3f77d3fad47e87f159b53dca573">complement</a>){</div>
+<div class="line">                emissionString+=<span class="stringliteral">&quot;:\tCOMPLEMENT\t&quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                emissionString+=<span class="stringliteral">&quot;\t&quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>){</div>
+<div class="line">                emissionString+=<a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1emission_func_param.html#a4b3980c94cd1e0e41ff2733a459451f4" title="prints the string representation of the externFuncs to stdout">stringify</a>();</div>
+<div class="line">            }</div>
+<div class="line">            emissionString+=<span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">                <span class="comment">//Univariate Continuous PDF emission </span></div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#a79e5d3ef383026093b3c88c12008d4e9">continuous</a>){</div>
+<div class="line">                        emissionString+=<a class="code" href="class_stoch_h_m_m_1_1emm.html#a4ef3deac64d38ef52fac29c7ee2f86bf">realTrack</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#aef2e0ba6264ad17c0dfb13eec6134adb">getName</a>();</div>
+<div class="line">                        emissionString+=<span class="stringliteral">&quot;:\tCONTINUOUS&quot;</span>;</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>){</div>
+<div class="line">                emissionString+=<a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1emission_func_param.html#a4b3980c94cd1e0e41ff2733a459451f4" title="prints the string representation of the externFuncs to stdout">stringify</a>();</div>
+<div class="line">            }</div>
+<div class="line">            emissionString+=<span class="stringliteral">&quot;\n\t&quot;</span>;</div>
+<div class="line">                        </div>
+<div class="line">                        emissionString+=<span class="stringliteral">&quot;PDF:\t&quot;</span>;</div>
+<div class="line">                        emissionString+=<a class="code" href="class_stoch_h_m_m_1_1emm.html#a9f98cb912239e3631fa1247f359d25c8">pdfName</a> + <span class="stringliteral">&quot;\tPARAMETERS:\t&quot;</span>;</div>
+<div class="line">                        emissionString+=<a class="code" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">join</a>(*<a class="code" href="class_stoch_h_m_m_1_1emm.html#a1e1f1ad31c51d08bd4f7fa2e57c050d5">dist_parameters</a>, <span class="charliteral">&#39;,&#39;</span>);</div>
+<div class="line">                        emissionString+= <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">                        </div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#a2d747721112b4151939f9064d729b24a">multi_continuous</a>){</div>
+<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1emm.html#a5eb6aaa6ddc8ec3485eceba83fc27f35">number_of_tracks</a>; i++) {</div>
+<div class="line">                                <span class="keywordflow">if</span> (i&gt;0){</div>
+<div class="line">                                        emissionString+=<span class="stringliteral">&quot;,&quot;</span>;</div>
+<div class="line">                                }</div>
+<div class="line">                                emissionString+=(*trcks)[i]-&gt;getName();</div>
+<div class="line">                        }</div>
+<div class="line">                        emissionString+=<span class="stringliteral">&quot;:\tMULTI_CONTINUOUS&quot;</span>;</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>){</div>
+<div class="line">                emissionString+=<a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1emission_func_param.html#a4b3980c94cd1e0e41ff2733a459451f4" title="prints the string representation of the externFuncs to stdout">stringify</a>();</div>
+<div class="line">            }</div>
+<div class="line">            emissionString+=<span class="stringliteral">&quot;\n\t&quot;</span>;</div>
+<div class="line">                        </div>
+<div class="line">                        emissionString+=<span class="stringliteral">&quot;PDF:\t&quot;</span>;</div>
+<div class="line">                        emissionString+=<a class="code" href="class_stoch_h_m_m_1_1emm.html#a9f98cb912239e3631fa1247f359d25c8">pdfName</a> + <span class="stringliteral">&quot;\tPARAMETERS:\t&quot;</span>;</div>
+<div class="line">                        emissionString+=<a class="code" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">join</a>(*<a class="code" href="class_stoch_h_m_m_1_1emm.html#a1e1f1ad31c51d08bd4f7fa2e57c050d5">dist_parameters</a>, <span class="charliteral">&#39;,&#39;</span>);</div>
+<div class="line">                        emissionString+= <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">                }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">function</span>){</div>
+<div class="line">            emissionString+=<a class="code" href="class_stoch_h_m_m_1_1emm.html#a78d571d86e8ffbe02d0471ab82dd5724">lexFunc</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1emission_func_param.html#a40aad3fb365f7afe4e0f1b9fb531dbef">getTrack</a>()-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#aef2e0ba6264ad17c0dfb13eec6134adb">getName</a>();</div>
+<div class="line">            emissionString+=<span class="stringliteral">&quot;:\tFUNCTION:\t&quot;</span>;</div>
+<div class="line">            emissionString+=<a class="code" href="class_stoch_h_m_m_1_1emm.html#a78d571d86e8ffbe02d0471ab82dd5724">lexFunc</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1emission_func_param.html#a39ddc8ba7a8caf2534ba468322ef69c9">getName</a>();</div>
+<div class="line">            emissionString+=<span class="stringliteral">&quot;\t&quot;</span>;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>){</div>
+<div class="line">                emissionString += <a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1emission_func_param.html#a4b3980c94cd1e0e41ff2733a459451f4" title="prints the string representation of the externFuncs to stdout">stringify</a>();</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            emissionString+=<span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#ad9ad8a859d35b7d0a0b7a841e075c98e">trackSize</a>();i++){</div>
+<div class="line">                <span class="keywordflow">if</span> (i&gt;0){</div>
+<div class="line">                    emissionString+=<span class="stringliteral">&quot;,&quot;</span>;</div>
+<div class="line">                }</div>
+<div class="line">                emissionString+=<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a8fa209c6bb18b5764f00b6d84a360065">getTrack</a>(i)-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#aef2e0ba6264ad17c0dfb13eec6134adb">getName</a>();</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            emissionString+=<span class="stringliteral">&quot;:\t&quot;</span>;</div>
+<div class="line">            </div>
+<div class="line">            emissionString+=<span class="stringliteral">&quot;LOG&quot;</span>;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>){</div>
+<div class="line">                </div>
+<div class="line">                emissionString += <span class="stringliteral">&quot;\t&quot;</span>;</div>
+<div class="line">                </div>
+<div class="line">                emissionString += <a class="code" href="class_stoch_h_m_m_1_1emm.html#af4c19242e7570437dce8c2411506d4ae">tagFunc</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1emission_func_param.html#a4b3980c94cd1e0e41ff2733a459451f4" title="prints the string representation of the externFuncs to stdout">stringify</a>();</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            emissionString+=<span class="stringliteral">&quot;\n\tORDER:\t&quot;</span>;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#ad9ad8a859d35b7d0a0b7a841e075c98e">trackSize</a>();i++){</div>
+<div class="line">                <span class="keywordflow">if</span> (i&gt;0){</div>
+<div class="line">                    emissionString+=<span class="stringliteral">&quot;,&quot;</span>;</div>
+<div class="line">                }</div>
+<div class="line">                emissionString+=<a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a1516c1242e82b229a2449c6710735606">getOrder</a>(i));</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521">unknownCharScoringType</a>  ambTemp = <a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#afe9965aabd17b40722cf1f8e37596e7f">getAmbScoringType</a>();</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (ambTemp!=<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521a0b760c6a78616b0a992e00447b5aeca3">NO_SCORE</a>){</div>
+<div class="line">                emissionString+=<span class="stringliteral">&quot;\tAMBIGUOUS:\t&quot;</span>;</div>
+<div class="line">                emissionString+=(ambTemp==<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521ac1432e7fb78a7ea096065f651778a133">HIGHEST_SCORE</a>)? <span class="stringliteral">&quot;MAX&quot;</span>:</div>
+<div class="line">                                (ambTemp==<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521ab07c716086c27e41abbe81f59037b176">LOWEST_SCORE</a>)? <span class="stringliteral">&quot;MIN&quot;</span>:</div>
+<div class="line">                                (ambTemp==<a class="code" href="namespace_stoch_h_m_m.html#a1e8fd62725355537ac3968148e0be521aed328d88513ecbefe1e3cffe947d50e6">AVERAGE_SCORE</a>)? <span class="stringliteral">&quot;AVG&quot;</span>: <span class="stringliteral">&quot;LOG:&quot;</span> + <a class="code" href="group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7">double_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a01f25a847e141233fe54564365579c1c">getAmbDefinedScore</a>());</div>
+<div class="line">            }</div>
+<div class="line">            emissionString+=<span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"></div>
+<div class="line">            emissionString+=<a class="code" href="class_stoch_h_m_m_1_1emm.html#aa5eb94931b0c0364d481a1664c925a2f">scores</a>.<a class="code" href="class_stoch_h_m_m_1_1lexical_table.html#a163a6499cffd6b4ac0df17af9f181eb4">stringify</a>();</div>
+<div class="line">                        <span class="comment">//scores.stringifyAmbig();</span></div>
+<div class="line">        }</div>
+<div class="line">        emissionString+=<span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> emissionString;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Friends And Related Function Documentation</h2>
+<a class="anchor" id="a6e37bb755d74e24f1b3e7e2def3b13e0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_stoch_h_m_m_1_1model.html">model</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00066">66</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9ded23f3edbd367dcaa3a3c3d49428eb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_stoch_h_m_m_1_1state.html">state</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00065">65</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="abb98b3f77d3fad47e87f159b53dca573"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::emm::complement</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00116">116</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00031">emm()</a>, <a class="el" href="emm_8cpp_source.html#l00681">get_emission()</a>, <a class="el" href="emm_8h_source.html#l00085">isComplement()</a>, <a class="el" href="emm_8cpp_source.html#l00069">parse()</a>, <a class="el" href="emm_8h_source.html#l00076">setComplement()</a>, and <a class="el" href="emm_8cpp_source.html#l00795">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a79e5d3ef383026093b3c88c12008d4e9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::emm::continuous</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00114">114</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00031">emm()</a>, <a class="el" href="emm_8cpp_source.html#l00681">get_emission()</a>, <a class="el" href="emm_8cpp_source.html#l00069">parse()</a>, and <a class="el" href="emm_8cpp_source.html#l00795">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1e1f1ad31c51d08bd4f7fa2e57c050d5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt;* StochHMM::emm::dist_parameters</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00132">132</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00031">emm()</a>, <a class="el" href="emm_8cpp_source.html#l00681">get_emission()</a>, <a class="el" href="emm_8cpp_source.html#l00069">parse()</a>, and <a class="el" href="emm_8cpp_source.html#l00795">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1440ce92f3844cb4d41373bc28526287"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::emm::function</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00124">124</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a78d571d86e8ffbe02d0471ab82dd5724"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">emissionFuncParam</a>* StochHMM::emm::lexFunc</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00125">125</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00031">emm()</a>, <a class="el" href="emm_8cpp_source.html#l00681">get_emission()</a>, <a class="el" href="emm_8cpp_source.html#l00069">parse()</a>, <a class="el" href="emm_8cpp_source.html#l00795">stringify()</a>, and <a class="el" href="emm_8cpp_source.html#l00055">~emm()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2d747721112b4151939f9064d729b24a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::emm::multi_continuous</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00115">115</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00031">emm()</a>, <a class="el" href="emm_8cpp_source.html#l00681">get_emission()</a>, <a class="el" href="emm_8cpp_source.html#l00069">parse()</a>, and <a class="el" href="emm_8cpp_source.html#l00795">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a84c5750ba1a95342e380051bfa18cfac"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_stoch_h_m_m.html#ab99ca2cb1963df8ca0751cdaabfd664a">multiPdfFunc</a>* StochHMM::emm::multiPdf</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00137">137</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00031">emm()</a>, and <a class="el" href="emm_8cpp_source.html#l00069">parse()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aef934224ee806c539e8db0dea293c0b8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::emm::multiPdfName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00138">138</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00069">parse()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5eb6aaa6ddc8ec3485eceba83fc27f35"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::emm::number_of_tracks</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00139">139</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00031">emm()</a>, <a class="el" href="emm_8cpp_source.html#l00681">get_emission()</a>, <a class="el" href="emm_8cpp_source.html#l00069">parse()</a>, and <a class="el" href="emm_8cpp_source.html#l00795">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a50ad06b083c0587da5f339cdce36c03d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt;* StochHMM::emm::pass_values</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00142">142</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00031">emm()</a>, <a class="el" href="emm_8cpp_source.html#l00681">get_emission()</a>, and <a class="el" href="emm_8cpp_source.html#l00069">parse()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa4536a7033157e08544a446ced1b03b0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_stoch_h_m_m.html#a273f025f8870b79f2a971f293ea038e1">pdfFunc</a>* StochHMM::emm::pdf</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00128">128</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00031">emm()</a>, and <a class="el" href="emm_8cpp_source.html#l00069">parse()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9f98cb912239e3631fa1247f359d25c8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::emm::pdfName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00129">129</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00069">parse()</a>, and <a class="el" href="emm_8cpp_source.html#l00795">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa406dbdef380fd8b693a91048a2d7c13"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::emm::real_number</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00113">113</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00031">emm()</a>, <a class="el" href="emm_8cpp_source.html#l00681">get_emission()</a>, <a class="el" href="emm_8cpp_source.html#l00783">isReal()</a>, <a class="el" href="emm_8cpp_source.html#l00069">parse()</a>, <a class="el" href="emm_8h_source.html#l00073">setRealNumber()</a>, and <a class="el" href="emm_8cpp_source.html#l00795">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4ef3deac64d38ef52fac29c7ee2f86bf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a>* StochHMM::emm::realTrack</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00118">118</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00031">emm()</a>, <a class="el" href="emm_8cpp_source.html#l00681">get_emission()</a>, <a class="el" href="emm_8cpp_source.html#l00783">isReal()</a>, <a class="el" href="emm_8cpp_source.html#l00069">parse()</a>, and <a class="el" href="emm_8cpp_source.html#l00795">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa5eb94931b0c0364d481a1664c925a2f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1lexical_table.html">lexicalTable</a> StochHMM::emm::scores</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00121">121</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00681">get_emission()</a>, <a class="el" href="emm_8h_source.html#l00099">getTables()</a>, <a class="el" href="emm_8cpp_source.html#l00069">parse()</a>, and <a class="el" href="emm_8cpp_source.html#l00795">stringify()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af4c19242e7570437dce8c2411506d4ae"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">emissionFuncParam</a>* StochHMM::emm::tagFunc</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00145">145</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00640">_processTags()</a>, <a class="el" href="emm_8cpp_source.html#l00031">emm()</a>, <a class="el" href="emm_8cpp_source.html#l00681">get_emission()</a>, <a class="el" href="emm_8h_source.html#l00092">getExtFunction()</a>, <a class="el" href="emm_8h_source.html#l00105">isComplex()</a>, <a class="el" href="emm_8h_source.html#l00100">isSimple()</a>, <a class="el" href="emm_8cpp_source.html#l00427">parse()</a>, <a class="el" href="emm_8cpp_source.html#l00795">stringify()</a>, and <a class="el" href="emm_8cpp_source.html#l00055">~emm()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a188830e6552ba217447a83230d4ecbd9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;size_t&gt;* StochHMM::emm::track_indices</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00141">141</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00031">emm()</a>, <a class="el" href="emm_8cpp_source.html#l00681">get_emission()</a>, and <a class="el" href="emm_8cpp_source.html#l00069">parse()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adcc4d617c3706f42295c6afbdae299ce"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_stoch_h_m_m_1_1track.html">track</a>*&gt;* StochHMM::emm::trcks</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="emm_8h_source.html#l00140">140</a> of file <a class="el" href="emm_8h_source.html">emm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00031">emm()</a>, and <a class="el" href="emm_8cpp_source.html#l00069">parse()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="emm_8h_source.html">emm.h</a></li>
 <li><a class="el" href="emm_8cpp_source.html">emm.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1emm.html">emm</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:37 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

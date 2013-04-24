@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1simple_table.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,11 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">simpleTable</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">StochHMM::simpleTable&lt; T &gt; Member List</div>  </div>
@@ -96,22 +111,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>assign</b>(T &amp;value, size_t index) (defined in <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>assign</b>(T &amp;value, std::vector&lt; uint8_t &gt; &amp;seq) (defined in <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>clear</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>empty</b>() const  (defined in <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>get</b>(sequences &amp;seqs, size_t position) (defined in <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>get</b>(sequences &amp;seqs, size_t position) const  (defined in <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>simpleTable</b>(std::vector&lt; size_t &gt; &amp;order, std::vector&lt; size_t &gt; &amp;alpha, std::vector&lt; size_t &gt; tracks, T init) (defined in <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>size</b>() const  (defined in <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>size</b>(unsigned int Dim) const  (defined in <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>~simpleTable</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a381f6b3df2d67f5008dd24a62dff6255">alpha</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a4e59f2cd1b9447377e34332a5a14f660">assign</a>(T &amp;value, size_t index)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a76ee21bf46dbf087d75525f0b0213ecf">assign</a>(T &amp;value, std::vector&lt; uint8_t &gt; &amp;seq)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a6434c85679eb2550b1aa2cbb058e3dcd">clear</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a9c951ec4d5940baf4bc3ad0853cc6caf">dimensions</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a063726b93ef23bdf9f38ac29e3060a10">elements</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#ad3444f3e0aeee33462b316d442f5d74f">empty</a>() const </td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a3c44eea9fca36a59a049f363632050a2">get</a>(sequences &amp;seqs, size_t position)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a08a1cbd46cc0bcc90e0032a970026766">get</a>(sequences &amp;seqs, size_t position) const </td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a09cc9513e3092a34316d201fa2c3226d">num_of_alphabets</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a02808042d7f7d0c739329f3548fd141d">num_of_dimensions</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#aad4486cd183fb6d32709f71dcee0402e">num_of_elements</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a6c6b0453f169a92d59402418fb757945">order</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a10ae21fafc96fc67ccee8395947823c8">simpleTable</a>(std::vector&lt; size_t &gt; &amp;order, std::vector&lt; size_t &gt; &amp;alpha, std::vector&lt; size_t &gt; tracks, T init)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#ac6d88b41a79b376cfce4be2a4c807d50">size</a>() const </td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a413f27e76abaeb6da56b93d1353bab95">size</a>(unsigned int Dim) const </td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#ad123a009b5b353d56e11186fde0aab09">subarray_length</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a36a65c1259ee140b6452be83f44a2aa1">upstream</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html#a6ebf47025244d96b07fb1ba7fcdd3c44">~simpleTable</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1simple_table.html">StochHMM::simpleTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:38 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

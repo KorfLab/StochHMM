@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -64,15 +70,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('alignment_8h.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,7 +106,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">alignment.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<a href="alignment_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  alignment.h</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//  StochHMM</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -103,95 +123,95 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;track.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="track_8h.html">track.h</a>&quot;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sequence_8h.html">sequence.h</a>&quot;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;seqTools.h&quot;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span>StochHMM {</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">enum</span> tracebackDirection { NONE, DIAGONAL, LEFT, UP };</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">enum</span> alignment_type { cGlobal, cLocal, cGlocal};</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fbae803b23d926af911cb9d94b3697cd0f8">   24</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fb">tracebackDirection</a> { <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a42608ecf21c8ea8cffce5e956bf31bc3">NONE</a>, <a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fbad9940f3b381b1cff3f27d2c9c6f0017f">DIAGONAL</a>, <a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fba9c5f20b3a258a0bd1defaecbd55a7cdd">LEFT</a>, <a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fbae803b23d926af911cb9d94b3697cd0f8">UP</a> };</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077a7c6335eee1832a7dd6629ba48419dc1c">   25</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077">alignment_type</a> { <a class="code" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077a5f8c21d47e87e6e09a40f5a301d4e075">cGlobal</a>, <a class="code" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077a7c6335eee1832a7dd6629ba48419dc1c">cLocal</a>, <a class="code" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077af6f3c3bc1842435ab9410bf11fce0536">cGlocal</a>};</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    </div>
 <div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1cell.html">   28</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1cell.html">cell</a> {</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1cell.html">cell</a>();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> setTraceback(tracebackDirection dir){traceback = dir;}</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> setScore(<span class="keywordtype">double</span> value){score=value;}</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> setDiag(<span class="keywordtype">double</span> value){scores[0]=value;}</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> setLeft(<span class="keywordtype">double</span> value){scores[1]=value;}</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> setUp(<span class="keywordtype">double</span> value){scores[2]=value;}</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> getScore(){<span class="keywordflow">return</span> score;}</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">inline</span> tracebackDirection getTraceback(){<span class="keywordflow">return</span> traceback;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1cell.html#af9f3b5ef96e709cdf02581796463fbaf">cell</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1cell.html#ac68775cff8d963e6bf38d505c3b28993">   31</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1cell.html#ac68775cff8d963e6bf38d505c3b28993">setTraceback</a>(<a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fb">tracebackDirection</a> dir){<a class="code" href="class_stoch_h_m_m_1_1cell.html#a689cb99895d30c817a45606dbaaaeaab">traceback</a> = dir;}</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1cell.html#a1057c5c3d994f7729148b22429a19799">   32</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1cell.html#a1057c5c3d994f7729148b22429a19799">setScore</a>(<span class="keywordtype">double</span> value){<a class="code" href="class_stoch_h_m_m_1_1cell.html#a6041c70f379e589f2a360bcd03a84a56">score</a>=value;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1cell.html#a4723f120f9c22a8cb6b92111d22572af">   33</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1cell.html#a4723f120f9c22a8cb6b92111d22572af">setDiag</a>(<span class="keywordtype">double</span> value){<a class="code" href="class_stoch_h_m_m_1_1cell.html#aeec6b94ac2b9183497bceadd9c3b86df">scores</a>[0]=value;}</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1cell.html#a558b1d02517d182270e4f42772a7fefb">   34</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1cell.html#a558b1d02517d182270e4f42772a7fefb">setLeft</a>(<span class="keywordtype">double</span> value){<a class="code" href="class_stoch_h_m_m_1_1cell.html#aeec6b94ac2b9183497bceadd9c3b86df">scores</a>[1]=value;}</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1cell.html#af3bb1ab4d32dc6bb250e2cc728d9e846">   35</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1cell.html#af3bb1ab4d32dc6bb250e2cc728d9e846">setUp</a>(<span class="keywordtype">double</span> value){<a class="code" href="class_stoch_h_m_m_1_1cell.html#aeec6b94ac2b9183497bceadd9c3b86df">scores</a>[2]=value;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1cell.html#a5d5fcd6d6234317eafbdfd4b9044ac5f">   36</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1cell.html#a5d5fcd6d6234317eafbdfd4b9044ac5f">getScore</a>(){<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1cell.html#a6041c70f379e589f2a360bcd03a84a56">score</a>;}</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1cell.html#a9bc20be21f879c12016cc86bcbdb7307">   37</a></span>&#160;        <span class="keyword">inline</span> <a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fb">tracebackDirection</a> <a class="code" href="class_stoch_h_m_m_1_1cell.html#a9bc20be21f879c12016cc86bcbdb7307">getTraceback</a>(){<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1cell.html#a689cb99895d30c817a45606dbaaaeaab">traceback</a>;}</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        tracebackDirection traceback;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">double</span> score;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        std::vector&lt;double&gt; scores;    <span class="comment">//(DIAGONAL, LEFT, UP)</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1cell.html#a689cb99895d30c817a45606dbaaaeaab">   39</a></span>&#160;        <a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fb">tracebackDirection</a> <a class="code" href="class_stoch_h_m_m_1_1cell.html#a689cb99895d30c817a45606dbaaaeaab">traceback</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1cell.html#a6041c70f379e589f2a360bcd03a84a56">   40</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1cell.html#a6041c70f379e589f2a360bcd03a84a56">score</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1cell.html#aeec6b94ac2b9183497bceadd9c3b86df">   41</a></span>&#160;        std::vector&lt;double&gt; <a class="code" href="class_stoch_h_m_m_1_1cell.html#aeec6b94ac2b9183497bceadd9c3b86df">scores</a>;    <span class="comment">//(DIAGONAL, LEFT, UP)</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    };</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">typedef</span> std::vector&lt;std::vector&lt;double&gt; &gt; mmMatrix;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#aa2b3dd2b727765cfd6d43997a64eba32">   44</a></span>&#160;    <span class="keyword">typedef</span> std::vector&lt;std::vector&lt;double&gt; &gt; <a class="code" href="namespace_stoch_h_m_m.html#aa2b3dd2b727765cfd6d43997a64eba32">mmMatrix</a>;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div>
 <div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1alignment.html">   46</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1alignment.html">alignment</a>{</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1alignment.html">alignment</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a685fc376253736b16dd8cfc59d148254">alignment</a>();</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">double</span> align(alignment_type typ);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">double</span> align(<a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>&amp; target, <a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>&amp; query, alignment_type typ);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">double</span> align(<a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>&amp; target, <a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>&amp; query, alignment_type typ,  <span class="keywordtype">double</span> match, <span class="keywordtype">double</span> mismatch, <span class="keywordtype">double</span> gap, <span class="keywordtype">double</span> gapext);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">double</span> align(<a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>&amp; target, <a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>&amp; query, alignment_type typ, <span class="keyword">const</span> mmMatrix&amp;, <span class="keywordtype">double</span> gap, <span class="keywordtype">double</span> gapext);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a5faafdee4051b16bbb84510099cf8e54">align</a>(<a class="code" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077">alignment_type</a> typ);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a5faafdee4051b16bbb84510099cf8e54">align</a>(<a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>&amp; <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>, <a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>&amp; <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>, <a class="code" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077">alignment_type</a> typ);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a5faafdee4051b16bbb84510099cf8e54">align</a>(<a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>&amp; target, <a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>&amp; query, <a class="code" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077">alignment_type</a> typ,  <span class="keywordtype">double</span> match, <span class="keywordtype">double</span> mismatch, <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#aaf150d0ee4f5950452c0eed9c2b4aa60">gap</a>, <span class="keywordtype">double</span> gapext);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a5faafdee4051b16bbb84510099cf8e54">align</a>(<a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>&amp; target, <a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>&amp; query, <a class="code" href="namespace_stoch_h_m_m.html#a019471e9eaa219e604c79ec3c4c29077">alignment_type</a> typ, <span class="keyword">const</span> <a class="code" href="namespace_stoch_h_m_m.html#aa2b3dd2b727765cfd6d43997a64eba32">mmMatrix</a>&amp;, <span class="keywordtype">double</span> gap, <span class="keywordtype">double</span> gapext);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">double</span> calcLambda(std::vector&lt;double&gt;&amp;);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">double</span> estimateLambda();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">double</span> calc_pvalue();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a37f0a67f2165ae98d1ddd195945592f5">calcLambda</a>(std::vector&lt;double&gt;&amp;);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a691422071456d6769320bb7a01a389ec">estimateLambda</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ad4d542a6656f40a60171fc688cacac64">calc_pvalue</a>();</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">void</span> setMatrix(mmMatrix&amp;);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">void</span> setMatch(<span class="keywordtype">double</span>);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> setMismatch(<span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#af2f0cc71c8edc4284a9a4ea4a0da236f">setMatrix</a>(<a class="code" href="namespace_stoch_h_m_m.html#aa2b3dd2b727765cfd6d43997a64eba32">mmMatrix</a>&amp;);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#adfc365d2da6223cd626e6ab5811b0d67">setMatch</a>(<span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a55b1312a0d3a0ddee71e086649b991e3">setMismatch</a>(<span class="keywordtype">double</span>);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> setGap(<span class="keywordtype">double</span> value){gap = value;}</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> setGapExt(<span class="keywordtype">double</span> value){gap_ext = value;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1alignment.html#abcc4db57639b6bb610ed57cb2f942970">   64</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#abcc4db57639b6bb610ed57cb2f942970">setGap</a>(<span class="keywordtype">double</span> value){gap = value;}</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1alignment.html#ab08215f57a8bbd46b0d848fcde950191">   65</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ab08215f57a8bbd46b0d848fcde950191">setGapExt</a>(<span class="keywordtype">double</span> value){<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a9ddb17d7243969d6954c89ac8118bb19">gap_ext</a> = value;}</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">void</span> setTarget(<a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>&amp;);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">void</span> setQuery (<a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>&amp;);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ad552f0117eb7637f8a3761ad923c45e9">setTarget</a>(<a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>&amp;);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a8c3800fa7795eefab6b73472c58f1079">setQuery</a> (<a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>&amp;);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">int</span> getHighScore(){<span class="keywordflow">return</span> high_score;}</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1alignment.html#af85247cd410b2dd06595daeb76eff8af">   70</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#af85247cd410b2dd06595daeb76eff8af">getHighScore</a>(){<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a580b08a8157fa6b66b91ded72ddaa01f">high_score</a>;}</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">size_t</span> getAlignmentSize(){</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">if</span> (end_position!=0) <span class="keywordflow">return</span> end_position-start_position+1; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1alignment.html#a33a1800fea7ca4ef46492f176eb09775">   72</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a33a1800fea7ca4ef46492f176eb09775">getAlignmentSize</a>(){</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1alignment.html#ab9cbea03ebe4d0fd682d29e8e5187dd5">end_position</a>!=0) <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ab9cbea03ebe4d0fd682d29e8e5187dd5">end_position</a>-<a class="code" href="class_stoch_h_m_m_1_1alignment.html#a6134dcec9e8707947e8c8a7bd719c8df">start_position</a>+1; </div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        </div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        std::string getAlignment();</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">void</span> printAlignment();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        std::string <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a08a134ce0dae639f3f9d34aa1eb54116">getAlignment</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ad159b68bbc45104fc3556a2d7e703567">printAlignment</a>();</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">void</span> printTrellis();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afc095b9a457f5f55811e403dfff66e2a">printTrellis</a>();</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        std::string traceback();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        std::string stochasticTraceback();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        std::string <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ab2414a7ad7751c0fd193819fae171df7">traceback</a>();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        std::string <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ad0892e53f72e887dc0c305ae256f3c0a">stochasticTraceback</a>();</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        </div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>* target;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>* query;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">   88</a></span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>* <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ada9ae4105993852469853cb45d5d1b02">target</a>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">   89</a></span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>* <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a4afa64f253b0e73a66b55e4482719b03">query</a>;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1track.html">track</a>* tr;</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1alignment.html#a3310664991bb22f421a7f4cf93b5109a">   91</a></span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1track.html">track</a>* <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a3310664991bb22f421a7f4cf93b5109a">tr</a>;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        std::vector&lt;std::vector&lt;cell&gt; &gt;* <a class="code" href="class_stoch_h_m_m_1_1trellis.html">trellis</a>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        std::vector&lt;std::vector&lt;double&gt; &gt;* mMatrix;</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1alignment.html#af8ee18f1f9828f8ef0c2746bb0465993">   93</a></span>&#160;        std::vector&lt;std::vector&lt;cell&gt; &gt;* <a class="code" href="class_stoch_h_m_m_1_1alignment.html#af8ee18f1f9828f8ef0c2746bb0465993">trellis</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">   94</a></span>&#160;        std::vector&lt;std::vector&lt;double&gt; &gt;* <a class="code" href="class_stoch_h_m_m_1_1alignment.html#afaf8d72127a1b0f019d5cdcb0d318c0c">mMatrix</a>;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordtype">double</span> gap;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordtype">double</span> gap_ext;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1alignment.html#aaf150d0ee4f5950452c0eed9c2b4aa60">   96</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#aaf150d0ee4f5950452c0eed9c2b4aa60">gap</a>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1alignment.html#a9ddb17d7243969d6954c89ac8118bb19">   97</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a9ddb17d7243969d6954c89ac8118bb19">gap_ext</a>;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordtype">double</span> high_score;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordtype">size_t</span> start_position;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordtype">size_t</span> end_position;</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1alignment.html#a580b08a8157fa6b66b91ded72ddaa01f">   99</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a580b08a8157fa6b66b91ded72ddaa01f">high_score</a>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1alignment.html#a6134dcec9e8707947e8c8a7bd719c8df">  100</a></span>&#160;        <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a6134dcec9e8707947e8c8a7bd719c8df">start_position</a>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1alignment.html#ab9cbea03ebe4d0fd682d29e8e5187dd5">  101</a></span>&#160;        <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#ab9cbea03ebe4d0fd682d29e8e5187dd5">end_position</a>;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordtype">void</span> _reset();</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordtype">void</span> _resetSeqs();</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordtype">double</span> _getGapScore(<span class="keywordtype">size_t</span>,<span class="keywordtype">size_t</span>,tracebackDirection);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">void</span> _initTrellis(<span class="keywordtype">size_t</span>, <span class="keywordtype">size_t</span>);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#a2d5a76181b8f1e1d5233f3b8f5f00d6d">_reset</a>();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#aae068ed3899f35fe79bbe8202fed4524">_resetSeqs</a>();</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#aed0c99f74b5e6438c774417aeb0ee6f1">_getGapScore</a>(<span class="keywordtype">size_t</span>,<span class="keywordtype">size_t</span>,<a class="code" href="namespace_stoch_h_m_m.html#afff83bf1596278231e57695dfdc680fb">tracebackDirection</a>);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1alignment.html#aba5ce8d05e097282cb085253341dcd29">_initTrellis</a>(<span class="keywordtype">size_t</span>, <span class="keywordtype">size_t</span>);</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        </div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    };</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    </div>
@@ -201,11 +221,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:49 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="alignment_8h.html">alignment.h</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:33 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

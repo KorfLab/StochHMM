@@ -1,9 +1,20 @@
 var searchData=
 [
-  ['naive_5fbackward',['naive_backward',['../class_stoch_h_m_m_1_1trellis.html#a52afd244547529eb5294c5c5176f3b4a',1,'StochHMM::trellis']]],
-  ['nakagami_5fpdf',['nakagami_pdf',['../group___p_d_f.html#gaeb0cc21b825fd6f524eb38f890c2367d',1,'StochHMM']]],
+  ['naive_5fbackward',['naive_backward',['../class_stoch_h_m_m_1_1trellis.html#a52afd244547529eb5294c5c5176f3b4a',1,'StochHMM::trellis::naive_backward()'],['../class_stoch_h_m_m_1_1trellis.html#a66cd431a8e37e49b11e6ebf0c15caa97',1,'StochHMM::trellis::naive_backward(model *h, sequences *sqs)']]],
+  ['naive_5fbaum_5fwelch',['naive_baum_welch',['../class_stoch_h_m_m_1_1trellis.html#a60a3cc088e10dbe28d15a65ffad1e902',1,'StochHMM::trellis::naive_baum_welch()'],['../class_stoch_h_m_m_1_1trellis.html#afdda83fef8fbb7d5945da99cc110e9cb',1,'StochHMM::trellis::naive_baum_welch(model *h, sequences *sqs)']]],
+  ['naive_5fforward',['naive_forward',['../class_stoch_h_m_m_1_1trellis.html#a50288248ab12080e848a54d82f0e0930',1,'StochHMM::trellis::naive_forward()'],['../class_stoch_h_m_m_1_1trellis.html#a4f37065833c914c56080c40ec1c3e9e9',1,'StochHMM::trellis::naive_forward(model *h, sequences *sqs)']]],
+  ['naive_5fnth_5fviterbi',['naive_nth_viterbi',['../class_stoch_h_m_m_1_1trellis.html#aa6fa76a23e64d22b5f178089e44d84fd',1,'StochHMM::trellis::naive_nth_viterbi(size_t n)'],['../class_stoch_h_m_m_1_1trellis.html#aebeb0f7c764b88368cae772730222bbd',1,'StochHMM::trellis::naive_nth_viterbi(model *h, sequences *sqs, size_t n)']]],
+  ['naive_5fstochastic_5fforward',['naive_stochastic_forward',['../class_stoch_h_m_m_1_1trellis.html#a3ea0d6f7e409934fece915e314f6e3f6',1,'StochHMM::trellis::naive_stochastic_forward()'],['../class_stoch_h_m_m_1_1trellis.html#ad46b5c4edf46053c53ab60b17211d9bc',1,'StochHMM::trellis::naive_stochastic_forward(model *h, sequences *sqs)']]],
+  ['naive_5fstochastic_5fviterbi',['naive_stochastic_viterbi',['../class_stoch_h_m_m_1_1trellis.html#a915125716449b5f3bcc32d711457b2c9',1,'StochHMM::trellis::naive_stochastic_viterbi()'],['../class_stoch_h_m_m_1_1trellis.html#a9e9f113b1f6d18fc4a607cc4c8f9b291',1,'StochHMM::trellis::naive_stochastic_viterbi(model *h, sequences *sqs)']]],
+  ['naive_5fviterbi',['naive_viterbi',['../class_stoch_h_m_m_1_1trellis.html#aab1453aa7c01874acc85762f894ad4e8',1,'StochHMM::trellis::naive_viterbi()'],['../class_stoch_h_m_m_1_1trellis.html#a7c318447d101f5298544a63f93f3135c',1,'StochHMM::trellis::naive_viterbi(model *h, sequences *sqs)']]],
+  ['nakagami_5fpdf',['nakagami_pdf',['../group___p_d_f.html#gaeb0cc21b825fd6f524eb38f890c2367d',1,'StochHMM::nakagami_pdf(double x, double mu, double w)'],['../group___p_d_f.html#gad71049fd857ece4e6291f8b37bb31c1d',1,'StochHMM::nakagami_pdf(const double x, const std::vector&lt; double &gt; *param)']]],
   ['name',['name',['../class_stoch_h_m_m_1_1traceback__path.html#ae9be05bf054e5bf3cd76c2d66946d0ee',1,'StochHMM::traceback_path']]],
-  ['negative_5fbinomial_5fpdf',['negative_binomial_pdf',['../group___p_d_f.html#ga609ac11348749f4826136311f6653c75',1,'StochHMM']]],
+  ['negative_5fbinomial_5fcdf',['negative_binomial_cdf',['../namespace_stoch_h_m_m.html#a250506ece6fbb42d77263d21e6cb2589',1,'StochHMM']]],
+  ['negative_5fbinomial_5fpdf',['negative_binomial_pdf',['../group___p_d_f.html#ga609ac11348749f4826136311f6653c75',1,'StochHMM::negative_binomial_pdf(int k, int r, double p)'],['../group___p_d_f.html#gaa4d3177f2a0e01d61f7280dd18a38dfe',1,'StochHMM::negative_binomial_pdf(const double k, const std::vector&lt; double &gt; *param)']]],
+  ['next',['next',['../classtraining_seq.html#af1e347210f8e2e9caf77c0059b391ca5',1,'trainingSeq']]],
+  ['noncentral_5fchi_5fcdf',['noncentral_chi_cdf',['../namespace_stoch_h_m_m.html#aea9c6768c09ebb94d82555172b2e52b1',1,'StochHMM']]],
   ['none',['none',['../class_stoch_h_m_m_1_1dynamic__bitset.html#aafc008dafa3113a7bc766972fb7c054a',1,'StochHMM::dynamic_bitset']]],
-  ['normal_5fpdf',['normal_pdf',['../group___p_d_f.html#ga29bcbf21133893242dacaae0eb3c5749',1,'StochHMM']]]
+  ['normal_5fpdf',['normal_pdf',['../group___p_d_f.html#ga29bcbf21133893242dacaae0eb3c5749',1,'StochHMM::normal_pdf(double x, double mu, double sigma)'],['../group___p_d_f.html#gaa320ddebb9f3ff32858276e127247f99',1,'StochHMM::normal_pdf(const double x, const std::vector&lt; double &gt; *param)']]],
+  ['nth_5fviterbi',['nth_viterbi',['../class_stoch_h_m_m_1_1trellis.html#a8ce7785d793d84926d9009fb20012c32',1,'StochHMM::trellis::nth_viterbi()'],['../class_stoch_h_m_m_1_1trellis.html#a9da84eba9f2e501efb64355667c46119',1,'StochHMM::trellis::nth_viterbi(model *h, sequences *sqs)']]],
+  ['nthscore',['nthScore',['../class_stoch_h_m_m_1_1nth_score.html#a062559c2516622814e721d461ba292a7',1,'StochHMM::nthScore::nthScore()'],['../class_stoch_h_m_m_1_1nth_score.html#ab48581fbe8df59c954eba53b0a8dc004',1,'StochHMM::nthScore::nthScore(int16_t st, int16_t tb, double sc)']]]
 ];

@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('struct_stoch_h_m_m_1_1opt__parameters.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,11 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html">opt_parameters</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">StochHMM::opt_parameters Member List</div>  </div>
@@ -96,17 +111,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html">StochHMM::opt_parameters</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>allowable</b> (defined in <a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html">StochHMM::opt_parameters</a>)</td><td class="entry"><a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html">StochHMM::opt_parameters</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>commandline_tag</b> (defined in <a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html">StochHMM::opt_parameters</a>)</td><td class="entry"><a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html">StochHMM::opt_parameters</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>preset</b> (defined in <a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html">StochHMM::opt_parameters</a>)</td><td class="entry"><a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html">StochHMM::opt_parameters</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>required</b> (defined in <a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html">StochHMM::opt_parameters</a>)</td><td class="entry"><a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html">StochHMM::opt_parameters</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>type</b> (defined in <a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html">StochHMM::opt_parameters</a>)</td><td class="entry"><a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html">StochHMM::opt_parameters</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html#aef31c4c2eaacdd01412d8a1d7f8f2a47">allowable</a></td><td class="entry"><a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html">StochHMM::opt_parameters</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html#afc60a5e445354900a6454d25f51c1a4e">commandline_tag</a></td><td class="entry"><a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html">StochHMM::opt_parameters</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html#a34e415f2eb29452624c72e89a098edba">preset</a></td><td class="entry"><a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html">StochHMM::opt_parameters</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html#a0c8aeac85afc3b5c3becf86b4ad26ca8">required</a></td><td class="entry"><a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html">StochHMM::opt_parameters</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html#adb1b507df3cbdd7c5aedab6919449e02">type</a></td><td class="entry"><a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html">StochHMM::opt_parameters</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:37 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

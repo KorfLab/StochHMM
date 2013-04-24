@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1models.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,14 +103,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1models.html">models</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::models Class Reference</div>  </div>
 </div><!--header-->
@@ -106,14 +122,35 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acccd6101165f462525b6198e1dc368e2"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1models.html#acccd6101165f462525b6198e1dc368e2">size</a> ()</td></tr>
 <tr class="memitem:a287c21ac381e5e61d25a47ea6b95142a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1model.html">model</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1models.html#a287c21ac381e5e61d25a47ea6b95142a">getModel</a> (size_t)</td></tr>
 <tr class="memitem:ad6b69f097812bff3fa5c3beff886cf5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1models.html#ad6b69f097812bff3fa5c3beff886cf5a">importModels</a> (std::string &amp;, <a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html">StateFuncs</a> *)</td></tr>
-<tr class="memitem:a184004490c3efd6eea61fac6ee812b57"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a184004490c3efd6eea61fac6ee812b57"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addModel</b> (<a class="el" href="class_stoch_h_m_m_1_1model.html">model</a> *)</td></tr>
+<tr class="memitem:a184004490c3efd6eea61fac6ee812b57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1models.html#a184004490c3efd6eea61fac6ee812b57">addModel</a> (<a class="el" href="class_stoch_h_m_m_1_1model.html">model</a> *)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a314cb2f7eff71f1f37c6e2faf86c9352"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1model.html">model</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1models.html#a314cb2f7eff71f1f37c6e2faf86c9352">hmms</a></td></tr>
+<tr class="memitem:a02e15b2ba00f760d2dcb8845a6c72283"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1weights.html">weights</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1models.html#a02e15b2ba00f760d2dcb8845a6c72283">scaling</a></td></tr>
+<tr class="memitem:a41ba81d4615fbb0304d5bbb4083a9576"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1templates.html">templates</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1models.html#a41ba81d4615fbb0304d5bbb4083a9576">modelTemplates</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>models is a class to store multiple models. This allows StochMM the ability, to load multiple models, then select the model that appropriate for the sequence based on a used-defined attribute. Stores multiple HMM models and contains the get functions for specific models </p>
 
 <p>Definition at line <a class="el" href="hmm_8h_source.html#l00443">443</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a184004490c3efd6eea61fac6ee812b57"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::models::addModel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1model.html">model</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a287c21ac381e5e61d25a47ea6b95142a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -138,12 +175,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addModel</b> (<a clas
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l00144">144</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
 
-<p>References <a class="el" href="hmm_8h_source.html#l00463">size()</a>.</p>
+<p>References <a class="el" href="hmm_8h_source.html#l00475">hmms</a>, and <a class="el" href="hmm_8h_source.html#l00463">size()</a>.</p>
 
 <p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00405">StochHMM::seqTracks::loadSeqs()</a>.</p>
 <div class="fragment"><div class="line">                                       {</div>
 <div class="line">        <span class="keywordflow">if</span> (iter&lt;this-&gt;<a class="code" href="class_stoch_h_m_m_1_1models.html#acccd6101165f462525b6198e1dc368e2">size</a>()) {</div>
-<div class="line">            <span class="keywordflow">return</span> hmms[iter];</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1models.html#a314cb2f7eff71f1f37c6e2faf86c9352">hmms</a>[iter];</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
 <div class="line">            <span class="keywordflow">return</span> NULL;</div>
@@ -185,6 +222,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addModel</b> (<a clas
 </dl>
 
 <p>Definition at line <a class="el" href="hmm_8cpp_source.html#l00033">33</a> of file <a class="el" href="hmm_8cpp_source.html">hmm.cpp</a>.</p>
+
+<p>References <a class="el" href="hmm_8h_source.html#l00475">hmms</a>.</p>
 <div class="fragment"><div class="line">                                                                    {</div>
 <div class="line">        std::ifstream MOD;</div>
 <div class="line">        MOD.open(modelFile.c_str());</div>
@@ -211,8 +250,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addModel</b> (<a clas
 <div class="line">                exit(1);</div>
 <div class="line">            }</div>
 <div class="line">            </div>
-<div class="line">            hmms.push_back(temp);</div>
-<div class="line">            hmms[0]-&gt;import(modelFile,funcs);</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1models.html#a314cb2f7eff71f1f37c6e2faf86c9352">hmms</a>.push_back(temp);</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1models.html#a314cb2f7eff71f1f37c6e2faf86c9352">hmms</a>[0]-&gt;import(modelFile,funcs);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (input.compare(<span class="stringliteral">&quot;#STOCHHMM MODELS&quot;</span>)==0){</div>
 <div class="line">            std::vector&lt;std::string&gt; filenames;</div>
@@ -240,12 +279,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addModel</b> (<a clas
 <div class="line">                    exit(1);</div>
 <div class="line">                }</div>
 <div class="line">                </div>
-<div class="line">                hmms.push_back(temp);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1models.html#a314cb2f7eff71f1f37c6e2faf86c9352">hmms</a>.push_back(temp);</div>
 <div class="line">            }</div>
 <div class="line">            </div>
 <div class="line">            <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;filenames.size();i++){</div>
-<div class="line">                hmms[i]-&gt;import(filenames[i],funcs);</div>
-<div class="line">                hmms[i]-&gt;print();</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1models.html#a314cb2f7eff71f1f37c6e2faf86c9352">hmms</a>[i]-&gt;import(filenames[i],funcs);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1models.html#a314cb2f7eff71f1f37c6e2faf86c9352">hmms</a>[i]-&gt;print();</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
@@ -288,12 +327,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addModel</b> (<a clas
 <dl class="section return"><dt>Returns:</dt><dd>pointer to model </dd></dl>
 
 <p>Definition at line <a class="el" href="hmm_8h_source.html#l00453">453</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+
+<p>References <a class="el" href="hmm_8h_source.html#l00475">hmms</a>.</p>
 <div class="fragment"><div class="line">                                                     {</div>
-<div class="line">                        <span class="keywordflow">if</span> (iter&gt;hmms.size()-1){</div>
+<div class="line">                        <span class="keywordflow">if</span> (iter&gt;<a class="code" href="class_stoch_h_m_m_1_1models.html#a314cb2f7eff71f1f37c6e2faf86c9352">hmms</a>.size()-1){</div>
 <div class="line">                                <span class="keywordflow">return</span> NULL;</div>
 <div class="line">                        }</div>
 <div class="line">                        </div>
-<div class="line">                        <span class="keywordflow">return</span> hmms[iter];</div>
+<div class="line">                        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1models.html#a314cb2f7eff71f1f37c6e2faf86c9352">hmms</a>[iter];</div>
 <div class="line">                };</div>
 </div><!-- fragment -->
 </div>
@@ -323,9 +364,80 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addModel</b> (<a clas
 
 <p>Definition at line <a class="el" href="hmm_8h_source.html#l00463">463</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
 
+<p>References <a class="el" href="hmm_8h_source.html#l00475">hmms</a>.</p>
+
 <p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00144">getModel()</a>, and <a class="el" href="seq_tracks_8cpp_source.html#l00696">StochHMM::seqTracks::getNext()</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> hmms.size();};</div>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1models.html#a314cb2f7eff71f1f37c6e2faf86c9352">hmms</a>.size();};</div>
 </div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a314cb2f7eff71f1f37c6e2faf86c9352"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_stoch_h_m_m_1_1model.html">model</a>*&gt; StochHMM::models::hmms</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00475">475</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00144">getModel()</a>, <a class="el" href="hmm_8cpp_source.html#l00033">importModels()</a>, <a class="el" href="hmm_8h_source.html#l00453">operator[]()</a>, and <a class="el" href="hmm_8h_source.html#l00463">size()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a41ba81d4615fbb0304d5bbb4083a9576"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1templates.html">templates</a>* StochHMM::models::modelTemplates</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00477">477</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a02e15b2ba00f760d2dcb8845a6c72283"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1weights.html">weights</a>* StochHMM::models::scaling</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="hmm_8h_source.html#l00476">476</a> of file <a class="el" href="hmm_8h_source.html">hmm.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -333,11 +445,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addModel</b> (<a clas
 <li><a class="el" href="hmm_8cpp_source.html">hmm.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1models.html">models</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:37 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

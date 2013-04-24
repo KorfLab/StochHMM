@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -62,12 +68,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group___text.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -92,15 +111,13 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga011a05da53674a925fe8dc3402ac3f24"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga011a05da53674a925fe8dc3402ac3f24"></a>
-stringList &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga011a05da53674a925fe8dc3402ac3f24">StochHMM::splitString</a> (const std::string &amp;txt, const std::string &amp;delimiters)</td></tr>
-<tr class="memdesc:ga011a05da53674a925fe8dc3402ac3f24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits string using delimiters and return <a class="el" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a>. <br/></td></tr>
+<tr class="memitem:ga011a05da53674a925fe8dc3402ac3f24"><td class="memItemLeft" align="right" valign="top">stringList &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga011a05da53674a925fe8dc3402ac3f24">StochHMM::splitString</a> (const std::string &amp;txt, const std::string &amp;delimiters)</td></tr>
+<tr class="memdesc:ga011a05da53674a925fe8dc3402ac3f24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits string using delimiters and return <a class="el" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a>.  <a href="#ga011a05da53674a925fe8dc3402ac3f24"></a><br/></td></tr>
 <tr class="memitem:ga2904cf1af30b23b7f44a416b594c7bf6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga2904cf1af30b23b7f44a416b594c7bf6">StochHMM::clear_whitespace</a> (std::string &amp;input, std::string white)</td></tr>
 <tr class="memitem:ga98f2f125252b54b1f227988ae44d424b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga98f2f125252b54b1f227988ae44d424b">StochHMM::replaceChar</a> (std::string &amp;txt, char ch, char replaceCh)</td></tr>
 <tr class="memitem:ga0b39adb00f98cdbf548db31ccb7abb68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga0b39adb00f98cdbf548db31ccb7abb68">StochHMM::removeLeadingWS</a> (std::string &amp;txt, const std::string &amp;ws)</td></tr>
-<tr class="memitem:gae1e21893ae48aaa6969040d19e5085d7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gae1e21893ae48aaa6969040d19e5085d7"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#gae1e21893ae48aaa6969040d19e5085d7">StochHMM::parseComment</a> (std::string &amp;txt, char commentChar)</td></tr>
-<tr class="memdesc:gae1e21893ae48aaa6969040d19e5085d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find first comment character and then return everything following the character. <br/></td></tr>
+<tr class="memitem:gae1e21893ae48aaa6969040d19e5085d7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#gae1e21893ae48aaa6969040d19e5085d7">StochHMM::parseComment</a> (std::string &amp;txt, char commentChar)</td></tr>
+<tr class="memdesc:gae1e21893ae48aaa6969040d19e5085d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find first comment character and then return everything following the character.  <a href="#gae1e21893ae48aaa6969040d19e5085d7"></a><br/></td></tr>
 <tr class="memitem:ga423cf7d1707638ac6c526bb10e7cc599"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga423cf7d1707638ac6c526bb10e7cc599">StochHMM::getKeyValue</a> (std::string &amp;txt, std::string &amp;key, std::string &amp;value)</td></tr>
 <tr class="memitem:ga3538626ea8a3ae77e33bda5d63206c23"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga3538626ea8a3ae77e33bda5d63206c23">StochHMM::join</a> (std::vector&lt; int &gt; &amp;input, char c)</td></tr>
 <tr class="memitem:ga5e62d476cb2624cc2ccc8fda22638f55"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___text.html#ga5e62d476cb2624cc2ccc8fda22638f55">StochHMM::join</a> (std::vector&lt; size_t &gt; &amp;input, char c)</td></tr>
@@ -280,7 +297,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00435">435</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00235">StochHMM::matrixPosition::parse()</a>, <a class="el" href="weight_8cpp_source.html#l00201">StochHMM::weight::parse()</a>, and <a class="el" href="text_8cpp_source.html#l00094">StochHMM::stringList::processString()</a>.</p>
+<p>Referenced by <a class="el" href="sequence_8cpp_source.html#l00505">StochHMM::sequence::_digitize()</a>, <a class="el" href="pwm_8cpp_source.html#l00855">StochHMM::PWM::_getOrderedPositionNames()</a>, <a class="el" href="hmm_8cpp_source.html#l00850">StochHMM::model::_getOrderedStateNames()</a>, <a class="el" href="state_8cpp_source.html#l00127">StochHMM::state::_parseHeader()</a>, <a class="el" href="pwm_8cpp_source.html#l00612">StochHMM::PWM::_parseSpacer()</a>, <a class="el" href="state_8cpp_source.html#l00197">StochHMM::state::_parseTransition()</a>, <a class="el" href="hmm_8cpp_source.html#l00778">StochHMM::model::_processTemplateState()</a>, <a class="el" href="track_8cpp_source.html#l00471">StochHMM::track::_splitAmbiguousList()</a>, <a class="el" href="pwm_8cpp_source.html#l00833">StochHMM::PWM::_splitPositions()</a>, <a class="el" href="hmm_8cpp_source.html#l00743">StochHMM::model::_splitStates()</a>, <a class="el" href="sequence_8cpp_source.html#l00439">StochHMM::sequence::getMaskedFasta()</a>, <a class="el" href="pwm_8cpp_source.html#l00235">StochHMM::matrixPosition::parse()</a>, <a class="el" href="weight_8cpp_source.html#l00201">StochHMM::weight::parse()</a>, and <a class="el" href="text_8cpp_source.html#l00094">StochHMM::stringList::processString()</a>.</p>
 <div class="fragment"><div class="line">                                                           {</div>
 <div class="line">        <span class="keywordtype">size_t</span> found;</div>
 <div class="line">        found=input.find_first_of(white);</div>
@@ -318,7 +335,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00585">585</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="text_8cpp_source.html#l00673">StochHMM::join()</a>, <a class="el" href="weight_8cpp_source.html#l00166">StochHMM::weight::stringify()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00170">StochHMM::transitionFuncParam::stringify()</a>, <a class="el" href="sequence_8cpp_source.html#l00308">StochHMM::sequence::stringify()</a>, <a class="el" href="extern_definitions_8cpp_source.html#l00164">StochHMM::weightDef::stringify()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00333">StochHMM::emissionFuncParam::stringify()</a>, and <a class="el" href="transitions_8cpp_source.html#l00521">StochHMM::transition::stringify()</a>.</p>
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l01067">StochHMM::model::_stringifyHeader()</a>, <a class="el" href="text_8cpp_source.html#l00673">StochHMM::join()</a>, <a class="el" href="pwm_8cpp_source.html#l00308">StochHMM::PWM::stringify()</a>, <a class="el" href="weight_8cpp_source.html#l00166">StochHMM::weight::stringify()</a>, <a class="el" href="emm_8cpp_source.html#l00795">StochHMM::emm::stringify()</a>, <a class="el" href="lexical_table_8cpp_source.html#l00297">StochHMM::lexicalTable::stringify()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00170">StochHMM::transitionFuncParam::stringify()</a>, <a class="el" href="sequence_8cpp_source.html#l00308">StochHMM::sequence::stringify()</a>, <a class="el" href="pwm_8cpp_source.html#l00353">StochHMM::matrixPosition::stringify()</a>, <a class="el" href="extern_definitions_8cpp_source.html#l00164">StochHMM::weightDef::stringify()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00333">StochHMM::emissionFuncParam::stringify()</a>, and <a class="el" href="transitions_8cpp_source.html#l00521">StochHMM::transition::stringify()</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
 <div class="line">        std::stringstream ss;</div>
 <div class="line">        ss &lt;&lt; input;</div>
@@ -384,7 +401,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 
 <p>References <a class="el" href="text_8cpp_source.html#l00758">StochHMM::balanced_brackets()</a>, and <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>.</p>
 
-<p>Referenced by <a class="el" href="track_8cpp_source.html#l00310">StochHMM::track::parse()</a>.</p>
+<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00640">StochHMM::emm::_processTags()</a>, <a class="el" href="transitions_8cpp_source.html#l00121">StochHMM::transition::_processTags()</a>, and <a class="el" href="track_8cpp_source.html#l00310">StochHMM::track::parse()</a>.</p>
 <div class="fragment"><div class="line">                                         {</div>
 <div class="line">        stringList lst;</div>
 <div class="line">        std::pair&lt;size_t,size_t&gt; tagCoord = <a class="code" href="group___text.html#ga1bdb409efab2d170ecb74f8537afbc44">balanced_brackets</a>(txt,<span class="stringliteral">&quot;[]&quot;</span>);</div>
@@ -440,6 +457,8 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00467">467</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
 
 <p>References <a class="el" href="text_8cpp_source.html#l00450">StochHMM::removeLeadingWS()</a>, and <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>.</p>
+
+<p>Referenced by <a class="el" href="hmm_8cpp_source.html#l00778">StochHMM::model::_processTemplateState()</a>.</p>
 <div class="fragment"><div class="line">                                                                    {</div>
 <div class="line">        <span class="keywordtype">size_t</span> found=txt.find(<span class="stringliteral">&quot;&lt;&lt;&quot;</span>);</div>
 <div class="line">        </div>
@@ -491,7 +510,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00564">564</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="text_8cpp_source.html#l00519">StochHMM::join()</a>, <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>, <a class="el" href="extern_definitions_8cpp_source.html#l00154">StochHMM::ExDef::stringify()</a>, <a class="el" href="sequence_8cpp_source.html#l00308">StochHMM::sequence::stringify()</a>, <a class="el" href="extern_definitions_8cpp_source.html#l00164">StochHMM::weightDef::stringify()</a>, <a class="el" href="sequences_8cpp_source.html#l00184">StochHMM::sequences::stringify()</a>, <a class="el" href="transitions_8cpp_source.html#l00521">StochHMM::transition::stringify()</a>, and <a class="el" href="sequences_8cpp_source.html#l00204">StochHMM::sequences::undigitize()</a>.</p>
+<p>Referenced by <a class="el" href="text_8cpp_source.html#l00519">StochHMM::join()</a>, <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>, <a class="el" href="emm_8cpp_source.html#l00795">StochHMM::emm::stringify()</a>, <a class="el" href="extern_definitions_8cpp_source.html#l00154">StochHMM::ExDef::stringify()</a>, <a class="el" href="sequence_8cpp_source.html#l00308">StochHMM::sequence::stringify()</a>, <a class="el" href="extern_definitions_8cpp_source.html#l00164">StochHMM::weightDef::stringify()</a>, <a class="el" href="sequences_8cpp_source.html#l00184">StochHMM::sequences::stringify()</a>, <a class="el" href="transitions_8cpp_source.html#l00521">StochHMM::transition::stringify()</a>, and <a class="el" href="sequences_8cpp_source.html#l00204">StochHMM::sequences::undigitize()</a>.</p>
 <div class="fragment"><div class="line">                                      {</div>
 <div class="line">        std::stringstream ss;</div>
 <div class="line">        ss &lt;&lt; input;</div>
@@ -606,7 +625,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 
 <p>References <a class="el" href="text_8cpp_source.html#l00564">StochHMM::int_to_string()</a>.</p>
 
-<p>Referenced by <a class="el" href="text_8cpp_source.html#l00402">StochHMM::stringList::stringify()</a>, and <a class="el" href="track_8cpp_source.html#l00360">StochHMM::track::stringify()</a>.</p>
+<p>Referenced by <a class="el" href="traceback__path_8cpp_source.html#l00521">StochHMM::multiTraceback::print_hits()</a>, <a class="el" href="pwm_8cpp_source.html#l00308">StochHMM::PWM::stringify()</a>, <a class="el" href="emm_8cpp_source.html#l00795">StochHMM::emm::stringify()</a>, <a class="el" href="text_8cpp_source.html#l00402">StochHMM::stringList::stringify()</a>, <a class="el" href="pwm_8cpp_source.html#l00353">StochHMM::matrixPosition::stringify()</a>, and <a class="el" href="track_8cpp_source.html#l00360">StochHMM::track::stringify()</a>.</p>
 <div class="fragment"><div class="line">                                                 {</div>
 <div class="line">        std::string out;</div>
 <div class="line">        <span class="keywordflow">if</span> (input.size()==0){</div>
@@ -851,6 +870,47 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </div><!-- fragment -->
 </div>
 </div>
+<a class="anchor" id="gae1e21893ae48aaa6969040d19e5085d7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::parseComment </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>txt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>commentChar</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Find first comment character and then return everything following the character. </p>
+
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00422">422</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="text_8cpp_source.html#l00094">StochHMM::stringList::processString()</a>, and <a class="el" href="text_8cpp_source.html#l00414">StochHMM::stringList::removeComments()</a>.</p>
+<div class="fragment"><div class="line">                                                            {</div>
+<div class="line">        std::string comment;</div>
+<div class="line">        <span class="keywordtype">size_t</span> commentPos=txt.find_first_of(commentChar);</div>
+<div class="line">        <span class="keywordflow">if</span> (commentPos!=std::string::npos){</div>
+<div class="line">            comment=txt.substr(commentPos);</div>
+<div class="line">            txt=txt.substr(0,commentPos);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> comment;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="ga0b39adb00f98cdbf548db31ccb7abb68"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1022,6 +1082,8 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00716">716</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>Referenced by <a class="el" href="extern_definitions_8cpp_source.html#l00220">StochHMM::ExDefSequence::_parseAbsDef()</a>, and <a class="el" href="track_8cpp_source.html#l00471">StochHMM::track::_splitAmbiguousList()</a>.</p>
 <div class="fragment"><div class="line">                                                                {</div>
 <div class="line">        </div>
 <div class="line">        <span class="comment">//split line accoring to delimiters;</span></div>
@@ -1044,6 +1106,46 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <div class="line">            line.push_back(input);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ga011a05da53674a925fe8dc3402ac3f24"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">stringList &amp; StochHMM::splitString </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>txt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>delimiters</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Splits string using delimiters and return <a class="el" href="class_stoch_h_m_m_1_1string_list.html" title="Stringlist is an list of strings that contains parsed comments and can be used to split string or rem...">stringList</a>. </p>
+
+<p>Definition at line <a class="el" href="text_8cpp_source.html#l00495">495</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8h_source.html#l00086">StochHMM::stringList::clear()</a>, and <a class="el" href="text_8cpp_source.html#l00116">StochHMM::stringList::splitString()</a>.</p>
+
+<p>Referenced by <a class="el" href="state_8cpp_source.html#l00127">StochHMM::state::_parseHeader()</a>, and <a class="el" href="state_8cpp_source.html#l00197">StochHMM::state::_parseTransition()</a>.</p>
+<div class="fragment"><div class="line">                                                                              {</div>
+<div class="line">        <span class="keyword">static</span> stringList lst;</div>
+<div class="line">        lst.clear();</div>
+<div class="line">        lst.splitString(txt,delimiters);</div>
+<div class="line">        <span class="keywordflow">return</span> lst;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
@@ -1085,7 +1187,7 @@ false if conversion can't be performed </dd></dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00636">636</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="external_funcs_8cpp_source.html#l00050">StochHMM::transitionFuncParam::parse()</a>, <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00257">StochHMM::emissionFuncParam::parse()</a>, <a class="el" href="weight_8cpp_source.html#l00201">StochHMM::weight::parse()</a>, and <a class="el" href="text_8cpp_source.html#l00358">StochHMM::stringList::toVecDouble()</a>.</p>
+<p>Referenced by <a class="el" href="transitions_8cpp_source.html#l00198">StochHMM::transition::_parseDuration()</a>, <a class="el" href="hmm_8cpp_source.html#l00441">StochHMM::model::_parseHeader()</a>, <a class="el" href="transitions_8cpp_source.html#l00286">StochHMM::transition::_parseLexical()</a>, <a class="el" href="transitions_8cpp_source.html#l00149">StochHMM::transition::_parseStandard()</a>, <a class="el" href="extern_definitions_8cpp_source.html#l00318">StochHMM::ExDefSequence::_parseWeightDef()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00050">StochHMM::transitionFuncParam::parse()</a>, <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>, <a class="el" href="external_funcs_8cpp_source.html#l00257">StochHMM::emissionFuncParam::parse()</a>, <a class="el" href="weight_8cpp_source.html#l00201">StochHMM::weight::parse()</a>, and <a class="el" href="text_8cpp_source.html#l00358">StochHMM::stringList::toVecDouble()</a>.</p>
 <div class="fragment"><div class="line">                                                    {</div>
 <div class="line">        std::istringstream input(txt);</div>
 <div class="line">        <span class="keywordflow">if</span>(!(input &gt;&gt; val)){</div>
@@ -1133,7 +1235,7 @@ false if conversion can't be performed </dd></dl>
 
 <p>Definition at line <a class="el" href="text_8cpp_source.html#l00607">607</a> of file <a class="el" href="text_8cpp_source.html">text.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>, and <a class="el" href="text_8cpp_source.html#l00371">StochHMM::stringList::toVecInt()</a>.</p>
+<p>Referenced by <a class="el" href="extern_definitions_8cpp_source.html#l00220">StochHMM::ExDefSequence::_parseAbsDef()</a>, <a class="el" href="transitions_8cpp_source.html#l00198">StochHMM::transition::_parseDuration()</a>, <a class="el" href="transitions_8cpp_source.html#l00286">StochHMM::transition::_parseLexical()</a>, <a class="el" href="extern_definitions_8cpp_source.html#l00318">StochHMM::ExDefSequence::_parseWeightDef()</a>, <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>, and <a class="el" href="text_8cpp_source.html#l00371">StochHMM::stringList::toVecInt()</a>.</p>
 <div class="fragment"><div class="line">                                              {</div>
 <div class="line">        std::istringstream input(txt);</div>
 <div class="line">        <span class="keywordflow">if</span> (!(input &gt;&gt; val)){</div>
@@ -1193,11 +1295,14 @@ false if conversion can't be performed </dd></dl>
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:36 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

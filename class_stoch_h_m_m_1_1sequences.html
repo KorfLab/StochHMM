@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1sequences.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,33 +103,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::sequences Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p><code>#include &lt;<a class="el" href="sequences_8h_source.html">sequences.h</a>&gt;</code></p>
+
 <p><a href="class_stoch_h_m_m_1_1sequences-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a548fcbae336ca4a58d0127a37aca7c3a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a548fcbae336ca4a58d0127a37aca7c3a">sequences</a> ()</td></tr>
 <tr class="memitem:a152c1f192f554b931a3394c4281432f4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a152c1f192f554b931a3394c4281432f4">sequences</a> (size_t sz)</td></tr>
 <tr class="memitem:a4583b8d6c556d478b0c98de1699f5cb3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a4583b8d6c556d478b0c98de1699f5cb3">sequences</a> (<a class="el" href="class_stoch_h_m_m_1_1tracks.html">tracks</a> *tr)</td></tr>
-<tr class="memitem:a071ff60a97b24ade746e965ecda91af5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a071ff60a97b24ade746e965ecda91af5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>sequences</b> (const <a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> &amp;)</td></tr>
-<tr class="memitem:a47c4286f358f71442531ae219cda2392"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47c4286f358f71442531ae219cda2392"></a>
-<a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a47c4286f358f71442531ae219cda2392">operator=</a> (const <a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> &amp;)</td></tr>
-<tr class="memdesc:a47c4286f358f71442531ae219cda2392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment Operator. <br/></td></tr>
-<tr class="memitem:a33b78307e44b698a35adf6169dd8d372"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33b78307e44b698a35adf6169dd8d372"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a33b78307e44b698a35adf6169dd8d372">~sequences</a> ()</td></tr>
-<tr class="memdesc:a33b78307e44b698a35adf6169dd8d372"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy sequences. <br/></td></tr>
+<tr class="memitem:a071ff60a97b24ade746e965ecda91af5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a071ff60a97b24ade746e965ecda91af5">sequences</a> (const <a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> &amp;)</td></tr>
+<tr class="memitem:a47c4286f358f71442531ae219cda2392"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a47c4286f358f71442531ae219cda2392">operator=</a> (const <a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> &amp;)</td></tr>
+<tr class="memdesc:a47c4286f358f71442531ae219cda2392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment Operator.  <a href="#a47c4286f358f71442531ae219cda2392"></a><br/></td></tr>
+<tr class="memitem:a33b78307e44b698a35adf6169dd8d372"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a33b78307e44b698a35adf6169dd8d372">~sequences</a> ()</td></tr>
+<tr class="memdesc:a33b78307e44b698a35adf6169dd8d372"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy sequences.  <a href="#a33b78307e44b698a35adf6169dd8d372"></a><br/></td></tr>
 <tr class="memitem:a125334dc9cc39fe47df7780284bb27f2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a125334dc9cc39fe47df7780284bb27f2">realValue</a> (int, size_t)</td></tr>
 <tr class="memitem:a104e5ece8e8cfbc5d2c6b40f04856818"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a104e5ece8e8cfbc5d2c6b40f04856818">realValue</a> (size_t, size_t)</td></tr>
 <tr class="memitem:ae8f23e456cdaaccead9a7db8491b8e8f"><td class="memItemLeft" align="right" valign="top">short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#ae8f23e456cdaaccead9a7db8491b8e8f">seqValue</a> (int, size_t)</td></tr>
@@ -139,18 +155,50 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5c45ecfdf5a9e2fbdaeb0bf7e3eb1cce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a5c45ecfdf5a9e2fbdaeb0bf7e3eb1cce">setLength</a> (size_t len)</td></tr>
 <tr class="memdesc:a5c45ecfdf5a9e2fbdaeb0bf7e3eb1cce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Length of sequences.  <a href="#a5c45ecfdf5a9e2fbdaeb0bf7e3eb1cce"></a><br/></td></tr>
 <tr class="memitem:a3a2e2f4d2af3fe24f1ca10e351b456a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a3a2e2f4d2af3fe24f1ca10e351b456a8">setExDef</a> (<a class="el" href="class_stoch_h_m_m_1_1_ex_def_sequence.html">ExDefSequence</a> *ex)</td></tr>
-<tr class="memitem:ac8e1f3a677009c6d27b4323255c450db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8e1f3a677009c6d27b4323255c450db"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isSameSize</b> ()</td></tr>
-<tr class="memitem:a98c03baeb2e3107cff7b2d98487212ee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a98c03baeb2e3107cff7b2d98487212ee"></a>
-<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (size_t index)</td></tr>
-<tr class="memitem:aaf0c3ddabd4a43bc483128ea2d1e7f21"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf0c3ddabd4a43bc483128ea2d1e7f21"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const std::string &amp;, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
+<tr class="memitem:ac8e1f3a677009c6d27b4323255c450db"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#ac8e1f3a677009c6d27b4323255c450db">isSameSize</a> ()</td></tr>
+<tr class="memitem:a98c03baeb2e3107cff7b2d98487212ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a98c03baeb2e3107cff7b2d98487212ee">operator[]</a> (size_t index)</td></tr>
+<tr class="memitem:aaf0c3ddabd4a43bc483128ea2d1e7f21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#aaf0c3ddabd4a43bc483128ea2d1e7f21">getFastas</a> (const std::string &amp;, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:aa954cd9a08d4fe9d462a93c3f0361980"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1_ex_def_sequence.html">ExDefSequence</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a></td></tr>
+<tr class="memitem:a638ab056cbcdbee61c39c90a39a3bde6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a></td></tr>
+<tr class="memitem:a197639d8768ccd650b67b909d613209b"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a197639d8768ccd650b67b909d613209b">length</a></td></tr>
+<tr class="memitem:a0f36f384684df6b7d47a5e1dfc65305b"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">num_of_sequences</a></td></tr>
+<tr class="memitem:ac9847a7c55f63b91f00c7ea84bb90edd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#ac9847a7c55f63b91f00c7ea84bb90edd">related_sequences</a></td></tr>
+<tr class="memitem:a7d908d2a5b6574a1717094528e85fc0e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a7d908d2a5b6574a1717094528e85fc0e">same_length</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>the track sequence(s) Each sequence have to be the same length Created to pass multiple sequence tracks of different datasets to the HMM If you need multiple unrelated sequences, use std::vector&lt;sequence&gt; instead. </p>
 
 <p>Definition at line <a class="el" href="sequences_8h_source.html#l00050">50</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a548fcbae336ca4a58d0127a37aca7c3a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::sequences::sequences </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00035">35</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+
+<p>References <a class="el" href="sequences_8h_source.html#l00194">external</a>, <a class="el" href="sequences_8h_source.html#l00198">length</a>, <a class="el" href="sequences_8h_source.html#l00199">num_of_sequences</a>, <a class="el" href="sequences_8h_source.html#l00201">related_sequences</a>, and <a class="el" href="sequences_8h_source.html#l00202">same_length</a>.</p>
+<div class="fragment"><div class="line">                        {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a197639d8768ccd650b67b909d613209b">length</a>=-1;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a>=NULL;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#ac9847a7c55f63b91f00c7ea84bb90edd">related_sequences</a>=<span class="keyword">false</span>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">num_of_sequences</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a7d908d2a5b6574a1717094528e85fc0e">same_length</a>=<span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="a152c1f192f554b931a3394c4281432f4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -173,12 +221,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 </dl>
 
 <p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00046">46</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
-<div class="fragment"><div class="line">                                 :seq(sz,NULL){</div>
-<div class="line">        length=-1;</div>
-<div class="line">        external=NULL;</div>
-<div class="line">        related_sequences=<span class="keyword">true</span>;</div>
-<div class="line">        num_of_sequences=sz;</div>
-<div class="line">        same_length=<span class="keyword">true</span>;</div>
+
+<p>References <a class="el" href="sequences_8h_source.html#l00194">external</a>, <a class="el" href="sequences_8h_source.html#l00198">length</a>, <a class="el" href="sequences_8h_source.html#l00199">num_of_sequences</a>, <a class="el" href="sequences_8h_source.html#l00201">related_sequences</a>, and <a class="el" href="sequences_8h_source.html#l00202">same_length</a>.</p>
+<div class="fragment"><div class="line">                                 :<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>(sz,NULL){</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a197639d8768ccd650b67b909d613209b">length</a>=-1;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a>=NULL;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#ac9847a7c55f63b91f00c7ea84bb90edd">related_sequences</a>=<span class="keyword">true</span>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">num_of_sequences</a>=sz;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a7d908d2a5b6574a1717094528e85fc0e">same_length</a>=<span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
@@ -205,12 +255,90 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 </dl>
 
 <p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00057">57</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
-<div class="fragment"><div class="line">                                  :seq(tr-&gt;size(),NULL){</div>
-<div class="line">        length=-1;</div>
-<div class="line">        external=NULL;</div>
-<div class="line">        related_sequences=<span class="keyword">true</span>;</div>
-<div class="line">        num_of_sequences=tr-&gt;size();</div>
-<div class="line">        same_length=<span class="keyword">true</span>;</div>
+
+<p>References <a class="el" href="sequences_8h_source.html#l00194">external</a>, <a class="el" href="sequences_8h_source.html#l00198">length</a>, <a class="el" href="sequences_8h_source.html#l00199">num_of_sequences</a>, <a class="el" href="sequences_8h_source.html#l00201">related_sequences</a>, <a class="el" href="sequences_8h_source.html#l00202">same_length</a>, and <a class="el" href="track_8h_source.html#l00295">StochHMM::tracks::size()</a>.</p>
+<div class="fragment"><div class="line">                                  :<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>(tr-&gt;size(),NULL){</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a197639d8768ccd650b67b909d613209b">length</a>=-1;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a>=NULL;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#ac9847a7c55f63b91f00c7ea84bb90edd">related_sequences</a>=<span class="keyword">true</span>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">num_of_sequences</a>=tr-&gt;size();</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a7d908d2a5b6574a1717094528e85fc0e">same_length</a>=<span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a071ff60a97b24ade746e965ecda91af5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::sequences::sequences </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00066">66</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+
+<p>References <a class="el" href="sequences_8h_source.html#l00194">external</a>, <a class="el" href="sequences_8h_source.html#l00198">length</a>, <a class="el" href="sequences_8h_source.html#l00199">num_of_sequences</a>, <a class="el" href="sequences_8h_source.html#l00201">related_sequences</a>, <a class="el" href="sequences_8h_source.html#l00202">same_length</a>, and <a class="el" href="sequences_8h_source.html#l00196">seq</a>.</p>
+<div class="fragment"><div class="line">                                            {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a> = (rhs.external==NULL) ? NULL : <span class="keyword">new</span>(std::nothrow) ExDefSequence(*rhs.external);</div>
+<div class="line">      </div>
+<div class="line">        <span class="keywordflow">if</span> (rhs.external != NULL &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a>==NULL){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a197639d8768ccd650b67b909d613209b">length</a> = rhs.length;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a7d908d2a5b6574a1717094528e85fc0e">same_length</a>=rhs.same_length;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">num_of_sequences</a>=rhs.num_of_sequences;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#ac9847a7c55f63b91f00c7ea84bb90edd">related_sequences</a>=rhs.related_sequences;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>.size();i++){</div>
+<div class="line">            sequence* temp=NULL;</div>
+<div class="line">            <span class="keywordflow">if</span> (rhs.seq[i]!=NULL){</div>
+<div class="line">                temp = <span class="keyword">new</span>(std::nothrow) sequence(*rhs.seq[i]);</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (temp == NULL){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                    exit(1);</div>
+<div class="line">                }</div>
+<div class="line">            }            </div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>.push_back(temp);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a33b78307e44b698a35adf6169dd8d372"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::sequences::~sequences </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destroy sequences. </p>
+
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00096">96</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+
+<p>References <a class="el" href="sequences_8h_source.html#l00194">external</a>, and <a class="el" href="sequences_8h_source.html#l00196">seq</a>.</p>
+<div class="fragment"><div class="line">                         {</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>.size();i++){</div>
+<div class="line">            <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[i];</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[i]=NULL;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a> = NULL;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
@@ -241,20 +369,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 
 <p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00262">262</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8h_source.html#l00158">StochHMM::track::getIndex()</a>, <a class="el" href="sequence_8h_source.html#l00089">StochHMM::sequence::getLength()</a>, <a class="el" href="sequence_8h_source.html#l00115">StochHMM::sequence::getTrack()</a>, and <a class="el" href="sequences_8cpp_source.html#l00329">setLength()</a>.</p>
+<p>References <a class="el" href="track_8h_source.html#l00158">StochHMM::track::getIndex()</a>, <a class="el" href="sequence_8h_source.html#l00089">StochHMM::sequence::getLength()</a>, <a class="el" href="sequence_8h_source.html#l00115">StochHMM::sequence::getTrack()</a>, <a class="el" href="sequences_8h_source.html#l00199">num_of_sequences</a>, <a class="el" href="sequences_8h_source.html#l00201">related_sequences</a>, <a class="el" href="sequences_8h_source.html#l00196">seq</a>, and <a class="el" href="sequences_8cpp_source.html#l00329">setLength()</a>.</p>
 
-<p>Referenced by <a class="el" href="sequences_8cpp_source.html#l00303">addSeq()</a>, and <a class="el" href="seq_tracks_8cpp_source.html#l00696">StochHMM::seqTracks::getNext()</a>.</p>
+<p>Referenced by <a class="el" href="sequences_8cpp_source.html#l00303">addSeq()</a>, <a class="el" href="sequences_8cpp_source.html#l00347">getFastas()</a>, and <a class="el" href="seq_tracks_8cpp_source.html#l00696">StochHMM::seqTracks::getNext()</a>.</p>
 <div class="fragment"><div class="line">                                      {</div>
-<div class="line">        <span class="keywordflow">if</span> (related_sequences){</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequences.html#ac9847a7c55f63b91f00c7ea84bb90edd">related_sequences</a>){</div>
 <div class="line">            track* trk = sq-&gt;getTrack();</div>
-<div class="line">            seq[trk-&gt;getIndex()]=sq;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[trk-&gt;getIndex()]=sq;</div>
 <div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a5c45ecfdf5a9e2fbdaeb0bf7e3eb1cce" title="Set Length of sequences.">setLength</a>(sq-&gt;getLength());</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
-<div class="line">            seq.push_back(sq);</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>.push_back(sq);</div>
 <div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a5c45ecfdf5a9e2fbdaeb0bf7e3eb1cce" title="Set Length of sequences.">setLength</a>(sq-&gt;getLength());</div>
-<div class="line">            num_of_sequences++;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">num_of_sequences</a>++;</div>
 <div class="line">        }</div>
 <div class="line">        </div>
 <div class="line">    }</div>
@@ -296,20 +424,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 
 <p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00281">281</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
 
-<p>References <a class="el" href="sequence_8h_source.html#l00089">StochHMM::sequence::getLength()</a>, and <a class="el" href="sequences_8cpp_source.html#l00329">setLength()</a>.</p>
+<p>References <a class="el" href="sequence_8h_source.html#l00089">StochHMM::sequence::getLength()</a>, <a class="el" href="sequences_8h_source.html#l00199">num_of_sequences</a>, <a class="el" href="sequences_8h_source.html#l00201">related_sequences</a>, <a class="el" href="sequences_8h_source.html#l00196">seq</a>, and <a class="el" href="sequences_8cpp_source.html#l00329">setLength()</a>.</p>
 <div class="fragment"><div class="line">                                                   {</div>
-<div class="line">        <span class="keywordflow">if</span> (seq.size()&gt;iter){  <span class="comment">//If position already exists just add it</span></div>
-<div class="line">            seq[iter]=sq;</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>.size()&gt;iter){  <span class="comment">//If position already exists just add it</span></div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[iter]=sq;</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{ <span class="comment">//If the position doesn&#39;t exist extend the vector, then add</span></div>
-<div class="line">            seq.resize(iter+1,NULL);</div>
-<div class="line">            seq[iter]=sq;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>.resize(iter+1,NULL);</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[iter]=sq;</div>
 <div class="line">        }</div>
 <div class="line">        </div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a5c45ecfdf5a9e2fbdaeb0bf7e3eb1cce" title="Set Length of sequences.">setLength</a>(sq-&gt;getLength());</div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> (!related_sequences){</div>
-<div class="line">            num_of_sequences=iter;</div>
+<div class="line">        <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1sequences.html#ac9847a7c55f63b91f00c7ea84bb90edd">related_sequences</a>){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">num_of_sequences</a>=iter;</div>
 <div class="line">        }</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
@@ -353,10 +481,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 
 <p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00303">303</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
 
-<p>References <a class="el" href="sequences_8cpp_source.html#l00262">addSeq()</a>, and <a class="el" href="track_8h_source.html#l00158">StochHMM::track::getIndex()</a>.</p>
+<p>References <a class="el" href="sequences_8cpp_source.html#l00262">addSeq()</a>, <a class="el" href="track_8h_source.html#l00158">StochHMM::track::getIndex()</a>, and <a class="el" href="sequences_8h_source.html#l00201">related_sequences</a>.</p>
 <div class="fragment"><div class="line">                                                {</div>
 <div class="line">        <span class="keywordflow">if</span> (tr!=NULL){</div>
-<div class="line">            <span class="keywordflow">if</span> (related_sequences){</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequences.html#ac9847a7c55f63b91f00c7ea84bb90edd">related_sequences</a>){</div>
 <div class="line">                <span class="keywordtype">size_t</span> index = tr-&gt;getIndex();</div>
 <div class="line">                <a class="code" href="class_stoch_h_m_m_1_1sequences.html#ae52e575cc20a6388b79f9eabab4c5ce4" title="Get sequence based on alphabet.">addSeq</a>(sq,index);</div>
 <div class="line">            }</div>
@@ -365,7 +493,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
-<div class="line">            <span class="keywordflow">if</span> (related_sequences){</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequences.html#ac9847a7c55f63b91f00c7ea84bb90edd">related_sequences</a>){</div>
 <div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Track is undefined for related sequences.  Unable to add related sequences if track is not defined\n&quot;</span>;</div>
 <div class="line">                exit(1);</div>
 <div class="line">            }</div>
@@ -402,9 +530,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 
 <p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00223">223</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="viterbi_8cpp_source.html#l00660">StochHMM::trellis::fast_complex_viterbi()</a>, and <a class="el" href="viterbi_8cpp_source.html#l00470">StochHMM::trellis::sparse_complex_viterbi()</a>.</p>
+<p>References <a class="el" href="extern_definitions_8h_source.html#l00094">StochHMM::ExDefSequence::defs</a>, and <a class="el" href="sequences_8h_source.html#l00194">external</a>.</p>
+
+<p>Referenced by <a class="el" href="backward_8cpp_source.html#l00013">StochHMM::trellis::backward()</a>, <a class="el" href="viterbi_8cpp_source.html#l00660">StochHMM::trellis::fast_complex_viterbi()</a>, <a class="el" href="forward_8cpp_source.html#l00014">StochHMM::trellis::forward()</a>, <a class="el" href="nth__best_8cpp_source.html#l00194">StochHMM::trellis::naive_nth_viterbi()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00171">StochHMM::trellis::naive_stochastic_viterbi()</a>, <a class="el" href="viterbi_8cpp_source.html#l00187">StochHMM::trellis::naive_viterbi()</a>, <a class="el" href="posterior_8cpp_source.html#l00019">StochHMM::trellis::posterior()</a>, <a class="el" href="backward_8cpp_source.html#l00119">StochHMM::trellis::simple_backward()</a>, <a class="el" href="forward_8cpp_source.html#l00034">StochHMM::trellis::simple_forward()</a>, <a class="el" href="nth__best_8cpp_source.html#l00031">StochHMM::trellis::simple_nth_viterbi()</a>, <a class="el" href="posterior_8cpp_source.html#l00036">StochHMM::trellis::simple_posterior()</a>, <a class="el" href="stoch__forward_8cpp_source.html#l00030">StochHMM::trellis::simple_stochastic_forward()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00032">StochHMM::trellis::simple_stochastic_viterbi()</a>, <a class="el" href="viterbi_8cpp_source.html#l00034">StochHMM::trellis::simple_viterbi()</a>, <a class="el" href="viterbi_8cpp_source.html#l00470">StochHMM::trellis::sparse_complex_viterbi()</a>, <a class="el" href="stoch__forward_8cpp_source.html#l00013">StochHMM::trellis::stochastic_forward()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00013">StochHMM::trellis::stochastic_viterbi()</a>, <a class="el" href="trellis_8cpp_source.html#l00055">StochHMM::trellis::trellis()</a>, and <a class="el" href="viterbi_8cpp_source.html#l00013">StochHMM::trellis::viterbi()</a>.</p>
 <div class="fragment"><div class="line">                                          {</div>
-<div class="line">        <span class="keywordflow">if</span> (external &amp;&amp; external-&gt;defs[pos]){</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a> &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1_ex_def_sequence.html#a7c32fd6b8448c36db6d645e4690dddb9">defs</a>[pos]){</div>
 <div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
@@ -448,10 +578,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 
 <p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00235">235</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
 
-<p>References <a class="el" href="extern_definitions_8cpp_source.html#l00060">StochHMM::ExDefSequence::defined()</a>.</p>
+<p>References <a class="el" href="extern_definitions_8cpp_source.html#l00060">StochHMM::ExDefSequence::defined()</a>, <a class="el" href="extern_definitions_8h_source.html#l00094">StochHMM::ExDefSequence::defs</a>, and <a class="el" href="sequences_8h_source.html#l00194">external</a>.</p>
 <div class="fragment"><div class="line">                                                            {</div>
-<div class="line">        <span class="keywordflow">if</span> (external &amp;&amp; external-&gt;defs[pos]){</div>
-<div class="line">            <span class="keywordflow">if</span> (external-&gt;<a class="code" href="class_stoch_h_m_m_1_1_ex_def_sequence.html#a38bfd2e9b0958bf40462b7758106ebed">defined</a>(stateIter)){</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a> &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1_ex_def_sequence.html#a7c32fd6b8448c36db6d645e4690dddb9">defs</a>[pos]){</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1_ex_def_sequence.html#a38bfd2e9b0958bf40462b7758106ebed">defined</a>(stateIter)){</div>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
@@ -478,8 +608,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 <dl class="section return"><dt>Returns:</dt><dd>true if there are external definitions defined </dd></dl>
 
 <p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00247">247</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+
+<p>References <a class="el" href="sequences_8h_source.html#l00194">external</a>.</p>
 <div class="fragment"><div class="line">                                {</div>
-<div class="line">        <span class="keywordflow">return</span> external;</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a>;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
@@ -515,12 +647,69 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 <dl class="section return"><dt>Returns:</dt><dd>double value of the attribute set for the sequence </dd></dl>
 
 <p>Definition at line <a class="el" href="sequences_8h_source.html#l00078">78</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+
+<p>References <a class="el" href="sequences_8h_source.html#l00199">num_of_sequences</a>, and <a class="el" href="sequences_8h_source.html#l00196">seq</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
-<div class="line">            <span class="keywordflow">if</span> (iter&lt;num_of_sequences &amp;&amp; seq[iter]!=NULL){</div>
-<div class="line">                <span class="keywordflow">return</span> seq[iter]-&gt;getAttrib();  <span class="comment">//Returns attrib value for Track (i)</span></div>
+<div class="line">            <span class="keywordflow">if</span> (iter&lt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">num_of_sequences</a> &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[iter]!=NULL){</div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[iter]-&gt;getAttrib();  <span class="comment">//Returns attrib value for Track (i)</span></div>
 <div class="line">            }</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;No sequence defined at iterator &quot;</span> &lt;&lt; iter &lt;&lt; std::endl;</div>
 <div class="line">            exit(1);</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aaf0c3ddabd4a43bc483128ea2d1e7f21"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::sequences::getFastas </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td>
+          <td class="paramname"><em>tr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00347">347</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+
+<p>References <a class="el" href="sequences_8cpp_source.html#l00262">addSeq()</a>, and <a class="el" href="sequence_8h_source.html#l00147">StochHMM::sequence::getFasta()</a>.</p>
+
+<p>Referenced by <a class="el" href="_motif_scorer_8cpp_source.html#l00021">main()</a>.</p>
+<div class="fragment"><div class="line">                                                                     {</div>
+<div class="line">                std::ifstream file;</div>
+<div class="line">                file.open(filename.c_str());</div>
+<div class="line">                <span class="keywordflow">if</span> (!file.is_open()){</div>
+<div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Couln&#39;t open the file:&quot;</span> &lt;&lt; filename &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">                        exit(2);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">while</span>(!file.eof()){</div>
+<div class="line">                        sequence* sq = <span class="keyword">new</span>(std::nothrow) sequence(<span class="keyword">false</span>);</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (sq==NULL){</div>
+<div class="line">                                std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                                exit(1);</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordtype">bool</span> success = sq-&gt;getFasta(file, tr);</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (!success){</div>
+<div class="line">                                <span class="keyword">delete</span> sq;</div>
+<div class="line">                        }</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#ae52e575cc20a6388b79f9eabab4c5ce4" title="Get sequence based on alphabet.">addSeq</a>(sq,tr);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 </div>
@@ -549,9 +738,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 <dl class="section return"><dt>Returns:</dt><dd>std::string&amp; The header for the first sequence in sequences </dd></dl>
 
 <p>Definition at line <a class="el" href="sequences_8h_source.html#l00089">89</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+
+<p>References <a class="el" href="sequences_8h_source.html#l00199">num_of_sequences</a>, and <a class="el" href="sequences_8h_source.html#l00196">seq</a>.</p>
+
+<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00266">perform_nbest_decoding()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00329">perform_posterior()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00286">perform_stochastic_decoding()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00247">perform_viterbi_decoding()</a>, and <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00408">print_posterior()</a>.</p>
 <div class="fragment"><div class="line">                                     {</div>
-<div class="line">            <span class="keywordflow">if</span> (num_of_sequences&gt;0 &amp;&amp; seq[0]!=NULL){</div>
-<div class="line">                <span class="keywordflow">return</span> seq[0]-&gt;header;</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">num_of_sequences</a>&gt;0 &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[0]!=NULL){</div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[0]-&gt;header;</div>
 <div class="line">            }</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;No sequence defined.&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line">            exit(1);</div>
@@ -590,10 +783,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 <dl class="section return"><dt>Returns:</dt><dd>std::string&amp; The header for the ith sequence </dd></dl>
 
 <p>Definition at line <a class="el" href="sequences_8h_source.html#l00101">101</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+
+<p>References <a class="el" href="sequences_8h_source.html#l00199">num_of_sequences</a>, and <a class="el" href="sequences_8h_source.html#l00196">seq</a>.</p>
 <div class="fragment"><div class="line">                                                {</div>
-<div class="line">            <span class="keywordflow">if</span> (iter&lt;num_of_sequences){</div>
-<div class="line">                <span class="keywordflow">if</span> (seq[iter]!=NULL){</div>
-<div class="line">                    <span class="keywordflow">return</span> seq[iter]-&gt;header;</div>
+<div class="line">            <span class="keywordflow">if</span> (iter&lt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">num_of_sequences</a>){</div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[iter]!=NULL){</div>
+<div class="line">                    <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[iter]-&gt;header;</div>
 <div class="line">                }</div>
 <div class="line">            }</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;No sequence defined at iterator &quot;</span> &lt;&lt; iter &lt;&lt; std::endl;</div>
@@ -634,10 +829,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 
 <p>Definition at line <a class="el" href="sequences_8h_source.html#l00134">134</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
 
-<p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00696">StochHMM::seqTracks::getNext()</a>.</p>
+<p>References <a class="el" href="sequences_8h_source.html#l00199">num_of_sequences</a>, and <a class="el" href="sequences_8h_source.html#l00196">seq</a>.</p>
+
+<p>Referenced by <a class="el" href="backward_8cpp_source.html#l00013">StochHMM::trellis::backward()</a>, <a class="el" href="forward_8cpp_source.html#l00014">StochHMM::trellis::forward()</a>, <a class="el" href="seq_tracks_8cpp_source.html#l00696">StochHMM::seqTracks::getNext()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00171">StochHMM::trellis::naive_stochastic_viterbi()</a>, <a class="el" href="viterbi_8cpp_source.html#l00187">StochHMM::trellis::naive_viterbi()</a>, <a class="el" href="posterior_8cpp_source.html#l00019">StochHMM::trellis::posterior()</a>, <a class="el" href="backward_8cpp_source.html#l00119">StochHMM::trellis::simple_backward()</a>, <a class="el" href="forward_8cpp_source.html#l00034">StochHMM::trellis::simple_forward()</a>, <a class="el" href="posterior_8cpp_source.html#l00036">StochHMM::trellis::simple_posterior()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00032">StochHMM::trellis::simple_stochastic_viterbi()</a>, <a class="el" href="viterbi_8cpp_source.html#l00034">StochHMM::trellis::simple_viterbi()</a>, <a class="el" href="stoch__forward_8cpp_source.html#l00013">StochHMM::trellis::stochastic_forward()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00013">StochHMM::trellis::stochastic_viterbi()</a>, <a class="el" href="trellis_8cpp_source.html#l00055">StochHMM::trellis::trellis()</a>, and <a class="el" href="viterbi_8cpp_source.html#l00013">StochHMM::trellis::viterbi()</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
-<div class="line">            <span class="keywordflow">if</span> (iter&lt;num_of_sequences &amp;&amp; seq[iter]!=NULL){</div>
-<div class="line">                <span class="keywordflow">return</span> seq[iter]-&gt;getLength(); <span class="comment">//Get lenght of sequence in position (i)</span></div>
+<div class="line">            <span class="keywordflow">if</span> (iter&lt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">num_of_sequences</a> &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[iter]!=NULL){</div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[iter]-&gt;getLength(); <span class="comment">//Get lenght of sequence in position (i)</span></div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">return</span> 0;</div>
 <div class="line">        } </div>
@@ -668,8 +865,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 <dl class="section return"><dt>Returns:</dt><dd>size_t value of length of all sequences </dd></dl>
 
 <p>Definition at line <a class="el" href="sequences_8h_source.html#l00144">144</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+
+<p>References <a class="el" href="sequences_8h_source.html#l00198">length</a>.</p>
 <div class="fragment"><div class="line">                                 {</div>
-<div class="line">                        <span class="keywordflow">return</span> length;</div>
+<div class="line">                        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a197639d8768ccd650b67b909d613209b">length</a>;</div>
 <div class="line"><span class="comment">//            if (related_sequences){</span></div>
 <div class="line"><span class="comment">//                return length; // Get length of related sequence</span></div>
 <div class="line"><span class="comment">//            }</span></div>
@@ -703,9 +902,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getFastas</b> (const 
 NULL if no sequence exists at iter </dd></dl>
 
 <p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00174">174</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+
+<p>References <a class="el" href="sequences_8h_source.html#l00196">seq</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00407">StochHMM::PWM::scoreSimple()</a>, <a class="el" href="pwm_8cpp_source.html#l00452">StochHMM::PWM::scoreUndefSpacer()</a>, <a class="el" href="pwm_8cpp_source.html#l00525">StochHMM::PWM::scoreVariableSpacer()</a>, and <a class="el" href="trellis_8cpp_source.html#l00315">StochHMM::trellis::transitionFuncTraceback()</a>.</p>
 <div class="fragment"><div class="line">                                          {</div>
-<div class="line">        <span class="keywordflow">if</span>(iter&lt;seq.size()){</div>
-<div class="line">            <span class="keywordflow">return</span> seq[iter];</div>
+<div class="line">        <span class="keywordflow">if</span>(iter&lt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>.size()){</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[iter];</div>
 <div class="line">        }</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">return</span> NULL;</div>
@@ -745,14 +948,16 @@ NULL if no sequence exists at iter </dd></dl>
 
 <p>Definition at line <a class="el" href="sequences_8h_source.html#l00115">115</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
 
-<p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00696">StochHMM::seqTracks::getNext()</a>.</p>
+<p>References <a class="el" href="sequences_8h_source.html#l00196">seq</a>.</p>
+
+<p>Referenced by <a class="el" href="external_funcs_8cpp_source.html#l00363">StochHMM::emissionFuncParam::evaluate()</a>, <a class="el" href="seq_tracks_8cpp_source.html#l00696">StochHMM::seqTracks::getNext()</a>, and <a class="el" href="trellis_8cpp_source.html#l00315">StochHMM::trellis::transitionFuncTraceback()</a>.</p>
 <div class="fragment"><div class="line">                                                     {</div>
-<div class="line">            <span class="keywordflow">if</span> (iter&gt;seq.size()){</div>
+<div class="line">            <span class="keywordflow">if</span> (iter&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>.size()){</div>
 <div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;getUndigitized(size_t iter) called where iter is out of range\n&quot;</span>;</div>
 <div class="line">                <span class="keywordflow">return</span> NULL;</div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span>{</div>
-<div class="line">                <span class="keywordflow">return</span> seq[iter]-&gt;getUndigitized();</div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[iter]-&gt;getUndigitized();</div>
 <div class="line">            }</div>
 <div class="line">        };</div>
 </div><!-- fragment -->
@@ -792,12 +997,121 @@ NULL if no sequence exists at iter </dd></dl>
 
 <p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00254">254</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
 
-<p>References <a class="el" href="extern_definitions_8cpp_source.html#l00111">StochHMM::ExDefSequence::getWeight()</a>.</p>
+<p>References <a class="el" href="sequences_8h_source.html#l00194">external</a>, and <a class="el" href="extern_definitions_8cpp_source.html#l00111">StochHMM::ExDefSequence::getWeight()</a>.</p>
 
-<p>Referenced by <a class="el" href="viterbi_8cpp_source.html#l00660">StochHMM::trellis::fast_complex_viterbi()</a>, and <a class="el" href="viterbi_8cpp_source.html#l00470">StochHMM::trellis::sparse_complex_viterbi()</a>.</p>
+<p>Referenced by <a class="el" href="viterbi_8cpp_source.html#l00660">StochHMM::trellis::fast_complex_viterbi()</a>, <a class="el" href="forward_8cpp_source.html#l00177">StochHMM::trellis::naive_forward()</a>, <a class="el" href="nth__best_8cpp_source.html#l00194">StochHMM::trellis::naive_nth_viterbi()</a>, <a class="el" href="stoch__forward_8cpp_source.html#l00174">StochHMM::trellis::naive_stochastic_forward()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00181">StochHMM::trellis::naive_stochastic_viterbi()</a>, <a class="el" href="viterbi_8cpp_source.html#l00201">StochHMM::trellis::naive_viterbi()</a>, <a class="el" href="backward_8cpp_source.html#l00131">StochHMM::trellis::simple_backward()</a>, <a class="el" href="forward_8cpp_source.html#l00044">StochHMM::trellis::simple_forward()</a>, <a class="el" href="nth__best_8cpp_source.html#l00031">StochHMM::trellis::simple_nth_viterbi()</a>, <a class="el" href="posterior_8cpp_source.html#l00056">StochHMM::trellis::simple_posterior()</a>, <a class="el" href="stoch__forward_8cpp_source.html#l00030">StochHMM::trellis::simple_stochastic_forward()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00042">StochHMM::trellis::simple_stochastic_viterbi()</a>, <a class="el" href="viterbi_8cpp_source.html#l00045">StochHMM::trellis::simple_viterbi()</a>, and <a class="el" href="viterbi_8cpp_source.html#l00470">StochHMM::trellis::sparse_complex_viterbi()</a>.</p>
 <div class="fragment"><div class="line">                                                                {</div>
-<div class="line">        <span class="keywordflow">return</span> external-&gt;<a class="code" href="class_stoch_h_m_m_1_1_ex_def_sequence.html#aeff378b2336212fc3ce2b1675223d9a9">getWeight</a>(position, stateIter);</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1_ex_def_sequence.html#aeff378b2336212fc3ce2b1675223d9a9">getWeight</a>(position, stateIter);</div>
 <div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ac8e1f3a677009c6d27b4323255c450db"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::sequences::isSameSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequences_8h_source.html#l00184">184</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+
+<p>References <a class="el" href="sequences_8h_source.html#l00202">same_length</a>.</p>
+<div class="fragment"><div class="line">                                {</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a7d908d2a5b6574a1717094528e85fc0e">same_length</a>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a47c4286f358f71442531ae219cda2392"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> &amp; StochHMM::sequences::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Assignment Operator. </p>
+
+<p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00107">107</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+
+<p>References <a class="el" href="sequences_8h_source.html#l00194">external</a>, <a class="el" href="sequences_8h_source.html#l00198">length</a>, <a class="el" href="sequences_8h_source.html#l00199">num_of_sequences</a>, <a class="el" href="sequences_8h_source.html#l00201">related_sequences</a>, <a class="el" href="sequences_8h_source.html#l00202">same_length</a>, and <a class="el" href="sequences_8h_source.html#l00196">seq</a>.</p>
+<div class="fragment"><div class="line">                                                        {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a> = (rhs.external==NULL) ? NULL : <span class="keyword">new</span>(std::nothrow) ExDefSequence(*rhs.external);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (rhs.external != NULL &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a>==NULL){</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a197639d8768ccd650b67b909d613209b">length</a> = rhs.length;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a7d908d2a5b6574a1717094528e85fc0e">same_length</a>=rhs.same_length;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">num_of_sequences</a>=rhs.num_of_sequences;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequences.html#ac9847a7c55f63b91f00c7ea84bb90edd">related_sequences</a>=rhs.related_sequences;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>.size();i++){</div>
+<div class="line">            sequence* temp=NULL;</div>
+<div class="line">            <span class="keywordflow">if</span> (rhs.seq[i]!=NULL){</div>
+<div class="line">                temp = <span class="keyword">new</span>(std::nothrow) sequence(*rhs.seq[i]);</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (temp == NULL){</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                    exit(1);</div>
+<div class="line">                }</div>
+<div class="line">            }            </div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>.push_back(temp);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a98c03baeb2e3107cff7b2d98487212ee"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>&amp; StochHMM::sequences::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequences_8h_source.html#l00188">188</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+
+<p>References <a class="el" href="sequences_8h_source.html#l00196">seq</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> *<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[index];}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -828,6 +1142,8 @@ NULL if no sequence exists at iter </dd></dl>
 <p>Definition at line <a class="el" href="sequences_8h_source.html#l00159">159</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
 
 <p>References <a class="el" href="sequences_8cpp_source.html#l00184">stringify()</a>.</p>
+
+<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00095">main()</a>.</p>
 <div class="fragment"><div class="line">{std::cout&lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1sequences.html#af6167ae56e39f98db3a3fd24f6891f46">stringify</a>() &lt;&lt; std::endl;}; <span class="comment">//Print sequences to stdout</span></div>
 </div><!-- fragment -->
 </div>
@@ -867,10 +1183,12 @@ NULL if no sequence exists at iter </dd></dl>
 
 <p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00141">141</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
 
+<p>References <a class="el" href="sequences_8h_source.html#l00196">seq</a>.</p>
+
 <p>Referenced by <a class="el" href="emm_8cpp_source.html#l00681">StochHMM::emm::get_emission()</a>.</p>
 <div class="fragment"><div class="line">                                                       {</div>
-<div class="line">        <span class="keywordflow">if</span> (seq[trck]-&gt;realSeq){</div>
-<div class="line">            <span class="keywordflow">return</span> seq[trck]-&gt;realValue(position);</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[trck]-&gt;realSeq){</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[trck]-&gt;realValue(position);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">return</span> -INFINITY;</div>
 <div class="line">        </div>
@@ -912,9 +1230,11 @@ NULL if no sequence exists at iter </dd></dl>
 <dl class="section return"><dt>Returns:</dt><dd>double value of the real sequence at the position </dd></dl>
 
 <p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00153">153</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+
+<p>References <a class="el" href="sequences_8h_source.html#l00196">seq</a>.</p>
 <div class="fragment"><div class="line">                                                          {</div>
-<div class="line">        <span class="keywordflow">if</span> (seq[trck]-&gt;realSeq){</div>
-<div class="line">            <span class="keywordflow">return</span> seq[trck]-&gt;realValue(position);</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[trck]-&gt;realSeq){</div>
+<div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[trck]-&gt;realValue(position);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">return</span> -INFINITY;</div>
 <div class="line">        </div>
@@ -956,8 +1276,10 @@ NULL if no sequence exists at iter </dd></dl>
 <dl class="section return"><dt>Returns:</dt><dd>short digitized value of the sequence based on track type </dd></dl>
 
 <p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00166">166</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
+
+<p>References <a class="el" href="sequences_8h_source.html#l00196">seq</a>.</p>
 <div class="fragment"><div class="line">                                                      {</div>
-<div class="line">        <span class="keywordflow">return</span> seq[trck]-&gt;seqValue(position);</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[trck]-&gt;seqValue(position);</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
 </div>
@@ -993,8 +1315,10 @@ NULL if no sequence exists at iter </dd></dl>
 
 <p>Definition at line <a class="el" href="sequences_8h_source.html#l00182">182</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
 
+<p>References <a class="el" href="sequences_8h_source.html#l00194">external</a>.</p>
+
 <p>Referenced by <a class="el" href="seq_tracks_8cpp_source.html#l00696">StochHMM::seqTracks::getNext()</a>.</p>
-<div class="fragment"><div class="line">{external=ex;};</div>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a>=ex;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1023,18 +1347,20 @@ NULL if no sequence exists at iter </dd></dl>
 
 <p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00329">329</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
 
+<p>References <a class="el" href="sequences_8h_source.html#l00198">length</a>, <a class="el" href="statistics_8cpp_source.html#l00040">StochHMM::max()</a>, <a class="el" href="sequences_8h_source.html#l00201">related_sequences</a>, and <a class="el" href="sequences_8h_source.html#l00202">same_length</a>.</p>
+
 <p>Referenced by <a class="el" href="sequences_8cpp_source.html#l00262">addSeq()</a>, and <a class="el" href="seq_tracks_8cpp_source.html#l00696">StochHMM::seqTracks::getNext()</a>.</p>
 <div class="fragment"><div class="line">                                       {</div>
-<div class="line">        <span class="keywordflow">if</span> (length == std::numeric_limits&lt;size_t&gt;::max()){</div>
-<div class="line">            length=len;</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a197639d8768ccd650b67b909d613209b">length</a> == <a class="code" href="namespace_stoch_h_m_m.html#a8f9197e4dd6f06db75b1eb2039e28ce0">std::numeric_limits&lt;size_t&gt;::max</a>()){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a197639d8768ccd650b67b909d613209b">length</a>=len;</div>
 <div class="line">        }</div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> (len==length){</div>
+<div class="line">        <span class="keywordflow">if</span> (len==<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a197639d8768ccd650b67b909d613209b">length</a>){</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
-<div class="line">            same_length=<span class="keyword">false</span>;</div>
-<div class="line">            <span class="keywordflow">if</span> (related_sequences){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a7d908d2a5b6574a1717094528e85fc0e">same_length</a>=<span class="keyword">false</span>;</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequences.html#ac9847a7c55f63b91f00c7ea84bb90edd">related_sequences</a>){</div>
 <div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Sequences have different lengths. Sequences should all have the same length because they are suppose to be related (from different datasets).  For multiple unrelated sequence types, use a different structure.\n&quot;</span>;</div>
 <div class="line">                exit(20);</div>
 <div class="line">            }</div>
@@ -1070,8 +1396,10 @@ NULL if no sequence exists at iter </dd></dl>
 
 <p>Definition at line <a class="el" href="sequences_8h_source.html#l00129">129</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
 
-<p>Referenced by <a class="el" href="sequences_8cpp_source.html#l00184">stringify()</a>, and <a class="el" href="sequences_8cpp_source.html#l00204">undigitize()</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> num_of_sequences;} <span class="comment">//Get number of sequences</span></div>
+<p>References <a class="el" href="sequences_8h_source.html#l00199">num_of_sequences</a>.</p>
+
+<p>Referenced by <a class="el" href="pwm_8cpp_source.html#l00407">StochHMM::PWM::scoreSimple()</a>, <a class="el" href="pwm_8cpp_source.html#l00452">StochHMM::PWM::scoreUndefSpacer()</a>, <a class="el" href="pwm_8cpp_source.html#l00525">StochHMM::PWM::scoreVariableSpacer()</a>, <a class="el" href="sequences_8cpp_source.html#l00184">stringify()</a>, and <a class="el" href="sequences_8cpp_source.html#l00204">undigitize()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">num_of_sequences</a>;} <span class="comment">//Get number of sequences</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1092,7 +1420,7 @@ NULL if no sequence exists at iter </dd></dl>
 
 <p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00184">184</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8h_source.html#l00150">StochHMM::track::getName()</a>, <a class="el" href="text_8cpp_source.html#l00564">StochHMM::int_to_string()</a>, and <a class="el" href="sequences_8h_source.html#l00129">size()</a>.</p>
+<p>References <a class="el" href="track_8h_source.html#l00150">StochHMM::track::getName()</a>, <a class="el" href="text_8cpp_source.html#l00564">StochHMM::int_to_string()</a>, <a class="el" href="sequences_8h_source.html#l00196">seq</a>, and <a class="el" href="sequences_8h_source.html#l00129">size()</a>.</p>
 
 <p>Referenced by <a class="el" href="sequences_8h_source.html#l00159">print()</a>.</p>
 <div class="fragment"><div class="line">                                  {</div>
@@ -1100,14 +1428,14 @@ NULL if no sequence exists at iter </dd></dl>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i&lt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a133eefa4ac161b421f820fef7c81ff07">size</a>(); i++){</div>
 <div class="line">            </div>
 <div class="line">            </div>
-<div class="line">            <span class="keywordflow">if</span> (seq[i]==NULL){</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[i]==NULL){</div>
 <div class="line">                tmp+= <span class="stringliteral">&quot;&gt;TRACK: &quot;</span> + <a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(i) + <span class="stringliteral">&quot;:\t&quot;</span> ;</div>
 <div class="line">                tmp+= <span class="stringliteral">&quot;&lt;&lt;EMPTY&gt;&gt;\n&quot;</span> ;</div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span>{</div>
-<div class="line">                track* trk = seq[i]-&gt;getTrack();</div>
+<div class="line">                track* trk = <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[i]-&gt;getTrack();</div>
 <div class="line">                tmp+= <span class="stringliteral">&quot;&gt;&quot;</span> + trk-&gt;getName();</div>
-<div class="line">                tmp+= seq[i]-&gt;stringify();</div>
+<div class="line">                tmp+= <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[i]-&gt;stringify();</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">return</span> tmp;</div>
@@ -1134,18 +1462,18 @@ NULL if no sequence exists at iter </dd></dl>
 
 <p>Definition at line <a class="el" href="sequences_8cpp_source.html#l00204">204</a> of file <a class="el" href="sequences_8cpp_source.html">sequences.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8h_source.html#l00150">StochHMM::track::getName()</a>, <a class="el" href="text_8cpp_source.html#l00564">StochHMM::int_to_string()</a>, and <a class="el" href="sequences_8h_source.html#l00129">size()</a>.</p>
+<p>References <a class="el" href="track_8h_source.html#l00150">StochHMM::track::getName()</a>, <a class="el" href="text_8cpp_source.html#l00564">StochHMM::int_to_string()</a>, <a class="el" href="sequences_8h_source.html#l00196">seq</a>, and <a class="el" href="sequences_8h_source.html#l00129">size()</a>.</p>
 <div class="fragment"><div class="line">                                   {</div>
 <div class="line">        std::string output;</div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a133eefa4ac161b421f820fef7c81ff07">size</a>();i++){</div>
-<div class="line">            <span class="keywordflow">if</span> (seq[i]==NULL){</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[i]==NULL){</div>
 <div class="line">                output+= <span class="stringliteral">&quot;&gt;TRACK: &quot;</span> + <a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(i) + <span class="stringliteral">&quot;:\t&quot;</span> ;</div>
 <div class="line">                output+= <span class="stringliteral">&quot;&lt;&lt;EMPTY&gt;&gt;\n&quot;</span> ;</div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span>{</div>
-<div class="line">                track* trk = seq[i]-&gt;getTrack();</div>
+<div class="line">                track* trk = <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[i]-&gt;getTrack();</div>
 <div class="line">                output+= <span class="stringliteral">&quot;&gt;&quot;</span> + trk-&gt;getName();</div>
-<div class="line">                output+= seq[i]-&gt;undigitize();</div>
+<div class="line">                output+= <a class="code" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a>[i]-&gt;undigitize();</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">return</span> output;</div>
@@ -1153,16 +1481,165 @@ NULL if no sequence exists at iter </dd></dl>
 </div><!-- fragment -->
 </div>
 </div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="aa954cd9a08d4fe9d462a93c3f0361980"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1_ex_def_sequence.html">ExDefSequence</a>* StochHMM::sequences::external</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequences_8h_source.html#l00194">194</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+
+<p>Referenced by <a class="el" href="sequences_8cpp_source.html#l00223">exDefDefined()</a>, <a class="el" href="sequences_8cpp_source.html#l00254">getWeight()</a>, <a class="el" href="sequences_8cpp_source.html#l00107">operator=()</a>, <a class="el" href="sequences_8cpp_source.html#l00035">sequences()</a>, <a class="el" href="sequences_8h_source.html#l00182">setExDef()</a>, and <a class="el" href="sequences_8cpp_source.html#l00096">~sequences()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a197639d8768ccd650b67b909d613209b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::sequences::length</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequences_8h_source.html#l00198">198</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+
+<p>Referenced by <a class="el" href="sequences_8h_source.html#l00144">getLength()</a>, <a class="el" href="sequences_8cpp_source.html#l00107">operator=()</a>, <a class="el" href="sequences_8cpp_source.html#l00035">sequences()</a>, and <a class="el" href="sequences_8cpp_source.html#l00329">setLength()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0f36f384684df6b7d47a5e1dfc65305b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::sequences::num_of_sequences</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequences_8h_source.html#l00199">199</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+
+<p>Referenced by <a class="el" href="sequences_8cpp_source.html#l00262">addSeq()</a>, <a class="el" href="sequences_8h_source.html#l00078">getAttrib()</a>, <a class="el" href="sequences_8h_source.html#l00089">getHeader()</a>, <a class="el" href="sequences_8h_source.html#l00134">getLength()</a>, <a class="el" href="sequences_8cpp_source.html#l00107">operator=()</a>, <a class="el" href="sequences_8cpp_source.html#l00035">sequences()</a>, and <a class="el" href="sequences_8h_source.html#l00129">size()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac9847a7c55f63b91f00c7ea84bb90edd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::sequences::related_sequences</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequences_8h_source.html#l00201">201</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+
+<p>Referenced by <a class="el" href="sequences_8cpp_source.html#l00262">addSeq()</a>, <a class="el" href="sequences_8cpp_source.html#l00107">operator=()</a>, <a class="el" href="sequences_8cpp_source.html#l00035">sequences()</a>, and <a class="el" href="sequences_8cpp_source.html#l00329">setLength()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7d908d2a5b6574a1717094528e85fc0e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::sequences::same_length</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequences_8h_source.html#l00202">202</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+
+<p>Referenced by <a class="el" href="sequences_8h_source.html#l00184">isSameSize()</a>, <a class="el" href="sequences_8cpp_source.html#l00107">operator=()</a>, <a class="el" href="sequences_8cpp_source.html#l00035">sequences()</a>, and <a class="el" href="sequences_8cpp_source.html#l00329">setLength()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a638ab056cbcdbee61c39c90a39a3bde6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>*&gt; StochHMM::sequences::seq</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequences_8h_source.html#l00196">196</a> of file <a class="el" href="sequences_8h_source.html">sequences.h</a>.</p>
+
+<p>Referenced by <a class="el" href="sequences_8cpp_source.html#l00262">addSeq()</a>, <a class="el" href="sequences_8h_source.html#l00078">getAttrib()</a>, <a class="el" href="sequences_8h_source.html#l00089">getHeader()</a>, <a class="el" href="sequences_8h_source.html#l00134">getLength()</a>, <a class="el" href="sequences_8cpp_source.html#l00174">getSeq()</a>, <a class="el" href="sequences_8h_source.html#l00115">getUndigitized()</a>, <a class="el" href="sequences_8cpp_source.html#l00107">operator=()</a>, <a class="el" href="sequences_8h_source.html#l00188">operator[]()</a>, <a class="el" href="sequences_8cpp_source.html#l00141">realValue()</a>, <a class="el" href="sequences_8cpp_source.html#l00066">sequences()</a>, <a class="el" href="sequences_8cpp_source.html#l00166">seqValue()</a>, <a class="el" href="sequences_8cpp_source.html#l00184">stringify()</a>, <a class="el" href="sequences_8cpp_source.html#l00204">undigitize()</a>, and <a class="el" href="sequences_8cpp_source.html#l00096">~sequences()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="sequences_8h_source.html">sequences.h</a></li>
 <li><a class="el" href="sequences_8cpp_source.html">sequences.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:38 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

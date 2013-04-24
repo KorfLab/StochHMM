@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -64,15 +70,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('distributions_8cpp.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,7 +106,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">distributions.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<a href="distributions_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *  distributions.cpp</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  Created by Paul Lott on 4/22/09.</span></div>
@@ -94,10 +114,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;distributions.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="distributions_8h.html">distributions.h</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>StochHMM{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">int</span> maximum=1000000;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">   12</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>=1000000;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment"></span></div>
@@ -114,7 +134,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#ae85cdb77003d7eb11c3130e1ef438268">   26</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#ae85cdb77003d7eb11c3130e1ef438268">sBinomial</a> (std::vector&lt;double&gt;&amp;dist, <span class="keywordtype">int</span> trials, <span class="keywordtype">double</span> prob){</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Binomial_distribution</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">double</span> cdf=0;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;maximum;i++){</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordtype">double</span> pmf=<a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(trials,i)*pow(prob,i)*pow(1-prob,trials-i);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            cdf+=pmf;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keywordtype">double</span> val=1-cdf;</div>
@@ -136,7 +156,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a013a27db8a0349f2c77a03665609ca75">   48</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a013a27db8a0349f2c77a03665609ca75">cBinomial</a> (std::vector&lt;double&gt;&amp;dist, <span class="keywordtype">int</span> trials, <span class="keywordtype">double</span> prob){</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Binomial_distribution</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordtype">double</span> cdf=0;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;maximum;i++){</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordtype">double</span> pmf=<a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(trials,i)*pow(prob,i)*pow(1-prob,trials-i);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            cdf+=pmf;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordtype">double</span> val=cdf;</div>
@@ -161,10 +181,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">    //!\param b beta</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#abb36848ca04cd343ece5630561a24576">   74</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#abb36848ca04cd343ece5630561a24576">sBetaBinomial</a> (std::vector&lt;double&gt;&amp; dist, <span class="keywordtype">int</span> trials, <span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b){</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">double</span> cdf = 0;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;maximum;i++){</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordtype">double</span> newAlpha = (double) i + a;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordtype">double</span> newBeta  = (double)(trials-i) + b;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordtype">double</span> pmf      = <a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(trials,i) * (beta(newAlpha,newBeta)/ beta(a,b));</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordtype">double</span> pmf      = <a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(trials,i) * (<a class="code" href="namespace_stoch_h_m_m.html#a207e1a7c14fbf8f0486c0d98f74738e6">beta</a>(newAlpha,newBeta)/ <a class="code" href="namespace_stoch_h_m_m.html#a207e1a7c14fbf8f0486c0d98f74738e6">beta</a>(a,b));</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            cdf+=pmf;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordtype">double</span> val=1-cdf;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            </div>
@@ -188,10 +208,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">    //!\param b beta</span></div>
 <div class="line"><a name="l00101"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#abb01cee7a0614c646d8335d21ad1626c">  101</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#abb01cee7a0614c646d8335d21ad1626c">cBetaBinomial</a> (std::vector&lt;double&gt;&amp; dist, <span class="keywordtype">int</span> trials, <span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b){</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordtype">double</span> cdf = 0;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;maximum;i++){</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <span class="keywordtype">double</span> newAlpha = (double) i + a;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keywordtype">double</span> newBeta  = (double)(trials-i) + b;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordtype">double</span> pmf      = <a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(trials,i) * (beta(newAlpha,newBeta)/ beta(a,b));</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordtype">double</span> pmf      = <a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(trials,i) * (<a class="code" href="namespace_stoch_h_m_m.html#a207e1a7c14fbf8f0486c0d98f74738e6">beta</a>(newAlpha,newBeta)/ <a class="code" href="namespace_stoch_h_m_m.html#a207e1a7c14fbf8f0486c0d98f74738e6">beta</a>(a,b));</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            cdf+=pmf;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="keywordtype">double</span> val=cdf;</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            </div>
@@ -276,7 +296,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00188"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a988a18c0f7a0ceadc9676fc39381464f">  188</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a988a18c0f7a0ceadc9676fc39381464f">sHypergeometric</a> (std::vector&lt;double&gt; &amp;dist,<span class="keywordtype">int</span> N, <span class="keywordtype">int</span> m, <span class="keywordtype">int</span> n){</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Hypergeometric_distribution</span></div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordtype">double</span> cdf=0;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> k=0;k&lt;maximum;k++){ <span class="comment">//k = number of successes</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> k=0;k&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;k++){ <span class="comment">//k = number of successes</span></div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="keywordtype">double</span> pmf=((double)<a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(m,k) * (double)<a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(N-m,n-k))/(<span class="keywordtype">double</span>) <a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(N,n);</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            cdf+=pmf;</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            <span class="keywordtype">double</span> val=1-cdf;</div>
@@ -300,7 +320,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00212"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a6c876a6422a16a62ecf810e9d7868397">  212</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a6c876a6422a16a62ecf810e9d7868397">cHypergeometric</a> (std::vector&lt;double&gt; &amp;dist,<span class="keywordtype">int</span> N, <span class="keywordtype">int</span> m, <span class="keywordtype">int</span> n){</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Hypergeometric_distribution</span></div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keywordtype">double</span> cdf=0;</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> k=0;k&lt;maximum;k++){ <span class="comment">//k = number of successes</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> k=0;k&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;k++){ <span class="comment">//k = number of successes</span></div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;            <span class="keywordtype">double</span> pmf=((double)<a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(m,k) * (double)<a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(N-m,n-k))/(<span class="keywordtype">double</span>) <a class="code" href="namespace_stoch_h_m_m.html#a3332499db32946b9183f18da42b0b9dc">bin_coef</a>(N,n);</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            cdf+=pmf;</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            <span class="keywordtype">double</span> val=cdf;</div>
@@ -319,9 +339,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    </div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    </div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="comment">//Cauchy Distribution</span></div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordtype">void</span> sCauchy(std::vector&lt;double&gt; &amp;dist,<span class="keywordtype">double</span> location, <span class="keywordtype">double</span> scale){</div>
+<div class="line"><a name="l00234"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a18c558dbb3558a3224591e88b34cffd8">  234</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a18c558dbb3558a3224591e88b34cffd8">sCauchy</a>(std::vector&lt;double&gt; &amp;dist,<span class="keywordtype">double</span> location, <span class="keywordtype">double</span> scale){</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Cauchy_distribution</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;maximum;i++){</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            <span class="keywordtype">double</span> val=1-((1/M_PI)*atan((i-location)/scale)+0.5);</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            <span class="keywordflow">if</span> (val==0){</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                <span class="keywordflow">break</span>;</div>
@@ -350,7 +370,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="comment"></span>    <span class="comment">//ChiSquared Distribution</span></div>
 <div class="line"><a name="l00263"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a775983c15ffef75bfa907b14a14a14a3">  263</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a775983c15ffef75bfa907b14a14a14a3">sChiSquared</a>(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> df){</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Chi-square_distribution</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">double</span> i=1; i&lt;maximum;i++){</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">double</span> i=1; i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;            <span class="comment">//CDF Value</span></div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            <span class="keywordtype">double</span> val=1.0/tgamma(df/2.0);</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            <span class="keywordtype">double</span> div=<a class="code" href="namespace_stoch_h_m_m.html#a8d3a54392b1f33dcba7f165434eccc80" title="http://wwwC/.rskey.org/CMS/index.php/the-library/11">igamma_lower</a>(df/2.0, i/2.0);</div>
@@ -378,7 +398,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="comment">    //!\param lambda Value of lambda to use</span></div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="comment">    //!&lt;a href = &quot;http://en.wikipedia.org/wiki/Exponential_distribution&quot;&gt;</span></div>
 <div class="line"><a name="l00292"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a02fd6da4e9493af00591c0265e9be33f">  292</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a02fd6da4e9493af00591c0265e9be33f">sExponential</a> (std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> lambda){</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;maximum;i++){</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;            <span class="keywordtype">double</span> val=exp(-1*lambda*i);</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            <span class="keywordflow">if</span> (val==0){</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;                <span class="keywordflow">break</span>;</div>
@@ -395,7 +415,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="comment">    //!\param lambda Value of lambda to use</span></div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="comment">    //!&lt;a href = &quot;http://en.wikipedia.org/wiki/Exponential_distribution&quot;&gt;</span></div>
 <div class="line"><a name="l00309"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#abbab11e35463d5b5c80a3d5875033e14">  309</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#abbab11e35463d5b5c80a3d5875033e14">cExponential</a> (std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> lambda){</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;maximum;i++){</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;            <span class="keywordtype">double</span> val=1-exp(-1*lambda*i);</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;            <span class="keywordflow">if</span> (val==0){</div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;                <span class="keywordflow">break</span>;</div>
@@ -441,10 +461,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    </div>
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    </div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="comment">//F-Distribution Distribution</span></div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <span class="keywordtype">void</span> sFDistribution(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> dOne, <span class="keywordtype">double</span> dTwo){</div>
+<div class="line"><a name="l00356"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#accc55f1a2ced2a6713131c27931bdec3">  356</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#accc55f1a2ced2a6713131c27931bdec3">sFDistribution</a>(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> dOne, <span class="keywordtype">double</span> dTwo){</div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/F_distribution</span></div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;maximum;i++){</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;            <span class="keywordtype">double</span> val=1-ribeta((dOne*i)/((dOne*i)+dTwo), dOne/2, dTwo/2);</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;            <span class="keywordtype">double</span> val=1-<a class="code" href="namespace_stoch_h_m_m.html#ad2cd95133bd80788546e9b567a0d2713">ribeta</a>((dOne*i)/((dOne*i)+dTwo), dOne/2, dTwo/2);</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;            <span class="keywordflow">if</span> (val==0){</div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;            }</div>
@@ -457,10 +477,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    </div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    </div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="comment">//F-Distribution Distribution</span></div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    <span class="keywordtype">void</span> cFDistribution(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> dOne, <span class="keywordtype">double</span> dTwo){</div>
+<div class="line"><a name="l00372"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a70865e21c6ccfc2d1054814a0c3988ac">  372</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a70865e21c6ccfc2d1054814a0c3988ac">cFDistribution</a>(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> dOne, <span class="keywordtype">double</span> dTwo){</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/F_distribution</span></div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;maximum;i++){</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;            <span class="keywordtype">double</span> val=ribeta((dOne*i)/((dOne*i)+dTwo), dOne/2, dTwo/2);</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;            <span class="keywordtype">double</span> val=<a class="code" href="namespace_stoch_h_m_m.html#ad2cd95133bd80788546e9b567a0d2713">ribeta</a>((dOne*i)/((dOne*i)+dTwo), dOne/2, dTwo/2);</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;            <span class="keywordflow">if</span> (val==1){</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                dist.push_back(1.0);</div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                <span class="keywordflow">break</span>;</div>
@@ -477,9 +497,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    </div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    </div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    <span class="comment">//Gamma distribution</span></div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    <span class="keywordtype">void</span> sGamma(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> shape, <span class="keywordtype">double</span> scale){</div>
+<div class="line"><a name="l00392"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a237908a3487ceb25f4db170113ba9ce7">  392</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a237908a3487ceb25f4db170113ba9ce7">sGamma</a>(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> shape, <span class="keywordtype">double</span> scale){</div>
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Gamma_distribution</span></div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;maximum;i++){</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;            <span class="keywordtype">double</span> val=1-<a class="code" href="namespace_stoch_h_m_m.html#a8d3a54392b1f33dcba7f165434eccc80" title="http://wwwC/.rskey.org/CMS/index.php/the-library/11">igamma_lower</a>(shape, i/scale)/tgamma(shape);</div>
 <div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;            <span class="keywordflow">if</span> (val==0){</div>
 <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;                <span class="keywordflow">break</span>;</div>
@@ -492,9 +512,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    }</div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    </div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    <span class="comment">//Gamma distribution</span></div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    <span class="keywordtype">void</span> cGamma(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> shape, <span class="keywordtype">double</span> scale){</div>
+<div class="line"><a name="l00407"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a27a76e3fe59cce5ebfa2802def8c928d">  407</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a27a76e3fe59cce5ebfa2802def8c928d">cGamma</a>(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> shape, <span class="keywordtype">double</span> scale){</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Gamma_distribution</span></div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;maximum;i++){</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;            <span class="keywordtype">double</span> val=<a class="code" href="namespace_stoch_h_m_m.html#a8d3a54392b1f33dcba7f165434eccc80" title="http://wwwC/.rskey.org/CMS/index.php/the-library/11">igamma_lower</a>(shape, i/scale)/tgamma(shape);</div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;            <span class="keywordflow">if</span> (val==1){</div>
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;                dist.push_back(1.0);</div>
@@ -509,9 +529,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    </div>
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    </div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    <span class="comment">//Geometric Distribution</span></div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    <span class="keywordtype">void</span> sGeometric (std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> p){</div>
+<div class="line"><a name="l00424"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#add3ec31bd37811c3002a3803963a2285">  424</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#add3ec31bd37811c3002a3803963a2285">sGeometric</a> (std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> p){</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Geometric_distribution</span></div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;maximum;i++){</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;            <span class="keywordtype">double</span> val=pow((1-p),i+1);</div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;            <span class="keywordflow">if</span> (val==0){</div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;                <span class="keywordflow">break</span>;</div>
@@ -523,9 +543,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;    }</div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    </div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    <span class="keywordtype">void</span> cGeometric (std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> p){</div>
+<div class="line"><a name="l00438"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a34e00f57505838ea7094f3abf421dcb3">  438</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a34e00f57505838ea7094f3abf421dcb3">cGeometric</a> (std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> p){</div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Geometric_distribution</span></div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;maximum;i++){</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;            <span class="keywordtype">double</span> val=1-pow((1-p),i+1);</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;            <span class="keywordflow">if</span> (val==1){</div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;                dist.push_back(1.0);</div>
@@ -542,9 +562,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    </div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;    </div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    <span class="comment">//Laplace Distribution</span></div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    <span class="keywordtype">void</span> sLaplace(std::vector&lt;double&gt; &amp;dist , <span class="keywordtype">double</span> location, <span class="keywordtype">double</span> scale){</div>
+<div class="line"><a name="l00457"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a06dc1e202d18ac263d45286f7711dfb1">  457</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a06dc1e202d18ac263d45286f7711dfb1">sLaplace</a>(std::vector&lt;double&gt; &amp;dist , <span class="keywordtype">double</span> location, <span class="keywordtype">double</span> scale){</div>
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Laplace_distribution</span></div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0;i&lt;maximum;i++){</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
 <div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;            <span class="keywordtype">double</span> val=(1/(2*scale))*exp(-1*(fabs(i-location)/scale));</div>
 <div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;            <span class="keywordflow">if</span> (val==0){</div>
 <div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;                <span class="keywordflow">break</span>;</div>
@@ -557,10 +577,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    }</div>
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    </div>
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    <span class="comment">//Log-Normal Distribution</span></div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;    <span class="keywordtype">void</span> sLogNormal(std::vector&lt;double&gt; &amp;dist,<span class="keywordtype">double</span> location, <span class="keywordtype">double</span> scale){</div>
+<div class="line"><a name="l00472"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a70c7c3c349d673368132c1a5df70f910">  472</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a70c7c3c349d673368132c1a5df70f910">sLogNormal</a>(std::vector&lt;double&gt; &amp;dist,<span class="keywordtype">double</span> location, <span class="keywordtype">double</span> scale){</div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Lognormal_distribution</span></div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0;i&lt;maximum;i++){</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;            <span class="keywordtype">double</span> val=0.5+0.5*(erf((log(i-location)/sqrt(2*pow(scale,2)))));</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;            <span class="keywordtype">double</span> val=0.5+0.5*(<a class="code" href="namespace_stoch_h_m_m.html#a89d069b0992f4a4a764e6495f77ef720">erf</a>((log(i-location)/sqrt(2*pow(scale,2)))));</div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;            <span class="keywordflow">if</span> (val==0){</div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;                <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;            }</div>
@@ -573,10 +593,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;    </div>
 <div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;    </div>
 <div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;    <span class="comment">//Logarithmic Distribution</span></div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;    <span class="keywordtype">void</span> sLogarithmic(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> prob){</div>
+<div class="line"><a name="l00488"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a9ff9e3a6be7b8f45a21c4f11efbc218c">  488</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a9ff9e3a6be7b8f45a21c4f11efbc218c">sLogarithmic</a>(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> prob){</div>
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Logarithmic_distribution</span></div>
 <div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;        <span class="keywordtype">double</span> cdf=0;</div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=1;i&lt;maximum;i++){</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=1;i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
 <div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;            <span class="keywordtype">double</span> pmf=(-1/log(1-prob))*((pow(prob,i)/i));</div>
 <div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;            cdf+=pmf;</div>
 <div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;            <span class="keywordtype">double</span> val=1-cdf;</div>
@@ -591,9 +611,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    }</div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;    </div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    <span class="comment">//Logistic Distribution</span></div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    <span class="keywordtype">void</span> sLogistic(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> location, <span class="keywordtype">double</span> scale){</div>
+<div class="line"><a name="l00506"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a09f2ec6b9cdddc64adf729132b152623">  506</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a09f2ec6b9cdddc64adf729132b152623">sLogistic</a>(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> location, <span class="keywordtype">double</span> scale){</div>
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Logistic_distribution</span></div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0;i&lt;maximum;i++){</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;            <span class="keywordtype">double</span> val=1-(1/(1+exp(-1*(i-location)/scale)));</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;            <span class="keywordflow">if</span> (val==0){</div>
 <div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;                <span class="keywordflow">break</span>;</div>
@@ -607,10 +627,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    </div>
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    </div>
 <div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    </div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    <span class="keywordtype">void</span> sMaxwellBoltzman(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> scale){</div>
+<div class="line"><a name="l00522"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a920bd54ff6f95548ee68de9cda095a87">  522</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a920bd54ff6f95548ee68de9cda095a87">sMaxwellBoltzman</a>(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> scale){</div>
 <div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Maxwell–Boltzmann_distribution</span></div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0;i&lt;maximum;i++){</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;            <span class="keywordtype">double</span> error=erf(i/(sqrt(2)*scale));</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;            <span class="keywordtype">double</span> error=<a class="code" href="namespace_stoch_h_m_m.html#a89d069b0992f4a4a764e6495f77ef720">erf</a>(i/(sqrt(2)*scale));</div>
 <div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;            <span class="keywordtype">double</span> i_squared=-1*pow((<span class="keywordtype">double</span>)i,2);</div>
 <div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;            <span class="keywordtype">double</span> val=sqrt(2*(1/M_PI))*((double)i*exp(i_squared/(2*pow(scale,2)))/scale);</div>
 <div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;            <span class="keywordtype">double</span> boltz=1-(error-val);</div>
@@ -625,10 +645,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;    }</div>
 <div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    </div>
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    <span class="comment">//Negative Binomial Distribution</span></div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    <span class="keywordtype">void</span> sNegativeBinomial(std::vector&lt;double&gt; &amp;dist,<span class="keywordtype">int</span> r, <span class="keywordtype">double</span> p){</div>
+<div class="line"><a name="l00540"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a70b6c759e8b9dac5b45893d6c39d71d0">  540</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a70b6c759e8b9dac5b45893d6c39d71d0">sNegativeBinomial</a>(std::vector&lt;double&gt; &amp;dist,<span class="keywordtype">int</span> r, <span class="keywordtype">double</span> p){</div>
 <div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Negative_binomial_distribution</span></div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0;i&lt;maximum;i++){</div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;            <span class="keywordtype">double</span> val=ribeta(p, i+1, r);</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;            <span class="keywordtype">double</span> val=<a class="code" href="namespace_stoch_h_m_m.html#ad2cd95133bd80788546e9b567a0d2713">ribeta</a>(p, i+1, r);</div>
 <div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;            <span class="keywordflow">if</span> (val==0){</div>
 <div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;                <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;            }</div>
@@ -675,10 +695,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;<span class="comment">     */</span></div>
 <div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;    </div>
 <div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;    <span class="comment">//Normal distribution</span></div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;    <span class="keywordtype">void</span> sNormal(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> mean, <span class="keywordtype">double</span> stdev){</div>
+<div class="line"><a name="l00590"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a8740772f7db79174661151647c25506c">  590</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a8740772f7db79174661151647c25506c">sNormal</a>(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> mean, <span class="keywordtype">double</span> stdev){</div>
 <div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Normal_distribution</span></div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0;i&lt;maximum;i++){</div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;            <span class="keywordtype">double</span> val=1-(0.5*(1+erf((i-mean)/sqrt(2*pow(stdev,2)))));</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;            <span class="keywordtype">double</span> val=1-(0.5*(1+<a class="code" href="namespace_stoch_h_m_m.html#a89d069b0992f4a4a764e6495f77ef720">erf</a>((i-mean)/sqrt(2*pow(stdev,2)))));</div>
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;            <span class="keywordflow">if</span> (val==0){</div>
 <div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;                <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;            }</div>
@@ -691,8 +711,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;    }</div>
 <div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;    </div>
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    <span class="comment">//Pareto Distribution</span></div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;    <span class="keywordtype">void</span> sPareto(std::vector&lt;double&gt; &amp;dist,<span class="keywordtype">double</span> shape, <span class="keywordtype">double</span> scale){</div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0;i&lt;maximum;i++){</div>
+<div class="line"><a name="l00606"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a88d623642f292cd40843b4f4f51e73bb">  606</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a88d623642f292cd40843b4f4f51e73bb">sPareto</a>(std::vector&lt;double&gt; &amp;dist,<span class="keywordtype">double</span> shape, <span class="keywordtype">double</span> scale){</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
 <div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;            <span class="keywordtype">double</span> val=pow((scale/(<span class="keywordtype">double</span>) i),shape);</div>
 <div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;            <span class="keywordflow">if</span> (val==0){</div>
 <div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;                <span class="keywordflow">break</span>;</div>
@@ -705,10 +725,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;    }</div>
 <div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;    </div>
 <div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;    <span class="comment">//Poisson Distribution</span></div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;    <span class="keywordtype">void</span> sPoisson(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> lambda){</div>
+<div class="line"><a name="l00620"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a2c4b35812d4f546bb29b29ece4701dbe">  620</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a2c4b35812d4f546bb29b29ece4701dbe">sPoisson</a>(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> lambda){</div>
 <div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Poisson_distribution</span></div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0;i&lt;maximum;i++){</div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;            <span class="keywordtype">double</span> val=igamma_upper(i+1,lambda)/factorial(i);</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;            <span class="keywordtype">double</span> val=<a class="code" href="namespace_stoch_h_m_m.html#a6c083d3fc1e970967ed2d17aed8d05b7">igamma_upper</a>(i+1,lambda)/<a class="code" href="namespace_stoch_h_m_m.html#a53bb7adc9ae52a6084667ca526e0febd">factorial</a>(i);</div>
 <div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;            <span class="keywordflow">if</span> (val==0){</div>
 <div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;                <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;            }</div>
@@ -721,9 +741,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;    </div>
 <div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;    </div>
 <div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;    <span class="comment">//Rayleigh Distribution</span></div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;    <span class="keywordtype">void</span> sRayleigh(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> sigma){</div>
+<div class="line"><a name="l00636"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a5b22a39b6d3f7c192d7a2cd07e6f8f39">  636</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a5b22a39b6d3f7c192d7a2cd07e6f8f39">sRayleigh</a>(std::vector&lt;double&gt; &amp;dist, <span class="keywordtype">double</span> sigma){</div>
 <div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Rayleigh_distribution</span></div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0;i&lt;maximum;i++){</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0;i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
 <div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;            <span class="keywordtype">double</span> val=exp((-1*(pow((<span class="keywordtype">double</span>) i, 2)))/(2*pow(sigma,2)));;</div>
 <div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;            <span class="keywordflow">if</span> (val==0){</div>
 <div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;                <span class="keywordflow">break</span>;</div>
@@ -736,7 +756,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    }</div>
 <div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;    </div>
 <div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;    <span class="comment">//Triangular distribution</span></div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;    <span class="keywordtype">void</span> sTriangular(std::vector&lt;double&gt; &amp;dist,<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b, <span class="keywordtype">int</span> c){</div>
+<div class="line"><a name="l00651"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a2b3ab1f7b2a9ecf7af54127ea6c3d1e2">  651</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a2b3ab1f7b2a9ecf7af54127ea6c3d1e2">sTriangular</a>(std::vector&lt;double&gt; &amp;dist,<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b, <span class="keywordtype">int</span> c){</div>
 <div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Triangular_distribution</span></div>
 <div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;        <span class="keywordtype">double</span> val=0;</div>
 <div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> x=0;x&lt;=b;x++){</div>
@@ -759,7 +779,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;    </div>
 <div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    </div>
 <div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    <span class="comment">//User defined distribution - Converts pdf to survival distrib.</span></div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    <span class="keywordtype">void</span> sUser (std::vector&lt;double&gt;&amp;dist, std::vector&lt;double&gt; &amp;prob_dist){</div>
+<div class="line"><a name="l00674"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a36beb857d29ceb1aa74fa71b472097f7">  674</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a36beb857d29ceb1aa74fa71b472097f7">sUser</a> (std::vector&lt;double&gt;&amp;dist, std::vector&lt;double&gt; &amp;prob_dist){</div>
 <div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;        <span class="keywordtype">double</span> c_df=0;</div>
 <div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;        <span class="comment">//calculate CDF</span></div>
 <div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;prob_dist.size();i++){</div>
@@ -774,9 +794,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;    }</div>
 <div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    </div>
 <div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    <span class="comment">//Weibull-Survival distribution </span></div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;    <span class="keywordtype">void</span> sWeibull(std::vector&lt;double&gt; &amp;dist,<span class="keywordtype">double</span> shape, <span class="keywordtype">double</span> scale){</div>
+<div class="line"><a name="l00689"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a92e6f9d44a4844fb61e6c3bcd0e435d8">  689</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespace_stoch_h_m_m.html#a92e6f9d44a4844fb61e6c3bcd0e435d8">sWeibull</a>(std::vector&lt;double&gt; &amp;dist,<span class="keywordtype">double</span> shape, <span class="keywordtype">double</span> scale){</div>
 <div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;        <span class="comment">//http://en.wikipedia.org/wiki/Weibull_distribution</span></div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;maximum;i++){</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="namespace_stoch_h_m_m.html#aa8e2887c18d8ec9b440ee749ceace159">maximum</a>;i++){</div>
 <div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;            <span class="keywordtype">double</span> val=exp(-1*pow(i/scale,shape));</div>
 <div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;            <span class="keywordflow">if</span> (val==0){</div>
 <div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;                <span class="keywordflow">break</span>;</div>
@@ -792,11 +812,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;</div>
 <div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:49 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="distributions_8cpp.html">distributions.cpp</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:33 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

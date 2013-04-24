@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1sequence_stream.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,18 +103,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html">sequenceStream</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::sequenceStream Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="sequence_stream_8h_source.html">sequenceStream.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for StochHMM::sequenceStream:</div>
 <div class="dyncontent">
@@ -109,49 +128,34 @@ Inheritance diagram for StochHMM::sequenceStream:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9f6358cfa35a1c8a0979088d0e15c0ab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f6358cfa35a1c8a0979088d0e15c0ab"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>sequenceStream</b> (bool)</td></tr>
-<tr class="memitem:aa410d5cd0447749061dc6b3fad57840d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa410d5cd0447749061dc6b3fad57840d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>sequenceStream</b> (std::vector&lt; double &gt; *, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
-<tr class="memitem:a67ebe1ea669fde3076028c5c2a643f35"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a67ebe1ea669fde3076028c5c2a643f35"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>sequenceStream</b> (char *, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
-<tr class="memitem:ab4663431fd7a7a5f5725f6074d515a72"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab4663431fd7a7a5f5725f6074d515a72"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>sequenceStream</b> (std::string &amp;, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
-<tr class="memitem:aa63514ec6c6e83fcfb8609bedeea1b79"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa63514ec6c6e83fcfb8609bedeea1b79"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>sequenceStream</b> (size_t, size_t)</td></tr>
-<tr class="memitem:a997bc7af4cc35c032d3a686d8fd092dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a997bc7af4cc35c032d3a686d8fd092dd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>sequenceStream</b> (size_t, size_t, bool)</td></tr>
-<tr class="memitem:a4e765b6983a4cc9b86c07fa6fcf93881"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e765b6983a4cc9b86c07fa6fcf93881"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>sequenceStream</b> (size_t, size_t, std::vector&lt; double &gt; *, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
-<tr class="memitem:a1893a36773e77be1375b5a5c5467dfef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1893a36773e77be1375b5a5c5467dfef"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>sequenceStream</b> (size_t, size_t, std::string &amp;, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
-<tr class="memitem:abd836f9a8fb189db2fb89d560d429a47"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd836f9a8fb189db2fb89d560d429a47"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>sequenceStream</b> (size_t, size_t, char *, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
-<tr class="memitem:ab2b1a1d1430c947cee2fa5e3141a2b02"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab2b1a1d1430c947cee2fa5e3141a2b02"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getFasta</b> (std::ifstream &amp;, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
-<tr class="memitem:a8ed68f0be8c9ba6446dfa34a20328278"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ed68f0be8c9ba6446dfa34a20328278"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setBuffer</b> (size_t buff)</td></tr>
-<tr class="memitem:a3c7cb83209af11deb8083a0ada3acae3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c7cb83209af11deb8083a0ada3acae3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setRetain</b> (size_t ret)</td></tr>
+<tr class="memitem:a8d54071d7a35cb53094d7658fe9fbd57"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#a8d54071d7a35cb53094d7658fe9fbd57">sequenceStream</a> ()</td></tr>
+<tr class="memitem:a9f6358cfa35a1c8a0979088d0e15c0ab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#a9f6358cfa35a1c8a0979088d0e15c0ab">sequenceStream</a> (bool)</td></tr>
+<tr class="memitem:aa410d5cd0447749061dc6b3fad57840d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#aa410d5cd0447749061dc6b3fad57840d">sequenceStream</a> (std::vector&lt; double &gt; *, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
+<tr class="memitem:a67ebe1ea669fde3076028c5c2a643f35"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#a67ebe1ea669fde3076028c5c2a643f35">sequenceStream</a> (char *, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
+<tr class="memitem:ab4663431fd7a7a5f5725f6074d515a72"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#ab4663431fd7a7a5f5725f6074d515a72">sequenceStream</a> (std::string &amp;, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
+<tr class="memitem:aa63514ec6c6e83fcfb8609bedeea1b79"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#aa63514ec6c6e83fcfb8609bedeea1b79">sequenceStream</a> (size_t, size_t)</td></tr>
+<tr class="memitem:a997bc7af4cc35c032d3a686d8fd092dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#a997bc7af4cc35c032d3a686d8fd092dd">sequenceStream</a> (size_t, size_t, bool)</td></tr>
+<tr class="memitem:a4e765b6983a4cc9b86c07fa6fcf93881"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#a4e765b6983a4cc9b86c07fa6fcf93881">sequenceStream</a> (size_t, size_t, std::vector&lt; double &gt; *, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
+<tr class="memitem:a1893a36773e77be1375b5a5c5467dfef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#a1893a36773e77be1375b5a5c5467dfef">sequenceStream</a> (size_t, size_t, std::string &amp;, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
+<tr class="memitem:abd836f9a8fb189db2fb89d560d429a47"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#abd836f9a8fb189db2fb89d560d429a47">sequenceStream</a> (size_t, size_t, char *, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
+<tr class="memitem:ab2b1a1d1430c947cee2fa5e3141a2b02"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#ab2b1a1d1430c947cee2fa5e3141a2b02">getFasta</a> (std::ifstream &amp;, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
+<tr class="memitem:a8ed68f0be8c9ba6446dfa34a20328278"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#a8ed68f0be8c9ba6446dfa34a20328278">setBuffer</a> (size_t buff)</td></tr>
+<tr class="memitem:a3c7cb83209af11deb8083a0ada3acae3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#a3c7cb83209af11deb8083a0ada3acae3">setRetain</a> (size_t ret)</td></tr>
 <tr class="inherit_header pub_methods_class_stoch_h_m_m_1_1sequence"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_stoch_h_m_m_1_1sequence')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="class_stoch_h_m_m_1_1sequence.html">StochHMM::sequence</a></td></tr>
-<tr class="memitem:a7661edf85053bb4b175246e88a4f69b9 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7661edf85053bb4b175246e88a4f69b9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a7661edf85053bb4b175246e88a4f69b9">sequence</a> ()</td></tr>
-<tr class="memdesc:a7661edf85053bb4b175246e88a4f69b9 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a sequence datatype. <br/></td></tr>
+<tr class="memitem:a7661edf85053bb4b175246e88a4f69b9 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a7661edf85053bb4b175246e88a4f69b9">sequence</a> ()</td></tr>
+<tr class="memdesc:a7661edf85053bb4b175246e88a4f69b9 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a sequence datatype.  <a href="#a7661edf85053bb4b175246e88a4f69b9"></a><br/></td></tr>
 <tr class="memitem:ada433353d7e309e4344a05de36a514d6 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#ada433353d7e309e4344a05de36a514d6">sequence</a> (bool)</td></tr>
 <tr class="memitem:a656c47722416857d3fb8b622177798b7 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a656c47722416857d3fb8b622177798b7">sequence</a> (std::vector&lt; double &gt; *, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
 <tr class="memdesc:a656c47722416857d3fb8b622177798b7 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a sequence typ.  <a href="#a656c47722416857d3fb8b622177798b7"></a><br/></td></tr>
 <tr class="memitem:af039639ee0678d35d881641618b58c1c inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#af039639ee0678d35d881641618b58c1c">sequence</a> (std::string &amp;, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
 <tr class="memitem:a3b76571c840daf64db1f9910df0029c1 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a3b76571c840daf64db1f9910df0029c1">sequence</a> (char *, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
-<tr class="memitem:ab906ca56375a6e3b83f98bd4a073073e inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab906ca56375a6e3b83f98bd4a073073e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#ab906ca56375a6e3b83f98bd4a073073e">~sequence</a> ()</td></tr>
-<tr class="memdesc:ab906ca56375a6e3b83f98bd4a073073e inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy sequence type. <br/></td></tr>
+<tr class="memitem:ab906ca56375a6e3b83f98bd4a073073e inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#ab906ca56375a6e3b83f98bd4a073073e">~sequence</a> ()</td></tr>
+<tr class="memdesc:ab906ca56375a6e3b83f98bd4a073073e inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy sequence type.  <a href="#ab906ca56375a6e3b83f98bd4a073073e"></a><br/></td></tr>
 <tr class="memitem:ac63d80f88e4ba6a5158559d07131a2b6 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#ac63d80f88e4ba6a5158559d07131a2b6">sequence</a> (const <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;)</td></tr>
-<tr class="memitem:ac65f0f97dfe4b84a5873d0d658a0bd92 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac65f0f97dfe4b84a5873d0d658a0bd92"></a>
-<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;)</td></tr>
+<tr class="memitem:ac65f0f97dfe4b84a5873d0d658a0bd92 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#ac65f0f97dfe4b84a5873d0d658a0bd92">operator=</a> (const <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;)</td></tr>
 <tr class="memitem:a106791bd98ed6b55bf257ff350a74f2c inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">std::string *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a106791bd98ed6b55bf257ff350a74f2c">getUndigitized</a> ()</td></tr>
-<tr class="memitem:aa673c53333162fa42fc2587cc9cb98c3 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa673c53333162fa42fc2587cc9cb98c3"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#aa673c53333162fa42fc2587cc9cb98c3">getLength</a> ()</td></tr>
-<tr class="memdesc:aa673c53333162fa42fc2587cc9cb98c3 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of the sequence. <br/></td></tr>
+<tr class="memitem:aa673c53333162fa42fc2587cc9cb98c3 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#aa673c53333162fa42fc2587cc9cb98c3">getLength</a> ()</td></tr>
+<tr class="memdesc:aa673c53333162fa42fc2587cc9cb98c3 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of the sequence.  <a href="#aa673c53333162fa42fc2587cc9cb98c3"></a><br/></td></tr>
 <tr class="memitem:af323e1725126c72c90303497166899cc inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#af323e1725126c72c90303497166899cc">getAttrib</a> ()</td></tr>
 <tr class="memitem:a65528e0b31c9d062b2bad180b9fde545 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1_ex_def_sequence.html">ExDefSequence</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a65528e0b31c9d062b2bad180b9fde545">getExDef</a> ()</td></tr>
 <tr class="memitem:aff6d39d021daf7ea0ab2a48bc3d96b44 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#aff6d39d021daf7ea0ab2a48bc3d96b44">exDefDefined</a> ()</td></tr>
@@ -159,8 +163,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr class="memitem:a3f767574938a8e42bdc5e7cbc8d0e468 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a3f767574938a8e42bdc5e7cbc8d0e468">seqValue</a> (size_t)</td></tr>
 <tr class="memitem:a1f5d5edaebf1d71995c7826ca0ab2a37 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a1f5d5edaebf1d71995c7826ca0ab2a37">size</a> ()</td></tr>
 <tr class="memitem:ae3ec9ad2158459675129ca80ca987c16 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#ae3ec9ad2158459675129ca80ca987c16">getTrack</a> ()</td></tr>
-<tr class="memitem:a212dff632d7a1cb03d9070fe4b8ef407 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a212dff632d7a1cb03d9070fe4b8ef407"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setTrack</b> (<a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *tr)</td></tr>
+<tr class="memitem:a212dff632d7a1cb03d9070fe4b8ef407 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a212dff632d7a1cb03d9070fe4b8ef407">setTrack</a> (<a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *tr)</td></tr>
 <tr class="memitem:ab7999f328ae141e21143ee226a6b58fd inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#ab7999f328ae141e21143ee226a6b58fd">print</a> ()</td></tr>
 <tr class="memitem:a1903ef644d684252973aced22799dd52 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a1903ef644d684252973aced22799dd52">stringify</a> ()</td></tr>
 <tr class="memitem:adec874da223aa69e0f2291d8f08a4fac inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#adec874da223aa69e0f2291d8f08a4fac">undigitize</a> ()</td></tr>
@@ -169,55 +172,843 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setTrack</b> (<a clas
 <tr class="memdesc:aba4b98895eef2b1bf7a14dca25d0944f inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the attribute value.  <a href="#aba4b98895eef2b1bf7a14dca25d0944f"></a><br/></td></tr>
 <tr class="memitem:a600aafee705d57c6e76c8eb67170e529 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a600aafee705d57c6e76c8eb67170e529">setSeq</a> (std::string &amp;, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
 <tr class="memitem:ac8718c30b916b3ffa52f0425b6788deb inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#ac8718c30b916b3ffa52f0425b6788deb">setRealSeq</a> (std::vector&lt; double &gt; *, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
-<tr class="memitem:ab44b110da498a28b195c89dc0812a1bc inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab44b110da498a28b195c89dc0812a1bc"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getFasta</b> (std::ifstream &amp;file)</td></tr>
+<tr class="memitem:ab44b110da498a28b195c89dc0812a1bc inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#ab44b110da498a28b195c89dc0812a1bc">getFasta</a> (std::ifstream &amp;file)</td></tr>
 <tr class="memitem:ab9ead0dcc13a9732aeaa68bd54412818 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#ab9ead0dcc13a9732aeaa68bd54412818">getFasta</a> (std::ifstream &amp;, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *, <a class="el" href="struct_stoch_h_m_m_1_1state_info.html">stateInfo</a> *)</td></tr>
-<tr class="memitem:af26fbc12efbba7eade30590646a642e2 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af26fbc12efbba7eade30590646a642e2"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getMaskedFasta</b> (std::ifstream &amp;, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
+<tr class="memitem:af26fbc12efbba7eade30590646a642e2 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#af26fbc12efbba7eade30590646a642e2">getMaskedFasta</a> (std::ifstream &amp;, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
 <tr class="memitem:a8380c028b5a8b03043a0a5d7e3e451d7 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a8380c028b5a8b03043a0a5d7e3e451d7">getFastq</a> (std::ifstream &amp;, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
-<tr class="memitem:a8fec693df516f59cb7ccf8b2a9668205 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8fec693df516f59cb7ccf8b2a9668205"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getReal</b> (std::ifstream &amp;file)</td></tr>
-<tr class="memitem:a93978b210ef078cbdf3b324a88157f1f inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a93978b210ef078cbdf3b324a88157f1f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getReal</b> (std::ifstream &amp;file, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *trk)</td></tr>
+<tr class="memitem:a8fec693df516f59cb7ccf8b2a9668205 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a8fec693df516f59cb7ccf8b2a9668205">getReal</a> (std::ifstream &amp;file)</td></tr>
+<tr class="memitem:a93978b210ef078cbdf3b324a88157f1f inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a93978b210ef078cbdf3b324a88157f1f">getReal</a> (std::ifstream &amp;file, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *trk)</td></tr>
 <tr class="memitem:a2a0aa52f1b421bedd7e47dfcb48e0042 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a2a0aa52f1b421bedd7e47dfcb48e0042">getReal</a> (std::ifstream &amp;, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *, <a class="el" href="struct_stoch_h_m_m_1_1state_info.html">stateInfo</a> *)</td></tr>
-<tr class="memitem:a2dfe43c02ce235f48cdc334af7cd0781 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2dfe43c02ce235f48cdc334af7cd0781"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getMaxMask</b> ()</td></tr>
-<tr class="memitem:a542969cf1e3d5dd2794a5336f15f6095 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a542969cf1e3d5dd2794a5336f15f6095"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a542969cf1e3d5dd2794a5336f15f6095">getMask</a> (size_t)</td></tr>
-<tr class="memdesc:a542969cf1e3d5dd2794a5336f15f6095 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the mask at sequence position. <br/></td></tr>
+<tr class="memitem:a2dfe43c02ce235f48cdc334af7cd0781 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a2dfe43c02ce235f48cdc334af7cd0781">getMaxMask</a> ()</td></tr>
+<tr class="memitem:a542969cf1e3d5dd2794a5336f15f6095 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a542969cf1e3d5dd2794a5336f15f6095">getMask</a> (size_t)</td></tr>
+<tr class="memdesc:a542969cf1e3d5dd2794a5336f15f6095 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the mask at sequence position.  <a href="#a542969cf1e3d5dd2794a5336f15f6095"></a><br/></td></tr>
 <tr class="memitem:a4f1af4805a74eb48d71c5a46792c96a6 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a4f1af4805a74eb48d71c5a46792c96a6">getSymbol</a> (size_t) const </td></tr>
-<tr class="memitem:aff83f7e2763519d7b2345d482d5c375c inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aff83f7e2763519d7b2345d482d5c375c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>get_index</b> (size_t position, int order, std::pair&lt; <a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a>, <a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a> &gt; &amp;word_index)</td></tr>
-<tr class="memitem:ae0f93f12599cdaa50da712af72f21adb inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0f93f12599cdaa50da712af72f21adb"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#ae0f93f12599cdaa50da712af72f21adb">getHeader</a> ()</td></tr>
-<tr class="memdesc:ae0f93f12599cdaa50da712af72f21adb inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the header of the sequence as a std::string. <br/></td></tr>
+<tr class="memitem:aff83f7e2763519d7b2345d482d5c375c inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#aff83f7e2763519d7b2345d482d5c375c">get_index</a> (size_t position, int order, std::pair&lt; <a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a>, <a class="el" href="class_stoch_h_m_m_1_1_index.html">Index</a> &gt; &amp;word_index)</td></tr>
+<tr class="memitem:ae0f93f12599cdaa50da712af72f21adb inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#ae0f93f12599cdaa50da712af72f21adb">getHeader</a> ()</td></tr>
+<tr class="memdesc:ae0f93f12599cdaa50da712af72f21adb inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the header of the sequence as a std::string.  <a href="#ae0f93f12599cdaa50da712af72f21adb"></a><br/></td></tr>
 <tr class="memitem:ae9d70ad95f1f76f068cd2fe3d3f0a3a6 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#ae9d70ad95f1f76f068cd2fe3d3f0a3a6">reverseComplement</a> ()</td></tr>
 <tr class="memitem:a0ed0193f57d875959377631b650f7fb3 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a0ed0193f57d875959377631b650f7fb3">complement</a> ()</td></tr>
 <tr class="memitem:ae012923860db511882407aa87658f3f7 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#ae012923860db511882407aa87658f3f7">reverse</a> ()</td></tr>
-<tr class="memitem:a17c42b953affaf5d8868e20ba96223e8 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a17c42b953affaf5d8868e20ba96223e8"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a17c42b953affaf5d8868e20ba96223e8">digitize</a> ()</td></tr>
-<tr class="memdesc:a17c42b953affaf5d8868e20ba96223e8 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts sequence digital based on track alphabet. <br/></td></tr>
-<tr class="memitem:a00cfa727eeef9b2de37dda8194c8226d inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a00cfa727eeef9b2de37dda8194c8226d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a00cfa727eeef9b2de37dda8194c8226d">shuffle</a> ()</td></tr>
-<tr class="memdesc:a00cfa727eeef9b2de37dda8194c8226d inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shuffles the sequence using std::random_shuffle. <br/></td></tr>
-<tr class="memitem:a010ef844d84ef7515d7105ed5d6e1015 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a010ef844d84ef7515d7105ed5d6e1015"></a>
-std::vector&lt; uint8_t &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>getDigitalSeq</b> ()</td></tr>
-<tr class="memitem:a44f7aa47702fec34057ff285ddb24c3a inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a44f7aa47702fec34057ff285ddb24c3a"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (size_t index)</td></tr>
+<tr class="memitem:a17c42b953affaf5d8868e20ba96223e8 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a17c42b953affaf5d8868e20ba96223e8">digitize</a> ()</td></tr>
+<tr class="memdesc:a17c42b953affaf5d8868e20ba96223e8 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts sequence digital based on track alphabet.  <a href="#a17c42b953affaf5d8868e20ba96223e8"></a><br/></td></tr>
+<tr class="memitem:a00cfa727eeef9b2de37dda8194c8226d inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a00cfa727eeef9b2de37dda8194c8226d">shuffle</a> ()</td></tr>
+<tr class="memdesc:a00cfa727eeef9b2de37dda8194c8226d inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shuffles the sequence using std::random_shuffle.  <a href="#a00cfa727eeef9b2de37dda8194c8226d"></a><br/></td></tr>
+<tr class="memitem:a010ef844d84ef7515d7105ed5d6e1015 inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">std::vector&lt; uint8_t &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a010ef844d84ef7515d7105ed5d6e1015">getDigitalSeq</a> ()</td></tr>
+<tr class="memitem:a44f7aa47702fec34057ff285ddb24c3a inherit pub_methods_class_stoch_h_m_m_1_1sequence"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence.html#a44f7aa47702fec34057ff285ddb24c3a">operator[]</a> (size_t index)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:af96b3000f993fd6d5244d343ec794c8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#af96b3000f993fd6d5244d343ec794c8d">resetSeq</a> ()</td></tr>
+<tr class="memdesc:af96b3000f993fd6d5244d343ec794c8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset seq or realseq each time getfasta is called.  <a href="#af96b3000f993fd6d5244d343ec794c8d"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a7cbee208239d9e16767d428bbd88cec2"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#a7cbee208239d9e16767d428bbd88cec2">bufferSize</a></td></tr>
+<tr class="memitem:ac9684b665360678b07ffa91316efd504"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#ac9684b665360678b07ffa91316efd504">retainSize</a></td></tr>
+<tr class="memitem:a7bbd13d361484350ca0fc4b4c7166ea0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#a7bbd13d361484350ca0fc4b4c7166ea0">previousSeq</a></td></tr>
+<tr class="memdesc:a7bbd13d361484350ca0fc4b4c7166ea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">What is left in "getline" after the buffer has been filled.  <a href="#a7bbd13d361484350ca0fc4b4c7166ea0"></a><br/></td></tr>
+<tr class="memitem:a8c062cd3f7c8d6c1a549cfa5106e6ebc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#a8c062cd3f7c8d6c1a549cfa5106e6ebc">retain</a></td></tr>
+<tr class="memdesc:a8c062cd3f7c8d6c1a549cfa5106e6ebc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The retain sequence.  <a href="#a8c062cd3f7c8d6c1a549cfa5106e6ebc"></a><br/></td></tr>
+<tr class="memitem:a38195b7fbc00629447c6fffe18387b92"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#a38195b7fbc00629447c6fffe18387b92">readingFile</a></td></tr>
+<tr class="memdesc:a38195b7fbc00629447c6fffe18387b92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Keeps track of whether the sequence under the same header is being read.  <a href="#a38195b7fbc00629447c6fffe18387b92"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="sequence_stream_8h_source.html#l00019">19</a> of file <a class="el" href="sequence_stream_8h_source.html">sequenceStream.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a8d54071d7a35cb53094d7658fe9fbd57"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::sequenceStream::sequenceStream </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequence_stream_8cpp_source.html#l00012">12</a> of file <a class="el" href="sequence_stream_8cpp_source.html">sequenceStream.cpp</a>.</p>
+
+<p>References <a class="el" href="sequence_stream_8h_source.html#l00043">bufferSize</a>, <a class="el" href="sequence_stream_8h_source.html#l00053">readingFile</a>, and <a class="el" href="sequence_stream_8h_source.html#l00044">retainSize</a>.</p>
+<div class="fragment"><div class="line">                                  : <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a7661edf85053bb4b175246e88a4f69b9" title="Create a sequence datatype.">sequence</a>(){</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7cbee208239d9e16767d428bbd88cec2">bufferSize</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#ac9684b665360678b07ffa91316efd504">retainSize</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a38195b7fbc00629447c6fffe18387b92" title="Keeps track of whether the sequence under the same header is being read.">readingFile</a> = <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a9f6358cfa35a1c8a0979088d0e15c0ab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::sequenceStream::sequenceStream </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>realTrack</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequence_stream_8cpp_source.html#l00018">18</a> of file <a class="el" href="sequence_stream_8cpp_source.html">sequenceStream.cpp</a>.</p>
+
+<p>References <a class="el" href="sequence_stream_8h_source.html#l00043">bufferSize</a>, <a class="el" href="sequence_stream_8h_source.html#l00053">readingFile</a>, and <a class="el" href="sequence_stream_8h_source.html#l00044">retainSize</a>.</p>
+<div class="fragment"><div class="line">                                                : <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a7661edf85053bb4b175246e88a4f69b9" title="Create a sequence datatype.">sequence</a>(realTrack){</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7cbee208239d9e16767d428bbd88cec2">bufferSize</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#ac9684b665360678b07ffa91316efd504">retainSize</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a38195b7fbc00629447c6fffe18387b92" title="Keeps track of whether the sequence under the same header is being read.">readingFile</a> = <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aa410d5cd0447749061dc6b3fad57840d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::sequenceStream::sequenceStream </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; double &gt; *&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td>
+          <td class="paramname"><em>tr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequence_stream_8cpp_source.html#l00024">24</a> of file <a class="el" href="sequence_stream_8cpp_source.html">sequenceStream.cpp</a>.</p>
+
+<p>References <a class="el" href="sequence_stream_8h_source.html#l00043">bufferSize</a>, <a class="el" href="sequence_stream_8h_source.html#l00053">readingFile</a>, and <a class="el" href="sequence_stream_8h_source.html#l00044">retainSize</a>.</p>
+<div class="fragment"><div class="line">                                                                   : <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a7661edf85053bb4b175246e88a4f69b9" title="Create a sequence datatype.">sequence</a>(vec, tr){</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7cbee208239d9e16767d428bbd88cec2">bufferSize</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#ac9684b665360678b07ffa91316efd504">retainSize</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a38195b7fbc00629447c6fffe18387b92" title="Keeps track of whether the sequence under the same header is being read.">readingFile</a> = <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a67ebe1ea669fde3076028c5c2a643f35"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::sequenceStream::sequenceStream </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>seq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td>
+          <td class="paramname"><em>tr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequence_stream_8cpp_source.html#l00030">30</a> of file <a class="el" href="sequence_stream_8cpp_source.html">sequenceStream.cpp</a>.</p>
+
+<p>References <a class="el" href="sequence_stream_8h_source.html#l00043">bufferSize</a>, <a class="el" href="sequence_stream_8h_source.html#l00053">readingFile</a>, and <a class="el" href="sequence_stream_8h_source.html#l00044">retainSize</a>.</p>
+<div class="fragment"><div class="line">                                                       : <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a7661edf85053bb4b175246e88a4f69b9" title="Create a sequence datatype.">sequence</a>(<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>, tr){</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7cbee208239d9e16767d428bbd88cec2">bufferSize</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#ac9684b665360678b07ffa91316efd504">retainSize</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a38195b7fbc00629447c6fffe18387b92" title="Keeps track of whether the sequence under the same header is being read.">readingFile</a> = <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ab4663431fd7a7a5f5725f6074d515a72"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::sequenceStream::sequenceStream </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>sq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td>
+          <td class="paramname"><em>tr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequence_stream_8cpp_source.html#l00036">36</a> of file <a class="el" href="sequence_stream_8cpp_source.html">sequenceStream.cpp</a>.</p>
+
+<p>References <a class="el" href="sequence_stream_8h_source.html#l00043">bufferSize</a>, <a class="el" href="sequence_stream_8h_source.html#l00053">readingFile</a>, and <a class="el" href="sequence_stream_8h_source.html#l00044">retainSize</a>.</p>
+<div class="fragment"><div class="line">                                                           : <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a7661edf85053bb4b175246e88a4f69b9" title="Create a sequence datatype.">sequence</a>(sq, tr){</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7cbee208239d9e16767d428bbd88cec2">bufferSize</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#ac9684b665360678b07ffa91316efd504">retainSize</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a38195b7fbc00629447c6fffe18387b92" title="Keeps track of whether the sequence under the same header is being read.">readingFile</a> = <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aa63514ec6c6e83fcfb8609bedeea1b79"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::sequenceStream::sequenceStream </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>buff</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>ret</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequence_stream_8cpp_source.html#l00042">42</a> of file <a class="el" href="sequence_stream_8cpp_source.html">sequenceStream.cpp</a>.</p>
+
+<p>References <a class="el" href="sequence_stream_8h_source.html#l00043">bufferSize</a>, <a class="el" href="sequence_stream_8h_source.html#l00053">readingFile</a>, and <a class="el" href="sequence_stream_8h_source.html#l00044">retainSize</a>.</p>
+<div class="fragment"><div class="line">                                                         : <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a7661edf85053bb4b175246e88a4f69b9" title="Create a sequence datatype.">sequence</a>(){</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7cbee208239d9e16767d428bbd88cec2">bufferSize</a>=buff;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#ac9684b665360678b07ffa91316efd504">retainSize</a>=ret;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a38195b7fbc00629447c6fffe18387b92" title="Keeps track of whether the sequence under the same header is being read.">readingFile</a> = <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a997bc7af4cc35c032d3a686d8fd092dd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::sequenceStream::sequenceStream </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>buff</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>ret</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>realTrack</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequence_stream_8cpp_source.html#l00048">48</a> of file <a class="el" href="sequence_stream_8cpp_source.html">sequenceStream.cpp</a>.</p>
+
+<p>References <a class="el" href="sequence_stream_8h_source.html#l00043">bufferSize</a>, <a class="el" href="sequence_stream_8h_source.html#l00053">readingFile</a>, and <a class="el" href="sequence_stream_8h_source.html#l00044">retainSize</a>.</p>
+<div class="fragment"><div class="line">                                                                         : <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a7661edf85053bb4b175246e88a4f69b9" title="Create a sequence datatype.">sequence</a>(realTrack){</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7cbee208239d9e16767d428bbd88cec2">bufferSize</a>=buff;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#ac9684b665360678b07ffa91316efd504">retainSize</a>=ret;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a38195b7fbc00629447c6fffe18387b92" title="Keeps track of whether the sequence under the same header is being read.">readingFile</a> = <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a4e765b6983a4cc9b86c07fa6fcf93881"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::sequenceStream::sequenceStream </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>buff</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>ret</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; *&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td>
+          <td class="paramname"><em>tr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequence_stream_8cpp_source.html#l00054">54</a> of file <a class="el" href="sequence_stream_8cpp_source.html">sequenceStream.cpp</a>.</p>
+
+<p>References <a class="el" href="sequence_stream_8h_source.html#l00043">bufferSize</a>, <a class="el" href="sequence_stream_8h_source.html#l00053">readingFile</a>, and <a class="el" href="sequence_stream_8h_source.html#l00044">retainSize</a>.</p>
+<div class="fragment"><div class="line">                                                                                            : <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a7661edf85053bb4b175246e88a4f69b9" title="Create a sequence datatype.">sequence</a>(vec, tr){</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7cbee208239d9e16767d428bbd88cec2">bufferSize</a>=buff;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#ac9684b665360678b07ffa91316efd504">retainSize</a>=ret;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a38195b7fbc00629447c6fffe18387b92" title="Keeps track of whether the sequence under the same header is being read.">readingFile</a> = <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a1893a36773e77be1375b5a5c5467dfef"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::sequenceStream::sequenceStream </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>buff</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>ret</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>sq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td>
+          <td class="paramname"><em>tr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequence_stream_8cpp_source.html#l00066">66</a> of file <a class="el" href="sequence_stream_8cpp_source.html">sequenceStream.cpp</a>.</p>
+
+<p>References <a class="el" href="sequence_stream_8h_source.html#l00043">bufferSize</a>, <a class="el" href="sequence_stream_8h_source.html#l00053">readingFile</a>, and <a class="el" href="sequence_stream_8h_source.html#l00044">retainSize</a>.</p>
+<div class="fragment"><div class="line">                                                                                    : <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a7661edf85053bb4b175246e88a4f69b9" title="Create a sequence datatype.">sequence</a>(sq, tr){</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7cbee208239d9e16767d428bbd88cec2">bufferSize</a>=buff;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#ac9684b665360678b07ffa91316efd504">retainSize</a>=ret;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a38195b7fbc00629447c6fffe18387b92" title="Keeps track of whether the sequence under the same header is being read.">readingFile</a> = <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="abd836f9a8fb189db2fb89d560d429a47"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::sequenceStream::sequenceStream </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>buff</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>ret</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>seq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td>
+          <td class="paramname"><em>tr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequence_stream_8cpp_source.html#l00060">60</a> of file <a class="el" href="sequence_stream_8cpp_source.html">sequenceStream.cpp</a>.</p>
+
+<p>References <a class="el" href="sequence_stream_8h_source.html#l00043">bufferSize</a>, <a class="el" href="sequence_stream_8h_source.html#l00053">readingFile</a>, and <a class="el" href="sequence_stream_8h_source.html#l00044">retainSize</a>.</p>
+<div class="fragment"><div class="line">                                                                                : <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a7661edf85053bb4b175246e88a4f69b9" title="Create a sequence datatype.">sequence</a>(<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>, tr){</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7cbee208239d9e16767d428bbd88cec2">bufferSize</a>=buff;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#ac9684b665360678b07ffa91316efd504">retainSize</a>=ret;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a38195b7fbc00629447c6fffe18387b92" title="Keeps track of whether the sequence under the same header is being read.">readingFile</a> = <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="ab2b1a1d1430c947cee2fa5e3141a2b02"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::sequenceStream::getFasta </td>
+          <td>(</td>
+          <td class="paramtype">std::ifstream &amp;&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td>
+          <td class="paramname"><em>trk</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="class_stoch_h_m_m_1_1sequence.html#af52bef1189cae7b72d020f12d90c6134">StochHMM::sequence</a>.</p>
+
+<p>Definition at line <a class="el" href="sequence_stream_8cpp_source.html#l00081">81</a> of file <a class="el" href="sequence_stream_8cpp_source.html">sequenceStream.cpp</a>.</p>
+
+<p>References <a class="el" href="sequence_8cpp_source.html#l00505">StochHMM::sequence::_digitize()</a>, <a class="el" href="sequence_stream_8h_source.html#l00043">bufferSize</a>, <a class="el" href="sequence_8h_source.html#l00190">StochHMM::sequence::header</a>, <a class="el" href="sequence_8h_source.html#l00193">StochHMM::sequence::length</a>, <a class="el" href="sequence_stream_8h_source.html#l00047">previousSeq</a>, <a class="el" href="sequence_stream_8h_source.html#l00053">readingFile</a>, <a class="el" href="sequence_stream_8cpp_source.html#l00220">resetSeq()</a>, <a class="el" href="sequence_stream_8h_source.html#l00050">retain</a>, <a class="el" href="sequence_stream_8h_source.html#l00044">retainSize</a>, <a class="el" href="sequence_8h_source.html#l00201">StochHMM::sequence::seq</a>, <a class="el" href="sequence_8h_source.html#l00195">StochHMM::sequence::seqtrk</a>, and <a class="el" href="sequence_8h_source.html#l00207">StochHMM::sequence::undigitized</a>.</p>
+<div class="fragment"><div class="line">                                                               {</div>
+<div class="line">        </div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#af96b3000f993fd6d5244d343ec794c8d" title="Reset seq or realseq each time getfasta is called.">resetSeq</a>();</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a9fd0ecffac264a7a775781994699de80">seqtrk</a>=trk;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a38195b7fbc00629447c6fffe18387b92" title="Keeps track of whether the sequence under the same header is being read.">readingFile</a> == <span class="keyword">false</span>) {</div>
+<div class="line">            <span class="comment">//Find next header mark </span></div>
+<div class="line">            <span class="keywordflow">while</span>(file.peek() != <span class="charliteral">&#39;&gt;&#39;</span>){</div>
+<div class="line">                std::string temp;</div>
+<div class="line">                getline(file,temp,<span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (!file.good()){</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            getline(file,<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a9962d7334e3441be81ccdddd77fee821">header</a>,<span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line">            <span class="comment">//std::cout &lt;&lt; header &lt;&lt; std::endl;</span></div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a38195b7fbc00629447c6fffe18387b92" title="Keeps track of whether the sequence under the same header is being read.">readingFile</a> = <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line"></div>
+<div class="line">        <span class="keywordtype">bool</span> success;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">size_t</span> fillBuffer=0;</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//Sequence always begins with whatever was retained</span></div>
+<div class="line">        fillBuffer+=<a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a8c062cd3f7c8d6c1a549cfa5106e6ebc" title="The retain sequence.">retain</a>.size();</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence.html#add3d8e8c4f632b715fee51e648b8fe99">undigitized</a>+=<a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a8c062cd3f7c8d6c1a549cfa5106e6ebc" title="The retain sequence.">retain</a>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a8c062cd3f7c8d6c1a549cfa5106e6ebc" title="The retain sequence.">retain</a>.clear();</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//The following clears up the previousSeq when the &quot;getline&quot; size </span></div>
+<div class="line">        <span class="comment">//is 2 or more times the buffer size</span></div>
+<div class="line">        fillBuffer+=<a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7bbd13d361484350ca0fc4b4c7166ea0" title="What is left in &quot;getline&quot; after the buffer has been filled.">previousSeq</a>.size();</div>
+<div class="line">        <span class="keywordflow">if</span> (fillBuffer &gt;= <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7cbee208239d9e16767d428bbd88cec2">bufferSize</a>) {</div>
+<div class="line">            <span class="keywordtype">size_t</span> overhanging, charsToKeep;</div>
+<div class="line">            overhanging = fillBuffer - <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7cbee208239d9e16767d428bbd88cec2">bufferSize</a>;</div>
+<div class="line">            <span class="keywordflow">if</span> (overhanging == 0) {</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1sequence.html#add3d8e8c4f632b715fee51e648b8fe99">undigitized</a>+=<a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7bbd13d361484350ca0fc4b4c7166ea0" title="What is left in &quot;getline&quot; after the buffer has been filled.">previousSeq</a>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7bbd13d361484350ca0fc4b4c7166ea0" title="What is left in &quot;getline&quot; after the buffer has been filled.">previousSeq</a>.clear();</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                charsToKeep = <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7bbd13d361484350ca0fc4b4c7166ea0" title="What is left in &quot;getline&quot; after the buffer has been filled.">previousSeq</a>.size() - overhanging;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1sequence.html#add3d8e8c4f632b715fee51e648b8fe99">undigitized</a>+=<a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7bbd13d361484350ca0fc4b4c7166ea0" title="What is left in &quot;getline&quot; after the buffer has been filled.">previousSeq</a>.substr(0,charsToKeep);</div>
+<div class="line">                std::string temp = <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7bbd13d361484350ca0fc4b4c7166ea0" title="What is left in &quot;getline&quot; after the buffer has been filled.">previousSeq</a>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7bbd13d361484350ca0fc4b4c7166ea0" title="What is left in &quot;getline&quot; after the buffer has been filled.">previousSeq</a>.clear();</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7bbd13d361484350ca0fc4b4c7166ea0" title="What is left in &quot;getline&quot; after the buffer has been filled.">previousSeq</a>+=temp.substr(charsToKeep);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a8c062cd3f7c8d6c1a549cfa5106e6ebc" title="The retain sequence.">retain</a>+=<a class="code" href="class_stoch_h_m_m_1_1sequence.html#add3d8e8c4f632b715fee51e648b8fe99">undigitized</a>.substr(<a class="code" href="class_stoch_h_m_m_1_1sequence.html#add3d8e8c4f632b715fee51e648b8fe99">undigitized</a>.size()-<a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#ac9684b665360678b07ffa91316efd504">retainSize</a>);</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//</span></div>
+<div class="line">            <span class="comment">//std::cout &lt;&lt; &quot;1: &quot; &lt;&lt; undigitized &lt;&lt; std::endl;</span></div>
+<div class="line">            <span class="comment">//</span></div>
+<div class="line">            success = <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a08b8fe236045be90ba73098ba6c4fc95" title="Digitize the sequence.">_digitize</a>();</div>
+<div class="line">            </div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a96de42ed5fb7eea115072bcd3fe39d11">length</a>=<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>-&gt;size();</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">return</span> success;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//The remaining line sequence (if any) after the last buffer filled up goes to the next buffer</span></div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence.html#add3d8e8c4f632b715fee51e648b8fe99">undigitized</a>+=<a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7bbd13d361484350ca0fc4b4c7166ea0" title="What is left in &quot;getline&quot; after the buffer has been filled.">previousSeq</a>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7bbd13d361484350ca0fc4b4c7166ea0" title="What is left in &quot;getline&quot; after the buffer has been filled.">previousSeq</a>.clear();</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">//For the case where the buffer filled right before the next header or eof;</span></div>
+<div class="line">        <span class="comment">//the &quot;nl_peek&quot; portion inside the loop would be skipped, and when overhanging!=0,</span></div>
+<div class="line">        <span class="comment">//there is still some sequence to deal with in the final line</span></div>
+<div class="line">        <span class="keywordtype">char</span> nl_peek = file.peek();</div>
+<div class="line">        <span class="keywordflow">if</span> (nl_peek ==<span class="charliteral">&#39;&gt;&#39;</span> || nl_peek == EOF) {</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequence.html#add3d8e8c4f632b715fee51e648b8fe99">undigitized</a>.size() &gt;= 1) {</div>
+<div class="line">                <span class="comment">//</span></div>
+<div class="line">               <span class="comment">// std::cout &lt;&lt; &quot;2: &quot; &lt;&lt; undigitized &lt;&lt; std::endl;</span></div>
+<div class="line">                <span class="comment">//</span></div>
+<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a08b8fe236045be90ba73098ba6c4fc95" title="Digitize the sequence.">_digitize</a>()) {</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;sequence was not digitized&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            success = <span class="keyword">false</span>;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a38195b7fbc00629447c6fffe18387b92" title="Keeps track of whether the sequence under the same header is being read.">readingFile</a> = <span class="keyword">false</span>;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a96de42ed5fb7eea115072bcd3fe39d11">length</a>=<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>-&gt;size();</div>
+<div class="line">            <span class="keywordflow">return</span> success;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        std::string line;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">while</span>(getline(file,line,<span class="charliteral">&#39;\n&#39;</span>)) {</div>
+<div class="line">            fillBuffer+=line.size();</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//When the buffer fills up, the entire line may fill it up </span></div>
+<div class="line">            <span class="comment">//or some of the line is left overhanging</span></div>
+<div class="line">            <span class="keywordflow">if</span> (fillBuffer &gt;= bufferSize) {</div>
+<div class="line">                <span class="keywordtype">size_t</span> overhanging, charsToKeep;</div>
+<div class="line">                overhanging = fillBuffer - <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7cbee208239d9e16767d428bbd88cec2">bufferSize</a>;</div>
+<div class="line">                <span class="keywordflow">if</span> (overhanging == 0) {</div>
+<div class="line">                    <a class="code" href="class_stoch_h_m_m_1_1sequence.html#add3d8e8c4f632b715fee51e648b8fe99">undigitized</a>+=line;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span>{</div>
+<div class="line">                    <span class="comment">//Overhanging is stored in previousSeq and accounted for in the next calling</span></div>
+<div class="line">                    <span class="comment">//of this function</span></div>
+<div class="line">                    charsToKeep = line.size() - overhanging;</div>
+<div class="line">                    <a class="code" href="class_stoch_h_m_m_1_1sequence.html#add3d8e8c4f632b715fee51e648b8fe99">undigitized</a>+=line.substr(0,charsToKeep);</div>
+<div class="line">                    <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7bbd13d361484350ca0fc4b4c7166ea0" title="What is left in &quot;getline&quot; after the buffer has been filled.">previousSeq</a>+=line.substr(charsToKeep);</div>
+<div class="line"></div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a8c062cd3f7c8d6c1a549cfa5106e6ebc" title="The retain sequence.">retain</a>+=<a class="code" href="class_stoch_h_m_m_1_1sequence.html#add3d8e8c4f632b715fee51e648b8fe99">undigitized</a>.substr(<a class="code" href="class_stoch_h_m_m_1_1sequence.html#add3d8e8c4f632b715fee51e648b8fe99">undigitized</a>.size()-<a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#ac9684b665360678b07ffa91316efd504">retainSize</a>);</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//</span></div>
+<div class="line">               <span class="comment">// std::cout &lt;&lt; &quot;3: &quot; &lt;&lt; undigitized &lt;&lt; std::endl;</span></div>
+<div class="line">                <span class="comment">//</span></div>
+<div class="line">                </div>
+<div class="line">                success = <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a08b8fe236045be90ba73098ba6c4fc95" title="Digitize the sequence.">_digitize</a>();</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequence.html#add3d8e8c4f632b715fee51e648b8fe99">undigitized</a>+=line;</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//For the case where the buffer has not filled up but the file has reached the next header or eof</span></div>
+<div class="line">            <span class="keywordtype">char</span> nl_peek = file.peek();</div>
+<div class="line">            <span class="keywordflow">if</span> (nl_peek ==<span class="charliteral">&#39;&gt;&#39;</span> || nl_peek == EOF) {</div>
+<div class="line">                <span class="comment">//</span></div>
+<div class="line">               <span class="comment">// std::cout &lt;&lt; &quot;4: &quot; &lt;&lt; undigitized &lt;&lt; std::endl;</span></div>
+<div class="line">                <span class="comment">//</span></div>
+<div class="line">                <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a08b8fe236045be90ba73098ba6c4fc95" title="Digitize the sequence.">_digitize</a>()) {</div>
+<div class="line">                    std::cerr &lt;&lt; <span class="stringliteral">&quot;sequence was not digitized&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                }</div>
+<div class="line">                success = <span class="keyword">false</span>;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a38195b7fbc00629447c6fffe18387b92" title="Keeps track of whether the sequence under the same header is being read.">readingFile</a> = <span class="keyword">false</span>;</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a96de42ed5fb7eea115072bcd3fe39d11">length</a> = <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>-&gt;size();</div>
+<div class="line">        <span class="keywordflow">return</span> success;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="af96b3000f993fd6d5244d343ec794c8d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::sequenceStream::resetSeq </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reset seq or realseq each time getfasta is called. </p>
+
+<p>Definition at line <a class="el" href="sequence_stream_8cpp_source.html#l00220">220</a> of file <a class="el" href="sequence_stream_8cpp_source.html">sequenceStream.cpp</a>.</p>
+
+<p>References <a class="el" href="sequence_8h_source.html#l00202">StochHMM::sequence::real</a>, <a class="el" href="sequence_8h_source.html#l00189">StochHMM::sequence::realSeq</a>, and <a class="el" href="sequence_8h_source.html#l00201">StochHMM::sequence::seq</a>.</p>
+
+<p>Referenced by <a class="el" href="sequence_stream_8cpp_source.html#l00081">getFasta()</a>.</p>
+<div class="fragment"><div class="line">                                  {</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a8a83a5dda14968c254559cc236abd47d">realSeq</a>) {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f0097bbae0d16b7787b0adea73faba4">real</a>=<span class="keyword">new</span>(std::nothrow) std::vector&lt;double&gt;;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f0097bbae0d16b7787b0adea73faba4">real</a>==NULL){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>=NULL;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span>{</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f0097bbae0d16b7787b0adea73faba4">real</a>=NULL;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>=<span class="keyword">new</span>(std::nothrow) std::vector&lt;short&gt;;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a5f8a7bd8d8b22f79d2dbb5c78d88d754">seq</a>==NULL){</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;OUT OF MEMORY\nFile&quot;</span> &lt;&lt; __FILE__ &lt;&lt; <span class="stringliteral">&quot;Line:\t&quot;</span>&lt;&lt; __LINE__ &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a8ed68f0be8c9ba6446dfa34a20328278"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::sequenceStream::setBuffer </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>buff</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequence_stream_8h_source.html#l00039">39</a> of file <a class="el" href="sequence_stream_8h_source.html">sequenceStream.h</a>.</p>
+
+<p>References <a class="el" href="sequence_stream_8h_source.html#l00043">bufferSize</a>.</p>
+<div class="fragment"><div class="line">{ <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#a7cbee208239d9e16767d428bbd88cec2">bufferSize</a> = buff; }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a3c7cb83209af11deb8083a0ada3acae3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::sequenceStream::setRetain </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>ret</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequence_stream_8h_source.html#l00040">40</a> of file <a class="el" href="sequence_stream_8h_source.html">sequenceStream.h</a>.</p>
+
+<p>References <a class="el" href="sequence_stream_8h_source.html#l00044">retainSize</a>.</p>
+<div class="fragment"><div class="line">{ <a class="code" href="class_stoch_h_m_m_1_1sequence_stream.html#ac9684b665360678b07ffa91316efd504">retainSize</a> = ret; }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a7cbee208239d9e16767d428bbd88cec2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::sequenceStream::bufferSize</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequence_stream_8h_source.html#l00043">43</a> of file <a class="el" href="sequence_stream_8h_source.html">sequenceStream.h</a>.</p>
+
+<p>Referenced by <a class="el" href="sequence_stream_8cpp_source.html#l00081">getFasta()</a>, <a class="el" href="sequence_stream_8cpp_source.html#l00012">sequenceStream()</a>, and <a class="el" href="sequence_stream_8h_source.html#l00039">setBuffer()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7bbd13d361484350ca0fc4b4c7166ea0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::sequenceStream::previousSeq</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>What is left in "getline" after the buffer has been filled. </p>
+
+<p>Definition at line <a class="el" href="sequence_stream_8h_source.html#l00047">47</a> of file <a class="el" href="sequence_stream_8h_source.html">sequenceStream.h</a>.</p>
+
+<p>Referenced by <a class="el" href="sequence_stream_8cpp_source.html#l00081">getFasta()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a38195b7fbc00629447c6fffe18387b92"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::sequenceStream::readingFile</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Keeps track of whether the sequence under the same header is being read. </p>
+
+<p>Definition at line <a class="el" href="sequence_stream_8h_source.html#l00053">53</a> of file <a class="el" href="sequence_stream_8h_source.html">sequenceStream.h</a>.</p>
+
+<p>Referenced by <a class="el" href="sequence_stream_8cpp_source.html#l00081">getFasta()</a>, and <a class="el" href="sequence_stream_8cpp_source.html#l00012">sequenceStream()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8c062cd3f7c8d6c1a549cfa5106e6ebc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::sequenceStream::retain</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The retain sequence. </p>
+
+<p>Definition at line <a class="el" href="sequence_stream_8h_source.html#l00050">50</a> of file <a class="el" href="sequence_stream_8h_source.html">sequenceStream.h</a>.</p>
+
+<p>Referenced by <a class="el" href="sequence_stream_8cpp_source.html#l00081">getFasta()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac9684b665360678b07ffa91316efd504"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::sequenceStream::retainSize</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="sequence_stream_8h_source.html#l00044">44</a> of file <a class="el" href="sequence_stream_8h_source.html">sequenceStream.h</a>.</p>
+
+<p>Referenced by <a class="el" href="sequence_stream_8cpp_source.html#l00081">getFasta()</a>, <a class="el" href="sequence_stream_8cpp_source.html#l00012">sequenceStream()</a>, and <a class="el" href="sequence_stream_8h_source.html#l00040">setRetain()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="sequence_stream_8h_source.html">sequenceStream.h</a></li>
 <li><a class="el" href="sequence_stream_8cpp_source.html">sequenceStream.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html">sequenceStream</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:38 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

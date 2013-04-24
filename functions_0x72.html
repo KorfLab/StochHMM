@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -73,6 +79,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li class="current"><a href="functions.html"><span>All</span></a></li>
       <li><a href="functions_func.html"><span>Functions</span></a></li>
+      <li><a href="functions_vars.html"><span>Variables</span></a></li>
       <li><a href="functions_rela.html"><span>Related&#160;Functions</span></a></li>
     </ul>
   </div>
@@ -86,28 +93,46 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_0x65.html#index_e"><span>e</span></a></li>
       <li><a href="functions_0x66.html#index_f"><span>f</span></a></li>
       <li><a href="functions_0x67.html#index_g"><span>g</span></a></li>
+      <li><a href="functions_0x68.html#index_h"><span>h</span></a></li>
       <li><a href="functions_0x69.html#index_i"><span>i</span></a></li>
+      <li><a href="functions_0x6a.html#index_j"><span>j</span></a></li>
       <li><a href="functions_0x6c.html#index_l"><span>l</span></a></li>
       <li><a href="functions_0x6d.html#index_m"><span>m</span></a></li>
       <li><a href="functions_0x6e.html#index_n"><span>n</span></a></li>
       <li><a href="functions_0x6f.html#index_o"><span>o</span></a></li>
       <li><a href="functions_0x70.html#index_p"><span>p</span></a></li>
+      <li><a href="functions_0x71.html#index_q"><span>q</span></a></li>
       <li class="current"><a href="functions_0x72.html#index_r"><span>r</span></a></li>
       <li><a href="functions_0x73.html#index_s"><span>s</span></a></li>
       <li><a href="functions_0x74.html#index_t"><span>t</span></a></li>
       <li><a href="functions_0x75.html#index_u"><span>u</span></a></li>
       <li><a href="functions_0x76.html#index_v"><span>v</span></a></li>
       <li><a href="functions_0x77.html#index_w"><span>w</span></a></li>
+      <li><a href="functions_0x78.html#index_x"><span>x</span></a></li>
+      <li><a href="functions_0x79.html#index_y"><span>y</span></a></li>
       <li><a href="functions_0x7e.html#index_0x7e"><span>~</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('functions_0x72.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -117,12 +142,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 <div class="contents">
-<div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
+<div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>range
+: <a class="el" href="class_stoch_h_m_m_1_1model.html#ae87208a72eb3db85e94bec35cb21c817">StochHMM::model</a>
+</li>
+<li>readingFile
+: <a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#a38195b7fbc00629447c6fffe18387b92">StochHMM::sequenceStream</a>
+</li>
+<li>real
+: <a class="el" href="class_stoch_h_m_m_1_1sequence.html#a5f0097bbae0d16b7787b0adea73faba4">StochHMM::sequence</a>
+</li>
+<li>real_number
+: <a class="el" href="class_stoch_h_m_m_1_1emm.html#aa406dbdef380fd8b693a91048a2d7c13">StochHMM::emm</a>
+</li>
+<li>realSeq
+: <a class="el" href="class_stoch_h_m_m_1_1sequence.html#a8a83a5dda14968c254559cc236abd47d">StochHMM::sequence</a>
+</li>
+<li>realTrack
+: <a class="el" href="class_stoch_h_m_m_1_1emm.html#a4ef3deac64d38ef52fac29c7ee2f86bf">StochHMM::emm</a>
+</li>
 <li>realValue()
-: <a class="el" href="class_stoch_h_m_m_1_1sequence.html#afb44bebc50247cad16a6603c74eec0a1">StochHMM::sequence</a>
-, <a class="el" href="class_stoch_h_m_m_1_1sequences.html#a125334dc9cc39fe47df7780284bb27f2">StochHMM::sequences</a>
+: <a class="el" href="class_stoch_h_m_m_1_1sequences.html#a125334dc9cc39fe47df7780284bb27f2">StochHMM::sequences</a>
+, <a class="el" href="class_stoch_h_m_m_1_1sequence.html#afb44bebc50247cad16a6603c74eec0a1">StochHMM::sequence</a>
+</li>
+<li>related_sequences
+: <a class="el" href="class_stoch_h_m_m_1_1sequences.html#ac9847a7c55f63b91f00c7ea84bb90edd">StochHMM::sequences</a>
+</li>
+<li>remainingSeqs()
+: <a class="el" href="class_stoch_h_m_m_1_1seq_tracks.html#a2ec7a8c1b3dbb730bd93931b0866c2c1">StochHMM::seqTracks</a>
 </li>
 <li>removeComments()
 : <a class="el" href="class_stoch_h_m_m_1_1string_list.html#a8aac8660baaa5ec2e5dd6d9451fc241d">StochHMM::stringList</a>
@@ -130,30 +179,55 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>removeLWS()
 : <a class="el" href="class_stoch_h_m_m_1_1string_list.html#a1465a905712ca408761af4b80413ed76">StochHMM::stringList</a>
 </li>
+<li>removeWS
+: <a class="el" href="class_stoch_h_m_m_1_1string_list.html#a6be290a3361c4ef901c3e71e7013705d">StochHMM::stringList</a>
+</li>
+<li>required
+: <a class="el" href="class_stoch_h_m_m_1_1opt__data.html#a35a93f13da00d612f460db12b44833a3">StochHMM::opt_data</a>
+, <a class="el" href="struct_stoch_h_m_m_1_1opt__parameters.html#a0c8aeac85afc3b5c3becf86b4ad26ca8">StochHMM::opt_parameters</a>
+</li>
 <li>reserve()
 : <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a119a2afb7d3ba2b81d0b0a577bd321cd">StochHMM::dynamic_bitset</a>
 , <a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#ac5437f6d5eff0c68780944d27b36e7d3">StochHMM::sparseArray&lt; T &gt;</a>
 </li>
 <li>reset()
 : <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af490cac4ed0f4a22af54e784ea7de3e9">StochHMM::dynamic_bitset</a>
+, <a class="el" href="class_stoch_h_m_m_1_1trellis.html#a9ec3dff1ee61dc928f36f46a9af9574e">StochHMM::trellis</a>
+, <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html#af9f625edcb52c46ac3119de27c4bcf29">StochHMM::dynamic_bitset::bit_ref</a>
+</li>
+<li>resetSeq()
+: <a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#af96b3000f993fd6d5244d343ec794c8d">StochHMM::sequenceStream</a>
 </li>
 <li>resize()
-: <a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#acc3c611e4330190d62779cdcbe6920bd">StochHMM::sparseArray&lt; T &gt;</a>
-, <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a18a942cdd7e8a6e6af1ebcfeafdc9b41">StochHMM::dynamic_bitset</a>
+: <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a18a942cdd7e8a6e6af1ebcfeafdc9b41">StochHMM::dynamic_bitset</a>
+, <a class="el" href="class_stoch_h_m_m_1_1sparse_array.html#acc3c611e4330190d62779cdcbe6920bd">StochHMM::sparseArray&lt; T &gt;</a>
+</li>
+<li>restricted
+: <a class="el" href="class_stoch_h_m_m_1_1opt__data.html#ac62dfb3d201081ca141d35f02159016f">StochHMM::opt_data</a>
+</li>
+<li>retain
+: <a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#a8c062cd3f7c8d6c1a549cfa5106e6ebc">StochHMM::sequenceStream</a>
+</li>
+<li>retainSize
+: <a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html#ac9684b665360678b07ffa91316efd504">StochHMM::sequenceStream</a>
 </li>
 <li>reverse()
 : <a class="el" href="class_stoch_h_m_m_1_1sequence.html#ae012923860db511882407aa87658f3f7">StochHMM::sequence</a>
 </li>
 <li>reverseComplement()
 : <a class="el" href="class_stoch_h_m_m_1_1sequence.html#ae9d70ad95f1f76f068cd2fe3d3f0a3a6">StochHMM::sequence</a>
+, <a class="el" href="classtraining_seq.html#a48cf388a486ad995a51642acaa41ed56">trainingSeq</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:39 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

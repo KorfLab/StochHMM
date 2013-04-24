@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1_ex_def.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,11 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1_ex_def.html">ExDef</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -114,31 +129,23 @@ Inheritance diagram for StochHMM::ExDef:</div>
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:acb287eabef60590d23ad930d39e88073"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_ex_def.html#acb287eabef60590d23ad930d39e88073">ExDef</a> ()</td></tr>
-<tr class="memitem:af83183c50bfe9b460ca10cfe881831b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af83183c50bfe9b460ca10cfe881831b0"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>getState</b> ()</td></tr>
-<tr class="memitem:a543b219ae7253a96567838caf12afefb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a543b219ae7253a96567838caf12afefb"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isAbsolute</b> ()</td></tr>
-<tr class="memitem:aa816e2a061d3eb08b2d34307894d8f09"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa816e2a061d3eb08b2d34307894d8f09"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setState</b> (size_t stIter)</td></tr>
-<tr class="memitem:a1ed1e6d916fc3bc82b089e077a8e9b4c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ed1e6d916fc3bc82b089e077a8e9b4c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>assignWeight</b> (size_t stateIter, double val)</td></tr>
-<tr class="memitem:a6409f2f8d82abf489ff3aed3b3064ee9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6409f2f8d82abf489ff3aed3b3064ee9"></a>
-virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>getWeight</b> (size_t stateIter)</td></tr>
-<tr class="memitem:a791faadc4c1f776475f693d0053cd692"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a791faadc4c1f776475f693d0053cd692"></a>
-virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_ex_def.html#a791faadc4c1f776475f693d0053cd692">stringify</a> ()</td></tr>
-<tr class="memdesc:a791faadc4c1f776475f693d0053cd692"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the string representation of the <a class="el" href="class_stoch_h_m_m_1_1_ex_def.html">ExDef</a>. <br/></td></tr>
+<tr class="memitem:a09b6de870813f293df5e70b1e3b39368"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_ex_def.html#a09b6de870813f293df5e70b1e3b39368">~ExDef</a> ()</td></tr>
+<tr class="memitem:af83183c50bfe9b460ca10cfe881831b0"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_ex_def.html#af83183c50bfe9b460ca10cfe881831b0">getState</a> ()</td></tr>
+<tr class="memitem:a543b219ae7253a96567838caf12afefb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_ex_def.html#a543b219ae7253a96567838caf12afefb">isAbsolute</a> ()</td></tr>
+<tr class="memitem:aa816e2a061d3eb08b2d34307894d8f09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_ex_def.html#aa816e2a061d3eb08b2d34307894d8f09">setState</a> (size_t stIter)</td></tr>
+<tr class="memitem:a1ed1e6d916fc3bc82b089e077a8e9b4c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_ex_def.html#a1ed1e6d916fc3bc82b089e077a8e9b4c">assignWeight</a> (size_t stateIter, double val)</td></tr>
+<tr class="memitem:a6409f2f8d82abf489ff3aed3b3064ee9"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_ex_def.html#a6409f2f8d82abf489ff3aed3b3064ee9">getWeight</a> (size_t stateIter)</td></tr>
+<tr class="memitem:a791faadc4c1f776475f693d0053cd692"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_ex_def.html#a791faadc4c1f776475f693d0053cd692">stringify</a> ()</td></tr>
+<tr class="memdesc:a791faadc4c1f776475f693d0053cd692"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the string representation of the <a class="el" href="class_stoch_h_m_m_1_1_ex_def.html">ExDef</a>.  <a href="#a791faadc4c1f776475f693d0053cd692"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a3dec93772ffcd8c17df1a47045885a21"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3dec93772ffcd8c17df1a47045885a21"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>absolute</b></td></tr>
-<tr class="memitem:a73b2ea58683b443b2a17fe7eb194968a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73b2ea58683b443b2a17fe7eb194968a"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>weightedState</b></td></tr>
+<tr class="memitem:a3dec93772ffcd8c17df1a47045885a21"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_ex_def.html#a3dec93772ffcd8c17df1a47045885a21">absolute</a></td></tr>
+<tr class="memitem:a73b2ea58683b443b2a17fe7eb194968a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_ex_def.html#a73b2ea58683b443b2a17fe7eb194968a">weightedState</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a259a4d31b54f3885245934a0f8f0d883"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a259a4d31b54f3885245934a0f8f0d883"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>ExDefSequence</b></td></tr>
+<tr class="memitem:a259a4d31b54f3885245934a0f8f0d883"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_ex_def.html#a259a4d31b54f3885245934a0f8f0d883">ExDefSequence</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_stoch_h_m_m_1_1_ex_def.html">ExDef</a> defines absolute external definition for model. The model must pass through this state </p>
@@ -160,12 +167,310 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>ExDefSequence</b></t
 <p>Create a <a class="el" href="class_stoch_h_m_m_1_1_ex_def.html">ExDef</a> type *Default: absolute=false, weightedState = -2 </p>
 
 <p>Definition at line <a class="el" href="extern_definitions_8cpp_source.html#l00123">123</a> of file <a class="el" href="extern_definitions_8cpp_source.html">externDefinitions.cpp</a>.</p>
+
+<p>References <a class="el" href="extern_definitions_8h_source.html#l00124">absolute</a>, and <a class="el" href="extern_definitions_8h_source.html#l00126">weightedState</a>.</p>
 <div class="fragment"><div class="line">                {</div>
-<div class="line">        absolute=<span class="keyword">false</span>;</div>
-<div class="line">        weightedState=-2;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_ex_def.html#a3dec93772ffcd8c17df1a47045885a21">absolute</a>=<span class="keyword">false</span>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_ex_def.html#a73b2ea58683b443b2a17fe7eb194968a">weightedState</a>=-2;</div>
 <div class="line">        <span class="comment">//st=NULL;</span></div>
 <div class="line">    }</div>
 </div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a09b6de870813f293df5e70b1e3b39368"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual StochHMM::ExDef::~ExDef </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="extern_definitions_8h_source.html#l00111">111</a> of file <a class="el" href="extern_definitions_8h_source.html">externDefinitions.h</a>.</p>
+<div class="fragment"><div class="line">{};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a1ed1e6d916fc3bc82b089e077a8e9b4c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void StochHMM::ExDef::assignWeight </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>stateIter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="class_stoch_h_m_m_1_1weight_def.html#a99c05b143ab8e55bafeb6d53ac954f60">StochHMM::weightDef</a>.</p>
+
+<p>Definition at line <a class="el" href="extern_definitions_8h_source.html#l00119">119</a> of file <a class="el" href="extern_definitions_8h_source.html">externDefinitions.h</a>.</p>
+
+<p>References <a class="el" href="extern_definitions_8h_source.html#l00124">absolute</a>, and <a class="el" href="extern_definitions_8h_source.html#l00126">weightedState</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1_ex_def.html#a73b2ea58683b443b2a17fe7eb194968a">weightedState</a>=stateIter;<a class="code" href="class_stoch_h_m_m_1_1_ex_def.html#a3dec93772ffcd8c17df1a47045885a21">absolute</a>=<span class="keyword">true</span>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="af83183c50bfe9b460ca10cfe881831b0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::ExDef::getState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="extern_definitions_8h_source.html#l00115">115</a> of file <a class="el" href="extern_definitions_8h_source.html">externDefinitions.h</a>.</p>
+
+<p>References <a class="el" href="extern_definitions_8h_source.html#l00126">weightedState</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1_ex_def.html#a73b2ea58683b443b2a17fe7eb194968a">weightedState</a>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a6409f2f8d82abf489ff3aed3b3064ee9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double StochHMM::ExDef::getWeight </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>stateIter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="class_stoch_h_m_m_1_1weight_def.html#a20573a62136b77f305cf7d6b4cd4a246">StochHMM::weightDef</a>.</p>
+
+<p>Definition at line <a class="el" href="extern_definitions_8h_source.html#l00120">120</a> of file <a class="el" href="extern_definitions_8h_source.html">externDefinitions.h</a>.</p>
+
+<p>References <a class="el" href="extern_definitions_8h_source.html#l00126">weightedState</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">if</span> ( stateIter == <a class="code" href="class_stoch_h_m_m_1_1_ex_def.html#a73b2ea58683b443b2a17fe7eb194968a">weightedState</a>){ <span class="keywordflow">return</span> 0;} <span class="keywordflow">else</span> { <span class="keywordflow">return</span> -INFINITY;}};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a543b219ae7253a96567838caf12afefb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::ExDef::isAbsolute </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="extern_definitions_8h_source.html#l00116">116</a> of file <a class="el" href="extern_definitions_8h_source.html">externDefinitions.h</a>.</p>
+
+<p>References <a class="el" href="extern_definitions_8h_source.html#l00124">absolute</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1_ex_def.html#a3dec93772ffcd8c17df1a47045885a21">absolute</a>;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aa816e2a061d3eb08b2d34307894d8f09"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::ExDef::setState </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>stIter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="extern_definitions_8h_source.html#l00118">118</a> of file <a class="el" href="extern_definitions_8h_source.html">externDefinitions.h</a>.</p>
+
+<p>References <a class="el" href="extern_definitions_8h_source.html#l00124">absolute</a>, and <a class="el" href="extern_definitions_8h_source.html#l00126">weightedState</a>.</p>
+<div class="fragment"><div class="line">{<a class="code" href="class_stoch_h_m_m_1_1_ex_def.html#a3dec93772ffcd8c17df1a47045885a21">absolute</a>=<span class="keyword">true</span>; <a class="code" href="class_stoch_h_m_m_1_1_ex_def.html#a73b2ea58683b443b2a17fe7eb194968a">weightedState</a>=stIter;};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a791faadc4c1f776475f693d0053cd692"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::ExDef::stringify </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the string representation of the <a class="el" href="class_stoch_h_m_m_1_1_ex_def.html">ExDef</a>. </p>
+
+<p>Reimplemented in <a class="el" href="class_stoch_h_m_m_1_1weight_def.html#abb05e5e626966f9098878e5b37fd76d7">StochHMM::weightDef</a>.</p>
+
+<p>Definition at line <a class="el" href="extern_definitions_8cpp_source.html#l00154">154</a> of file <a class="el" href="extern_definitions_8cpp_source.html">externDefinitions.cpp</a>.</p>
+
+<p>References <a class="el" href="text_8cpp_source.html#l00564">StochHMM::int_to_string()</a>, and <a class="el" href="extern_definitions_8h_source.html#l00126">weightedState</a>.</p>
+<div class="fragment"><div class="line">                              {</div>
+<div class="line">        </div>
+<div class="line">        std::string output;</div>
+<div class="line">        output+=<span class="stringliteral">&quot;STATE: &quot;</span>;</div>
+<div class="line">        output+= <a class="code" href="group___text.html#ga85eb97cbbeb8e493349a04ffaabb1bbf">int_to_string</a>(<a class="code" href="class_stoch_h_m_m_1_1_ex_def.html#a73b2ea58683b443b2a17fe7eb194968a">weightedState</a>) + <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">return</span> output;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Friends And Related Function Documentation</h2>
+<a class="anchor" id="a259a4d31b54f3885245934a0f8f0d883"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_stoch_h_m_m_1_1_ex_def_sequence.html">ExDefSequence</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="class_stoch_h_m_m_1_1weight_def.html#a259a4d31b54f3885245934a0f8f0d883">StochHMM::weightDef</a>.</p>
+
+<p>Definition at line <a class="el" href="extern_definitions_8h_source.html#l00111">111</a> of file <a class="el" href="extern_definitions_8h_source.html">externDefinitions.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a3dec93772ffcd8c17df1a47045885a21"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::ExDef::absolute</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="extern_definitions_8h_source.html#l00124">124</a> of file <a class="el" href="extern_definitions_8h_source.html">externDefinitions.h</a>.</p>
+
+<p>Referenced by <a class="el" href="extern_definitions_8h_source.html#l00119">assignWeight()</a>, <a class="el" href="extern_definitions_8cpp_source.html#l00123">ExDef()</a>, <a class="el" href="extern_definitions_8h_source.html#l00116">isAbsolute()</a>, <a class="el" href="extern_definitions_8h_source.html#l00118">setState()</a>, and <a class="el" href="extern_definitions_8cpp_source.html#l00130">StochHMM::weightDef::weightDef()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a73b2ea58683b443b2a17fe7eb194968a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::ExDef::weightedState</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="extern_definitions_8h_source.html#l00126">126</a> of file <a class="el" href="extern_definitions_8h_source.html">externDefinitions.h</a>.</p>
+
+<p>Referenced by <a class="el" href="extern_definitions_8h_source.html#l00119">assignWeight()</a>, <a class="el" href="extern_definitions_8cpp_source.html#l00123">ExDef()</a>, <a class="el" href="extern_definitions_8h_source.html#l00115">getState()</a>, <a class="el" href="extern_definitions_8h_source.html#l00120">getWeight()</a>, <a class="el" href="extern_definitions_8h_source.html#l00118">setState()</a>, <a class="el" href="extern_definitions_8cpp_source.html#l00154">stringify()</a>, and <a class="el" href="extern_definitions_8cpp_source.html#l00130">StochHMM::weightDef::weightDef()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -173,11 +478,15 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>ExDefSequence</b></t
 <li><a class="el" href="extern_definitions_8cpp_source.html">externDefinitions.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1_ex_def.html">ExDef</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:37 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

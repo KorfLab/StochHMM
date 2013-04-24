@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1ambig_character.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,14 +103,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1ambig_character.html">ambigCharacter</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::ambigCharacter Class Reference</div>  </div>
 </div><!--header-->
@@ -108,6 +124,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a13f60639db9effc31011ddf58e0e2a38"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1ambig_character.html#a13f60639db9effc31011ddf58e0e2a38">ambigCharacter</a> (<a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *, std::string &amp;, std::vector&lt; std::string &gt; &amp;)</td></tr>
 <tr class="memitem:ab0b3344abf2699112f1819498c2e448b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1ambig_character.html#ab0b3344abf2699112f1819498c2e448b">getSymbol</a> ()</td></tr>
 <tr class="memitem:afa461101504d0173552755b9a987d28d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; size_t &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1ambig_character.html#afa461101504d0173552755b9a987d28d">getDef</a> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a9441fce3f5d2202845f646bebc4f28e3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1ambig_character.html#a9441fce3f5d2202845f646bebc4f28e3">symbol</a></td></tr>
+<tr class="memitem:ab8c9c9af9d00d3198d1f4355ca0cc739"><td class="memItemLeft" align="right" valign="top">std::vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1ambig_character.html#ab8c9c9af9d00d3198d1f4355ca0cc739">setDefinition</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Define the ambiguous characters symbol and index number for digitizing ambiguous characters in the sequence For example in DNA N = [ACGT] = [0,1,2,3]. </p>
@@ -155,13 +176,13 @@ Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="track_8cpp_source.html#l00036">36</a> of file <a class="el" href="track_8cpp_source.html">track.cpp</a>.</p>
 
-<p>References <a class="el" href="track_8cpp_source.html#l00259">StochHMM::track::symbolIndex()</a>.</p>
+<p>References <a class="el" href="track_8h_source.html#l00078">setDefinition</a>, <a class="el" href="track_8h_source.html#l00074">symbol</a>, and <a class="el" href="track_8cpp_source.html#l00259">StochHMM::track::symbolIndex()</a>.</p>
 <div class="fragment"><div class="line">                                                                                           {</div>
-<div class="line">        symbol=ambChar;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1ambig_character.html#a9441fce3f5d2202845f646bebc4f28e3">symbol</a>=ambChar;</div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;defs.size();i++){</div>
-<div class="line">            setDefinition.push_back(tr-&gt;symbolIndex(defs[i]));</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1ambig_character.html#ab8c9c9af9d00d3198d1f4355ca0cc739">setDefinition</a>.push_back(tr-&gt;symbolIndex(defs[i]));</div>
 <div class="line">        }</div>
-<div class="line">        sort(setDefinition.begin(),setDefinition.end());</div>
+<div class="line">        sort(<a class="code" href="class_stoch_h_m_m_1_1ambig_character.html#ab8c9c9af9d00d3198d1f4355ca0cc739">setDefinition</a>.begin(),<a class="code" href="class_stoch_h_m_m_1_1ambig_character.html#ab8c9c9af9d00d3198d1f4355ca0cc739">setDefinition</a>.end());</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
@@ -192,7 +213,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>std::vector&lt;int&gt; Digitized value of characters that are represented by the given symbol </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00074">74</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> setDefinition;};</div>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1ambig_character.html#ab8c9c9af9d00d3198d1f4355ca0cc739">setDefinition</a>;};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -220,8 +241,59 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>std::string Symbol of character/word </dd></dl>
 
 <p>Definition at line <a class="el" href="track_8h_source.html#l00067">67</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
-<div class="fragment"><div class="line">{<span class="keywordflow">return</span> symbol;};</div>
+
+<p>References <a class="el" href="track_8h_source.html#l00074">symbol</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1ambig_character.html#a9441fce3f5d2202845f646bebc4f28e3">symbol</a>;};</div>
 </div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="ab8c9c9af9d00d3198d1f4355ca0cc739"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;size_t&gt; StochHMM::ambigCharacter::setDefinition</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00078">78</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00036">ambigCharacter()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9441fce3f5d2202845f646bebc4f28e3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::ambigCharacter::symbol</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="track_8h_source.html#l00074">74</a> of file <a class="el" href="track_8h_source.html">track.h</a>.</p>
+
+<p>Referenced by <a class="el" href="track_8cpp_source.html#l00036">ambigCharacter()</a>, and <a class="el" href="track_8h_source.html#l00067">getSymbol()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -229,11 +301,15 @@ Public Member Functions</h2></td></tr>
 <li><a class="el" href="track_8cpp_source.html">track.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1ambig_character.html">ambigCharacter</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:38 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

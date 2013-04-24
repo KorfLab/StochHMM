@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -64,15 +70,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('user_functions_8h.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,7 +106,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">userFunctions.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<a href="user_functions_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  UserFunctions.h</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//Copyright (c) 2007-2012 Paul C Lott </span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//University of California, Davis</span></div>
@@ -120,13 +140,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;PDF.h&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_p_d_f_8h.html">PDF.h</a>&quot;</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span>StochHMM{</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">    //! \typedef Pointer to function that takes int, string ptr, string ptr</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span>    <span class="comment">//typedef double  (*pt2StateFunc) (const std::string*, const std::string*, size_t);</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">typedef</span> double  (*transitionFunc) (<span class="keyword">const</span> std::string*, <span class="keyword">const</span> size_t, <span class="keyword">const</span> std::string*, <span class="keyword">const</span> size_t);</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a3e8439e572cd4e42d0d645bae56d8706">   41</a></span>&#160;    <span class="keyword">typedef</span> double  (*<a class="code" href="namespace_stoch_h_m_m.html#a3e8439e572cd4e42d0d645bae56d8706">transitionFunc</a>) (<span class="keyword">const</span> std::string*, <span class="keyword">const</span> size_t, <span class="keyword">const</span> std::string*, <span class="keyword">const</span> size_t);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment"></span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">        //! \typdef emissionFunc</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">        //! \brief Pointer to emmission function</span></div>
@@ -146,10 +166,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">    //!\typedef Pointer to Function that takes a string and returns a vector&lt;float&gt;</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"></span>    <span class="keyword">typedef</span> std::vector&lt;double&gt;* (*pt2TrackFunc) (<span class="keyword">const</span> std::string*);</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a7af9065648079958ae059fd35e3d2234">   61</a></span>&#160;<span class="comment"></span>    <span class="keyword">typedef</span> std::vector&lt;double&gt;* (*pt2TrackFunc) (<span class="keyword">const</span> std::string*);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">    //!\typedef Pointer to function that takes a string and returns a double</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"></span>    <span class="keyword">typedef</span> double (*pt2Attrib) (<span class="keyword">const</span> std::string*);</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="code" href="namespace_stoch_h_m_m.html#a8a670349d99357e6dcd6d12025d243e9">   64</a></span>&#160;<span class="comment"></span>    <span class="keyword">typedef</span> double (*<a class="code" href="namespace_stoch_h_m_m.html#a8a670349d99357e6dcd6d12025d243e9">pt2Attrib</a>) (<span class="keyword">const</span> std::string*);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">    //! The map stores the pointers to the different functions by const char* word.</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">    //! Allows the user to create and integrate their own functions into the model</span></div>
@@ -162,10 +182,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">    //! Stores pointers to user functions used by the State&#39;s Emissions and Transitions</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html">   75</a></span>&#160;<span class="comment"></span>    <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html" title="(**Adding in log space)">StateFuncs</a>{</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html" title="(**Adding in log space)">StateFuncs</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a45b15ae4d8426295b88e5f912d27c9a0">StateFuncs</a>();</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac23f19c0b1ffc4ae7f2a8fce5995888e">assignTransitionFunction</a>(std::string&amp;, transitionFunc);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac23f19c0b1ffc4ae7f2a8fce5995888e">assignTransitionFunction</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>*,  transitionFunc);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac23f19c0b1ffc4ae7f2a8fce5995888e">assignTransitionFunction</a>(std::string&amp;, <a class="code" href="namespace_stoch_h_m_m.html#a3e8439e572cd4e42d0d645bae56d8706">transitionFunc</a>);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac23f19c0b1ffc4ae7f2a8fce5995888e">assignTransitionFunction</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>*,  <a class="code" href="namespace_stoch_h_m_m.html#a3e8439e572cd4e42d0d645bae56d8706">transitionFunc</a>);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac7fa4184ed198c2c400e81b8fcae7884">assignEmissionFunction</a>(std::string&amp;, <a class="code" href="namespace_stoch_h_m_m.html#a7fad7f980bfaea3d96c891e6db7c8cf0" title="Pointer to emmission function Passed a string and position as size_t.">emissionFunc</a>);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac7fa4184ed198c2c400e81b8fcae7884">assignEmissionFunction</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>*,  <a class="code" href="namespace_stoch_h_m_m.html#a7fad7f980bfaea3d96c891e6db7c8cf0" title="Pointer to emmission function Passed a string and position as size_t.">emissionFunc</a>);</div>
@@ -177,40 +197,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a6b6a97f3da82534ad8fea7828042ce87">assignMultivariatePdfFunction</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>*,  <a class="code" href="namespace_stoch_h_m_m.html#ab99ca2cb1963df8ca0751cdaabfd664a">multiPdfFunc</a>);</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                </div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        transitionFunc* <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a0bfc3a304278f619092a156681eda51b">getTransitionFunction</a>(std::string&amp;);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <a class="code" href="namespace_stoch_h_m_m.html#a3e8439e572cd4e42d0d645bae56d8706">transitionFunc</a>* <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a0bfc3a304278f619092a156681eda51b">getTransitionFunction</a>(std::string&amp;);</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <a class="code" href="namespace_stoch_h_m_m.html#a7fad7f980bfaea3d96c891e6db7c8cf0" title="Pointer to emmission function Passed a string and position as size_t.">emissionFunc</a>* <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1e38f951a26f7e96b7777bf7c87e437f">getEmissionFunction</a>(std::string&amp;);</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <a class="code" href="namespace_stoch_h_m_m.html#a273f025f8870b79f2a971f293ea038e1" title="Pointer to Univariate Continuous Probability Density Function.">pdfFunc</a>* <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac411cc022d49ce5ae57d6a8df57e1018">getPDFFunction</a>(std::string&amp;);</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <a class="code" href="namespace_stoch_h_m_m.html#ab99ca2cb1963df8ca0751cdaabfd664a">multiPdfFunc</a>* <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a090801e052dbdec88c4fdeddbfa8887d">getMultivariatePdfFunction</a>(std::string&amp;);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                </div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        </div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        std::map&lt;std::string, transitionFunc&gt; transitionFunctions;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        std::map&lt;std::string, emissionFunc&gt; emissionFunctions; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                std::map&lt;std::string, pdfFunc&gt; pdfFunctions; <span class="comment">//For continuous emissions</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                std::map&lt;std::string, multiPdfFunc&gt; multiPdfFunctions;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="keywordtype">void</span> _loadUnivariatePdf();</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                <span class="keywordtype">void</span> _loadMultivariatePdf();</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a76d04426a8db2cb19ab404a381e49281">   99</a></span>&#160;        std::map&lt;std::string, transitionFunc&gt; <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a76d04426a8db2cb19ab404a381e49281">transitionFunctions</a>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1994774131110d1205b4e7ded48e5ded">  100</a></span>&#160;        std::map&lt;std::string, emissionFunc&gt; <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1994774131110d1205b4e7ded48e5ded">emissionFunctions</a>; </div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a12ebadc51cb43d64881688ee85cc2f2f">  101</a></span>&#160;                std::map&lt;std::string, pdfFunc&gt; <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a12ebadc51cb43d64881688ee85cc2f2f">pdfFunctions</a>; <span class="comment">//For continuous emissions</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1a97a81a53f77a037f032b47a614bd6d">  102</a></span>&#160;                std::map&lt;std::string, multiPdfFunc&gt; <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1a97a81a53f77a037f032b47a614bd6d">multiPdfFunctions</a>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a4d3249aa220e9032c37fcc628399b1f8">_loadUnivariatePdf</a>();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a82043c1a491c1e1297f02ac5f792ba55">_loadMultivariatePdf</a>();</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    };</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">    //!Stores pointer to user functions used to create Real Number Tracks</span></div>
 <div class="line"><a name="l00109"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html">  109</a></span>&#160;<span class="comment"></span>    <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html" title="Stores pointer to user functions used to create Real Number Tracks.">TrackFuncs</a>{</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html#addb4898201238a442c28b968f4655994">assignFunction</a>(std::string&amp;, pt2TrackFunc);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        pt2TrackFunc* <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html#afa19684201044430ffdda10ca7145355">getFunction</a>(std::string&amp;);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html#addb4898201238a442c28b968f4655994">assignFunction</a>(std::string&amp;, <a class="code" href="namespace_stoch_h_m_m.html#a7af9065648079958ae059fd35e3d2234">pt2TrackFunc</a>);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <a class="code" href="namespace_stoch_h_m_m.html#a7af9065648079958ae059fd35e3d2234">pt2TrackFunc</a>* <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html#afa19684201044430ffdda10ca7145355">getFunction</a>(std::string&amp;);</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        std::map&lt;std::string, pt2TrackFunc&gt; functions;</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html#ad534aee6bcc9f3d9d91838e2b382f5ad">  114</a></span>&#160;        std::map&lt;std::string, pt2TrackFunc&gt; <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html#ad534aee6bcc9f3d9d91838e2b382f5ad">functions</a>;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    };</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;}</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="user_functions_8h.html">userFunctions.h</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:35 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

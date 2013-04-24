@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1sequences.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,11 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">sequences</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">StochHMM::sequences Member List</div>  </div>
@@ -102,25 +117,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a186a9b5085dbd0887e57a0423cea1301">exDefDefined</a>(size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#ac7228a30e8531845938b5ec1381f0f85">exDefDefined</a>(size_t, size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a499a2ee26b7cdeaa54c518c3a6486433">exDefDefined</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a5c38dd56e58e490eddcb32993b9ab950">getAttrib</a>(size_t iter)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getFastas</b>(const std::string &amp;, track *) (defined in <a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a4edbb349b6d2f93cc29a25812368e058">getHeader</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a15a54e9788933a14451a68063203ad53">getHeader</a>(size_t iter)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a4330384386d607990d4f46e4ec710b27">getLength</a>(size_t iter)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a30b024b7aa60cd8cadaf2f6733408095">getLength</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a0bb47e055e4055c5941f366feddb31d9">getSeq</a>(size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a360ce70b661a950da79d0668a3afac9a">getUndigitized</a>(size_t iter)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a0eecfd11066a4802ef3129e3641eb0d0">getWeight</a>(size_t, size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>isSameSize</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a47c4286f358f71442531ae219cda2392">operator=</a>(const sequences &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator[]</b>(size_t index) (defined in <a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#ad8a8c85d919878bb230a3f847fc7db11">print</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a125334dc9cc39fe47df7780284bb27f2">realValue</a>(int, size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a104e5ece8e8cfbc5d2c6b40f04856818">realValue</a>(size_t, size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>sequences</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#aa954cd9a08d4fe9d462a93c3f0361980">external</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a5c38dd56e58e490eddcb32993b9ab950">getAttrib</a>(size_t iter)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#aaf0c3ddabd4a43bc483128ea2d1e7f21">getFastas</a>(const std::string &amp;, track *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a4edbb349b6d2f93cc29a25812368e058">getHeader</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a15a54e9788933a14451a68063203ad53">getHeader</a>(size_t iter)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a4330384386d607990d4f46e4ec710b27">getLength</a>(size_t iter)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a30b024b7aa60cd8cadaf2f6733408095">getLength</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a0bb47e055e4055c5941f366feddb31d9">getSeq</a>(size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a360ce70b661a950da79d0668a3afac9a">getUndigitized</a>(size_t iter)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a0eecfd11066a4802ef3129e3641eb0d0">getWeight</a>(size_t, size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#ac8e1f3a677009c6d27b4323255c450db">isSameSize</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a197639d8768ccd650b67b909d613209b">length</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a0f36f384684df6b7d47a5e1dfc65305b">num_of_sequences</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a47c4286f358f71442531ae219cda2392">operator=</a>(const sequences &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a98c03baeb2e3107cff7b2d98487212ee">operator[]</a>(size_t index)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#ad8a8c85d919878bb230a3f847fc7db11">print</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a125334dc9cc39fe47df7780284bb27f2">realValue</a>(int, size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a104e5ece8e8cfbc5d2c6b40f04856818">realValue</a>(size_t, size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#ac9847a7c55f63b91f00c7ea84bb90edd">related_sequences</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a7d908d2a5b6574a1717094528e85fc0e">same_length</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a638ab056cbcdbee61c39c90a39a3bde6">seq</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a548fcbae336ca4a58d0127a37aca7c3a">sequences</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a152c1f192f554b931a3394c4281432f4">sequences</a>(size_t sz)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a4583b8d6c556d478b0c98de1699f5cb3">sequences</a>(tracks *tr)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>sequences</b>(const sequences &amp;) (defined in <a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a071ff60a97b24ade746e965ecda91af5">sequences</a>(const sequences &amp;)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#ae8f23e456cdaaccead9a7db8491b8e8f">seqValue</a>(int, size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a3a2e2f4d2af3fe24f1ca10e351b456a8">setExDef</a>(ExDefSequence *ex)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a5c45ecfdf5a9e2fbdaeb0bf7e3eb1cce">setLength</a>(size_t len)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
@@ -129,11 +150,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#ae95c322b792e2fb7bb4da66875a68418">undigitize</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html#a33b78307e44b698a35adf6169dd8d372">~sequences</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1sequences.html">StochHMM::sequences</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:38 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

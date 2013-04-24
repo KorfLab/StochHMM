@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1_state_funcs.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,14 +103,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html">StateFuncs</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::StateFuncs Class Reference</div>  </div>
 </div><!--header-->
@@ -105,29 +122,201 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac23f19c0b1ffc4ae7f2a8fce5995888e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#ac23f19c0b1ffc4ae7f2a8fce5995888e">assignTransitionFunction</a> (std::string &amp;, transitionFunc)</td></tr>
-<tr class="memitem:ad7ec5fb2230077d858c0b8fba02b4d4f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad7ec5fb2230077d858c0b8fba02b4d4f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>assignTransitionFunction</b> (const char *, transitionFunc)</td></tr>
+<tr class="memitem:a45b15ae4d8426295b88e5f912d27c9a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#a45b15ae4d8426295b88e5f912d27c9a0">StateFuncs</a> ()</td></tr>
+<tr class="memitem:ac23f19c0b1ffc4ae7f2a8fce5995888e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#ac23f19c0b1ffc4ae7f2a8fce5995888e">assignTransitionFunction</a> (std::string &amp;, <a class="el" href="namespace_stoch_h_m_m.html#a3e8439e572cd4e42d0d645bae56d8706">transitionFunc</a>)</td></tr>
+<tr class="memitem:ad7ec5fb2230077d858c0b8fba02b4d4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#ad7ec5fb2230077d858c0b8fba02b4d4f">assignTransitionFunction</a> (const char *, <a class="el" href="namespace_stoch_h_m_m.html#a3e8439e572cd4e42d0d645bae56d8706">transitionFunc</a>)</td></tr>
 <tr class="memitem:ac7fa4184ed198c2c400e81b8fcae7884"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#ac7fa4184ed198c2c400e81b8fcae7884">assignEmissionFunction</a> (std::string &amp;, <a class="el" href="namespace_stoch_h_m_m.html#a7fad7f980bfaea3d96c891e6db7c8cf0">emissionFunc</a>)</td></tr>
-<tr class="memitem:a5c75ec9940effee8139ab2ae0ab1f412"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5c75ec9940effee8139ab2ae0ab1f412"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>assignEmissionFunction</b> (const char *, <a class="el" href="namespace_stoch_h_m_m.html#a7fad7f980bfaea3d96c891e6db7c8cf0">emissionFunc</a>)</td></tr>
+<tr class="memitem:a5c75ec9940effee8139ab2ae0ab1f412"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#a5c75ec9940effee8139ab2ae0ab1f412">assignEmissionFunction</a> (const char *, <a class="el" href="namespace_stoch_h_m_m.html#a7fad7f980bfaea3d96c891e6db7c8cf0">emissionFunc</a>)</td></tr>
 <tr class="memitem:abb244c9e8942260cee8b1749dfc7c90e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a> (std::string &amp;, <a class="el" href="namespace_stoch_h_m_m.html#a273f025f8870b79f2a971f293ea038e1">pdfFunc</a>)</td></tr>
-<tr class="memitem:a8b8111c9821088f306f050035d35e76d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8b8111c9821088f306f050035d35e76d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>assignPDFFunction</b> (const char *, <a class="el" href="namespace_stoch_h_m_m.html#a273f025f8870b79f2a971f293ea038e1">pdfFunc</a>)</td></tr>
+<tr class="memitem:a8b8111c9821088f306f050035d35e76d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#a8b8111c9821088f306f050035d35e76d">assignPDFFunction</a> (const char *, <a class="el" href="namespace_stoch_h_m_m.html#a273f025f8870b79f2a971f293ea038e1">pdfFunc</a>)</td></tr>
 <tr class="memitem:a6b6a97f3da82534ad8fea7828042ce87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#a6b6a97f3da82534ad8fea7828042ce87">assignMultivariatePdfFunction</a> (std::string &amp;, <a class="el" href="namespace_stoch_h_m_m.html#ab99ca2cb1963df8ca0751cdaabfd664a">multiPdfFunc</a>)</td></tr>
-<tr class="memitem:a4d48972339b73ad1c73530fd54f976b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d48972339b73ad1c73530fd54f976b5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdfFunction</b> (const char *, <a class="el" href="namespace_stoch_h_m_m.html#ab99ca2cb1963df8ca0751cdaabfd664a">multiPdfFunc</a>)</td></tr>
-<tr class="memitem:a0bfc3a304278f619092a156681eda51b"><td class="memItemLeft" align="right" valign="top">transitionFunc *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#a0bfc3a304278f619092a156681eda51b">getTransitionFunction</a> (std::string &amp;)</td></tr>
+<tr class="memitem:a4d48972339b73ad1c73530fd54f976b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#a4d48972339b73ad1c73530fd54f976b5">assignMultivariatePdfFunction</a> (const char *, <a class="el" href="namespace_stoch_h_m_m.html#ab99ca2cb1963df8ca0751cdaabfd664a">multiPdfFunc</a>)</td></tr>
+<tr class="memitem:a0bfc3a304278f619092a156681eda51b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_stoch_h_m_m.html#a3e8439e572cd4e42d0d645bae56d8706">transitionFunc</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#a0bfc3a304278f619092a156681eda51b">getTransitionFunction</a> (std::string &amp;)</td></tr>
 <tr class="memitem:a1e38f951a26f7e96b7777bf7c87e437f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_stoch_h_m_m.html#a7fad7f980bfaea3d96c891e6db7c8cf0">emissionFunc</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#a1e38f951a26f7e96b7777bf7c87e437f">getEmissionFunction</a> (std::string &amp;)</td></tr>
 <tr class="memitem:ac411cc022d49ce5ae57d6a8df57e1018"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_stoch_h_m_m.html#a273f025f8870b79f2a971f293ea038e1">pdfFunc</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#ac411cc022d49ce5ae57d6a8df57e1018">getPDFFunction</a> (std::string &amp;)</td></tr>
 <tr class="memitem:a090801e052dbdec88c4fdeddbfa8887d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_stoch_h_m_m.html#ab99ca2cb1963df8ca0751cdaabfd664a">multiPdfFunc</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#a090801e052dbdec88c4fdeddbfa8887d">getMultivariatePdfFunction</a> (std::string &amp;)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a4d3249aa220e9032c37fcc628399b1f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#a4d3249aa220e9032c37fcc628399b1f8">_loadUnivariatePdf</a> ()</td></tr>
+<tr class="memitem:a82043c1a491c1e1297f02ac5f792ba55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#a82043c1a491c1e1297f02ac5f792ba55">_loadMultivariatePdf</a> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a76d04426a8db2cb19ab404a381e49281"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, <br class="typebreak"/>
+<a class="el" href="namespace_stoch_h_m_m.html#a3e8439e572cd4e42d0d645bae56d8706">transitionFunc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#a76d04426a8db2cb19ab404a381e49281">transitionFunctions</a></td></tr>
+<tr class="memitem:a1994774131110d1205b4e7ded48e5ded"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, <br class="typebreak"/>
+<a class="el" href="namespace_stoch_h_m_m.html#a7fad7f980bfaea3d96c891e6db7c8cf0">emissionFunc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#a1994774131110d1205b4e7ded48e5ded">emissionFunctions</a></td></tr>
+<tr class="memitem:a12ebadc51cb43d64881688ee85cc2f2f"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, <a class="el" href="namespace_stoch_h_m_m.html#a273f025f8870b79f2a971f293ea038e1">pdfFunc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#a12ebadc51cb43d64881688ee85cc2f2f">pdfFunctions</a></td></tr>
+<tr class="memitem:a1a97a81a53f77a037f032b47a614bd6d"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, <br class="typebreak"/>
+<a class="el" href="namespace_stoch_h_m_m.html#ab99ca2cb1963df8ca0751cdaabfd664a">multiPdfFunc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html#a1a97a81a53f77a037f032b47a614bd6d">multiPdfFunctions</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>(**Adding in log space) </p>
 <p>The map stores the pointers to the different functions by const char* word. Allows the user to create and integrate their own functions into the model By specifying the name in the model, and assigning the ptr in the externalFuncs class. At any State or transition their function will be called and return float The float will then be applied in the trellis added to transition or emission. Stores pointers to user functions used by the State's Emissions and Transitions </p>
 
 <p>Definition at line <a class="el" href="user_functions_8h_source.html#l00075">75</a> of file <a class="el" href="user_functions_8h_source.html">userFunctions.h</a>.</p>
-</div><hr/><h2>Member Function Documentation</h2>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a45b15ae4d8426295b88e5f912d27c9a0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::StateFuncs::StateFuncs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00032">32</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+
+<p>References <a class="el" href="user_functions_8cpp_source.html#l00275">_loadMultivariatePdf()</a>, and <a class="el" href="user_functions_8cpp_source.html#l00199">_loadUnivariatePdf()</a>.</p>
+<div class="fragment"><div class="line">                              {</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a4d3249aa220e9032c37fcc628399b1f8">_loadUnivariatePdf</a>();</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a82043c1a491c1e1297f02ac5f792ba55">_loadMultivariatePdf</a>();</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a82043c1a491c1e1297f02ac5f792ba55"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::StateFuncs::_loadMultivariatePdf </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00275">275</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+
+<p>References <a class="el" href="user_functions_8cpp_source.html#l00116">assignMultivariatePdfFunction()</a>, <a class="el" href="_p_d_f_8h_source.html#l00599">StochHMM::dirichlet_multi_pdf()</a>, and <a class="el" href="_p_d_f_8h_source.html#l00604">StochHMM::ewens_multi_pdf()</a>.</p>
+
+<p>Referenced by <a class="el" href="user_functions_8cpp_source.html#l00032">StateFuncs()</a>.</p>
+<div class="fragment"><div class="line">                                             {</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a6b6a97f3da82534ad8fea7828042ce87">assignMultivariatePdfFunction</a>(<span class="stringliteral">&quot;DIRICHLET&quot;</span>,<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span>(*)(<span class="keyword">const </span>std::vector&lt;double&gt;*, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span>(<a class="code" href="group___p_d_f.html#ga800aab2a34bf45d7ca5dc2500d312598">dirichlet_multi_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a6b6a97f3da82534ad8fea7828042ce87">assignMultivariatePdfFunction</a>(<span class="stringliteral">&quot;EWENS&quot;</span>,<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span>(*)(<span class="keyword">const </span>std::vector&lt;double&gt;*, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span>(<a class="code" href="group___p_d_f.html#gabcb2ba0702dfaa71e4d193b311318c25">ewens_multi_pdf</a>));</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a4d3249aa220e9032c37fcc628399b1f8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::StateFuncs::_loadUnivariatePdf </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00199">199</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+
+<p>References <a class="el" href="_p_d_f_8cpp_source.html#l00242">StochHMM::arcsine_pdf()</a>, <a class="el" href="user_functions_8cpp_source.html#l00093">assignPDFFunction()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00032">StochHMM::beta_binomial_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00128">StochHMM::beta_negative_binomial_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00255">StochHMM::beta_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00402">StochHMM::beta_prime_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00021">StochHMM::binomial_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00749">StochHMM::cauchy_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00414">StochHMM::chi_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00426">StochHMM::chi_squared_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00281">StochHMM::continuous_uniform_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00473">StochHMM::dagum_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00044">StochHMM::degenerate_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00061">StochHMM::discrete_uniform_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00487">StochHMM::exponential_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00501">StochHMM::f_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00516">StochHMM::fishers_z_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00531">StochHMM::folded_normal_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00549">StochHMM::frechet_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00563">StochHMM::gamma_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00868">StochHMM::generalized_extreme_value_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00791">StochHMM::generalized_normal_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00898">StochHMM::generalized_pareto_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00147">StochHMM::geometric_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00764">StochHMM::gumbel_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00858">StochHMM::gumbel_type_one_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00714">StochHMM::gumbel_type_two_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00587">StochHMM::half_normal_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00801">StochHMM::hyperbolic_secant_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00076">StochHMM::hypergeometric_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00576">StochHMM::inv_gamma_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00599">StochHMM::inv_gaussian_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00440">StochHMM::inverse_chi_squared_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00298">StochHMM::kumaraswamy_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00810">StochHMM::laplace_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00611">StochHMM::levy_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00623">StochHMM::log_cauchy_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00635">StochHMM::log_laplace_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00647">StochHMM::log_logistic_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00660">StochHMM::log_normal_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00155">StochHMM::logarithmic_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00818">StochHMM::logistic_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00268">StochHMM::logit_normal_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00139">StochHMM::maxwell_boltzman_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00689">StochHMM::nakagami_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00167">StochHMM::negative_binomial_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00832">StochHMM::normal_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00673">StochHMM::pareto_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00179">StochHMM::poisson_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00310">StochHMM::raised_cosine_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00702">StochHMM::rayleigh_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00453">StochHMM::scaled_inverse_chi_squared_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00824">StochHMM::standard_normal_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00844">StochHMM::students_t_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00323">StochHMM::triangular_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00349">StochHMM::truncated_normal_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00371">StochHMM::u_quadratic_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00726">StochHMM::weibull_distribution()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00386">StochHMM::wigner_semicircle_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00191">StochHMM::yule_simon_pdf()</a>, <a class="el" href="_p_d_f_8cpp_source.html#l00223">StochHMM::zipf_mandelbrot_pdf()</a>, and <a class="el" href="_p_d_f_8cpp_source.html#l00204">StochHMM::zipf_pdf()</a>.</p>
+
+<p>Referenced by <a class="el" href="user_functions_8cpp_source.html#l00032">StateFuncs()</a>.</p>
+<div class="fragment"><div class="line">                                           {</div>
+<div class="line">                <span class="comment">//Discrete with finite support</span></div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;BINOMIAL&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span> , <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga09673744215acf9a5b4cab9d66e2dff7">binomial_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;BETA_BINOMIAL&quot;</span>,<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gaa1fed912d16e8c9975dbd6399ec84783">beta_binomial_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;DEGENERATE&quot;</span>,<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga367e60c53a922286005cf2891b649ad1">degenerate_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;DISCRETE_UNIFORM&quot;</span>,<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gabcaf8d22a7040daf39a302757c97cd9b">discrete_uniform_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;HYPERGEOMETRIC&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga176c36d88dee3f889fc85bc7c9745cc6">hypergeometric_pdf</a>));</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Discrete with Infinite Support</span></div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;BETA_NEGATIVE_BINOMIAL&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gac1bc1c50beade0e15b10cae790659964">beta_negative_binomial_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;MAXWELL_BOLTZMAN&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gaf02bf513220645eb19ecd265a3eace35">maxwell_boltzman_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;GEOMETRIC&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gaed820519abcfca17c880f40444ee18fc">geometric_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;LOGARITHMIC&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga12976ff70d0d96b3166b0d581fc963b9">logarithmic_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;NEGATIVE_BINOMIAL&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga609ac11348749f4826136311f6653c75">negative_binomial_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;POISSON&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gab80fe70874e24edeb8975d709d302d04">poisson_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;YULE_SIMON&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga29d0b77669511d6f07ecbbed3c89145d">yule_simon_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;ZIPF&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga47d706619362bf6e6a51a3ed5b897106">zipf_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;ZIPF-MANDELBROT&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gaa96c0704f885eeb8700cdebc5374c500">zipf_mandelbrot_pdf</a>));</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Continuous on bounded interval</span></div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;ARCSINE&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga432debda42b4d1f70e6a069c2b14fdb1">arcsine_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;BETA&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga1aa02f679ecaaa407131e82f22216b81">beta_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;LOGIT_NORMAL&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga35da5e837d5f1b6dfa03aba344818054">logit_normal_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;CONTINUOUS_UNIFORM&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga7daedf69dac7b50cefb250048aac8fa0">continuous_uniform_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;KUMARASWAMY&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga250afd0d5135fb65f17a26ec10c2974e">kumaraswamy_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;RAISED_COSINE&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga5ba11aa1b606a67f23bc9eaa647e0ae5">raised_cosine_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;TRIANGULAR&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga8cbdabe230e13b8ab3ce55a1cd4af88b">triangular_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;TRUNCATED_NORMAL&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga3e655a475f37d58c87a43d5c179f8e66">truncated_normal_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;U_QUADRATIC&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga4dba3476412b5a15f6256b39c1a2d83d">u_quadratic_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;WIGNER_SEMICIRCLE&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga6dd55d220d5af8f6567d41ec38948d5e">wigner_semicircle_pdf</a>));</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Continous on semi-bounded interval</span></div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;BETA_PRIME&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga79f410ed92924a27fb666a93ad35662f">beta_prime_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;CHI&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gac5818d50f9f9b995d45687f8e8b3d561">chi_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;CHI_SQUARED&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga171fc37159280031fdd4a6eb1b2ea00d">chi_squared_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;INVERSE_CHI_SQUARED&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga26018841e912a1452fdd8f33605fa60f">inverse_chi_squared_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;SCALED_INVERSE_CHI_SQUARED&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga27dc9756270983840132c456b63c38b6">scaled_inverse_chi_squared_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;DAGUM&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gaca5586cbd2d2555b02c39506d1b62239">dagum_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;EXPONENTIAL&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga95db50c1d81ae4d1925422a552a878b9">exponential_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;F_DIST&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gae110b5a606a26532069db54221ae9a1f">f_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;FISHERS_Z&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga9f6f691df70c71d3988526469839c6e6">fishers_z_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;FOLDED_NORMAL&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gadbeb0ca92b69f34d5e5f659375602f99">folded_normal_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;FRECHET&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga4d979d4873aa5f95ffa360a74e04e513">frechet_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;GAMMA&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gaece31bdce0b92569cc51dd665e18eee8">gamma_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;INVERSE_GAMMA&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gacae685d5ab58fe9d3890b100314ecae4">inv_gamma_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;HALF_NORMAL&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gafe9fed2982867d28eabf2ffbfeb8c7c8">half_normal_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;INVERSE_GAUSSIAN&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga85610ad23b279ce09309d64b04b26ab5">inv_gaussian_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;LEVY&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gaa00813ab49bb8b22bf1d18eea728d2ac">levy_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;LOG_CAUCHY&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gaa1feb3b4af100d8c2fbaa04a3208f3a1">log_cauchy_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;LOG_LAPLACE&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga51647ed74618245ae7397f43949c9b24">log_laplace_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;LOG_LOGISTIC&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga5ea67fa78193444c9a372dc8f92765f6">log_logistic_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;LOG_NORMAL&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gaa42598df38506804bd338aef6654ca72">log_normal_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;PARETO&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gaf4a301aedc7b537720ab0a06155bcd8b">pareto_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;NAKAGAMI&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gaeb0cc21b825fd6f524eb38f890c2367d">nakagami_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;RAYLEIGH&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga35c29a972295395ea24a45c6d81c55ce">rayleigh_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;GUMBEL_TYPE_TWO&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga7b011ae998e0eb7a0e1395dc39297886">gumbel_type_two_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;WEIBULL&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga10d7b3093b13b55258ca6438a03c1965">weibull_distribution</a>));</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Continuous on unbounded interval</span></div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;CAUCHY&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gaa0cf6466b7cab4d31469978f5f5c6b51">cauchy_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;GUMBEL&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga23847ecbfff12c65c641097edbd49301">gumbel_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;GENERALIZED_NORMAL&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga0055b2f99b97600bc7637613ab9d878a">generalized_normal_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;HYPERBOLIC_SECANT&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gaa7f266bf60a69dc54f98e9a8c1236ca3">hyperbolic_secant_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;LAPLACE&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gaf3c0124a1518dbf6a855d28524c1c455">laplace_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;LOGISTIC&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gadd9d2d5d063092ca5f0ca2066bb4eea0">logistic_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;STANDARD_NORMAL&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga149adf1b2dd41b9d26530e2a2d3c9afe">standard_normal_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;NORMAL&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga29bcbf21133893242dacaae0eb3c5749">normal_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;STUDENT_T&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga81ffd165dfbd6a6cd2bd0c35b46757cf">students_t_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;GUMBEL_TYPE_ONE&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga30bd1dbda5972d97d5487349b41ef29c">gumbel_type_one_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;GENERALIZED_EXTREME_VALUE&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga61935006c02474690b126cb0858d8b35">generalized_extreme_value_pdf</a>));</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;GENERALIZED_PARETO&quot;</span>,  <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga1e8df03ad3b759e0a17b60bf4978fdfa">generalized_pareto_pdf</a>));</div>
+<div class="line">                                                  </div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="ac7fa4184ed198c2c400e81b8fcae7884"></a>
 <div class="memitem">
 <div class="memproto">
@@ -161,21 +350,59 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdf
 </dl>
 
 <p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00067">67</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+
+<p>References <a class="el" href="user_functions_8h_source.html#l00100">emissionFunctions</a>.</p>
+
+<p>Referenced by <a class="el" href="user_functions_8cpp_source.html#l00083">assignEmissionFunction()</a>.</p>
 <div class="fragment"><div class="line">                                                                               {</div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> (emissionFunctions.count(str)==0){</div>
-<div class="line">            emissionFunctions[str]=ptrFunc;</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1994774131110d1205b4e7ded48e5ded">emissionFunctions</a>.count(str)==0){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1994774131110d1205b4e7ded48e5ded">emissionFunctions</a>[str]=ptrFunc;</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function Name: &quot;</span> &lt;&lt; str &lt;&lt; <span class="stringliteral">&quot; already exists.   You need to choose a new function name that doesn&#39;t already exist. For reference here are a list of names already assigned as external functions\nAssigned Names:\n&quot;</span>;</div>
 <div class="line">            </div>
 <div class="line">            std::map&lt;std::string,emissionFunc&gt;::iterator it;</div>
 <div class="line">            </div>
-<div class="line">            <span class="keywordflow">for</span>(it=emissionFunctions.begin();it!=emissionFunctions.end();it++){</div>
+<div class="line">            <span class="keywordflow">for</span>(it=<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1994774131110d1205b4e7ded48e5ded">emissionFunctions</a>.begin();it!=<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1994774131110d1205b4e7ded48e5ded">emissionFunctions</a>.end();it++){</div>
 <div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; it-&gt;first &lt;&lt;std::endl;</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a5c75ec9940effee8139ab2ae0ab1f412"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::StateFuncs::assignEmissionFunction </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_stoch_h_m_m.html#a7fad7f980bfaea3d96c891e6db7c8cf0">emissionFunc</a>&#160;</td>
+          <td class="paramname"><em>ptrFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00083">83</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+
+<p>References <a class="el" href="user_functions_8cpp_source.html#l00067">assignEmissionFunction()</a>.</p>
+<div class="fragment"><div class="line">                                                                                    {</div>
+<div class="line">                std::string st(str);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac7fa4184ed198c2c400e81b8fcae7884">assignEmissionFunction</a>(st, ptrFunc);</div>
+<div class="line">        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -212,19 +439,57 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdf
 </dl>
 
 <p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00116">116</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+
+<p>References <a class="el" href="user_functions_8h_source.html#l00102">multiPdfFunctions</a>.</p>
+
+<p>Referenced by <a class="el" href="user_functions_8cpp_source.html#l00275">_loadMultivariatePdf()</a>, and <a class="el" href="user_functions_8cpp_source.html#l00131">assignMultivariatePdfFunction()</a>.</p>
 <div class="fragment"><div class="line">                                                                                          {</div>
-<div class="line">                <span class="keywordflow">if</span> (multiPdfFunctions.count(str)==0){</div>
-<div class="line">                        multiPdfFunctions[str]=ptrFunc;</div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1a97a81a53f77a037f032b47a614bd6d">multiPdfFunctions</a>.count(str)==0){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1a97a81a53f77a037f032b47a614bd6d">multiPdfFunctions</a>[str]=ptrFunc;</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">else</span>{</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function Name: &quot;</span> &lt;&lt; str &lt;&lt; <span class="stringliteral">&quot; already exists.   You need to choose a new function name that doesn&#39;t already exist. For reference here are a list of names already assigned as external functions\nAssigned Names:\n&quot;</span>;</div>
 <div class="line">            </div>
 <div class="line">            std::map&lt;std::string,multiPdfFunc&gt;::iterator it;</div>
 <div class="line">            </div>
-<div class="line">            <span class="keywordflow">for</span>(it=multiPdfFunctions.begin();it!=multiPdfFunctions.end();it++){</div>
+<div class="line">            <span class="keywordflow">for</span>(it=<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1a97a81a53f77a037f032b47a614bd6d">multiPdfFunctions</a>.begin();it!=<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1a97a81a53f77a037f032b47a614bd6d">multiPdfFunctions</a>.end();it++){</div>
 <div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; it-&gt;first &lt;&lt;std::endl;</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a4d48972339b73ad1c73530fd54f976b5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::StateFuncs::assignMultivariatePdfFunction </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_stoch_h_m_m.html#ab99ca2cb1963df8ca0751cdaabfd664a">multiPdfFunc</a>&#160;</td>
+          <td class="paramname"><em>ptrFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00131">131</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+
+<p>References <a class="el" href="user_functions_8cpp_source.html#l00116">assignMultivariatePdfFunction()</a>.</p>
+<div class="fragment"><div class="line">                                                                                           {</div>
+<div class="line">                std::string st(str);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a6b6a97f3da82534ad8fea7828042ce87">assignMultivariatePdfFunction</a>(st, ptrFunc);</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 </div>
@@ -262,19 +527,57 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdf
 </dl>
 
 <p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00093">93</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+
+<p>References <a class="el" href="user_functions_8h_source.html#l00101">pdfFunctions</a>.</p>
+
+<p>Referenced by <a class="el" href="user_functions_8cpp_source.html#l00199">_loadUnivariatePdf()</a>, and <a class="el" href="user_functions_8cpp_source.html#l00108">assignPDFFunction()</a>.</p>
 <div class="fragment"><div class="line">                                                                         {</div>
-<div class="line">                <span class="keywordflow">if</span> (pdfFunctions.count(str)==0){</div>
-<div class="line">                        pdfFunctions[str]=ptrFunc;</div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a12ebadc51cb43d64881688ee85cc2f2f">pdfFunctions</a>.count(str)==0){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a12ebadc51cb43d64881688ee85cc2f2f">pdfFunctions</a>[str]=ptrFunc;</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">else</span>{</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function Name: &quot;</span> &lt;&lt; str &lt;&lt; <span class="stringliteral">&quot; already exists.   You need to choose a new function name that doesn&#39;t already exist. For reference here are a list of names already assigned as external functions\nAssigned Names:\n&quot;</span>;</div>
 <div class="line">            </div>
 <div class="line">            std::map&lt;std::string,pdfFunc&gt;::iterator it;</div>
 <div class="line">            </div>
-<div class="line">            <span class="keywordflow">for</span>(it=pdfFunctions.begin();it!=pdfFunctions.end();it++){</div>
+<div class="line">            <span class="keywordflow">for</span>(it=<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a12ebadc51cb43d64881688ee85cc2f2f">pdfFunctions</a>.begin();it!=<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a12ebadc51cb43d64881688ee85cc2f2f">pdfFunctions</a>.end();it++){</div>
 <div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; it-&gt;first &lt;&lt;std::endl;</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a8b8111c9821088f306f050035d35e76d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::StateFuncs::assignPDFFunction </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_stoch_h_m_m.html#a273f025f8870b79f2a971f293ea038e1">pdfFunc</a>&#160;</td>
+          <td class="paramname"><em>ptrFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00108">108</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+
+<p>References <a class="el" href="user_functions_8cpp_source.html#l00093">assignPDFFunction()</a>.</p>
+<div class="fragment"><div class="line">                                                                          {</div>
+<div class="line">                std::string st(str);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(st, ptrFunc);</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 </div>
@@ -292,7 +595,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdf
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">transitionFunc&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_stoch_h_m_m.html#a3e8439e572cd4e42d0d645bae56d8706">transitionFunc</a>&#160;</td>
           <td class="paramname"><em>ptrFunc</em>&#160;</td>
         </tr>
         <tr>
@@ -312,21 +615,60 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdf
 </dl>
 
 <p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00040">40</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+
+<p>References <a class="el" href="user_functions_8h_source.html#l00099">transitionFunctions</a>.</p>
+
+<p>Referenced by <a class="el" href="user_functions_8cpp_source.html#l00057">assignTransitionFunction()</a>.</p>
 <div class="fragment"><div class="line">                                                                                   {</div>
 <div class="line">     </div>
-<div class="line">         <span class="keywordflow">if</span> (transitionFunctions.count(str)==0){</div>
-<div class="line">             transitionFunctions[str]=ptrFunc;</div>
+<div class="line">         <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a76d04426a8db2cb19ab404a381e49281">transitionFunctions</a>.count(str)==0){</div>
+<div class="line">             <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a76d04426a8db2cb19ab404a381e49281">transitionFunctions</a>[str]=ptrFunc;</div>
 <div class="line">         }</div>
 <div class="line">         <span class="keywordflow">else</span>{</div>
 <div class="line">             std::cerr &lt;&lt; <span class="stringliteral">&quot;Function Name: &quot;</span> &lt;&lt; str &lt;&lt; <span class="stringliteral">&quot; already exists.   You need to choose a new function name that doesn&#39;t already exist. For reference here are a list of names already assigned as external functions\nAssigned Names:\n&quot;</span>;</div>
 <div class="line">         </div>
 <div class="line">             std::map&lt;std::string,transitionFunc&gt;::iterator it;</div>
 <div class="line">             </div>
-<div class="line">             <span class="keywordflow">for</span>(it=transitionFunctions.begin();it!=transitionFunctions.end();it++){</div>
+<div class="line">             <span class="keywordflow">for</span>(it=<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a76d04426a8db2cb19ab404a381e49281">transitionFunctions</a>.begin();it!=<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a76d04426a8db2cb19ab404a381e49281">transitionFunctions</a>.end();it++){</div>
 <div class="line">                 std::cerr &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; it-&gt;first &lt;&lt;std::endl;</div>
 <div class="line">             }</div>
 <div class="line">         }</div>
 <div class="line">     };</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ad7ec5fb2230077d858c0b8fba02b4d4f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::StateFuncs::assignTransitionFunction </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_stoch_h_m_m.html#a3e8439e572cd4e42d0d645bae56d8706">transitionFunc</a>&#160;</td>
+          <td class="paramname"><em>ptrFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00057">57</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
+
+<p>References <a class="el" href="user_functions_8cpp_source.html#l00040">assignTransitionFunction()</a>.</p>
+<div class="fragment"><div class="line">                                                                                        {</div>
+<div class="line">                </div>
+<div class="line">                std::string st(str);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac23f19c0b1ffc4ae7f2a8fce5995888e">assignTransitionFunction</a>(st, ptrFunc);</div>
+<div class="line">        };</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -354,10 +696,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdf
 
 <p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00156">156</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
 
-<p>Referenced by <a class="el" href="external_funcs_8cpp_source.html#l00257">StochHMM::emissionFuncParam::parse()</a>.</p>
+<p>References <a class="el" href="user_functions_8h_source.html#l00100">emissionFunctions</a>.</p>
+
+<p>Referenced by <a class="el" href="external_funcs_8cpp_source.html#l00231">StochHMM::emissionFuncParam::emissionFuncParam()</a>, and <a class="el" href="external_funcs_8cpp_source.html#l00257">StochHMM::emissionFuncParam::parse()</a>.</p>
 <div class="fragment"><div class="line">                                                                {</div>
-<div class="line">        <span class="keywordflow">if</span> (emissionFunctions.count(name)){</div>
-<div class="line">            <span class="keywordflow">return</span> &amp;emissionFunctions[name];</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1994774131110d1205b4e7ded48e5ded">emissionFunctions</a>.count(name)){</div>
+<div class="line">            <span class="keywordflow">return</span> &amp;<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1994774131110d1205b4e7ded48e5ded">emissionFunctions</a>[name];</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function named: &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; was not initialized. &quot;</span> &lt;&lt;std::endl;</div>
@@ -392,10 +736,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdf
 
 <p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00186">186</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
 
+<p>References <a class="el" href="user_functions_8h_source.html#l00102">multiPdfFunctions</a>.</p>
+
 <p>Referenced by <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>.</p>
 <div class="fragment"><div class="line">                                                                       {</div>
-<div class="line">        <span class="keywordflow">if</span> (multiPdfFunctions.count(name)){</div>
-<div class="line">            <span class="keywordflow">return</span> &amp;multiPdfFunctions[name];</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1a97a81a53f77a037f032b47a614bd6d">multiPdfFunctions</a>.count(name)){</div>
+<div class="line">            <span class="keywordflow">return</span> &amp;<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1a97a81a53f77a037f032b47a614bd6d">multiPdfFunctions</a>[name];</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function named: &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; was not initialized. &quot;</span> &lt;&lt;std::endl;</div>
@@ -430,10 +776,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdf
 
 <p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00171">171</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
 
+<p>References <a class="el" href="user_functions_8h_source.html#l00101">pdfFunctions</a>.</p>
+
 <p>Referenced by <a class="el" href="emm_8cpp_source.html#l00069">StochHMM::emm::parse()</a>.</p>
 <div class="fragment"><div class="line">                                                      {</div>
-<div class="line">        <span class="keywordflow">if</span> (pdfFunctions.count(name)){</div>
-<div class="line">            <span class="keywordflow">return</span> &amp;pdfFunctions[name];</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a12ebadc51cb43d64881688ee85cc2f2f">pdfFunctions</a>.count(name)){</div>
+<div class="line">            <span class="keywordflow">return</span> &amp;<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a12ebadc51cb43d64881688ee85cc2f2f">pdfFunctions</a>[name];</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function named: &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; was not initialized. &quot;</span> &lt;&lt;std::endl;</div>
@@ -449,7 +797,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdf
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">transitionFunc * StochHMM::StateFuncs::getTransitionFunction </td>
+          <td class="memname"><a class="el" href="namespace_stoch_h_m_m.html#a3e8439e572cd4e42d0d645bae56d8706">transitionFunc</a> * StochHMM::StateFuncs::getTransitionFunction </td>
           <td>(</td>
           <td class="paramtype">std::string &amp;&#160;</td>
           <td class="paramname"><em>name</em></td><td>)</td>
@@ -468,10 +816,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdf
 
 <p>Definition at line <a class="el" href="user_functions_8cpp_source.html#l00141">141</a> of file <a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a>.</p>
 
+<p>References <a class="el" href="user_functions_8h_source.html#l00099">transitionFunctions</a>.</p>
+
 <p>Referenced by <a class="el" href="external_funcs_8cpp_source.html#l00050">StochHMM::transitionFuncParam::parse()</a>.</p>
 <div class="fragment"><div class="line">                                                                    {</div>
-<div class="line">        <span class="keywordflow">if</span> (transitionFunctions.count(name)){</div>
-<div class="line">            <span class="keywordflow">return</span> &amp;transitionFunctions[name];</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a76d04426a8db2cb19ab404a381e49281">transitionFunctions</a>.count(name)){</div>
+<div class="line">            <span class="keywordflow">return</span> &amp;<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a76d04426a8db2cb19ab404a381e49281">transitionFunctions</a>[name];</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">else</span>{</div>
 <div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function named: &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; was not initialized. &quot;</span> &lt;&lt;std::endl;</div>
@@ -482,16 +832,117 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignMultivariatePdf
 </div><!-- fragment -->
 </div>
 </div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a1994774131110d1205b4e7ded48e5ded"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;std::string, <a class="el" href="namespace_stoch_h_m_m.html#a7fad7f980bfaea3d96c891e6db7c8cf0">emissionFunc</a>&gt; StochHMM::StateFuncs::emissionFunctions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="user_functions_8h_source.html#l00100">100</a> of file <a class="el" href="user_functions_8h_source.html">userFunctions.h</a>.</p>
+
+<p>Referenced by <a class="el" href="user_functions_8cpp_source.html#l00067">assignEmissionFunction()</a>, and <a class="el" href="user_functions_8cpp_source.html#l00156">getEmissionFunction()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1a97a81a53f77a037f032b47a614bd6d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;std::string, <a class="el" href="namespace_stoch_h_m_m.html#ab99ca2cb1963df8ca0751cdaabfd664a">multiPdfFunc</a>&gt; StochHMM::StateFuncs::multiPdfFunctions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="user_functions_8h_source.html#l00102">102</a> of file <a class="el" href="user_functions_8h_source.html">userFunctions.h</a>.</p>
+
+<p>Referenced by <a class="el" href="user_functions_8cpp_source.html#l00116">assignMultivariatePdfFunction()</a>, and <a class="el" href="user_functions_8cpp_source.html#l00186">getMultivariatePdfFunction()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a12ebadc51cb43d64881688ee85cc2f2f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;std::string, <a class="el" href="namespace_stoch_h_m_m.html#a273f025f8870b79f2a971f293ea038e1">pdfFunc</a>&gt; StochHMM::StateFuncs::pdfFunctions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="user_functions_8h_source.html#l00101">101</a> of file <a class="el" href="user_functions_8h_source.html">userFunctions.h</a>.</p>
+
+<p>Referenced by <a class="el" href="user_functions_8cpp_source.html#l00093">assignPDFFunction()</a>, and <a class="el" href="user_functions_8cpp_source.html#l00171">getPDFFunction()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a76d04426a8db2cb19ab404a381e49281"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;std::string, <a class="el" href="namespace_stoch_h_m_m.html#a3e8439e572cd4e42d0d645bae56d8706">transitionFunc</a>&gt; StochHMM::StateFuncs::transitionFunctions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="user_functions_8h_source.html#l00099">99</a> of file <a class="el" href="user_functions_8h_source.html">userFunctions.h</a>.</p>
+
+<p>Referenced by <a class="el" href="user_functions_8cpp_source.html#l00040">assignTransitionFunction()</a>, and <a class="el" href="user_functions_8cpp_source.html#l00141">getTransitionFunction()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="user_functions_8h_source.html">userFunctions.h</a></li>
 <li><a class="el" href="user_functions_8cpp_source.html">userFunctions.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:51 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1_state_funcs.html">StateFuncs</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:39 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

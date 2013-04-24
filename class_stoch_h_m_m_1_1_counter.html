@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1_counter.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,96 +103,2178 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1_counter.html">Counter</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::Counter Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p><code>#include &lt;<a class="el" href="_counter_8h_source.html">Counter.h</a>&gt;</code></p>
+
 <p><a href="class_stoch_h_m_m_1_1_counter-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:adc19068b7fad2e3055d40604080a1b8e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc19068b7fad2e3055d40604080a1b8e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Counter</b> (int, int, int, int, int)</td></tr>
-<tr class="memitem:a19de4feb8f4305e51572c9bd0f6d6472"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19de4feb8f4305e51572c9bd0f6d6472"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Counter</b> (int, int, int, int)</td></tr>
-<tr class="memitem:a91d66fd19f5d48d8785002c3b41f5934"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91d66fd19f5d48d8785002c3b41f5934"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Counter</b> (int, int, int)</td></tr>
-<tr class="memitem:aaa53c01ebd2842262c91639f9a6effcf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa53c01ebd2842262c91639f9a6effcf"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Counter</b> (int)</td></tr>
-<tr class="memitem:ad6db71b60a5d7589a29e06cd273a292b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6db71b60a5d7589a29e06cd273a292b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Counter</b> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;, countType, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *, int, int, int, int, int)</td></tr>
-<tr class="memitem:afc0b63e774a8a09f4f89d3a615ea6b58"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afc0b63e774a8a09f4f89d3a615ea6b58"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Counter</b> (<a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *, int, int, int, int, int)</td></tr>
-<tr class="memitem:afa4f92f9c3b370620a0660b5c342b383"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa4f92f9c3b370620a0660b5c342b383"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Counter</b> (<a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *, int, int, int, int)</td></tr>
-<tr class="memitem:a0317395ce6fe43e7645218f4a952ec28"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0317395ce6fe43e7645218f4a952ec28"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Counter</b> (<a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *, int, int, int)</td></tr>
-<tr class="memitem:ae2a49ceb892e031e5d0cdc26d4bd1278"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae2a49ceb892e031e5d0cdc26d4bd1278"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Counter</b> (<a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *, int)</td></tr>
-<tr class="memitem:a7c9354c7b43bad823587a738558e6422"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c9354c7b43bad823587a738558e6422"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Counter</b> (std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> * &gt; &amp;, countType, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *, int, int, int, int, int)</td></tr>
-<tr class="memitem:a4b0c37528a1d0f2b69cd1bf6273667cd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b0c37528a1d0f2b69cd1bf6273667cd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Counter</b> (<a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html">sequenceStream</a> &amp;, countType, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *, int, int, int, int, int)</td></tr>
-<tr class="memitem:ad770a4dc0b7f86618433eec0617464ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad770a4dc0b7f86618433eec0617464ea"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>countGeneral</b> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;, int, int)</td></tr>
-<tr class="memitem:ae40cba900e15fbea12976d08a1f58a42"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae40cba900e15fbea12976d08a1f58a42"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>countGeneral</b> (std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> * &gt; &amp;, int, int)</td></tr>
-<tr class="memitem:a5587bfba111ac76dd8b01f37a68f64da"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5587bfba111ac76dd8b01f37a68f64da"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>countGeneral</b> (<a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html">sequenceStream</a> &amp;, int, int)</td></tr>
-<tr class="memitem:afa0ad62168e33ae806b1a6759e3cbaa5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa0ad62168e33ae806b1a6759e3cbaa5"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>countPeriodic</b> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;, int, int)</td></tr>
-<tr class="memitem:ab7c55c84099b8eaf98172f5df80b3217"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7c55c84099b8eaf98172f5df80b3217"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>countPeriodic</b> (std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> * &gt; &amp;, int, int)</td></tr>
-<tr class="memitem:aaa3a01b51c1a6692d6ef2e1c592dadfc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa3a01b51c1a6692d6ef2e1c592dadfc"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>countPeriodic</b> (<a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html">sequenceStream</a> &amp;, int, int)</td></tr>
-<tr class="memitem:a86c83fac5fd3e6012112036bf3d445ad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a86c83fac5fd3e6012112036bf3d445ad"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>countPWM</b> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;, int, int)</td></tr>
-<tr class="memitem:a4498662d153dceb2db85cd775868d6b3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4498662d153dceb2db85cd775868d6b3"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>countPWM</b> (std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> * &gt; &amp;, int, int)</td></tr>
-<tr class="memitem:a24c3f2f6120a14a1c51d2564f091ed27"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a24c3f2f6120a14a1c51d2564f091ed27"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>countPWM</b> (<a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html">sequenceStream</a> &amp;, int, int)</td></tr>
-<tr class="memitem:a28062f321205c2beaa691a41b233fecd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a28062f321205c2beaa691a41b233fecd"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>countMask</b> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;, int, int)</td></tr>
-<tr class="memitem:aac6ef9ed2ada5d5ff313726a88070d07"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac6ef9ed2ada5d5ff313726a88070d07"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>countMask</b> (std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> * &gt; &amp;, int, int)</td></tr>
-<tr class="memitem:af8c58d4a0f6577464872700a15b08f65"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af8c58d4a0f6577464872700a15b08f65"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#af8c58d4a0f6577464872700a15b08f65">_count</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;, std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1lexical_table.html">lexicalTable</a> * &gt; &amp;)</td></tr>
-<tr class="memdesc:af8c58d4a0f6577464872700a15b08f65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Working copy of countGeneral. <br/></td></tr>
-<tr class="memitem:aab90b89037a23ba08787c8637a55e0f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab90b89037a23ba08787c8637a55e0f8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
-<tr class="memitem:a2cb831c0961bec9a951617c139a46ec2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2cb831c0961bec9a951617c139a46ec2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>printTable</b> ()</td></tr>
-<tr class="memitem:a9a4161be8c9eb1d4de29a08658af2b8a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a4161be8c9eb1d4de29a08658af2b8a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setOrder</b> (size_t)</td></tr>
-<tr class="memitem:a206d8414c3849fd6609d3548d5c32eac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a206d8414c3849fd6609d3548d5c32eac"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPeriod</b> (size_t)</td></tr>
-<tr class="memitem:add2180e41ebe03c8d46bc008eeeed807"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add2180e41ebe03c8d46bc008eeeed807"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPseudoCount</b> (size_t)</td></tr>
-<tr class="memitem:a1aefca13816256e07c2c00f9fe737454"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1aefca13816256e07c2c00f9fe737454"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setTrack</b> (<a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
+<tr class="memitem:a12bf1640af9de2bbee96b7cbeb896aaa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a12bf1640af9de2bbee96b7cbeb896aaa">Counter</a> ()</td></tr>
+<tr class="memitem:adc19068b7fad2e3055d40604080a1b8e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#adc19068b7fad2e3055d40604080a1b8e">Counter</a> (int, int, int, int, int)</td></tr>
+<tr class="memitem:a19de4feb8f4305e51572c9bd0f6d6472"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a19de4feb8f4305e51572c9bd0f6d6472">Counter</a> (int, int, int, int)</td></tr>
+<tr class="memitem:a91d66fd19f5d48d8785002c3b41f5934"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a91d66fd19f5d48d8785002c3b41f5934">Counter</a> (int, int, int)</td></tr>
+<tr class="memitem:aaa53c01ebd2842262c91639f9a6effcf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#aaa53c01ebd2842262c91639f9a6effcf">Counter</a> (int)</td></tr>
+<tr class="memitem:ad6db71b60a5d7589a29e06cd273a292b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#ad6db71b60a5d7589a29e06cd273a292b">Counter</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;, <a class="el" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536">countType</a>, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *, int, int, int, int, int)</td></tr>
+<tr class="memitem:afc0b63e774a8a09f4f89d3a615ea6b58"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#afc0b63e774a8a09f4f89d3a615ea6b58">Counter</a> (<a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *, int, int, int, int, int)</td></tr>
+<tr class="memitem:afa4f92f9c3b370620a0660b5c342b383"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#afa4f92f9c3b370620a0660b5c342b383">Counter</a> (<a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *, int, int, int, int)</td></tr>
+<tr class="memitem:a0317395ce6fe43e7645218f4a952ec28"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a0317395ce6fe43e7645218f4a952ec28">Counter</a> (<a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *, int, int, int)</td></tr>
+<tr class="memitem:ae2a49ceb892e031e5d0cdc26d4bd1278"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#ae2a49ceb892e031e5d0cdc26d4bd1278">Counter</a> (<a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *, int)</td></tr>
+<tr class="memitem:a7c9354c7b43bad823587a738558e6422"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a7c9354c7b43bad823587a738558e6422">Counter</a> (std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> * &gt; &amp;, <a class="el" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536">countType</a>, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *, int, int, int, int, int)</td></tr>
+<tr class="memitem:a4b0c37528a1d0f2b69cd1bf6273667cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a4b0c37528a1d0f2b69cd1bf6273667cd">Counter</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html">sequenceStream</a> &amp;, <a class="el" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536">countType</a>, <a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *, int, int, int, int, int)</td></tr>
+<tr class="memitem:ad770a4dc0b7f86618433eec0617464ea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#ad770a4dc0b7f86618433eec0617464ea">countGeneral</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;, int, int)</td></tr>
+<tr class="memitem:ae40cba900e15fbea12976d08a1f58a42"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#ae40cba900e15fbea12976d08a1f58a42">countGeneral</a> (std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> * &gt; &amp;, int, int)</td></tr>
+<tr class="memitem:a5587bfba111ac76dd8b01f37a68f64da"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a5587bfba111ac76dd8b01f37a68f64da">countGeneral</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html">sequenceStream</a> &amp;, int, int)</td></tr>
+<tr class="memitem:afa0ad62168e33ae806b1a6759e3cbaa5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#afa0ad62168e33ae806b1a6759e3cbaa5">countPeriodic</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;, int, int)</td></tr>
+<tr class="memitem:ab7c55c84099b8eaf98172f5df80b3217"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#ab7c55c84099b8eaf98172f5df80b3217">countPeriodic</a> (std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> * &gt; &amp;, int, int)</td></tr>
+<tr class="memitem:aaa3a01b51c1a6692d6ef2e1c592dadfc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#aaa3a01b51c1a6692d6ef2e1c592dadfc">countPeriodic</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html">sequenceStream</a> &amp;, int, int)</td></tr>
+<tr class="memitem:a86c83fac5fd3e6012112036bf3d445ad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a86c83fac5fd3e6012112036bf3d445ad">countPWM</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;, int, int)</td></tr>
+<tr class="memitem:a4498662d153dceb2db85cd775868d6b3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a4498662d153dceb2db85cd775868d6b3">countPWM</a> (std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> * &gt; &amp;, int, int)</td></tr>
+<tr class="memitem:a24c3f2f6120a14a1c51d2564f091ed27"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a24c3f2f6120a14a1c51d2564f091ed27">countPWM</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html">sequenceStream</a> &amp;, int, int)</td></tr>
+<tr class="memitem:a28062f321205c2beaa691a41b233fecd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a28062f321205c2beaa691a41b233fecd">countMask</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;, int, int)</td></tr>
+<tr class="memitem:aac6ef9ed2ada5d5ff313726a88070d07"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#aac6ef9ed2ada5d5ff313726a88070d07">countMask</a> (std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> * &gt; &amp;, int, int)</td></tr>
+<tr class="memitem:af8c58d4a0f6577464872700a15b08f65"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#af8c58d4a0f6577464872700a15b08f65">_count</a> (<a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;, std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1lexical_table.html">lexicalTable</a> * &gt; &amp;)</td></tr>
+<tr class="memdesc:af8c58d4a0f6577464872700a15b08f65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Working copy of countGeneral.  <a href="#af8c58d4a0f6577464872700a15b08f65"></a><br/></td></tr>
+<tr class="memitem:aab90b89037a23ba08787c8637a55e0f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#aab90b89037a23ba08787c8637a55e0f8">clear</a> ()</td></tr>
+<tr class="memitem:a2cb831c0961bec9a951617c139a46ec2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a2cb831c0961bec9a951617c139a46ec2">printTable</a> ()</td></tr>
+<tr class="memitem:a9a4161be8c9eb1d4de29a08658af2b8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a9a4161be8c9eb1d4de29a08658af2b8a">setOrder</a> (size_t)</td></tr>
+<tr class="memitem:a206d8414c3849fd6609d3548d5c32eac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a206d8414c3849fd6609d3548d5c32eac">setPeriod</a> (size_t)</td></tr>
+<tr class="memitem:add2180e41ebe03c8d46bc008eeeed807"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#add2180e41ebe03c8d46bc008eeeed807">setPseudoCount</a> (size_t)</td></tr>
+<tr class="memitem:a1aefca13816256e07c2c00f9fe737454"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a1aefca13816256e07c2c00f9fe737454">setTrack</a> (<a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aa25422fe2d14e13a0ac40afbbbc508e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#aa25422fe2d14e13a0ac40afbbbc508e6">initializeTable</a> (size_t)</td></tr>
+<tr class="memdesc:aa25422fe2d14e13a0ac40afbbbc508e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates x number of lexical tables and appends them to the vector of lexical tables.  <a href="#aa25422fe2d14e13a0ac40afbbbc508e6"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a540326d695e8d33ca3b504dbf46cfc52"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a540326d695e8d33ca3b504dbf46cfc52">sequencesCounted</a></td></tr>
+<tr class="memdesc:a540326d695e8d33ca3b504dbf46cfc52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total number of sequences counted.  <a href="#a540326d695e8d33ca3b504dbf46cfc52"></a><br/></td></tr>
+<tr class="memitem:adc9f0ae28e86285d0e37a9db48d75663"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#adc9f0ae28e86285d0e37a9db48d75663">lengthOfAllSequences</a></td></tr>
+<tr class="memdesc:adc9f0ae28e86285d0e37a9db48d75663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bp of all sequences counted.  <a href="#adc9f0ae28e86285d0e37a9db48d75663"></a><br/></td></tr>
+<tr class="memitem:abd889e53348a9ab52be9305769bee982"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536">countType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#abd889e53348a9ab52be9305769bee982">type</a></td></tr>
+<tr class="memitem:a79292d617ee2a3fd5da0fc98f679636e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a79292d617ee2a3fd5da0fc98f679636e">seqtrk</a></td></tr>
+<tr class="memdesc:a79292d617ee2a3fd5da0fc98f679636e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The track defined for our sequence(s)  <a href="#a79292d617ee2a3fd5da0fc98f679636e"></a><br/></td></tr>
+<tr class="memitem:af0ffdf93c6717ef66a0bbb01bf7169b4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#af0ffdf93c6717ef66a0bbb01bf7169b4">seqLength</a></td></tr>
+<tr class="memitem:a8a9f2d1437953b7f2d99e115482e1c59"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a></td></tr>
+<tr class="memitem:a0b5d8a4c9ac114f25495bdf6d3b0b55e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a0b5d8a4c9ac114f25495bdf6d3b0b55e">order</a></td></tr>
+<tr class="memitem:a3a6327669b8994bab4940d92ac9cabe0"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a3a6327669b8994bab4940d92ac9cabe0">pseudoCount</a></td></tr>
+<tr class="memitem:a664275b1f7a4bc044dca84e7f9fdb842"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a></td></tr>
+<tr class="memitem:a8388e2eff999f9afadbf95c720d05bf2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2">upstream</a></td></tr>
+<tr class="memdesc:a8388e2eff999f9afadbf95c720d05bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of bp upstream to ignore.  <a href="#a8388e2eff999f9afadbf95c720d05bf2"></a><br/></td></tr>
+<tr class="memitem:a88f2877f2f89b141f710a9e8d3f5104f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f">downstream</a></td></tr>
+<tr class="memdesc:a88f2877f2f89b141f710a9e8d3f5104f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of bp downstream to ignore.  <a href="#a88f2877f2f89b141f710a9e8d3f5104f"></a><br/></td></tr>
+<tr class="memitem:a5674c9825a17e79f2b19a984f774bd5d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1lexical_table.html">lexicalTable</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1_counter.html#a5674c9825a17e79f2b19a984f774bd5d">tables</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="_counter_8h_source.html#l00047">47</a> of file <a class="el" href="_counter_8h_source.html">Counter.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a12bf1640af9de2bbee96b7cbeb896aaa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::Counter::Counter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00029">29</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="alignment_8h_source.html#l00024">StochHMM::NONE</a>, <a class="el" href="_counter_8h_source.html#l00115">order</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00116">pseudoCount</a>, <a class="el" href="_counter_8h_source.html#l00102">type</a>, <a class="el" href="_counter_8h_source.html#l00124">upstream</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+<div class="fragment"><div class="line">                    {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a0b5d8a4c9ac114f25495bdf6d3b0b55e">order</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a3a6327669b8994bab4940d92ac9cabe0">pseudoCount</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#abd889e53348a9ab52be9305769bee982">type</a> = <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a42608ecf21c8ea8cffce5e956bf31bc3">NONE</a>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a>=<span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="adc19068b7fad2e3055d40604080a1b8e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::Counter::Counter </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>per</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>down</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ord</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pseud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00039">39</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="alignment_8h_source.html#l00024">StochHMM::NONE</a>, <a class="el" href="_counter_8h_source.html#l00115">order</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00116">pseudoCount</a>, <a class="el" href="_counter_8h_source.html#l00102">type</a>, <a class="el" href="_counter_8h_source.html#l00124">upstream</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+<div class="fragment"><div class="line">                                                                  {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a>=per;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a>=up;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a>=down;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a0b5d8a4c9ac114f25495bdf6d3b0b55e">order</a>=ord;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a3a6327669b8994bab4940d92ac9cabe0">pseudoCount</a>=pseud;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#abd889e53348a9ab52be9305769bee982">type</a> = <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a42608ecf21c8ea8cffce5e956bf31bc3">NONE</a>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a>=<span class="keyword">false</span>;</div>
+<div class="line">        </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a19de4feb8f4305e51572c9bd0f6d6472"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::Counter::Counter </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>per</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>down</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ord</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00050">50</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="alignment_8h_source.html#l00024">StochHMM::NONE</a>, <a class="el" href="_counter_8h_source.html#l00115">order</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00116">pseudoCount</a>, <a class="el" href="_counter_8h_source.html#l00102">type</a>, <a class="el" href="_counter_8h_source.html#l00124">upstream</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+<div class="fragment"><div class="line">                                                       {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a>=per;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a>=up;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a>=down;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a0b5d8a4c9ac114f25495bdf6d3b0b55e">order</a>=ord;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a3a6327669b8994bab4940d92ac9cabe0">pseudoCount</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#abd889e53348a9ab52be9305769bee982">type</a> = <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a42608ecf21c8ea8cffce5e956bf31bc3">NONE</a>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a>=<span class="keyword">false</span>;</div>
+<div class="line">        </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a91d66fd19f5d48d8785002c3b41f5934"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::Counter::Counter </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>per</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>down</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00061">61</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="alignment_8h_source.html#l00024">StochHMM::NONE</a>, <a class="el" href="_counter_8h_source.html#l00115">order</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00116">pseudoCount</a>, <a class="el" href="_counter_8h_source.html#l00102">type</a>, <a class="el" href="_counter_8h_source.html#l00124">upstream</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+<div class="fragment"><div class="line">                                              {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a>=per;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a>=up;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a>=down;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a0b5d8a4c9ac114f25495bdf6d3b0b55e">order</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a3a6327669b8994bab4940d92ac9cabe0">pseudoCount</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#abd889e53348a9ab52be9305769bee982">type</a> = <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a42608ecf21c8ea8cffce5e956bf31bc3">NONE</a>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a>=<span class="keyword">false</span>;</div>
+<div class="line">        </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aaa53c01ebd2842262c91639f9a6effcf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::Counter::Counter </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>per</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00072">72</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="alignment_8h_source.html#l00024">StochHMM::NONE</a>, <a class="el" href="_counter_8h_source.html#l00115">order</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00116">pseudoCount</a>, <a class="el" href="_counter_8h_source.html#l00102">type</a>, <a class="el" href="_counter_8h_source.html#l00124">upstream</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+<div class="fragment"><div class="line">                            {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a>=per;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a0b5d8a4c9ac114f25495bdf6d3b0b55e">order</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a3a6327669b8994bab4940d92ac9cabe0">pseudoCount</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#abd889e53348a9ab52be9305769bee982">type</a> = <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a42608ecf21c8ea8cffce5e956bf31bc3">NONE</a>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a>=<span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ad6db71b60a5d7589a29e06cd273a292b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::Counter::Counter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;&#160;</td>
+          <td class="paramname"><em>seq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536">countType</a>&#160;</td>
+          <td class="paramname"><em>typ</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td>
+          <td class="paramname"><em>trk</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>per</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>down</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ord</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pseud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00082">82</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8cpp_source.html#l00265">countGeneral()</a>, <a class="el" href="_counter_8cpp_source.html#l00573">countMask()</a>, <a class="el" href="_counter_8cpp_source.html#l00476">countPeriodic()</a>, <a class="el" href="_counter_8cpp_source.html#l00372">countPWM()</a>, <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="_counter_8h_source.html#l00045">StochHMM::GENERAL</a>, <a class="el" href="_counter_8h_source.html#l00045">StochHMM::MASK</a>, <a class="el" href="alignment_8h_source.html#l00024">StochHMM::NONE</a>, <a class="el" href="_counter_8h_source.html#l00115">order</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00045">StochHMM::PERIODIC</a>, <a class="el" href="_counter_8h_source.html#l00116">pseudoCount</a>, <a class="el" href="_counter_8h_source.html#l00105">seqtrk</a>, <a class="el" href="_counter_8h_source.html#l00124">upstream</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+<div class="fragment"><div class="line">                                                                                                           {</div>
+<div class="line">        </div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a> = per;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a> = up;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a> = down;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a0b5d8a4c9ac114f25495bdf6d3b0b55e">order</a> = ord;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a3a6327669b8994bab4940d92ac9cabe0">pseudoCount</a> = pseud;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a79292d617ee2a3fd5da0fc98f679636e" title="The track defined for our sequence(s)">seqtrk</a> = trk;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> = <span class="keyword">false</span>;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (typ == <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536afa0b05fef07b92981bf217ad3bab0d40">GENERAL</a>) {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#ad770a4dc0b7f86618433eec0617464ea">countGeneral</a>(seq, up, down);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (typ == <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a4a2c947e1e4ec75bce302abcb11284e6">PERIODIC</a>) {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#afa0ad62168e33ae806b1a6759e3cbaa5">countPeriodic</a>(seq, up, down);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (typ == <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536aad3049d375d4c8481edc6b1eaa64adce">PWM</a>) {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a86c83fac5fd3e6012112036bf3d445ad">countPWM</a>(seq, up, down);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (typ == <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a15f5bf587e504f8bb1c32fcfe3a08014">MASK</a>) {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a28062f321205c2beaa691a41b233fecd">countMask</a>(seq, up, down);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (typ == <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a42608ecf21c8ea8cffce5e956bf31bc3">NONE</a>) {</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Need to define count type&quot;</span> &lt;&lt; std::endl; </div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="afc0b63e774a8a09f4f89d3a615ea6b58"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::Counter::Counter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td>
+          <td class="paramname"><em>trk</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>per</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>down</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ord</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pseud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00111">111</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="alignment_8h_source.html#l00024">StochHMM::NONE</a>, <a class="el" href="_counter_8h_source.html#l00115">order</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00116">pseudoCount</a>, <a class="el" href="_counter_8h_source.html#l00105">seqtrk</a>, <a class="el" href="_counter_8h_source.html#l00102">type</a>, <a class="el" href="_counter_8h_source.html#l00124">upstream</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+<div class="fragment"><div class="line">                                                                              {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a79292d617ee2a3fd5da0fc98f679636e" title="The track defined for our sequence(s)">seqtrk</a> = trk;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a>=per;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a>=up;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a>=down;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a0b5d8a4c9ac114f25495bdf6d3b0b55e">order</a>=ord;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a3a6327669b8994bab4940d92ac9cabe0">pseudoCount</a>=pseud;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#abd889e53348a9ab52be9305769bee982">type</a> = <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a42608ecf21c8ea8cffce5e956bf31bc3">NONE</a>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a>=<span class="keyword">false</span>;</div>
+<div class="line">        </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="afa4f92f9c3b370620a0660b5c342b383"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::Counter::Counter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td>
+          <td class="paramname"><em>trk</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>per</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>down</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ord</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00123">123</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="alignment_8h_source.html#l00024">StochHMM::NONE</a>, <a class="el" href="_counter_8h_source.html#l00115">order</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00116">pseudoCount</a>, <a class="el" href="_counter_8h_source.html#l00105">seqtrk</a>, <a class="el" href="_counter_8h_source.html#l00102">type</a>, <a class="el" href="_counter_8h_source.html#l00124">upstream</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+<div class="fragment"><div class="line">                                                                   {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a79292d617ee2a3fd5da0fc98f679636e" title="The track defined for our sequence(s)">seqtrk</a> = trk;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a>=per;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a>=up;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a>=down;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a0b5d8a4c9ac114f25495bdf6d3b0b55e">order</a>=ord;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a3a6327669b8994bab4940d92ac9cabe0">pseudoCount</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#abd889e53348a9ab52be9305769bee982">type</a> = <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a42608ecf21c8ea8cffce5e956bf31bc3">NONE</a>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a>=<span class="keyword">false</span>;</div>
+<div class="line">        </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a0317395ce6fe43e7645218f4a952ec28"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::Counter::Counter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td>
+          <td class="paramname"><em>trk</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>per</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>down</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00135">135</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="alignment_8h_source.html#l00024">StochHMM::NONE</a>, <a class="el" href="_counter_8h_source.html#l00115">order</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00116">pseudoCount</a>, <a class="el" href="_counter_8h_source.html#l00105">seqtrk</a>, <a class="el" href="_counter_8h_source.html#l00102">type</a>, <a class="el" href="_counter_8h_source.html#l00124">upstream</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+<div class="fragment"><div class="line">                                                          {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a79292d617ee2a3fd5da0fc98f679636e" title="The track defined for our sequence(s)">seqtrk</a> = trk;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a>=per;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a>=up;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a>=down;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a0b5d8a4c9ac114f25495bdf6d3b0b55e">order</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a3a6327669b8994bab4940d92ac9cabe0">pseudoCount</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#abd889e53348a9ab52be9305769bee982">type</a> = <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a42608ecf21c8ea8cffce5e956bf31bc3">NONE</a>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a>=<span class="keyword">false</span>;</div>
+<div class="line">        </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ae2a49ceb892e031e5d0cdc26d4bd1278"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::Counter::Counter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td>
+          <td class="paramname"><em>trk</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>per</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00147">147</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="alignment_8h_source.html#l00024">StochHMM::NONE</a>, <a class="el" href="_counter_8h_source.html#l00115">order</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00116">pseudoCount</a>, <a class="el" href="_counter_8h_source.html#l00105">seqtrk</a>, <a class="el" href="_counter_8h_source.html#l00102">type</a>, <a class="el" href="_counter_8h_source.html#l00124">upstream</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+<div class="fragment"><div class="line">                                        {</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a79292d617ee2a3fd5da0fc98f679636e" title="The track defined for our sequence(s)">seqtrk</a> = trk;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a>=per;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a0b5d8a4c9ac114f25495bdf6d3b0b55e">order</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a3a6327669b8994bab4940d92ac9cabe0">pseudoCount</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#abd889e53348a9ab52be9305769bee982">type</a> = <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a42608ecf21c8ea8cffce5e956bf31bc3">NONE</a>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a>=<span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a7c9354c7b43bad823587a738558e6422"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::Counter::Counter </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>seqs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536">countType</a>&#160;</td>
+          <td class="paramname"><em>typ</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td>
+          <td class="paramname"><em>trk</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>per</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>down</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ord</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pseud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00159">159</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8cpp_source.html#l00265">countGeneral()</a>, <a class="el" href="_counter_8cpp_source.html#l00573">countMask()</a>, <a class="el" href="_counter_8cpp_source.html#l00476">countPeriodic()</a>, <a class="el" href="_counter_8cpp_source.html#l00372">countPWM()</a>, <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="_counter_8h_source.html#l00045">StochHMM::GENERAL</a>, <a class="el" href="_counter_8h_source.html#l00045">StochHMM::MASK</a>, <a class="el" href="alignment_8h_source.html#l00024">StochHMM::NONE</a>, <a class="el" href="_counter_8h_source.html#l00115">order</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00045">StochHMM::PERIODIC</a>, <a class="el" href="_counter_8h_source.html#l00116">pseudoCount</a>, <a class="el" href="_counter_8h_source.html#l00105">seqtrk</a>, <a class="el" href="_counter_8h_source.html#l00124">upstream</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+<div class="fragment"><div class="line">                                                                                                                        {</div>
+<div class="line">        </div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a> = per;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a> = up;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a> = down;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a0b5d8a4c9ac114f25495bdf6d3b0b55e">order</a> = ord;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a3a6327669b8994bab4940d92ac9cabe0">pseudoCount</a> = pseud;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a79292d617ee2a3fd5da0fc98f679636e" title="The track defined for our sequence(s)">seqtrk</a> = trk;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> = <span class="keyword">false</span>;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (typ == <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536afa0b05fef07b92981bf217ad3bab0d40">GENERAL</a>) {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#ad770a4dc0b7f86618433eec0617464ea">countGeneral</a>(seqs, up, down);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (typ == <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a4a2c947e1e4ec75bce302abcb11284e6">PERIODIC</a>) {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#afa0ad62168e33ae806b1a6759e3cbaa5">countPeriodic</a>(seqs, up, down);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (typ == <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536aad3049d375d4c8481edc6b1eaa64adce">PWM</a>) {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a86c83fac5fd3e6012112036bf3d445ad">countPWM</a>(seqs, up, down);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (typ == <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a15f5bf587e504f8bb1c32fcfe3a08014">MASK</a>) {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a28062f321205c2beaa691a41b233fecd">countMask</a>(seqs, up, down);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (typ == <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a42608ecf21c8ea8cffce5e956bf31bc3">NONE</a>) {</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Need to define count type&quot;</span> &lt;&lt; std::endl; </div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a4b0c37528a1d0f2b69cd1bf6273667cd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::Counter::Counter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html">sequenceStream</a> &amp;&#160;</td>
+          <td class="paramname"><em>seq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536">countType</a>&#160;</td>
+          <td class="paramname"><em>typ</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td>
+          <td class="paramname"><em>trk</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>per</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>down</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ord</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pseud</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00188">188</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8cpp_source.html#l00265">countGeneral()</a>, <a class="el" href="_counter_8cpp_source.html#l00573">countMask()</a>, <a class="el" href="_counter_8cpp_source.html#l00476">countPeriodic()</a>, <a class="el" href="_counter_8cpp_source.html#l00372">countPWM()</a>, <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="_counter_8h_source.html#l00045">StochHMM::GENERAL</a>, <a class="el" href="_counter_8h_source.html#l00045">StochHMM::MASK</a>, <a class="el" href="alignment_8h_source.html#l00024">StochHMM::NONE</a>, <a class="el" href="_counter_8h_source.html#l00115">order</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00045">StochHMM::PERIODIC</a>, <a class="el" href="_counter_8h_source.html#l00116">pseudoCount</a>, <a class="el" href="_counter_8h_source.html#l00105">seqtrk</a>, <a class="el" href="_counter_8h_source.html#l00124">upstream</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+<div class="fragment"><div class="line">                                                                                                                 {</div>
+<div class="line">    </div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a> = per;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a> = up;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a> = down;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a0b5d8a4c9ac114f25495bdf6d3b0b55e">order</a> = ord;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a3a6327669b8994bab4940d92ac9cabe0">pseudoCount</a> = pseud;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a79292d617ee2a3fd5da0fc98f679636e" title="The track defined for our sequence(s)">seqtrk</a> = trk;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> = <span class="keyword">false</span>;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (typ == <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536afa0b05fef07b92981bf217ad3bab0d40">GENERAL</a>) {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#ad770a4dc0b7f86618433eec0617464ea">countGeneral</a>(seq, up, down);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (typ == <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a4a2c947e1e4ec75bce302abcb11284e6">PERIODIC</a>) {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#afa0ad62168e33ae806b1a6759e3cbaa5">countPeriodic</a>(seq, up, down);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (typ == <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536aad3049d375d4c8481edc6b1eaa64adce">PWM</a>) {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a86c83fac5fd3e6012112036bf3d445ad">countPWM</a>(seq, up, down);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (typ == <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a15f5bf587e504f8bb1c32fcfe3a08014">MASK</a>) {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a28062f321205c2beaa691a41b233fecd">countMask</a>(seq, up, down);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (typ == <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a42608ecf21c8ea8cffce5e956bf31bc3">NONE</a>) {</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Need to define count type&quot;</span> &lt;&lt; std::endl; </div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="af8c58d4a0f6577464872700a15b08f65"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::Counter::_count </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;&#160;</td>
+          <td class="paramname"><em>seq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1lexical_table.html">lexicalTable</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>tbl</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Working copy of countGeneral. </p>
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00218">218</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="class_stoch_h_m_m_1_1sequence.html#aff83f7e2763519d7b2345d482d5c375c">StochHMM::sequence::get_index()</a>, <a class="el" href="sequence_8h_source.html#l00089">StochHMM::sequence::getLength()</a>, <a class="el" href="sequence_8cpp_source.html#l00718">StochHMM::sequence::getMask()</a>, <a class="el" href="_counter_8h_source.html#l00100">lengthOfAllSequences</a>, <a class="el" href="_counter_8h_source.html#l00045">StochHMM::MASK</a>, <a class="el" href="_counter_8h_source.html#l00115">order</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00097">sequencesCounted</a>, <a class="el" href="_counter_8h_source.html#l00102">type</a>, and <a class="el" href="_counter_8h_source.html#l00124">upstream</a>.</p>
+
+<p>Referenced by <a class="el" href="_counter_8cpp_source.html#l00265">countGeneral()</a>, <a class="el" href="_counter_8cpp_source.html#l00573">countMask()</a>, <a class="el" href="_counter_8cpp_source.html#l00476">countPeriodic()</a>, and <a class="el" href="_counter_8cpp_source.html#l00372">countPWM()</a>.</p>
+<div class="fragment"><div class="line">                                                                    {</div>
+<div class="line"></div>
+<div class="line">        <span class="keywordtype">bool</span> counted = <span class="keyword">false</span>;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">int</span> seqln = seq.getLength();</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#adc9f0ae28e86285d0e37a9db48d75663" title="Bp of all sequences counted.">lengthOfAllSequences</a> += seqln;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a>; i&lt;=seqln-<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a>-1;i++){</div>
+<div class="line">            <span class="keywordtype">int</span> per;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#abd889e53348a9ab52be9305769bee982">type</a> == <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a15f5bf587e504f8bb1c32fcfe3a08014">MASK</a>) {</div>
+<div class="line">                per = seq.getMask(i) - 1;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> {</div>
+<div class="line">                per = (i-<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a>)%<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a>;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            std::pair&lt;Index,Index&gt; word_index;</div>
+<div class="line">            seq.get_index(i, <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a0b5d8a4c9ac114f25495bdf6d3b0b55e">order</a>, word_index);</div>
+<div class="line">            <span class="keywordtype">int</span> letters = word_index.first.size();</div>
+<div class="line">            <span class="keywordtype">int</span> words = word_index.second.size();</div>
+<div class="line">            <span class="keywordflow">if</span> (letters!=1 &amp;&amp; words!=1){</div>
+<div class="line">                <span class="keywordtype">double</span> val = 1.0f / <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span> (letters * words);</div>
+<div class="line">                <span class="comment">//increment all the applicable cells of the table by the value &#39;val&#39;</span></div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;words; i++) {</div>
+<div class="line">                    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;letters; j++) {</div>
+<div class="line">                        (tbl[per])-&gt;incrementCountsDouble(word_index.second[i], word_index.first[j], val);</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">                counted = <span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span>{</div>
+<div class="line">                <span class="comment">//increment the lexical table (letters,words)</span></div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;words; i++) {</div>
+<div class="line">                    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;letters; j++) {</div>
+<div class="line">                        (tbl[per])-&gt;incrementCounts(word_index.second[i], word_index.first[j]);</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">                counted = <span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a540326d695e8d33ca3b504dbf46cfc52" title="Total number of sequences counted.">sequencesCounted</a>++;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> counted;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aab90b89037a23ba08787c8637a55e0f8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::Counter::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00652">652</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="alignment_8h_source.html#l00024">StochHMM::NONE</a>, <a class="el" href="_counter_8h_source.html#l00115">order</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00116">pseudoCount</a>, <a class="el" href="_counter_8h_source.html#l00129">tables</a>, <a class="el" href="_counter_8h_source.html#l00102">type</a>, <a class="el" href="_counter_8h_source.html#l00124">upstream</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+<div class="fragment"><div class="line">                        {</div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a5674c9825a17e79f2b19a984f774bd5d">tables</a>.size(); i++) {</div>
+<div class="line">            <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a5674c9825a17e79f2b19a984f774bd5d">tables</a>[i];</div>
+<div class="line">        }</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a0b5d8a4c9ac114f25495bdf6d3b0b55e">order</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a3a6327669b8994bab4940d92ac9cabe0">pseudoCount</a>=0;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a>=<span class="keyword">false</span>;</div>
+<div class="line">        <a class="code" href="class_stoch_h_m_m_1_1_counter.html#abd889e53348a9ab52be9305769bee982">type</a> = <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a42608ecf21c8ea8cffce5e956bf31bc3">NONE</a>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ad770a4dc0b7f86618433eec0617464ea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::Counter::countGeneral </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;&#160;</td>
+          <td class="paramname"><em>seq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>down</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00265">265</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8cpp_source.html#l00218">_count()</a>, <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="_counter_8h_source.html#l00045">StochHMM::GENERAL</a>, <a class="el" href="sequence_8h_source.html#l00089">StochHMM::sequence::getLength()</a>, <a class="el" href="_counter_8cpp_source.html#l00634">initializeTable()</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00129">tables</a>, <a class="el" href="_counter_8h_source.html#l00102">type</a>, <a class="el" href="_counter_8h_source.html#l00124">upstream</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+
+<p>Referenced by <a class="el" href="_counter_8cpp_source.html#l00082">Counter()</a>, and <a class="el" href="_counter_8cpp_source.html#l00314">countGeneral()</a>.</p>
+<div class="fragment"><div class="line">                                                              {</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> == <span class="keyword">true</span>) {</div>
+<div class="line">            <span class="keywordflow">if</span> (up != <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a>) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Upstream: &quot;</span> &lt;&lt; up &lt;&lt; <span class="stringliteral">&quot; is not initialized value: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (down != <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a>) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Downstream: &quot;</span> &lt;&lt; down &lt;&lt; <span class="stringliteral">&quot; is not initialized value: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> == <span class="keyword">false</span>) {</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordtype">int</span> seqln = seq.getLength();</div>
+<div class="line">            </div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#abd889e53348a9ab52be9305769bee982">type</a> = <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536afa0b05fef07b92981bf217ad3bab0d40">GENERAL</a>;</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a> != 1) {</div>
+<div class="line">                std::cout &lt;&lt; <span class="stringliteral">&quot;Period set to 1 for count general (was &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a> &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">            }</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a> = 1;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#aa25422fe2d14e13a0ac40afbbbc508e6" title="Creates x number of lexical tables and appends them to the vector of lexical tables.">initializeTable</a>(1);</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//check if upstream is positive, not too small (smaller than order), </span></div>
+<div class="line">            <span class="comment">// and not too large (larger than seqLength)</span></div>
+<div class="line">            <span class="keywordflow">if</span> (up &lt; 0 || up &lt; order || up &gt; (seqln-1) ) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Upstream must be non-negative, equal to or larger than the order, and smaller than the sequence length -1&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//check if downstream is positive, and not too large (seqLength-downstream &gt; upstream)</span></div>
+<div class="line">            <span class="keywordflow">if</span> (down &lt; 0 || (seqln-down-1) &lt; up) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Downstream must be non-negative, and at least as far in the sequence as upstream&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a> = up;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a> = down;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> = <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">bool</span> counted;</div>
+<div class="line">        </div>
+<div class="line">        std::vector&lt;lexicalTable*&gt;&amp; tbl=<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a5674c9825a17e79f2b19a984f774bd5d">tables</a>;</div>
+<div class="line">        counted = <a class="code" href="class_stoch_h_m_m_1_1_counter.html#af8c58d4a0f6577464872700a15b08f65" title="Working copy of countGeneral.">_count</a>(seq,tbl);</div>
+<div class="line"></div>
+<div class="line">        <span class="keywordflow">return</span> counted;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ae40cba900e15fbea12976d08a1f58a42"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::Counter::countGeneral </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>seqs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>down</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00314">314</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8cpp_source.html#l00265">countGeneral()</a>.</p>
+<div class="fragment"><div class="line">                                                                          {</div>
+<div class="line">        <span class="keywordtype">bool</span> counted = <span class="keyword">true</span>;</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;seqs.size(); i++) {</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#ad770a4dc0b7f86618433eec0617464ea">countGeneral</a>(*(seqs[i]), up, down) == <span class="keyword">false</span>) {</div>
+<div class="line">                counted = <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> counted;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a5587bfba111ac76dd8b01f37a68f64da"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::Counter::countGeneral </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html">sequenceStream</a> &amp;&#160;</td>
+          <td class="paramname"><em>seq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>down</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00324">324</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8cpp_source.html#l00218">_count()</a>, <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="_counter_8h_source.html#l00045">StochHMM::GENERAL</a>, <a class="el" href="sequence_8h_source.html#l00089">StochHMM::sequence::getLength()</a>, <a class="el" href="_counter_8cpp_source.html#l00634">initializeTable()</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00129">tables</a>, <a class="el" href="_counter_8h_source.html#l00102">type</a>, <a class="el" href="_counter_8h_source.html#l00124">upstream</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+<div class="fragment"><div class="line">                                                                    {</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> == <span class="keyword">true</span>) {</div>
+<div class="line">            <span class="keywordflow">if</span> (up != <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a>) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Upstream: &quot;</span> &lt;&lt; up &lt;&lt; <span class="stringliteral">&quot; is not initialized value: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (down != <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a>) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Downstream: &quot;</span> &lt;&lt; down &lt;&lt; <span class="stringliteral">&quot; is not initialized value: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> == <span class="keyword">false</span>) {</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordtype">int</span> seqln = seq.getLength();</div>
+<div class="line">            </div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#abd889e53348a9ab52be9305769bee982">type</a> = <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536afa0b05fef07b92981bf217ad3bab0d40">GENERAL</a>;</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a> != 1) {</div>
+<div class="line">                std::cout &lt;&lt; <span class="stringliteral">&quot;Period set to 1 for count general (was &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a> &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">            }</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a> = 1;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#aa25422fe2d14e13a0ac40afbbbc508e6" title="Creates x number of lexical tables and appends them to the vector of lexical tables.">initializeTable</a>(1);</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//check if upstream is positive, not too small (smaller than order), </span></div>
+<div class="line">            <span class="comment">// and not too large (larger than seqLength)</span></div>
+<div class="line">            <span class="keywordflow">if</span> (up &lt; 0 || up &lt; order || up &gt; (seqln-1) ) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Upstream must be non-negative, equal to or larger than the order, and smaller than the sequence length -1&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">//check if downstream is positive, and not too large (seqLength-downstream &gt; upstream)</span></div>
+<div class="line">            <span class="keywordflow">if</span> (down &lt; 0 || (seqln-down-1) &lt; up) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Downstream must be non-negative, and at least as far in the sequence as upstream&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a> = up;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a> = down;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> = <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">bool</span> counted;</div>
+<div class="line">        </div>
+<div class="line">        std::vector&lt;lexicalTable*&gt;&amp; tbl=<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a5674c9825a17e79f2b19a984f774bd5d">tables</a>;</div>
+<div class="line">        counted = <a class="code" href="class_stoch_h_m_m_1_1_counter.html#af8c58d4a0f6577464872700a15b08f65" title="Working copy of countGeneral.">_count</a>(seq,tbl);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> counted;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a28062f321205c2beaa691a41b233fecd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::Counter::countMask </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;&#160;</td>
+          <td class="paramname"><em>seq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>down</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00573">573</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8cpp_source.html#l00218">_count()</a>, <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="sequence_8h_source.html#l00089">StochHMM::sequence::getLength()</a>, <a class="el" href="sequence_8h_source.html#l00159">StochHMM::sequence::getMaxMask()</a>, <a class="el" href="_counter_8cpp_source.html#l00634">initializeTable()</a>, <a class="el" href="_counter_8h_source.html#l00045">StochHMM::MASK</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00129">tables</a>, <a class="el" href="_counter_8h_source.html#l00102">type</a>, <a class="el" href="_counter_8h_source.html#l00124">upstream</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+
+<p>Referenced by <a class="el" href="_counter_8cpp_source.html#l00082">Counter()</a>, and <a class="el" href="_counter_8cpp_source.html#l00623">countMask()</a>.</p>
+<div class="fragment"><div class="line">                                                          {</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> == <span class="keyword">true</span>) {</div>
+<div class="line">            <span class="keywordflow">if</span> (up != <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a>) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Upstream: &quot;</span> &lt;&lt; up &lt;&lt; <span class="stringliteral">&quot; is not initialized value: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (down != <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a>) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Downstream: &quot;</span> &lt;&lt; down &lt;&lt; <span class="stringliteral">&quot; is not initialized value: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> == <span class="keyword">false</span>) {</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordtype">int</span> seqln = seq.getLength();</div>
+<div class="line">            </div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#abd889e53348a9ab52be9305769bee982">type</a> = <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a15f5bf587e504f8bb1c32fcfe3a08014">MASK</a>;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#aa25422fe2d14e13a0ac40afbbbc508e6" title="Creates x number of lexical tables and appends them to the vector of lexical tables.">initializeTable</a>(<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a>);</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (up &lt; 0 || up &lt; order || up &gt; (seqln-1) ) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Upstream must be non-negative, equal to or larger than the order, and smaller than the sequence length -1&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (down &lt; 0 || (seqln-down-1) &lt; up) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Downstream must be non-negative, and at least as far in the sequence as upstream&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a> = up;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a> = down;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> = <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">int</span> max_mask_size = seq.getMaxMask();</div>
+<div class="line">        <span class="keywordtype">size_t</span> num_tables = <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a5674c9825a17e79f2b19a984f774bd5d">tables</a>.size();    </div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (max_mask_size &gt; num_tables){</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#aa25422fe2d14e13a0ac40afbbbc508e6" title="Creates x number of lexical tables and appends them to the vector of lexical tables.">initializeTable</a>(max_mask_size-num_tables);</div>
+<div class="line">        }</div>
+<div class="line"></div>
+<div class="line">        <span class="keywordtype">bool</span> counted;</div>
+<div class="line">        </div>
+<div class="line">        std::vector&lt;lexicalTable*&gt;&amp; tbl=<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a5674c9825a17e79f2b19a984f774bd5d">tables</a>;</div>
+<div class="line">        counted = <a class="code" href="class_stoch_h_m_m_1_1_counter.html#af8c58d4a0f6577464872700a15b08f65" title="Working copy of countGeneral.">_count</a>(seq,tbl);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> counted;</div>
+<div class="line">        </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aac6ef9ed2ada5d5ff313726a88070d07"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::Counter::countMask </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>seqs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>down</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00623">623</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8cpp_source.html#l00573">countMask()</a>.</p>
+<div class="fragment"><div class="line">                                                                       {</div>
+<div class="line">        <span class="keywordtype">bool</span> counted = <span class="keyword">true</span>;</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;seqs.size(); i++) {</div>
+<div class="line">            <span class="comment">//std::cout &lt;&lt; seqs[i]-&gt;stringify() &lt;&lt; std::endl;</span></div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a28062f321205c2beaa691a41b233fecd">countMask</a>(*(seqs[i]), up, down) == <span class="keyword">false</span>) {</div>
+<div class="line">                counted = <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> counted;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="afa0ad62168e33ae806b1a6759e3cbaa5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::Counter::countPeriodic </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;&#160;</td>
+          <td class="paramname"><em>seq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>down</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00476">476</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8cpp_source.html#l00218">_count()</a>, <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="sequence_8h_source.html#l00089">StochHMM::sequence::getLength()</a>, <a class="el" href="_counter_8cpp_source.html#l00634">initializeTable()</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00045">StochHMM::PERIODIC</a>, <a class="el" href="_counter_8h_source.html#l00129">tables</a>, <a class="el" href="_counter_8h_source.html#l00102">type</a>, <a class="el" href="_counter_8h_source.html#l00124">upstream</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+
+<p>Referenced by <a class="el" href="_counter_8cpp_source.html#l00082">Counter()</a>, and <a class="el" href="_counter_8cpp_source.html#l00519">countPeriodic()</a>.</p>
+<div class="fragment"><div class="line">                                                               {</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> == <span class="keyword">true</span>) {</div>
+<div class="line">            <span class="keywordflow">if</span> (up != <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a>) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Upstream: &quot;</span> &lt;&lt; up &lt;&lt; <span class="stringliteral">&quot; is not initialized value: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (down != <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a>) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Downstream: &quot;</span> &lt;&lt; down &lt;&lt; <span class="stringliteral">&quot; is not initialized value: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> == <span class="keyword">false</span>) {</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordtype">int</span> seqln = seq.getLength();</div>
+<div class="line">            </div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#abd889e53348a9ab52be9305769bee982">type</a> = <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a4a2c947e1e4ec75bce302abcb11284e6">PERIODIC</a>;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#aa25422fe2d14e13a0ac40afbbbc508e6" title="Creates x number of lexical tables and appends them to the vector of lexical tables.">initializeTable</a>(<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a>);</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (up &lt; 0 || up &lt; order || up &gt; (seqln-1) ) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Upstream must be non-negative, equal to or larger than the order, and smaller than the sequence length -1&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (down &lt; 0 || (seqln-down-1) &lt; up) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Downstream must be non-negative, and at least as far in the sequence as upstream&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a> = up;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a> = down;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> = <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">bool</span> counted;</div>
+<div class="line">        </div>
+<div class="line">        std::vector&lt;lexicalTable*&gt;&amp; tbl=<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a5674c9825a17e79f2b19a984f774bd5d">tables</a>;</div>
+<div class="line">        counted = <a class="code" href="class_stoch_h_m_m_1_1_counter.html#af8c58d4a0f6577464872700a15b08f65" title="Working copy of countGeneral.">_count</a>(seq,tbl);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> counted;</div>
+<div class="line">        </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ab7c55c84099b8eaf98172f5df80b3217"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::Counter::countPeriodic </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>seqs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>down</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00519">519</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8cpp_source.html#l00476">countPeriodic()</a>.</p>
+<div class="fragment"><div class="line">                                                                           {</div>
+<div class="line">        <span class="keywordtype">bool</span> counted = <span class="keyword">true</span>;</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;seqs.size(); i++) {</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#afa0ad62168e33ae806b1a6759e3cbaa5">countPeriodic</a>(*(seqs[i]), up, down) == <span class="keyword">false</span>) {</div>
+<div class="line">                counted = <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> counted;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aaa3a01b51c1a6692d6ef2e1c592dadfc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::Counter::countPeriodic </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html">sequenceStream</a> &amp;&#160;</td>
+          <td class="paramname"><em>seq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>down</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00529">529</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8cpp_source.html#l00218">_count()</a>, <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="sequence_8h_source.html#l00089">StochHMM::sequence::getLength()</a>, <a class="el" href="_counter_8cpp_source.html#l00634">initializeTable()</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00045">StochHMM::PERIODIC</a>, <a class="el" href="_counter_8h_source.html#l00129">tables</a>, <a class="el" href="_counter_8h_source.html#l00102">type</a>, <a class="el" href="_counter_8h_source.html#l00124">upstream</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+<div class="fragment"><div class="line">                                                                     {</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> == <span class="keyword">true</span>) {</div>
+<div class="line">            <span class="keywordflow">if</span> (up != <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a>) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Upstream: &quot;</span> &lt;&lt; up &lt;&lt; <span class="stringliteral">&quot; is not initialized value: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (down != <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a>) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Downstream: &quot;</span> &lt;&lt; down &lt;&lt; <span class="stringliteral">&quot; is not initialized value: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> == <span class="keyword">false</span>) {</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordtype">int</span> seqln = seq.getLength();</div>
+<div class="line">            </div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#abd889e53348a9ab52be9305769bee982">type</a> = <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536a4a2c947e1e4ec75bce302abcb11284e6">PERIODIC</a>;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#aa25422fe2d14e13a0ac40afbbbc508e6" title="Creates x number of lexical tables and appends them to the vector of lexical tables.">initializeTable</a>(<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a>);</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (up &lt; 0 || up &lt; order || up &gt; (seqln-1) ) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Upstream must be non-negative, equal to or larger than the order, and smaller than the sequence length -1&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (down &lt; 0 || (seqln-down-1) &lt; up) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Downstream must be non-negative, and at least as far in the sequence as upstream&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a> = up;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a> = down;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> = <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">bool</span> counted;</div>
+<div class="line">        </div>
+<div class="line">        std::vector&lt;lexicalTable*&gt;&amp; tbl=<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a5674c9825a17e79f2b19a984f774bd5d">tables</a>;</div>
+<div class="line">        counted = <a class="code" href="class_stoch_h_m_m_1_1_counter.html#af8c58d4a0f6577464872700a15b08f65" title="Working copy of countGeneral.">_count</a>(seq,tbl);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> counted;</div>
+<div class="line">        </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a86c83fac5fd3e6012112036bf3d445ad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::Counter::countPWM </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> &amp;&#160;</td>
+          <td class="paramname"><em>seq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>down</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00372">372</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8cpp_source.html#l00218">_count()</a>, <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="sequence_8h_source.html#l00089">StochHMM::sequence::getLength()</a>, <a class="el" href="_counter_8cpp_source.html#l00634">initializeTable()</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00045">StochHMM::PWM</a>, <a class="el" href="_counter_8h_source.html#l00112">seqLength</a>, <a class="el" href="_counter_8h_source.html#l00129">tables</a>, <a class="el" href="_counter_8h_source.html#l00102">type</a>, <a class="el" href="_counter_8h_source.html#l00124">upstream</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+
+<p>Referenced by <a class="el" href="_counter_8cpp_source.html#l00082">Counter()</a>, and <a class="el" href="_counter_8cpp_source.html#l00419">countPWM()</a>.</p>
+<div class="fragment"><div class="line">                                                         {</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">int</span> seqln = seq.getLength();</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> == <span class="keyword">true</span>) {</div>
+<div class="line">            <span class="keywordflow">if</span> (up != <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a>) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Upstream: &quot;</span> &lt;&lt; up &lt;&lt; <span class="stringliteral">&quot; is not initialized value: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (down != <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a>) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Downstream: &quot;</span> &lt;&lt; down &lt;&lt; <span class="stringliteral">&quot; is not initialized value: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (seqln != <a class="code" href="class_stoch_h_m_m_1_1_counter.html#af0ffdf93c6717ef66a0bbb01bf7169b4">seqLength</a>) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Seqlength: &quot;</span> &lt;&lt; seqln &lt;&lt; <span class="stringliteral">&quot; is not initialized value: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#af0ffdf93c6717ef66a0bbb01bf7169b4">seqLength</a> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="comment">//Setup variables on first call</span></div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> == <span class="keyword">false</span>) {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#abd889e53348a9ab52be9305769bee982">type</a> = <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536aad3049d375d4c8481edc6b1eaa64adce">PWM</a>;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#aa25422fe2d14e13a0ac40afbbbc508e6" title="Creates x number of lexical tables and appends them to the vector of lexical tables.">initializeTable</a>(<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a>);</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#af0ffdf93c6717ef66a0bbb01bf7169b4">seqLength</a> = seqln;</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> (up &lt; 0 || up &lt; order || up &gt; (seqln-1) ) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Upstream must be non-negative, equal to or larger than the order, and smaller than the sequence length -1&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (down &lt; 0 || (seqln-down-1) &lt; up) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Downstream must be non-negative, and at least as far in the sequence as upstream&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a> = up;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a> = down;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> = <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">bool</span> counted;</div>
+<div class="line">        </div>
+<div class="line">        std::vector&lt;lexicalTable*&gt;&amp; tbl=<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a5674c9825a17e79f2b19a984f774bd5d">tables</a>;</div>
+<div class="line">        counted = <a class="code" href="class_stoch_h_m_m_1_1_counter.html#af8c58d4a0f6577464872700a15b08f65" title="Working copy of countGeneral.">_count</a>(seq,tbl);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> counted;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a4498662d153dceb2db85cd775868d6b3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::Counter::countPWM </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_stoch_h_m_m_1_1sequence.html">sequence</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>seqs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>down</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00419">419</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8cpp_source.html#l00372">countPWM()</a>.</p>
+<div class="fragment"><div class="line">                                                                      {</div>
+<div class="line">        <span class="keywordtype">bool</span> counted = <span class="keyword">true</span>;</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;seqs.size(); i++) {</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a86c83fac5fd3e6012112036bf3d445ad">countPWM</a>(*(seqs[i]), up, down) == <span class="keyword">false</span>) {</div>
+<div class="line">                counted = <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> counted;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a24c3f2f6120a14a1c51d2564f091ed27"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::Counter::countPWM </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1sequence_stream.html">sequenceStream</a> &amp;&#160;</td>
+          <td class="paramname"><em>seq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>up</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>down</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00429">429</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8cpp_source.html#l00218">_count()</a>, <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="sequence_8h_source.html#l00089">StochHMM::sequence::getLength()</a>, <a class="el" href="_counter_8cpp_source.html#l00634">initializeTable()</a>, <a class="el" href="_counter_8h_source.html#l00114">period</a>, <a class="el" href="_counter_8h_source.html#l00045">StochHMM::PWM</a>, <a class="el" href="_counter_8h_source.html#l00112">seqLength</a>, <a class="el" href="_counter_8h_source.html#l00129">tables</a>, <a class="el" href="_counter_8h_source.html#l00102">type</a>, <a class="el" href="_counter_8h_source.html#l00124">upstream</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+<div class="fragment"><div class="line">                                                               {</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">int</span> seqln = seq.getLength();</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> == <span class="keyword">true</span>) {</div>
+<div class="line">            <span class="keywordflow">if</span> (up != <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a>) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Upstream: &quot;</span> &lt;&lt; up &lt;&lt; <span class="stringliteral">&quot; is not initialized value: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (down != <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a>) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Downstream: &quot;</span> &lt;&lt; down &lt;&lt; <span class="stringliteral">&quot; is not initialized value: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (seqln != <a class="code" href="class_stoch_h_m_m_1_1_counter.html#af0ffdf93c6717ef66a0bbb01bf7169b4">seqLength</a>) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Seqlength: &quot;</span> &lt;&lt; seqln &lt;&lt; <span class="stringliteral">&quot; is not initialized value: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#af0ffdf93c6717ef66a0bbb01bf7169b4">seqLength</a> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="comment">//Setup variables on first call</span></div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> == <span class="keyword">false</span>) {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#abd889e53348a9ab52be9305769bee982">type</a> = <a class="code" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536aad3049d375d4c8481edc6b1eaa64adce">PWM</a>;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#aa25422fe2d14e13a0ac40afbbbc508e6" title="Creates x number of lexical tables and appends them to the vector of lexical tables.">initializeTable</a>(<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a>);</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#af0ffdf93c6717ef66a0bbb01bf7169b4">seqLength</a> = seqln;</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (up &lt; 0 || up &lt; order || up &gt; (seqln-1) ) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Upstream must be non-negative, equal to or larger than the order, and smaller than the sequence length -1&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">if</span> (down &lt; 0 || (seqln-down-1) &lt; up) {</div>
+<div class="line">                std::cerr &lt;&lt; <span class="stringliteral">&quot;Downstream must be non-negative, and at least as far in the sequence as upstream&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                exit(1);</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a> = up;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a> = down;</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> = <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">bool</span> counted;</div>
+<div class="line">        </div>
+<div class="line">        std::vector&lt;lexicalTable*&gt;&amp; tbl=<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a5674c9825a17e79f2b19a984f774bd5d">tables</a>;</div>
+<div class="line">        counted = <a class="code" href="class_stoch_h_m_m_1_1_counter.html#af8c58d4a0f6577464872700a15b08f65" title="Working copy of countGeneral.">_count</a>(seq,tbl);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> counted;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="aa25422fe2d14e13a0ac40afbbbc508e6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::Counter::initializeTable </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>table_count</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates x number of lexical tables and appends them to the vector of lexical tables. </p>
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00634">634</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="lexical_table_8cpp_source.html#l00158">StochHMM::lexicalTable::addTrack()</a>, <a class="el" href="stoch_types_8h_source.html#l00108">StochHMM::COUNTS</a>, <a class="el" href="lexical_table_8cpp_source.html#l00048">StochHMM::lexicalTable::createTable()</a>, <a class="el" href="track_8h_source.html#l00173">StochHMM::track::getAlphaSize()</a>, <a class="el" href="_counter_8h_source.html#l00115">order</a>, <a class="el" href="_counter_8h_source.html#l00116">pseudoCount</a>, <a class="el" href="_counter_8h_source.html#l00105">seqtrk</a>, and <a class="el" href="_counter_8h_source.html#l00129">tables</a>.</p>
+
+<p>Referenced by <a class="el" href="_counter_8cpp_source.html#l00265">countGeneral()</a>, <a class="el" href="_counter_8cpp_source.html#l00573">countMask()</a>, <a class="el" href="_counter_8cpp_source.html#l00476">countPeriodic()</a>, and <a class="el" href="_counter_8cpp_source.html#l00372">countPWM()</a>.</p>
+<div class="fragment"><div class="line">                                                   {</div>
+<div class="line">        <span class="keywordtype">size_t</span> cols = <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a79292d617ee2a3fd5da0fc98f679636e" title="The track defined for our sequence(s)">seqtrk</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a4d3759f267996b13d71bb8e9a173c54c">getAlphaSize</a>();</div>
+<div class="line">        <span class="keywordtype">size_t</span> rows = integerPower&lt;size_t&gt;(cols,<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a0b5d8a4c9ac114f25495bdf6d3b0b55e">order</a>);</div>
+<div class="line">        <span class="comment">//size_t cols = pow(rows,order);</span></div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; table_count; i++) {</div>
+<div class="line">            lexicalTable *<a class="code" href="namespace_stoch_h_m_m.html#ab2f92e32e70e349af9b5e6ecaf19b4ab">table</a> = <span class="keyword">new</span> lexicalTable();</div>
+<div class="line">            table-&gt;createTable(rows, cols, <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a3a6327669b8994bab4940d92ac9cabe0">pseudoCount</a>, <a class="code" href="namespace_stoch_h_m_m.html#ab4c259b67b1db89217aca6fe556d6835a68071cfc928cf75eda3d522a63517b31">COUNTS</a>);</div>
+<div class="line">            <span class="comment">//std::cout &lt;&lt; order &lt;&lt; std::endl;</span></div>
+<div class="line">            table-&gt;addTrack(<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a79292d617ee2a3fd5da0fc98f679636e" title="The track defined for our sequence(s)">seqtrk</a>, <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a0b5d8a4c9ac114f25495bdf6d3b0b55e">order</a>);</div>
+<div class="line">            <span class="comment">//table-&gt;print();</span></div>
+<div class="line">            <span class="comment">//exit(0);</span></div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a5674c9825a17e79f2b19a984f774bd5d">tables</a>.push_back(table);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a2cb831c0961bec9a951617c139a46ec2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::Counter::printTable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00665">665</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8h_source.html#l00127">downstream</a>, <a class="el" href="_counter_8h_source.html#l00100">lengthOfAllSequences</a>, <a class="el" href="_counter_8h_source.html#l00115">order</a>, <a class="el" href="_counter_8h_source.html#l00097">sequencesCounted</a>, <a class="el" href="_counter_8h_source.html#l00129">tables</a>, and <a class="el" href="_counter_8h_source.html#l00124">upstream</a>.</p>
+<div class="fragment"><div class="line">                             {</div>
+<div class="line">        </div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Number of sequences counted: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a540326d695e8d33ca3b504dbf46cfc52" title="Total number of sequences counted.">sequencesCounted</a> &lt;&lt; std::endl;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Number of bp counted: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#adc9f0ae28e86285d0e37a9db48d75663" title="Bp of all sequences counted.">lengthOfAllSequences</a> &lt;&lt; std::endl;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Upstream/downstream settings: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8388e2eff999f9afadbf95c720d05bf2" title="The number of bp upstream to ignore.">upstream</a> &lt;&lt; <span class="stringliteral">&quot;/&quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a88f2877f2f89b141f710a9e8d3f5104f" title="The number of bp downstream to ignore.">downstream</a> &lt;&lt; std::endl;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Order: &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a0b5d8a4c9ac114f25495bdf6d3b0b55e">order</a> &lt;&lt; std::endl;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a5674c9825a17e79f2b19a984f774bd5d">tables</a>.size(); i++) {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a5674c9825a17e79f2b19a984f774bd5d">tables</a>[i]-&gt;print();</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a9a4161be8c9eb1d4de29a08658af2b8a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::Counter::setOrder </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>ord</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00677">677</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8h_source.html#l00115">order</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+<div class="fragment"><div class="line">                                     {</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> == <span class="keyword">false</span>) {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a0b5d8a4c9ac114f25495bdf6d3b0b55e">order</a> = ord;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> {</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Already started counting, order was set to &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a0b5d8a4c9ac114f25495bdf6d3b0b55e">order</a> &lt;&lt; <span class="stringliteral">&quot;. Must use clear() to set order again.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a206d8414c3849fd6609d3548d5c32eac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::Counter::setPeriod </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>per</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00687">687</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8h_source.html#l00114">period</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+<div class="fragment"><div class="line">                                      {</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> == <span class="keyword">false</span>) {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a> = per;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> {</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Already started counting, period was set to &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a8a9f2d1437953b7f2d99e115482e1c59">period</a> &lt;&lt; <span class="stringliteral">&quot;. Must use clear() to set period again.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="add2180e41ebe03c8d46bc008eeeed807"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::Counter::setPseudoCount </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pseud</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00697">697</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8h_source.html#l00116">pseudoCount</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+<div class="fragment"><div class="line">                                             {</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a> == <span class="keyword">false</span>) {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a3a6327669b8994bab4940d92ac9cabe0">pseudoCount</a> = pseud;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> {</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Already started counting, pseudocount was set to &quot;</span> &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a3a6327669b8994bab4940d92ac9cabe0">pseudoCount</a> &lt;&lt; </div>
+<div class="line">            <span class="stringliteral">&quot;. Must use clear() to set pseudocount again.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">            exit(1);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a1aefca13816256e07c2c00f9fe737454"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::Counter::setTrack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a> *&#160;</td>
+          <td class="paramname"><em>trk</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8cpp_source.html#l00708">708</a> of file <a class="el" href="_counter_8cpp_source.html">Counter.cpp</a>.</p>
+
+<p>References <a class="el" href="_counter_8h_source.html#l00105">seqtrk</a>, and <a class="el" href="_counter_8h_source.html#l00121">variableSet</a>.</p>
+<div class="fragment"><div class="line">                                     {</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_counter.html#a664275b1f7a4bc044dca84e7f9fdb842">variableSet</a>== <span class="keyword">false</span>) {</div>
+<div class="line">            <a class="code" href="class_stoch_h_m_m_1_1_counter.html#a79292d617ee2a3fd5da0fc98f679636e" title="The track defined for our sequence(s)">seqtrk</a> = trk;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> {</div>
+<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Track is already set for counting. Must use clear() to set again.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a88f2877f2f89b141f710a9e8d3f5104f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int StochHMM::Counter::downstream</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The number of bp downstream to ignore. </p>
+
+<p>Definition at line <a class="el" href="_counter_8h_source.html#l00127">127</a> of file <a class="el" href="_counter_8h_source.html">Counter.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_counter_8cpp_source.html#l00218">_count()</a>, <a class="el" href="_counter_8cpp_source.html#l00652">clear()</a>, <a class="el" href="_counter_8cpp_source.html#l00029">Counter()</a>, <a class="el" href="_counter_8cpp_source.html#l00265">countGeneral()</a>, <a class="el" href="_counter_8cpp_source.html#l00573">countMask()</a>, <a class="el" href="_counter_8cpp_source.html#l00476">countPeriodic()</a>, <a class="el" href="_counter_8cpp_source.html#l00372">countPWM()</a>, and <a class="el" href="_counter_8cpp_source.html#l00665">printTable()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adc9f0ae28e86285d0e37a9db48d75663"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int StochHMM::Counter::lengthOfAllSequences</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Bp of all sequences counted. </p>
+
+<p>Definition at line <a class="el" href="_counter_8h_source.html#l00100">100</a> of file <a class="el" href="_counter_8h_source.html">Counter.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_counter_8cpp_source.html#l00218">_count()</a>, and <a class="el" href="_counter_8cpp_source.html#l00665">printTable()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0b5d8a4c9ac114f25495bdf6d3b0b55e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::Counter::order</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8h_source.html#l00115">115</a> of file <a class="el" href="_counter_8h_source.html">Counter.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_counter_8cpp_source.html#l00218">_count()</a>, <a class="el" href="_counter_8cpp_source.html#l00652">clear()</a>, <a class="el" href="_counter_8cpp_source.html#l00029">Counter()</a>, <a class="el" href="_counter_8cpp_source.html#l00634">initializeTable()</a>, <a class="el" href="_counter_8cpp_source.html#l00665">printTable()</a>, and <a class="el" href="_counter_8cpp_source.html#l00677">setOrder()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8a9f2d1437953b7f2d99e115482e1c59"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::Counter::period</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8h_source.html#l00114">114</a> of file <a class="el" href="_counter_8h_source.html">Counter.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_counter_8cpp_source.html#l00218">_count()</a>, <a class="el" href="_counter_8cpp_source.html#l00652">clear()</a>, <a class="el" href="_counter_8cpp_source.html#l00029">Counter()</a>, <a class="el" href="_counter_8cpp_source.html#l00265">countGeneral()</a>, <a class="el" href="_counter_8cpp_source.html#l00573">countMask()</a>, <a class="el" href="_counter_8cpp_source.html#l00476">countPeriodic()</a>, <a class="el" href="_counter_8cpp_source.html#l00372">countPWM()</a>, and <a class="el" href="_counter_8cpp_source.html#l00687">setPeriod()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3a6327669b8994bab4940d92ac9cabe0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::Counter::pseudoCount</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8h_source.html#l00116">116</a> of file <a class="el" href="_counter_8h_source.html">Counter.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_counter_8cpp_source.html#l00652">clear()</a>, <a class="el" href="_counter_8cpp_source.html#l00029">Counter()</a>, <a class="el" href="_counter_8cpp_source.html#l00634">initializeTable()</a>, and <a class="el" href="_counter_8cpp_source.html#l00697">setPseudoCount()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af0ffdf93c6717ef66a0bbb01bf7169b4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int StochHMM::Counter::seqLength</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Used only in countPWM; stores the length of the first input sequence *for making sure each sequence being counted is the same length </p>
+
+<p>Definition at line <a class="el" href="_counter_8h_source.html#l00112">112</a> of file <a class="el" href="_counter_8h_source.html">Counter.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_counter_8cpp_source.html#l00372">countPWM()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a79292d617ee2a3fd5da0fc98f679636e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1track.html">track</a>* StochHMM::Counter::seqtrk</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The track defined for our sequence(s) </p>
+
+<p>Definition at line <a class="el" href="_counter_8h_source.html#l00105">105</a> of file <a class="el" href="_counter_8h_source.html">Counter.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_counter_8cpp_source.html#l00082">Counter()</a>, <a class="el" href="_counter_8cpp_source.html#l00634">initializeTable()</a>, and <a class="el" href="_counter_8cpp_source.html#l00708">setTrack()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a540326d695e8d33ca3b504dbf46cfc52"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int StochHMM::Counter::sequencesCounted</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Total number of sequences counted. </p>
+
+<p>Definition at line <a class="el" href="_counter_8h_source.html#l00097">97</a> of file <a class="el" href="_counter_8h_source.html">Counter.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_counter_8cpp_source.html#l00218">_count()</a>, and <a class="el" href="_counter_8cpp_source.html#l00665">printTable()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5674c9825a17e79f2b19a984f774bd5d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_stoch_h_m_m_1_1lexical_table.html">lexicalTable</a>*&gt; StochHMM::Counter::tables</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8h_source.html#l00129">129</a> of file <a class="el" href="_counter_8h_source.html">Counter.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_counter_8cpp_source.html#l00652">clear()</a>, <a class="el" href="_counter_8cpp_source.html#l00265">countGeneral()</a>, <a class="el" href="_counter_8cpp_source.html#l00573">countMask()</a>, <a class="el" href="_counter_8cpp_source.html#l00476">countPeriodic()</a>, <a class="el" href="_counter_8cpp_source.html#l00372">countPWM()</a>, <a class="el" href="_counter_8cpp_source.html#l00634">initializeTable()</a>, and <a class="el" href="_counter_8cpp_source.html#l00665">printTable()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abd889e53348a9ab52be9305769bee982"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_stoch_h_m_m.html#abe561abe37bf5bc24484eafa7ba56536">countType</a> StochHMM::Counter::type</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_counter_8h_source.html#l00102">102</a> of file <a class="el" href="_counter_8h_source.html">Counter.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_counter_8cpp_source.html#l00218">_count()</a>, <a class="el" href="_counter_8cpp_source.html#l00652">clear()</a>, <a class="el" href="_counter_8cpp_source.html#l00029">Counter()</a>, <a class="el" href="_counter_8cpp_source.html#l00265">countGeneral()</a>, <a class="el" href="_counter_8cpp_source.html#l00573">countMask()</a>, <a class="el" href="_counter_8cpp_source.html#l00476">countPeriodic()</a>, and <a class="el" href="_counter_8cpp_source.html#l00372">countPWM()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8388e2eff999f9afadbf95c720d05bf2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int StochHMM::Counter::upstream</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The number of bp upstream to ignore. </p>
+
+<p>Definition at line <a class="el" href="_counter_8h_source.html#l00124">124</a> of file <a class="el" href="_counter_8h_source.html">Counter.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_counter_8cpp_source.html#l00218">_count()</a>, <a class="el" href="_counter_8cpp_source.html#l00652">clear()</a>, <a class="el" href="_counter_8cpp_source.html#l00029">Counter()</a>, <a class="el" href="_counter_8cpp_source.html#l00265">countGeneral()</a>, <a class="el" href="_counter_8cpp_source.html#l00573">countMask()</a>, <a class="el" href="_counter_8cpp_source.html#l00476">countPeriodic()</a>, <a class="el" href="_counter_8cpp_source.html#l00372">countPWM()</a>, and <a class="el" href="_counter_8cpp_source.html#l00665">printTable()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a664275b1f7a4bc044dca84e7f9fdb842"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::Counter::variableSet</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Indicates whether or not the variables are set *When true, counting has begun, changing the variables would result in an error; must use <a class="el" href="class_stoch_h_m_m_1_1_counter.html#aab90b89037a23ba08787c8637a55e0f8">clear()</a> first to change *When false, counting has not yet begun, variables can be changed </p>
+
+<p>Definition at line <a class="el" href="_counter_8h_source.html#l00121">121</a> of file <a class="el" href="_counter_8h_source.html">Counter.h</a>.</p>
+
+<p>Referenced by <a class="el" href="_counter_8cpp_source.html#l00652">clear()</a>, <a class="el" href="_counter_8cpp_source.html#l00029">Counter()</a>, <a class="el" href="_counter_8cpp_source.html#l00265">countGeneral()</a>, <a class="el" href="_counter_8cpp_source.html#l00573">countMask()</a>, <a class="el" href="_counter_8cpp_source.html#l00476">countPeriodic()</a>, <a class="el" href="_counter_8cpp_source.html#l00372">countPWM()</a>, <a class="el" href="_counter_8cpp_source.html#l00677">setOrder()</a>, <a class="el" href="_counter_8cpp_source.html#l00687">setPeriod()</a>, <a class="el" href="_counter_8cpp_source.html#l00697">setPseudoCount()</a>, and <a class="el" href="_counter_8cpp_source.html#l00708">setTrack()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_counter_8h_source.html">Counter.h</a></li>
 <li><a class="el" href="_counter_8cpp_source.html">Counter.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1_counter.html">Counter</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:36 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

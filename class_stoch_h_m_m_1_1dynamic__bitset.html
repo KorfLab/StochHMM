@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1dynamic__bitset.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,15 +103,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a>  </div>
   <div class="headertitle">
 <div class="title">StochHMM::dynamic_bitset Class Reference</div>  </div>
@@ -108,55 +124,42 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1f01b7176cc178a49f77b72f1c7833f5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1f01b7176cc178a49f77b72f1c7833f5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>dynamic_bitset</b> (size_t)</td></tr>
-<tr class="memitem:a62a358f16771e317abb351ecd9688ef7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a62a358f16771e317abb351ecd9688ef7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>dynamic_bitset</b> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;)</td></tr>
-<tr class="memitem:a311ce7ada52e8d3e6b22caec1b91b136"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a311ce7ada52e8d3e6b22caec1b91b136"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>dynamic_bitset</b> (const std::string &amp;)</td></tr>
-<tr class="memitem:a594f41011f568653eb9548953dea93da"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a594f41011f568653eb9548953dea93da"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>dynamic_bitset</b> (const std::vector&lt; bool &gt; &amp;)</td></tr>
+<tr class="memitem:a01b0e673630652e224997be71681dfcb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a01b0e673630652e224997be71681dfcb">dynamic_bitset</a> ()</td></tr>
+<tr class="memitem:a1f01b7176cc178a49f77b72f1c7833f5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a1f01b7176cc178a49f77b72f1c7833f5">dynamic_bitset</a> (size_t)</td></tr>
+<tr class="memitem:a62a358f16771e317abb351ecd9688ef7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a62a358f16771e317abb351ecd9688ef7">dynamic_bitset</a> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;)</td></tr>
+<tr class="memitem:a311ce7ada52e8d3e6b22caec1b91b136"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a311ce7ada52e8d3e6b22caec1b91b136">dynamic_bitset</a> (const std::string &amp;)</td></tr>
+<tr class="memitem:a594f41011f568653eb9548953dea93da"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a594f41011f568653eb9548953dea93da">dynamic_bitset</a> (const std::vector&lt; bool &gt; &amp;)</td></tr>
 <tr class="memitem:a18a942cdd7e8a6e6af1ebcfeafdc9b41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a18a942cdd7e8a6e6af1ebcfeafdc9b41">resize</a> (size_t)</td></tr>
 <tr class="memitem:a119a2afb7d3ba2b81d0b0a577bd321cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a119a2afb7d3ba2b81d0b0a577bd321cd">reserve</a> (size_t)</td></tr>
-<tr class="memitem:ae7796d8717528372b702470d9fee8f8b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7796d8717528372b702470d9fee8f8b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>empty</b> ()</td></tr>
+<tr class="memitem:ae7796d8717528372b702470d9fee8f8b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#ae7796d8717528372b702470d9fee8f8b">empty</a> ()</td></tr>
 <tr class="memitem:ad9c93185ec97d733db7ed61a6ce85751"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#ad9c93185ec97d733db7ed61a6ce85751">clear</a> ()</td></tr>
 <tr class="memitem:aa9a62b310b33fd5ac485c3b642e24c42"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#aa9a62b310b33fd5ac485c3b642e24c42">operator[]</a> (size_t pos) const </td></tr>
-<tr class="memitem:a740dd7ba56807d351e35ec66e38d44b7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a740dd7ba56807d351e35ec66e38d44b7"></a>
-<a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (size_t pos)</td></tr>
+<tr class="memitem:a740dd7ba56807d351e35ec66e38d44b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">bit_ref</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a740dd7ba56807d351e35ec66e38d44b7">operator[]</a> (size_t pos)</td></tr>
 <tr class="memitem:a0e940a659b0fa49eb5e6d6f6276194b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a0e940a659b0fa49eb5e6d6f6276194b9">operator&amp;</a> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;rhs)</td></tr>
 <tr class="memitem:af7b538a191dcf6811dde254199e6c162"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af7b538a191dcf6811dde254199e6c162">operator|</a> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;rhs)</td></tr>
 <tr class="memitem:af6c6a9a0f7853cf31bfa2e830387a245"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af6c6a9a0f7853cf31bfa2e830387a245">operator^</a> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;rhs)</td></tr>
 <tr class="memitem:a6808554728f0cf90fd6adcfed806abff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a6808554728f0cf90fd6adcfed806abff">operator~</a> () const </td></tr>
 <tr class="memitem:a05675f8f879d2f92b0c984218b120c89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a05675f8f879d2f92b0c984218b120c89">operator=</a> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;rhs)</td></tr>
-<tr class="memitem:a4ade1d82f8b31df758a67dec76d8e445"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4ade1d82f8b31df758a67dec76d8e445"></a>
-<a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a4ade1d82f8b31df758a67dec76d8e445">operator&amp;=</a> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;rhs)</td></tr>
-<tr class="memdesc:a4ade1d82f8b31df758a67dec76d8e445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bitwise AND all the bits with all the bits in the rhs. <br/></td></tr>
-<tr class="memitem:a618d45d9edc67661191858c58452dadd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a618d45d9edc67661191858c58452dadd"></a>
-<a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a618d45d9edc67661191858c58452dadd">operator|=</a> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;rhs)</td></tr>
-<tr class="memdesc:a618d45d9edc67661191858c58452dadd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bitwise OR all the bits with all the bits in the rhs. <br/></td></tr>
-<tr class="memitem:a9d7ae92dc50a165c8c1b096698103513"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9d7ae92dc50a165c8c1b096698103513"></a>
-<a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a9d7ae92dc50a165c8c1b096698103513">operator^=</a> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;rhs)</td></tr>
-<tr class="memdesc:a9d7ae92dc50a165c8c1b096698103513"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bitwise XOR all the bits with all the bits in the rhs. <br/></td></tr>
-<tr class="memitem:ae3e1359b33158ba7d937e10d8855fb6b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae3e1359b33158ba7d937e10d8855fb6b"></a>
-<a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-=</b> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;rhs)</td></tr>
+<tr class="memitem:a4ade1d82f8b31df758a67dec76d8e445"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a4ade1d82f8b31df758a67dec76d8e445">operator&amp;=</a> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;rhs)</td></tr>
+<tr class="memdesc:a4ade1d82f8b31df758a67dec76d8e445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bitwise AND all the bits with all the bits in the rhs.  <a href="#a4ade1d82f8b31df758a67dec76d8e445"></a><br/></td></tr>
+<tr class="memitem:a618d45d9edc67661191858c58452dadd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a618d45d9edc67661191858c58452dadd">operator|=</a> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;rhs)</td></tr>
+<tr class="memdesc:a618d45d9edc67661191858c58452dadd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bitwise OR all the bits with all the bits in the rhs.  <a href="#a618d45d9edc67661191858c58452dadd"></a><br/></td></tr>
+<tr class="memitem:a9d7ae92dc50a165c8c1b096698103513"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a9d7ae92dc50a165c8c1b096698103513">operator^=</a> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;rhs)</td></tr>
+<tr class="memdesc:a9d7ae92dc50a165c8c1b096698103513"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bitwise XOR all the bits with all the bits in the rhs.  <a href="#a9d7ae92dc50a165c8c1b096698103513"></a><br/></td></tr>
+<tr class="memitem:ae3e1359b33158ba7d937e10d8855fb6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#ae3e1359b33158ba7d937e10d8855fb6b">operator-=</a> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;rhs)</td></tr>
 <tr class="memitem:a36cd4ba633775f71f8a2fe1a1ccf77ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a36cd4ba633775f71f8a2fe1a1ccf77ec">operator&lt;&lt;=</a> (size_t n)</td></tr>
 <tr class="memitem:a11a420b78472d1e7498a303cbb5dc9c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a11a420b78472d1e7498a303cbb5dc9c9">operator&gt;&gt;=</a> (size_t n)</td></tr>
-<tr class="memitem:a8832cfc73f24d935441621a11f0bcbb1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8832cfc73f24d935441621a11f0bcbb1"></a>
-<a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (size_t n)</td></tr>
-<tr class="memitem:a6041c1cd5b571e147d85427d9016c453"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6041c1cd5b571e147d85427d9016c453"></a>
-<a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;&gt;</b> (size_t n)</td></tr>
+<tr class="memitem:a8832cfc73f24d935441621a11f0bcbb1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a8832cfc73f24d935441621a11f0bcbb1">operator&lt;&lt;</a> (size_t n)</td></tr>
+<tr class="memitem:a6041c1cd5b571e147d85427d9016c453"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a6041c1cd5b571e147d85427d9016c453">operator&gt;&gt;</a> (size_t n)</td></tr>
 <tr class="memitem:a686ac3d37cb9eb2fa8cbe14542025ed9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a686ac3d37cb9eb2fa8cbe14542025ed9">insert</a> (size_t pos, size_t n)</td></tr>
 <tr class="memitem:a2e289f0f8230001f8f0dceadef2b25c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a2e289f0f8230001f8f0dceadef2b25c2">erase</a> (size_t pos)</td></tr>
 <tr class="memitem:a848fcb837a97837d6b5f7de43b0890b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a848fcb837a97837d6b5f7de43b0890b0">get_intersection</a> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;rhs)</td></tr>
 <tr class="memitem:a28d4f88b8cc2eed95c70d853faf8d888"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a28d4f88b8cc2eed95c70d853faf8d888">get_union</a> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;rhs)</td></tr>
-<tr class="memitem:a82620376e9047db2248035394d1bbbc1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a82620376e9047db2248035394d1bbbc1"></a>
-<a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a82620376e9047db2248035394d1bbbc1">get_unique</a> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;rhs)</td></tr>
-<tr class="memdesc:a82620376e9047db2248035394d1bbbc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return only the bits that are uniqe to bitset. <br/></td></tr>
+<tr class="memitem:a82620376e9047db2248035394d1bbbc1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a82620376e9047db2248035394d1bbbc1">get_unique</a> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;rhs)</td></tr>
+<tr class="memdesc:a82620376e9047db2248035394d1bbbc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return only the bits that are uniqe to bitset.  <a href="#a82620376e9047db2248035394d1bbbc1"></a><br/></td></tr>
 <tr class="memitem:a9d4f57aaccd512b4742b64f6a79c8ad6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a9d4f57aaccd512b4742b64f6a79c8ad6">operator==</a> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;rhs) const </td></tr>
 <tr class="memitem:adadb57bb61ac33581db45672eb2edcf4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#adadb57bb61ac33581db45672eb2edcf4">operator!=</a> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;rhs) const </td></tr>
-<tr class="memitem:a43d319f98831403bfec398fbbfa92822"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43d319f98831403bfec398fbbfa92822"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> ()</td></tr>
+<tr class="memitem:a43d319f98831403bfec398fbbfa92822"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a43d319f98831403bfec398fbbfa92822">size</a> ()</td></tr>
 <tr class="memitem:ae415510027d994b2bbe65e279da5f88a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#ae415510027d994b2bbe65e279da5f88a">at</a> (size_t pos) const </td></tr>
 <tr class="memitem:aa59aec3ffe571f9a2c47db8b212ff713"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#aa59aec3ffe571f9a2c47db8b212ff713">test</a> (size_t pos)</td></tr>
 <tr class="memitem:a5541c2862d98e0178770b30b05979a40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a5541c2862d98e0178770b30b05979a40">set</a> (size_t pos)</td></tr>
@@ -164,12 +167,10 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> ()</td></t
 <tr class="memitem:a0da18659f651e1a3a7459344b349ed04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a0da18659f651e1a3a7459344b349ed04">unset</a> (size_t pos)</td></tr>
 <tr class="memitem:a3f9bd82350a02f02dc919c25aaf4a9e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a3f9bd82350a02f02dc919c25aaf4a9e5">flip</a> ()</td></tr>
 <tr class="memitem:a2ea52d0e4dd67d18ccf0d2efc3c0a40d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a2ea52d0e4dd67d18ccf0d2efc3c0a40d">flip</a> (size_t pos)</td></tr>
-<tr class="memitem:af490cac4ed0f4a22af54e784ea7de3e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af490cac4ed0f4a22af54e784ea7de3e9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af490cac4ed0f4a22af54e784ea7de3e9">reset</a> ()</td></tr>
-<tr class="memdesc:af490cac4ed0f4a22af54e784ea7de3e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets all the bits to zero. <br/></td></tr>
-<tr class="memitem:a7088ce4b7d1fd2787151f848b128f982"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7088ce4b7d1fd2787151f848b128f982"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a7088ce4b7d1fd2787151f848b128f982">reset</a> (size_t pos)</td></tr>
-<tr class="memdesc:a7088ce4b7d1fd2787151f848b128f982"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the bit as position. <br/></td></tr>
+<tr class="memitem:af490cac4ed0f4a22af54e784ea7de3e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af490cac4ed0f4a22af54e784ea7de3e9">reset</a> ()</td></tr>
+<tr class="memdesc:af490cac4ed0f4a22af54e784ea7de3e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets all the bits to zero.  <a href="#af490cac4ed0f4a22af54e784ea7de3e9"></a><br/></td></tr>
+<tr class="memitem:a7088ce4b7d1fd2787151f848b128f982"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a7088ce4b7d1fd2787151f848b128f982">reset</a> (size_t pos)</td></tr>
+<tr class="memdesc:a7088ce4b7d1fd2787151f848b128f982"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the bit as position.  <a href="#a7088ce4b7d1fd2787151f848b128f982"></a><br/></td></tr>
 <tr class="memitem:a04b5eba7f9f4634caee5c5bee418f1f4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a04b5eba7f9f4634caee5c5bee418f1f4">any</a> ()</td></tr>
 <tr class="memitem:aafc008dafa3113a7bc766972fb7c054a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#aafc008dafa3113a7bc766972fb7c054a">none</a> ()</td></tr>
 <tr class="memitem:adbc261971ab15cbd92b9c22d717f4f44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#adbc261971ab15cbd92b9c22d717f4f44">push_back</a> (bool)</td></tr>
@@ -178,15 +179,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:acc66e2da9f4063421df03b6d3869c61f"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#acc66e2da9f4063421df03b6d3869c61f">find_first</a> () const </td></tr>
 <tr class="memitem:a6dfdaea4f72ef476b55469c7ae06611f"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a6dfdaea4f72ef476b55469c7ae06611f">find_first</a> (size_t pos) const </td></tr>
 <tr class="memitem:a9329172e386934e0b731556ce1a193b3"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a9329172e386934e0b731556ce1a193b3">find_last</a> () const </td></tr>
-<tr class="memitem:a94925462bd1a8fa422ea46cd620ff024"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94925462bd1a8fa422ea46cd620ff024"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>find_last</b> (size_t pos) const </td></tr>
+<tr class="memitem:a94925462bd1a8fa422ea46cd620ff024"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a94925462bd1a8fa422ea46cd620ff024">find_last</a> (size_t pos) const </td></tr>
 <tr class="memitem:ac659b0087778191d8e04297ff8e0f004"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#ac659b0087778191d8e04297ff8e0f004">parity</a> ()</td></tr>
 <tr class="memitem:ad759c83cef3f8a7280d7c161f2a362dc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#ad759c83cef3f8a7280d7c161f2a362dc">stringify</a> () const </td></tr>
-<tr class="memitem:ab3c863c7ec748dd0c1444335d4161419"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab3c863c7ec748dd0c1444335d4161419"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#ab3c863c7ec748dd0c1444335d4161419">stringify_all</a> () const </td></tr>
-<tr class="memdesc:ab3c863c7ec748dd0c1444335d4161419"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string representation of bitset includes buffered bits. <br/></td></tr>
-<tr class="memitem:a76483014e64235c4a5349c8edf422a07"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a76483014e64235c4a5349c8edf422a07"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>intersects</b> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;) const </td></tr>
+<tr class="memitem:ab3c863c7ec748dd0c1444335d4161419"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#ab3c863c7ec748dd0c1444335d4161419">stringify_all</a> () const </td></tr>
+<tr class="memdesc:ab3c863c7ec748dd0c1444335d4161419"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string representation of bitset includes buffered bits.  <a href="#ab3c863c7ec748dd0c1444335d4161419"></a><br/></td></tr>
+<tr class="memitem:a76483014e64235c4a5349c8edf422a07"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a76483014e64235c4a5349c8edf422a07">intersects</a> (const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;) const </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a75d2ce22ff178066a6f4cea682bd97f6"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a></td></tr>
+<tr class="memitem:af5d38db6d3d7b8bdba8bcfb2b000d799"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a></td></tr>
+<tr class="memitem:a256afca281dca1af624155bfa425781b"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a></td></tr>
+<tr class="memitem:a280014ae2537e65db7e447dc587ed43e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
@@ -196,7 +201,164 @@ Friends</h2></td></tr>
 <div class="textblock"><p>A dynamic bitset class Allows the bitset to be set dynamically and manipulated in size <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> uses 32 bit unsigned integers as the underlying datatype. Need to implement shifting to right and left Note: This <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> is read from left to right This class can be greatly improved by using SSE optimization For portability and time issues: SSE optimization haven't been implemented yet. </p>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8h_source.html#l00030">30</a> of file <a class="el" href="dynamic__bitset_8h_source.html">dynamic_bitset.h</a>.</p>
-</div><hr/><h2>Member Function Documentation</h2>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a01b0e673630652e224997be71681dfcb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::dynamic_bitset::dynamic_bitset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8h_source.html#l00032">32</a> of file <a class="el" href="dynamic__bitset_8h_source.html">dynamic_bitset.h</a>.</p>
+<div class="fragment"><div class="line">:<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>(0),<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a>(0),<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>(0){}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a1f01b7176cc178a49f77b72f1c7833f5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::dynamic_bitset::dynamic_bitset </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>sz</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00013">13</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00137">buffer</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>.</p>
+<div class="fragment"><div class="line">                                               : <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>(sz){</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a> = ((sz-1)/32)+1;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a> = (<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>*32) - sz;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.resize(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>);</div>
+<div class="line">                <span class="comment">//array = new (std::nothrow) uint32_t[num_ints]{0};</span></div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a62a358f16771e317abb351ecd9688ef7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::dynamic_bitset::dynamic_bitset </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00021">21</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00137">buffer</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>.</p>
+<div class="fragment"><div class="line">                                                               {</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a> = rhs.num_ints;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a>  = rhs.buffer;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a> = rhs.current_size;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a> = rhs.array;</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a311ce7ada52e8d3e6b22caec1b91b136"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::dynamic_bitset::dynamic_bitset </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00029">29</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00137">buffer</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>.</p>
+<div class="fragment"><div class="line">                                                          {</div>
+<div class="line">                <span class="keywordtype">size_t</span> str_size = str.size();</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a> = ((str_size-1)/32)+1;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a> = (<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>*32) - str_size;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>=str_size;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.resize(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>);</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; str_size; ++i){</div>
+<div class="line">                        <span class="keywordflow">if</span> (str[(str_size-1) - i ] == <span class="charliteral">&#39;1&#39;</span>){</div>
+<div class="line">                                <span class="keyword">set</span>(i);</div>
+<div class="line">                                <span class="keywordflow">continue</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (str[(str_size-1) - i ] == <span class="charliteral">&#39;0&#39;</span>){</div>
+<div class="line">                                <span class="keywordflow">continue</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">else</span>{</div>
+<div class="line">                                std::cerr &lt;&lt; <span class="stringliteral">&quot;Invalid argument: &quot;</span> &lt;&lt; str[(str_size-1) - i ] &lt;&lt; <span class="stringliteral">&quot; Only 0&#39;s and 1&#39;s \</span></div>
+<div class="line"><span class="stringliteral">                                allowed in string to initialize dynamic_bitset&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">                                exit(2);</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a594f41011f568653eb9548953dea93da"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">StochHMM::dynamic_bitset::dynamic_bitset </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; bool &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00053">53</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00137">buffer</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>.</p>
+<div class="fragment"><div class="line">                                                                {</div>
+<div class="line">                <span class="keywordtype">size_t</span> vec_size = vec.size();</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a> = ((vec_size-1)/32)+1;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a>  = (<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>*32) - vec_size;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a> = vec_size;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.resize(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>);</div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; vec_size; ++i){</div>
+<div class="line">                        <span class="keywordflow">if</span> (vec[i]){</div>
+<div class="line">                                <span class="keyword">set</span>(i);</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a04b5eba7f9f4634caee5c5bee418f1f4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -215,9 +377,11 @@ Friends</h2></td></tr>
 false no bits are set </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00697">697</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>.</p>
 <div class="fragment"><div class="line">                                {</div>
-<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; num_ints; i++){</div>
-<div class="line">                        <span class="keywordflow">if</span> (array[i]!=0){</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>; i++){</div>
+<div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i]!=0){</div>
 <div class="line">                                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
@@ -242,15 +406,19 @@ false no bits are set </dd></dl>
 <p>Returns state of bit at position *Performs range check first </p>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00589">589</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>.</p>
+
+<p>Referenced by <a class="el" href="dynamic__bitset_8cpp_source.html#l01054">stringify()</a>, and <a class="el" href="dynamic__bitset_8cpp_source.html#l00605">test()</a>.</p>
 <div class="fragment"><div class="line">                                               {</div>
-<div class="line">                <span class="keywordflow">if</span> (pos&gt;=current_size){</div>
+<div class="line">                <span class="keywordflow">if</span> (pos&gt;=<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>){</div>
 <div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Out of Range.\nFunction: &quot;</span> &lt;&lt;  __FUNCTION__ &lt;&lt; std::endl;</div>
 <div class="line">                        exit(2);</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordtype">size_t</span> intIter = pos/32;</div>
 <div class="line">                <span class="keywordtype">size_t</span> bitIter = pos - (intIter*32);</div>
-<div class="line">                <span class="keywordflow">return</span> array[intIter] &amp; (1 &lt;&lt; bitIter);</div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[intIter] &amp; (1 &lt;&lt; bitIter);</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 </div>
@@ -270,11 +438,13 @@ false no bits are set </dd></dl>
 <p>Clears the complete bitset *Size is reduced to zero </p>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00148">148</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00137">buffer</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>.</p>
 <div class="fragment"><div class="line">                                  {</div>
-<div class="line">                buffer=0;</div>
-<div class="line">                current_size=0;</div>
-<div class="line">                num_ints=0;</div>
-<div class="line">                array.clear();</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a>=0;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>=0;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>=0;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.clear();</div>
 <div class="line">                <span class="keywordflow">return</span>;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
@@ -297,11 +467,13 @@ false no bits are set </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00997">997</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
 
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>.</p>
+
 <p>Referenced by <a class="el" href="sparse_array_8h_source.html#l00041">StochHMM::sparseArray&lt; double &gt;::elements()</a>.</p>
 <div class="fragment"><div class="line">                                          {</div>
 <div class="line">                <span class="keywordtype">size_t</span> population(0);</div>
-<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i &lt; num_ints; i++){</div>
-<div class="line">                        uint32_t x = array[i];</div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>; i++){</div>
+<div class="line">                        uint32_t x = <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i];</div>
 <div class="line">                        <span class="comment">// count bits of each 2-bit chunk</span></div>
 <div class="line">                        x  = x - ((x &gt;&gt; 1) &amp; 0x55555555);</div>
 <div class="line">                        <span class="comment">// count bits of each 4-bit chunk</span></div>
@@ -335,11 +507,13 @@ false no bits are set </dd></dl>
 <dl class="section return"><dt>Returns:</dt><dd>size_t number of bits set in bitset </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l01019">1019</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>.</p>
 <div class="fragment"><div class="line">                                                           {</div>
 <div class="line">                <span class="keywordtype">size_t</span> current_int  = pos/32;</div>
 <div class="line">                <span class="keywordtype">size_t</span> current_pos  = pos%32;</div>
 <div class="line">                </div>
-<div class="line">                uint32_t x(array[current_int]);</div>
+<div class="line">                uint32_t x(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[current_int]);</div>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//Mask all the bits to right (including pos);</span></div>
 <div class="line">                uint32_t mask = (1 &lt;&lt; current_pos) - 1;</div>
@@ -352,7 +526,7 @@ false no bits are set </dd></dl>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//Count the bit of integers to left</span></div>
 <div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i &lt; current_int; i++){</div>
-<div class="line">                        x = array[i];</div>
+<div class="line">                        x = <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i];</div>
 <div class="line">                        <span class="comment">// count bits of each 2-bit chunk</span></div>
 <div class="line">                        x  = x - ((x &gt;&gt; 1) &amp; 0x55555555);</div>
 <div class="line">                        <span class="comment">// count bits of each 4-bit chunk</span></div>
@@ -366,6 +540,34 @@ false no bits are set </dd></dl>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">return</span> population;</div>
 <div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ae7796d8717528372b702470d9fee8f8b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::dynamic_bitset::empty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8h_source.html#l00048">48</a> of file <a class="el" href="dynamic__bitset_8h_source.html">dynamic_bitset.h</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> (<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a> ==0) ? <span class="keyword">true</span> : <span class="keyword">false</span>;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -386,24 +588,24 @@ false no bits are set </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00478">478</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
 
-<p>References <a class="el" href="bitwise__ops_8cpp_source.html#l00086">StochHMM::maskLeft()</a>, <a class="el" href="bitwise__ops_8cpp_source.html#l00096">StochHMM::maskRight()</a>, and <a class="el" href="bitwise__ops_8h_source.html#l00071">StochHMM::rso()</a>.</p>
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00137">buffer</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>, <a class="el" href="bitwise__ops_8cpp_source.html#l00086">StochHMM::maskLeft()</a>, <a class="el" href="bitwise__ops_8cpp_source.html#l00096">StochHMM::maskRight()</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>, <a class="el" href="bitwise__ops_8h_source.html#l00071">StochHMM::rso()</a>, and <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//if the remove position is beyond the end the don&#39;t do anything.</span></div>
-<div class="line">                <span class="keywordflow">if</span> (pos&gt;=current_size){</div>
+<div class="line">                <span class="keywordflow">if</span> (pos&gt;=<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>){</div>
 <div class="line">                        <span class="keywordflow">return</span>;</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//If size is equal to one then just assign zero and return</span></div>
-<div class="line">                <span class="keywordflow">if</span> (current_size == 1){</div>
-<div class="line">                        current_size =0;</div>
-<div class="line">                        buffer = 32;</div>
-<div class="line">                        array[0] = 0;</div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a> == 1){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a> =0;</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a> = 32;</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[0] = 0;</div>
 <div class="line">                        <span class="keywordflow">return</span>;</div>
 <div class="line">                }</div>
 <div class="line">                </div>
-<div class="line">                <span class="keywordtype">size_t</span> new_buffer = 32-(current_size-1)%32;</div>
-<div class="line">                <span class="keywordtype">size_t</span> new_num_ints = ((current_size-2))/32+1;</div>
+<div class="line">                <span class="keywordtype">size_t</span> new_buffer = 32-(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>-1)%32;</div>
+<div class="line">                <span class="keywordtype">size_t</span> new_num_ints = ((<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>-2))/32+1;</div>
 <div class="line">                <span class="keywordtype">size_t</span> first_affected = pos/32;</div>
 <div class="line">                <span class="keywordtype">size_t</span> relative_pos = pos%32;</div>
 <div class="line">                </div>
@@ -411,27 +613,27 @@ false no bits are set </dd></dl>
 <div class="line">                uint32_t shifted(0);</div>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//If not last</span></div>
-<div class="line">                <span class="keywordflow">if</span> (first_affected != num_ints-1){</div>
-<div class="line">                        shifted = <a class="code" href="namespace_stoch_h_m_m.html#a64a3859adfc5289c932a23213007949c">rso</a>(array[num_ints-1], 1);</div>
+<div class="line">                <span class="keywordflow">if</span> (first_affected != <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>-1){</div>
+<div class="line">                        shifted = <a class="code" href="namespace_stoch_h_m_m.html#a64a3859adfc5289c932a23213007949c">rso</a>(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>-1], 1);</div>
 <div class="line">                        <span class="comment">//Shift the rest of the integers up to first affected</span></div>
-<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = num_ints-2; i != first_affected &amp;&amp; i != SIZE_MAX; --i){</div>
-<div class="line">                                uint32_t temp(array[i]);</div>
-<div class="line">                                array[i] = (array[i]&gt;&gt;1) | shifted;</div>
+<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>-2; i != first_affected &amp;&amp; i != <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>; --i){</div>
+<div class="line">                                uint32_t temp(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i]);</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i] = (<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i]&gt;&gt;1) | shifted;</div>
 <div class="line">                                shifted = temp &lt;&lt; 31;</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//Get the left most part of the first affected</span></div>
-<div class="line">                uint32_t temp_mask = <a class="code" href="namespace_stoch_h_m_m.html#ae876fe30c767c46c89689e6a37c69231">maskLeft</a>(array[first_affected], relative_pos+1);</div>
+<div class="line">                uint32_t temp_mask = <a class="code" href="namespace_stoch_h_m_m.html#ae876fe30c767c46c89689e6a37c69231">maskLeft</a>(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[first_affected], relative_pos+1);</div>
 <div class="line">                <span class="comment">//std::cout &lt;&lt; intToBinString(temp_mask) &lt;&lt; std::endl;</span></div>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//Get the right most part of the first affected and return it</span></div>
-<div class="line">                <span class="keywordflow">if</span> ((relative_pos - 1) == SIZE_MAX){</div>
-<div class="line">                        array[first_affected] = 0;</div>
+<div class="line">                <span class="keywordflow">if</span> ((relative_pos - 1) == <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[first_affected] = 0;</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">else</span>{</div>
-<div class="line">                        array[first_affected] = <a class="code" href="namespace_stoch_h_m_m.html#ac734d15427c0cc11a67fcba5f2bedd78">maskRight</a>(array[first_affected], relative_pos-1);</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[first_affected] = <a class="code" href="namespace_stoch_h_m_m.html#ac734d15427c0cc11a67fcba5f2bedd78">maskRight</a>(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[first_affected], relative_pos-1);</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                </div>
@@ -442,16 +644,16 @@ false no bits are set </dd></dl>
 <div class="line">                temp_mask |= shifted;</div>
 <div class="line">                <span class="comment">//std::cout &lt;&lt; intToBinString(temp_mask) &lt;&lt; std::endl;</span></div>
 <div class="line">                <span class="comment">//Add pack to the first affected</span></div>
-<div class="line">                array[first_affected] |= temp_mask;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[first_affected] |= temp_mask;</div>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//Resize the int if necessary</span></div>
-<div class="line">                <span class="keywordflow">if</span> (new_num_ints != num_ints){</div>
-<div class="line">                        array.resize(new_num_ints);</div>
+<div class="line">                <span class="keywordflow">if</span> (new_num_ints != <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.resize(new_num_ints);</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//Set new values of buffer and size;</span></div>
-<div class="line">                buffer = new_buffer;</div>
-<div class="line">                current_size--;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a> = new_buffer;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>--;</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordflow">return</span>;</div>
 <div class="line">        }</div>
@@ -474,13 +676,15 @@ false no bits are set </dd></dl>
 <dl class="section return"><dt>Returns:</dt><dd>size_t position of first bit set http://bits.stephan-brumme.com/lowestBitSet.html </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00758">758</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>, and <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>.</p>
 <div class="fragment"><div class="line">                                               {</div>
-<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; num_ints ; ++i){</div>
-<div class="line">                        <span class="keywordflow">if</span> (array[i] == 0){</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a> ; ++i){</div>
+<div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i] == 0){</div>
 <div class="line">                                <span class="keywordflow">continue</span>;</div>
 <div class="line">                        }</div>
 <div class="line">                        <span class="keywordflow">else</span>{</div>
-<div class="line">                                uint32_t val = array[i];</div>
+<div class="line">                                uint32_t val = <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i];</div>
 <div class="line">                                </div>
 <div class="line">                                <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> MultiplyDeBruijnBitPosition[32] =</div>
 <div class="line">                                {</div>
@@ -500,7 +704,7 @@ false no bits are set </dd></dl>
 <div class="line">                                <span class="keywordflow">return</span> i*32 + MultiplyDeBruijnBitPosition[val];</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
-<div class="line">                <span class="keywordflow">return</span> SIZE_MAX;</div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 </div>
@@ -528,6 +732,8 @@ false no bits are set </dd></dl>
 <dl class="section return"><dt>Returns:</dt><dd>Returns the position within the bitset with first set bit </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00792">792</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>, and <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>.</p>
 <div class="fragment"><div class="line">                                                          {</div>
 <div class="line">                </div>
 <div class="line">                <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> MultiplyDeBruijnBitPosition[32] =</div>
@@ -537,8 +743,8 @@ false no bits are set </dd></dl>
 <div class="line">                        31, 27, 13, 23, 21, 19, 16,  7, 26, 12, 18,  6, 11,  5, 10,  9</div>
 <div class="line">                };</div>
 <div class="line">                </div>
-<div class="line">                <span class="keywordflow">if</span> (pos &gt; current_size){</div>
-<div class="line">                        <span class="keywordflow">return</span> SIZE_MAX;</div>
+<div class="line">                <span class="keywordflow">if</span> (pos &gt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>){</div>
+<div class="line">                        <span class="keywordflow">return</span> <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>;</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//Deal with partial integer upto next integer boundary</span></div>
@@ -548,7 +754,7 @@ false no bits are set </dd></dl>
 <div class="line">                <span class="comment">//Position within the integer to start</span></div>
 <div class="line">                <span class="keywordtype">size_t</span> int_pos = pos%32;</div>
 <div class="line">                </div>
-<div class="line">                int32_t val = array[iter];</div>
+<div class="line">                int32_t val = <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[iter];</div>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//Mask bits before the position</span></div>
 <div class="line">                val = val &amp; ~((1 &lt;&lt; int_pos) - 1);</div>
@@ -567,12 +773,12 @@ false no bits are set </dd></dl>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//Deal with everything from integer boundary onward</span></div>
 <div class="line">                <span class="comment">//http://bits.stephan-brumme.com/lowestBitSet.html</span></div>
-<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = iter+1; i &lt; num_ints ; ++i){</div>
-<div class="line">                        <span class="keywordflow">if</span> (array[i] == 0){</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = iter+1; i &lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a> ; ++i){</div>
+<div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i] == 0){</div>
 <div class="line">                                <span class="keywordflow">continue</span>;</div>
 <div class="line">                        }</div>
 <div class="line">                        <span class="keywordflow">else</span>{</div>
-<div class="line">                                uint32_t val = array[i];</div>
+<div class="line">                                uint32_t val = <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i];</div>
 <div class="line">                                </div>
 <div class="line">                                <span class="comment">// leave only lowest bit</span></div>
 <div class="line">                                val  &amp;= -int(val);</div>
@@ -585,7 +791,7 @@ false no bits are set </dd></dl>
 <div class="line">                                <span class="keywordflow">return</span> i * 32 + MultiplyDeBruijnBitPosition[val];</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
-<div class="line">                <span class="keywordflow">return</span> SIZE_MAX;</div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 </div>
@@ -606,15 +812,17 @@ false no bits are set </dd></dl>
 <dl class="section return"><dt>Returns:</dt><dd>size_t position of first bit set </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00856">856</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>, and <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>.</p>
 <div class="fragment"><div class="line">                                              {</div>
-<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = num_ints-1; i != SIZE_MAX ; --i){</div>
-<div class="line">                        <span class="keywordflow">if</span> (array[i] == 0){</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>-1; i != <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a> ; --i){</div>
+<div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i] == 0){</div>
 <div class="line">                                <span class="keywordflow">continue</span>;</div>
 <div class="line">                        }</div>
 <div class="line">                        <span class="keywordflow">else</span>{</div>
 <div class="line">                                <span class="comment">//Adapted from http://stackoverflow.com/questions/671815/what-is-the-fastest-most-efficient-way-to-find-the-highest-set-bit-msb-in-an-i</span></div>
 <div class="line">                                <span class="comment">//Using binary search algorithm to search</span></div>
-<div class="line">                                uint32_t val = array[i];</div>
+<div class="line">                                uint32_t val = <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i];</div>
 <div class="line">                                <span class="keyword">const</span> uint32_t mask[] = {</div>
 <div class="line">                                        0x00000FFFF,</div>
 <div class="line">                                        0x0000000FF,</div>
@@ -639,7 +847,110 @@ false no bits are set </dd></dl>
 <div class="line">                                <span class="keywordflow">return</span> lo + 32 * i;</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
-<div class="line">                <span class="keywordflow">return</span> SIZE_MAX;</div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a94925462bd1a8fa422ea46cd620ff024"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::dynamic_bitset::find_last </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00893">893</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>, and <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>.</p>
+<div class="fragment"><div class="line">                                                       {</div>
+<div class="line">                <span class="keywordflow">if</span> (pos &gt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>){</div>
+<div class="line">                        <span class="keywordflow">return</span> <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Deal with partial integer upto next integer boundary</span></div>
+<div class="line">                <span class="comment">//Find Current interger</span></div>
+<div class="line">                <span class="keywordtype">size_t</span> iter = pos/32;</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Position within the integer to start</span></div>
+<div class="line">                <span class="keywordtype">size_t</span> int_pos = pos%32;</div>
+<div class="line">                </div>
+<div class="line">                int32_t val = <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[iter];</div>
+<div class="line">                <span class="comment">//std::cout &lt;&lt; intToBinString(val) &lt;&lt; std::endl;</span></div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Mask bits before the position</span></div>
+<div class="line">                val = val &amp; ((1 &lt;&lt; int_pos+1) - 1);</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//std::cout &lt;&lt; intToBinString(val) &lt;&lt; std::endl;</span></div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//If value isn&#39;t zero then we&#39;ll need to find which position is set within it</span></div>
+<div class="line">                <span class="keywordflow">if</span> (val !=0) {</div>
+<div class="line">                        <span class="comment">//Adapted from http://stackoverflow.com/questions/671815/what-is-the-fastest-most-efficient-way-to-find-the-highest-set-bit-msb-in-an-i</span></div>
+<div class="line">                        <span class="comment">//Using binary search algorithm to search</span></div>
+<div class="line">                        <span class="keyword">const</span> uint32_t mask[] = {</div>
+<div class="line">                                0x00000FFFF,</div>
+<div class="line">                                0x0000000FF,</div>
+<div class="line">                                0x00000000F,</div>
+<div class="line">                                0x000000003,</div>
+<div class="line">                                0x000000001</div>
+<div class="line">                        };</div>
+<div class="line">                        uint32_t hi = 32;</div>
+<div class="line">                        uint32_t lo = 0;</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">if</span> (val == 0)</div>
+<div class="line">                                <span class="keywordflow">return</span> 0;</div>
+<div class="line">                        </div>
+<div class="line">                        <span class="keywordflow">for</span> (uint32_t j = 0; j &lt; 5; j++) {</div>
+<div class="line">                                <span class="keywordtype">int</span> mi = lo + (hi - lo) / 2;</div>
+<div class="line">                                </div>
+<div class="line">                                <span class="keywordflow">if</span> ((val &gt;&gt; mi) != 0)</div>
+<div class="line">                                        lo = mi;</div>
+<div class="line">                                <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((val &amp; (mask[j] &lt;&lt; lo)) != 0)</div>
+<div class="line">                                        hi = mi;</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">return</span> lo + 32 * iter;</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = iter-1; i != <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a> ; --i){</div>
+<div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i] == 0){</div>
+<div class="line">                                <span class="keywordflow">continue</span>;</div>
+<div class="line">                        }</div>
+<div class="line">                        <span class="keywordflow">else</span>{</div>
+<div class="line">                                <span class="comment">//Adapted from http://stackoverflow.com/questions/671815/what-is-the-fastest-most-efficient-way-to-find-the-highest-set-bit-msb-in-an-i</span></div>
+<div class="line">                                <span class="comment">//Using binary search algorithm to search</span></div>
+<div class="line">                                uint32_t val = <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i];</div>
+<div class="line">                                <span class="keyword">const</span> uint32_t mask[] = {</div>
+<div class="line">                                        0x00000FFFF,</div>
+<div class="line">                                        0x0000000FF,</div>
+<div class="line">                                        0x00000000F,</div>
+<div class="line">                                        0x000000003,</div>
+<div class="line">                                        0x000000001</div>
+<div class="line">                                };</div>
+<div class="line">                                uint32_t hi = 32;</div>
+<div class="line">                                uint32_t lo = 0;</div>
+<div class="line">                                </div>
+<div class="line">                                <span class="keywordflow">if</span> (val == 0)</div>
+<div class="line">                                        <span class="keywordflow">return</span> 0;</div>
+<div class="line">                                </div>
+<div class="line">                                <span class="keywordflow">for</span> (uint32_t j = 0; j &lt; 5; j++) {</div>
+<div class="line">                                        <span class="keywordtype">int</span> mi = lo + (hi - lo) / 2;</div>
+<div class="line">                                        </div>
+<div class="line">                                        <span class="keywordflow">if</span> ((val &gt;&gt; mi) != 0)</div>
+<div class="line">                                                lo = mi;</div>
+<div class="line">                                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((val &amp; (mask[j] &lt;&lt; lo)) != 0)</div>
+<div class="line">                                                hi = mi;</div>
+<div class="line">                                }</div>
+<div class="line">                                <span class="keywordflow">return</span> lo + 32 * i;</div>
+<div class="line">                        }</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 </div>
@@ -682,6 +993,8 @@ false no bits are set </dd></dl>
 <p>Flip the bit at position If bit is set 1, then it gets unset 0 </p>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00672">672</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8cpp_source.html#l00605">test()</a>, and <a class="el" href="dynamic__bitset_8cpp_source.html#l00650">unset()</a>.</p>
 <div class="fragment"><div class="line">                                           {</div>
 <div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#aa59aec3ffe571f9a2c47db8b212ff713">test</a>(pos)){</div>
 <div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a0da18659f651e1a3a7459344b349ed04">unset</a>(pos);</div>
@@ -746,6 +1059,29 @@ false no bits are set </dd></dl>
 </div><!-- fragment -->
 </div>
 </div>
+<a class="anchor" id="a82620376e9047db2248035394d1bbbc1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> StochHMM::dynamic_bitset::get_unique </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return only the bits that are uniqe to bitset. </p>
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00564">564</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                                          {</div>
+<div class="line">                <span class="keywordflow">return</span> *<span class="keyword">this</span> &amp;  ~rhs ;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="a686ac3d37cb9eb2fa8cbe14542025ed9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -773,16 +1109,16 @@ false no bits are set </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00384">384</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
 
-<p>References <a class="el" href="bitwise__ops_8h_source.html#l00055">StochHMM::lso()</a>, <a class="el" href="bitwise__ops_8cpp_source.html#l00086">StochHMM::maskLeft()</a>, and <a class="el" href="bitwise__ops_8cpp_source.html#l00096">StochHMM::maskRight()</a>.</p>
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00137">buffer</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>, <a class="el" href="bitwise__ops_8h_source.html#l00055">StochHMM::lso()</a>, <a class="el" href="bitwise__ops_8cpp_source.html#l00086">StochHMM::maskLeft()</a>, <a class="el" href="bitwise__ops_8cpp_source.html#l00096">StochHMM::maskRight()</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>.</p>
 <div class="fragment"><div class="line">                                                       {</div>
-<div class="line">                <span class="keywordflow">if</span> (pos &gt; current_size){</div>
+<div class="line">                <span class="keywordflow">if</span> (pos &gt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>){</div>
 <div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;dynamic_bitset::&quot;</span>&lt;&lt;__FUNCTION__ &lt;&lt; <span class="stringliteral">&quot; Error: Position for insert is beyond the range current size\n&quot;</span>;</div>
 <div class="line">                        exit(2);</div>
 <div class="line">                }</div>
 <div class="line">                </div>
-<div class="line">                <span class="keywordtype">size_t</span> new_buffer = 32-(current_size + n)%32;</div>
+<div class="line">                <span class="keywordtype">size_t</span> new_buffer = 32-(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a> + n)%32;</div>
 <div class="line">                <span class="keywordtype">size_t</span> remainder = 32 - (pos%32);</div>
-<div class="line">                <span class="keywordtype">size_t</span> new_num_ints = ((current_size-1)+n)/32+1;</div>
+<div class="line">                <span class="keywordtype">size_t</span> new_num_ints = ((<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>-1)+n)/32+1;</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordtype">size_t</span> first_affected = pos/32;</div>
 <div class="line">                <span class="comment">//size_t last_affected = num_ints;</span></div>
@@ -795,30 +1131,30 @@ false no bits are set </dd></dl>
 <div class="line">                <span class="keywordtype">size_t</span> relative_pos = pos%32;</div>
 <div class="line">                </div>
 <div class="line">                </div>
-<div class="line">                <span class="keywordflow">if</span> (new_num_ints!= num_ints){</div>
+<div class="line">                <span class="keywordflow">if</span> (new_num_ints!= <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>){</div>
 <div class="line">                        </div>
 <div class="line">                        <span class="keywordflow">if</span> (intervening_ints != 0 &amp;&amp; intervening_ints &gt;= 0){</div>
-<div class="line">                                array.insert(array.begin()+first_affected+1,intervening_ints,0);</div>
-<div class="line">                                num_ints+= intervening_ints;</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.insert(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.begin()+first_affected+1,intervening_ints,0);</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>+= intervening_ints;</div>
 <div class="line">                        }</div>
 <div class="line">                        </div>
 <div class="line">                        <span class="comment">//Add additional on end if necessary</span></div>
-<div class="line">                        <span class="keywordflow">if</span> (new_num_ints != num_ints){</div>
-<div class="line">                                array.resize(new_num_ints);</div>
-<div class="line">                                num_ints= new_num_ints;</div>
+<div class="line">                        <span class="keywordflow">if</span> (new_num_ints != <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>){</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.resize(new_num_ints);</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>= new_num_ints;</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
 <div class="line">                </div>
-<div class="line">                uint32_t temp_mask = <a class="code" href="namespace_stoch_h_m_m.html#ae876fe30c767c46c89689e6a37c69231">maskLeft</a>(array[first_affected], relative_pos);</div>
-<div class="line">                array[first_affected] = <a class="code" href="namespace_stoch_h_m_m.html#ac734d15427c0cc11a67fcba5f2bedd78">maskRight</a>(array[first_affected], relative_pos-1);</div>
+<div class="line">                uint32_t temp_mask = <a class="code" href="namespace_stoch_h_m_m.html#ae876fe30c767c46c89689e6a37c69231">maskLeft</a>(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[first_affected], relative_pos);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[first_affected] = <a class="code" href="namespace_stoch_h_m_m.html#ac734d15427c0cc11a67fcba5f2bedd78">maskRight</a>(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[first_affected], relative_pos-1);</div>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//If shift is by factor of 32 then we just need to reassign values</span></div>
 <div class="line">                <span class="keywordflow">if</span> (next_shift_size == 0){</div>
 <div class="line">                        <span class="keywordtype">size_t</span> ints_shifted = n/32;</div>
-<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = num_ints-1; i &gt; first_affected + intervening_ints + 1; --i){</div>
-<div class="line">                                array[i] = array[i-(ints_shifted-intervening_ints)];</div>
+<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>-1; i &gt; first_affected + intervening_ints + 1; --i){</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i] = <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i-(ints_shifted-intervening_ints)];</div>
 <div class="line">                        }</div>
-<div class="line">                        array[first_affected+ints_shifted] = temp_mask;</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[first_affected+ints_shifted] = temp_mask;</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (next_shift_size &lt; 0){ <span class="comment">//Right shift after intervening sequence</span></div>
 <div class="line">                        </div>
@@ -826,10 +1162,10 @@ false no bits are set </dd></dl>
 <div class="line">                        uint8_t left_shift = 32 - abs( (uint8_t) next_shift_size);</div>
 <div class="line">                        temp_mask &gt;&gt;= abs( (uint8_t) next_shift_size);</div>
 <div class="line">                        </div>
-<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = next_affected; i &lt; num_ints ; ++i){</div>
-<div class="line">                                uint32_t tmp = array[i];</div>
-<div class="line">                                array[i] &lt;&lt;= left_shift;</div>
-<div class="line">                                array[i] |= temp_mask;</div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = next_affected; i &lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a> ; ++i){</div>
+<div class="line">                                uint32_t tmp = <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i];</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i] &lt;&lt;= left_shift;</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i] |= temp_mask;</div>
 <div class="line">                                temp_mask = tmp &gt;&gt; (32-left_shift);</div>
 <div class="line">                                </div>
 <div class="line">                                <span class="comment">//temp_mask = lsoso(array[i], temp_mask, left_shift);</span></div>
@@ -841,29 +1177,45 @@ false no bits are set </dd></dl>
 <div class="line">                        <span class="comment">//Move the values to new cells before shifting old values</span></div>
 <div class="line">                        <span class="keywordflow">if</span> (n&gt;32){</div>
 <div class="line">                                <span class="keywordtype">size_t</span> ints_shifted = n/32;</div>
-<div class="line">                                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = num_ints-1; i &gt; first_affected + intervening_ints + 1; --i){</div>
-<div class="line">                                        array[i] = array[i-(ints_shifted-intervening_ints)];</div>
-<div class="line">                                        array[i-(ints_shifted-intervening_ints)]=0;</div>
+<div class="line">                                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>-1; i &gt; first_affected + intervening_ints + 1; --i){</div>
+<div class="line">                                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i] = <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i-(ints_shifted-intervening_ints)];</div>
+<div class="line">                                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i-(ints_shifted-intervening_ints)]=0;</div>
 <div class="line">                                }</div>
 <div class="line">                        }</div>
 <div class="line">                        </div>
 <div class="line">                        <span class="comment">//Shift temp value</span></div>
 <div class="line">                        uint32_t shifted = <a class="code" href="namespace_stoch_h_m_m.html#a3d706179e011758bfe2afc7310e2f0a6">lso</a>(temp_mask,next_shift_size);</div>
-<div class="line">                        array[next_affected] |= temp_mask;</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[next_affected] |= temp_mask;</div>
 <div class="line">                        </div>
 <div class="line">                        <span class="comment">//Shift the rest of the values</span></div>
-<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = next_affected+1; i &lt; num_ints ; ++i){</div>
-<div class="line">                                uint32_t tmp = array[i];</div>
-<div class="line">                                array[i] &lt;&lt;= next_shift_size;</div>
-<div class="line">                                array[i] |= shifted;</div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = next_affected+1; i &lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a> ; ++i){</div>
+<div class="line">                                uint32_t tmp = <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i];</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i] &lt;&lt;= next_shift_size;</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i] |= shifted;</div>
 <div class="line">                                shifted = tmp &gt;&gt; (32-next_shift_size);</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
-<div class="line">                buffer = new_buffer;</div>
-<div class="line">                current_size +=n;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a> = new_buffer;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a> +=n;</div>
 <div class="line">                <span class="keywordflow">return</span>;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a76483014e64235c4a5349c8edf422a07"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StochHMM::dynamic_bitset::intersects </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
 </div>
 </div>
 <a class="anchor" id="aafc008dafa3113a7bc766972fb7c054a"></a>
@@ -884,9 +1236,11 @@ false no bits are set </dd></dl>
 true if no bits are set </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00709">709</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>.</p>
 <div class="fragment"><div class="line">                                 {</div>
-<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; num_ints; i++){</div>
-<div class="line">                        <span class="keywordflow">if</span> (array[i]!=0){</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>; i++){</div>
+<div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i]!=0){</div>
 <div class="line">                                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
@@ -920,9 +1274,11 @@ true if no bits are set </dd></dl>
 false if the bitsets are equal </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00293">293</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>.</p>
 <div class="fragment"><div class="line">                                                                      {</div>
-<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; num_ints ;++i){</div>
-<div class="line">                        <span class="keywordflow">if</span> (array[i]!=rhs.array[i]){</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a> ;++i){</div>
+<div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i]!=rhs.array[i]){</div>
 <div class="line">                                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
@@ -949,8 +1305,86 @@ false if the bitsets are equal </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00159">159</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
 <div class="fragment"><div class="line">                                                                           {</div>
-<div class="line">                dynamic_bitset output(*<span class="keyword">this</span>);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a01b0e673630652e224997be71681dfcb">dynamic_bitset</a> output(*<span class="keyword">this</span>);</div>
 <div class="line">                output&amp;=rhs;</div>
+<div class="line">                <span class="keywordflow">return</span> output;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a4ade1d82f8b31df758a67dec76d8e445"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp; StochHMM::dynamic_bitset::operator&amp;= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bitwise AND all the bits with all the bits in the rhs. </p>
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00208">208</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00137">buffer</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>.</p>
+<div class="fragment"><div class="line">                                                                                   {</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (rhs.current_size != this-&gt;current_size){</div>
+<div class="line">                        std::cerr &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot; called on dynamic_bitsets of different sizes.&quot;</span> &lt;&lt;std::endl;</div>
+<div class="line">                        exit(2);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>; ++i){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i] &amp;= rhs.array[i];</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Clear those bits that are outside of the current scope</span></div>
+<div class="line">                uint32_t mask = (1 &lt;&lt; 32-<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a>) - 1;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[num_ints-1] &amp;= mask;</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ae3e1359b33158ba7d937e10d8855fb6b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a>&amp; StochHMM::dynamic_bitset::operator-= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8832cfc73f24d935441621a11f0bcbb1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> StochHMM::dynamic_bitset::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00333">333</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                          {</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a01b0e673630652e224997be71681dfcb">dynamic_bitset</a> output(*<span class="keyword">this</span>);</div>
+<div class="line">                output&lt;&lt;=n;</div>
 <div class="line">                <span class="keywordflow">return</span> output;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
@@ -979,29 +1413,29 @@ false if the bitsets are equal </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00306">306</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
 
-<p>References <a class="el" href="bitwise__ops_8h_source.html#l00055">StochHMM::lso()</a>, and <a class="el" href="bitwise__ops_8h_source.html#l00091">StochHMM::lsoso()</a>.</p>
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00137">buffer</a>, <a class="el" href="bitwise__ops_8h_source.html#l00055">StochHMM::lso()</a>, <a class="el" href="bitwise__ops_8h_source.html#l00091">StochHMM::lsoso()</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>.</p>
 <div class="fragment"><div class="line">                                                            {</div>
 <div class="line">                <span class="comment">//If shifting more than 32 then need to insert integer before</span></div>
 <div class="line">                <span class="keywordtype">size_t</span> start(0);</div>
 <div class="line">                <span class="keywordflow">if</span> (n&gt;=32){</div>
 <div class="line">                        <span class="keywordtype">size_t</span> ints_to_add = n/32;</div>
 <div class="line">                        n %=32;</div>
-<div class="line">                        array.insert(array.begin(), ints_to_add, 0);</div>
-<div class="line">                        array.resize(num_ints);</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.insert(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.begin(), ints_to_add, 0);</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.resize(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>);</div>
 <div class="line">                        <span class="keywordflow">if</span> (n==0){</div>
 <div class="line">                                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordflow">if</span> (n!=0){</div>
-<div class="line">                        uint32_t shifted(<a class="code" href="namespace_stoch_h_m_m.html#a3d706179e011758bfe2afc7310e2f0a6">lso</a>(array[start],n));</div>
-<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = start+1; i &lt; num_ints ; ++i){</div>
-<div class="line">                                shifted = <a class="code" href="namespace_stoch_h_m_m.html#a25491fc7bbfd5ddc6a4ee13c750e114d">lsoso</a>(array[i], shifted, n);</div>
+<div class="line">                        uint32_t shifted(<a class="code" href="namespace_stoch_h_m_m.html#a3d706179e011758bfe2afc7310e2f0a6">lso</a>(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[start],n));</div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = start+1; i &lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a> ; ++i){</div>
+<div class="line">                                shifted = <a class="code" href="namespace_stoch_h_m_m.html#a25491fc7bbfd5ddc6a4ee13c750e114d">lsoso</a>(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i], shifted, n);</div>
 <div class="line">                        }</div>
 <div class="line">                        </div>
 <div class="line">                        <span class="comment">//Clear those bits that are outside of the current scope (bits in buffer region)</span></div>
-<div class="line">                        uint32_t mask = (1 &lt;&lt; 32-buffer) - 1;</div>
-<div class="line">                        array[num_ints-1] &amp;= mask;</div>
+<div class="line">                        uint32_t mask = (1 &lt;&lt; 32-<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a>) - 1;</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[num_ints-1] &amp;= mask;</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
@@ -1032,11 +1466,13 @@ false if the bitsets are equal </dd></dl>
 <dl class="section return"><dt>Returns:</dt><dd>*this; </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00199">199</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00137">buffer</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>.</p>
 <div class="fragment"><div class="line">                                                                           {</div>
-<div class="line">                num_ints = rhs.num_ints;</div>
-<div class="line">                buffer  = rhs.buffer;</div>
-<div class="line">                current_size = rhs.current_size;</div>
-<div class="line">                array = rhs.array;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a> = rhs.num_ints;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a>  = rhs.buffer;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a> = rhs.current_size;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a> = rhs.array;</div>
 <div class="line">                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
@@ -1067,13 +1503,38 @@ false if the bitsets are equal </dd></dl>
 true if the bitsets are equal </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00280">280</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>.</p>
 <div class="fragment"><div class="line">                                                                      {</div>
-<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; num_ints ;++i){</div>
-<div class="line">                        <span class="keywordflow">if</span> (array[i]!=rhs.array[i]){</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a> ;++i){</div>
+<div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i]!=rhs.array[i]){</div>
 <div class="line">                                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a6041c1cd5b571e147d85427d9016c453"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> StochHMM::dynamic_bitset::operator&gt;&gt; </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00374">374</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+<div class="fragment"><div class="line">                                                          {</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a01b0e673630652e224997be71681dfcb">dynamic_bitset</a> output(*<span class="keyword">this</span>);</div>
+<div class="line">                output&gt;&gt;=n;</div>
+<div class="line">                <span class="keywordflow">return</span> output;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 </div>
@@ -1101,32 +1562,32 @@ true if the bitsets are equal </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00344">344</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
 
-<p>References <a class="el" href="bitwise__ops_8h_source.html#l00071">StochHMM::rso()</a>, and <a class="el" href="bitwise__ops_8h_source.html#l00103">StochHMM::rsoso()</a>.</p>
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>, <a class="el" href="bitwise__ops_8h_source.html#l00071">StochHMM::rso()</a>, <a class="el" href="bitwise__ops_8h_source.html#l00103">StochHMM::rsoso()</a>, and <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>.</p>
 <div class="fragment"><div class="line">                                                            {</div>
 <div class="line">                <span class="comment">//If shifting more than 32 then need to insert integer before</span></div>
-<div class="line">                <span class="keywordtype">size_t</span> start(num_ints-1);</div>
+<div class="line">                <span class="keywordtype">size_t</span> start(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>-1);</div>
 <div class="line">                <span class="keywordflow">if</span> (n&gt;=32){</div>
 <div class="line">                        <span class="keywordtype">size_t</span> ints_to_delete = n/32;</div>
 <div class="line">                        n %= 32;</div>
-<div class="line">                        array.erase(array.begin(), array.begin()+ints_to_delete);</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.erase(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.begin(), <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.begin()+ints_to_delete);</div>
 <div class="line">                        start -= ints_to_delete;</div>
 <div class="line">                        <span class="keywordflow">if</span> (n == 0){</div>
-<div class="line">                                array.resize(num_ints);</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.resize(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>);</div>
 <div class="line">                                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordflow">if</span> (n != 0){</div>
 <div class="line">                        <span class="comment">//Shift first integers and get value to shift to next</span></div>
-<div class="line">                        uint32_t shifted(<a class="code" href="namespace_stoch_h_m_m.html#a64a3859adfc5289c932a23213007949c">rso</a>(array[start],n));</div>
+<div class="line">                        uint32_t shifted(<a class="code" href="namespace_stoch_h_m_m.html#a64a3859adfc5289c932a23213007949c">rso</a>(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[start],n));</div>
 <div class="line">                        </div>
 <div class="line">                        <span class="comment">//For all the integers before shift the value</span></div>
-<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = start-1; i != SIZE_MAX ; --i){</div>
-<div class="line">                                shifted = <a class="code" href="namespace_stoch_h_m_m.html#a7ce6d88d473556bd0ccc5bdf9d617394">rsoso</a>(array[i], shifted, n);</div>
+<div class="line">                        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = start-1; i != <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a> ; --i){</div>
+<div class="line">                                shifted = <a class="code" href="namespace_stoch_h_m_m.html#a7ce6d88d473556bd0ccc5bdf9d617394">rsoso</a>(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i], shifted, n);</div>
 <div class="line">                        }</div>
 <div class="line">                        </div>
 <div class="line">                        <span class="comment">//Resesize the array</span></div>
-<div class="line">                        array.resize(num_ints);</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.resize(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>);</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
@@ -1153,10 +1614,37 @@ true if the bitsets are equal </dd></dl>
 false if not set 0 </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00575">575</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>.</p>
 <div class="fragment"><div class="line">                                                      {</div>
 <div class="line">                <span class="keywordtype">size_t</span> intIter = pos/32;</div>
 <div class="line">                <span class="keywordtype">size_t</span> bitIter = pos - (intIter*32);</div>
-<div class="line">                <span class="keywordflow">return</span> array[intIter] &amp; (1 &lt;&lt; bitIter);</div>
+<div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[intIter] &amp; (1 &lt;&lt; bitIter);</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a740dd7ba56807d351e35ec66e38d44b7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset_1_1bit__ref.html">dynamic_bitset::bit_ref</a> StochHMM::dynamic_bitset::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00581">581</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>.</p>
+<div class="fragment"><div class="line">                                                                  {</div>
+<div class="line">                <span class="keywordtype">size_t</span> intIter = pos/32;</div>
+<div class="line">                <span class="keywordtype">size_t</span> bitIter = pos - (intIter*32);</div>
+<div class="line">                <span class="keywordflow">return</span> bit_ref(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[intIter],bitIter);</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 </div>
@@ -1179,9 +1667,49 @@ false if not set 0 </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00175">175</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
 <div class="fragment"><div class="line">                                                                           {</div>
-<div class="line">                dynamic_bitset output(*<span class="keyword">this</span>);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a01b0e673630652e224997be71681dfcb">dynamic_bitset</a> output(*<span class="keyword">this</span>);</div>
 <div class="line">                output^=rhs;</div>
 <div class="line">                <span class="keywordflow">return</span> output;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a9d7ae92dc50a165c8c1b096698103513"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp; StochHMM::dynamic_bitset::operator^= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bitwise XOR all the bits with all the bits in the rhs. </p>
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00248">248</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00137">buffer</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>.</p>
+<div class="fragment"><div class="line">                                                                                   {</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (rhs.current_size != this-&gt;current_size){</div>
+<div class="line">                        std::cerr &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot; called on dynamic_bitsets of different sizes.&quot;</span> &lt;&lt;std::endl;</div>
+<div class="line">                        exit(2);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>; ++i){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i] ^= rhs.array[i];</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Clear those bits that are outside of the current scope</span></div>
+<div class="line">                uint32_t mask = (1 &lt;&lt; 32-<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a>) - 1;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[num_ints-1] &amp;= mask;</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 </div>
@@ -1204,9 +1732,50 @@ false if not set 0 </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00167">167</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
 <div class="fragment"><div class="line">                                                                           {</div>
-<div class="line">                dynamic_bitset output(*<span class="keyword">this</span>);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a01b0e673630652e224997be71681dfcb">dynamic_bitset</a> output(*<span class="keyword">this</span>);</div>
 <div class="line">                output|=rhs;</div>
 <div class="line">                <span class="keywordflow">return</span> output;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a618d45d9edc67661191858c58452dadd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp; StochHMM::dynamic_bitset::operator|= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bitwise OR all the bits with all the bits in the rhs. </p>
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00227">227</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00137">buffer</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>.</p>
+<div class="fragment"><div class="line">                                                                                   {</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">if</span> (rhs.current_size != this-&gt;current_size){</div>
+<div class="line">                        std::cerr &lt;&lt; __FUNCTION__ &lt;&lt; <span class="stringliteral">&quot; called on dynamic_bitsets of different sizes.&quot;</span> &lt;&lt;std::endl;</div>
+<div class="line">                        exit(2);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>; ++i){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i] |= rhs.array[i];</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Clear those bits that are outside of the current scope</span></div>
+<div class="line">                uint32_t mask = (1 &lt;&lt; 32-<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a>) - 1;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[num_ints-1] &amp;= mask;</div>
+<div class="line">                </div>
+<div class="line">                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 </div>
@@ -1227,9 +1796,11 @@ false if not set 0 </dd></dl>
 <dl class="section return"><dt>Returns:</dt><dd><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a> that is complement of *this </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00183">183</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00137">buffer</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>.</p>
 <div class="fragment"><div class="line">                                                      {</div>
-<div class="line">                dynamic_bitset output(*<span class="keyword">this</span>);</div>
-<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; num_ints; ++i){</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a01b0e673630652e224997be71681dfcb">dynamic_bitset</a> output(*<span class="keyword">this</span>);</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>; ++i){</div>
 <div class="line">                        output.array[i] = ~output.array[i];</div>
 <div class="line">                }</div>
 <div class="line">                </div>
@@ -1260,10 +1831,12 @@ false if not set 0 </dd></dl>
 false if number of 1' is even </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00981">981</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>.</p>
 <div class="fragment"><div class="line">                                   {</div>
 <div class="line">                <span class="keywordtype">bool</span> val(<span class="keyword">false</span>);</div>
-<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; num_ints; ++i){</div>
-<div class="line">                        uint32_t temp = array[i];</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>; ++i){</div>
+<div class="line">                        uint32_t temp = <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i];</div>
 <div class="line">                        temp ^= temp &gt;&gt; 1;</div>
 <div class="line">                        temp ^= temp &gt;&gt; 2;</div>
 <div class="line">                        temp &amp;= 0x011111111;</div>
@@ -1297,33 +1870,35 @@ false if number of 1' is even </dd></dl>
 </dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00721">721</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00137">buffer</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00134">reserve()</a>, and <a class="el" href="dynamic__bitset_8cpp_source.html#l00650">unset()</a>.</p>
 <div class="fragment"><div class="line">                                              {</div>
-<div class="line">                <span class="keywordflow">if</span> (buffer==0){</div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a>==0){</div>
 <div class="line">                        <span class="comment">//Reserve more memory. Push uint32(0) onto array</span></div>
-<div class="line">                        <span class="keywordflow">if</span> (current_size != 0){</div>
-<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a119a2afb7d3ba2b81d0b0a577bd321cd">reserve</a>(current_size*2);</div>
-<div class="line">                                array.push_back(0);</div>
-<div class="line">                                buffer = 32;</div>
-<div class="line">                                num_ints++;</div>
+<div class="line">                        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a> != 0){</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a119a2afb7d3ba2b81d0b0a577bd321cd">reserve</a>(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>*2);</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.push_back(0);</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a> = 32;</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>++;</div>
 <div class="line">                        }</div>
 <div class="line">                        <span class="keywordflow">else</span>{</div>
 <div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a119a2afb7d3ba2b81d0b0a577bd321cd">reserve</a>(32);</div>
-<div class="line">                                array.push_back(0);</div>
-<div class="line">                                buffer = 32;</div>
-<div class="line">                                num_ints++;</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.push_back(0);</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a> = 32;</div>
+<div class="line">                                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>++;</div>
 <div class="line">                        }</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//Increases the size and decrease buffer;</span></div>
-<div class="line">                current_size++;</div>
-<div class="line">                buffer--;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>++;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a>--;</div>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//Set value of position</span></div>
 <div class="line">                <span class="keywordflow">if</span> (val){</div>
-<div class="line">                        <span class="keyword">set</span>(current_size-1);</div>
+<div class="line">                        <span class="keyword">set</span>(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>-1);</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">else</span>{</div>
-<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a0da18659f651e1a3a7459344b349ed04">unset</a>(current_size-1);</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a0da18659f651e1a3a7459344b349ed04">unset</a>(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>-1);</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordflow">return</span>;</div>
@@ -1347,15 +1922,69 @@ false if number of 1' is even </dd></dl>
 <p>Reserves the set amount of memory *Doesn't change any of the bitset size. Only reserve a set amount of memory. </p>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00134">134</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00137">buffer</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>.</p>
+
+<p>Referenced by <a class="el" href="dynamic__bitset_8cpp_source.html#l00721">push_back()</a>.</p>
 <div class="fragment"><div class="line">                                             {</div>
-<div class="line">                <span class="keywordflow">if</span> (sz &lt;= current_size + buffer){</div>
+<div class="line">                <span class="keywordflow">if</span> (sz &lt;= <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a> + <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a>){</div>
 <div class="line">                        <span class="keywordflow">return</span>;</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">else</span>{</div>
 <div class="line">                        <span class="keywordtype">size_t</span> new_num_ints = ((sz-1)/32)+1;</div>
-<div class="line">                        array.reserve(new_num_ints);</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.reserve(new_num_ints);</div>
 <div class="line">                }</div>
 <div class="line">                </div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="af490cac4ed0f4a22af54e784ea7de3e9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::dynamic_bitset::reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resets all the bits to zero. </p>
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00684">684</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>.</p>
+<div class="fragment"><div class="line">                                  {</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.assign(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>, 0);</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a7088ce4b7d1fd2787151f848b128f982"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StochHMM::dynamic_bitset::reset </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clears the bit as position. </p>
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00689">689</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8cpp_source.html#l00650">unset()</a>.</p>
+<div class="fragment"><div class="line">                                            {</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a0da18659f651e1a3a7459344b349ed04">unset</a>(pos);</div>
 <div class="line">                <span class="keywordflow">return</span>;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
@@ -1377,25 +2006,27 @@ false if number of 1' is even </dd></dl>
 <p>Resize the bitset. If size is smaller than bitset, those values will get deleted If size is larger than bitset, it will get extended. </p>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00109">109</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00137">buffer</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
 <div class="line">                <span class="keywordtype">size_t</span> new_num_ints = ((sz-1)/32)+1;</div>
 <div class="line">                </div>
-<div class="line">                <span class="keywordflow">if</span> (num_ints == new_num_ints){</div>
-<div class="line">                        current_size = sz;</div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a> == new_num_ints){</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a> = sz;</div>
 <div class="line">                }</div>
 <div class="line">                <span class="keywordflow">else</span>{</div>
-<div class="line">                        array.resize(new_num_ints);</div>
-<div class="line">                        current_size = sz;</div>
-<div class="line">                        num_ints = new_num_ints;</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>.resize(new_num_ints);</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a> = sz;</div>
+<div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a> = new_num_ints;</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//Set new buffer size</span></div>
-<div class="line">                buffer = (num_ints*32)-sz;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a> = (<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>*32)-sz;</div>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//Clear bit in buffer</span></div>
 <div class="line">                <span class="comment">//Clear those bits that are outside of the current scope</span></div>
-<div class="line">                uint32_t mask = (1 &lt;&lt; 32 - buffer) - 1;</div>
-<div class="line">                array[num_ints-1] &amp;= mask;</div>
+<div class="line">                uint32_t mask = (1 &lt;&lt; 32 - <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a75d2ce22ff178066a6f4cea682bd97f6">buffer</a>) - 1;</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>-1] &amp;= mask;</div>
 <div class="line">                <span class="keywordflow">return</span>;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
@@ -1423,16 +2054,18 @@ false if number of 1' is even </dd></dl>
 </dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00617">617</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>.</p>
 <div class="fragment"><div class="line">                                          {</div>
 <div class="line">                </div>
-<div class="line">                <span class="keywordflow">if</span> (pos&gt;=current_size){</div>
+<div class="line">                <span class="keywordflow">if</span> (pos&gt;=<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>){</div>
 <div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Out of Range.\nFunction: &quot;</span> &lt;&lt;  __FUNCTION__ &lt;&lt; std::endl;</div>
 <div class="line">                        exit(2);</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordtype">size_t</span> intIter = pos/32;</div>
 <div class="line">                <span class="keywordtype">size_t</span> bitIter = pos - (intIter*32);</div>
-<div class="line">                array[intIter] |= (1 &lt;&lt; bitIter);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[intIter] |= (1 &lt;&lt; bitIter);</div>
 <div class="line">                <span class="keywordflow">return</span>;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
@@ -1471,8 +2104,10 @@ false if number of 1' is even </dd></dl>
 </dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00634">634</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>, and <a class="el" href="dynamic__bitset_8cpp_source.html#l00650">unset()</a>.</p>
 <div class="fragment"><div class="line">                                                    {</div>
-<div class="line">                <span class="keywordflow">if</span> (pos&gt;=current_size){</div>
+<div class="line">                <span class="keywordflow">if</span> (pos&gt;=<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>){</div>
 <div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Out of Range.\nFunction: &quot;</span> &lt;&lt;  __FUNCTION__ &lt;&lt; std::endl;</div>
 <div class="line">                        exit(2);</div>
 <div class="line">                }</div>
@@ -1484,6 +2119,36 @@ false if number of 1' is even </dd></dl>
 <div class="line">                        <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a0da18659f651e1a3a7459344b349ed04">unset</a>(pos);</div>
 <div class="line">                }</div>
 <div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a43d319f98831403bfec398fbbfa92822"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::dynamic_bitset::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8h_source.html#l00100">100</a> of file <a class="el" href="dynamic__bitset_8h_source.html">dynamic_bitset.h</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>.</p>
+
+<p>Referenced by <a class="el" href="sparse_array_8h_source.html#l00044">StochHMM::sparseArray&lt; double &gt;::size()</a>.</p>
+<div class="fragment"><div class="line">{<span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1504,10 +2169,12 @@ false if number of 1' is even </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l01054">1054</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
 
+<p>References <a class="el" href="dynamic__bitset_8cpp_source.html#l00589">at()</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="dynamic__bitset_8cpp_source.html#l00605">test()</a>.</p>
+
 <p>Referenced by <a class="el" href="dynamic__bitset_8cpp_source.html#l00270">StochHMM::operator&lt;&lt;()</a>.</p>
 <div class="fragment"><div class="line">                                                 {</div>
 <div class="line">                std::string output(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=current_size-1;i != SIZE_MAX; --i){</div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>-1;i != <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>; --i){</div>
 <div class="line">                        </div>
 <div class="line">                        </div>
 <div class="line">                        <span class="keywordtype">bool</span> <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#aa59aec3ffe571f9a2c47db8b212ff713">test</a> = <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#ae415510027d994b2bbe65e279da5f88a">at</a>(i);</div>
@@ -1523,6 +2190,38 @@ false if number of 1' is even </dd></dl>
 <div class="line">                        <span class="comment">//              }</span></div>
 <div class="line">                        </div>
 <div class="line">                }</div>
+<div class="line">                <span class="keywordflow">return</span> output;</div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ab3c863c7ec748dd0c1444335d4161419"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string StochHMM::dynamic_bitset::stringify_all </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns string representation of bitset includes buffered bits. </p>
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l01077">1077</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, <a class="el" href="bitwise__ops_8cpp_source.html#l00013">StochHMM::intToBinString()</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00139">num_ints</a>, and <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>.</p>
+<div class="fragment"><div class="line">                                                     {</div>
+<div class="line">                std::string output(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a256afca281dca1af624155bfa425781b">num_ints</a>-1 ; i != <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>; --i){</div>
+<div class="line">                        output+= <a class="code" href="namespace_stoch_h_m_m.html#aa71b41bc4488e40b58a55b4db78a6b15">intToBinString</a>(<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[i]);</div>
+<div class="line">                        <span class="comment">//              if (i!=0){</span></div>
+<div class="line">                        <span class="comment">//                      output+=&quot;,&quot;;</span></div>
+<div class="line">                        <span class="comment">//              }</span></div>
+<div class="line">                }</div>
+<div class="line">                </div>
 <div class="line">                <span class="keywordflow">return</span> output;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
@@ -1553,8 +2252,12 @@ false if number of 1' is even </dd></dl>
 false if bit is unset </dd></dl>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00605">605</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8cpp_source.html#l00589">at()</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>.</p>
+
+<p>Referenced by <a class="el" href="dynamic__bitset_8cpp_source.html#l00672">flip()</a>, and <a class="el" href="dynamic__bitset_8cpp_source.html#l01054">stringify()</a>.</p>
 <div class="fragment"><div class="line">                                           {</div>
-<div class="line">                <span class="keywordflow">if</span> (pos&gt;=current_size){</div>
+<div class="line">                <span class="keywordflow">if</span> (pos&gt;=<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>){</div>
 <div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Out of Range.\nFunction: &quot;</span> &lt;&lt;  __FUNCTION__ &lt;&lt; std::endl;</div>
 <div class="line">                        exit(2);</div>
 <div class="line">                }</div>
@@ -1580,16 +2283,20 @@ false if bit is unset </dd></dl>
 <p>Unsets the bit at position *Checks size before assignment </p>
 
 <p>Definition at line <a class="el" href="dynamic__bitset_8cpp_source.html#l00650">650</a> of file <a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a>.</p>
+
+<p>References <a class="el" href="dynamic__bitset_8h_source.html#l00141">array</a>, and <a class="el" href="dynamic__bitset_8h_source.html#l00138">current_size</a>.</p>
+
+<p>Referenced by <a class="el" href="dynamic__bitset_8cpp_source.html#l00672">flip()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00721">push_back()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00689">reset()</a>, and <a class="el" href="dynamic__bitset_8cpp_source.html#l00634">set()</a>.</p>
 <div class="fragment"><div class="line">                                            {</div>
 <div class="line">                </div>
-<div class="line">                <span class="keywordflow">if</span> (pos&gt;=current_size){</div>
+<div class="line">                <span class="keywordflow">if</span> (pos&gt;=<a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#af5d38db6d3d7b8bdba8bcfb2b000d799">current_size</a>){</div>
 <div class="line">                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Error: Out of Range.\nFunction: &quot;</span> &lt;&lt;  __FUNCTION__ &lt;&lt; std::endl;</div>
 <div class="line">                        exit(2);</div>
 <div class="line">                }</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordtype">size_t</span> intIter = pos/32;</div>
 <div class="line">                <span class="keywordtype">size_t</span> bitIter = pos - (intIter*32);</div>
-<div class="line">                array[intIter] &amp;= ~(1 &lt;&lt; bitIter);</div>
+<div class="line">                <a class="code" href="class_stoch_h_m_m_1_1dynamic__bitset.html#a280014ae2537e65db7e447dc587ed43e">array</a>[intIter] &amp;= ~(1 &lt;&lt; bitIter);</div>
 <div class="line">                <span class="keywordflow">return</span>;</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
@@ -1638,16 +2345,117 @@ false if bit is unset </dd></dl>
 </div><!-- fragment -->
 </div>
 </div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a280014ae2537e65db7e447dc587ed43e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;uint32_t&gt; StochHMM::dynamic_bitset::array</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8h_source.html#l00141">141</a> of file <a class="el" href="dynamic__bitset_8h_source.html">dynamic_bitset.h</a>.</p>
+
+<p>Referenced by <a class="el" href="dynamic__bitset_8cpp_source.html#l00697">any()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00589">at()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00148">clear()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00997">count()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l01019">count_before()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00013">dynamic_bitset()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00478">erase()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00758">find_first()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00856">find_last()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00384">insert()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00709">none()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00293">operator!=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00208">operator&amp;=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00306">operator&lt;&lt;=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00199">operator=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00280">operator==()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00344">operator&gt;&gt;=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00575">operator[]()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00248">operator^=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00227">operator|=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00183">operator~()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00981">parity()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00721">push_back()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00134">reserve()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00684">reset()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00109">resize()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00617">set()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l01077">stringify_all()</a>, and <a class="el" href="dynamic__bitset_8cpp_source.html#l00650">unset()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a75d2ce22ff178066a6f4cea682bd97f6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::dynamic_bitset::buffer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8h_source.html#l00137">137</a> of file <a class="el" href="dynamic__bitset_8h_source.html">dynamic_bitset.h</a>.</p>
+
+<p>Referenced by <a class="el" href="dynamic__bitset_8cpp_source.html#l00148">clear()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00013">dynamic_bitset()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00478">erase()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00384">insert()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00208">operator&amp;=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00306">operator&lt;&lt;=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00199">operator=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00248">operator^=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00227">operator|=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00183">operator~()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00721">push_back()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00134">reserve()</a>, and <a class="el" href="dynamic__bitset_8cpp_source.html#l00109">resize()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af5d38db6d3d7b8bdba8bcfb2b000d799"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::dynamic_bitset::current_size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8h_source.html#l00138">138</a> of file <a class="el" href="dynamic__bitset_8h_source.html">dynamic_bitset.h</a>.</p>
+
+<p>Referenced by <a class="el" href="dynamic__bitset_8cpp_source.html#l00589">at()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00148">clear()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00021">dynamic_bitset()</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00048">empty()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00478">erase()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00792">find_first()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00893">find_last()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00384">insert()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00208">operator&amp;=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00199">operator=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00248">operator^=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00227">operator|=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00721">push_back()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00134">reserve()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00109">resize()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00617">set()</a>, <a class="el" href="dynamic__bitset_8h_source.html#l00100">size()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l01054">stringify()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00605">test()</a>, and <a class="el" href="dynamic__bitset_8cpp_source.html#l00650">unset()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a256afca281dca1af624155bfa425781b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t StochHMM::dynamic_bitset::num_ints</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="dynamic__bitset_8h_source.html#l00139">139</a> of file <a class="el" href="dynamic__bitset_8h_source.html">dynamic_bitset.h</a>.</p>
+
+<p>Referenced by <a class="el" href="dynamic__bitset_8cpp_source.html#l00697">any()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00148">clear()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00997">count()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00013">dynamic_bitset()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00478">erase()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00758">find_first()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00856">find_last()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00384">insert()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00709">none()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00293">operator!=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00208">operator&amp;=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00306">operator&lt;&lt;=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00199">operator=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00280">operator==()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00344">operator&gt;&gt;=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00248">operator^=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00227">operator|=()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00183">operator~()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00981">parity()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00721">push_back()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00684">reset()</a>, <a class="el" href="dynamic__bitset_8cpp_source.html#l00109">resize()</a>, and <a class="el" href="dynamic__bitset_8cpp_source.html#l01077">stringify_all()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="dynamic__bitset_8h_source.html">dynamic_bitset.h</a></li>
 <li><a class="el" href="dynamic__bitset_8cpp_source.html">dynamic_bitset.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1dynamic__bitset.html">dynamic_bitset</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:36 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

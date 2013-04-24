@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -64,15 +70,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('user_functions_8cpp.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,7 +106,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">userFunctions.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<a href="user_functions_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  UserFunctions.cpp</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//Copyright (c) 2007-2012 Paul C Lott </span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//University of California, Davis</span></div>
@@ -113,36 +133,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">//IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">//CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;userFunctions.h&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="user_functions_8h.html">userFunctions.h</a>&quot;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>StochHMM{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        StateFuncs::StateFuncs(){</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                _loadUnivariatePdf();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                _loadMultivariatePdf();</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a45b15ae4d8426295b88e5f912d27c9a0">   32</a></span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a45b15ae4d8426295b88e5f912d27c9a0">StateFuncs::StateFuncs</a>(){</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a4d3249aa220e9032c37fcc628399b1f8">_loadUnivariatePdf</a>();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a82043c1a491c1e1297f02ac5f792ba55">_loadMultivariatePdf</a>();</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">    //!Assign a transition function to the StateFuncs class</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">    //!\param str Name of function</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">    //!\param ptrFunc  pt2StateFunc to use for StateFunc</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac23f19c0b1ffc4ae7f2a8fce5995888e">   40</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac23f19c0b1ffc4ae7f2a8fce5995888e">StateFuncs::assignTransitionFunction</a>(std::string&amp; str, transitionFunc ptrFunc){</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac23f19c0b1ffc4ae7f2a8fce5995888e">   40</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac23f19c0b1ffc4ae7f2a8fce5995888e">StateFuncs::assignTransitionFunction</a>(std::string&amp; str, <a class="code" href="namespace_stoch_h_m_m.html#a3e8439e572cd4e42d0d645bae56d8706">transitionFunc</a> ptrFunc){</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;     </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;         <span class="keywordflow">if</span> (transitionFunctions.count(str)==0){</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;             transitionFunctions[str]=ptrFunc;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;         <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a76d04426a8db2cb19ab404a381e49281">transitionFunctions</a>.count(str)==0){</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;             <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a76d04426a8db2cb19ab404a381e49281">transitionFunctions</a>[str]=ptrFunc;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;         }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;         <span class="keywordflow">else</span>{</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;             std::cerr &lt;&lt; <span class="stringliteral">&quot;Function Name: &quot;</span> &lt;&lt; str &lt;&lt; <span class="stringliteral">&quot; already exists.   You need to choose a new function name that doesn&#39;t already exist. For reference here are a list of names already assigned as external functions\nAssigned Names:\n&quot;</span>;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;         </div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;             std::map&lt;std::string,transitionFunc&gt;::iterator it;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;             </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;             <span class="keywordflow">for</span>(it=transitionFunctions.begin();it!=transitionFunctions.end();it++){</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;             <span class="keywordflow">for</span>(it=<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a76d04426a8db2cb19ab404a381e49281">transitionFunctions</a>.begin();it!=<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a76d04426a8db2cb19ab404a381e49281">transitionFunctions</a>.end();it++){</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                 std::cerr &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; it-&gt;first &lt;&lt;std::endl;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;             }</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;         }</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;     };</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac23f19c0b1ffc4ae7f2a8fce5995888e">StateFuncs::assignTransitionFunction</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str, transitionFunc ptrFunc){</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ad7ec5fb2230077d858c0b8fba02b4d4f">   57</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac23f19c0b1ffc4ae7f2a8fce5995888e">StateFuncs::assignTransitionFunction</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str, <a class="code" href="namespace_stoch_h_m_m.html#a3e8439e572cd4e42d0d645bae56d8706">transitionFunc</a> ptrFunc){</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                std::string st(str);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac23f19c0b1ffc4ae7f2a8fce5995888e">assignTransitionFunction</a>(st, ptrFunc);</div>
@@ -154,21 +174,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">    //!\param ptrFunc  pt2StateFunc to use for StateFunc</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac7fa4184ed198c2c400e81b8fcae7884">   67</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac7fa4184ed198c2c400e81b8fcae7884">StateFuncs::assignEmissionFunction</a>(std::string&amp; str, <a class="code" href="namespace_stoch_h_m_m.html#a7fad7f980bfaea3d96c891e6db7c8cf0" title="Pointer to emmission function Passed a string and position as size_t.">emissionFunc</a> ptrFunc){</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">if</span> (emissionFunctions.count(str)==0){</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            emissionFunctions[str]=ptrFunc;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1994774131110d1205b4e7ded48e5ded">emissionFunctions</a>.count(str)==0){</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1994774131110d1205b4e7ded48e5ded">emissionFunctions</a>[str]=ptrFunc;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">else</span>{</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function Name: &quot;</span> &lt;&lt; str &lt;&lt; <span class="stringliteral">&quot; already exists.   You need to choose a new function name that doesn&#39;t already exist. For reference here are a list of names already assigned as external functions\nAssigned Names:\n&quot;</span>;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            </div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            std::map&lt;std::string,emissionFunc&gt;::iterator it;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">for</span>(it=emissionFunctions.begin();it!=emissionFunctions.end();it++){</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">for</span>(it=<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1994774131110d1205b4e7ded48e5ded">emissionFunctions</a>.begin();it!=<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1994774131110d1205b4e7ded48e5ded">emissionFunctions</a>.end();it++){</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; it-&gt;first &lt;&lt;std::endl;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            }</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac7fa4184ed198c2c400e81b8fcae7884">StateFuncs::assignEmissionFunction</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str, <a class="code" href="namespace_stoch_h_m_m.html#a7fad7f980bfaea3d96c891e6db7c8cf0" title="Pointer to emmission function Passed a string and position as size_t.">emissionFunc</a> ptrFunc){</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a5c75ec9940effee8139ab2ae0ab1f412">   83</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac7fa4184ed198c2c400e81b8fcae7884">StateFuncs::assignEmissionFunction</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str, <a class="code" href="namespace_stoch_h_m_m.html#a7fad7f980bfaea3d96c891e6db7c8cf0" title="Pointer to emmission function Passed a string and position as size_t.">emissionFunc</a> ptrFunc){</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                std::string st(str);</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac7fa4184ed198c2c400e81b8fcae7884">assignEmissionFunction</a>(st, ptrFunc);</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
@@ -179,21 +199,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">        //!\param str Name of function</span></div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">        //!\param ptrFunc Pointer to pdfFunc to use for continuous emission</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">   93</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">StateFuncs::assignPDFFunction</a>(std::string&amp; str, <a class="code" href="namespace_stoch_h_m_m.html#a273f025f8870b79f2a971f293ea038e1" title="Pointer to Univariate Continuous Probability Density Function.">pdfFunc</a> ptrFunc){</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <span class="keywordflow">if</span> (pdfFunctions.count(str)==0){</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                        pdfFunctions[str]=ptrFunc;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a12ebadc51cb43d64881688ee85cc2f2f">pdfFunctions</a>.count(str)==0){</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a12ebadc51cb43d64881688ee85cc2f2f">pdfFunctions</a>[str]=ptrFunc;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                }</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="keywordflow">else</span>{</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function Name: &quot;</span> &lt;&lt; str &lt;&lt; <span class="stringliteral">&quot; already exists.   You need to choose a new function name that doesn&#39;t already exist. For reference here are a list of names already assigned as external functions\nAssigned Names:\n&quot;</span>;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            std::map&lt;std::string,pdfFunc&gt;::iterator it;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keywordflow">for</span>(it=pdfFunctions.begin();it!=pdfFunctions.end();it++){</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keywordflow">for</span>(it=<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a12ebadc51cb43d64881688ee85cc2f2f">pdfFunctions</a>.begin();it!=<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a12ebadc51cb43d64881688ee85cc2f2f">pdfFunctions</a>.end();it++){</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; it-&gt;first &lt;&lt;std::endl;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            }</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        }</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        }</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">StateFuncs::assignPDFFunction</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str, <a class="code" href="namespace_stoch_h_m_m.html#a273f025f8870b79f2a971f293ea038e1" title="Pointer to Univariate Continuous Probability Density Function.">pdfFunc</a> ptrFunc){</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a8b8111c9821088f306f050035d35e76d">  108</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">StateFuncs::assignPDFFunction</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str, <a class="code" href="namespace_stoch_h_m_m.html#a273f025f8870b79f2a971f293ea038e1" title="Pointer to Univariate Continuous Probability Density Function.">pdfFunc</a> ptrFunc){</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                std::string st(str);</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(st, ptrFunc);</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        }</div>
@@ -202,21 +222,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">        //!\param str Name of function</span></div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">        //!\param ptrFunc Pointer to pdfFunc to use for continuous emission</span></div>
 <div class="line"><a name="l00116"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a6b6a97f3da82534ad8fea7828042ce87">  116</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a6b6a97f3da82534ad8fea7828042ce87">StateFuncs::assignMultivariatePdfFunction</a>(std::string&amp; str, <a class="code" href="namespace_stoch_h_m_m.html#ab99ca2cb1963df8ca0751cdaabfd664a">multiPdfFunc</a> ptrFunc){</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keywordflow">if</span> (multiPdfFunctions.count(str)==0){</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                        multiPdfFunctions[str]=ptrFunc;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1a97a81a53f77a037f032b47a614bd6d">multiPdfFunctions</a>.count(str)==0){</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1a97a81a53f77a037f032b47a614bd6d">multiPdfFunctions</a>[str]=ptrFunc;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                }</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                <span class="keywordflow">else</span>{</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function Name: &quot;</span> &lt;&lt; str &lt;&lt; <span class="stringliteral">&quot; already exists.   You need to choose a new function name that doesn&#39;t already exist. For reference here are a list of names already assigned as external functions\nAssigned Names:\n&quot;</span>;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            </div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            std::map&lt;std::string,multiPdfFunc&gt;::iterator it;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="keywordflow">for</span>(it=multiPdfFunctions.begin();it!=multiPdfFunctions.end();it++){</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="keywordflow">for</span>(it=<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1a97a81a53f77a037f032b47a614bd6d">multiPdfFunctions</a>.begin();it!=<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1a97a81a53f77a037f032b47a614bd6d">multiPdfFunctions</a>.end();it++){</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; it-&gt;first &lt;&lt;std::endl;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            }</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        }</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        }</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a6b6a97f3da82534ad8fea7828042ce87">StateFuncs::assignMultivariatePdfFunction</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str, <a class="code" href="namespace_stoch_h_m_m.html#ab99ca2cb1963df8ca0751cdaabfd664a">multiPdfFunc</a> ptrFunc){</div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a4d48972339b73ad1c73530fd54f976b5">  131</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a6b6a97f3da82534ad8fea7828042ce87">StateFuncs::assignMultivariatePdfFunction</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str, <a class="code" href="namespace_stoch_h_m_m.html#ab99ca2cb1963df8ca0751cdaabfd664a">multiPdfFunc</a> ptrFunc){</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                std::string st(str);</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a6b6a97f3da82534ad8fea7828042ce87">assignMultivariatePdfFunction</a>(st, ptrFunc);</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        }</div>
@@ -226,9 +246,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment">    //!Get pointer to function with given name</span></div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment">    //!\param name Name of the function </span></div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="comment">    //!\return pt2StateFunc*</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a0bfc3a304278f619092a156681eda51b">  141</a></span>&#160;<span class="comment"></span>    transitionFunc* <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a0bfc3a304278f619092a156681eda51b">StateFuncs::getTransitionFunction</a>(std::string&amp; name){</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordflow">if</span> (transitionFunctions.count(name)){</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            <span class="keywordflow">return</span> &amp;transitionFunctions[name];</div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a0bfc3a304278f619092a156681eda51b">  141</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespace_stoch_h_m_m.html#a3e8439e572cd4e42d0d645bae56d8706">transitionFunc</a>* <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a0bfc3a304278f619092a156681eda51b">StateFuncs::getTransitionFunction</a>(std::string&amp; name){</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a76d04426a8db2cb19ab404a381e49281">transitionFunctions</a>.count(name)){</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            <span class="keywordflow">return</span> &amp;<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a76d04426a8db2cb19ab404a381e49281">transitionFunctions</a>[name];</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        }</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keywordflow">else</span>{</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function named: &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; was not initialized. &quot;</span> &lt;&lt;std::endl;</div>
@@ -242,8 +262,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="comment">    //!\param name Name of the function </span></div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="comment">    //!\return pt2StateFunc*</span></div>
 <div class="line"><a name="l00156"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1e38f951a26f7e96b7777bf7c87e437f">  156</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespace_stoch_h_m_m.html#a7fad7f980bfaea3d96c891e6db7c8cf0" title="Pointer to emmission function Passed a string and position as size_t.">emissionFunc</a>* <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1e38f951a26f7e96b7777bf7c87e437f">StateFuncs::getEmissionFunction</a>(std::string&amp; name){</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keywordflow">if</span> (emissionFunctions.count(name)){</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            <span class="keywordflow">return</span> &amp;emissionFunctions[name];</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1994774131110d1205b4e7ded48e5ded">emissionFunctions</a>.count(name)){</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            <span class="keywordflow">return</span> &amp;<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1994774131110d1205b4e7ded48e5ded">emissionFunctions</a>[name];</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        }</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordflow">else</span>{</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function named: &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; was not initialized. &quot;</span> &lt;&lt;std::endl;</div>
@@ -257,8 +277,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment">    //!\param name Name of the function</span></div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">    //!\return pdfFunc*</span></div>
 <div class="line"><a name="l00171"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac411cc022d49ce5ae57d6a8df57e1018">  171</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespace_stoch_h_m_m.html#a273f025f8870b79f2a971f293ea038e1" title="Pointer to Univariate Continuous Probability Density Function.">pdfFunc</a>* <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#ac411cc022d49ce5ae57d6a8df57e1018">StateFuncs::getPDFFunction</a>(std::string&amp; name){</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordflow">if</span> (pdfFunctions.count(name)){</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            <span class="keywordflow">return</span> &amp;pdfFunctions[name];</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a12ebadc51cb43d64881688ee85cc2f2f">pdfFunctions</a>.count(name)){</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            <span class="keywordflow">return</span> &amp;<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a12ebadc51cb43d64881688ee85cc2f2f">pdfFunctions</a>[name];</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        }</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="keywordflow">else</span>{</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function named: &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; was not initialized. &quot;</span> &lt;&lt;std::endl;</div>
@@ -272,8 +292,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment">    //!\param name Name of the function</span></div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment">    //!\return pdfFunc*</span></div>
 <div class="line"><a name="l00186"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a090801e052dbdec88c4fdeddbfa8887d">  186</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespace_stoch_h_m_m.html#ab99ca2cb1963df8ca0751cdaabfd664a">multiPdfFunc</a>* <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a090801e052dbdec88c4fdeddbfa8887d">StateFuncs::getMultivariatePdfFunction</a>(std::string&amp; name){</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <span class="keywordflow">if</span> (multiPdfFunctions.count(name)){</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            <span class="keywordflow">return</span> &amp;multiPdfFunctions[name];</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1a97a81a53f77a037f032b47a614bd6d">multiPdfFunctions</a>.count(name)){</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            <span class="keywordflow">return</span> &amp;<a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a1a97a81a53f77a037f032b47a614bd6d">multiPdfFunctions</a>[name];</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        }</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">else</span>{</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function named: &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; was not initialized. &quot;</span> &lt;&lt;std::endl;</div>
@@ -284,7 +304,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        </div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        </div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        </div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordtype">void</span> StateFuncs::_loadUnivariatePdf(){</div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a4d3249aa220e9032c37fcc628399b1f8">  199</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a4d3249aa220e9032c37fcc628399b1f8">StateFuncs::_loadUnivariatePdf</a>(){</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                <span class="comment">//Discrete with finite support</span></div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;BINOMIAL&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span> , <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#ga09673744215acf9a5b4cab9d66e2dff7">binomial_pdf</a>));</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#abb244c9e8942260cee8b1749dfc7c90e">assignPDFFunction</a>(<span class="stringliteral">&quot;BETA_BINOMIAL&quot;</span>,<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span> (*)(<span class="keyword">const </span><span class="keywordtype">double</span>, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span> (<a class="code" href="group___p_d_f.html#gaa1fed912d16e8c9975dbd6399ec84783">beta_binomial_pdf</a>));</div>
@@ -360,26 +380,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        }</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        </div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        </div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        <span class="keywordtype">void</span> StateFuncs::_loadMultivariatePdf(){</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a6b6a97f3da82534ad8fea7828042ce87">assignMultivariatePdfFunction</a>(<span class="stringliteral">&quot;DIRICHLET&quot;</span>,<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span>(*)(<span class="keyword">const </span>std::vector&lt;double&gt;*, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span>(dirichlet_multi_pdf));</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a6b6a97f3da82534ad8fea7828042ce87">assignMultivariatePdfFunction</a>(<span class="stringliteral">&quot;EWENS&quot;</span>,<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span>(*)(<span class="keyword">const </span>std::vector&lt;double&gt;*, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span>(ewens_multi_pdf));</div>
+<div class="line"><a name="l00275"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a82043c1a491c1e1297f02ac5f792ba55">  275</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a82043c1a491c1e1297f02ac5f792ba55">StateFuncs::_loadMultivariatePdf</a>(){</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a6b6a97f3da82534ad8fea7828042ce87">assignMultivariatePdfFunction</a>(<span class="stringliteral">&quot;DIRICHLET&quot;</span>,<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span>(*)(<span class="keyword">const </span>std::vector&lt;double&gt;*, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span>(<a class="code" href="group___p_d_f.html#ga800aab2a34bf45d7ca5dc2500d312598">dirichlet_multi_pdf</a>));</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1_state_funcs.html#a6b6a97f3da82534ad8fea7828042ce87">assignMultivariatePdfFunction</a>(<span class="stringliteral">&quot;EWENS&quot;</span>,<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span>(*)(<span class="keyword">const </span>std::vector&lt;double&gt;*, <span class="keyword">const </span>std::vector&lt;double&gt;*)<span class="keyword">&gt;</span>(<a class="code" href="group___p_d_f.html#gabcb2ba0702dfaa71e4d193b311318c25">ewens_multi_pdf</a>));</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        }</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    </div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="comment">    //!Assign a function to the TrackFuncs class</span></div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="comment">    //!\param str Name of function</span></div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment">    //!\param ptrFunc  pt2TrackFunc to use for TrackFunc</span></div>
-<div class="line"><a name="l00284"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html#addb4898201238a442c28b968f4655994">  284</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html#addb4898201238a442c28b968f4655994">TrackFuncs::assignFunction</a>(std::string&amp; str, pt2TrackFunc ptrFunc){</div>
+<div class="line"><a name="l00284"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html#addb4898201238a442c28b968f4655994">  284</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html#addb4898201238a442c28b968f4655994">TrackFuncs::assignFunction</a>(std::string&amp; str, <a class="code" href="namespace_stoch_h_m_m.html#a7af9065648079958ae059fd35e3d2234">pt2TrackFunc</a> ptrFunc){</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        </div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <span class="keywordflow">if</span> (functions.count(str)==0){</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;            functions[str]=ptrFunc;</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html#ad534aee6bcc9f3d9d91838e2b382f5ad">functions</a>.count(str)==0){</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html#ad534aee6bcc9f3d9d91838e2b382f5ad">functions</a>[str]=ptrFunc;</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        }</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        <span class="keywordflow">else</span>{</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function Name: &quot;</span> &lt;&lt; str &lt;&lt; <span class="stringliteral">&quot; already exists.   You need to choose a new function name that doesn&#39;t already exist. For reference here are a list of names already assigned as external functions\nAssigned Names:\n&quot;</span>;</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            </div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;            std::map&lt;std::string,pt2TrackFunc&gt;::iterator it;</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;            </div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;            <span class="keywordflow">for</span>(it=functions.begin();it!=functions.end();it++){</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;            <span class="keywordflow">for</span>(it=<a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html#ad534aee6bcc9f3d9d91838e2b382f5ad">functions</a>.begin();it!=<a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html#ad534aee6bcc9f3d9d91838e2b382f5ad">functions</a>.end();it++){</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;                std::cerr &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; it-&gt;first &lt;&lt;std::endl;</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;            }</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        }</div>
@@ -390,9 +410,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="comment">    //!Get pointer to function with given name</span></div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment">    //!\param name Name of the function </span></div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment">    //!\return pt2TrackFunc*</span></div>
-<div class="line"><a name="l00305"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html#afa19684201044430ffdda10ca7145355">  305</a></span>&#160;<span class="comment"></span>    pt2TrackFunc* <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html#afa19684201044430ffdda10ca7145355">TrackFuncs::getFunction</a>(std::string&amp; name){</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <span class="keywordflow">if</span> (functions.count(name)){</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;            <span class="keywordflow">return</span> &amp;functions[name];</div>
+<div class="line"><a name="l00305"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html#afa19684201044430ffdda10ca7145355">  305</a></span>&#160;<span class="comment"></span>    <a class="code" href="namespace_stoch_h_m_m.html#a7af9065648079958ae059fd35e3d2234">pt2TrackFunc</a>* <a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html#afa19684201044430ffdda10ca7145355">TrackFuncs::getFunction</a>(std::string&amp; name){</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html#ad534aee6bcc9f3d9d91838e2b382f5ad">functions</a>.count(name)){</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;            <span class="keywordflow">return</span> &amp;<a class="code" href="class_stoch_h_m_m_1_1_track_funcs.html#ad534aee6bcc9f3d9d91838e2b382f5ad">functions</a>[name];</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        }</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        <span class="keywordflow">else</span>{</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;Function named: &quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot; was not initialized. &quot;</span> &lt;&lt;std::endl;</div>
@@ -403,11 +423,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="user_functions_8cpp.html">userFunctions.cpp</a></li>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:35 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>

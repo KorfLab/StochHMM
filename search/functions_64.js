@@ -1,12 +1,18 @@
 var searchData=
 [
-  ['dagum_5fpdf',['dagum_pdf',['../group___p_d_f.html#gaca5586cbd2d2555b02c39506d1b62239',1,'StochHMM']]],
+  ['dagum_5fpdf',['dagum_pdf',['../group___p_d_f.html#gaca5586cbd2d2555b02c39506d1b62239',1,'StochHMM::dagum_pdf(double x, double p, double a, double b)'],['../group___p_d_f.html#ga222a520938a8384cc7127c0867db863b',1,'StochHMM::dagum_pdf(const double x, const std::vector&lt; double &gt; *param)']]],
+  ['decompose',['decompose',['../class_stoch_h_m_m_1_1lexical_table.html#a591d55df650999f87d4a0c5af7c379f7',1,'StochHMM::lexicalTable::decompose(size_t row, size_t column, std::vector&lt; uint8_t &gt; &amp;letters)'],['../class_stoch_h_m_m_1_1lexical_table.html#a7fde32c7777fe068ddc71abdb1e3bc38',1,'StochHMM::lexicalTable::decompose(size_t index, std::vector&lt; uint8_t &gt; &amp;letters)']]],
   ['defined',['defined',['../class_stoch_h_m_m_1_1_ex_def_sequence.html#a38bfd2e9b0958bf40462b7758106ebed',1,'StochHMM::ExDefSequence::defined()'],['../class_stoch_h_m_m_1_1sparse_array.html#a6f5d7c9d8ee9063385b59dfd8f5d521e',1,'StochHMM::sparseArray::defined()']]],
-  ['degenerate_5fpdf',['degenerate_pdf',['../group___p_d_f.html#ga367e60c53a922286005cf2891b649ad1',1,'StochHMM']]],
+  ['degenerate_5fdistribution',['degenerate_distribution',['../namespace_stoch_h_m_m.html#a6ef2da3410f38cf68df4253722eddfef',1,'StochHMM']]],
+  ['degenerate_5fpdf',['degenerate_pdf',['../group___p_d_f.html#ga367e60c53a922286005cf2891b649ad1',1,'StochHMM::degenerate_pdf(double value, double k)'],['../group___p_d_f.html#gad9a4b8c44887bb38e9081658661556ec',1,'StochHMM::degenerate_pdf(const double value, const std::vector&lt; double &gt; *param)']]],
+  ['determinealphabet',['determineAlphabet',['../classtraining_seqs.html#a6a939bde0a241199cbafe469aac35e84',1,'trainingSeqs']]],
   ['digitize',['digitize',['../class_stoch_h_m_m_1_1sequence.html#a17c42b953affaf5d8868e20ba96223e8',1,'StochHMM::sequence']]],
+  ['dirichlet_5fmulti_5fpdf',['dirichlet_multi_pdf',['../group___p_d_f.html#ga800aab2a34bf45d7ca5dc2500d312598',1,'StochHMM']]],
   ['dirichlet_5fpdf',['dirichlet_pdf',['../group___p_d_f.html#gac18657617b159827fcb82f759c838fcb',1,'StochHMM']]],
   ['discrete_5funiform_5fcdf',['discrete_uniform_cdf',['../namespace_stoch_h_m_m.html#a1ca616e835271b6d0c717f1b793340ad',1,'StochHMM']]],
-  ['discrete_5funiform_5fpdf',['discrete_uniform_pdf',['../group___p_d_f.html#gabcaf8d22a7040daf39a302757c97cd9b',1,'StochHMM']]],
+  ['discrete_5funiform_5fpdf',['discrete_uniform_pdf',['../group___p_d_f.html#gabcaf8d22a7040daf39a302757c97cd9b',1,'StochHMM::discrete_uniform_pdf(int position, int a, int b)'],['../group___p_d_f.html#ga5fb7b3c6f4b00938f536de88af1480ff',1,'StochHMM::discrete_uniform_pdf(const double position, const std::vector&lt; double &gt; *param)']]],
+  ['dividevaluetovector',['divideValueToVector',['../namespace_stoch_h_m_m.html#a0ec745154fd5c6e0ca113d21abea6aaf',1,'StochHMM']]],
   ['dopt',['dopt',['../class_stoch_h_m_m_1_1options.html#a195fcf95ef76ea286d9fd6cb0cc83381',1,'StochHMM::options']]],
-  ['double_5fto_5fstring',['double_to_string',['../group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7',1,'StochHMM::double_to_string(double input)'],['../group___text.html#ga593ec6959903daf28efe176538f2e20f',1,'StochHMM::double_to_string(float input)']]]
+  ['double_5fto_5fstring',['double_to_string',['../group___text.html#ga8c2dffdf4f3aba28fc06e10e465fdcf7',1,'StochHMM::double_to_string(double input)'],['../group___text.html#ga593ec6959903daf28efe176538f2e20f',1,'StochHMM::double_to_string(float input)']]],
+  ['dynamic_5fbitset',['dynamic_bitset',['../class_stoch_h_m_m_1_1dynamic__bitset.html#a01b0e673630652e224997be71681dfcb',1,'StochHMM::dynamic_bitset::dynamic_bitset()'],['../class_stoch_h_m_m_1_1dynamic__bitset.html#a1f01b7176cc178a49f77b72f1c7833f5',1,'StochHMM::dynamic_bitset::dynamic_bitset(size_t)'],['../class_stoch_h_m_m_1_1dynamic__bitset.html#a62a358f16771e317abb351ecd9688ef7',1,'StochHMM::dynamic_bitset::dynamic_bitset(const dynamic_bitset &amp;)'],['../class_stoch_h_m_m_1_1dynamic__bitset.html#a311ce7ada52e8d3e6b22caec1b91b136',1,'StochHMM::dynamic_bitset::dynamic_bitset(const std::string &amp;)'],['../class_stoch_h_m_m_1_1dynamic__bitset.html#a594f41011f568653eb9548953dea93da',1,'StochHMM::dynamic_bitset::dynamic_bitset(const std::vector&lt; bool &gt; &amp;)']]]
 ];

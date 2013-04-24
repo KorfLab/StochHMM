@@ -7,6 +7,12 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -69,12 +75,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_stoch_h_m_m_1_1emission_func_param.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(11)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(12)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,11 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_stoch_h_m_m.html">StochHMM</a></li><li class="navelem"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">emissionFuncParam</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">StochHMM::emissionFuncParam Member List</div>  </div>
@@ -96,24 +111,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>emissionFuncParam</b>(std::string &amp;, StateFuncs *, track *) (defined in <a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#a10a1c1edd35e58b4e8d937a5e91cf3b0">emissionFuncParam</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>evaluate</b>(const std::string *, size_t) (defined in <a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>evaluate</b>(sequences &amp;, size_t) (defined in <a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>evaluate</b>(sequence &amp;, size_t) (defined in <a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getName</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>getTrack</b>() (defined in <a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#a05c33e72e35f06455afb02a698641a06">emissionFuncName</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#a6255389a44eec2dee6ff70049f5d3c8c">emissionFuncParam</a>(std::string &amp;, StateFuncs *, track *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#a10a1c1edd35e58b4e8d937a5e91cf3b0">emissionFuncParam</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#ac5577f9c94d95d706216377c5b013deb">emissionFuncScaling</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#a409144ee4696a5be4fe8b86947356777">emissionFunction</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#a35648c3d8c171f1b8ca8be8238ab9739">emissionFuncTrack</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#afc6c0dcfed0e3ebada9807115fa24dbd">evaluate</a>(const std::string *, size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#a061ef26e275d1fd9ec8c2fc22d4eae57">evaluate</a>(sequences &amp;, size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#a26834c420767bf9d010a28a4e1d04683">evaluate</a>(sequence &amp;, size_t)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#a39ddc8ba7a8caf2534ba468322ef69c9">getName</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#a40aad3fb365f7afe4e0f1b9fb531dbef">getTrack</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#a8cbdaac4b51e7eb61b5ab9aa26f56bbc">getTrackName</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#a429f099e09867b517541c08004c4870b">parse</a>(stringList &amp;, tracks &amp;, weights *, StateFuncs *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#afb50c9594e86b6f278b9b972044b99c4">print</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>setEmissionFunc</b>(std::string &amp;, emissionFunc *, weight *) (defined in <a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a>)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#a7855667ba6cf42401fb4200d10544795">setEmissionFunc</a>(std::string &amp;, emissionFunc *, weight *)</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#a4b3980c94cd1e0e41ff2733a459451f4">stringify</a>()</td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#a38af1eabb46f8a7b4481cabd12bc6697">trackName</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html#a5c23271a87e9359b35253db20bd9d931">trackNumber</a></td><td class="entry"><a class="el" href="class_stoch_h_m_m_1_1emission_func_param.html">StochHMM::emissionFuncParam</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 09:30:50 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Wed Apr 24 2013 09:39:37 for StochHMM by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1 </li>
+  </ul>
+</div>
 </body>
 </html>
