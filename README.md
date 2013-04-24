@@ -26,11 +26,14 @@ StochHMM is developed by Paul Lott, Korf Lab, University of California, Davis
 
 ##Additional References:
 
-1.  Schroeder, D. I., Lott, P., Korf, I. & LaSalle, J. M. Large-scale
+1. Schroeder, D.I., Blair J.D., Lott P., Yu H.O., Hong D., Crary F., Ashwood P., Walker C.
+, Korf I., Robinson W.P., LaSalle J.M.. The human placenta methylome. PNAS 15:6037-6042 (2013)
+
+2.  Schroeder, D. I., Lott, P., Korf, I. & LaSalle, J. M. Large-scale
 methylation domains mark a functional subset of neuronally expressed
 genes. Genome Res 21, 1583–1591 (2011).
 
-2.	Ginno, P. A., Lott, P. L., Christensen, H. C., Korf, I. & Chédin,
+3.	Ginno, P. A., Lott, P. L., Christensen, H. C., Korf, I. & Chédin,
 F. R-loop formation is a distinctive characteristic of unmethylated
 human CpG island promoters. Mol. Cell 45, 814–825 (2012).
 
