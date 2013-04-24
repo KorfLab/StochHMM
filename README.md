@@ -113,7 +113,8 @@ Korf Lab, Genome Center, University of California, Davis
 ***
 #Code Documentation
 Documentation for the C++ code can be found at [StochHMM Doxygen Documentation](http://korflab.github.io/StochHMM/)
-Documentation for the Model files can be found at [StochHMM Github Wiki](https://github.com/KorfLab/StochHMM/wiki)
+
+Documentation on the Model files can be found at [StochHMM Github Wiki](https://github.com/KorfLab/StochHMM/wiki)
 
 ***
 
