@@ -2,7 +2,7 @@
 
 ***
 #Introduction
-***
+
 
 StochHMM is a free, open source C++ Library and application that implements HMM
 from simple text files.   It implements traditional HMM algorithms in addition it
@@ -55,7 +55,7 @@ datasets or functions within the HMM trellis in order to arrive at a better pred
 
 ***
 #Features 
-***
+
 
 ##Brief list of features implemented in StochHMM:
 
@@ -93,9 +93,6 @@ datasets or functions within the HMM trellis in order to arrive at a better pred
 
 *** 
 #Developers  
-***
-
-##Developed by:
  
 ##[Korf Lab](http://korflab.ucdavis.edu/)
  
@@ -117,11 +114,10 @@ Korf Lab, Genome Center, University of California, Davis
 #Code Documentation
 Documentation for the C++ code can be found at [StochHMM Doxygen Documentation](http://korflab.github.io/StochHMM/)
 Documentation for the Model files can be found at [StochHMM Github Wiki](https://github.com/KorfLab/StochHMM/wiki)
-***
 
 ***
+
 #References:
-***
 
 1. Schroeder, D.I., Blair J.D., Lott P., Yu H.O., Hong D., Crary F., Ashwood P., Walker C.
 , Korf I., Robinson W.P., LaSalle J.M.. The human placenta methylome. PNAS 15:6037-6042 (2013)
@@ -137,7 +133,6 @@ human CpG island promoters. Mol. Cell 45, 814–825 (2012).
 
 ***
 #Installation
-***
 
 To compile StochHMM in Unix command-line (Linux, Mac OS X)
 
@@ -160,7 +155,6 @@ Compiled target will be accessible from Xcode
 
 ***
 #Examples
-*** 
 
 To run the examples,
 ```
