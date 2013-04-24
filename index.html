@@ -81,10 +81,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title"><a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a>: A Flexible C++ Hidden Markov Model Library and Application </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> is a free, open source C++ Library and application that implements HMM from simple text files. It implements traditional HMM algorithms in addition to providing additional flexibility. The additional flexibility is provided by allowing researchers to integrate additional data into the HMM framework. For Documentation on model syntax and designing a model, see Github wiki.</p>
+<div class="textblock"><p><a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> is a free, open source C++ Library and application that implements HMM from simple text files. It implements traditional HMM algorithms in addition to providing additional flexibility. The additional flexibility is provided by allowing researchers to integrate additional data into the HMM framework.</p>
+<p>For documentation on model syntax and designing a model, see Github wiki.</p>
 <h3><a href="http://www.github.com/KorfLab/StochHMM/wiki">http://www.github.com/KorfLab/StochHMM/wiki</a></h3>
 <h2>Integrating Data</h2>
-<p>Here are a few of the ways that <a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> allows the use to integrate additional data sources:</p>
+<p>Here are a few of the ways that <a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> allows the users to integrate additional data sources:</p>
 <ol type="1">
 <li>Multiple Emission States</li>
 <li>Weighting or Explicitly Defining State paths on a sequence</li>
@@ -97,9 +98,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Often, we have some prior knowledge about the sequence. If this is the case, we may want to integrate that into the model, without redesigning or retraining the model (a timely endeavor). <a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> allows the user to explicitly define a State path (By name of state, or category of state). In addition, <a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a> also allows the user to weight a states path (By name of State or category of state defined by user) This allows the user to restrict the predicted path or weight their prior knowledge.</p>
 <h2>Linking States Emissions or Transitions to external user-defined functions</h2>
 <p>When that transition/emission is evaluated the function is called and can provide an emission. While this may provide one way of addressing a weakness of HMMs, which is that they do not handle long range dependencies. We see it rather as a way to link together existing utilities or functions that provide additional information to the decoding algorithms. In this way, we can link divergent datasets or functions within the HMM trellis in order to arrive at a better prediction.</p>
-<h2>Features implemented in <a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a></h2>
+<h2>Brief list of features implemented in <a class="el" href="namespace_stoch_h_m_m.html" title="traceback_path.h">StochHMM</a>:</h2>
 <ul>
-<li>Hidden Markov Models<ol type="1">
+<li>General settings within Hidden Markov Models<ol type="1">
 <li>User-defined HMM model via simple human readable text file</li>
 <li>User-defined Alphabet</li>
 <li>User-defined Ambiguous Characters</li>
@@ -141,7 +142,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 </ol>
 </li>
-<li>Path output formats<ul>
+<li>Decoding Traceback Path output formats<ul>
 <li>State Path Index</li>
 <li>State Path Label</li>
 <li>GFF</li>
@@ -149,11 +150,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </ul>
 </li>
 </ul>
-<p>Korf Lab Genome Center University of California, Davis </p>
+<h2>Developed by:</h2>
+<h2><a href="http://korflab.ucdavis.edu/">Korf Lab</a></h2>
+<p>Korf Lab, Genome Center, University of California, Davis</p>
+<ul>
+<li><a href="http://korflab.ucdavis.edu/bio_ian.html">Ian Korf</a></li>
+<li><a href="http://korflab.ucdavis.edu/bio_paul.html">Paul Lott</a></li>
+<li><a href="http://korflab.ucdavis.edu/bio_keith_d.html">Keith Dunaway</a></li>
+<li><a href="http://korflab.ucdavis.edu/bio_ken.html">Ken Yu</a></li>
+</ul>
+<h2>For suggestions or support:</h2>
+<ul>
+<li>korflab AT ucdavis DOT edu</li>
+<li><a href="https://github.com/KorfLab/StochHMM">KorfLab Github</a></li>
+<li>Google Groups<ul>
+<li><a href="https://groups.google.com/forum/?fromgroups#!forum/stochhmm-dev">StochHMM-dev</a></li>
+<li><a href="https://groups.google.com/forum/?fromgroups#!forum/stochhmm-forum">StochHMM-Forum</a></li>
+</ul>
+</li>
+</ul>
+<h2>Open Source Licensing:</h2>
+<p>The MIT License (MIT)</p>
+<p>Copyright (c) 2007-2012 Paul Lott, Ian Korf, Korf Lab, Genome Center, UC Davis, Davis, CA. All rights reserved.</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 12:28:08 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 24 2013 14:59:11 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>
