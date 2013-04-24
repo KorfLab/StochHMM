@@ -51,62 +51,62 @@ datasets or functions within the HMM trellis in order to arrive at a better pred
 
  
 ##Brief list of features implemented in StochHMM:
-  - General settings within Hidden Markov Models
-	   1. User-defined HMM model via simple human readable text file
-		  2. User-defined Alphabet
-		  3. User-defined Ambiguous Characters
-  - States
-		  1. Emissions
-			   - Multiple emission states (Discrete / Continuous)
-				  - Independent (Single or Multiple Discrete)
-				  - Joint Distribution (Multiple Discrete)
-				  - Univariate PDF (Single Sequence -  Continuous)
-				  - Multivariate PDF (Multiple Sequence - Continuous)
-			   - Linkable to user-defined function
-		  2. Transitions
-			   - Standard Transitions
-			   - Lexical Transitions (Single or multiple emission)
-			   - Explicit Duration Transitions
-			   - Linkable to user-defined functions
-  - Decoding
-		  1. Traditional Decoding Algorithms
-			   - Forward/Backward/Posterior
-			   - Viterbi
-			   - N-best Viterbi
-		  2. Stochastic Sampling Decoding Algorithms
-			   - Stochastic Forward
-			   - Stochastic Viterbi
-			   - Stochastic Posterior
-  - Decoding Traceback Path output formats
-		 - State Path Index
-		 - State Path Label
-		 - GFF
-		 - Hit Table (Stochastic Algorithms)
+
+- General settings within Hidden Markov Models
+	1. User-defined HMM model via simple human readable text file
+	2. User-defined Alphabet
+	3. User-defined Ambiguous Characters
+- States
+	1. Emissions
+		- Multiple emission states (Discrete / Continuous)
+		- Independent (Single or Multiple Discrete)
+		- Joint Distribution (Multiple Discrete)
+		- Univariate PDF (Single Sequence -  Continuous)
+		- Multivariate PDF (Multiple Sequence - Continuous)
+		- Linkable to user-defined function
+	2. Transitions
+		- Standard Transitions
+		- Lexical Transitions (Single or multiple emission)
+		- Explicit Duration Transitions
+		- Linkable to user-defined functions
+- Decoding
+	1. Traditional Decoding Algorithms
+		- Forward/Backward/Posterior
+		- Viterbi
+		- N-best Viterbi
+	2. Stochastic Sampling Decoding Algorithms
+		- Stochastic Forward
+		- Stochastic Viterbi
+		- Stochastic Posterior
+- Decoding Traceback Path output formats
+		- State Path Index
+		- State Path Label
+		- GFF
+		- Hit Table (Stochastic Algorithms)
  
   
- ##Developed by:
+##Developed by:
  
- ##[Korf Lab](http://korflab.ucdavis.edu/)
+##[Korf Lab](http://korflab.ucdavis.edu/)
  
- Korf Lab, Genome Center, University of California, Davis
-	- [Ian Korf](http://korflab.ucdavis.edu/bio_ian.html)
-	- [Paul Lott](http://korflab.ucdavis.edu/bio_paul.html)
-	- [Keith Dunaway](http://korflab.ucdavis.edu/bio_keith_d.html)
-	- [Ken Yu](http://korflab.ucdavis.edu/bio_ken.html)
+Korf Lab, Genome Center, University of California, Davis
+ - [Ian Korf](http://korflab.ucdavis.edu/bio_ian.html)
+ - [Paul Lott](http://korflab.ucdavis.edu/bio_paul.html)
+ - [Keith Dunaway](http://korflab.ucdavis.edu/bio_keith_d.html)
+ - [Ken Yu](http://korflab.ucdavis.edu/bio_ken.html)
  
- ##For suggestions or support:
-	- korflab AT ucdavis DOT edu
-	- [KorfLab Github](https://github.com/KorfLab/StochHMM)
-	- Google Groups
-		- [StochHMM-dev](https://groups.google.com/forum/?fromgroups#!forum/stochhmm-dev)
-		- [StochHMM-Forum](https://groups.google.com/forum/?fromgroups#!forum/stochhmm-forum)
+##For suggestions or support:
+ - korflab AT ucdavis DOT edu
+ - [KorfLab Github](https://github.com/KorfLab/StochHMM)
+ - Google Groups
+ - [StochHMM-dev](https://groups.google.com/forum/?fromgroups#!forum/stochhmm-dev)
+ - [StochHMM-Forum](https://groups.google.com/forum/?fromgroups#!forum/stochhmm-forum)
  
 
+Documentation for the C++ code can be found at [StochHMM Documentation](http://korflab.github.io/StochHMM/)
 
-Documentation for the Code can be found at [StochHMM Documentation](http://korflab.github.io/StochHMM/)
 
-
-##Additional References:
+##References:
 
 1. Schroeder, D.I., Blair J.D., Lott P., Yu H.O., Hong D., Crary F., Ashwood P., Walker C.
 , Korf I., Robinson W.P., LaSalle J.M.. The human placenta methylome. PNAS 15:6037-6042 (2013)
