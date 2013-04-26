@@ -85,11 +85,12 @@ datasets or functions within the HMM trellis in order to arrive at a better pred
 		- Stochastic Forward
 		- Stochastic Viterbi
 		- Stochastic Posterior
-- Decoding Traceback Path output formats
+- Decoding Traceback Path output formats 	
 	- State Path Index
 	- State Path Label
 	- GFF
 	- Hit Table (Stochastic Algorithms)
+	- Posterior Probability Table 
 
 *** 
 #Developers  
