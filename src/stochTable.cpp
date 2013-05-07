@@ -62,12 +62,12 @@ namespace StochHMM {
 		last_position = 0;
 		
 		double sum(-INFINITY);
-		int16_t current_state(-1);
+		uint16_t current_state(SIZE_MAX);
 		size_t state_start(-1);
 		
-		//For each position in the sequence we want to normalize the viterbi values
+		//For each position in the sequence we want to normalize the viterbi/forward values
 		//for the state from previous states
-		for(size_t i=0;i<position->size();++i){
+		for(size_t i=0;i<position->size()-1;++i){
 			
 			//Need to sum the values.  If we see another state then we'll need to
 			//normalize the previous states that contributed to the sum.
@@ -104,8 +104,24 @@ namespace StochHMM {
 			
 			//Set values for next loop
 			state_start = (*position)[i] + 1;
-			current_state = -1;
+			current_state = SIZE_MAX;
 		}
+		
+		
+		//Process and normalize the ending cell
+		//Calculate ending state sum
+		sum = -INFINITY;
+		for (size_t j=state_start; j < state_val->size();j++){
+			sum=addLog(sum,(double)(*state_val)[j].prob);
+		}
+		
+		//Normalize the ending cell probability
+		for (size_t j=state_start; j < state_val->size();j++){
+			(*state_val)[j].prob = exp((*state_val)[j].prob - sum);
+		}
+		
+		
+		
 		
 		//Assign previous cell relative to (position) value.  Used when traceback
 		//That way function won't have to search for correct value;
@@ -170,7 +186,7 @@ namespace StochHMM {
 		//Get traceback from END state
 		for(size_t i = (*position)[position->size()-2]+1 ; i <= position->back() ; ++i){
 			cumulative_prob += (*state_val)[i].prob;
-			if (random < cumulative_prob){
+			if (random <= cumulative_prob){
 				state_prev = (*state_val)[i].state_prev;
 				path.push_back(state_prev);
 				offset = (*state_val)[i].prev_cell;
@@ -185,10 +201,10 @@ namespace StochHMM {
 			//std::cout << random << std::endl;
 			cumulative_prob = 0;
 			
-			for (size_t cells = (i == 0) ? 0 + offset : (*position)[i-1]+offset+1; cells < (*position)[i] ; ++cells){
-				if ((*state_val)[cells].state_id != state_prev ){
-					//std::cout << "Houston, We have an error!" << std::endl;
-				}
+			for (size_t cells = (i == 0) ? 0 + offset : (*position)[i-1]+offset+1; cells <= (*position)[i] ; ++cells){
+//				if ((*state_val)[cells].state_id != state_prev ){
+//					std::cout << "Houston, We have an error!" << std::endl;
+//				}
                 
 				cumulative_prob+=(*state_val)[cells].prob;
 				
@@ -201,6 +217,252 @@ namespace StochHMM {
                 }
             }
 		}
+		return;
+	}
+	
+	
+	
+	
+//	void alt_stochTable::push(size_t pos, size_t state, size_t state_to, float val){
+//		(*table)[state][pos].push_back(stoch_val(state_to,val));
+//		return;
+//	}
+//	
+//	void alt_stochTable::push_ending(size_t state_to, float val){
+//		ending.push_back(stoch_val(state_to,val));
+//		return;
+//	}
+//	
+//
+//	//! Traceback through the table using the traceback probabilities
+//	//! \param[out] path Reference to traceback_path
+//	void alt_stochTable::traceback(traceback_path& path){
+//		
+//		double random((double)rand()/((double)(RAND_MAX)+(double)(1)));
+//		double cumulative_prob(0.0);
+//		
+//		uint16_t state_prev(UINT16_MAX);
+//		
+//		//Get traceback from END state
+//		for(size_t i = 0; i< ending.size(); ++i){
+//			cumulative_prob += (ending)[i].prob;
+//			if (random <= cumulative_prob){
+//				state_prev = ending[i].previous_state;
+//				path.push_back(state_prev);
+//				break;
+//			}
+//		}
+//		
+//		//For the rest of the table traceback to the beginning of the sequence
+//		for(size_t position = table[state_prev].size()-1; position != SIZE_MAX ; --position){
+//			random = (double)rand()/((double)(RAND_MAX)+(double)(1));
+//			cumulative_prob = 0;
+//			
+//			for (size_t st = 0; st < (*table)[state_prev][position].size(); st++){
+//                
+//				cumulative_prob+=(*table)[state_prev][position][st].prob;
+//				
+//                if (random <= cumulative_prob){
+//                    state_prev = (*table)[state_prev][position][st].previous_state;
+//					path.push_back(state_prev);
+//					break;
+//                }
+//            }
+//		}
+//		return;
+//	}
+//	
+//	alt_stochTable::alt_stochTable(size_t st, size_t length){
+//		states = st;
+//		seq_length = length;
+//		
+//		table = new (std::nothrow) std::vector<sparseArray<std::vector<stoch_val> > >(states);
+//		
+//		for (size_t i=0;i<states;i++){
+//			(*table)[i].resize(seq_length);
+//		}
+//	}
+//	
+//	alt_stochTable::~alt_stochTable(){
+//		delete table;
+//		table=NULL;
+//	}
+//	
+//	//! Finalized stochTable
+//	//! Normalizes the traceback pointer values and calculates the previous cell
+//	//! iterator within the previous position segment.  This speeds up the
+//	//! the referencing necessary for tracebacks across the traceback table.
+//	void alt_stochTable::finalize(){		
+//		
+//		double sum(-INFINITY);		
+//		
+//		//For each position in the sequence we want to normalize the viterbi/forward values
+//		//for the state from previous states
+//		for(size_t position=0; position < seq_length;++position){
+//			
+//			for(size_t state=0; state < states; ++state){
+//				if ((*table)[state].defined(position)){
+//					sum = -INFINITY;
+//					for(size_t value=0; value < (*table)[state][position].size();value++){
+//						sum = addLog(sum,(double) (*table)[state][position][value].prob);
+//					}
+//					
+//					for(size_t value=0; value < (*table)[state][position].size();value++){
+//						(*table)[state][position][value].prob = exp((*table)[state][position][value].prob-sum);
+//					}
+//				}
+//			}
+//		}
+//		
+//		sum = -INFINITY;
+//		for(size_t i=0;i<ending.size();i++){
+//			sum = addLog(sum,(double) ending[i].prob);
+//		}
+//		
+//		for(size_t i=0;i<ending.size();i++){
+//			ending[i].prob=exp(ending[i].prob-sum);
+//		}
+//		
+//		return;
+//	}
+//	
+//	std::string alt_stochTable::stringify(){
+//		
+//		std::stringstream str;		
+//		for(size_t position = 0; position < seq_length; position++){
+//			str << position ;
+//			for(size_t state = 0; state < states; state++){
+//				if ((*table)[state].defined(position)){
+//					for (size_t val = 0; val < (*table)[state][position].size();val++){
+//						str << "\t" << state  << ":" << (*table)[state][position][val].previous_state;
+//					}
+//				}
+//			}
+//			str << "\n";
+//		}
+//		
+//		return str.str();
+//	}
+//	
+//	void alt_stochTable::print(){
+//		std::cout << stringify() << std::endl;
+//		return;
+//	}
+	
+	
+	alt_simple_stochTable::alt_simple_stochTable(size_t st, size_t length): states(st), seq_length(length){
+		table = new (std::nothrow) std::vector<std::vector<std::vector<stoch_val> > > ;
+		table->resize(seq_length,std::vector<std::vector<stoch_val> > (states, std::vector<stoch_val>()));
+	}
+	
+	alt_simple_stochTable::~alt_simple_stochTable(){
+		delete table;
+	}
+	
+	void alt_simple_stochTable::push(size_t pos, size_t state, size_t state_to, float val){
+		(*table)[pos][state].push_back(stoch_val(state_to,val));
+		return;
+	}
+	
+	void alt_simple_stochTable::push_ending(size_t state_to, float val){
+		ending.push_back(stoch_val(state_to,val));
+		return;
+	}
+	
+	//! Finalized stochTable
+	//! Normalizes the traceback pointer values and calculates the previous cell
+	//! iterator within the previous position segment.  This speeds up the
+	//! the referencing necessary for tracebacks across the traceback table.
+	void alt_simple_stochTable::finalize(){
+		
+		double sum(-INFINITY);
+		
+		//For each position in the sequence we want to normalize the viterbi/forward values
+		//for the state from previous states
+		for(size_t position=0; position < seq_length;++position){
+			
+			for(size_t state=0; state < states; ++state){
+				if ((*table)[position][state].size() > 0 ){
+					sum = -INFINITY;
+					for(size_t value=0; value < (*table)[position][state].size(); value++){
+						sum = addLog(sum,(double) (*table)[position][state][value].prob);
+					}
+					
+					for(size_t value=0; value < (*table)[position][state].size();value++){
+						(*table)[position][state][value].prob = exp((*table)[position][state][value].prob-sum);
+					}
+				}
+			}
+		}
+		
+		sum = -INFINITY;
+		for(size_t i=0;i<ending.size();i++){
+			sum = addLog(sum,(double) ending[i].prob);
+		}
+		
+		for(size_t i=0;i<ending.size();i++){
+			ending[i].prob=exp(ending[i].prob-sum);
+		}
+		
+		return;
+	}
+	
+	//! Traceback through the table using the traceback probabilities
+	//! \param[out] path Reference to traceback_path
+	void alt_simple_stochTable::traceback(traceback_path& path){
+		
+		double random((double)rand()/((double)(RAND_MAX)+(double)(1)));
+		double cumulative_prob(0.0);
+		
+		uint16_t state_prev(UINT16_MAX);
+		
+		//Get traceback from END state
+		for(size_t i = 0; i< ending.size(); ++i){
+			cumulative_prob += (ending)[i].prob;
+			if (random <= cumulative_prob){
+				state_prev = ending[i].previous_state;
+				path.push_back(state_prev);
+				break;
+			}
+		}
+		
+		//For the rest of the table traceback to the beginning of the sequence
+		for(size_t position = table[state_prev].size()-1; position != SIZE_MAX ; --position){
+			random = (double)rand()/((double)(RAND_MAX)+(double)(1));
+			cumulative_prob = 0;
+			
+			for (size_t st = 0; st < (*table)[position][state_prev].size(); st++){
+				
+				cumulative_prob+=(*table)[position][state_prev][st].prob;
+			
+				if (random <= cumulative_prob){
+					state_prev = (*table)[position][state_prev][st].previous_state;
+					path.push_back(state_prev);
+					break;
+				}
+            }
+		}
+		return;
+	}
+	
+	std::string alt_simple_stochTable::stringify(){
+
+		std::stringstream str;
+		for(size_t position = 0; position < seq_length-1; position++){
+			str << position ;
+			for(size_t state = 0; state < states; state++){
+				for (size_t val = 0; val < (*table)[position][state].size();val++){
+					str << "\t" << state  << ":" << (*table)[position][state][val].previous_state << " : " << (*table)[position][state][val].prob ;
+				}
+			}
+			str << "\n";
+		}
+
+		return str.str();
+	}
+
+	void alt_simple_stochTable::print(){
+		std::cout << stringify() << std::endl;
 		return;
 	}
 

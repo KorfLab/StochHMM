@@ -12,8 +12,10 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <vector>
 #include "stochMath.h"
 #include "traceback_path.h"
+#include "sparseArray.h"
 
 namespace StochHMM {
 	
@@ -62,6 +64,62 @@ namespace StochHMM {
 		std::vector<stoch_value>* state_val;
 		std::vector<size_t>* position;
 	};
+	
+	
+	
+//	//Alternate StochTable using sparseArray
+//	class alt_stochTable{
+//	public:
+//		struct stoch_val{
+//			stoch_val(uint16_t prev, float p): previous_state(prev), prob(p){}
+//			uint16_t previous_state;
+//			float prob;
+//		};
+//		
+//		alt_stochTable(size_t states, size_t seq_length);
+//		~alt_stochTable();
+//		
+//		void push(size_t pos, size_t st, size_t st_to, float val);
+//		void push_ending(size_t st_to,float val);
+//		void traceback(traceback_path& path);
+//		void finalize();
+//		std::string stringify();
+//		void print();
+//		
+//	private:
+//		size_t states;
+//		size_t seq_length;
+//		std::vector< sparseArray<std::vector<stoch_val> > >* table;
+//		std::vector<stoch_val> ending;
+//		
+//	};
+	
+	class alt_simple_stochTable{
+	public:
+		struct stoch_val{
+			stoch_val(uint16_t prev, float p): previous_state(prev), prob(p){}
+			uint16_t previous_state;
+			float prob;
+		};
+		
+		alt_simple_stochTable(size_t states, size_t seq_length);
+		~alt_simple_stochTable();
+		
+		void push(size_t pos, size_t st, size_t st_to, float val);
+		void push_ending(size_t st_to,float val);
+		void traceback(traceback_path& path);
+		void finalize();
+		std::string stringify();
+		void print();
+		
+	private:
+		size_t states;
+		size_t seq_length;
+		std::vector<std::vector<std::vector<stoch_val> > >* table;
+		std::vector<stoch_val> ending;
+	};
+	
+
 
 }
 

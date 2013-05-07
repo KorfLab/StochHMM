@@ -94,7 +94,7 @@ StateFuncs default_functions;
 
 int main(int argc, const char * argv[])
 {
-    
+    srand(std::time(NULL));
     //Parse commandline arguments defined
     opt.set_parameters(commandline,opt_size,usage);
 	
@@ -297,12 +297,41 @@ void perform_stochastic_decoding(model* hmm, sequences* seqs){
 	int repetitions = opt.iopt("-rep");
     
     if (viterbi){
-		trell.stochastic_viterbi();
+		clock_t start = clock();
+//		trell.stochastic_viterbi();
+//		//create multiple paths object to stor
+//		multiTraceback paths;
+//		trell.stochastic_traceback(paths, repetitions);
+		clock_t stop = clock();
+//		
+//		std::cout << (double) stop-start/ (double) CLOCKS_PER_SEC << std::endl;
 		
-		//create multiple paths object to stor
-		multiTraceback paths;
-		trell.stochastic_traceback(paths, repetitions);
-		print_output(&paths, seqs->getHeader());
+		//print_output(&paths, seqs->getHeader());
+		
+		
+//		start = clock();
+//		trellis alt_trell(hmm,seqs);
+//		alt_trell.simple_alt_stochastic_viterbi(hmm,seqs);
+//		multiTraceback alt_paths;
+//		trell.stochastic_traceback(alt_paths, repetitions);
+//		stop = clock();
+//		
+//		std::cout << (double) stop-start/ (double) CLOCKS_PER_SEC << std::endl;
+		
+		
+		start = clock();
+		trellis simple_trellis(hmm,seqs);
+		simple_trellis.simple_simple_stochastic_viterbi(hmm,seqs);
+		multiTraceback simple_paths;
+		trell.stochastic_traceback(simple_paths, repetitions);
+		stop = clock();
+		
+		std::cout << (double) stop-start/ (double) CLOCKS_PER_SEC << std::endl;
+		//print_output(&simple_paths, seqs->getHeader());
+//		//create multiple paths object to stor
+//		multiTraceback paths;
+//		trell.stochastic_traceback(paths, repetitions);
+//		print_output(&paths, seqs->getHeader());
     }
     else if (forward){
 		trell.stochastic_forward();

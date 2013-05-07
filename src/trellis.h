@@ -38,8 +38,12 @@
 #include <stdint.h>
 #include <iomanip>
 #include "stochTable.h"
+#include "sparseArray.h"
 
 namespace StochHMM{
+	
+	
+	
 	
 	
 	typedef std::vector<std::vector<int16_t> > int_2D;
@@ -188,6 +192,8 @@ namespace StochHMM{
 				
 		void simple_stochastic_viterbi();
 		void simple_stochastic_viterbi(model* h, sequences* sqs);
+//		void simple_alt_stochastic_viterbi(model* h, sequences* sqs);
+		void simple_simple_stochastic_viterbi(model* h, sequences* sqs);
 		
 		void simple_stochastic_forward();
 		void simple_stochastic_forward(model* h, sequences* sqs);
@@ -326,6 +332,8 @@ namespace StochHMM{
 		int_2D*		traceback_table;	//Simple traceback table
 //		int_3D*		nth_traceback_table;//Nth-Viterbi traceback table
 		stochTable* stochastic_table;
+//		alt_stochTable* alt_stochastic_table;
+		alt_simple_stochTable* alt_simple_stochastic_table;
 		
 		//Score Tables
 		float_2D*	viterbi_score;      //Storing Viterbi scores
