@@ -1243,9 +1243,9 @@ namespace StochHMM{
 					if(states[st_iter]->getEnding() == NULL){
 						std::cerr << "State: "  << states[st_iter]->getName() << " is an orphaned state that has only transition to itself\n";
 					}
-					else{
-						std::cerr << "State: "  << states[st_iter]->getName() << " may be an orphaned state that only has transitions to itself and END state.\n";
-					}
+//					else{
+//						std::cerr << "State: "  << states[st_iter]->getName() << " may be an orphaned state that only has transitions to itself and END state.\n";
+//					}
 				}
 				
 				for(size_t i=0; i < tmp_visited.size(); i++){

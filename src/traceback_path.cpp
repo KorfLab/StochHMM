@@ -315,6 +315,8 @@ namespace StochHMM{
         for(size_t k = path_size-1; k != SIZE_MAX; k--){
             state* st = hmm->getState(trace_path[k]);
             std::string new_label=st->getGFF();
+			
+			//If no label then print 
             if (new_label.compare("")==0){
                 if (start>0){
                     std::cout << sequence_name << "\tStochHMM\t" << current_label <<"\t"<< start << "\t" << path_size-(k+1) << "\t.\t+"<<std::endl;
@@ -326,20 +328,28 @@ namespace StochHMM{
                 }
             }
             else {
-                if(k==0){
-                    std::cout << sequence_name << "\tStochHMM\t" << current_label <<"\t"<< start << "\t" << path_size << "\t.\t+"<<std::endl;
-                }
-                else if (start==0){
+                if (start==0){
                     start=path_size-k;
                     current_label=new_label;
                 }
                 else if (new_label.compare(current_label)==0){
+					if(k==0){
+						std::cout << sequence_name << "\tStochHMM\t" << current_label <<"\t"<< start << "\t" << path_size << "\t.\t+"<<std::endl;
+						
+					}
+					
                     continue;
                 }
                 else {
                     std::cout << sequence_name << "\tStochHMM\t" << current_label <<"\t"<< start << "\t" << path_size-(k+1) << "\t.\t+"<<std::endl;
-                    start=path_size-k;
+					
+					start=path_size-k;
                     current_label=new_label;
+					
+					if(k==0){
+						std::cout << sequence_name << "\tStochHMM\t" << current_label <<"\t"<< start << "\t" << path_size << "\t.\t+"<<std::endl;
+					}
+                    
                 }
             }
             
