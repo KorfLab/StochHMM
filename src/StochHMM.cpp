@@ -298,11 +298,11 @@ void perform_stochastic_decoding(model* hmm, sequences* seqs){
     
     if (viterbi){
 		clock_t start = clock();
-//		trell.stochastic_viterbi();
-//		//create multiple paths object to stor
-//		multiTraceback paths;
-//		trell.stochastic_traceback(paths, repetitions);
-		clock_t stop = clock();
+		trell.stochastic_viterbi();
+		//create multiple paths object to stor
+		multiTraceback paths;
+		trell.stochastic_traceback(paths, repetitions);
+//		clock_t stop = clock();
 //		
 //		std::cout << (double) stop-start/ (double) CLOCKS_PER_SEC << std::endl;
 		
@@ -319,19 +319,19 @@ void perform_stochastic_decoding(model* hmm, sequences* seqs){
 //		std::cout << (double) stop-start/ (double) CLOCKS_PER_SEC << std::endl;
 		
 		
-		start = clock();
-		trellis simple_trellis(hmm,seqs);
-		simple_trellis.simple_simple_stochastic_viterbi(hmm,seqs);
-		multiTraceback simple_paths;
-		trell.stochastic_traceback(simple_paths, repetitions);
-		stop = clock();
-		
-		std::cout << (double) stop-start/ (double) CLOCKS_PER_SEC << std::endl;
-		//print_output(&simple_paths, seqs->getHeader());
+//		start = clock();
+//		trellis simple_trellis(hmm,seqs);
+//		simple_trellis.simple_simple_stochastic_viterbi(hmm,seqs);
+//		multiTraceback simple_paths;
+//		trell.stochastic_traceback(simple_paths, repetitions);
+//		stop = clock();
+//		
+//		std::cout << (double) stop-start/ (double) CLOCKS_PER_SEC << std::endl;
+//		//print_output(&simple_paths, seqs->getHeader());
 //		//create multiple paths object to stor
 //		multiTraceback paths;
-//		trell.stochastic_traceback(paths, repetitions);
-//		print_output(&paths, seqs->getHeader());
+		trell.stochastic_traceback(paths, repetitions);
+		print_output(&paths, seqs->getHeader());
     }
     else if (forward){
 		trell.stochastic_forward();

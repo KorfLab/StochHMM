@@ -161,7 +161,7 @@ namespace StochHMM {
         }
 		
 		stochastic_table->finalize();
-		stochastic_table->print();
+		//stochastic_table->print();
 		
 		delete scoring_previous;
 		delete scoring_current;
@@ -253,7 +253,7 @@ namespace StochHMM {
 		}
 		
 		stochastic_table->finalize();
-		stochastic_table->print();
+		//stochastic_table->print();
 		
 		return;
 	}

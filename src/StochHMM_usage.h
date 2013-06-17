@@ -23,8 +23,15 @@ Files: reqires a sequence file and a model file\n\
 \n\
 Non-stochastic Decoding:  Different algorithms available for decoding\n\
 \t-viterbi\t\t\tperforms viterbi traceback\n\
-Posterior:\n\
 \t-posterior\t\tCalculates posterior probabilities\n\
+\t-nbest <number of paths> \t\tperforms n-best viterbi algorithm\n\
+\n\
+Stochastic Decoding:\n\
+\t-stochastic <Type of stochastic algorithm to use> -repetitions <number of tracebacks to sample>\n\
+\t\tTypes:\n\
+\t\tforward\t\t\tperforms stochastic traceback using forward algorithm\n\
+\t\tviterbi\t\t\tperforms stochastic traceback using modified-viterbi algorithm\n\
+\t\tposterior\t\t\tperforms stochastic traceback using posterior algorithm\n\
 \n\
 Output options:\n\
 \t-gff\t\t\tprints path in GFF format\n\
