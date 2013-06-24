@@ -94,7 +94,7 @@ StateFuncs default_functions;
 
 int main(int argc, const char * argv[])
 {
-    srand(std::time(NULL));
+    srand(time(NULL));
     //Parse commandline arguments defined
     opt.set_parameters(commandline,opt_size,usage);
 	
@@ -297,7 +297,7 @@ void perform_stochastic_decoding(model* hmm, sequences* seqs){
 	int repetitions = opt.iopt("-rep");
     
     if (viterbi){
-		clock_t start = clock();
+//		clock_t start = clock();
 		trell.stochastic_viterbi();
 		//create multiple paths object to stor
 		multiTraceback paths;
