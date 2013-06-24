@@ -310,7 +310,10 @@ namespace StochHMM{
         std::string current_label="";
         long long start=0;
         size_t path_size=size();
-        //cout << trace_path.size() << endl;
+		
+		if (sequence_name[0] == '>'){
+			sequence_name = sequence_name.substr(1);
+		}
         
         for(size_t k = path_size-1; k != SIZE_MAX; k--){
             state* st = hmm->getState(trace_path[k]);
@@ -319,7 +322,7 @@ namespace StochHMM{
 			//If no label then print 
             if (new_label.compare("")==0){
                 if (start>0){
-                    std::cout << sequence_name << "\tStochHMM\t" << current_label <<"\t"<< start << "\t" << path_size-(k+1) << "\t.\t+"<<std::endl;
+                    std::cout << sequence_name << "\tStochHMM\t" << current_label <<"\t"<< start << "\t" << path_size-(k+1) << "\t.\t+\t."<<std::endl;
                     start=0;
                     current_label=new_label;
                 }
@@ -334,20 +337,20 @@ namespace StochHMM{
                 }
                 else if (new_label.compare(current_label)==0){
 					if(k==0){
-						std::cout << sequence_name << "\tStochHMM\t" << current_label <<"\t"<< start << "\t" << path_size << "\t.\t+"<<std::endl;
+						std::cout << sequence_name << "\tStochHMM\t" << current_label <<"\t"<< start << "\t" << path_size << "\t.\t+\t."<<std::endl;
 						
 					}
 					
                     continue;
                 }
                 else {
-                    std::cout << sequence_name << "\tStochHMM\t" << current_label <<"\t"<< start << "\t" << path_size-(k+1) << "\t.\t+"<<std::endl;
+                    std::cout << sequence_name << "\tStochHMM\t" << current_label <<"\t"<< start << "\t" << path_size-(k+1) << "\t.\t+\t."<<std::endl;
 					
 					start=path_size-k;
                     current_label=new_label;
 					
 					if(k==0){
-						std::cout << sequence_name << "\tStochHMM\t" << current_label <<"\t"<< start << "\t" << path_size << "\t.\t+"<<std::endl;
+						std::cout << sequence_name << "\tStochHMM\t" << current_label <<"\t"<< start << "\t" << path_size << "\t.\t+\t."<<std::endl;
 					}
                     
                 }

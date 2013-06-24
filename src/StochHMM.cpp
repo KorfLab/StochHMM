@@ -409,7 +409,7 @@ void print_output(traceback_path* tb, std::string& header){
     bool previous(true);
     
     if (opt.isSet("-gff")){
-        std::cout << "Score: " << tb->getScore() << std::endl;
+        std::cout << "#Score: " << tb->getScore() << std::endl;
         tb->print_gff(header);
         previous=false;
     }

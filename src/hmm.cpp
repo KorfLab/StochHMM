@@ -1236,7 +1236,7 @@ namespace StochHMM{
 				//Check orphaned
 				if (num_visited == 0 ){
 					//No transitions
-					std::cerr << "State: "  << states[st_iter]->getName() << " has not transitions defined\n";
+					//std::cerr << "Warning: State: "  << states[st_iter]->getName() << " has no transitions defined\n";
 				}
 				else if (num_visited == 1 && tmp_visited[0] == st_iter){
 					//Orphaned
