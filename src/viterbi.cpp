@@ -613,7 +613,12 @@ namespace StochHMM {
 				//then we'll increment the value. Otherwise, set to zero;
 				if (explicit_duration_current){
 					if (extend_duration && (*duration)[st_current]){
-						(*explicit_duration_current)[st_current]=(*explicit_duration_previous)[st_current]+1;
+						if ((*explicit_duration_previous)[st_current]==0){
+							(*explicit_duration_current)[st_current]=2;
+						}
+						else{
+							(*explicit_duration_current)[st_current]=(*explicit_duration_previous)[st_current]+1;
+						}
 						extend_duration=false;
 					}
 					else{
