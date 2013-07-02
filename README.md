@@ -74,7 +74,7 @@ datasets or functions within the HMM trellis in order to arrive at a better pred
 	2. Transitions
 		- Standard Transitions
 		- Lexical Transitions (Single or multiple emission)
-		- Explicit Duration Transitions
+		- (Preliminary Support) Explicit Duration Transitions
 		- Linkable to user-defined functions
 - Decoding
 	1. Traditional Decoding Algorithms
