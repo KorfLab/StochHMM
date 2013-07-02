@@ -271,14 +271,13 @@ namespace StochHMM {
 	size_t trellis::get_explicit_duration_length(transition* trans, size_t sequencePosition, size_t state_iter, size_t to_state){
 		
 		if ((*explicit_duration_previous)[state_iter]!=0){
+//			std::cout << "Duration:\t" << (*explicit_duration_previous)[state_iter]+1 << std::endl;
 			return (*explicit_duration_previous)[state_iter]+1;
 		}
 		
 		
-		//If it hasn't been defined then traceback until the ending parameter is reached
-		
+		//If duration hasn't been defined then traceback until the ending parameter is reached
 		size_t length(0);
-	
 		
 		size_t tbState(state_iter);  //First traceback pointer to use in traceback_table
 		
@@ -288,13 +287,15 @@ namespace StochHMM {
 		//string identifier = previousState->transi[transitionTo].traceback_string;
 		std::string identifier = trans->getTracebackString();
 		
-		
+		//Traceback through trellis until the correct identifier is reached.
 		for(size_t trellPos=sequencePosition-1 ; trellPos != SIZE_MAX ;trellPos--){
-			//for(;trellisPos>=0;trellisPos--){
 			length++;
-			//state=trellis.trell[trellisPos][state].ptr;  //Get previous state traceback
-			
 			tbState = (*traceback_table)[trellPos][tbState];
+			
+			if (tbState == SIZE_MAX){
+				break;
+			}
+			
 			state* st = hmm->getState(tbState);
 			
 			//Check to see if stop conditions of traceback are met, if so break;
@@ -305,6 +306,7 @@ namespace StochHMM {
 			else if (traceback_identifier == STATE_GFF   && identifier.compare(st->getGFF())==0)	{ break;}
 			
 		}
+//		std::cout << "Duration:\t" << length+1 << std::endl;
 		return length+1;
 
 	}

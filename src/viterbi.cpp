@@ -709,6 +709,9 @@ namespace StochHMM {
                         (*scoring_current)[i] = viterbi_temp;
                     }
 					next_states |= (*(*hmm)[i]->getTo());
+//					if ((*duration)[i]){
+//						(*explicit_duration_previous)[i]=1;
+//					}
                 }
             }
         }
@@ -734,8 +737,8 @@ namespace StochHMM {
 			
 			//TODO: Check use of external definitions below.
 			
-			//std::cout << "\nPosition:\t" << position << "\n";
-			//			std::cout << "Letter:\t" << seqs->seqValue(0, position) << std::endl;
+//			std::cout << "\nPosition:\t" << position << "\n";
+//			std::cout << "Letter:\t" << seqs->seqValue(0, position)+1 << std::endl;
 			
             for (size_t i = 0; i < state_size; ++i){ //i is current state that emits value
                 if (!current_states[i]){
@@ -747,7 +750,7 @@ namespace StochHMM {
                 emission = (*hmm)[i]->get_emission_prob(*seqs, position);
 				
 				
-				//				std::cout << "State Emission:\t" << i << "\t" << exp(emission) << std::endl;
+//				std::cout << "State Emission:\t" << i << "\t" << exp(emission) << std::endl;
 				
 				if (exDef_defined && exDef_position){
                     emission += seqs->getWeight(position, i);
@@ -763,9 +766,9 @@ namespace StochHMM {
                     if ((*scoring_previous)[j] != -INFINITY){
                         viterbi_temp = getTransition((*hmm)[j], i , position) + emission + (*scoring_previous)[j];
                         
-						//std::cout << exp(getTransition((*hmm)[j],i,position)) << std::endl;
-						
-						//						std::cout << "Temp Viterbi:\tTransFrom: "<< j << "\tto\t" << i << "\t" << viterbi_temp / log(2) << std::endl;
+//						std::cout << "TransFrom: "<< j << "\tto\t" << i << "\t" << exp(getTransition((*hmm)[j],i,position)) << std::endl;
+//						
+//						std::cout << "Temp Viterbi:\t" << viterbi_temp << std::endl;
                         
 						
 						if (viterbi_temp > (*scoring_current)[i]){
@@ -785,7 +788,12 @@ namespace StochHMM {
 				//then we'll increment the value. Otherwise, set to zero;
 				if (explicit_duration_current){
 					if (extend_duration && (*duration)[i]){
-						(*explicit_duration_current)[i]=(*explicit_duration_previous)[i]+1;
+						if ((*explicit_duration_previous)[i]==0){
+							(*explicit_duration_current)[i]=2;
+						}
+						else{
+							(*explicit_duration_current)[i]=(*explicit_duration_previous)[i]+1;
+						}
 						extend_duration=false;
 					}
 					else{
