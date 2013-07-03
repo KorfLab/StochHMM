@@ -90,6 +90,12 @@ namespace StochHMM{
     //!Get names of traceback path
     //!\param [out] pth vector<string>
     void traceback_path::name(std::vector<std::string>& pth){
+		
+		if ( hmm==NULL ){
+			std::cerr << "Model is NULL.  traceback::name(...) must have valid HMM model defined.\n";
+			exit(2);
+		}
+		
         for(size_t k = trace_path.size()-1; k != SIZE_MAX; k--){
             state* st = hmm->getState(trace_path[k]);
             pth.push_back(st->getName());
@@ -104,6 +110,11 @@ namespace StochHMM{
         std::string current_label="";
         long long start=0;
         size_t path_size=size();
+		
+		if ( hmm==NULL ){
+			std::cerr << "Model is NULL.  traceback::gff(...) must have valid HMM model defined.\n";
+			exit(2);
+		}
         
         for(size_t k = path_size-1;k != SIZE_MAX; k--){
             state* st = hmm->getState(trace_path[k]);
@@ -251,6 +262,12 @@ namespace StochHMM{
     //!Print traceback_path labels to stdout
     void traceback_path::print_label() const {
         int line=0;
+		
+		if ( hmm==NULL ){
+			std::cerr << "Model is NULL.  traceback::print_label() must have valid HMM model defined.\n";
+			exit(2);
+		}
+		
         for(size_t k = trace_path.size()-1;k != SIZE_MAX;k--){
 //            if(line==WID && WID>0){
 //                std::cout<< std::endl;
@@ -269,6 +286,11 @@ namespace StochHMM{
         std::string current_label="";
         long long start=0;
         size_t path_size=this->size();
+		
+		if ( hmm==NULL ){
+			std::cerr << "Model is NULL.  traceback::print_gff(...) must have valid HMM model defined.\n";
+			exit(2);
+		}
         
         for(size_t k=path_size-1;k != SIZE_MAX;k--){
             state* st = hmm->getState(trace_path[k]);
@@ -313,6 +335,11 @@ namespace StochHMM{
 		
 		if (sequence_name[0] == '>'){
 			sequence_name = sequence_name.substr(1);
+			
+			if ( hmm==NULL ){
+				std::cerr << "Model is NULL.  traceback::print_gff(...) must have valid HMM model defined.\n";
+				exit(2);
+			}
 		}
         
         for(size_t k = path_size-1; k != SIZE_MAX; k--){
