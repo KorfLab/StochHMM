@@ -86,6 +86,7 @@ namespace StochHMM{
 		//!Get the model used for the decoding
         //! \return model
 		inline model* getModel() const {return hmm;};
+		inline void setModel(model* mdl){hmm=mdl;};
         
 		
 		//!Print the path to file stream

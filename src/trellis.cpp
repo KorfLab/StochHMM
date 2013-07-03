@@ -400,9 +400,13 @@ namespace StochHMM {
 	//!Perform traceback through trellis
     //!\return path trackback_path
     void trellis::traceback(traceback_path& path){
-				
+		
 		if (seq_size==0 || traceback_table == NULL){
 			return;
+		}
+		
+		if (path.getModel() == NULL){
+			path.setModel(hmm);
 		}
 		
 		if (ending_viterbi_score == -INFINITY){
@@ -436,6 +440,10 @@ namespace StochHMM {
 	void trellis::traceback(traceback_path& path, size_t position, size_t state){
 		if (seq_size == 0 || traceback_table == NULL){
 			return;
+		}
+		
+		if (path.getModel() == NULL){
+			path.setModel(hmm);
 		}
 		
 		int16_t pointer = (*traceback_table)[position][state];
