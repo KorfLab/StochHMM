@@ -205,7 +205,7 @@ namespace StochHMM{
                             }
                         }
                         else{
-                            opts[tag]->data.i=atof(argv[++i]);
+                            opts[tag]->data.d=atof(argv[++i]);
                         }
                         
                         break;
@@ -456,7 +456,7 @@ namespace StochHMM{
     //!\return double
     double &options::dopt(const char * param){
         if (opts.count(param)){
-            if (opts[param]->set && opts[param]->type==OPT_INT){
+            if (opts[param]->set && opts[param]->type==OPT_DOUBLE){
                 return opts[param]->data.d;
             }
             else{
