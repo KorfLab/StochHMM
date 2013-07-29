@@ -10,7 +10,7 @@
 #define StochHMM_StochHMM_usage_h
 
 const char usage[]  = "\n\
-StochHMM - Stochastic Hidden Markov Model Framework (version 0.33) Date: July 29, 2013\n\
+StochHMM - Stochastic Hidden Markov Model Framework (version 0.34) Date: July 29, 2013\n\
 \n\
 Usage: StochHMM -model <model_file>  -seq <seq_file> [options]\n\
 \n\
@@ -41,6 +41,7 @@ Output options:\n\
 \t-gff\t\t\tprints path in GFF format\n\
 \t-path\t\t\tprints state path according to state number\n\
 \t-label\t\t\tprints state path as labels\n\
+\t-hits\t\tprints hit table from stochastic sampling for each position and state\n\
 \n\
 Written by Paul Lott at University of California, Davis\n\
 Please direct any questions, suggestions or bugs reports to Paul Lott at plott@ucdavis.edu\n\

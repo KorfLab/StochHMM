@@ -332,7 +332,6 @@ void perform_stochastic_decoding(model* hmm, sequences* seqs){
 //		//print_output(&simple_paths, seqs->getHeader());
 //		//create multiple paths object to stor
 //		multiTraceback paths;
-		trell.stochastic_traceback(paths, repetitions);
 		print_output(&paths, seqs->getHeader());
     }
     else if (forward){

@@ -566,15 +566,15 @@ namespace StochHMM{
         std::string header_row = "Position";
         model* hmm = ((*pathAccess[0]).first).getModel();
         for (size_t state_iter =0; state_iter<hmm->state_size(); state_iter++){
-            header_row+=",";
+            header_row+="\t";
             header_row+=hmm->getStateName(state_iter);
         }
 
         std::cout << header_row << std::endl;
         
         for(size_t position = 0; position < table->size(); position++){
-            std::string line = join((*table)[position], ',');
-            std::cout << position << "," << line << std::endl;
+            std::string line = join((*table)[position], '\t');
+            std::cout << position+1 << "\t" << line << std::endl;
         }
         
         return;
