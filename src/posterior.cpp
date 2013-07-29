@@ -336,7 +336,7 @@ namespace StochHMM {
 		
 		double max(-INFINITY);
 		int16_t max_ptr(-1);
-		for(size_t position=seq_size-1; position > 0 ;position--){
+		for(size_t position=seq_size-1; position != SIZE_MAX ;position--){
 			max = -INFINITY;
 			max_ptr = -1 ;
 			
