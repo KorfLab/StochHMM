@@ -50,6 +50,7 @@ void print_output(multiTraceback*, std::string&);
 void print_output(std::vector<traceback_path>&, std::string&);
 void print_output(traceback_path*, std::string&);
 void print_posterior(trellis&);
+void print_limited_posterior(trellis& trell);
 
 
 //Sets the command-line options for the program
@@ -66,6 +67,7 @@ opt_parameters commandline[]={
     {"-viterbi"     ,OPT_NONE       ,false  ,"",    {}},
 	{"-nbest"       ,OPT_INT        ,false  ,"3",   {}},
     {"-posterior"   ,OPT_STRING		,false  ,"",    {}},
+	{"-threshold"	,OPT_DOUBLE		,false	,"",	{}},
 	//Stochastic Decoding
     {"-stochastic"  ,OPT_FLAG       ,false  ,"",    {"viterbi","forward","posterior"}},
     {"-repetitions:-rep",OPT_INT    ,false  ,"1000",{}},
@@ -367,6 +369,9 @@ void perform_posterior(model* hmm, sequences* seqs){
 		trell.traceback_posterior(path);
 		print_output(&path, seqs->getHeader());
 	}
+	else if (opt.isSet("-threshold")){
+		print_limited_posterior(trell);
+	}
 	else{
 		print_posterior(trell);
 	}
@@ -482,6 +487,67 @@ void print_posterior(trellis& trell){
 	
 	return;
 	
+}
+
+void print_limited_posterior(trellis& trell){
+	model* hmm = trell.getModel();
+	double_2D* table = trell.getPosteriorTable();
+	size_t state_size = hmm->state_size();
+	char cstr[200];
+	double threshold = opt.dopt("-threshold");
+	
+	std::string output;
+	output+="Posterior Probabilities Table\n";
+	output+="Model:\t" + hmm->getName() + "\n";
+	output+="Sequence:\t" + trell.getSeq()->getHeader() + "\n";
+	sprintf(cstr, "Probability of Sequence from Forward: Natural Log'd\t%f\n",trell.getForwardProbability());
+	output+= cstr;
+	sprintf(cstr, "Probability of Sequence from Backward:Natural Log'd\t%f\n",trell.getBackwardProbability());
+	output+= cstr;
+	output+= "Position";
+	
+	
+	//Determine states with GFF_DESC
+	std::vector<size_t> states_with_gff;
+	std::vector<size_t>::iterator st;
+	for(size_t i=0;i< state_size; ++i){
+		if (!hmm->getStateGFF(i).empty()){
+			output+= "\t" + hmm->getStateGFF(i);
+			states_with_gff.push_back(i);
+		}
+	}
+	output+="\n";
+	
+	//Print Header
+	std::cout <<  output;
+	
+	
+	//Print lines in table with values greater than threshold value
+	for(size_t position = 0; position < table->size(); ++position){
+		bool valid_line(false);
+		output="";
+		for (st = states_with_gff.begin() ; st != states_with_gff.end() ; st++){
+			if (exp((*table)[position][(*st)]) >= threshold){
+				sprintf(cstr,"\t%.3f", exp((*table)[position][(*st)]));
+				output+= cstr;
+				valid_line=true;
+			}
+			else{
+				output+="\t";
+			}
+		}
+		
+		if (valid_line){
+			sprintf(cstr, "%ld", position+1);
+			output = cstr + output + "\n";
+			std::cout << output;
+		}
+		
+	}
+	
+	std::cout << std::endl;
+	
+	return;
 }
 
 

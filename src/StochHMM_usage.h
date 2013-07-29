@@ -10,7 +10,7 @@
 #define StochHMM_StochHMM_usage_h
 
 const char usage[]  = "\n\
-StochHMM - Stochastic Hidden Markov Model Framework (version 0.32) Date: April 22, 2013\n\
+StochHMM - Stochastic Hidden Markov Model Framework (version 0.33) Date: July 29, 2013\n\
 \n\
 Usage: StochHMM -model <model_file>  -seq <seq_file> [options]\n\
 \n\
@@ -24,6 +24,10 @@ Files: reqires a sequence file and a model file\n\
 Non-stochastic Decoding:  Different algorithms available for decoding\n\
 \t-viterbi\t\t\tperforms viterbi traceback\n\
 \t-posterior\t\tCalculates posterior probabilities\n\
+\t\t\tIf no output options are supplied, this will return the posterior scores\n\
+\t\t\tfor all of the states.\n\n\
+\t\t-threshold <score>: Return only the States with a GFF_DESC, if they are\n\
+\t\t\tgreater than or equal to the threshold amount.\n\n\
 \t-nbest <number of paths> \t\tperforms n-best viterbi algorithm\n\
 \n\
 Stochastic Decoding:\n\
