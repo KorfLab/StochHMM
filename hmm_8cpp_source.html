@@ -20,10 +20,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Screen Shot 2013-04-23 at 10.38.21 AM.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">StochHMM
-   &#160;<span id="projectnumber">v0.30</span>
+   &#160;<span id="projectnumber">v0.34</span>
    </div>
    <div id="projectbrief">Flexible Hidden Markov Model C++ Library and Application</div>
   </td>
@@ -1325,16 +1324,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01236"></a><span class="lineno"> 1236</span>&#160;                                <span class="comment">//Check orphaned</span></div>
 <div class="line"><a name="l01237"></a><span class="lineno"> 1237</span>&#160;                                <span class="keywordflow">if</span> (num_visited == 0 ){</div>
 <div class="line"><a name="l01238"></a><span class="lineno"> 1238</span>&#160;                                        <span class="comment">//No transitions</span></div>
-<div class="line"><a name="l01239"></a><span class="lineno"> 1239</span>&#160;                                        std::cerr &lt;&lt; <span class="stringliteral">&quot;State: &quot;</span>  &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1model.html#aa2943145501ab216acbafdc2c0213b3f" title="Tracks defined by model (Contains alphabet and ambiguous character definitions.">states</a>[st_iter]-&gt;getName() &lt;&lt; <span class="stringliteral">&quot; has not transitions defined\n&quot;</span>;</div>
+<div class="line"><a name="l01239"></a><span class="lineno"> 1239</span>&#160;                                        <span class="comment">//std::cerr &lt;&lt; &quot;Warning: State: &quot;  &lt;&lt; states[st_iter]-&gt;getName() &lt;&lt; &quot; has no transitions defined\n&quot;;</span></div>
 <div class="line"><a name="l01240"></a><span class="lineno"> 1240</span>&#160;                                }</div>
 <div class="line"><a name="l01241"></a><span class="lineno"> 1241</span>&#160;                                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (num_visited == 1 &amp;&amp; tmp_visited[0] == st_iter){</div>
 <div class="line"><a name="l01242"></a><span class="lineno"> 1242</span>&#160;                                        <span class="comment">//Orphaned</span></div>
 <div class="line"><a name="l01243"></a><span class="lineno"> 1243</span>&#160;                                        <span class="keywordflow">if</span>(<a class="code" href="class_stoch_h_m_m_1_1model.html#aa2943145501ab216acbafdc2c0213b3f" title="Tracks defined by model (Contains alphabet and ambiguous character definitions.">states</a>[st_iter]-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#aaa06c4e1af632922f62636d92a3daba6" title="Get pointer to the ending state.">getEnding</a>() == NULL){</div>
 <div class="line"><a name="l01244"></a><span class="lineno"> 1244</span>&#160;                                                std::cerr &lt;&lt; <span class="stringliteral">&quot;State: &quot;</span>  &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1model.html#aa2943145501ab216acbafdc2c0213b3f" title="Tracks defined by model (Contains alphabet and ambiguous character definitions.">states</a>[st_iter]-&gt;getName() &lt;&lt; <span class="stringliteral">&quot; is an orphaned state that has only transition to itself\n&quot;</span>;</div>
 <div class="line"><a name="l01245"></a><span class="lineno"> 1245</span>&#160;                                        }</div>
-<div class="line"><a name="l01246"></a><span class="lineno"> 1246</span>&#160;                                        <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l01247"></a><span class="lineno"> 1247</span>&#160;                                                std::cerr &lt;&lt; <span class="stringliteral">&quot;State: &quot;</span>  &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1model.html#aa2943145501ab216acbafdc2c0213b3f" title="Tracks defined by model (Contains alphabet and ambiguous character definitions.">states</a>[st_iter]-&gt;getName() &lt;&lt; <span class="stringliteral">&quot; may be an orphaned state that only has transitions to itself and END state.\n&quot;</span>;</div>
-<div class="line"><a name="l01248"></a><span class="lineno"> 1248</span>&#160;                                        }</div>
+<div class="line"><a name="l01246"></a><span class="lineno"> 1246</span>&#160;<span class="comment">//                                      else{</span></div>
+<div class="line"><a name="l01247"></a><span class="lineno"> 1247</span>&#160;<span class="comment">//                                              std::cerr &lt;&lt; &quot;State: &quot;  &lt;&lt; states[st_iter]-&gt;getName() &lt;&lt; &quot; may be an orphaned state that only has transitions to itself and END state.\n&quot;;</span></div>
+<div class="line"><a name="l01248"></a><span class="lineno"> 1248</span>&#160;<span class="comment">//                                      }</span></div>
 <div class="line"><a name="l01249"></a><span class="lineno"> 1249</span>&#160;                                }</div>
 <div class="line"><a name="l01250"></a><span class="lineno"> 1250</span>&#160;                                </div>
 <div class="line"><a name="l01251"></a><span class="lineno"> 1251</span>&#160;                                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0; i &lt; tmp_visited.size(); i++){</div>
@@ -1398,7 +1397,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 14:59:07 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 30 2013 13:23:11 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

@@ -20,10 +20,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Screen Shot 2013-04-23 at 10.38.21 AM.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">StochHMM
-   &#160;<span id="projectnumber">v0.30</span>
+   &#160;<span id="projectnumber">v0.34</span>
    </div>
    <div id="projectbrief">Flexible Hidden Markov Model C++ Library and Application</div>
   </td>
@@ -360,268 +359,278 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00271"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1trellis.html#a768e57199971e86f7cbac7f455c9fc31">  271</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a768e57199971e86f7cbac7f455c9fc31">trellis::get_explicit_duration_length</a>(<a class="code" href="class_stoch_h_m_m_1_1transition.html" title="Transition information for each state.">transition</a>* trans, <span class="keywordtype">size_t</span> sequencePosition, <span class="keywordtype">size_t</span> state_iter, <span class="keywordtype">size_t</span> to_state){</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                </div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                <span class="keywordflow">if</span> ((*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#af215a4eff8b834139e4eeed7a0069548">explicit_duration_previous</a>)[state_iter]!=0){</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                        <span class="keywordflow">return</span> (*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#af215a4eff8b834139e4eeed7a0069548">explicit_duration_previous</a>)[state_iter]+1;</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                }</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="comment">//                      std::cout &lt;&lt; &quot;Duration:\t&quot; &lt;&lt; (*explicit_duration_previous)[state_iter]+1 &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                        <span class="keywordflow">return</span> (*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#af215a4eff8b834139e4eeed7a0069548">explicit_duration_previous</a>)[state_iter]+1;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                }</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                </div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                <span class="comment">//If it hasn&#39;t been defined then traceback until the ending parameter is reached</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                </div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                <span class="comment">//If duration hasn&#39;t been defined then traceback until the ending parameter is reached</span></div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;                <span class="keywordtype">size_t</span> length(0);</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        </div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;                </div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;                <span class="keywordtype">size_t</span> tbState(state_iter);  <span class="comment">//First traceback pointer to use in traceback_table</span></div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;                </div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;                <span class="comment">//tracebackIdentifier traceback_identifier = previousState-&gt;transi[transitionTo].traceback_identifier;</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;                <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0">tracebackIdentifier</a> traceback_identifier = trans-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition.html#a4b5769b7b26685e5dfd5540a7c90b6cd">getTracebackIdentifier</a>();</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                </div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;                <span class="comment">//string identifier = previousState-&gt;transi[transitionTo].traceback_string;</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;                std::string identifier = trans-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition.html#ae1c7d74bdfa8a85ef1347d5827cdd82b">getTracebackString</a>();</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;                </div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;                </div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> trellPos=sequencePosition-1 ; trellPos != <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a> ;trellPos--){</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                        <span class="comment">//for(;trellisPos&gt;=0;trellisPos--){</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;                        length++;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;                        <span class="comment">//state=trellis.trell[trellisPos][state].ptr;  //Get previous state traceback</span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;                        </div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;                        tbState = (*traceback_table)[trellPos][tbState];</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1state.html">state</a>* st = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(tbState);</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;                        </div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;                        <span class="comment">//Check to see if stop conditions of traceback are met, if so break;</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;                        <span class="keywordflow">if</span>(traceback_identifier == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0affb06959a95d912e7fbdb602fe454108">START_INIT</a> &amp;&amp; tbState == <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>) {<span class="keywordflow">break</span>;}</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (traceback_identifier == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a4854244905e0725bfd743559f2825d97">DIFF_STATE</a>  &amp;&amp; state_iter != st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a2c11ceb39aba9631ba41e3a5259e8da5">getIterator</a>())        { <span class="keywordflow">break</span>;}</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (traceback_identifier == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a18e765406f9d8a5caa2b0d0a6c9f998a">STATE_NAME</a>  &amp;&amp; identifier.compare(st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a71abeddc4bd5dd3d950c48b199a515d2">getName</a>())==0)   { <span class="keywordflow">break</span>;}</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (traceback_identifier == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0ac2040123c6c745b59fc47ad26b2e6da4">STATE_LABEL</a> &amp;&amp; identifier.compare(st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#ac58f8dfc39b64abbba92a94029565cc9">getLabel</a>())==0)  { <span class="keywordflow">break</span>;}</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (traceback_identifier == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a58a38a1a765f474348b77316f16a6705">STATE_GFF</a>   &amp;&amp; identifier.compare(st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a19f06f455f339e01577e163570b1e2b2">getGFF</a>())==0)    { <span class="keywordflow">break</span>;}</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;                        </div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                }</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                <span class="keywordflow">return</span> length+1;</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        }</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        <span class="comment"></span></div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="comment">    //! When a transitionFunc is to be called it must performs a traceback</span></div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="comment">        //! and get the required sequence to pass to the function</span></div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="comment">        //! \param </span></div>
-<div class="line"><a name="l00315"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1trellis.html#a5b704d0f6287fc39b5f7ca7d450f10d6">  315</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a5b704d0f6287fc39b5f7ca7d450f10d6">trellis::transitionFuncTraceback</a>(<a class="code" href="class_stoch_h_m_m_1_1state.html">state</a>* st, <span class="keywordtype">size_t</span> position,<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html">transitionFuncParam</a>* func){</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        </div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        std::vector&lt;int&gt; tracebackPath;</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        std::vector&lt;std::string&gt; tracebackString;</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;                </div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;       <span class="comment">//How far to traceback</span></div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0">tracebackIdentifier</a> traceback_identifier = func-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a6a610164f59eef33f214b0863f81a1ff">getTracebackType</a>();</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        <span class="keyword">const</span> std::string&amp; tracebackIdentifierName = func-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a5cd4b82744c96e747634551c476bfc53">getTracebackName</a>();</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        </div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        </div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        <span class="comment">//What to combine</span></div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3af">combineIdentifier</a> combineIdent = func-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a318e1dbaed8248a6515f4277c538ca9d">getCombineType</a>();</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        <span class="keyword">const</span> std::string&amp; combineIdentName = func-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a07501a3c6a348ddb8bf9251108b6e800">getCombineName</a>();</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        </div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        </div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        <span class="comment">//Deterimine which track to use</span></div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1track.html">track</a>* alphaTrack = func-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#aeb5ab01387b3bf16657f4dc9fdbff7a8">getTrack</a>();</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        <span class="keywordtype">size_t</span> trackIndex = alphaTrack-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a2c18fbb6e1c6aa8aa41a33d07bc6e279">getIndex</a>();</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        <span class="keywordflow">if</span> (!alphaTrack-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a7ccbf6be8098e5911b3914d32072e164">isAlpha</a>()){</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;            </div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;External transition function called on track that isn&#39;t discrete (ALPHANUMERIC)\n&quot;</span>;</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;                        exit(2);</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;            </div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        }</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        </div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        <span class="keyword">const</span> <a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>* seq = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a1d21bebb2a29871e7be2b8eea29d69a6">seqs</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0bb47e055e4055c5941f366feddb31d9">getSeq</a>(trackIndex);</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        int16_t tb_state(st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a2c11ceb39aba9631ba41e3a5259e8da5">getIterator</a>());</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;                int16_t starting_state = tb_state;</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;                </div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> trellisPos = position-1; trellisPos != <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a> ; --trellisPos){</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;            </div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;            tracebackPath.push_back(tb_state);</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                </div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;                <span class="keywordtype">size_t</span> tbState(state_iter);  <span class="comment">//First traceback pointer to use in traceback_table</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;                </div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;                <span class="comment">//tracebackIdentifier traceback_identifier = previousState-&gt;transi[transitionTo].traceback_identifier;</span></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;                <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0">tracebackIdentifier</a> traceback_identifier = trans-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition.html#a4b5769b7b26685e5dfd5540a7c90b6cd">getTracebackIdentifier</a>();</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;                </div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                <span class="comment">//string identifier = previousState-&gt;transi[transitionTo].traceback_string;</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;                std::string identifier = trans-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition.html#ae1c7d74bdfa8a85ef1347d5827cdd82b">getTracebackString</a>();</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;                </div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;                <span class="comment">//Traceback through trellis until the correct identifier is reached.</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> trellPos=sequencePosition-1 ; trellPos != <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a> ;trellPos--){</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;                        length++;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                        tbState = (*traceback_table)[trellPos][tbState];</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;                        </div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;                        <span class="keywordflow">if</span> (tbState == <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>){</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;                                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;                        }</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;                        </div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1state.html">state</a>* st = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(tbState);</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;                        </div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;                        <span class="comment">//Check to see if stop conditions of traceback are met, if so break;</span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;                        <span class="keywordflow">if</span>(traceback_identifier == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0affb06959a95d912e7fbdb602fe454108">START_INIT</a> &amp;&amp; tbState == <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>) {<span class="keywordflow">break</span>;}</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (traceback_identifier == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a4854244905e0725bfd743559f2825d97">DIFF_STATE</a>  &amp;&amp; state_iter != st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a2c11ceb39aba9631ba41e3a5259e8da5">getIterator</a>())        { <span class="keywordflow">break</span>;}</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (traceback_identifier == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a18e765406f9d8a5caa2b0d0a6c9f998a">STATE_NAME</a>  &amp;&amp; identifier.compare(st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a71abeddc4bd5dd3d950c48b199a515d2">getName</a>())==0)   { <span class="keywordflow">break</span>;}</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (traceback_identifier == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0ac2040123c6c745b59fc47ad26b2e6da4">STATE_LABEL</a> &amp;&amp; identifier.compare(st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#ac58f8dfc39b64abbba92a94029565cc9">getLabel</a>())==0)  { <span class="keywordflow">break</span>;}</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (traceback_identifier == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a58a38a1a765f474348b77316f16a6705">STATE_GFF</a>   &amp;&amp; identifier.compare(st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a19f06f455f339e01577e163570b1e2b2">getGFF</a>())==0)    { <span class="keywordflow">break</span>;}</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                        </div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                }</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="comment">//              std::cout &lt;&lt; &quot;Duration:\t&quot; &lt;&lt; length+1 &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;                <span class="keywordflow">return</span> length+1;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        }</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <span class="comment"></span></div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="comment">    //! When a transitionFunc is to be called it must performs a traceback</span></div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="comment">        //! and get the required sequence to pass to the function</span></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="comment">        //! \param </span></div>
+<div class="line"><a name="l00317"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1trellis.html#a5b704d0f6287fc39b5f7ca7d450f10d6">  317</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">double</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a5b704d0f6287fc39b5f7ca7d450f10d6">trellis::transitionFuncTraceback</a>(<a class="code" href="class_stoch_h_m_m_1_1state.html">state</a>* st, <span class="keywordtype">size_t</span> position,<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html">transitionFuncParam</a>* func){</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        </div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        std::vector&lt;int&gt; tracebackPath;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        std::vector&lt;std::string&gt; tracebackString;</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;                </div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;       <span class="comment">//How far to traceback</span></div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0">tracebackIdentifier</a> traceback_identifier = func-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a6a610164f59eef33f214b0863f81a1ff">getTracebackType</a>();</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        <span class="keyword">const</span> std::string&amp; tracebackIdentifierName = func-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a5cd4b82744c96e747634551c476bfc53">getTracebackName</a>();</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        </div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        </div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        <span class="comment">//What to combine</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3af">combineIdentifier</a> combineIdent = func-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a318e1dbaed8248a6515f4277c538ca9d">getCombineType</a>();</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        <span class="keyword">const</span> std::string&amp; combineIdentName = func-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a07501a3c6a348ddb8bf9251108b6e800">getCombineName</a>();</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        </div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        </div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        <span class="comment">//Deterimine which track to use</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1track.html">track</a>* alphaTrack = func-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#aeb5ab01387b3bf16657f4dc9fdbff7a8">getTrack</a>();</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        <span class="keywordtype">size_t</span> trackIndex = alphaTrack-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a2c18fbb6e1c6aa8aa41a33d07bc6e279">getIndex</a>();</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        <span class="keywordflow">if</span> (!alphaTrack-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a7ccbf6be8098e5911b3914d32072e164">isAlpha</a>()){</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;            </div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;External transition function called on track that isn&#39;t discrete (ALPHANUMERIC)\n&quot;</span>;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;                        exit(2);</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;            </div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        }</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        </div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        <span class="keyword">const</span> <a class="code" href="class_stoch_h_m_m_1_1sequence.html">sequence</a>* seq = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a1d21bebb2a29871e7be2b8eea29d69a6">seqs</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0bb47e055e4055c5941f366feddb31d9">getSeq</a>(trackIndex);</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        int16_t tb_state(st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a2c11ceb39aba9631ba41e3a5259e8da5">getIterator</a>());</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;                int16_t starting_state = tb_state;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;                </div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> trellisPos = position-1; trellisPos != <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a> ; --trellisPos){</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;            </div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;            <span class="keywordflow">if</span> ((combineIdent == <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa1d7fc605341a3b076cf0752b9aef65c5">FULL</a>) ||</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;                (combineIdent == <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa198b8fa516af18756740aa9bcdd35ea9">STATENAME</a> &amp;&amp; combineIdentName.compare(st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a71abeddc4bd5dd3d950c48b199a515d2">getName</a>())==0)||</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;                (combineIdent == <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa93fcf6d9e9ea65f68afa730e67a5d4b1">STATELABEL</a> &amp;&amp; combineIdentName.compare(st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#ac58f8dfc39b64abbba92a94029565cc9">getLabel</a>())==0)||</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                (combineIdent == <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa49875a64cf5df70e633b53bb59795369">STATEGFF</a> &amp;&amp; combineIdentName.compare(st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a19f06f455f339e01577e163570b1e2b2">getGFF</a>())==0))</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;            {</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;                tracebackString.push_back(seq-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a4f1af4805a74eb48d71c5a46792c96a6">getSymbol</a>(trellisPos));</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;            }</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;                        </div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;            tb_state= (*traceback_table)[trellisPos][tb_state];</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1state.html">state</a>* temp_st = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(tb_state);</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;            <span class="comment">//Check to see if stop conditions of traceback are met, if so break;</span></div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;            <span class="keywordflow">if</span>(traceback_identifier == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0affb06959a95d912e7fbdb602fe454108">START_INIT</a> &amp;&amp; tb_state == -1) {<span class="keywordflow">break</span>;}</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (traceback_identifier == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a4854244905e0725bfd743559f2825d97">DIFF_STATE</a>  &amp;&amp; starting_state != tb_state) {  <span class="keywordflow">break</span>;}</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (traceback_identifier == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a18e765406f9d8a5caa2b0d0a6c9f998a">STATE_NAME</a>  &amp;&amp; tracebackIdentifierName.compare(temp_st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a71abeddc4bd5dd3d950c48b199a515d2">getName</a>())==0){ <span class="keywordflow">break</span>;}</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (traceback_identifier == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0ac2040123c6c745b59fc47ad26b2e6da4">STATE_LABEL</a> &amp;&amp; tracebackIdentifierName.compare(temp_st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#ac58f8dfc39b64abbba92a94029565cc9">getLabel</a>())==0) {  <span class="keywordflow">break</span>;}</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (traceback_identifier == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a58a38a1a765f474348b77316f16a6705">STATE_GFF</a>   &amp;&amp; tracebackIdentifierName.compare(temp_st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a19f06f455f339e01577e163570b1e2b2">getGFF</a>())==0) {  <span class="keywordflow">break</span>;}</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        }</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        </div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        <span class="keywordtype">size_t</span> length=tracebackPath.size();</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        std::string CombinedString;</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;                </div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        <span class="keywordtype">size_t</span> maxSymbolSize = alphaTrack-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a548bf92e3a6ec84e79a0496ec51d621e">getAlphaMax</a>();</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;                <span class="comment">//For single letter characters</span></div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        <span class="keywordflow">if</span> (maxSymbolSize ==1){</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;            <span class="keywordflow">for</span>(std::vector&lt;std::string&gt;::reverse_iterator rit = tracebackString.rbegin(); rit!=tracebackString.rend();++rit){</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                CombinedString+=(*rit);</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;            }</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        }</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;                <span class="keywordflow">else</span>{  <span class="comment">// For kmer words &gt; 1 in length</span></div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;                        std::vector&lt;std::string&gt;::reverse_iterator rit = tracebackString.rbegin();</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;                        CombinedString+=(*rit);</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;                        ++rit;</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;                        <span class="keywordflow">for</span>(; rit!=tracebackString.rend();++rit){</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;                                CombinedString+=<span class="stringliteral">&quot;,&quot;</span> + (*rit);</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;            }</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;                }</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        </div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;                <span class="comment">//Call the transitionFunc and get the score back</span></div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        <span class="keywordtype">double</span> transitionValue = func-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a30e0fb41c9911ab63b2069e3c32862bb">evaluate</a>(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a1d21bebb2a29871e7be2b8eea29d69a6">seqs</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a360ce70b661a950da79d0668a3afac9a">getUndigitized</a>(trackIndex), position, &amp;CombinedString, length);</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        </div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <span class="keywordflow">return</span> transitionValue;</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    }</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;        </div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        </div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;            tracebackPath.push_back(tb_state);</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;            </div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;            <span class="keywordflow">if</span> ((combineIdent == <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa1d7fc605341a3b076cf0752b9aef65c5">FULL</a>) ||</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                (combineIdent == <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa198b8fa516af18756740aa9bcdd35ea9">STATENAME</a> &amp;&amp; combineIdentName.compare(st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a71abeddc4bd5dd3d950c48b199a515d2">getName</a>())==0)||</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                (combineIdent == <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa93fcf6d9e9ea65f68afa730e67a5d4b1">STATELABEL</a> &amp;&amp; combineIdentName.compare(st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#ac58f8dfc39b64abbba92a94029565cc9">getLabel</a>())==0)||</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                (combineIdent == <a class="code" href="namespace_stoch_h_m_m.html#aadea3e1dcbe54f8a49f138df9b12a3afa49875a64cf5df70e633b53bb59795369">STATEGFF</a> &amp;&amp; combineIdentName.compare(st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a19f06f455f339e01577e163570b1e2b2">getGFF</a>())==0))</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;            {</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;                tracebackString.push_back(seq-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequence.html#a4f1af4805a74eb48d71c5a46792c96a6">getSymbol</a>(trellisPos));</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;            }</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                        </div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;            tb_state= (*traceback_table)[trellisPos][tb_state];</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1state.html">state</a>* temp_st = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a2a4a6b6ea8c3a7c3c0584c98da0cdac3">getState</a>(tb_state);</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;            <span class="comment">//Check to see if stop conditions of traceback are met, if so break;</span></div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;            <span class="keywordflow">if</span>(traceback_identifier == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0affb06959a95d912e7fbdb602fe454108">START_INIT</a> &amp;&amp; tb_state == -1) {<span class="keywordflow">break</span>;}</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (traceback_identifier == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a4854244905e0725bfd743559f2825d97">DIFF_STATE</a>  &amp;&amp; starting_state != tb_state) {  <span class="keywordflow">break</span>;}</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (traceback_identifier == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a18e765406f9d8a5caa2b0d0a6c9f998a">STATE_NAME</a>  &amp;&amp; tracebackIdentifierName.compare(temp_st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a71abeddc4bd5dd3d950c48b199a515d2">getName</a>())==0){ <span class="keywordflow">break</span>;}</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (traceback_identifier == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0ac2040123c6c745b59fc47ad26b2e6da4">STATE_LABEL</a> &amp;&amp; tracebackIdentifierName.compare(temp_st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#ac58f8dfc39b64abbba92a94029565cc9">getLabel</a>())==0) {  <span class="keywordflow">break</span>;}</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (traceback_identifier == <a class="code" href="namespace_stoch_h_m_m.html#ab3edcfc49b7b4cde06be65596e20ccf0a58a38a1a765f474348b77316f16a6705">STATE_GFF</a>   &amp;&amp; tracebackIdentifierName.compare(temp_st-&gt;<a class="code" href="class_stoch_h_m_m_1_1state.html#a19f06f455f339e01577e163570b1e2b2">getGFF</a>())==0) {  <span class="keywordflow">break</span>;}</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        }</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        </div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        <span class="keywordtype">size_t</span> length=tracebackPath.size();</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        std::string CombinedString;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;                </div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        <span class="keywordtype">size_t</span> maxSymbolSize = alphaTrack-&gt;<a class="code" href="class_stoch_h_m_m_1_1track.html#a548bf92e3a6ec84e79a0496ec51d621e">getAlphaMax</a>();</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;                <span class="comment">//For single letter characters</span></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        <span class="keywordflow">if</span> (maxSymbolSize ==1){</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;            <span class="keywordflow">for</span>(std::vector&lt;std::string&gt;::reverse_iterator rit = tracebackString.rbegin(); rit!=tracebackString.rend();++rit){</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                CombinedString+=(*rit);</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;            }</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;        }</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;                <span class="keywordflow">else</span>{  <span class="comment">// For kmer words &gt; 1 in length</span></div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;                        std::vector&lt;std::string&gt;::reverse_iterator rit = tracebackString.rbegin();</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;                        CombinedString+=(*rit);</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;                        ++rit;</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;                        <span class="keywordflow">for</span>(; rit!=tracebackString.rend();++rit){</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;                                CombinedString+=<span class="stringliteral">&quot;,&quot;</span> + (*rit);</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;            }</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;                }</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        </div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;                <span class="comment">//Call the transitionFunc and get the score back</span></div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <span class="keywordtype">double</span> transitionValue = func-&gt;<a class="code" href="class_stoch_h_m_m_1_1transition_func_param.html#a30e0fb41c9911ab63b2069e3c32862bb">evaluate</a>(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a1d21bebb2a29871e7be2b8eea29d69a6">seqs</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a360ce70b661a950da79d0668a3afac9a">getUndigitized</a>(trackIndex), position, &amp;CombinedString, length);</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        </div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;        <span class="keywordflow">return</span> transitionValue;</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    }</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;</div>
 <div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        </div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        <span class="comment"></span></div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="comment">        //!Perform traceback through trellis</span></div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="comment">    //!\return path trackback_path</span></div>
-<div class="line"><a name="l00400"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1trellis.html#a64a9fb1efb144e4a0101ca399cbde10a">  400</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a64a9fb1efb144e4a0101ca399cbde10a">trellis::traceback</a>(<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a>&amp; path){</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;                                </div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a76f60f7d5629f7d86e1f1b32e269bf14">seq_size</a>==0 || <a class="code" href="class_stoch_h_m_m_1_1trellis.html#af09042d3117bb7e41efc767d52b00170">traceback_table</a> == NULL){</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;                }</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;                </div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a02167f2c6b21161bb37ea4c9b3b73a40">ending_viterbi_score</a> == -INFINITY){</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;                        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;                }</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;            path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a394e1bb43518f80efd96817f357e6c84" title="Set the score for the traceback;.">setScore</a>(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a02167f2c6b21161bb37ea4c9b3b73a40">ending_viterbi_score</a>);</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;            path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7b51383ba6b26732099d0aa75a162880" title="Add state to traceback.">push_back</a>(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab2be76a89c5be0412f6b8c5539cf2f54">ending_viterbi_tb</a>);</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;            </div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;                        int16_t pointer = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab2be76a89c5be0412f6b8c5539cf2f54">ending_viterbi_tb</a>;</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;                        </div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;            <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> position = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a76f60f7d5629f7d86e1f1b32e269bf14">seq_size</a> -1 ; position&gt;0 ; position--){</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;                                pointer = (*traceback_table)[position][pointer];</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;                                </div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;                                <span class="keywordflow">if</span> (pointer == -1){</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;                                        std::cerr &lt;&lt; <span class="stringliteral">&quot;No valid path at Position: &quot;</span> &lt;&lt; position &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;                                        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;                                }</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;                                </div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;                                path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7b51383ba6b26732099d0aa75a162880" title="Add state to traceback.">push_back</a>(pointer);</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;            }</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        }</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    }</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        </div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        <span class="comment"></span></div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="comment">        //!Perform a traceback starting at position and state given</span></div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="comment">        //! \param [out] traceback_path</span></div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="comment">        //! \param position Position to start traceback</span></div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="comment">        //! \param state State to begin traceback</span></div>
-<div class="line"><a name="l00434"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1trellis.html#aa9da4fb503e1be4a88f600a21a0b3715">  434</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a64a9fb1efb144e4a0101ca399cbde10a">trellis::traceback</a>(<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a>&amp; path, <span class="keywordtype">size_t</span> position, <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1state.html">state</a>){</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a76f60f7d5629f7d86e1f1b32e269bf14">seq_size</a> == 0 || <a class="code" href="class_stoch_h_m_m_1_1trellis.html#af09042d3117bb7e41efc767d52b00170">traceback_table</a> == NULL){</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;                        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;                }</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;                </div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;                int16_t pointer = (*traceback_table)[position][state];</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;                <span class="keywordflow">if</span> (pointer == -1){</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;No valid path at State: &quot;</span> &lt;&lt; state &lt;&lt;  <span class="stringliteral">&quot; from Position: &quot;</span> &lt;&lt; position &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        </div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        </div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        <span class="comment"></span></div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="comment">        //!Perform traceback through trellis</span></div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="comment">    //!\return path trackback_path</span></div>
+<div class="line"><a name="l00402"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1trellis.html#a64a9fb1efb144e4a0101ca399cbde10a">  402</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a64a9fb1efb144e4a0101ca399cbde10a">trellis::traceback</a>(<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a>&amp; path){</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                </div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a76f60f7d5629f7d86e1f1b32e269bf14">seq_size</a>==0 || <a class="code" href="class_stoch_h_m_m_1_1trellis.html#af09042d3117bb7e41efc767d52b00170">traceback_table</a> == NULL){</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;                        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;                }</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;                </div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;                <span class="keywordflow">if</span> (path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#aa80110da30a3e6e09fce958635e0f5dc">getModel</a>() == NULL){</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;                        path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a09f0d4421dfe017bfc1e57b1f6c40f69">setModel</a>(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>);</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;                }</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;                </div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a02167f2c6b21161bb37ea4c9b3b73a40">ending_viterbi_score</a> == -INFINITY){</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;                        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;                }</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;            path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a394e1bb43518f80efd96817f357e6c84" title="Set the score for the traceback;.">setScore</a>(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a02167f2c6b21161bb37ea4c9b3b73a40">ending_viterbi_score</a>);</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;            path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7b51383ba6b26732099d0aa75a162880" title="Add state to traceback.">push_back</a>(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab2be76a89c5be0412f6b8c5539cf2f54">ending_viterbi_tb</a>);</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;            </div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;                        int16_t pointer = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab2be76a89c5be0412f6b8c5539cf2f54">ending_viterbi_tb</a>;</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;                        </div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;            <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> position = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a76f60f7d5629f7d86e1f1b32e269bf14">seq_size</a> -1 ; position&gt;0 ; position--){</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;                                pointer = (*traceback_table)[position][pointer];</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;                                </div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;                                <span class="keywordflow">if</span> (pointer == -1){</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;                                        std::cerr &lt;&lt; <span class="stringliteral">&quot;No valid path at Position: &quot;</span> &lt;&lt; position &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;                                        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;                                }</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;                                </div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;                                path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7b51383ba6b26732099d0aa75a162880" title="Add state to traceback.">push_back</a>(pointer);</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;            }</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        }</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    }</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;        </div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;        <span class="comment"></span></div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;<span class="comment">        //!Perform a traceback starting at position and state given</span></div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="comment">        //! \param [out] traceback_path</span></div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;<span class="comment">        //! \param position Position to start traceback</span></div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;<span class="comment">        //! \param state State to begin traceback</span></div>
+<div class="line"><a name="l00440"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1trellis.html#aa9da4fb503e1be4a88f600a21a0b3715">  440</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a64a9fb1efb144e4a0101ca399cbde10a">trellis::traceback</a>(<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a>&amp; path, <span class="keywordtype">size_t</span> position, <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1state.html">state</a>){</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a76f60f7d5629f7d86e1f1b32e269bf14">seq_size</a> == 0 || <a class="code" href="class_stoch_h_m_m_1_1trellis.html#af09042d3117bb7e41efc767d52b00170">traceback_table</a> == NULL){</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;                        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;                }</div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;                </div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> pos = position - 1 ; pos&gt;0 ; pos--){</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;                        pointer = (*traceback_table)[pos][pointer];</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;                        </div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;                        <span class="keywordflow">if</span> (pointer == -1){</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;                                std::cerr &lt;&lt; <span class="stringliteral">&quot;No valid path at State: &quot;</span> &lt;&lt; state &lt;&lt;  <span class="stringliteral">&quot; from Position: &quot;</span> &lt;&lt; position &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;                                <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;                        }</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;                        </div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;                        path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7b51383ba6b26732099d0aa75a162880" title="Add state to traceback.">push_back</a>(pointer);</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;                }</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;                </div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;                <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;        }</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        </div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        </div>
-<div class="line"><a name="l00460"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1trellis.html#a8bbafa2e43c07aa13b66cca9e3687a96">  460</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a8bbafa2e43c07aa13b66cca9e3687a96">trellis::stochastic_traceback</a>(<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a>&amp; path){</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;                </div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#affdfae4dbece22d9a5c7b4504429cc41">stochastic_table</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a54b03475f783c305b38b8edbc11069e7">traceback</a>(path);</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;                <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;        }</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;        </div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;        </div>
-<div class="line"><a name="l00467"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1trellis.html#a29474d942d8c8bb769fa1eb92fc7047b">  467</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a8bbafa2e43c07aa13b66cca9e3687a96">trellis::stochastic_traceback</a>(<a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html">multiTraceback</a>&amp; paths, <span class="keywordtype">size_t</span> reps){</div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;reps;i++){</div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> pth(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>);</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#affdfae4dbece22d9a5c7b4504429cc41">stochastic_table</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a54b03475f783c305b38b8edbc11069e7">traceback</a>(pth);</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;                        paths.<a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html#a36acf482408a519d9491046c146e459e">assign</a>(pth);</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;                }</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                <span class="keywordflow">if</span> (path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#aa80110da30a3e6e09fce958635e0f5dc">getModel</a>() == NULL){</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;                        path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a09f0d4421dfe017bfc1e57b1f6c40f69">setModel</a>(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>);</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;                }</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;                </div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;                int16_t pointer = (*traceback_table)[position][state];</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;                <span class="keywordflow">if</span> (pointer == -1){</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;No valid path at State: &quot;</span> &lt;&lt; state &lt;&lt;  <span class="stringliteral">&quot; from Position: &quot;</span> &lt;&lt; position &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;                        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;                }</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;                </div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;                <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> pos = position - 1 ; pos&gt;0 ; pos--){</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;                        pointer = (*traceback_table)[pos][pointer];</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;                        </div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;                        <span class="keywordflow">if</span> (pointer == -1){</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;                                std::cerr &lt;&lt; <span class="stringliteral">&quot;No valid path at State: &quot;</span> &lt;&lt; state &lt;&lt;  <span class="stringliteral">&quot; from Position: &quot;</span> &lt;&lt; position &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;                                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;                        }</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;                        </div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;                        path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7b51383ba6b26732099d0aa75a162880" title="Add state to traceback.">push_back</a>(pointer);</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;                }</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;                </div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;        }</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;        </div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;        </div>
+<div class="line"><a name="l00470"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1trellis.html#a8bbafa2e43c07aa13b66cca9e3687a96">  470</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a8bbafa2e43c07aa13b66cca9e3687a96">trellis::stochastic_traceback</a>(<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a>&amp; path){</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;                </div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#affdfae4dbece22d9a5c7b4504429cc41">stochastic_table</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a54b03475f783c305b38b8edbc11069e7">traceback</a>(path);</div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;                <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;        }</div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;        </div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;        </div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;        </div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;        <span class="comment">//TODO: Finish nth traceback function</span></div>
-<div class="line"><a name="l00479"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1trellis.html#ad4621aaa36ed61477982c6b123a9e6f1">  479</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ad4621aaa36ed61477982c6b123a9e6f1">trellis::traceback_nth</a>(<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a>&amp; path, <span class="keywordtype">size_t</span> n){</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a76f60f7d5629f7d86e1f1b32e269bf14">seq_size</a> == 0 || n &gt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a0f5b92a6c523520222ff8c036e06acad">nth_size</a> || (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a3dc827c6868cb01497b45d9665d6774a">nth_traceback_table</a> == NULL &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#adc42304445d5c564ee209fa33070cddc">naive_nth_scores</a> == NULL)){</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;                        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00477"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1trellis.html#a29474d942d8c8bb769fa1eb92fc7047b">  477</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a8bbafa2e43c07aa13b66cca9e3687a96">trellis::stochastic_traceback</a>(<a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html">multiTraceback</a>&amp; paths, <span class="keywordtype">size_t</span> reps){</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;reps;i++){</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a> pth(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>);</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#affdfae4dbece22d9a5c7b4504429cc41">stochastic_table</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a54b03475f783c305b38b8edbc11069e7">traceback</a>(pth);</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;                        paths.<a class="code" href="class_stoch_h_m_m_1_1multi_traceback.html#a36acf482408a519d9491046c146e459e">assign</a>(pth);</div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;                }</div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;                </div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a3dc827c6868cb01497b45d9665d6774a">nth_traceback_table</a> != NULL){</div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;                        int16_t st_pointer = (*ending_nth_viterbi)[n].st_tb;</div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;                        int16_t sc_pointer = (*ending_nth_viterbi)[n].score_tb;</div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;                        </div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;                        path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a394e1bb43518f80efd96817f357e6c84" title="Set the score for the traceback;.">setScore</a>((*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac02837470af7de31c5690e505c1fb680">ending_nth_viterbi</a>)[n].score);</div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;                        path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7b51383ba6b26732099d0aa75a162880" title="Add state to traceback.">push_back</a>(st_pointer);</div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;                        </div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;                        </div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;                        <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> position = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a76f60f7d5629f7d86e1f1b32e269bf14">seq_size</a> -1 ; position&gt;0 ; position--){</div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;                                (*nth_traceback_table)[position].get(st_pointer,sc_pointer);</div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;                                </div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;                                <span class="keywordflow">if</span> (st_pointer == -1){</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;                                        std::cerr &lt;&lt; <span class="stringliteral">&quot;No valid path at Position: &quot;</span> &lt;&lt; position &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;                                        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;                                }</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;                                </div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;                                path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7b51383ba6b26732099d0aa75a162880" title="Add state to traceback.">push_back</a>(st_pointer);</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;            }</div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;                        </div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;                }</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;                <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;                        int16_t st_pointer = (*ending_nth_viterbi)[n].st_tb;</div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;                        int16_t sc_pointer = (*ending_nth_viterbi)[n].score_tb;</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;                        </div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;                        path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a394e1bb43518f80efd96817f357e6c84" title="Set the score for the traceback;.">setScore</a>((*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac02837470af7de31c5690e505c1fb680">ending_nth_viterbi</a>)[n].score);</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;                        path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7b51383ba6b26732099d0aa75a162880" title="Add state to traceback.">push_back</a>(st_pointer);</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;                        </div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;                        <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> position = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a76f60f7d5629f7d86e1f1b32e269bf14">seq_size</a> -1 ; position&gt;0 ; position--){</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1nth_score.html">nthScore</a>&amp; temp = (*(*naive_nth_scores)[position][st_pointer])[sc_pointer];</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;                                st_pointer = temp.<a class="code" href="class_stoch_h_m_m_1_1nth_score.html#a33d1471783841a97bbd8cbac32c50eeb">st_tb</a>;</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;                                sc_pointer = temp.<a class="code" href="class_stoch_h_m_m_1_1nth_score.html#a816474f476dfe3b13aa293b354f797a7">score_tb</a>;</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;                                <span class="keywordflow">if</span> (st_pointer == -1){</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;                                        std::cerr &lt;&lt; <span class="stringliteral">&quot;No valid path at Position: &quot;</span> &lt;&lt; position &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;                                        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;                                }</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;                                path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7b51383ba6b26732099d0aa75a162880" title="Add state to traceback.">push_back</a>(st_pointer);</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;            }</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;                }</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;                <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;        }</div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;        </div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;        </div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;}</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;        }</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;        </div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;        </div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;        </div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;        <span class="comment">//TODO: Finish nth traceback function</span></div>
+<div class="line"><a name="l00489"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1trellis.html#ad4621aaa36ed61477982c6b123a9e6f1">  489</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ad4621aaa36ed61477982c6b123a9e6f1">trellis::traceback_nth</a>(<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a>&amp; path, <span class="keywordtype">size_t</span> n){</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a76f60f7d5629f7d86e1f1b32e269bf14">seq_size</a> == 0 || n &gt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a0f5b92a6c523520222ff8c036e06acad">nth_size</a> || (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a3dc827c6868cb01497b45d9665d6774a">nth_traceback_table</a> == NULL &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#adc42304445d5c564ee209fa33070cddc">naive_nth_scores</a> == NULL)){</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;                        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;                }</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;                </div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a3dc827c6868cb01497b45d9665d6774a">nth_traceback_table</a> != NULL){</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;                        int16_t st_pointer = (*ending_nth_viterbi)[n].st_tb;</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;                        int16_t sc_pointer = (*ending_nth_viterbi)[n].score_tb;</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;                        </div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;                        path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a394e1bb43518f80efd96817f357e6c84" title="Set the score for the traceback;.">setScore</a>((*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac02837470af7de31c5690e505c1fb680">ending_nth_viterbi</a>)[n].score);</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;                        path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7b51383ba6b26732099d0aa75a162880" title="Add state to traceback.">push_back</a>(st_pointer);</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;                        </div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;                        </div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;                        <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> position = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a76f60f7d5629f7d86e1f1b32e269bf14">seq_size</a> -1 ; position&gt;0 ; position--){</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;                                (*nth_traceback_table)[position].get(st_pointer,sc_pointer);</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;                                </div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;                                <span class="keywordflow">if</span> (st_pointer == -1){</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;                                        std::cerr &lt;&lt; <span class="stringliteral">&quot;No valid path at Position: &quot;</span> &lt;&lt; position &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;                                        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;                                }</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;                                </div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;                                path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7b51383ba6b26732099d0aa75a162880" title="Add state to traceback.">push_back</a>(st_pointer);</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;            }</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;                        </div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;                }</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;                <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;                        int16_t st_pointer = (*ending_nth_viterbi)[n].st_tb;</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;                        int16_t sc_pointer = (*ending_nth_viterbi)[n].score_tb;</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;                        </div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;                        path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a394e1bb43518f80efd96817f357e6c84" title="Set the score for the traceback;.">setScore</a>((*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac02837470af7de31c5690e505c1fb680">ending_nth_viterbi</a>)[n].score);</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;                        path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7b51383ba6b26732099d0aa75a162880" title="Add state to traceback.">push_back</a>(st_pointer);</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;                        </div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;                        <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> position = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a76f60f7d5629f7d86e1f1b32e269bf14">seq_size</a> -1 ; position&gt;0 ; position--){</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1nth_score.html">nthScore</a>&amp; temp = (*(*naive_nth_scores)[position][st_pointer])[sc_pointer];</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;                                st_pointer = temp.<a class="code" href="class_stoch_h_m_m_1_1nth_score.html#a33d1471783841a97bbd8cbac32c50eeb">st_tb</a>;</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;                                sc_pointer = temp.<a class="code" href="class_stoch_h_m_m_1_1nth_score.html#a816474f476dfe3b13aa293b354f797a7">score_tb</a>;</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;                                <span class="keywordflow">if</span> (st_pointer == -1){</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;                                        std::cerr &lt;&lt; <span class="stringliteral">&quot;No valid path at Position: &quot;</span> &lt;&lt; position &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;                                        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;                                }</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;                                path.<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html#a7b51383ba6b26732099d0aa75a162880" title="Add state to traceback.">push_back</a>(st_pointer);</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;            }</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;                }</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;        }</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;        </div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;        </div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;}</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 14:59:08 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 30 2013 13:23:12 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

@@ -20,10 +20,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Screen Shot 2013-04-23 at 10.38.21 AM.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">StochHMM
-   &#160;<span id="projectnumber">v0.30</span>
+   &#160;<span id="projectnumber">v0.34</span>
    </div>
    <div id="projectbrief">Flexible Hidden Markov Model C++ Library and Application</div>
   </td>
@@ -702,227 +701,240 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;                                <span class="comment">//then we&#39;ll increment the value. Otherwise, set to zero;</span></div>
 <div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;                                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a>){</div>
 <div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;                                        <span class="keywordflow">if</span> (extend_duration &amp;&amp; (*duration)[st_current]){</div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;                                                (*explicit_duration_current)[st_current]=(*explicit_duration_previous)[st_current]+1;</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;                                                extend_duration=<span class="keyword">false</span>;</div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;                                        }</div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;                                        <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;                                                (*explicit_duration_current)[st_current]=0;</div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;                                        }</div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;                                }</div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;            }</div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;                        </div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;                        <span class="keywordflow">if</span>(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a>){</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a43644fe5ddf5f4e01e09c68038961264">swap_ptr_duration</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#af215a4eff8b834139e4eeed7a0069548">explicit_duration_previous</a>;</div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#af215a4eff8b834139e4eeed7a0069548">explicit_duration_previous</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a>;</div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a>= <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a43644fe5ddf5f4e01e09c68038961264">swap_ptr_duration</a>;</div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a>-&gt;assign(state_size,0);</div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;                        }</div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;            </div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;        }</div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;        </div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;        <span class="comment">//TODO:  Calculate ending and set the final viterbi and traceback pointer</span></div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;        <span class="comment">//Swap current and previous viterbi scores</span></div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>-&gt;assign(state_size,-INFINITY);</div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab77d55fb683199cdbaac5ccf5a07381b">swap_ptr</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>;</div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a>;</div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab77d55fb683199cdbaac5ccf5a07381b">swap_ptr</a>;</div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;        </div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> st_previous = 0; st_previous &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a> ;++st_previous){</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;            <span class="keywordflow">if</span> ((*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>)[st_previous] &gt; -INFINITY){</div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;                viterbi_temp = (*scoring_previous)[st_previous] + (*hmm)[st_previous]-&gt;getEndTrans();</div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;                </div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;                <span class="keywordflow">if</span> (viterbi_temp &gt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a02167f2c6b21161bb37ea4c9b3b73a40">ending_viterbi_score</a>){</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a02167f2c6b21161bb37ea4c9b3b73a40">ending_viterbi_score</a> = viterbi_temp;</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab2be76a89c5be0412f6b8c5539cf2f54">ending_viterbi_tb</a> = st_previous;</div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;                }</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;            }</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;        }</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;        </div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>;</div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a>;</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a> = NULL;</div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a> = NULL;</div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;        }</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;        <span class="comment"></span></div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;<span class="comment">        //!Store transition in a table  (more memory, but faster than sparse complex)</span></div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;<span class="comment">        //!Need testing and more develepment;</span></div>
-<div class="line"><a name="l00660"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1trellis.html#a11cc8ced719de063cc227605573b6382">  660</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a11cc8ced719de063cc227605573b6382">trellis::fast_complex_viterbi</a>(){</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;                </div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;                <span class="comment">//Initialize the traceback table</span></div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#af09042d3117bb7e41efc767d52b00170">traceback_table</a> != NULL){</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;            <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#af09042d3117bb7e41efc767d52b00170">traceback_table</a>;</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;        }</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;        </div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#af09042d3117bb7e41efc767d52b00170">traceback_table</a> = <span class="keyword">new</span> <a class="code" href="namespace_stoch_h_m_m.html#a8ca91524f321ed68e3f78eb194f26275">int_2D</a>(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a76f60f7d5629f7d86e1f1b32e269bf14">seq_size</a>,std::vector&lt;int16_t&gt; (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>,-1));</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a> = <span class="keyword">new</span> (std::nothrow) std::vector&lt;double&gt; (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>,-INFINITY);</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a>  = <span class="keyword">new</span> (std::nothrow) std::vector&lt;double&gt; (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>,-INFINITY);</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;                </div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a> == NULL || <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a> == NULL || <a class="code" href="class_stoch_h_m_m_1_1trellis.html#af09042d3117bb7e41efc767d52b00170">traceback_table</a> == NULL){</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Can&#39;t allocate Viterbi score and traceback table. OUT OF MEMORY&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;                        exit(2);</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;                }</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;                                                <span class="keywordflow">if</span> ((*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#af215a4eff8b834139e4eeed7a0069548">explicit_duration_previous</a>)[st_current]==0){</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;                                                        (*explicit_duration_current)[st_current]=2;</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;                                                }</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;                                                <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;                                                        (*explicit_duration_current)[st_current]=(*explicit_duration_previous)[st_current]+1;</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;                                                }</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;                                                extend_duration=<span class="keyword">false</span>;</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;                                        }</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;                                        <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;                                                (*explicit_duration_current)[st_current]=0;</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;                                        }</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;                                }</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;            }</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;                        </div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;                        <span class="keywordflow">if</span>(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a>){</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a43644fe5ddf5f4e01e09c68038961264">swap_ptr_duration</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#af215a4eff8b834139e4eeed7a0069548">explicit_duration_previous</a>;</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#af215a4eff8b834139e4eeed7a0069548">explicit_duration_previous</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a>;</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a>= <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a43644fe5ddf5f4e01e09c68038961264">swap_ptr_duration</a>;</div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a>-&gt;assign(state_size,0);</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;                        }</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;            </div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;        }</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;        </div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;        <span class="comment">//TODO:  Calculate ending and set the final viterbi and traceback pointer</span></div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;        <span class="comment">//Swap current and previous viterbi scores</span></div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>-&gt;assign(state_size,-INFINITY);</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab77d55fb683199cdbaac5ccf5a07381b">swap_ptr</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>;</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a>;</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab77d55fb683199cdbaac5ccf5a07381b">swap_ptr</a>;</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;        </div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> st_previous = 0; st_previous &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a> ;++st_previous){</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;            <span class="keywordflow">if</span> ((*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>)[st_previous] &gt; -INFINITY){</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;                viterbi_temp = (*scoring_previous)[st_previous] + (*hmm)[st_previous]-&gt;getEndTrans();</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;                </div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;                <span class="keywordflow">if</span> (viterbi_temp &gt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a02167f2c6b21161bb37ea4c9b3b73a40">ending_viterbi_score</a>){</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a02167f2c6b21161bb37ea4c9b3b73a40">ending_viterbi_score</a> = viterbi_temp;</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab2be76a89c5be0412f6b8c5539cf2f54">ending_viterbi_tb</a> = st_previous;</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;                }</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;            }</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;        }</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;        </div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>;</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a>;</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a> = NULL;</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a> = NULL;</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;        }</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;        <span class="comment"></span></div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;<span class="comment">        //!Store transition in a table  (more memory, but faster than sparse complex)</span></div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;<span class="comment">        //!Need testing and more develepment;</span></div>
+<div class="line"><a name="l00665"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1trellis.html#a11cc8ced719de063cc227605573b6382">  665</a></span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a11cc8ced719de063cc227605573b6382">trellis::fast_complex_viterbi</a>(){</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;                </div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;                <span class="comment">//Initialize the traceback table</span></div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#af09042d3117bb7e41efc767d52b00170">traceback_table</a> != NULL){</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;            <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#af09042d3117bb7e41efc767d52b00170">traceback_table</a>;</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;        }</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;        </div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#af09042d3117bb7e41efc767d52b00170">traceback_table</a> = <span class="keyword">new</span> <a class="code" href="namespace_stoch_h_m_m.html#a8ca91524f321ed68e3f78eb194f26275">int_2D</a>(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a76f60f7d5629f7d86e1f1b32e269bf14">seq_size</a>,std::vector&lt;int16_t&gt; (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>,-1));</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a> = <span class="keyword">new</span> (std::nothrow) std::vector&lt;double&gt; (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>,-INFINITY);</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a>  = <span class="keyword">new</span> (std::nothrow) std::vector&lt;double&gt; (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>,-INFINITY);</div>
 <div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;                </div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;                </div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;        std::bitset&lt;STATE_MAX&gt; next_states;</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;        std::bitset&lt;STATE_MAX&gt; current_states;</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;                </div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;        <span class="keywordtype">double</span>  viterbi_temp(-INFINITY);</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;        <span class="keywordtype">double</span>  emission(-INFINITY);</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;        <span class="keywordtype">bool</span>    exDef_position(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab2be76a89c5be0412f6b8c5539cf2f54">ending_viterbi_tb</a> = -1;</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a02167f2c6b21161bb37ea4c9b3b73a40">ending_viterbi_score</a> = -INFINITY;</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;                </div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;                </div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;                <span class="comment">//If model is not a basic model, then we need to initialize the explicit duration vector</span></div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;                <span class="comment">//bool extend_duration keeps track of whether the transition to same state was selected.</span></div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#ab8d232e9987f87e153b020b80920a60e">isBasic</a>()){</div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a> = <span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>,0);</div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#af215a4eff8b834139e4eeed7a0069548">explicit_duration_previous</a>= <span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>,0);</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;                }</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;                <span class="keywordtype">bool</span> extend_duration(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;                std::vector&lt;bool&gt;* duration = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a5c5b4ec5cc33167870a3160fef53dce9">get_explicit</a>();</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;        </div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1state.html">state</a>* init = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#ace28286e62583b25bd6bdf4faaf577b8" title="Get pointer to the initial state.">getInitial</a>();</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;                </div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;                std::bitset&lt;STATE_MAX&gt;* initial_to = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#af2c21a10ef39c09f00825b9405380f50" title="Get vector of states that the initial state transitions to.">getInitialTo</a>();</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;                std::bitset&lt;STATE_MAX&gt;* from_trans(NULL);</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;                </div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;        <span class="comment">//Calculate Viterbi from transitions from INIT (initial) state</span></div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>; ++i){</div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;            <span class="keywordflow">if</span> ((*initial_to)[i]){  <span class="comment">//if the bitset is set (meaning there is a transition to this state), calculate the viterbi</span></div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;                                </div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;                                viterbi_temp = (*hmm)[i]-&gt;get_emission_prob(*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a1d21bebb2a29871e7be2b8eea29d69a6">seqs</a>,0) + <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ae050e943aad7b0d6e3649b03619a65">getTransition</a>(init, i, 0);</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;                </div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;                                <span class="keywordflow">if</span> (viterbi_temp &gt; -INFINITY){</div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;                    <span class="keywordflow">if</span> ((*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a>)[i] &lt; viterbi_temp){</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;                        (*scoring_current)[i] = viterbi_temp;</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;                    }</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;                                        next_states |= (*(*hmm)[i]-&gt;getTo());</div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;                }</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;            }</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;        }</div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;                </div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;        </div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> position = 1; position &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a76f60f7d5629f7d86e1f1b32e269bf14">seq_size</a> ; ++position ){</div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;            </div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;            <span class="comment">//Swap current and previous viterbi scores</span></div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>-&gt;assign(state_size,-INFINITY);</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab77d55fb683199cdbaac5ccf5a07381b">swap_ptr</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>;</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a>;</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab77d55fb683199cdbaac5ccf5a07381b">swap_ptr</a>;</div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;            </div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;            <span class="comment">//Swap current_states and next states sets</span></div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;                        </div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;                        current_states.reset();</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;            current_states |= next_states;</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;            next_states.reset();</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;            </div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a0a16b4410f08dda98813d27e21ea4663">exDef_defined</a>){</div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;                exDef_position = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a1d21bebb2a29871e7be2b8eea29d69a6">seqs</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a186a9b5085dbd0887e57a0423cea1301">exDefDefined</a>(position);</div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;            }</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a> == NULL || <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a> == NULL || <a class="code" href="class_stoch_h_m_m_1_1trellis.html#af09042d3117bb7e41efc767d52b00170">traceback_table</a> == NULL){</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;                        std::cerr &lt;&lt; <span class="stringliteral">&quot;Can&#39;t allocate Viterbi score and traceback table. OUT OF MEMORY&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;                        exit(2);</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;                }</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;                </div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;                </div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;        std::bitset&lt;STATE_MAX&gt; next_states;</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;        std::bitset&lt;STATE_MAX&gt; current_states;</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;                </div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;        <span class="keywordtype">double</span>  viterbi_temp(-INFINITY);</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;        <span class="keywordtype">double</span>  emission(-INFINITY);</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;        <span class="keywordtype">bool</span>    exDef_position(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab2be76a89c5be0412f6b8c5539cf2f54">ending_viterbi_tb</a> = -1;</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a02167f2c6b21161bb37ea4c9b3b73a40">ending_viterbi_score</a> = -INFINITY;</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;                </div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;                </div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;                <span class="comment">//If model is not a basic model, then we need to initialize the explicit duration vector</span></div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;                <span class="comment">//bool extend_duration keeps track of whether the transition to same state was selected.</span></div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#ab8d232e9987f87e153b020b80920a60e">isBasic</a>()){</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a> = <span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>,0);</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#af215a4eff8b834139e4eeed7a0069548">explicit_duration_previous</a>= <span class="keyword">new</span>(std::nothrow) std::vector&lt;size_t&gt;(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>,0);</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;                }</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;                <span class="keywordtype">bool</span> extend_duration(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;                std::vector&lt;bool&gt;* duration = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#a5c5b4ec5cc33167870a3160fef53dce9">get_explicit</a>();</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;        </div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1state.html">state</a>* init = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#ace28286e62583b25bd6bdf4faaf577b8" title="Get pointer to the initial state.">getInitial</a>();</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;                </div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;                std::bitset&lt;STATE_MAX&gt;* initial_to = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1model.html#af2c21a10ef39c09f00825b9405380f50" title="Get vector of states that the initial state transitions to.">getInitialTo</a>();</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;                std::bitset&lt;STATE_MAX&gt;* from_trans(NULL);</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;                </div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;        <span class="comment">//Calculate Viterbi from transitions from INIT (initial) state</span></div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>; ++i){</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;            <span class="keywordflow">if</span> ((*initial_to)[i]){  <span class="comment">//if the bitset is set (meaning there is a transition to this state), calculate the viterbi</span></div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;                                </div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;                                viterbi_temp = (*hmm)[i]-&gt;get_emission_prob(*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a1d21bebb2a29871e7be2b8eea29d69a6">seqs</a>,0) + <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ae050e943aad7b0d6e3649b03619a65">getTransition</a>(init, i, 0);</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;                </div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;                                <span class="keywordflow">if</span> (viterbi_temp &gt; -INFINITY){</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;                    <span class="keywordflow">if</span> ((*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a>)[i] &lt; viterbi_temp){</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;                        (*scoring_current)[i] = viterbi_temp;</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;                    }</div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;                                        next_states |= (*(*hmm)[i]-&gt;getTo());</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;<span class="comment">//                                      if ((*duration)[i]){</span></div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;<span class="comment">//                                              (*explicit_duration_previous)[i]=1;</span></div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;<span class="comment">//                                      }</span></div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;                }</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;            }</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;        }</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;                </div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;        </div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> position = 1; position &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a76f60f7d5629f7d86e1f1b32e269bf14">seq_size</a> ; ++position ){</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;            </div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;            <span class="comment">//Swap current and previous viterbi scores</span></div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>-&gt;assign(state_size,-INFINITY);</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;            <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab77d55fb683199cdbaac5ccf5a07381b">swap_ptr</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>;</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a>;</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;                        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab77d55fb683199cdbaac5ccf5a07381b">swap_ptr</a>;</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;            </div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;            <span class="comment">//Swap current_states and next states sets</span></div>
 <div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;                        </div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;                        <span class="comment">//TODO: Check use of external definitions below.</span></div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;                        </div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;                        <span class="comment">//std::cout &lt;&lt; &quot;\nPosition:\t&quot; &lt;&lt; position &lt;&lt; &quot;\n&quot;;</span></div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;                        <span class="comment">//                      std::cout &lt;&lt; &quot;Letter:\t&quot; &lt;&lt; seqs-&gt;seqValue(0, position) &lt;&lt; std::endl;</span></div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;                        </div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>; ++i){ <span class="comment">//i is current state that emits value</span></div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;                <span class="keywordflow">if</span> (!current_states[i]){</div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;                    <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;                }</div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;                                </div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;                <span class="comment">//current_state = (*hmm)[i];</span></div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;                <span class="comment">//emission = current_state-&gt;get_emission(*seqs,position);</span></div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;                emission = (*hmm)[i]-&gt;get_emission_prob(*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a1d21bebb2a29871e7be2b8eea29d69a6">seqs</a>, position);</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;                                </div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;                                </div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;                                <span class="comment">//                              std::cout &lt;&lt; &quot;State Emission:\t&quot; &lt;&lt; i &lt;&lt; &quot;\t&quot; &lt;&lt; exp(emission) &lt;&lt; std::endl;</span></div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;                                </div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;                                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a0a16b4410f08dda98813d27e21ea4663">exDef_defined</a> &amp;&amp; exDef_position){</div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;                    emission += <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a1d21bebb2a29871e7be2b8eea29d69a6">seqs</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0eecfd11066a4802ef3129e3641eb0d0">getWeight</a>(position, i);</div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;                }</div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;                </div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;                                from_trans = (*hmm)[i]-&gt;getFrom();</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;                        current_states.reset();</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;            current_states |= next_states;</div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;            next_states.reset();</div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;            </div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a0a16b4410f08dda98813d27e21ea4663">exDef_defined</a>){</div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;                exDef_position = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a1d21bebb2a29871e7be2b8eea29d69a6">seqs</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a186a9b5085dbd0887e57a0423cea1301">exDefDefined</a>(position);</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;            }</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;                        </div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;                        <span class="comment">//TODO: Check use of external definitions below.</span></div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;                        </div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;<span class="comment">//                      std::cout &lt;&lt; &quot;\nPosition:\t&quot; &lt;&lt; position &lt;&lt; &quot;\n&quot;;</span></div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;<span class="comment">//                      std::cout &lt;&lt; &quot;Letter:\t&quot; &lt;&lt; seqs-&gt;seqValue(0, position)+1 &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;                        </div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a>; ++i){ <span class="comment">//i is current state that emits value</span></div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;                <span class="keywordflow">if</span> (!current_states[i]){</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;                    <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;                }</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;                                </div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;                <span class="comment">//current_state = (*hmm)[i];</span></div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;                <span class="comment">//emission = current_state-&gt;get_emission(*seqs,position);</span></div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;                emission = (*hmm)[i]-&gt;get_emission_prob(*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a1d21bebb2a29871e7be2b8eea29d69a6">seqs</a>, position);</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;                                </div>
 <div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;                                </div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a> ; ++j) {  <span class="comment">//j is previous state</span></div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;                    <span class="keywordflow">if</span> (!(*from_trans)[j]){</div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;                        <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;                    }</div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;                                        </div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;                    <span class="keywordflow">if</span> ((*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>)[j] != -INFINITY){</div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;                        viterbi_temp = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ae050e943aad7b0d6e3649b03619a65">getTransition</a>((*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>)[j], i , position) + emission + (*scoring_previous)[j];</div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;                        </div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;                                                <span class="comment">//std::cout &lt;&lt; exp(getTransition((*hmm)[j],i,position)) &lt;&lt; std::endl;</span></div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;                                                </div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;                                                <span class="comment">//                                              std::cout &lt;&lt; &quot;Temp Viterbi:\tTransFrom: &quot;&lt;&lt; j &lt;&lt; &quot;\tto\t&quot; &lt;&lt; i &lt;&lt; &quot;\t&quot; &lt;&lt; viterbi_temp / log(2) &lt;&lt; std::endl;</span></div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;                        </div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;                                                </div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;                                                <span class="keywordflow">if</span> (viterbi_temp &gt; (*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a>)[i]){</div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;                                                        <span class="comment">//If transition is from same to same then if it is</span></div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;                                                        <span class="comment">//explicit duration we&#39;ll need to change</span></div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;                                                        extend_duration = (i==j) ? <span class="keyword">true</span> : <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;                                                        </div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;                            (*scoring_current)[i] = viterbi_temp;</div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;                            (*traceback_table)[position][i] = j;</div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;                        }</div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;                                                </div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;                                                next_states |= (*(*hmm)[i]-&gt;getTo());</div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;                    }</div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;                }</div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;                                </div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;                                <span class="comment">//If explicit durations vector defined, and transition from-to same</span></div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;                                <span class="comment">//then we&#39;ll increment the value. Otherwise, set to zero;</span></div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;                                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a>){</div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;                                        <span class="keywordflow">if</span> (extend_duration &amp;&amp; (*duration)[i]){</div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;                                                (*explicit_duration_current)[i]=(*explicit_duration_previous)[i]+1;</div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;                                                extend_duration=<span class="keyword">false</span>;</div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;                                        }</div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;                                        <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;                                                (*explicit_duration_current)[i]=0;</div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;                                        }</div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;                                }</div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;            }</div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;                        </div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;                        <span class="keywordflow">if</span>(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a>){</div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a43644fe5ddf5f4e01e09c68038961264">swap_ptr_duration</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#af215a4eff8b834139e4eeed7a0069548">explicit_duration_previous</a>;</div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#af215a4eff8b834139e4eeed7a0069548">explicit_duration_previous</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a>;</div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a>= <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a43644fe5ddf5f4e01e09c68038961264">swap_ptr_duration</a>;</div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a>-&gt;assign(state_size,0);</div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;                        }</div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;            </div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;        }</div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;        </div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;        <span class="comment">//TODO:  Calculate ending and set the final viterbi and traceback pointer</span></div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;        <span class="comment">//Swap current and previous viterbi scores</span></div>
-<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>-&gt;assign(state_size,-INFINITY);</div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab77d55fb683199cdbaac5ccf5a07381b">swap_ptr</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>;</div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a>;</div>
-<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab77d55fb683199cdbaac5ccf5a07381b">swap_ptr</a>;</div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;        </div>
-<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a> ;++i){</div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;            <span class="keywordflow">if</span> ((*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>)[i] &gt; -INFINITY){</div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;                viterbi_temp = (*scoring_previous)[i] + (*hmm)[i]-&gt;getEndTrans();</div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;                </div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;                <span class="keywordflow">if</span> (viterbi_temp &gt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a02167f2c6b21161bb37ea4c9b3b73a40">ending_viterbi_score</a>){</div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a02167f2c6b21161bb37ea4c9b3b73a40">ending_viterbi_score</a> = viterbi_temp;</div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab2be76a89c5be0412f6b8c5539cf2f54">ending_viterbi_tb</a> = i;</div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;                }</div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;            }</div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;        }</div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;        </div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>;</div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a>;</div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a> = NULL;</div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a> = NULL;</div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;        }</div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;        </div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;</div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;}</div>
-<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;</div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;<span class="comment">//                              std::cout &lt;&lt; &quot;State Emission:\t&quot; &lt;&lt; i &lt;&lt; &quot;\t&quot; &lt;&lt; exp(emission) &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;                                </div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;                                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a0a16b4410f08dda98813d27e21ea4663">exDef_defined</a> &amp;&amp; exDef_position){</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;                    emission += <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a1d21bebb2a29871e7be2b8eea29d69a6">seqs</a>-&gt;<a class="code" href="class_stoch_h_m_m_1_1sequences.html#a0eecfd11066a4802ef3129e3641eb0d0">getWeight</a>(position, i);</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;                }</div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;                </div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;                                from_trans = (*hmm)[i]-&gt;getFrom();</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;                                </div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a> ; ++j) {  <span class="comment">//j is previous state</span></div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;                    <span class="keywordflow">if</span> (!(*from_trans)[j]){</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;                        <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;                    }</div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;                                        </div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;                    <span class="keywordflow">if</span> ((*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>)[j] != -INFINITY){</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;                        viterbi_temp = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ae050e943aad7b0d6e3649b03619a65">getTransition</a>((*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a2684a1621ae3df66804c889a5f38cc67">hmm</a>)[j], i , position) + emission + (*scoring_previous)[j];</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;                        </div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;<span class="comment">//                                              std::cout &lt;&lt; &quot;TransFrom: &quot;&lt;&lt; j &lt;&lt; &quot;\tto\t&quot; &lt;&lt; i &lt;&lt; &quot;\t&quot; &lt;&lt; exp(getTransition((*hmm)[j],i,position)) &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;<span class="comment">//                                              </span></div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;<span class="comment">//                                              std::cout &lt;&lt; &quot;Temp Viterbi:\t&quot; &lt;&lt; viterbi_temp &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;                        </div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;                                                </div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;                                                <span class="keywordflow">if</span> (viterbi_temp &gt; (*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a>)[i]){</div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;                                                        <span class="comment">//If transition is from same to same then if it is</span></div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;                                                        <span class="comment">//explicit duration we&#39;ll need to change</span></div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;                                                        extend_duration = (i==j) ? <span class="keyword">true</span> : <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;                                                        </div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;                            (*scoring_current)[i] = viterbi_temp;</div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;                            (*traceback_table)[position][i] = j;</div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;                        }</div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;                                                </div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;                                                next_states |= (*(*hmm)[i]-&gt;getTo());</div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;                    }</div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;                }</div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;                                </div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;                                <span class="comment">//If explicit durations vector defined, and transition from-to same</span></div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;                                <span class="comment">//then we&#39;ll increment the value. Otherwise, set to zero;</span></div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;                                <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a>){</div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;                                        <span class="keywordflow">if</span> (extend_duration &amp;&amp; (*duration)[i]){</div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;                                                <span class="keywordflow">if</span> ((*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#af215a4eff8b834139e4eeed7a0069548">explicit_duration_previous</a>)[i]==0){</div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;                                                        (*explicit_duration_current)[i]=2;</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;                                                }</div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;                                                <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;                                                        (*explicit_duration_current)[i]=(*explicit_duration_previous)[i]+1;</div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;                                                }</div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;                                                extend_duration=<span class="keyword">false</span>;</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;                                        }</div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;                                        <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;                                                (*explicit_duration_current)[i]=0;</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;                                        }</div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;                                }</div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;            }</div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;                        </div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;                        <span class="keywordflow">if</span>(<a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a>){</div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a43644fe5ddf5f4e01e09c68038961264">swap_ptr_duration</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#af215a4eff8b834139e4eeed7a0069548">explicit_duration_previous</a>;</div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#af215a4eff8b834139e4eeed7a0069548">explicit_duration_previous</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a>;</div>
+<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a>= <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a43644fe5ddf5f4e01e09c68038961264">swap_ptr_duration</a>;</div>
+<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;                                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac3588d1750bf40be647b18c8d7593cd4">explicit_duration_current</a>-&gt;assign(state_size,0);</div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;                        }</div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;            </div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;        }</div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;        </div>
+<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;        <span class="comment">//TODO:  Calculate ending and set the final viterbi and traceback pointer</span></div>
+<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;        <span class="comment">//Swap current and previous viterbi scores</span></div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>-&gt;assign(state_size,-INFINITY);</div>
+<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab77d55fb683199cdbaac5ccf5a07381b">swap_ptr</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>;</div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a>;</div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;        <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a> = <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab77d55fb683199cdbaac5ccf5a07381b">swap_ptr</a>;</div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;        </div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a4c4db54e751c8b245e879b1021c339e4">state_size</a> ;++i){</div>
+<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;            <span class="keywordflow">if</span> ((*<a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>)[i] &gt; -INFINITY){</div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;                viterbi_temp = (*scoring_previous)[i] + (*hmm)[i]-&gt;getEndTrans();</div>
+<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;                </div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;                <span class="keywordflow">if</span> (viterbi_temp &gt; <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a02167f2c6b21161bb37ea4c9b3b73a40">ending_viterbi_score</a>){</div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a02167f2c6b21161bb37ea4c9b3b73a40">ending_viterbi_score</a> = viterbi_temp;</div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;                    <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ab2be76a89c5be0412f6b8c5539cf2f54">ending_viterbi_tb</a> = i;</div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;                }</div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;            }</div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;        }</div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;        </div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a>;</div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;        <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a>;</div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#a6ac42b430da2988089fc9bcd47ad00df">scoring_previous</a> = NULL;</div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1trellis.html#ac691d282daae47a32fc48d5804b3c7f3">scoring_current</a> = NULL;</div>
+<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;        }</div>
+<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;        </div>
+<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;</div>
+<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;}</div>
+<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 14:59:08 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 30 2013 13:23:12 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

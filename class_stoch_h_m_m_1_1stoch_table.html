@@ -20,10 +20,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Screen Shot 2013-04-23 at 10.38.21 AM.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">StochHMM
-   &#160;<span id="projectnumber">v0.30</span>
+   &#160;<span id="projectnumber">v0.34</span>
    </div>
    <div id="projectbrief">Flexible Hidden Markov Model C++ Library and Application</div>
   </td>
@@ -128,7 +127,7 @@ Private Attributes</h2></td></tr>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Stochastic table stores stochastic values in a vector. Data structure is implemented to reduce the memory that would be needed if we allocated a 2D table with all the transitions. This lookup table is 1D and only stores those values which we add. Each the value are stores (Current state, Previous State, Score as P(X)). In addition, the indices of each state and position are recorded so that they can be referenced quickly. So the memory size necessary to store the values for a sparsely connected model are greatly reduce. However, the time to recreate the table is increased because it doesn't allocate the memory up front, but rather pushes values as they are recorded. </p>
 
-<p>Definition at line <a class="el" href="stoch_table_8h_source.html#l00032">32</a> of file <a class="el" href="stoch_table_8h_source.html">stochTable.h</a>.</p>
+<p>Definition at line <a class="el" href="stoch_table_8h_source.html#l00034">34</a> of file <a class="el" href="stoch_table_8h_source.html">stochTable.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a080d7792392b395b6ae37cec3701a6d8"></a>
 <div class="memitem">
@@ -153,7 +152,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="stoch_table_8cpp_source.html#l00015">15</a> of file <a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_table_8h_source.html#l00061">last_position</a>, <a class="el" href="stoch_table_8h_source.html#l00063">position</a>, and <a class="el" href="stoch_table_8h_source.html#l00062">state_val</a>.</p>
+<p>References <a class="el" href="stoch_table_8h_source.html#l00063">last_position</a>, <a class="el" href="stoch_table_8h_source.html#l00065">position</a>, and <a class="el" href="stoch_table_8h_source.html#l00064">state_val</a>.</p>
 <div class="fragment"><div class="line">                                             :<a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a91107816897541272e01c391af18496b">state_val</a>(NULL){</div>
 <div class="line">                </div>
 <div class="line">                <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a91107816897541272e01c391af18496b">state_val</a> = <span class="keyword">new</span>(std::nothrow) std::vector&lt;stoch_value&gt;;</div>
@@ -189,7 +188,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="stoch_table_8cpp_source.html#l00033">33</a> of file <a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_table_8h_source.html#l00063">position</a>, and <a class="el" href="stoch_table_8h_source.html#l00062">state_val</a>.</p>
+<p>References <a class="el" href="stoch_table_8h_source.html#l00065">position</a>, and <a class="el" href="stoch_table_8h_source.html#l00064">state_val</a>.</p>
 <div class="fragment"><div class="line">                               {</div>
 <div class="line">                <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a91107816897541272e01c391af18496b">state_val</a>;</div>
 <div class="line">                <span class="keyword">delete</span> <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a833bb508d1aebe85e1b73fc68699bb90">position</a>;</div>
@@ -216,7 +215,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="stoch_table_8cpp_source.html#l00059">59</a> of file <a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_math_8h_source.html#l00179">StochHMM::addLog()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00125">get_state_position()</a>, <a class="el" href="stoch_table_8h_source.html#l00061">last_position</a>, <a class="el" href="stoch_table_8h_source.html#l00063">position</a>, and <a class="el" href="stoch_table_8h_source.html#l00062">state_val</a>.</p>
+<p>References <a class="el" href="stoch_math_8h_source.html#l00179">StochHMM::addLog()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00141">get_state_position()</a>, <a class="el" href="stoch_table_8h_source.html#l00063">last_position</a>, <a class="el" href="stoch_table_8h_source.html#l00065">position</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="stoch_table_8h_source.html#l00064">state_val</a>.</p>
 
 <p>Referenced by <a class="el" href="stoch__forward_8cpp_source.html#l00174">StochHMM::trellis::naive_stochastic_forward()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00181">StochHMM::trellis::naive_stochastic_viterbi()</a>, <a class="el" href="stoch__forward_8cpp_source.html#l00030">StochHMM::trellis::simple_stochastic_forward()</a>, and <a class="el" href="stoch__viterbi_8cpp_source.html#l00042">StochHMM::trellis::simple_stochastic_viterbi()</a>.</p>
 <div class="fragment"><div class="line">                                 {</div>
@@ -225,12 +224,12 @@ Private Attributes</h2></td></tr>
 <div class="line">                <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#abd42b5a72712ab79211fe13f2c6450b0">last_position</a> = 0;</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordtype">double</span> sum(-INFINITY);</div>
-<div class="line">                int16_t current_state(-1);</div>
+<div class="line">                uint16_t current_state(<a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>);</div>
 <div class="line">                <span class="keywordtype">size_t</span> state_start(-1);</div>
 <div class="line">                </div>
-<div class="line">                <span class="comment">//For each position in the sequence we want to normalize the viterbi values</span></div>
+<div class="line">                <span class="comment">//For each position in the sequence we want to normalize the viterbi/forward values</span></div>
 <div class="line">                <span class="comment">//for the state from previous states</span></div>
-<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a833bb508d1aebe85e1b73fc68699bb90">position</a>-&gt;size();++i){</div>
+<div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i=0;i&lt;<a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a833bb508d1aebe85e1b73fc68699bb90">position</a>-&gt;size()-1;++i){</div>
 <div class="line">                        </div>
 <div class="line">                        <span class="comment">//Need to sum the values.  If we see another state then we&#39;ll need to</span></div>
 <div class="line">                        <span class="comment">//normalize the previous states that contributed to the sum.</span></div>
@@ -267,8 +266,24 @@ Private Attributes</h2></td></tr>
 <div class="line">                        </div>
 <div class="line">                        <span class="comment">//Set values for next loop</span></div>
 <div class="line">                        state_start = (*position)[i] + 1;</div>
-<div class="line">                        current_state = -1;</div>
+<div class="line">                        current_state = <a class="code" href="bitwise__ops_8h.html#a3c75bb398badb69c7577b21486f9963f">SIZE_MAX</a>;</div>
 <div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Process and normalize the ending cell</span></div>
+<div class="line">                <span class="comment">//Calculate ending state sum</span></div>
+<div class="line">                sum = -INFINITY;</div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j=state_start; j &lt; <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a91107816897541272e01c391af18496b">state_val</a>-&gt;size();j++){</div>
+<div class="line">                        sum=<a class="code" href="namespace_stoch_h_m_m.html#a067454235ed85f89e1c09dc1f26c71e6">addLog</a>(sum,(<span class="keywordtype">double</span>)(*<a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a91107816897541272e01c391af18496b">state_val</a>)[j].prob);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                <span class="comment">//Normalize the ending cell probability</span></div>
+<div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j=state_start; j &lt; <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a91107816897541272e01c391af18496b">state_val</a>-&gt;size();j++){</div>
+<div class="line">                        (*state_val)[j].prob = exp((*<a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a91107816897541272e01c391af18496b">state_val</a>)[j].prob - sum);</div>
+<div class="line">                }</div>
+<div class="line">                </div>
+<div class="line">                </div>
+<div class="line">                </div>
 <div class="line">                </div>
 <div class="line">                <span class="comment">//Assign previous cell relative to (position) value.  Used when traceback</span></div>
 <div class="line">                <span class="comment">//That way function won&#39;t have to search for correct value;</span></div>
@@ -316,9 +331,9 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Position within the table where state can be found </dd></dl>
 
-<p>Definition at line <a class="el" href="stoch_table_8cpp_source.html#l00125">125</a> of file <a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a>.</p>
+<p>Definition at line <a class="el" href="stoch_table_8cpp_source.html#l00141">141</a> of file <a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_table_8h_source.html#l00063">position</a>, <a class="el" href="stoch_table_8h_source.html#l00062">state_val</a>, and <a class="el" href="stoch_math_8h_source.html#l00043">UINT16_MAX</a>.</p>
+<p>References <a class="el" href="stoch_table_8h_source.html#l00065">position</a>, <a class="el" href="stoch_table_8h_source.html#l00064">state_val</a>, and <a class="el" href="stoch_math_8h_source.html#l00043">UINT16_MAX</a>.</p>
 
 <p>Referenced by <a class="el" href="stoch_table_8cpp_source.html#l00059">finalize()</a>.</p>
 <div class="fragment"><div class="line">                                                                       {</div>
@@ -349,11 +364,9 @@ Private Attributes</h2></td></tr>
 
 <p>Prints the <a class="el" href="class_stoch_h_m_m_1_1stoch_table.html">stochTable</a> to stdout. </p>
 
-<p>Definition at line <a class="el" href="stoch_table_8cpp_source.html#l00137">137</a> of file <a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a>.</p>
+<p>Definition at line <a class="el" href="stoch_table_8cpp_source.html#l00153">153</a> of file <a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_table_8cpp_source.html#l00143">stringify()</a>.</p>
-
-<p>Referenced by <a class="el" href="stoch__forward_8cpp_source.html#l00174">StochHMM::trellis::naive_stochastic_forward()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00181">StochHMM::trellis::naive_stochastic_viterbi()</a>, <a class="el" href="stoch__forward_8cpp_source.html#l00030">StochHMM::trellis::simple_stochastic_forward()</a>, and <a class="el" href="stoch__viterbi_8cpp_source.html#l00042">StochHMM::trellis::simple_stochastic_viterbi()</a>.</p>
+<p>References <a class="el" href="stoch_table_8cpp_source.html#l00159">stringify()</a>.</p>
 <div class="fragment"><div class="line">                              {</div>
 <div class="line">                std::cout &lt;&lt; <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#ada9bfba8e6f8364190c35bcaa1b0e020" title="Stringify the stochTable.">stringify</a>();</div>
 <div class="line">                <span class="keywordflow">return</span>;</div>
@@ -410,7 +423,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="stoch_table_8cpp_source.html#l00046">46</a> of file <a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_table_8h_source.html#l00061">last_position</a>, and <a class="el" href="stoch_table_8h_source.html#l00062">state_val</a>.</p>
+<p>References <a class="el" href="stoch_table_8h_source.html#l00063">last_position</a>, and <a class="el" href="stoch_table_8h_source.html#l00064">state_val</a>.</p>
 
 <p>Referenced by <a class="el" href="stoch__forward_8cpp_source.html#l00174">StochHMM::trellis::naive_stochastic_forward()</a>, <a class="el" href="stoch__viterbi_8cpp_source.html#l00181">StochHMM::trellis::naive_stochastic_viterbi()</a>, <a class="el" href="stoch__forward_8cpp_source.html#l00030">StochHMM::trellis::simple_stochastic_forward()</a>, and <a class="el" href="stoch__viterbi_8cpp_source.html#l00042">StochHMM::trellis::simple_stochastic_viterbi()</a>.</p>
 <div class="fragment"><div class="line">                                                                             {</div>
@@ -439,11 +452,11 @@ Private Attributes</h2></td></tr>
 
 <p>Stringify the <a class="el" href="class_stoch_h_m_m_1_1stoch_table.html">stochTable</a>. </p>
 
-<p>Definition at line <a class="el" href="stoch_table_8cpp_source.html#l00143">143</a> of file <a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a>.</p>
+<p>Definition at line <a class="el" href="stoch_table_8cpp_source.html#l00159">159</a> of file <a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_table_8h_source.html#l00061">last_position</a>, and <a class="el" href="stoch_table_8h_source.html#l00063">position</a>.</p>
+<p>References <a class="el" href="stoch_table_8h_source.html#l00063">last_position</a>, and <a class="el" href="stoch_table_8h_source.html#l00065">position</a>.</p>
 
-<p>Referenced by <a class="el" href="stoch_table_8cpp_source.html#l00137">print()</a>.</p>
+<p>Referenced by <a class="el" href="stoch_table_8cpp_source.html#l00153">print()</a>.</p>
 <div class="fragment"><div class="line">                                       {</div>
 <div class="line">                std::stringstream str;</div>
 <div class="line">                </div>
@@ -481,11 +494,11 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="stoch_table_8cpp_source.html#l00161">161</a> of file <a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a>.</p>
+<p>Definition at line <a class="el" href="stoch_table_8cpp_source.html#l00177">177</a> of file <a class="el" href="stoch_table_8cpp_source.html">stochTable.cpp</a>.</p>
 
-<p>References <a class="el" href="stoch_table_8h_source.html#l00063">position</a>, <a class="el" href="traceback__path_8cpp_source.html#l00041">StochHMM::traceback_path::push_back()</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, <a class="el" href="stoch_table_8h_source.html#l00062">state_val</a>, and <a class="el" href="stoch_math_8h_source.html#l00043">UINT16_MAX</a>.</p>
+<p>References <a class="el" href="stoch_table_8h_source.html#l00065">position</a>, <a class="el" href="traceback__path_8cpp_source.html#l00041">StochHMM::traceback_path::push_back()</a>, <a class="el" href="bitwise__ops_8h_source.html#l00024">SIZE_MAX</a>, and <a class="el" href="stoch_math_8h_source.html#l00043">UINT16_MAX</a>.</p>
 
-<p>Referenced by <a class="el" href="trellis_8cpp_source.html#l00460">StochHMM::trellis::stochastic_traceback()</a>.</p>
+<p>Referenced by <a class="el" href="trellis_8cpp_source.html#l00470">StochHMM::trellis::stochastic_traceback()</a>.</p>
 <div class="fragment"><div class="line">                                                      {</div>
 <div class="line">                </div>
 <div class="line">                <span class="keywordtype">double</span> random((<span class="keywordtype">double</span>)rand()/((<span class="keywordtype">double</span>)(RAND_MAX)+(<span class="keywordtype">double</span>)(1)));</div>
@@ -498,7 +511,7 @@ Private Attributes</h2></td></tr>
 <div class="line">                <span class="comment">//Get traceback from END state</span></div>
 <div class="line">                <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = (*<a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a833bb508d1aebe85e1b73fc68699bb90">position</a>)[<a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a833bb508d1aebe85e1b73fc68699bb90">position</a>-&gt;size()-2]+1 ; i &lt;= <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a833bb508d1aebe85e1b73fc68699bb90">position</a>-&gt;back() ; ++i){</div>
 <div class="line">                        cumulative_prob += (*state_val)[i].prob;</div>
-<div class="line">                        <span class="keywordflow">if</span> (random &lt; cumulative_prob){</div>
+<div class="line">                        <span class="keywordflow">if</span> (random &lt;= cumulative_prob){</div>
 <div class="line">                                state_prev = (*state_val)[i].state_prev;</div>
 <div class="line">                                path.push_back(state_prev);</div>
 <div class="line">                                offset = (*state_val)[i].prev_cell;</div>
@@ -513,10 +526,10 @@ Private Attributes</h2></td></tr>
 <div class="line">                        <span class="comment">//std::cout &lt;&lt; random &lt;&lt; std::endl;</span></div>
 <div class="line">                        cumulative_prob = 0;</div>
 <div class="line">                        </div>
-<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> cells = (i == 0) ? 0 + offset : (*position)[i-1]+offset+1; cells &lt; (*position)[i] ; ++cells){</div>
-<div class="line">                                <span class="keywordflow">if</span> ((*<a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a91107816897541272e01c391af18496b">state_val</a>)[cells].state_id != state_prev ){</div>
-<div class="line">                                        <span class="comment">//std::cout &lt;&lt; &quot;Houston, We have an error!&quot; &lt;&lt; std::endl;</span></div>
-<div class="line">                                }</div>
+<div class="line">                        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> cells = (i == 0) ? 0 + offset : (*position)[i-1]+offset+1; cells &lt;= (*position)[i] ; ++cells){</div>
+<div class="line"><span class="comment">//                              if ((*state_val)[cells].state_id != state_prev ){</span></div>
+<div class="line"><span class="comment">//                                      std::cout &lt;&lt; &quot;Houston, We have an error!&quot; &lt;&lt; std::endl;</span></div>
+<div class="line"><span class="comment">//                              }</span></div>
 <div class="line">                </div>
 <div class="line">                                cumulative_prob+=(*state_val)[cells].prob;</div>
 <div class="line">                                </div>
@@ -553,9 +566,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="stoch_table_8h_source.html#l00061">61</a> of file <a class="el" href="stoch_table_8h_source.html">stochTable.h</a>.</p>
+<p>Definition at line <a class="el" href="stoch_table_8h_source.html#l00063">63</a> of file <a class="el" href="stoch_table_8h_source.html">stochTable.h</a>.</p>
 
-<p>Referenced by <a class="el" href="stoch_table_8cpp_source.html#l00059">finalize()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00046">push()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00015">stochTable()</a>, and <a class="el" href="stoch_table_8cpp_source.html#l00143">stringify()</a>.</p>
+<p>Referenced by <a class="el" href="stoch_table_8cpp_source.html#l00059">finalize()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00046">push()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00015">stochTable()</a>, and <a class="el" href="stoch_table_8cpp_source.html#l00159">stringify()</a>.</p>
 
 </div>
 </div>
@@ -577,9 +590,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="stoch_table_8h_source.html#l00063">63</a> of file <a class="el" href="stoch_table_8h_source.html">stochTable.h</a>.</p>
+<p>Definition at line <a class="el" href="stoch_table_8h_source.html#l00065">65</a> of file <a class="el" href="stoch_table_8h_source.html">stochTable.h</a>.</p>
 
-<p>Referenced by <a class="el" href="stoch_table_8cpp_source.html#l00059">finalize()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00125">get_state_position()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00015">stochTable()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00143">stringify()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00161">traceback()</a>, and <a class="el" href="stoch_table_8cpp_source.html#l00033">~stochTable()</a>.</p>
+<p>Referenced by <a class="el" href="stoch_table_8cpp_source.html#l00059">finalize()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00141">get_state_position()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00015">stochTable()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00159">stringify()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00177">traceback()</a>, and <a class="el" href="stoch_table_8cpp_source.html#l00033">~stochTable()</a>.</p>
 
 </div>
 </div>
@@ -601,9 +614,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="stoch_table_8h_source.html#l00062">62</a> of file <a class="el" href="stoch_table_8h_source.html">stochTable.h</a>.</p>
+<p>Definition at line <a class="el" href="stoch_table_8h_source.html#l00064">64</a> of file <a class="el" href="stoch_table_8h_source.html">stochTable.h</a>.</p>
 
-<p>Referenced by <a class="el" href="stoch_table_8cpp_source.html#l00059">finalize()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00125">get_state_position()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00046">push()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00015">stochTable()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00161">traceback()</a>, and <a class="el" href="stoch_table_8cpp_source.html#l00033">~stochTable()</a>.</p>
+<p>Referenced by <a class="el" href="stoch_table_8cpp_source.html#l00059">finalize()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00141">get_state_position()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00046">push()</a>, <a class="el" href="stoch_table_8cpp_source.html#l00015">stochTable()</a>, and <a class="el" href="stoch_table_8cpp_source.html#l00033">~stochTable()</a>.</p>
 
 </div>
 </div>
@@ -614,7 +627,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 14:59:10 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 30 2013 13:23:13 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

@@ -20,10 +20,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Screen Shot 2013-04-23 at 10.38.21 AM.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">StochHMM
-   &#160;<span id="projectnumber">v0.30</span>
+   &#160;<span id="projectnumber">v0.34</span>
    </div>
    <div id="projectbrief">Flexible Hidden Markov Model C++ Library and Application</div>
   </td>
@@ -175,10 +174,12 @@ std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el
 
 <p>Definition at line <a class="el" href="options_8cpp_source.html#l00457">457</a> of file <a class="el" href="options_8cpp_source.html">options.cpp</a>.</p>
 
-<p>References <a class="el" href="options_8h_source.html#l00025">StochHMM::OPT_INT</a>, and <a class="el" href="options_8h_source.html#l00125">opts</a>.</p>
+<p>References <a class="el" href="options_8h_source.html#l00025">StochHMM::OPT_DOUBLE</a>, and <a class="el" href="options_8h_source.html#l00125">opts</a>.</p>
+
+<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00491">print_limited_posterior()</a>.</p>
 <div class="fragment"><div class="line">                                           {</div>
 <div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a>.count(param)){</div>
-<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a>[param]-&gt;<span class="keyword">set</span> &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a>[param]-&gt;type==<a class="code" href="namespace_stoch_h_m_m.html#a419f35fb0f66fa603a5b63abfa2ff627adb5efc5c4e8c54e68a28614c2f1c2797">OPT_INT</a>){</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a>[param]-&gt;<span class="keyword">set</span> &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a>[param]-&gt;type==<a class="code" href="namespace_stoch_h_m_m.html#a419f35fb0f66fa603a5b63abfa2ff627aaf9f9d273f99af552646a9476fa4e78f">OPT_DOUBLE</a>){</div>
 <div class="line">                <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a>[param]-&gt;data.d;</div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">else</span>{</div>
@@ -233,7 +234,7 @@ false if option does not exist </dd></dl>
 
 <p>References <a class="el" href="options_8h_source.html#l00025">StochHMM::OPT_INT</a>, and <a class="el" href="options_8h_source.html#l00125">opts</a>.</p>
 
-<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00095">main()</a>.</p>
+<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00097">main()</a>.</p>
 <div class="fragment"><div class="line">                                                    {</div>
 <div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a>.count(param)){</div>
 <div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a>[param]-&gt;<span class="keyword">set</span> &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a>[param]-&gt;type==<a class="code" href="namespace_stoch_h_m_m.html#a419f35fb0f66fa603a5b63abfa2ff627adb5efc5c4e8c54e68a28614c2f1c2797">OPT_INT</a>){</div>
@@ -393,7 +394,7 @@ false if option does not exist </dd></dl>
 
 <p>References <a class="el" href="options_8h_source.html#l00025">StochHMM::OPT_INT</a>, and <a class="el" href="options_8h_source.html#l00125">opts</a>.</p>
 
-<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00266">perform_nbest_decoding()</a>, and <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00286">perform_stochastic_decoding()</a>.</p>
+<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00268">perform_nbest_decoding()</a>, and <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00288">perform_stochastic_decoding()</a>.</p>
 <div class="fragment"><div class="line">                                        {</div>
 <div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a>.count(param)){</div>
 <div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a>[param]-&gt;<span class="keyword">set</span> &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a>[param]-&gt;type==<a class="code" href="namespace_stoch_h_m_m.html#a419f35fb0f66fa603a5b63abfa2ff627adb5efc5c4e8c54e68a28614c2f1c2797">OPT_INT</a>){</div>
@@ -451,7 +452,7 @@ false if secondary option is not set </dd></dl>
 
 <p>References <a class="el" href="options_8h_source.html#l00025">StochHMM::OPT_FLAG</a>, and <a class="el" href="options_8h_source.html#l00125">opts</a>.</p>
 
-<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00210">import_model()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00095">main()</a>, and <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00286">perform_stochastic_decoding()</a>.</p>
+<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00212">import_model()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00097">main()</a>, and <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00288">perform_stochastic_decoding()</a>.</p>
 <div class="fragment"><div class="line">                                                            {</div>
 <div class="line">        std::string secondary=sec;</div>
 <div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a>.count(param)){</div>
@@ -505,7 +506,7 @@ false if option is not set or didn't exist in commandline argument </dd></dl>
 
 <p>References <a class="el" href="options_8h_source.html#l00125">opts</a>.</p>
 
-<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00210">import_model()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00230">import_sequence()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00095">main()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00329">perform_posterior()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00286">perform_stochastic_decoding()</a>, and <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00350">print_output()</a>.</p>
+<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00212">import_model()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00232">import_sequence()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00097">main()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00359">perform_posterior()</a>, <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00288">perform_stochastic_decoding()</a>, and <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00383">print_output()</a>.</p>
 <div class="fragment"><div class="line">                                        {</div>
 <div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a>.count(param)){</div>
 <div class="line">            <span class="keywordflow">return</span> <a class="code" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a>[param]-&gt;set;</div>
@@ -554,7 +555,7 @@ false if option is not set or didn't exist in commandline argument </dd></dl>
 
 <p>References <a class="el" href="options_8h_source.html#l00126">alternatives</a>, <a class="el" href="options_8h_source.html#l00025">StochHMM::OPT_DOUBLE</a>, <a class="el" href="options_8h_source.html#l00025">StochHMM::OPT_FLAG</a>, <a class="el" href="options_8h_source.html#l00025">StochHMM::OPT_INT</a>, <a class="el" href="options_8h_source.html#l00025">StochHMM::OPT_NONE</a>, <a class="el" href="options_8h_source.html#l00025">StochHMM::OPT_STRING</a>, <a class="el" href="options_8h_source.html#l00125">opts</a>, and <a class="el" href="options_8h_source.html#l00127">usage</a>.</p>
 
-<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00095">main()</a>.</p>
+<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00097">main()</a>.</p>
 <div class="fragment"><div class="line">                                                                {</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=1;i&lt;argc;i++){</div>
@@ -602,7 +603,7 @@ false if option is not set or didn't exist in commandline argument </dd></dl>
 <div class="line">                            }</div>
 <div class="line">                        }</div>
 <div class="line">                        <span class="keywordflow">else</span>{</div>
-<div class="line">                            <a class="code" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a>[tag]-&gt;data.i=atof(argv[++i]);</div>
+<div class="line">                            <a class="code" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a>[tag]-&gt;data.d=atof(argv[++i]);</div>
 <div class="line">                        }</div>
 <div class="line">                        </div>
 <div class="line">                        <span class="keywordflow">break</span>;</div>
@@ -736,7 +737,7 @@ false if option is not set or didn't exist in commandline argument </dd></dl>
 
 <p>References <a class="el" href="options_8h_source.html#l00076">StochHMM::opt_parameters::allowable</a>, <a class="el" href="options_8h_source.html#l00126">alternatives</a>, <a class="el" href="options_8h_source.html#l00072">StochHMM::opt_parameters::commandline_tag</a>, <a class="el" href="options_8h_source.html#l00095">StochHMM::opt_data::d</a>, <a class="el" href="class_stoch_h_m_m_1_1opt__data.html#afe1c71ededc6ee3a3207bb0baeb3d24e">StochHMM::opt_data::data</a>, <a class="el" href="options_8h_source.html#l00090">StochHMM::opt_data::default_value</a>, <a class="el" href="options_8h_source.html#l00098">StochHMM::opt_data::flags</a>, <a class="el" href="options_8h_source.html#l00094">StochHMM::opt_data::i</a>, <a class="el" href="options_8h_source.html#l00027">MAX_ALLOWABLE</a>, <a class="el" href="options_8h_source.html#l00025">StochHMM::OPT_DOUBLE</a>, <a class="el" href="options_8h_source.html#l00025">StochHMM::OPT_FLAG</a>, <a class="el" href="options_8h_source.html#l00025">StochHMM::OPT_INT</a>, <a class="el" href="options_8h_source.html#l00025">StochHMM::OPT_STRING</a>, <a class="el" href="options_8h_source.html#l00125">opts</a>, <a class="el" href="options_8h_source.html#l00075">StochHMM::opt_parameters::preset</a>, <a class="el" href="options_8h_source.html#l00074">StochHMM::opt_parameters::required</a>, <a class="el" href="options_8h_source.html#l00091">StochHMM::opt_data::required</a>, <a class="el" href="options_8h_source.html#l00092">StochHMM::opt_data::restricted</a>, <a class="el" href="options_8h_source.html#l00089">StochHMM::opt_data::set</a>, <a class="el" href="options_8h_source.html#l00097">StochHMM::opt_data::str</a>, <a class="el" href="options_8h_source.html#l00073">StochHMM::opt_parameters::type</a>, <a class="el" href="options_8h_source.html#l00088">StochHMM::opt_data::type</a>, and <a class="el" href="options_8h_source.html#l00127">usage</a>.</p>
 
-<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00095">main()</a>.</p>
+<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00097">main()</a>.</p>
 <div class="fragment"><div class="line">                                                                                         {</div>
 <div class="line">        </div>
 <div class="line">        <a class="code" href="class_stoch_h_m_m_1_1options.html#a0ff78e34f82f741da2b00eb77e3d376e">usage</a>=usageStatement;</div>
@@ -887,7 +888,7 @@ false if option is not set or didn't exist in commandline argument </dd></dl>
 
 <p>References <a class="el" href="options_8h_source.html#l00025">StochHMM::OPT_STRING</a>, and <a class="el" href="options_8h_source.html#l00125">opts</a>.</p>
 
-<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00210">import_model()</a>, and <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00230">import_sequence()</a>.</p>
+<p>Referenced by <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00212">import_model()</a>, and <a class="el" href="_stoch_h_m_m_8cpp_source.html#l00232">import_sequence()</a>.</p>
 <div class="fragment"><div class="line">                                              {</div>
 <div class="line">        <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a>.count(param)){</div>
 <div class="line">            <span class="keywordflow">if</span> (<a class="code" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a>[param]-&gt;<span class="keyword">set</span> &amp;&amp; <a class="code" href="class_stoch_h_m_m_1_1options.html#add87ef5192f6e131bb6bb240558914ec">opts</a>[param]-&gt;type==<a class="code" href="namespace_stoch_h_m_m.html#a419f35fb0f66fa603a5b63abfa2ff627af28e9e61db94a6f0418c2bcbe1deacef">OPT_STRING</a>){</div>
@@ -986,7 +987,7 @@ false if option is not set or didn't exist in commandline argument </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 14:59:09 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 30 2013 13:23:13 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>

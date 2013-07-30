@@ -20,10 +20,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="Screen Shot 2013-04-23 at 10.38.21 AM.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">StochHMM
-   &#160;<span id="projectnumber">v0.30</span>
+   &#160;<span id="projectnumber">v0.34</span>
    </div>
    <div id="projectbrief">Flexible Hidden Markov Model C++ Library and Application</div>
   </td>
@@ -101,64 +100,122 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stoch_math_8h.html">stochMath.h</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="traceback__path_8h.html">traceback_path.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span>StochHMM {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="comment"></span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">        /*! \class stochTable</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">         * Stochastic table stores stochastic values in a vector. Data structure is </span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">         * implemented to reduce the memory that would be needed if we allocated a 2D</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">         * table with all the transitions.   This lookup table is 1D and only stores</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">         * those values which we add.   Each the value are stores</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">         * (Current state, Previous State, Score as P(X)).  In addition, the indices</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">         * of each state and position are recorded so that they can be referenced</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">         * quickly.  So the memory size necessary to store the values for a sparsely</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">         * connected model are greatly reduce.  However, the time to recreate the table</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">         * is increased because it doesn&#39;t allocate the memory up front, but rather </span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">         * pushes values as they are recorded.</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">        */</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1stoch_table.html">   32</a></span>&#160;        <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1stoch_table.html">stochTable</a>{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                <span class="comment"></span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">                /*! \struct stoch_value;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">                 * Structure used to store the traceback values (Current state, </span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">                 * Previous State, Traceback probability). Also includes the iterator of</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">                 * the previous state (which iterator is the previous state in relation</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">                 * to all states in the last position</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">                 */</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html">   41</a></span>&#160;                <span class="keyword">struct </span><a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html">stoch_value</a>{</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#af6ed82ffd1f08a19e471b9d3c92be8c5">   42</a></span>&#160;                        <a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#af6ed82ffd1f08a19e471b9d3c92be8c5">stoch_value</a>(uint16_t <span class="keywordtype">id</span>, uint16_t prev, <span class="keywordtype">float</span> p): <a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a0ad406134568d7f735a20fd7701fca08">state_id</a>(id), <a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a366308e921baed8d6c3ed92efc44d358">state_prev</a>(prev), <a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a7c34a18662f885614ac16ac29d979456">prob</a>(p){}</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a0ad406134568d7f735a20fd7701fca08">   43</a></span>&#160;                        uint16_t <a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a0ad406134568d7f735a20fd7701fca08">state_id</a>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a366308e921baed8d6c3ed92efc44d358">   44</a></span>&#160;                        uint16_t <a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a366308e921baed8d6c3ed92efc44d358">state_prev</a>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a06822eb766a304a5627072295af90a4f">   45</a></span>&#160;                        uint16_t <a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a06822eb766a304a5627072295af90a4f">prev_cell</a>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a7c34a18662f885614ac16ac29d979456">   46</a></span>&#160;                        <span class="keywordtype">float</span> <a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a7c34a18662f885614ac16ac29d979456">prob</a>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                };</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a080d7792392b395b6ae37cec3701a6d8">stochTable</a>(<span class="keywordtype">size_t</span>);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#ae770ea1a1422b6d7706e05ee21cf1558">~stochTable</a>();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a00d3a5df377d0b618d2e9d705eeaa3ec">push</a>(<span class="keywordtype">size_t</span> pos, <span class="keywordtype">size_t</span> st, <span class="keywordtype">size_t</span> st_to, <span class="keywordtype">float</span> val);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                std::string <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#ada9bfba8e6f8364190c35bcaa1b0e020" title="Stringify the stochTable.">stringify</a>();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#afe93c3bc97d4bc96256d0905c73d16ff" title="Prints the stochTable to stdout.">print</a>();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#acda57c084c4fd7fe15b498ab8eb516ce">finalize</a>();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#acb25865587205a78cff5791c14d461eb">get_state_position</a>(<span class="keywordtype">size_t</span> pos,uint16_t);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a54b03475f783c305b38b8edbc11069e7">traceback</a>(<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a>&amp; path);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="stoch_math_8h.html">stochMath.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="traceback__path_8h.html">traceback_path.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sparse_array_8h.html">sparseArray.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span>StochHMM {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="comment"></span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">        /*! \class stochTable</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">         * Stochastic table stores stochastic values in a vector. Data structure is </span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">         * implemented to reduce the memory that would be needed if we allocated a 2D</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">         * table with all the transitions.   This lookup table is 1D and only stores</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">         * those values which we add.   Each the value are stores</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">         * (Current state, Previous State, Score as P(X)).  In addition, the indices</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">         * of each state and position are recorded so that they can be referenced</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">         * quickly.  So the memory size necessary to store the values for a sparsely</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">         * connected model are greatly reduce.  However, the time to recreate the table</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">         * is increased because it doesn&#39;t allocate the memory up front, but rather </span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">         * pushes values as they are recorded.</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">        */</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1stoch_table.html">   34</a></span>&#160;        <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1stoch_table.html">stochTable</a>{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <span class="comment"></span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">                /*! \struct stoch_value;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">                 * Structure used to store the traceback values (Current state, </span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">                 * Previous State, Traceback probability). Also includes the iterator of</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">                 * the previous state (which iterator is the previous state in relation</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">                 * to all states in the last position</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">                 */</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html">   43</a></span>&#160;                <span class="keyword">struct </span><a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html">stoch_value</a>{</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#af6ed82ffd1f08a19e471b9d3c92be8c5">   44</a></span>&#160;                        <a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#af6ed82ffd1f08a19e471b9d3c92be8c5">stoch_value</a>(uint16_t <span class="keywordtype">id</span>, uint16_t prev, <span class="keywordtype">float</span> p): <a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a0ad406134568d7f735a20fd7701fca08">state_id</a>(id), <a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a366308e921baed8d6c3ed92efc44d358">state_prev</a>(prev), <a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a7c34a18662f885614ac16ac29d979456">prob</a>(p){}</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a0ad406134568d7f735a20fd7701fca08">   45</a></span>&#160;                        uint16_t <a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a0ad406134568d7f735a20fd7701fca08">state_id</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a366308e921baed8d6c3ed92efc44d358">   46</a></span>&#160;                        uint16_t <a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a366308e921baed8d6c3ed92efc44d358">state_prev</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a06822eb766a304a5627072295af90a4f">   47</a></span>&#160;                        uint16_t <a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a06822eb766a304a5627072295af90a4f">prev_cell</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a7c34a18662f885614ac16ac29d979456">   48</a></span>&#160;                        <span class="keywordtype">float</span> <a class="code" href="struct_stoch_h_m_m_1_1stoch_table_1_1stoch__value.html#a7c34a18662f885614ac16ac29d979456">prob</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                };</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a080d7792392b395b6ae37cec3701a6d8">stochTable</a>(<span class="keywordtype">size_t</span>);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#ae770ea1a1422b6d7706e05ee21cf1558">~stochTable</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a00d3a5df377d0b618d2e9d705eeaa3ec">push</a>(<span class="keywordtype">size_t</span> pos, <span class="keywordtype">size_t</span> st, <span class="keywordtype">size_t</span> st_to, <span class="keywordtype">float</span> val);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                std::string <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#ada9bfba8e6f8364190c35bcaa1b0e020" title="Stringify the stochTable.">stringify</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#afe93c3bc97d4bc96256d0905c73d16ff" title="Prints the stochTable to stdout.">print</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#acda57c084c4fd7fe15b498ab8eb516ce">finalize</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#acb25865587205a78cff5791c14d461eb">get_state_position</a>(<span class="keywordtype">size_t</span> pos,uint16_t);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#abd42b5a72712ab79211fe13f2c6450b0">   61</a></span>&#160;                <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#abd42b5a72712ab79211fe13f2c6450b0">last_position</a>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a91107816897541272e01c391af18496b">   62</a></span>&#160;                std::vector&lt;stoch_value&gt;* <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a91107816897541272e01c391af18496b">state_val</a>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a833bb508d1aebe85e1b73fc68699bb90">   63</a></span>&#160;                std::vector&lt;size_t&gt;* <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a833bb508d1aebe85e1b73fc68699bb90">position</a>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        };</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* defined(__StochHMM__stoch_table__) */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a54b03475f783c305b38b8edbc11069e7">traceback</a>(<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a>&amp; path);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#abd42b5a72712ab79211fe13f2c6450b0">   63</a></span>&#160;                <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#abd42b5a72712ab79211fe13f2c6450b0">last_position</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a91107816897541272e01c391af18496b">   64</a></span>&#160;                std::vector&lt;stoch_value&gt;* <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a91107816897541272e01c391af18496b">state_val</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a833bb508d1aebe85e1b73fc68699bb90">   65</a></span>&#160;                std::vector&lt;size_t&gt;* <a class="code" href="class_stoch_h_m_m_1_1stoch_table.html#a833bb508d1aebe85e1b73fc68699bb90">position</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        };</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">//      //Alternate StochTable using sparseArray</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">//      class alt_stochTable{</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">//      public:</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">//              struct stoch_val{</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">//                      stoch_val(uint16_t prev, float p): previous_state(prev), prob(p){}</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">//                      uint16_t previous_state;</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">//                      float prob;</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">//              };</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">//              </span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">//              alt_stochTable(size_t states, size_t seq_length);</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">//              ~alt_stochTable();</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">//              </span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">//              void push(size_t pos, size_t st, size_t st_to, float val);</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">//              void push_ending(size_t st_to,float val);</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">//              void traceback(traceback_path&amp; path);</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">//              void finalize();</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">//              std::string stringify();</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">//              void print();</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">//              </span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">//      private:</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">//              size_t states;</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">//              size_t seq_length;</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">//              std::vector&lt; sparseArray&lt;std::vector&lt;stoch_val&gt; &gt; &gt;* table;</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">//              std::vector&lt;stoch_val&gt; ending;</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">//              </span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">//      };</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1alt__simple__stoch_table.html">   97</a></span>&#160;        <span class="keyword">class </span><a class="code" href="class_stoch_h_m_m_1_1alt__simple__stoch_table.html">alt_simple_stochTable</a>{</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1alt__simple__stoch_table_1_1stoch__val.html">   99</a></span>&#160;                <span class="keyword">struct </span><a class="code" href="struct_stoch_h_m_m_1_1alt__simple__stoch_table_1_1stoch__val.html">stoch_val</a>{</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1alt__simple__stoch_table_1_1stoch__val.html#a13ed2932b599dab7337fa44ed4c8e32a">  100</a></span>&#160;                        <a class="code" href="struct_stoch_h_m_m_1_1alt__simple__stoch_table_1_1stoch__val.html#a13ed2932b599dab7337fa44ed4c8e32a">stoch_val</a>(uint16_t prev, <span class="keywordtype">float</span> p): <a class="code" href="struct_stoch_h_m_m_1_1alt__simple__stoch_table_1_1stoch__val.html#ad69da120862d688efd8b42dd424418d5">previous_state</a>(prev), <a class="code" href="struct_stoch_h_m_m_1_1alt__simple__stoch_table_1_1stoch__val.html#afae5d1116af4bca3cad05d3f4d6f88dd">prob</a>(p){}</div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1alt__simple__stoch_table_1_1stoch__val.html#ad69da120862d688efd8b42dd424418d5">  101</a></span>&#160;                        uint16_t <a class="code" href="struct_stoch_h_m_m_1_1alt__simple__stoch_table_1_1stoch__val.html#ad69da120862d688efd8b42dd424418d5">previous_state</a>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="struct_stoch_h_m_m_1_1alt__simple__stoch_table_1_1stoch__val.html#afae5d1116af4bca3cad05d3f4d6f88dd">  102</a></span>&#160;                        <span class="keywordtype">float</span> <a class="code" href="struct_stoch_h_m_m_1_1alt__simple__stoch_table_1_1stoch__val.html#afae5d1116af4bca3cad05d3f4d6f88dd">prob</a>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                };</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1alt__simple__stoch_table.html#a3b650a43fcc28d8f553a73f158c0ab36">alt_simple_stochTable</a>(<span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1alt__simple__stoch_table.html#a4b6176e26b1cf4315aef6774de79102c">states</a>, <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1alt__simple__stoch_table.html#afb6c64c137167ce496049d1952b3415a">seq_length</a>);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <a class="code" href="class_stoch_h_m_m_1_1alt__simple__stoch_table.html#af9f96ddb3b698cabcc1b67d24b3e3623">~alt_simple_stochTable</a>();</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1alt__simple__stoch_table.html#a0a825829868c1776e200f2620df66cdf">push</a>(<span class="keywordtype">size_t</span> pos, <span class="keywordtype">size_t</span> st, <span class="keywordtype">size_t</span> st_to, <span class="keywordtype">float</span> val);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1alt__simple__stoch_table.html#acc090c7355f61f3e64ccff3a61d13915">push_ending</a>(<span class="keywordtype">size_t</span> st_to,<span class="keywordtype">float</span> val);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1alt__simple__stoch_table.html#a29d520422f37f2af00771f9dbe60e771">traceback</a>(<a class="code" href="class_stoch_h_m_m_1_1traceback__path.html">traceback_path</a>&amp; path);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1alt__simple__stoch_table.html#a4a54ba1b0cf9937cf523f148acd9c8bd">finalize</a>();</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                std::string <a class="code" href="class_stoch_h_m_m_1_1alt__simple__stoch_table.html#a8055750b996fd4ba7fb5fe9c57c61be0">stringify</a>();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <span class="keywordtype">void</span> <a class="code" href="class_stoch_h_m_m_1_1alt__simple__stoch_table.html#a34f8939d0be2401578bca1a97ec54f71">print</a>();</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1alt__simple__stoch_table.html#a4b6176e26b1cf4315aef6774de79102c">  116</a></span>&#160;                <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1alt__simple__stoch_table.html#a4b6176e26b1cf4315aef6774de79102c">states</a>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1alt__simple__stoch_table.html#afb6c64c137167ce496049d1952b3415a">  117</a></span>&#160;                <span class="keywordtype">size_t</span> <a class="code" href="class_stoch_h_m_m_1_1alt__simple__stoch_table.html#afb6c64c137167ce496049d1952b3415a">seq_length</a>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1alt__simple__stoch_table.html#aed390751c3bbda3714fa9f408d9e747f">  118</a></span>&#160;                std::vector&lt;std::vector&lt;std::vector&lt;stoch_val&gt; &gt; &gt;* <a class="code" href="class_stoch_h_m_m_1_1alt__simple__stoch_table.html#aed390751c3bbda3714fa9f408d9e747f">table</a>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="code" href="class_stoch_h_m_m_1_1alt__simple__stoch_table.html#a98deb51607047a5c37e24cedeb9313d6">  119</a></span>&#160;                std::vector&lt;stoch_val&gt; <a class="code" href="class_stoch_h_m_m_1_1alt__simple__stoch_table.html#a98deb51607047a5c37e24cedeb9313d6">ending</a>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        };</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* defined(__StochHMM__stoch_table__) */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 24 2013 14:59:07 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 30 2013 13:23:12 for StochHMM by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1
 </small></address>
