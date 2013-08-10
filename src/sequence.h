@@ -124,6 +124,8 @@ namespace StochHMM{
         //! Prints the digitized version
         inline void print(){std::cout << stringify() << std::endl;}; //Print sequence to stdout
         std::string stringify(); // Get sequence as string
+		std::string stringifyWOHeader(); //Get sequence without [Header information
+
 		
 		
 		//! Undigitize the sequence
@@ -181,6 +183,18 @@ namespace StochHMM{
         
         inline uint8_t operator[](size_t index){return (*seq)[index];}
 		
+		inline bool isRealSeq(){
+			return realSeq;
+		}
+		
+		inline std::vector<double>* getRealSeq(){
+			if (realSeq){
+				return real;
+			}
+			else{
+				return NULL;
+			}
+		}
 		
 		//!Empty Sequence
 		void clear();

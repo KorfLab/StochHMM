@@ -70,6 +70,15 @@ namespace StochHMM {
         double realValue(int , size_t); // Get value of Real track(i) in jth position
 		double realValue(size_t, size_t);
         short  seqValue( int , size_t); // Get digitized value for sequence track(i) in jth position
+		
+		inline std::vector<double>* getRealSeq(size_t seq_num){
+			if (seq_num < num_of_sequences){
+				if (seq[seq_num]->isRealSeq()){
+					return seq[seq_num]->getRealSeq();
+				}
+			}
+			return NULL;
+		}
 
         sequence* getSeq(size_t);// Return sequence for Track (i)
         

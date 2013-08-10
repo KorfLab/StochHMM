@@ -192,8 +192,8 @@ namespace StochHMM {
             }
             else{
                 track* trk = seq[i]->getTrack();
-                tmp+= ">" + trk->getName();
-                tmp+= seq[i]->stringify();
+                tmp+= ">" + trk->getName() + "\n";
+                tmp+= seq[i]->stringifyWOHeader();
             }
         }
         return tmp;

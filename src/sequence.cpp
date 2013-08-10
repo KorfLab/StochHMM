@@ -367,6 +367,40 @@ namespace StochHMM{
         output+="\n";
         return output;
     }
+	
+	//!Get std::string representation of the string
+    //!If the string is a real track, then it will return a string of doubles
+    //!If the string is a non-real track, then it will return a string of shorts, where the shorts are the digitized value of the sequence according to the track
+    //! \return std::string String representation of the sequence
+    std::string sequence::stringifyWOHeader(){
+        std::string output;
+        
+        if (!seq && !realSeq){
+            output+=undigitized;
+        }
+        
+        if (realSeq){
+            for(size_t i=0;i<length;i++){
+                output+= double_to_string((*real)[i]) + " ";
+            }
+        }
+        else{
+            for(size_t i=0;i<length;i++){
+                output+= int_to_string((int)(*seq)[i]) + " ";
+            }
+        }
+        
+        
+        if (mask){
+            output += "\n";
+            for(size_t i=0;i<length;i++){
+                output+= int_to_string((int)(*mask)[i]) + " ";
+            }
+        }
+		
+        output+="\n";
+        return output;
+    }
     
     //!Get the undigitized value of the string
     //!If the string is a real-track then it will return the same as stringify()
@@ -709,18 +743,24 @@ namespace StochHMM{
 		}
 		
         seqtrk=trk;
+		
+		if (!file.good()){
+			return false;
+		}
                 
         //get header
-        while(file.peek() != '@' && !file.eof()){
+        while(file.peek() != '>'){
             std::string temp;
             getline(file,temp,'\n');
+			if (!file.good()){
+				if (!file.good()){
+					std::cerr << "Sequence doesn't contain a header \">\" "<< std::endl;
+					return false;
+				}
+			}
         }
-		
-		if (file.eof()){
-			std::cerr << "No header found for sequence.  Header should start line with \"@\".\n";
-			exit(2);
-		}
         
+		
         std::string sequence="";
         getline(file,sequence,'\n');
         header=sequence;
