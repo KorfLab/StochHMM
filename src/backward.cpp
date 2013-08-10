@@ -66,7 +66,7 @@ namespace StochHMM{
 						continue;
 					}
 					
-					trans = getTransition(hmm->getState(st_current), st_previous, position);
+					trans = getTransition(hmm->getState(st_current), st_previous, position+1);
 					emission = (*hmm)[st_previous]->get_emission_prob(*seqs, position+1);
 					
 					

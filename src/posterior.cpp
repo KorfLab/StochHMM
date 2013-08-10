@@ -257,7 +257,7 @@ namespace StochHMM {
 
 					if ((*scoring_previous)[st_previous] != -INFINITY){
 						
-						backward_temp =(*scoring_previous)[st_previous] + emission + getTransition((*hmm)[st_current], st_previous , position);
+						backward_temp =(*scoring_previous)[st_previous] + emission + getTransition((*hmm)[st_current], st_previous , position+1);
 
 						if ((*scoring_current)[st_current] == -INFINITY){
 							(*scoring_current)[st_current] = backward_temp;
