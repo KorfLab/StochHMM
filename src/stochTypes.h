@@ -38,7 +38,7 @@ namespace StochHMM{
     //! USER = Transition is duration dependent and calculated by user defined distribution
     //! INTERNAL = Transition is duration dependent and calculated by internal defined distibution
     //! LEXICAL =  Transition is dependent upon the preceeding sequence
-    enum transType {STANDARD , DURATION , LEXICAL};
+    enum transType {STANDARD , DURATION , LEXICAL, PDF};
     
     
     //!\enum tracebackIdentifier { DIFF_STATE , STATE_NAME , STATE_LABEL , STATE_GFF , START_INIT };
@@ -106,7 +106,7 @@ namespace StochHMM{
     //!COUNTS = word counts
     //!LOG_PROG = log2 value of probability
     //!PERCENTAGE = [0,100] or 100*Probability
-    enum valueType {PROBABILITY, LOG_ODDS, COUNTS, LOG_PROB, PERCENTAGE}; 
+    enum valueType {UNKNOWN, PROBABILITY, LOG_ODDS, COUNTS, LOG_PROB, PERCENTAGE} ;
 
 
 }

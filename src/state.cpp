@@ -215,26 +215,35 @@ namespace StochHMM{
             if (head.contains("STANDARD")){tp=STANDARD;}
             else if (head.contains("DURATION")){tp=DURATION;}
             else if (head.contains("LEXICAL")){tp=LEXICAL;}
+			else if (head.contains("PDF")){tp=PDF;}
             else{
                 std::cerr << "Unrecognized Transition type(STANDARD, DURATION, LEXICAL):" << txt << std::endl;
                 return false;
                 //Error not recognized transition type
             }
             
+			
             //DETERMINE VALUE TYPE
-            valueType valtyp;
+            valueType valtyp(UNKNOWN);
             if (head.contains("P(X)")){valtyp=PROBABILITY;}
             else if (head.contains("LOG")){valtyp=LOG_PROB;}
             else if (head.contains("COUNTS")){valtyp=COUNTS;}
-            else {
-                std::cerr << "Unrecognized Transition value type( P(X), LOG, COUNTS): " << txt << std::endl;
-                return false;
-                //Error not recognized value type
-            }
-            
+//            else {
+//                std::cerr << "Unrecognized Transition value type( P(X), LOG, COUNTS): " << txt << std::endl;
+//                return false;
+//                //Error not recognized value type
+//            }
+//            
             
             
             if (tp==STANDARD){
+				
+				if (valtyp == UNKNOWN){
+					std::cerr << "Unrecognized Transition value type( P(X), LOG, COUNTS): " << txt << std::endl;
+					return false;
+				}
+				
+				
                 //Process each following from line
                 for(size_t iter=1;iter<line.size();iter++){
                     transition* temp = new(std::nothrow) transition(tp);
@@ -262,7 +271,7 @@ namespace StochHMM{
                 
             }
 			
-            else if (tp==DURATION || tp==LEXICAL ){
+            else if (tp == DURATION || tp == LEXICAL || tp == PDF){
                 transition* temp = new(std::nothrow) transition(tp);
                 
                 if (temp==NULL){
@@ -336,6 +345,7 @@ namespace StochHMM{
         std::string standardString;
         std::string distribString;
         std::string lexicalString;
+		std::string pdfString;
         
         //Get Transitions Standard, Distribution, Lexical
         for(size_t i=0;i<transi->size();i++){
@@ -353,6 +363,7 @@ namespace StochHMM{
                 distribString+=(*transi)[i]->stringify();
                 
             }
+			
             else if (tp == LEXICAL){
                 if ((*transi)[i]->LexFunctionDefined()){
                     lexicalString+="TRANSITION:\tLEXICAL:\tFUNCTION:\t";
@@ -365,6 +376,11 @@ namespace StochHMM{
                 }
                 
             }
+			else if (tp == PDF){
+				pdfString+="TRANSITION:\tPDF:\tFUNCTION:\t";
+				pdfString+=(*transi)[i]->getPDFFunctionName() + "\n\t";
+				pdfString+=(*transi)[i]->stringify();
+			}
         }
         
         
@@ -393,6 +409,10 @@ namespace StochHMM{
             if (!lexicalString.empty()){
                 stateString+=lexicalString + "\n";
             }
+			
+			if (!pdfString.empty()){
+				stateString+=pdfString + "\n";
+			}
         }
         
         

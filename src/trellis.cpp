@@ -244,9 +244,10 @@ namespace StochHMM {
 			size_t size = get_explicit_duration_length(trans,sequencePosition, st->getIterator(), trans_to_state);
 			transition_prob=trans->getTransition(size,NULL);
         }
-        else if (trans_type == LEXICAL){
+        else if (trans_type == LEXICAL || trans_type == PDF){
             transition_prob=trans->getTransition(sequencePosition, seqs);
         }
+		
         
         //Is external function define for the transition
         if (trans->FunctionDefined()){

@@ -105,6 +105,9 @@ namespace StochHMM{
         }
 	}
 	
+	//!Assign a Univariate Probability Distribution Function to the StateFuncs class
+	//!\param str Name of function
+	//!\param ptrFunc Pointer to pdfFunc to use for continuous emission
 	void StateFuncs::assignPDFFunction(const char* str, pdfFunc ptrFunc){
 		std::string st(str);
 		assignPDFFunction(st, ptrFunc);

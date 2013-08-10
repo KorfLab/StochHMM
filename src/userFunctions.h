@@ -45,6 +45,7 @@ namespace StochHMM{
 	//! Passed a string and position as size_t
     typedef double  (*emissionFunc) (const std::string*, const size_t);
 	
+	
 	//! \typedef pdfFunc
 	//! \brief Pointer to Univariate Continuous Probability Density Function
 	//! \param[in] double Given value
@@ -86,8 +87,7 @@ namespace StochHMM{
 		void assignPDFFunction(const char*,  pdfFunc);
 
 		void assignMultivariatePdfFunction(std::string&, multiPdfFunc);
-		void assignMultivariatePdfFunction(const char*,  multiPdfFunc);
-		
+		void assignMultivariatePdfFunction(const char*,  multiPdfFunc);		
         
         transitionFunc* getTransitionFunction(std::string&);
         emissionFunc* getEmissionFunction(std::string&);
@@ -100,6 +100,7 @@ namespace StochHMM{
         std::map<std::string, emissionFunc> emissionFunctions; 
 		std::map<std::string, pdfFunc> pdfFunctions; //For continuous emissions
 		std::map<std::string, multiPdfFunc> multiPdfFunctions;
+		
 		void _loadUnivariatePdf();
 		void _loadMultivariatePdf();
     };

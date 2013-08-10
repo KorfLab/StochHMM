@@ -39,6 +39,9 @@ namespace StochHMM{
         lexFunc	= NULL;
         toState	= NULL;
 		func	= NULL;
+		pdfFunction = NULL;
+		pdfTrack = NULL;
+		track_number = 0;
     }
     
     //!Create a transition of a certain type
@@ -54,6 +57,9 @@ namespace StochHMM{
         function=false;
         toState=NULL;
 		func = NULL;
+		pdfFunction = NULL;
+		pdfTrack = NULL;
+		track_number = 0;
     }
     
     //! Parse the transition User and Standard Transition from String
@@ -97,6 +103,12 @@ namespace StochHMM{
         }
         
         if (transition_type == DURATION ){
+			
+			if (valtyp == UNKNOWN){
+				std::cerr << "Unrecognized Transition value type( P(X), LOG, COUNTS): " << std::endl;
+				return false;
+			}
+			
             if (!_parseDuration(txt, names, valtyp)){
                 std::cerr << "Couldn't parse Duration Transition" <<std::endl;
                 return false;
@@ -108,6 +120,12 @@ namespace StochHMM{
                 return false;
             }
         }
+		else if (transition_type == PDF){
+			if (!_parsePDF(txt, names, valtyp, trks, funcs)){
+                std::cerr << "Couldn't parse PDF Transition" << std::endl;
+                return false;
+            }
+		}
         
         return true;
     }
@@ -287,15 +305,17 @@ namespace StochHMM{
         
         //Process Transition
         stringList line;
+		line.splitString(txt[0],"\t:,");
+		
         size_t idx(0);
         std::string functionName("");
         
-        if (txt.contains("FUNCTION")){
-            idx=txt.indexOf("FUNCTION");
+        if (line.contains("FUNCTION")){
+            idx=line.indexOf("FUNCTION");
             function=true;
             
-            if (idx+1 < txt.size()){
-                functionName=txt[idx+1];
+            if (idx+1 < line.size()){
+                functionName=line[idx+1];
             }
             else{
                 std::cerr << "Couldn't parse the function name from the Lexical Transition:\n" << txt.stringify() << std::endl;
@@ -303,6 +323,7 @@ namespace StochHMM{
             
         }
         
+		//Test from here --------------------
         
         idx=txt.indexOf("TRANSITION");
         
@@ -509,6 +530,91 @@ namespace StochHMM{
         
         return true;
     }
+	
+	
+	
+	//Parse the lexical transition from the model file
+    bool transition::_parsePDF(stringList& txt, stringList& names, valueType valtyp, tracks& trks, StateFuncs* funcs){
+        
+        //Process Transition
+        stringList line;
+		line.splitString(txt[0],"\t:,");
+		
+        size_t idx(0);
+        std::string functionName("");
+        
+        if (line.contains("FUNCTION")){
+            idx=line.indexOf("FUNCTION");
+            function=true;
+            
+            if (idx+1 < line.size()){
+                functionName=line[idx+1];
+            }
+            else{
+                std::cerr << "Couldn't parse the function name from the PDF Transition:\n" << line.stringify() << std::endl;
+            }
+            
+        }
+		else{
+			std::cerr << "No FUNCTION defined for PDF Transition\n";
+			return false;
+		}
+		
+		if (function){  //PDF Function
+            pdfFunction = funcs->getPDFFunction(functionName);
+			pdfFunctionName = functionName;
+            
+            if (pdfFunction==NULL){
+                std::cerr << "Couldn't assign " << functionName << " to Transition" << std::endl;
+                return false;
+            }
+        }
+        
+        
+        idx=txt.indexOf("TRANSITION");
+        
+        if (idx+1 < txt.size()){
+            idx++;
+            line.splitString(txt[idx],"\t:,");
+            
+            if (line.size()>0){
+                stateName = line[0];
+            }
+            else{
+                std::cerr << "Couldn't parse the STATE for the PDF transition:\n" << txt.stringify() << std::endl;
+            }
+        }
+        else{
+            std::cerr << "Couldn't parse the PDF Transition:\n" << txt.stringify() << std::endl;
+            return false;
+        }
+        
+        
+        if (!names.contains(stateName)){
+            std::cerr << "PDF transition defined transition to state named : " << stateName << " However, there doesn't appear to be any state with that name\n";
+            return false;
+        }
+        
+        //remaining tracks
+		if (line[1].compare("NULL")==0){
+			pdfTrack=NULL;
+			track_number=SIZE_MAX;
+		}
+		else{
+			track* tk = trks.getTrack(line[1]);
+			if (tk==NULL){
+				std::cerr << "PDF Transition tried to add a track named " << line[1] << " . However, there isn't a matching track in the model.  Please check to model formatting.\n";
+				return false;
+			}
+			track_number = tk->getIndex();
+			pdfTrack = tk;
+		}
+        
+        return true;
+    }
+
+	
+	
 
     
     //!Print the transition to stdout
@@ -540,6 +646,14 @@ namespace StochHMM{
                 transString+= "\t\t" + int_to_string((int) i+1) + "\t" + double_to_string((*distribution)[i]) + "\n";
             }
         }
+		else if (transition_type == PDF){
+			transString+= stateName + ":\t";
+			transString+= (pdfTrack==NULL)? "NULL" : pdfTrack->getName();
+			if (func!=NULL){
+				transString+="\t" + func->stringify();
+			}
+			transString+= "\n";
+		}
         else if (transition_type == LEXICAL){
             transString+="\t" + stateName + ":\t";
             
@@ -599,10 +713,10 @@ namespace StochHMM{
     //! \param seqs Pointer to sequences, used in determining transition
     //! \return double Score of the transition
     double transition::getTransition(size_t pos,sequences* seqs){
-         if (transition_type==STANDARD){
+         if (transition_type == STANDARD){
              return log_trans;
          }
-         else if (transition_type==DURATION){
+         else if (transition_type == DURATION){
              
              if (pos >= distribution->size()){   // Check that size corresponds to zero index or one index.....
                  return extendedValue;
@@ -611,7 +725,7 @@ namespace StochHMM{
                  return (*distribution)[pos-1];
              }
          }
-         else if (transition_type==LEXICAL){
+         else if (transition_type == LEXICAL){
              
              double value;
              
@@ -623,6 +737,12 @@ namespace StochHMM{
              }
             return value;
          }
+		 else if (transition_type == PDF){
+			 if (pdfTrack==NULL){
+				 return (*pdfFunction)(pos,NULL);
+			 }
+			 return  (*pdfFunction)(pos,seqs->getRealSeq(track_number));
+		 }
          else{
             return -INFINITY; 
          }

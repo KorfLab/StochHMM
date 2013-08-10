@@ -158,7 +158,9 @@ public:
     inline bool FunctionDefined(){if(func!=NULL){return true;} else {return false;}};
     
     inline bool LexFunctionDefined(){return function;}
-    std::string getLexicalFunctionName(){return lexFunc->getName();}
+    inline std::string getLexicalFunctionName(){return lexFunc->getName();}
+	
+	inline std::string getPDFFunctionName(){return pdfFunctionName;}
 	
 	inline bool isSimple(){
 		if (transition_type != DURATION && func == NULL && !function){
@@ -197,10 +199,14 @@ private:
 	/*--------------- Lexical Table ----------------*/
     bool function;
     emissionFuncParam* lexFunc;
-    
     lexicalTable scoreTable;
     
-    
+	/*--------------- PDF Table ----------------*/
+	pdfFunc* pdfFunction;
+	std::string pdfFunctionName;
+	track* pdfTrack; //Track to pass the PDFFunction
+    size_t track_number;
+	
     /*--------------- External Functions ----------------*/
     //Extern function Identifies function to be called at tagged transition;
     //Function has to be initialized before importing the model
@@ -215,6 +221,7 @@ private:
     bool _parseStandard(std::string&,stringList&, valueType);
     bool _parseDuration(stringList&, stringList&, valueType);              
     bool _parseLexical(stringList&, stringList&, valueType, tracks&, StateFuncs*);
+	bool _parsePDF(stringList&,stringList&,valueType,tracks&, StateFuncs*);
     bool _processTags(std::string&, tracks& , weights*, StateFuncs*);
 };
 
