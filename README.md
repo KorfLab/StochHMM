@@ -13,6 +13,8 @@ the HMM framework.
 For documentation on model syntax and designing a model, see Github wiki.
  
 ###http://www.github.com/KorfLab/StochHMM/wiki
+
+###Download: https://github.com/KorfLab/StochHMM/archive/v0.35.tar.gz
  
 ##Integrating Data
 Here are a few of the ways that StochHMM allows the users to integrate additional
