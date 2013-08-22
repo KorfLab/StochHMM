@@ -11,15 +11,14 @@
 #include <string>
 #include <bitset>
 #include <time.h>
-//#include "mem_trellis.h"
-//#include "mem_viterbi.h"
-#include "trellis.h"
-#include "hmm.h"
-#include "state.h"
-#include "sequence.h"
-#include "seqTracks.h"
-#include "options.h"
-#include "traceback_path.h"
+//#include "trellis.h"
+//#include "hmm.h"
+//#include "state.h"
+//#include "sequence.h"
+//#include "seqTracks.h"
+//#include "options.h"
+//#include "traceback_path.h"
+#include "StochHMMlib.h"
 
 using namespace StochHMM;
 
@@ -48,89 +47,29 @@ int main(int argc, const char * argv[])
 	
 	
 	
-    //Check that model argument is defined and import the model
-//    std::string model_file = "Lettuce_Final.hmm";
-//    std::string seq_file = "Test.fa";
-//
-//	std::string model_file = "Dice.hmm";
-//	std::string seq_file = "Dice.fa";
-
-//	std::string model_file = "model_V.txt";
-//	std::string seq_file = "TestTCR1.fa";
-
-//	std::string model_file = "3_16Eddy.hmm";
-//	std::string seq_file = "3_17Eddy.fa";
-
-//	std::string model_file = "Dice_explicit.hmm";
-//	std::string seq_file = "Dice_short.fa";
-	
+    //Check that model argument is defined and import the model	
 	std::string model_file = "Dice_Continuous.hmm";
 	std::string seq_file   = "Dice_real.fa";
-	
-//	std::string model_file = "Dice_amb_wo_definition.hmm";
-//	std::string seq_file   = "Dice_amb_short.fa";
-	
-	hmm.import(model_file,&functions);
 
-//	sequence temp("ACGACGTACGTNNNK",hmm.getTrack(0));
-//	
-//	track* tr = hmm.getTrack(0);
-//	std::cout << "Max Size:" << tr->getAlphaMax() << std::endl;
-//	
-//	uint8_t word[3];
-//	tr->convertIndexToDigital(63, 3, word);
-//	
-//	std::cout << (int) word[2] << (int) word[1] << (int) word[0] << std::endl;
-//	
-//	for(size_t i=0;i<hmm.state_size();i++){
-//		std::bitset<STATE_MAX>* temp = hmm[i]->getTo();
-//		for(size_t j=0;j<1024;j++){
-//			if (temp->test(j)){
-//				std::cout << "State:\t" << i << "\t to " << j << std::endl;
-//				std::cout << "State:\t" << hmm[i]->getName() << "\t to " << hmm[j]->getName() << std::endl;
-//			}
-//		}
-//	}
-		
-	//temp.print();
-    
+	//Import model (Pass State functions to model import)
+	hmm.import(model_file,&functions);
+	//hmm.print();
+
+    //Import sequences
     jobs.loadSeqs(hmm, seq_file, FASTA);
     
     seqJob *job=jobs.getJob();
-	
-
-	
-	//sequences* temp = job->getSeqs();
-	//temp->print();
     
+	//Create Trellis
     trellis test_trellis(job->getModel(),job->getSeqs());
-	
-	hmm.print();
     
-    //viterbi_three(&test_trellis, job->getModel(), job->getSeqs());
-	//viterbi_two(&test_trellis, job->getModel(), job->getSeqs());
-	//viterbi_four(&test_trellis, job->getModel(), job->getSeqs());
-    
-	
-	//test_trellis.stochastic_viterbi();
-	
-	//test_trellis.viterbi();
-	
+	//Perform Viterbi
 	test_trellis.simple_viterbi();
 	
-	//test_trellis.simple_posterior();
-	//test_trellis.simple_forward();
-	//test_trellis.simple_backward();
-	
+	//Get traceback and print the labels
 	traceback_path test(job->getModel());
 	test_trellis.traceback(test);
-	
-	//test_trellis.stochastic_traceback(test);
-	
 	test.print_label();
-	
-	//test_trellis.forward();
-	//test_trellis.backward();
 	
     return 0;
 }

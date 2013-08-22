@@ -98,6 +98,8 @@ int main(int argc, const char * argv[])
 	job->getSeqs()->print();
 	StochHMM::trellis trell(&hmm,job->getSeqs());
 	trell.posterior();
+//	trell.viterbi();
+	
 	print_posterior(trell);
 
 	
