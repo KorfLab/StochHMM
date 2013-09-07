@@ -343,23 +343,29 @@ namespace StochHMM {
         const sequence* seq = seqs->getSeq(trackIndex);
         int16_t tb_state(st->getIterator());
 		int16_t starting_state = tb_state;
+		state* temp_st = hmm->getState(tb_state);
 
 		
         for(size_t trellisPos = position-1; trellisPos != SIZE_MAX ; --trellisPos){
             
             tracebackPath.push_back(tb_state);
-            
-            if ((combineIdent == FULL) ||
-                (combineIdent == STATENAME && combineIdentName.compare(st->getName())==0)||
-                (combineIdent == STATELABEL && combineIdentName.compare(st->getLabel())==0)||
-                (combineIdent == STATEGFF && combineIdentName.compare(st->getGFF())==0))
-
+            //std::cout << tb_state << "\t" << temp_st->getLabel() << std::endl;
+			
+			
+			if ((combineIdent == FULL) ||
+                (combineIdent == STATENAME && combineIdentName.compare(temp_st->getName())==0)||
+                (combineIdent == STATELABEL && combineIdentName.compare(temp_st->getLabel())==0)||
+                (combineIdent == STATEGFF && combineIdentName.compare(temp_st->getGFF())==0))
+				
             {
                 tracebackString.push_back(seq->getSymbol(trellisPos));
             }
+            
 			
             tb_state= (*traceback_table)[trellisPos][tb_state];
-            state* temp_st = hmm->getState(tb_state);
+            temp_st = hmm->getState(tb_state);
+			
+			
 
             //Check to see if stop conditions of traceback are met, if so break;
             if(traceback_identifier == START_INIT && tb_state == -1) {break;}
@@ -369,8 +375,8 @@ namespace StochHMM {
             else if (traceback_identifier == STATE_GFF   && tracebackIdentifierName.compare(temp_st->getGFF())==0) {  break;}
         }
         
-        size_t length=tracebackPath.size();
-        std::string CombinedString;
+        size_t length = tracebackString.size();
+		std::string CombinedString;
 		
         size_t maxSymbolSize = alphaTrack->getAlphaMax();
 		//For single letter characters

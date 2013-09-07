@@ -99,6 +99,7 @@
 		EE8B578A16CB1C3A00ECEE0A /* StochHMM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE8B578916CB1C3A00ECEE0A /* StochHMM.cpp */; };
 		EE8B57AF16CDAD8600ECEE0A /* MotifScorer.h in Headers */ = {isa = PBXBuildFile; fileRef = EE8B57AD16CDAD8600ECEE0A /* MotifScorer.h */; };
 		EE8B57BD16CDAE7400ECEE0A /* MotifScorer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE8B57AC16CDAD8600ECEE0A /* MotifScorer.cpp */; };
+		EEAA8A6717DAB6C900E01714 /* libStochHMM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEDF9D72161FC40E003B18AB /* libStochHMM.a */; };
 		EEAE54EC16811C9100F2402E /* newStochHMM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEAE54EB16811C9100F2402E /* newStochHMM.cpp */; };
 		EEAE54EE16811C9100F2402E /* newStochHMM.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = EEAE54ED16811C9100F2402E /* newStochHMM.1 */; };
 		EEAE54F316811D0000F2402E /* trellis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EEBBA2431652E72F004D7570 /* trellis.cpp */; };
@@ -211,6 +212,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		EEAA8A5C17DAB6BE00E01714 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		EEAE54E616811C9100F2402E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -291,6 +301,7 @@
 		EE8B57AC16CDAD8600ECEE0A /* MotifScorer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MotifScorer.cpp; path = ../src/MotifScorer.cpp; sourceTree = SOURCE_ROOT; };
 		EE8B57AD16CDAD8600ECEE0A /* MotifScorer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MotifScorer.h; path = ../src/MotifScorer.h; sourceTree = SOURCE_ROOT; };
 		EE8B57B416CDAE3800ECEE0A /* MotifScorer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MotifScorer; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEAA8A5E17DAB6BE00E01714 /* Test_Cegma */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test_Cegma; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEAE54E816811C9100F2402E /* newStochHMM */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = newStochHMM; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEAE54EB16811C9100F2402E /* newStochHMM.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = newStochHMM.cpp; sourceTree = "<group>"; };
 		EEAE54ED16811C9100F2402E /* newStochHMM.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = newStochHMM.1; sourceTree = "<group>"; };
@@ -422,6 +433,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE8474CA16D5A2DB00D70298 /* libStochHMM.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEAA8A5B17DAB6BE00E01714 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEAA8A6717DAB6C900E01714 /* libStochHMM.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +618,7 @@
 				EE84749016D59BA400D70298 /* TestTools */,
 				EECAAEB317B6C89E008A89BD /* M82_PEN_HET */,
 				EE022A7917C6A9B20051B7F9 /* DupHMM */,
+				EEAA8A5E17DAB6BE00E01714 /* Test_Cegma */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -909,6 +929,23 @@
 			productReference = EE8B57B416CDAE3800ECEE0A /* MotifScorer */;
 			productType = "com.apple.product-type.tool";
 		};
+		EEAA8A5D17DAB6BE00E01714 /* Test_Cegma */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEAA8A6617DAB6BF00E01714 /* Build configuration list for PBXNativeTarget "Test_Cegma" */;
+			buildPhases = (
+				EEAA8A5A17DAB6BE00E01714 /* Sources */,
+				EEAA8A5B17DAB6BE00E01714 /* Frameworks */,
+				EEAA8A5C17DAB6BE00E01714 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Test_Cegma;
+			productName = Test_Cegma;
+			productReference = EEAA8A5E17DAB6BE00E01714 /* Test_Cegma */;
+			productType = "com.apple.product-type.tool";
+		};
 		EEAE54E716811C9100F2402E /* newStochHMM */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EEAE54F116811C9100F2402E /* Build configuration list for PBXNativeTarget "newStochHMM" */;
@@ -1008,6 +1045,7 @@
 				EE84748F16D59BA400D70298 /* TestTools */,
 				EECAAEB217B6C89E008A89BD /* M82_PEN_HET */,
 				EE022A7817C6A9B20051B7F9 /* DupHMM */,
+				EEAA8A5D17DAB6BE00E01714 /* Test_Cegma */,
 			);
 		};
 /* End PBXProject section */
@@ -1081,6 +1119,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE8B57BD16CDAE7400ECEE0A /* MotifScorer.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEAA8A5A17DAB6BE00E01714 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1321,6 +1366,28 @@
 			};
 			name = Release;
 		};
+		EEAA8A6417DAB6BF00E01714 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EEAA8A6517DAB6BF00E01714 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		EEAE54EF16811C9100F2402E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1460,6 +1527,7 @@
 				EE022A8017C6A9B20051B7F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EE0C3D18164461A10054879B /* Build configuration list for PBXNativeTarget "Test_mem_viterbi" */ = {
 			isa = XCConfigurationList;
@@ -1505,6 +1573,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		EEAA8A6617DAB6BF00E01714 /* Build configuration list for PBXNativeTarget "Test_Cegma" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEAA8A6417DAB6BF00E01714 /* Debug */,
+				EEAA8A6517DAB6BF00E01714 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		EEAE54F116811C9100F2402E /* Build configuration list for PBXNativeTarget "newStochHMM" */ = {
 			isa = XCConfigurationList;
