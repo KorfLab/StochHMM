@@ -14,7 +14,7 @@ For documentation on model syntax and designing a model, see Github wiki.
  
 ###http://www.github.com/KorfLab/StochHMM/wiki
 
-###Download: https://github.com/KorfLab/StochHMM/archive/v0.35.tar.gz
+###Download version 0.36: https://github.com/KorfLab/StochHMM/archive/master.zip
  
 ##Integrating Data
 Here are a few of the ways that StochHMM allows the users to integrate additional
