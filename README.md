@@ -14,6 +14,8 @@ For documentation on model syntax and designing a model, see Github wiki.
  
 ###http://www.github.com/KorfLab/StochHMM/wiki
 
+**Update:** [Comparison between StochHMM, Mamot, R HMM, and HMMoc](http://www.github.com/KorfLab/StochHMM/wiki/Comparison)
+
 ###Download version 0.36: https://github.com/KorfLab/StochHMM/archive/master.zip
  
 ##Integrating Data
