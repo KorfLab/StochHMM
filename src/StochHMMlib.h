@@ -34,6 +34,7 @@
 #include "stochTable.h"
 #include "traceback_path.h"
 
+#define VERSION 0.37
 
 /*!
    @mainpage  StochHMM: A Flexible C++ Hidden Markov Model Library and Application

@@ -10,7 +10,7 @@
 #define StochHMM_StochHMM_usage_h
 
 const char usage[]  = "\n\
-StochHMM - Stochastic Hidden Markov Model Framework (version 0.36) Date: September 6, 2013\n\
+StochHMM - Stochastic Hidden Markov Model Framework (version 0.37) Date: December 12, 2013\n\
 \n\
 Usage: StochHMM -model <model_file>  -seq <seq_file> [options]\n\
 \n\

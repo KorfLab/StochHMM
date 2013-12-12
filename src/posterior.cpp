@@ -116,7 +116,8 @@ namespace StochHMM {
             }
 			            
             for (size_t current = 0; current < state_size; ++current){ //i is current state that emits value
-                if (!current_states[current]){
+				
+				if (!current_states[current]){
                     continue;
                 }
                 
@@ -133,10 +134,10 @@ namespace StochHMM {
 				from_trans = (*hmm)[current]->getFrom();
 				
                 for (size_t previous = 0; previous < state_size ; ++previous) {  //j is previous state
+					
                     if (!(*from_trans)[previous]){
                         continue;
                     }
-					
 					
 					
 					if ((*scoring_previous)[previous] != -INFINITY){
