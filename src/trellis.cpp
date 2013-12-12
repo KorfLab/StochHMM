@@ -246,6 +246,10 @@ namespace StochHMM {
         }
         else if (trans_type == LEXICAL || trans_type == PDF){
             transition_prob=trans->getTransition(sequencePosition, seqs);
+			if (isnan(transition_prob)){
+				std::cerr << "Function returned NaN at Position:" << sequencePosition+1 << " using function named " << trans->getPDFFunctionName() << std::endl;
+				std::exit(23);
+			}
         }
 		
         
@@ -258,8 +262,12 @@ namespace StochHMM {
 			}
 			
             transition_prob+=transitionFuncTraceback(st, sequencePosition, trans->getExtFunction());
+			if (isnan(transition_prob)){
+				std::cerr << "External Function for Transition returned NaN at Position" << sequencePosition+1 << std::endl;
+				std::exit(23);
+			}
         }
-        
+		
         return transition_prob;		
 	}
 	
