@@ -554,7 +554,7 @@ namespace StochHMM{
             int count = (*it).second;
             for(size_t position=0;position<sequenceSize;position++){
                 int tbState=(*it).first[position];
-                (*table)[position][tbState]+=count;
+                (*table)[sequenceSize - position - 1][tbState]+=count;
             }
         }
         return table;
