@@ -37,6 +37,7 @@
 #include <sstream>
 #include <stdint.h>
 #include <stdlib.h>
+#include <cassert>
 #include "text.h"
 #include "options.h"
 #include "hmm.h"
@@ -205,6 +206,7 @@ namespace StochHMM{
     private:
         size_t vectorIterator;
         size_t maxSize;
+        bool isFinalized;
         std::vector<std::map<traceback_path,int>::iterator> pathAccess;
         std::map<traceback_path,int> paths;
         heatTable* table;
