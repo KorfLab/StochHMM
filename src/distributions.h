@@ -17,7 +17,7 @@
 
 namespace StochHMM {
     
-#define PI 3.145926535897932
+#define PI 3.141592653589793238463
     
         
     ///////////////////DISTRIBUTIONS////////////////////////
