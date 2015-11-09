@@ -365,6 +365,13 @@ namespace StochHMM{
 			return false;
 		}
 		
+		
+		//----------------- Markov State Random Walk
+		
+		//!Generate a Markov state sequence - Random Walk
+		void random_walk();
+		
+		
 	private:
 		//!Flag set to tell whether the transitions bitsets have been set foreach
 		//!state.  Model is also checked for correct order of states
@@ -484,7 +491,7 @@ namespace StochHMM{
 	void print_vec (std::vector<std::vector<double> >&);
 	
 	//    void markov_length_distribution(model*);
-	//
 	//    void markov_generate_sequence(model*);
+	//
 }
 #endif /*HMM_H*/

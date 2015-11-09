@@ -344,8 +344,9 @@ namespace StochHMM {
         int16_t tb_state(st->getIterator());
 		int16_t starting_state = tb_state;
 		state* temp_st = hmm->getState(tb_state);
-
+	
 		
+		//Performing Traceback
         for(size_t trellisPos = position-1; trellisPos != SIZE_MAX ; --trellisPos){
             
             tracebackPath.push_back(tb_state);

@@ -863,8 +863,27 @@ namespace StochHMM{
         }
         return true;
     }
-    
-    
+	
+	void model::random_walk(){
+		state* st = initial;
+		while (st != ending){
+			
+			std::vector<transition*>* trans = st->getTransitions();
+			double r = static_cast <double> (rand()) / static_cast <double> (RAND_MAX);
+			double cumulative(0.0);
+			for(std::vector<transition*>::size_type i = 0; i != trans->size(); i++){
+				transition* t = (*trans)[i];
+				cumulative += exp(t->getTransition());
+				if (r <= cumulative){
+					st = t->getState();
+					std::cout << st->getName() << std::endl;
+					break;
+				}
+			}
+		}
+	}
+	
+	
     //!Get pointer to state by state name
     //!\param txt String name of state
     //!\return pointer to state if it exists;

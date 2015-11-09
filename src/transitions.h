@@ -150,8 +150,8 @@ public:
     
     double getTransition(size_t,sequences*);  // get the transition using to and the position trellis
     double get_reduced_order(int,sequences*);
-    double getTransition();
-    
+	inline double getTransition(){return log_trans;};
+		
     //! Get pointer to externalFuncs 
     //! \return externalFuncs* Pointer to external function definition in transition
     inline transitionFuncParam* getExtFunction(){return func;};
