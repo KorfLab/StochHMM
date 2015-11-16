@@ -1,0 +1,103 @@
+#STOCHHMM MODEL FILE
+MODEL INFORMATION
+======================================================
+MODEL_NAME:	CASINO DICE MODEL
+MODEL_DESCRIPTION:	Taken from CH3 Durbin/Eddy
+MODEL_CREATION_DATE:	August 28,2009
+
+TRACK SYMBOL DEFINITIONS
+======================================================
+DICE:	1,2,3,4,5,6
+COLOR:	R,G,B
+
+STATE DEFINITIONS
+#############################################
+STATE:	
+	NAME:	INIT
+TRANSITION:	STANDARD: P(X)
+	FAIR:	0.25
+	RED_LOADED:	0.25
+	GREEN_LOADED:	0.25
+	BLUE_LOADED:	0.25
+#############################################
+STATE:	
+	NAME:	FAIR
+	PATH_LABEL:	F
+	GFF_DESC:	FAIR
+TRANSITION:	STANDARD: P(X)
+	FAIR:	0.85
+	RED_LOADED:	0.05
+	GREEN_LOADED:	0.05
+	BLUE_LOADED:	0.05
+	END:	1
+EMISSION:	DICE: P(X)
+	ORDER:	0
+@1		2		3		4		5		6
+0.167	0.167	0.167	0.167	0.167	0.167
+
+EMISSION:	COLOR: P(X)
+	ORDER:	0
+@R	G	B
+0.333	0.333	0.333
+#############################################
+STATE:
+	NAME:	RED_LOADED
+	PATH_LABEL:	R
+	GFF_DESC:	RED_LOADED
+TRANSITION:	STANDARD: P(X)
+	FAIR:	0.05
+	RED_LOADED:	0.85
+	GREEN_LOADED:	0.05
+	BLUE_LOADED:	0.05
+	END:	1
+EMISSION:	DICE: P(X)
+	ORDER:	0
+@1	2	3	4	5	6
+0.1	0.1	0.1	0.1	0.1	0.5
+
+EMISSION:	COLOR: P(X)
+	ORDER:	0
+@R	G	B
+0.5	0.25	0.25
+#############################################
+STATE:
+	NAME:	GREEN_LOADED
+	PATH_LABEL:	G
+	GFF_DESC:	GREEN_LOADED
+TRANSITION:	STANDARD: P(X)
+	FAIR:	0.5
+	RED_LOADED:	0.05
+	GREEN_LOADED:	0.85
+	BLUE_LOADED:	0.05
+	END:	1
+EMISSION:	DICE: P(X)
+	ORDER:	0
+@1	2	3	4	5	6
+0.5	0.1	0.1	0.1	0.1	0.1
+
+EMISSION:	COLOR: P(X)
+	ORDER:	0
+@R	G	B
+0.25	0.5	0.25
+#############################################
+STATE:
+	NAME:	BLUE_LOADED
+	PATH_LABEL:	B
+	GFF_DESC:	BLUE_LOADED
+TRANSITION:	STANDARD: P(X)
+	FAIR:	0.05
+	RED_LOADED:	0.05
+	GREEN_LOADED:	0.05
+	BLUE_LOADED:	0.85
+	END:	1
+EMISSION:	DICE: P(X)
+	ORDER:	0
+@1	2	3	4	5	6
+0.1	0.1	0.5	0.1	0.1	0.1
+
+EMISSION:	COLOR: P(X)
+	ORDER:	0
+@R	G	B
+0.25	0.25	0.5
+#############################################
+//END
