@@ -116,13 +116,23 @@ namespace StochHMM{
 			return getReducedOrder(seqs, pos);
 		}
 		
-		size_t index(seqs[subarray_sequence[0]][pos - subarray_position[0]] * subarray_value[0]);
-		
-		for(size_t i=1;i<dimensions;i++){
-			index += seqs[subarray_sequence[i]][pos - subarray_position[i]] * subarray_value[i];
+		size_t index(0);
+		if (number_of_tracks==1){
+			int tr_index = this->trcks[0]->getIndex();
+			index = seqs[tr_index][pos];
+			
+		}
+		else{
+			index = seqs[subarray_sequence[0]][pos - subarray_position[0]] * subarray_value[0];
+			for(size_t i=1;i<dimensions;i++){
+				index += seqs[subarray_sequence[i]][pos - subarray_position[i]] * subarray_value[i];
+			}
 		}
 		
 		if (index > array_size){
+			std::cout << "Position: " << pos << std::endl;
+			this->print();
+			
 			std::cerr << "Index is out of range of lookup table in lexicalTable" << std::endl;
 			exit(2);
 		}
