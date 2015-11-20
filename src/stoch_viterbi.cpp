@@ -26,6 +26,10 @@ namespace StochHMM{
 		if (hmm->isBasic()){
 			simple_stochastic_viterbi();
 		}
+		else{
+			std::cerr << "Model is classified as non-basic.  If you are certain you still want to use stochastic_viterbi, please use the function trellis::simple_stochastic_viterbi(...)" << std::endl;
+			exit(2);
+		}
 	}
 	
 	
