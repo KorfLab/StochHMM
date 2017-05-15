@@ -442,6 +442,7 @@ namespace StochHMM{
         maxSize=0;
         vectorIterator=0;
         table=NULL;
+	isFinalized=false;
     }
 
     //!Destroy multiTraceback
@@ -517,6 +518,7 @@ namespace StochHMM{
 
     //!Sorts the multiTraceback by the number of time a particular tracback path occurred
     void multiTraceback::finalize(){
+        assert(!isFinalized);
         maxSize=paths.size();
         vectorIterator=0;
         
@@ -526,6 +528,7 @@ namespace StochHMM{
         }
         
         sort(pathAccess.begin(),pathAccess.end(),sortTBVec);
+	isFinalized=true;
         return;
     }
     
@@ -551,7 +554,7 @@ namespace StochHMM{
             int count = (*it).second;
             for(size_t position=0;position<sequenceSize;position++){
                 int tbState=(*it).first[position];
-                (*table)[position][tbState]+=count;
+                (*table)[sequenceSize - position - 1][tbState]+=count;
             }
         }
         return table;
@@ -582,7 +585,7 @@ namespace StochHMM{
     
     
     void multiTraceback::print_path(){
-        this->finalize();
+        assert(isFinalized);
         for(size_t iter=0; iter<this->size(); iter++){
             std::cout << "Traceback occurred:\t " << (*pathAccess[iter]).second << std::endl;
             (*pathAccess[iter]).first.print_path();
@@ -592,7 +595,7 @@ namespace StochHMM{
     }
     
     void multiTraceback::print_label(){
-        this->finalize();
+        assert(isFinalized);
         for(size_t iter=0; iter<this->size(); iter++){
             std::cout << "Traceback occurred:\t " << (*pathAccess[iter]).second << std::endl;
             (*pathAccess[iter]).first.print_label();
@@ -602,7 +605,7 @@ namespace StochHMM{
     }
     
     void multiTraceback::print_gff(std::string& header){
-        this->finalize();
+        assert(isFinalized);
         for(size_t iter=0; iter<this->size(); iter++){
             std::cout << "Traceback occurred:\t " << (*pathAccess[iter]).second << std::endl;
             (*pathAccess[iter]).first.print_gff(header);
