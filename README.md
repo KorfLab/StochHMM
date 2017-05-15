@@ -171,8 +171,8 @@ To run the examples,
 ```
 $ cd bin/
 $ stochhmm -model ../examples/Dice.hmm -seq ../examples/Dice.fa -viterbi -label
-$ stochhmm -model ../examples/3_16Eddy.hmm -seq ../example/3_16Eddy.fa -viterbi -gff
-$ stochhmm -model ../examples/3_16Eddy.hmm -seq ../example/3_17Eddy.fa -posterior
+$ stochhmm -model ../examples/3_16Eddy.hmm -seq ../examples/3_16Eddy.fa -viterbi -gff
+$ stochhmm -model ../examples/3_16Eddy.hmm -seq ../examples/3_17Eddy.fa -posterior
 $ stochhmm -model ../examples/Dice.hmm -seq ../examples/Dice.fa -stochastic viterbi -rep 10 -label
 $ stochhmm -model ../examples/Dice.hmm -seq ../examples/Dice.fa -stochastic posterior -rep 10 -label
 ```
