@@ -136,7 +136,7 @@ namespace StochHMM{
         bool negative(false);
         T max = std::numeric_limits<T>::max();
         if (base<1){    
-            base=abs(base);
+            base=std::abs((int)base);
             if (exponent%2!=0){
                 negative=true;
             }
