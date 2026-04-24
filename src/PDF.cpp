@@ -181,7 +181,7 @@ namespace StochHMM{
             std::cerr << "Poisson PMF: Incorrect parameters\n";
             exit(2);
         }
-        return (pow(lambda,(double)k)* exp(-1*lambda))/factorial(k);
+        return (pow(lambda,(double)k)* exp(-1*lambda))/tgamma((double)k+1.0);
     }
     
     
