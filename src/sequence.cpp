@@ -26,6 +26,7 @@
 //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include "sequence.h"
+#include <random>
 
 namespace StochHMM{
     
@@ -1032,15 +1033,16 @@ namespace StochHMM{
 	
 	//Shuffles the sequence
 	void sequence::shuffle(){
+		static thread_local std::mt19937 random_engine(std::random_device{}());
 		
 		if (realSeq){
-			std::random_shuffle(real->begin(), real->end());
+			std::shuffle(real->begin(), real->end(), random_engine);
 		}
 		else if (seq!=NULL){
-			std::random_shuffle(seq->begin(), seq->end());
+			std::shuffle(seq->begin(), seq->end(), random_engine);
 		}
 		else{
-			std::random_shuffle(undigitized.begin(), undigitized.end());
+			std::shuffle(undigitized.begin(), undigitized.end(), random_engine);
 		}
 		return;
 	}
