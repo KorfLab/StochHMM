@@ -46,7 +46,7 @@
 
 namespace StochHMM{
     
-    #define PI 3.145926535897932
+    #define PI 3.141592653589793238463
     
     //FIXME: Need to generate dynamically once upon initialization of HMM. System differences between (int,long,...);
     //Or just leave it. It may work well enough;
