@@ -176,7 +176,7 @@ namespace StochHMM{
 		//!Converts sequence digital based on track alphabet
         bool digitize();
 		
-		//! Shuffles the sequence using std::random_shuffle
+		//! Shuffles the sequence using std::shuffle
 		void shuffle();
 		
 		inline std::vector<uint8_t>* getDigitalSeq(){return seq;}
